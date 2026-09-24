@@ -207,8 +207,8 @@ async function renderStart(): Promise<void> {
         </div>
         <h1>Every field, traced to its source</h1>
         <p>
-          Three synthetic sample documents, pre-extracted by an LLM and pre-verified by fieldproof.
-          Candidate extractions are fixtures with planted errors, to show what the verifier catches -
+          Three synthetic sample documents, grounded and verified by fieldproof's real pipeline.
+          The candidate extractions are hand-written fixtures with planted errors, to show what the verifier catches -
           a hallucinated PO number, a total that doesn't match its line items, and a misread date.
         </p>
         <div class="sample-grid">

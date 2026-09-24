@@ -28,9 +28,10 @@ to confirm or fix whatever's left. Every field ends up `verified`,
 ## Live demo
 
 **[antonsoo.github.io/fieldproof](https://antonsoo.github.io/fieldproof/)** - three
-synthetic sample documents (invoice, receipt, contract), pre-extracted and
-pre-verified by the real Python pipeline. The candidate extractions are
-fixtures with deliberately planted errors - a hallucinated PO number, a total
+synthetic sample documents (invoice, receipt, contract), grounded and
+verified ahead of time by the real Python pipeline. The candidate extractions
+are hand-written fixtures in the shape an LLM returns, with deliberately
+planted errors - a hallucinated PO number, a total
 that doesn't match its line items, and a misread date - so you can see exactly
 what the verifier catches. No backend: the demo runs entirely on precomputed
 JSON and static page images.
