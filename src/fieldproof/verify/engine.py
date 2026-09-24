@@ -3,11 +3,13 @@ per-field verdict.
 
 Every extracted field ends up in exactly one of three states:
 
-- `verified` - its evidence was found on the page with a strong match, and
-  the value agrees with what the evidence actually says.
-- `needs_review` - evidence was found but the match was weak, or the value
-  disagrees with the evidence, or a cross-field rule it participates in
-  failed. Worth a human's attention, not necessarily wrong.
+- `verified` - its evidence was found on the page, unambiguously, with a
+  strong match, and the value agrees with what the evidence actually says.
+- `needs_review` - evidence was found but the match was weak, the value
+  disagrees with the evidence, a cross-field rule it participates in
+  failed, or the quote is genuinely ambiguous (it occurs more than once
+  and nothing nearby disambiguates it). Worth a human's attention, not
+  necessarily wrong.
 - `unsupported` - no evidence quote was provided, or none of the quotes
   could be located anywhere in the document. This is the strongest signal
   of a hallucinated field.
@@ -15,6 +17,7 @@ Every extracted field ends up in exactly one of three states:
 
 from __future__ import annotations
 
+import re
 from collections import defaultdict
 from dataclasses import dataclass, field
 from enum import StrEnum
@@ -23,7 +26,12 @@ from typing import Any
 from pydantic import BaseModel
 
 from fieldproof.document.model import Document
-from fieldproof.ground.align import GroundingMatch, ground_quote, rects_for_match
+from fieldproof.ground.align import (
+    GroundingMatch,
+    find_candidates_in_document,
+    nearest_candidate,
+    rects_for_match,
+)
 from fieldproof.schemas.base import iter_evidenced_fields
 from fieldproof.verify.cross_field import CrossFieldIssue, check_cross_field
 from fieldproof.verify.value_checks import (
@@ -33,6 +41,12 @@ from fieldproof.verify.value_checks import (
     check_number,
     check_string,
 )
+
+#: Matches the "row" a list-item field belongs to, e.g. "line_items[1]" out
+#: of "line_items[1].quantity" - used to group sibling fields of the same
+#: object so one can act as a locality hint for disambiguating another
+#: (see `verify`).
+_ROW_PREFIX_RE = re.compile(r"^(.*\[\d+\])\.")
 
 
 class FieldStatus(StrEnum):
@@ -87,12 +101,35 @@ class VerificationReport:
         }
 
 
+def _row_prefix(path: str) -> str | None:
+    match = _ROW_PREFIX_RE.match(path)
+    return match.group(1) if match else None
+
+
 def verify(data: BaseModel, document: Document) -> VerificationReport:
-    """Verify every `Evidenced` field under `data` against `document`."""
+    """Verify every `Evidenced` field under `data` against `document`.
+
+    Fields are walked in schema-declaration order (`iter_evidenced_fields`),
+    which for a list item means its fields come in the order they're
+    declared on the model - e.g. `LineItem.description` before
+    `LineItem.quantity`. The first field of each "row" (an indexed list
+    item, e.g. `line_items[1]`) that grounds successfully becomes that
+    row's locality anchor, used to disambiguate a later sibling field whose
+    quote turns out to occur more than once on the page (see
+    `_verify_field`'s `hint_match` and `fieldproof.ground.nearest_candidate`).
+    """
     results: list[FieldVerification] = []
+    row_anchors: dict[str, GroundingMatch] = {}
 
     for path, evidenced in iter_evidenced_fields(data):
-        results.append(_verify_field(path, evidenced, document))
+        prefix = _row_prefix(path)
+        hint = row_anchors.get(prefix) if prefix else None
+
+        result, match = _verify_field(path, evidenced, document, hint_match=hint)
+        results.append(result)
+
+        if prefix is not None and prefix not in row_anchors and match is not None:
+            row_anchors[prefix] = match
 
     cross_field_issues = check_cross_field(data)
     _apply_cross_field_issues(results, cross_field_issues)
@@ -100,33 +137,60 @@ def verify(data: BaseModel, document: Document) -> VerificationReport:
     return VerificationReport(fields=results, cross_field_issues=cross_field_issues)
 
 
-def _verify_field(path: str, evidenced: Any, document: Document) -> FieldVerification:
+def _verify_field(
+    path: str, evidenced: Any, document: Document, *, hint_match: GroundingMatch | None
+) -> tuple[FieldVerification, GroundingMatch | None]:
     value = evidenced.value
 
     if not evidenced.evidence:
-        return FieldVerification(
+        result = FieldVerification(
             path=path,
             value=value,
             status=FieldStatus.UNSUPPORTED,
             reasons=["no evidence quote was provided for this value"],
         )
+        return result, None
 
-    best_match: GroundingMatch | None = None
+    candidates: list[GroundingMatch] = []
     for quote in evidenced.evidence:
-        match = ground_quote(quote, document, hint_page=evidenced.page)
-        if match is not None and (best_match is None or match.score > best_match.score):
-            best_match = match
+        candidates.extend(find_candidates_in_document(quote, document, hint_page=evidenced.page))
 
-    if best_match is None:
+    if not candidates:
         quoted = ", ".join(repr(q) for q in evidenced.evidence)
-        return FieldVerification(
+        result = FieldVerification(
             path=path,
             value=value,
             status=FieldStatus.UNSUPPORTED,
             reasons=[f"none of the evidence quotes ({quoted}) could be located in the document"],
         )
+        return result, None
 
     reasons: list[str] = []
+    best_match: GroundingMatch | None
+
+    if len(candidates) == 1:
+        best_match = candidates[0]
+    elif hint_match is not None:
+        # Multiple occurrences of the same quote - prefer whichever is
+        # closest to another field from the same row that's already been
+        # grounded (e.g. this line item's description).
+        best_match = nearest_candidate(candidates, hint_match)
+    else:
+        # Ambiguous with nothing nearby to disambiguate it against - don't
+        # silently guess; a wrong guess here is exactly the "verified but
+        # actually wrong" failure mode this tool exists to catch.
+        best_match = None
+        reasons.append(
+            f"evidence {candidates[0].quote!r} is ambiguous (appears {len(candidates)} times); "
+            "quote more context"
+        )
+
+    if best_match is None:
+        result = FieldVerification(
+            path=path, value=value, status=FieldStatus.NEEDS_REVIEW, reasons=reasons
+        )
+        return result, None
+
     if not best_match.is_strong:
         reasons.append(
             f"evidence match quality is only {best_match.score:.0f}/100 - the quote is a loose "
@@ -141,7 +205,7 @@ def _verify_field(path: str, evidenced: Any, document: Document) -> FieldVerific
 
     rects = [r.to_dict() for r in rects_for_match(best_match)]
 
-    return FieldVerification(
+    result = FieldVerification(
         path=path,
         value=value,
         status=status,
@@ -151,6 +215,7 @@ def _verify_field(path: str, evidenced: Any, document: Document) -> FieldVerific
         page=best_match.page_number,
         rects=rects,
     )
+    return result, best_match
 
 
 def _check_value(path: str, value: str | float | bool, evidence_text: str) -> ValueCheckResult:

@@ -65,32 +65,7 @@ class ValueCheckResult:
     reason: str = ""
 
 
-def parse_number(text: str) -> float | None:
-    """Best-effort extraction of a number from free text: strips currency
-    symbols and thousands separators, treats parenthesized amounts (an
-    accounting convention) as negative, and - since evidence is a verbatim
-    quote that often carries a label or an unrelated rate next to the real
-    amount, e.g. "Tax (8.5%) $208.93" - prefers the last non-percentage
-    number token over the first."""
-    text = text.strip()
-    if not text:
-        return None
-
-    if text.startswith("(") and text.endswith(")"):
-        inner = _MONEY_STRIP.sub("", text[1:-1].replace(",", ""))
-        if inner and inner not in {"-", "."}:
-            try:
-                return -abs(float(inner))
-            except ValueError:
-                pass
-
-    matches = list(_NUMBER_TOKEN.finditer(text))
-    non_percent = [m for m in matches if not m.group(0).endswith("%")]
-    candidates = non_percent or matches
-    if not candidates:
-        return None
-
-    token = candidates[-1].group(0)
+def _token_to_float(token: str) -> float | None:
     negative = token.startswith("(") or token.endswith(")")
     cleaned = _MONEY_STRIP.sub("", token.replace(",", ""))
     if not cleaned or cleaned in {"-", "."}:
@@ -100,6 +75,43 @@ def parse_number(text: str) -> float | None:
     except ValueError:
         return None
     return -abs(value) if negative else value
+
+
+def parse_all_numbers(text: str) -> list[float]:
+    """Every plain (non-percentage) number in `text`, in reading order -
+    strips currency symbols and thousands separators, and excludes rate-like
+    tokens such as the "8.5" in "Tax (8.5%) $208.93". Evidence for a
+    row-level field is often the whole row (e.g. "Fuel surcharge 1 210.50
+    210.50" for a quantity of 1), so a value check needs to ask "does this
+    number appear anywhere in the evidence", not just "is it the last
+    number" - see `check_number`."""
+    text = text.strip()
+    if not text:
+        return []
+
+    if text.startswith("(") and text.endswith(")"):
+        inner = _MONEY_STRIP.sub("", text[1:-1].replace(",", ""))
+        if inner and inner not in {"-", "."}:
+            try:
+                return [-abs(float(inner))]
+            except ValueError:
+                pass
+
+    matches = list(_NUMBER_TOKEN.finditer(text))
+    non_percent = [m for m in matches if not m.group(0).endswith("%")]
+    candidates = non_percent or matches
+    values = [_token_to_float(m.group(0)) for m in candidates]
+    return [v for v in values if v is not None]
+
+
+def parse_number(text: str) -> float | None:
+    """Best-effort extraction of a single number from free text - the last
+    non-percentage number token, e.g. "208.93" from "Tax (8.5%) $208.93".
+    For evidence that may contain several numbers where any one of them
+    could be the value being checked (a whole line-item row, say), use
+    `parse_all_numbers` / `check_number` instead."""
+    values = parse_all_numbers(text)
+    return values[-1] if values else None
 
 
 def parse_date(text: str) -> date | None:
@@ -133,13 +145,18 @@ def _try_formats(text: str) -> date | None:
 
 
 def check_number(value: float, evidence_text: str) -> ValueCheckResult:
-    found = parse_number(evidence_text)
-    if found is None:
+    """Does `value` appear anywhere among the numbers in `evidence_text`?
+    Evidence for a row-level field can be the whole row (several numbers,
+    one of which is the value), not just the value on its own - so this
+    checks membership, not just "is it the last number parsed"."""
+    candidates = parse_all_numbers(evidence_text)
+    if not candidates:
         return ValueCheckResult(False, f"could not parse a number from evidence {evidence_text!r}")
-    if abs(found - value) <= NUMBER_TOLERANCE:
+    if any(abs(c - value) <= NUMBER_TOLERANCE for c in candidates):
         return ValueCheckResult(True)
+    closest = min(candidates, key=lambda c: abs(c - value))
     return ValueCheckResult(
-        False, f"value {value:g} does not match {found:g} parsed from the evidence"
+        False, f"value {value:g} does not match {closest:g} parsed from the evidence"
     )
 
 
