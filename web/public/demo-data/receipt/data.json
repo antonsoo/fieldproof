@@ -1,0 +1,549 @@
+{
+  "document": {
+    "id": "receipt",
+    "filename": "receipt.pdf",
+    "page_count": 1,
+    "pages": [
+      {
+        "number": 1,
+        "width": 230.4,
+        "height": 468.0
+      }
+    ]
+  },
+  "extraction": {
+    "schema": "Receipt",
+    "provider": "fixture",
+    "model": "synthetic-demo-fixture (planted errors, see README)",
+    "data": {
+      "merchant_name": {
+        "value": "Blue Heron Coffee Roasters",
+        "evidence": [
+          "Blue Heron Coffee Roasters"
+        ],
+        "page": 1
+      },
+      "transaction_date": {
+        "value": "2026-03-04",
+        "evidence": [
+          "Transaction Date: 03/14/2026 09:41 AM"
+        ],
+        "page": 1
+      },
+      "items": [
+        {
+          "description": {
+            "value": "Large Pour-Over",
+            "evidence": [
+              "Large Pour-Over"
+            ],
+            "page": 1
+          },
+          "quantity": {
+            "value": 1.0,
+            "evidence": [
+              "x1"
+            ],
+            "page": 1
+          },
+          "amount": {
+            "value": 5.25,
+            "evidence": [
+              "$5.25"
+            ],
+            "page": 1
+          }
+        },
+        {
+          "description": {
+            "value": "Almond Croissant",
+            "evidence": [
+              "Almond Croissant"
+            ],
+            "page": 1
+          },
+          "quantity": {
+            "value": 2.0,
+            "evidence": [
+              "x2"
+            ],
+            "page": 1
+          },
+          "amount": {
+            "value": 4.5,
+            "evidence": [
+              "$4.50"
+            ],
+            "page": 1
+          }
+        },
+        {
+          "description": {
+            "value": "Cold Brew 16oz",
+            "evidence": [
+              "Cold Brew 16oz"
+            ],
+            "page": 1
+          },
+          "quantity": {
+            "value": 1.0,
+            "evidence": [
+              "x1"
+            ],
+            "page": 1
+          },
+          "amount": {
+            "value": 4.75,
+            "evidence": [
+              "$4.75"
+            ],
+            "page": 1
+          }
+        },
+        {
+          "description": {
+            "value": "Bag of Beans - Ethiopia",
+            "evidence": [
+              "Bag of Beans - Ethiopia"
+            ],
+            "page": 1
+          },
+          "quantity": {
+            "value": 1.0,
+            "evidence": [
+              "x1"
+            ],
+            "page": 1
+          },
+          "amount": {
+            "value": 17.0,
+            "evidence": [
+              "$17.00"
+            ],
+            "page": 1
+          }
+        }
+      ],
+      "subtotal": {
+        "value": 31.5,
+        "evidence": [
+          "Subtotal $31.50"
+        ],
+        "page": 1
+      },
+      "tax": {
+        "value": 2.84,
+        "evidence": [
+          "Tax $2.84"
+        ],
+        "page": 1
+      },
+      "total": {
+        "value": 34.34,
+        "evidence": [
+          "Total $34.34"
+        ],
+        "page": 1
+      },
+      "payment_method": {
+        "value": "Visa ending 4471",
+        "evidence": [
+          "Payment Method: Visa ending 4471"
+        ],
+        "page": 1
+      }
+    },
+    "report": {
+      "fields": [
+        {
+          "path": "merchant_name",
+          "value": "Blue Heron Coffee Roasters",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Blue Heron Coffee Roasters",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.16,
+              "top": 16.476999999999975,
+              "x1": 188.24000000000004,
+              "bottom": 27.476999999999975
+            }
+          ]
+        },
+        {
+          "path": "transaction_date",
+          "value": "2026-03-04",
+          "status": "needs_review",
+          "reasons": [
+            "value 2026-03-04 does not match 2026-03-14 parsed from the evidence"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Transaction Date: 03/14/2026 09:41 AM",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 35.406,
+              "top": 80.70299999999997,
+              "x1": 194.99400000000003,
+              "bottom": 89.70299999999997
+            }
+          ]
+        },
+        {
+          "path": "items[0].description",
+          "value": "Large Pour-Over",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Large Pour-Over",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 10.8,
+              "top": 135.49599999999998,
+              "x1": 70.37600000000002,
+              "bottom": 143.49599999999998
+            }
+          ]
+        },
+        {
+          "path": "items[0].quantity",
+          "value": 1.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "x1",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 72.60000000000001,
+              "top": 135.49599999999998,
+              "x1": 81.048,
+              "bottom": 143.49599999999998
+            }
+          ]
+        },
+        {
+          "path": "items[0].amount",
+          "value": 5.25,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "$5.25",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 199.584,
+              "top": 135.49599999999998,
+              "x1": 219.60000000000002,
+              "bottom": 143.49599999999998
+            }
+          ]
+        },
+        {
+          "path": "items[1].description",
+          "value": "Almond Croissant",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Almond Croissant",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 10.8,
+              "top": 148.45600000000002,
+              "x1": 73.92800000000001,
+              "bottom": 156.45600000000002
+            }
+          ]
+        },
+        {
+          "path": "items[1].quantity",
+          "value": 2.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "x2",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 76.15200000000002,
+              "top": 148.45600000000002,
+              "x1": 84.60000000000002,
+              "bottom": 156.45600000000002
+            }
+          ]
+        },
+        {
+          "path": "items[1].amount",
+          "value": 4.5,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "$4.50",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 199.584,
+              "top": 148.45600000000002,
+              "x1": 219.60000000000002,
+              "bottom": 156.45600000000002
+            }
+          ]
+        },
+        {
+          "path": "items[2].description",
+          "value": "Cold Brew 16oz",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Cold Brew 16oz",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 10.8,
+              "top": 161.416,
+              "x1": 67.26400000000001,
+              "bottom": 169.416
+            }
+          ]
+        },
+        {
+          "path": "items[2].quantity",
+          "value": 1.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "x1",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 72.60000000000001,
+              "top": 135.49599999999998,
+              "x1": 81.048,
+              "bottom": 143.49599999999998
+            }
+          ]
+        },
+        {
+          "path": "items[2].amount",
+          "value": 4.75,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "$4.75",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 199.584,
+              "top": 161.416,
+              "x1": 219.60000000000002,
+              "bottom": 169.416
+            }
+          ]
+        },
+        {
+          "path": "items[3].description",
+          "value": "Bag of Beans - Ethiopia",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Bag of Beans - Ethiopia",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 10.8,
+              "top": 174.37600000000003,
+              "x1": 94.84800000000001,
+              "bottom": 182.37600000000003
+            }
+          ]
+        },
+        {
+          "path": "items[3].quantity",
+          "value": 1.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "x1",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 72.60000000000001,
+              "top": 135.49599999999998,
+              "x1": 81.048,
+              "bottom": 143.49599999999998
+            }
+          ]
+        },
+        {
+          "path": "items[3].amount",
+          "value": 17.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "$17.00",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 195.136,
+              "top": 174.37600000000003,
+              "x1": 219.6,
+              "bottom": 182.37600000000003
+            }
+          ]
+        },
+        {
+          "path": "subtotal",
+          "value": 31.5,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Subtotal $31.50",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 10.8,
+              "top": 208.14300000000003,
+              "x1": 219.6,
+              "bottom": 217.143
+            }
+          ]
+        },
+        {
+          "path": "tax",
+          "value": 2.84,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Tax $2.84",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 10.8,
+              "top": 221.103,
+              "x1": 219.6,
+              "bottom": 230.103
+            }
+          ]
+        },
+        {
+          "path": "total",
+          "value": 34.34,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Total $34.34",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 10.8,
+              "top": 234.70999999999998,
+              "x1": 219.60000000000002,
+              "bottom": 244.70999999999998
+            }
+          ]
+        },
+        {
+          "path": "payment_method",
+          "value": "Visa ending 4471",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Payment Method: Visa ending 4471",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 51.832,
+              "top": 257.896,
+              "x1": 178.568,
+              "bottom": 265.896
+            }
+          ]
+        }
+      ],
+      "cross_field_issues": [],
+      "counts": {
+        "verified": 17,
+        "needs_review": 1,
+        "unsupported": 0
+      }
+    },
+    "review": {
+      "merchant_name": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "transaction_date": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[0].description": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[0].quantity": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[0].amount": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[1].description": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[1].quantity": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[1].amount": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[2].description": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[2].quantity": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[2].amount": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[3].description": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[3].quantity": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[3].amount": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "subtotal": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "tax": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "total": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "payment_method": {
+        "status": "pending",
+        "edited_value": null
+      }
+    }
+  }
+}
