@@ -9,7 +9,7 @@ import typer
 import uvicorn
 
 from fieldproof.document.loader import EmptyDocumentError, load_pdf
-from fieldproof.extract.anthropic_provider import AnthropicExtractor
+from fieldproof.extract.anthropic_provider import DEFAULT_MODEL, AnthropicExtractor
 from fieldproof.extract.base import ExtractionResult
 from fieldproof.extract.fixture_provider import FixtureExtractor
 from fieldproof.schemas import BUILTIN_SCHEMAS, resolve_schema
@@ -34,6 +34,9 @@ def extract(
     fixture: Path | None = typer.Option(
         None, "--fixture", help="stored JSON extraction to replay (required for --provider fixture)"
     ),
+    model: str = typer.Option(
+        DEFAULT_MODEL, "--model", help="Anthropic model id (only used with --provider anthropic)"
+    ),
     out: Path = typer.Option(..., "--out", help="where to write the verified result JSON"),
 ) -> None:
     """Extract a schema from DOCUMENT, ground and verify it, write the result to --out."""
@@ -56,7 +59,7 @@ def extract(
             raise typer.Exit(code=2)
         result = FixtureExtractor(fixture_path=fixture).extract(doc, schema_cls)
     elif provider == "anthropic":
-        result = AnthropicExtractor().extract(doc, schema_cls)
+        result = AnthropicExtractor(model=model).extract(doc, schema_cls)
     else:
         typer.echo(f"error: unknown provider {provider!r}", err=True)
         raise typer.Exit(code=2)

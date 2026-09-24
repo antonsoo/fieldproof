@@ -100,6 +100,25 @@ def test_anthropic_extractor_uses_structured_output_and_returns_result() -> None
     assert "Acme owes $10" in call["messages"][0]["content"]
 
 
+def test_anthropic_extractor_model_can_be_overridden() -> None:
+    invoice = Invoice(
+        vendor_name=Evidenced(value="Acme", evidence=["Acme"]),
+        invoice_number=Evidenced(value="1", evidence=["1"]),
+        issue_date=Evidenced(value="2026-01-01", evidence=["2026-01-01"]),
+        total=Evidenced(value=10.0, evidence=["10"]),
+    )
+    fake_client = _FakeAnthropicClient(parsed_output=invoice)
+    extractor = AnthropicExtractor(model="claude-opus-5", client=fake_client)  # type: ignore[arg-type]
+
+    doc = _empty_document()
+    result = extractor.extract(doc, Invoice)
+
+    assert result.model == "claude-opus-5"
+    call = fake_client.messages.last_call
+    assert call is not None
+    assert call["model"] == "claude-opus-5"
+
+
 def test_anthropic_extractor_raises_when_no_parsed_output() -> None:
     fake_client = _FakeAnthropicClient(parsed_output=None, stop_reason="max_tokens")
     extractor = AnthropicExtractor(client=fake_client)  # type: ignore[arg-type]

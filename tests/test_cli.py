@@ -92,3 +92,9 @@ def test_extract_fixture_provider_requires_fixture_flag(tmp_path: Path) -> None:
         ],
     )
     assert result.exit_code == 2
+
+
+def test_extract_accepts_a_model_override_flag() -> None:
+    result = runner.invoke(app, ["extract", "--help"])
+    assert result.exit_code == 0
+    assert "--model" in result.output
