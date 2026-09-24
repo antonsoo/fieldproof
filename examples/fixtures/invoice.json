@@ -1,0 +1,95 @@
+{
+  "schema": "Invoice",
+  "provider": "fixture",
+  "model": "synthetic-demo-fixture (planted errors, see README)",
+  "data": {
+    "vendor_name": {
+      "value": "Northwind Freight & Supply Co.",
+      "evidence": ["Northwind Freight & Supply Co."],
+      "page": 1
+    },
+    "invoice_number": {
+      "value": "NW-20260214",
+      "evidence": ["Invoice Number: NW-20260214"],
+      "page": 1
+    },
+    "issue_date": {
+      "value": "2026-02-14",
+      "evidence": ["Issue Date: February 14, 2026"],
+      "page": 1
+    },
+    "due_date": {
+      "value": "2026-03-16",
+      "evidence": ["Due Date: March 16, 2026"],
+      "page": 1
+    },
+    "currency": null,
+    "po_number": {
+      "value": "PO-88214",
+      "evidence": ["PO Number: PO-88214"],
+      "page": 1
+    },
+    "line_items": [
+      {
+        "description": {
+          "value": "Pallet freight - Oakland to Seattle",
+          "evidence": ["Pallet freight - Oakland to Seattle"],
+          "page": 1
+        },
+        "quantity": { "value": 12, "evidence": ["12"], "page": 1 },
+        "unit_price": { "value": 145.0, "evidence": ["145.00"], "page": 1 },
+        "amount": { "value": 1740.0, "evidence": ["1,740.00"], "page": 1 }
+      },
+      {
+        "description": {
+          "value": "Fuel surcharge",
+          "evidence": ["Fuel surcharge"],
+          "page": 1
+        },
+        "quantity": { "value": 1, "evidence": ["1"], "page": 1 },
+        "unit_price": { "value": 210.5, "evidence": ["210.50"], "page": 1 },
+        "amount": { "value": 210.5, "evidence": ["210.50"], "page": 1 }
+      },
+      {
+        "description": {
+          "value": "Liftgate delivery service",
+          "evidence": ["Liftgate delivery service"],
+          "page": 1
+        },
+        "quantity": { "value": 3, "evidence": ["3"], "page": 1 },
+        "unit_price": { "value": 65.0, "evidence": ["65.00"], "page": 1 },
+        "amount": { "value": 195.0, "evidence": ["195.00"], "page": 1 }
+      },
+      {
+        "description": {
+          "value": "Warehouse handling fee",
+          "evidence": ["Warehouse handling fee"],
+          "page": 1
+        },
+        "quantity": { "value": 1, "evidence": ["1"], "page": 1 },
+        "unit_price": { "value": 312.5, "evidence": ["312.50"], "page": 1 },
+        "amount": { "value": 312.5, "evidence": ["312.50"], "page": 1 }
+      }
+    ],
+    "subtotal": {
+      "value": 2458.0,
+      "evidence": ["Subtotal $2,458.00"],
+      "page": 1
+    },
+    "tax": {
+      "value": 208.93,
+      "evidence": ["Tax (8.5%) $208.93"],
+      "page": 1
+    },
+    "total": {
+      "value": 2600.0,
+      "evidence": ["Total Due $2,666.93"],
+      "page": 1
+    },
+    "payment_terms": {
+      "value": "Net 30",
+      "evidence": ["Payment Terms: Net 30."],
+      "page": 1
+    }
+  }
+}

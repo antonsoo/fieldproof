@@ -1,0 +1,65 @@
+{
+  "schema": "ContractKeyTerms",
+  "provider": "fixture",
+  "model": "synthetic-demo-fixture (clean extraction, no planted errors)",
+  "data": {
+    "party_a": {
+      "value": "Harborline Analytics, Inc.",
+      "evidence": ["Harborline Analytics, Inc."],
+      "page": 1
+    },
+    "party_b": {
+      "value": "Meridian Health Systems LLC",
+      "evidence": ["Meridian Health Systems LLC"],
+      "page": 1
+    },
+    "effective_date": {
+      "value": "2026-04-01",
+      "evidence": ["as of April 1, 2026"],
+      "page": 1
+    },
+    "term_length": {
+      "value": "24 months",
+      "evidence": ["initial term of 24 months"],
+      "page": 1
+    },
+    "termination_notice_period": {
+      "value": "60 days",
+      "evidence": ["sixty (60) days"],
+      "page": 1
+    },
+    "governing_law": {
+      "value": "Delaware",
+      "evidence": ["laws of the State of Delaware"],
+      "page": 1
+    },
+    "total_contract_value": {
+      "value": 186000.0,
+      "evidence": ["total contract value of $186,000.00"],
+      "page": 1
+    },
+    "key_obligations": [
+      {
+        "value": "Provider shall maintain 99.5% uptime for all hosted services described in Exhibit A.",
+        "evidence": [
+          "Provider shall maintain 99.5% uptime for all hosted services described in Exhibit A."
+        ],
+        "page": 2
+      },
+      {
+        "value": "Provider shall deliver a security incident report within 24 hours of discovery.",
+        "evidence": [
+          "Provider shall deliver a security incident report within 24 hours of discovery."
+        ],
+        "page": 2
+      },
+      {
+        "value": "Client shall designate a single point of contact for change requests.",
+        "evidence": [
+          "Client shall designate a single point of contact for change requests."
+        ],
+        "page": 2
+      }
+    ]
+  }
+}

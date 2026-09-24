@@ -1,0 +1,51 @@
+{
+  "schema": "Receipt",
+  "provider": "fixture",
+  "model": "synthetic-demo-fixture (planted errors, see README)",
+  "data": {
+    "merchant_name": {
+      "value": "Blue Heron Coffee Roasters",
+      "evidence": ["Blue Heron Coffee Roasters"],
+      "page": 1
+    },
+    "transaction_date": {
+      "value": "2026-03-04",
+      "evidence": ["Transaction Date: 03/14/2026 09:41 AM"],
+      "page": 1
+    },
+    "items": [
+      {
+        "description": { "value": "Large Pour-Over", "evidence": ["Large Pour-Over"], "page": 1 },
+        "quantity": { "value": 1, "evidence": ["x1"], "page": 1 },
+        "amount": { "value": 5.25, "evidence": ["$5.25"], "page": 1 }
+      },
+      {
+        "description": { "value": "Almond Croissant", "evidence": ["Almond Croissant"], "page": 1 },
+        "quantity": { "value": 2, "evidence": ["x2"], "page": 1 },
+        "amount": { "value": 4.5, "evidence": ["$4.50"], "page": 1 }
+      },
+      {
+        "description": { "value": "Cold Brew 16oz", "evidence": ["Cold Brew 16oz"], "page": 1 },
+        "quantity": { "value": 1, "evidence": ["x1"], "page": 1 },
+        "amount": { "value": 4.75, "evidence": ["$4.75"], "page": 1 }
+      },
+      {
+        "description": {
+          "value": "Bag of Beans - Ethiopia",
+          "evidence": ["Bag of Beans - Ethiopia"],
+          "page": 1
+        },
+        "quantity": { "value": 1, "evidence": ["x1"], "page": 1 },
+        "amount": { "value": 17.0, "evidence": ["$17.00"], "page": 1 }
+      }
+    ],
+    "subtotal": { "value": 31.5, "evidence": ["Subtotal $31.50"], "page": 1 },
+    "tax": { "value": 2.84, "evidence": ["Tax $2.84"], "page": 1 },
+    "total": { "value": 34.34, "evidence": ["Total $34.34"], "page": 1 },
+    "payment_method": {
+      "value": "Visa ending 4471",
+      "evidence": ["Payment Method: Visa ending 4471"],
+      "page": 1
+    }
+  }
+}
