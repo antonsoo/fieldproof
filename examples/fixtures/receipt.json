@@ -16,17 +16,17 @@
     "items": [
       {
         "description": { "value": "Large Pour-Over", "evidence": ["Large Pour-Over"], "page": 1 },
-        "quantity": { "value": 1, "evidence": ["x1"], "page": 1 },
+        "quantity": { "value": 1, "evidence": ["Large Pour-Over x1 $5.25"], "page": 1 },
         "amount": { "value": 5.25, "evidence": ["$5.25"], "page": 1 }
       },
       {
         "description": { "value": "Almond Croissant", "evidence": ["Almond Croissant"], "page": 1 },
-        "quantity": { "value": 2, "evidence": ["x2"], "page": 1 },
+        "quantity": { "value": 2, "evidence": ["Almond Croissant x2 $4.50"], "page": 1 },
         "amount": { "value": 4.5, "evidence": ["$4.50"], "page": 1 }
       },
       {
         "description": { "value": "Cold Brew 16oz", "evidence": ["Cold Brew 16oz"], "page": 1 },
-        "quantity": { "value": 1, "evidence": ["x1"], "page": 1 },
+        "quantity": { "value": 1, "evidence": ["Cold Brew 16oz x1 $4.75"], "page": 1 },
         "amount": { "value": 4.75, "evidence": ["$4.75"], "page": 1 }
       },
       {
@@ -35,7 +35,7 @@
           "evidence": ["Bag of Beans - Ethiopia"],
           "page": 1
         },
-        "quantity": { "value": 1, "evidence": ["x1"], "page": 1 },
+        "quantity": { "value": 1, "evidence": ["Bag of Beans - Ethiopia x1 $17.00"], "page": 1 },
         "amount": { "value": 17.0, "evidence": ["$17.00"], "page": 1 }
       }
     ],

@@ -36,9 +36,21 @@
           "evidence": ["Pallet freight - Oakland to Seattle"],
           "page": 1
         },
-        "quantity": { "value": 12, "evidence": ["12"], "page": 1 },
-        "unit_price": { "value": 145.0, "evidence": ["145.00"], "page": 1 },
-        "amount": { "value": 1740.0, "evidence": ["1,740.00"], "page": 1 }
+        "quantity": {
+          "value": 12,
+          "evidence": ["Pallet freight - Oakland to Seattle 12 145.00 1,740.00"],
+          "page": 1
+        },
+        "unit_price": {
+          "value": 145.0,
+          "evidence": ["Pallet freight - Oakland to Seattle 12 145.00 1,740.00"],
+          "page": 1
+        },
+        "amount": {
+          "value": 1740.0,
+          "evidence": ["Pallet freight - Oakland to Seattle 12 145.00 1,740.00"],
+          "page": 1
+        }
       },
       {
         "description": {
@@ -46,9 +58,21 @@
           "evidence": ["Fuel surcharge"],
           "page": 1
         },
-        "quantity": { "value": 1, "evidence": ["1"], "page": 1 },
-        "unit_price": { "value": 210.5, "evidence": ["210.50"], "page": 1 },
-        "amount": { "value": 210.5, "evidence": ["210.50"], "page": 1 }
+        "quantity": {
+          "value": 1,
+          "evidence": ["Fuel surcharge 1 210.50 210.50"],
+          "page": 1
+        },
+        "unit_price": {
+          "value": 210.5,
+          "evidence": ["Fuel surcharge 1 210.50 210.50"],
+          "page": 1
+        },
+        "amount": {
+          "value": 210.5,
+          "evidence": ["Fuel surcharge 1 210.50 210.50"],
+          "page": 1
+        }
       },
       {
         "description": {
@@ -56,9 +80,21 @@
           "evidence": ["Liftgate delivery service"],
           "page": 1
         },
-        "quantity": { "value": 3, "evidence": ["3"], "page": 1 },
-        "unit_price": { "value": 65.0, "evidence": ["65.00"], "page": 1 },
-        "amount": { "value": 195.0, "evidence": ["195.00"], "page": 1 }
+        "quantity": {
+          "value": 3,
+          "evidence": ["Liftgate delivery service 3 65.00 195.00"],
+          "page": 1
+        },
+        "unit_price": {
+          "value": 65.0,
+          "evidence": ["Liftgate delivery service 3 65.00 195.00"],
+          "page": 1
+        },
+        "amount": {
+          "value": 195.0,
+          "evidence": ["Liftgate delivery service 3 65.00 195.00"],
+          "page": 1
+        }
       },
       {
         "description": {
@@ -66,9 +102,21 @@
           "evidence": ["Warehouse handling fee"],
           "page": 1
         },
-        "quantity": { "value": 1, "evidence": ["1"], "page": 1 },
-        "unit_price": { "value": 312.5, "evidence": ["312.50"], "page": 1 },
-        "amount": { "value": 312.5, "evidence": ["312.50"], "page": 1 }
+        "quantity": {
+          "value": 1,
+          "evidence": ["Warehouse handling fee 1 312.50 312.50"],
+          "page": 1
+        },
+        "unit_price": {
+          "value": 312.5,
+          "evidence": ["Warehouse handling fee 1 312.50 312.50"],
+          "page": 1
+        },
+        "amount": {
+          "value": 312.5,
+          "evidence": ["Warehouse handling fee 1 312.50 312.50"],
+          "page": 1
+        }
       }
     ],
     "subtotal": {

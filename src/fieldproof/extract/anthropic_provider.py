@@ -19,10 +19,10 @@ from pydantic import BaseModel
 from fieldproof.document.model import Document
 from fieldproof.extract.base import ExtractionError, ExtractionResult
 
-#: Anthropic's current flagship model (see the claude-api skill's model
-#: table). Override via the `model` constructor argument for a cheaper or
-#: faster model.
-DEFAULT_MODEL = "claude-opus-5"
+#: Anthropic's current most capable model (see the claude-api skill's model
+#: table). Override via the `model` constructor argument (or the CLI's
+#: `--model` flag) for a cheaper or faster one.
+DEFAULT_MODEL = "claude-opus-5-5"
 
 _SYSTEM_PROMPT = """You are a meticulous document-extraction assistant. You will be given \
 the full text of a document, page by page, with each page's exact wording preserved below.
@@ -35,6 +35,12 @@ text below that support this value. Never paraphrase, translate, reformat, or co
 quote - copy the exact substring as it appears, including its original punctuation and \
 casing. If you cannot find text that supports a value, leave `evidence` empty rather than \
 inventing a quote.
+  - A short value (a bare number, a single word) can appear more than once in a document - a \
+  quantity of "1" in a line-item table, for instance, is often not unique. If the value you're \
+  quoting could plausibly appear elsewhere too, quote enough surrounding context to make it \
+  unambiguous - for a table row, that usually means the whole row, e.g. "Fuel surcharge 1 \
+  210.50 210.50" rather than just "1". If the value is already unique in the document (most \
+  names, dates, and totals are), a short precise quote is fine.
 - `page`: the 1-indexed page number the evidence came from.
 
 If a field is genuinely absent from the document, use an empty string/list or omit it where \

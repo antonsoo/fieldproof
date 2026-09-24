@@ -42,7 +42,7 @@
           "quantity": {
             "value": 1.0,
             "evidence": [
-              "x1"
+              "Large Pour-Over x1 $5.25"
             ],
             "page": 1
           },
@@ -65,7 +65,7 @@
           "quantity": {
             "value": 2.0,
             "evidence": [
-              "x2"
+              "Almond Croissant x2 $4.50"
             ],
             "page": 1
           },
@@ -88,7 +88,7 @@
           "quantity": {
             "value": 1.0,
             "evidence": [
-              "x1"
+              "Cold Brew 16oz x1 $4.75"
             ],
             "page": 1
           },
@@ -111,7 +111,7 @@
           "quantity": {
             "value": 1.0,
             "evidence": [
-              "x1"
+              "Bag of Beans - Ethiopia x1 $17.00"
             ],
             "page": 1
           },
@@ -214,13 +214,13 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "x1",
+          "matched_text": "Large Pour-Over x1 $5.25",
           "page": 1,
           "rects": [
             {
-              "x0": 72.60000000000001,
+              "x0": 10.8,
               "top": 135.49599999999998,
-              "x1": 81.048,
+              "x1": 219.60000000000002,
               "bottom": 143.49599999999998
             }
           ]
@@ -265,13 +265,13 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "x2",
+          "matched_text": "Almond Croissant x2 $4.50",
           "page": 1,
           "rects": [
             {
-              "x0": 76.15200000000002,
+              "x0": 10.8,
               "top": 148.45600000000002,
-              "x1": 84.60000000000002,
+              "x1": 219.60000000000002,
               "bottom": 156.45600000000002
             }
           ]
@@ -316,14 +316,14 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "x1",
+          "matched_text": "Cold Brew 16oz x1 $4.75",
           "page": 1,
           "rects": [
             {
-              "x0": 72.60000000000001,
-              "top": 135.49599999999998,
-              "x1": 81.048,
-              "bottom": 143.49599999999998
+              "x0": 10.8,
+              "top": 161.416,
+              "x1": 219.60000000000002,
+              "bottom": 169.416
             }
           ]
         },
@@ -367,14 +367,14 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "x1",
+          "matched_text": "Bag of Beans - Ethiopia x1 $17.00",
           "page": 1,
           "rects": [
             {
-              "x0": 72.60000000000001,
-              "top": 135.49599999999998,
-              "x1": 81.048,
-              "bottom": 143.49599999999998
+              "x0": 10.8,
+              "top": 174.37600000000003,
+              "x1": 219.6,
+              "bottom": 182.37600000000003
             }
           ]
         },

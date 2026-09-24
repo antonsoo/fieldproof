@@ -64,21 +64,21 @@
           "quantity": {
             "value": 12.0,
             "evidence": [
-              "12"
+              "Pallet freight - Oakland to Seattle 12 145.00 1,740.00"
             ],
             "page": 1
           },
           "unit_price": {
             "value": 145.0,
             "evidence": [
-              "145.00"
+              "Pallet freight - Oakland to Seattle 12 145.00 1,740.00"
             ],
             "page": 1
           },
           "amount": {
             "value": 1740.0,
             "evidence": [
-              "1,740.00"
+              "Pallet freight - Oakland to Seattle 12 145.00 1,740.00"
             ],
             "page": 1
           }
@@ -94,21 +94,21 @@
           "quantity": {
             "value": 1.0,
             "evidence": [
-              "1"
+              "Fuel surcharge 1 210.50 210.50"
             ],
             "page": 1
           },
           "unit_price": {
             "value": 210.5,
             "evidence": [
-              "210.50"
+              "Fuel surcharge 1 210.50 210.50"
             ],
             "page": 1
           },
           "amount": {
             "value": 210.5,
             "evidence": [
-              "210.50"
+              "Fuel surcharge 1 210.50 210.50"
             ],
             "page": 1
           }
@@ -124,21 +124,21 @@
           "quantity": {
             "value": 3.0,
             "evidence": [
-              "3"
+              "Liftgate delivery service 3 65.00 195.00"
             ],
             "page": 1
           },
           "unit_price": {
             "value": 65.0,
             "evidence": [
-              "65.00"
+              "Liftgate delivery service 3 65.00 195.00"
             ],
             "page": 1
           },
           "amount": {
             "value": 195.0,
             "evidence": [
-              "195.00"
+              "Liftgate delivery service 3 65.00 195.00"
             ],
             "page": 1
           }
@@ -154,21 +154,21 @@
           "quantity": {
             "value": 1.0,
             "evidence": [
-              "1"
+              "Warehouse handling fee 1 312.50 312.50"
             ],
             "page": 1
           },
           "unit_price": {
             "value": 312.5,
             "evidence": [
-              "312.50"
+              "Warehouse handling fee 1 312.50 312.50"
             ],
             "page": 1
           },
           "amount": {
             "value": 312.5,
             "evidence": [
-              "312.50"
+              "Warehouse handling fee 1 312.50 312.50"
             ],
             "page": 1
           }
@@ -308,13 +308,13 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "12",
+          "matched_text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
           "page": 1,
           "rects": [
             {
-              "x0": 309.6,
+              "x0": 54.0,
               "top": 208.07000000000005,
-              "x1": 320.72,
+              "x1": 558.0,
               "bottom": 218.07000000000005
             }
           ]
@@ -325,13 +325,13 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "145.00",
+          "matched_text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
           "page": 1,
           "rects": [
             {
-              "x0": 352.8,
+              "x0": 54.0,
               "top": 208.07000000000005,
-              "x1": 383.38,
+              "x1": 558.0,
               "bottom": 218.07000000000005
             }
           ]
@@ -342,11 +342,11 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "1,740.00",
+          "matched_text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
           "page": 1,
           "rects": [
             {
-              "x0": 519.08,
+              "x0": 54.0,
               "top": 208.07000000000005,
               "x1": 558.0,
               "bottom": 218.07000000000005
@@ -376,14 +376,14 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "1",
+          "matched_text": "Fuel surcharge 1 210.50 210.50",
           "page": 1,
           "rects": [
             {
               "x0": 54.0,
-              "top": 72.0630000000001,
-              "x1": 74.016,
-              "bottom": 81.0630000000001
+              "top": 223.91000000000008,
+              "x1": 557.9999999999999,
+              "bottom": 233.91000000000008
             }
           ]
         },
@@ -393,13 +393,13 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "210.50",
+          "matched_text": "Fuel surcharge 1 210.50 210.50",
           "page": 1,
           "rects": [
             {
-              "x0": 352.8,
+              "x0": 54.0,
               "top": 223.91000000000008,
-              "x1": 383.38,
+              "x1": 557.9999999999999,
               "bottom": 233.91000000000008
             }
           ]
@@ -410,13 +410,13 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "210.50",
+          "matched_text": "Fuel surcharge 1 210.50 210.50",
           "page": 1,
           "rects": [
             {
-              "x0": 352.8,
+              "x0": 54.0,
               "top": 223.91000000000008,
-              "x1": 383.38,
+              "x1": 557.9999999999999,
               "bottom": 233.91000000000008
             }
           ]
@@ -444,13 +444,13 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "3",
+          "matched_text": "Liftgate delivery service 3 65.00 195.00",
           "page": 1,
           "rects": [
             {
-              "x0": 309.6,
+              "x0": 54.0,
               "top": 239.75,
-              "x1": 315.16,
+              "x1": 557.9999999999999,
               "bottom": 249.75
             }
           ]
@@ -461,13 +461,13 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "65.00",
+          "matched_text": "Liftgate delivery service 3 65.00 195.00",
           "page": 1,
           "rects": [
             {
-              "x0": 352.8,
+              "x0": 54.0,
               "top": 239.75,
-              "x1": 377.82,
+              "x1": 557.9999999999999,
               "bottom": 249.75
             }
           ]
@@ -478,11 +478,11 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "195.00",
+          "matched_text": "Liftgate delivery service 3 65.00 195.00",
           "page": 1,
           "rects": [
             {
-              "x0": 527.42,
+              "x0": 54.0,
               "top": 239.75,
               "x1": 557.9999999999999,
               "bottom": 249.75
@@ -512,14 +512,14 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "1",
+          "matched_text": "Warehouse handling fee 1 312.50 312.50",
           "page": 1,
           "rects": [
             {
               "x0": 54.0,
-              "top": 72.0630000000001,
-              "x1": 74.016,
-              "bottom": 81.0630000000001
+              "top": 255.59000000000003,
+              "x1": 557.9999999999999,
+              "bottom": 265.59000000000003
             }
           ]
         },
@@ -529,13 +529,13 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "312.50",
+          "matched_text": "Warehouse handling fee 1 312.50 312.50",
           "page": 1,
           "rects": [
             {
-              "x0": 352.8,
+              "x0": 54.0,
               "top": 255.59000000000003,
-              "x1": 383.38,
+              "x1": 557.9999999999999,
               "bottom": 265.59000000000003
             }
           ]
@@ -546,13 +546,13 @@
           "status": "verified",
           "reasons": [],
           "match_score": 100.0,
-          "matched_text": "312.50",
+          "matched_text": "Warehouse handling fee 1 312.50 312.50",
           "page": 1,
           "rects": [
             {
-              "x0": 352.8,
+              "x0": 54.0,
               "top": 255.59000000000003,
-              "x1": 383.38,
+              "x1": 557.9999999999999,
               "bottom": 265.59000000000003
             }
           ]
