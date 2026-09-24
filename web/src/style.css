@@ -1,0 +1,670 @@
+/* fieldproof review UI - design tokens
+ * -----------------------------------
+ * The palette is the product's own vocabulary: verified / needs-review /
+ * unsupported are fieldproof's three field states, so those three colors
+ * *are* the accent system rather than a decorative one bolted on top.
+ * Paper-toned neutrals + a deep ledger teal keep the chrome quiet so the
+ * status colors stay legible as signal, not noise.
+ */
+
+:root {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --color-bg: #f2f4f1;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #e9ece7;
+  --color-ink: #14181a;
+  --color-ink-muted: #5c6670;
+  --color-ink-faint: #8b949c;
+  --color-border: #d7dcd6;
+  --color-border-strong: #b7bfb9;
+  --color-accent: #14524c;
+  --color-accent-ink: #ffffff;
+  --color-focus: #1c7a70;
+
+  --color-verified: #0e7a5f;
+  --color-verified-bg: #e4f3ec;
+  --color-review: #a6650f;
+  --color-review-bg: #fbf0dc;
+  --color-unsupported: #b3392c;
+  --color-unsupported-bg: #fbe7e3;
+
+  --radius-sm: 4px;
+  --radius-md: 7px;
+  --shadow-card: 0 1px 2px rgba(20, 24, 26, 0.06), 0 1px 1px rgba(20, 24, 26, 0.04);
+  --shadow-panel: 0 4px 16px rgba(20, 24, 26, 0.08);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #10151a;
+    --color-surface: #171d23;
+    --color-surface-sunken: #0d1216;
+    --color-ink: #e8edee;
+    --color-ink-muted: #93a1aa;
+    --color-ink-faint: #66727c;
+    --color-border: #2a333b;
+    --color-border-strong: #3b4750;
+    --color-accent: #49c9b3;
+    --color-accent-ink: #08201c;
+    --color-focus: #49c9b3;
+
+    --color-verified: #49c9b3;
+    --color-verified-bg: rgba(73, 201, 179, 0.14);
+    --color-review: #e3ab41;
+    --color-review-bg: rgba(227, 171, 65, 0.14);
+    --color-unsupported: #e2685c;
+    --color-unsupported-bg: rgba(226, 104, 92, 0.14);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #10151a;
+  --color-surface: #171d23;
+  --color-surface-sunken: #0d1216;
+  --color-ink: #e8edee;
+  --color-ink-muted: #93a1aa;
+  --color-ink-faint: #66727c;
+  --color-border: #2a333b;
+  --color-border-strong: #3b4750;
+  --color-accent: #49c9b3;
+  --color-accent-ink: #08201c;
+  --color-focus: #49c9b3;
+
+  --color-verified: #49c9b3;
+  --color-verified-bg: rgba(73, 201, 179, 0.14);
+  --color-review: #e3ab41;
+  --color-review-bg: rgba(227, 171, 65, 0.14);
+  --color-unsupported: #e2685c;
+  --color-unsupported-bg: rgba(226, 104, 92, 0.14);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- layout shell ---------- */
+
+#app {
+  display: flex;
+  flex-direction: column;
+  /* A definite height (not min-height) so .workbench's flex:1 has real
+     space to grow into - otherwise #app's own height is derived from its
+     content, .workbench never gets a bounded height to pass down, and
+     .field-list's overflow:auto has nothing to clip against, so the whole
+     page grows to fit every field instead of scrolling the list. */
+  height: 100vh;
+  height: 100dvh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.brand-mark {
+  font-family: var(--font-display);
+  font-weight: 560;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+.brand-tag {
+  font-size: 11px;
+  color: var(--color-ink-faint);
+  font-family: var(--font-mono);
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .brand-tag {
+    display: inline;
+  }
+}
+
+.topbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.workbench {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+/* ---------- empty / start state ---------- */
+
+.start-state {
+  margin: auto;
+  max-width: 560px;
+  padding: 48px 32px;
+  text-align: center;
+}
+
+.start-state h1 {
+  font-family: var(--font-display);
+  font-weight: 540;
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+
+.start-state p {
+  color: var(--color-ink-muted);
+  margin: 0 0 28px;
+}
+
+.proof-ticks {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.proof-tick {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-ink-muted);
+  opacity: 0;
+  animation: tick-in 0.5s ease forwards;
+}
+
+.proof-tick:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.proof-tick:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.proof-tick:nth-child(3) {
+  animation-delay: 0.35s;
+}
+
+@keyframes tick-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.proof-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.sample-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.dropzone {
+  border: 1.5px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  color: var(--color-ink-muted);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.dropzone:hover,
+.dropzone.dragover {
+  border-color: var(--color-accent);
+  background: var(--color-surface-sunken);
+}
+
+/* ---------- buttons / inputs ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.btn:hover {
+  border-color: var(--color-accent);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.select,
+.text-input {
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+}
+
+/* ---------- viewer pane ---------- */
+
+.viewer-pane {
+  flex: 1 1 55%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--color-border);
+  background: var(--color-surface-sunken);
+}
+
+.viewer-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 12px;
+  color: var(--color-ink-muted);
+}
+
+.viewer-scroll {
+  flex: 1;
+  overflow: auto;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-frame {
+  position: relative;
+  box-shadow: var(--shadow-panel);
+  background: #fff;
+  height: fit-content;
+}
+
+.page-frame img {
+  display: block;
+  max-width: none;
+}
+
+.highlight-rect {
+  position: absolute;
+  border-radius: 2px;
+  border: 1.5px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.highlight-rect[data-status="verified"] {
+  border-color: color-mix(in srgb, var(--color-verified) 55%, transparent);
+  background: color-mix(in srgb, var(--color-verified) 14%, transparent);
+}
+
+.highlight-rect[data-status="needs_review"] {
+  border-color: color-mix(in srgb, var(--color-review) 65%, transparent);
+  background: color-mix(in srgb, var(--color-review) 18%, transparent);
+}
+
+.highlight-rect[data-status="unsupported"] {
+  border-color: color-mix(in srgb, var(--color-unsupported) 65%, transparent);
+  background: color-mix(in srgb, var(--color-unsupported) 18%, transparent);
+}
+
+.highlight-rect.is-active,
+.highlight-rect:hover {
+  border-width: 2px;
+  filter: brightness(0.94) saturate(1.3);
+}
+
+.highlight-rect.is-pulsing {
+  animation: pulse-ring 0.9s ease 2;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 8px color-mix(in srgb, var(--color-accent) 0%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* ---------- field list pane ---------- */
+
+.field-pane {
+  flex: 1 1 45%;
+  min-width: 320px;
+  min-height: 0; /* let .field-list's own overflow:auto scroll instead of
+                    growing this pane (and the whole page) to fit every row */
+  display: flex;
+  flex-direction: column;
+}
+
+.field-pane-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.counts-strip {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.count-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-sunken);
+  cursor: pointer;
+}
+
+.count-chip.is-active {
+  border-color: currentColor;
+}
+
+.count-chip[data-status="verified"] {
+  color: var(--color-verified);
+}
+.count-chip[data-status="needs_review"] {
+  color: var(--color-review);
+}
+.count-chip[data-status="unsupported"] {
+  color: var(--color-unsupported);
+}
+
+.filter-row {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-row .text-input {
+  flex: 1;
+}
+
+.field-list {
+  flex: 1;
+  overflow: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.field-row {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  background: var(--color-surface);
+}
+
+.field-row:hover,
+.field-row.is-hovered {
+  background: var(--color-surface-sunken);
+}
+
+.field-row.is-selected {
+  background: var(--color-surface-sunken);
+  box-shadow: inset 3px 0 0 var(--color-accent);
+}
+
+.field-row-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.field-path {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--color-ink-faint);
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.status-chip[data-status="verified"] {
+  color: var(--color-verified);
+  background: var(--color-verified-bg);
+}
+.status-chip[data-status="needs_review"] {
+  color: var(--color-review);
+  background: var(--color-review-bg);
+}
+.status-chip[data-status="unsupported"] {
+  color: var(--color-unsupported);
+  background: var(--color-unsupported-bg);
+}
+
+.status-chip::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.field-value {
+  font-size: 14.5px;
+  margin-top: 3px;
+  word-break: break-word;
+}
+
+.field-value.is-edited {
+  text-decoration: underline dotted;
+  text-decoration-color: var(--color-accent);
+}
+
+.field-reasons {
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--color-ink-muted);
+}
+
+.field-reasons li {
+  margin: 2px 0 2px 16px;
+}
+
+.field-evidence {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--color-ink-muted);
+  background: var(--color-surface-sunken);
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--color-border-strong);
+}
+
+.field-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.field-actions .btn {
+  padding: 4px 9px;
+  font-size: 12px;
+}
+
+.review-badge {
+  font-size: 11px;
+  color: var(--color-ink-faint);
+  font-family: var(--font-mono);
+  margin-left: 6px;
+}
+
+.edit-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.edit-row .text-input {
+  flex: 1;
+}
+
+.empty-filtered {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--color-ink-faint);
+}
+
+/* ---------- toast ---------- */
+
+.toast {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--color-ink);
+  color: var(--color-bg);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 50;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  .workbench {
+    flex-direction: column;
+  }
+
+  .viewer-pane,
+  .field-pane {
+    flex: none;
+    min-width: 0;
+  }
+
+  .viewer-pane {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    max-height: 42vh;
+  }
+
+  .field-pane {
+    min-height: 0;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

@@ -1,0 +1,34 @@
+{
+  "name": "fieldproof-web",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Review UI for fieldproof - a grounded document-extraction workbench.",
+  "author": "Anton Soloviev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antonsoo/fieldproof"
+  },
+  "homepage": "https://antonsoo.github.io/fieldproof/",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "build:demo": "tsc -p tsconfig.json --noEmit && vite build --mode demo",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src --max-warnings 0",
+    "format:check": "prettier --check src"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "eslint": "^9.15.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "vite": "^7.3.6"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}
