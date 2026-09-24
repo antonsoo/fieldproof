@@ -1,35 +1,28 @@
-name: Deploy Pages demo
+name: Pages
 
+# Builds the static demo and publishes it to the gh-pages branch; GitHub
+# Pages serves that branch directly (Settings -> Pages -> "Deploy from a
+# branch": gh-pages, /). A plain Node build - the data
+# scripts/build_demo_data.py precomputes (web/public/demo-data/) is
+# committed to the repo rather than regenerated here, so this workflow
+# never needs Python/uv - see CONTRIBUTING.md for regenerating it.
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-
-      - uses: astral-sh/setup-uv@v10
-        with:
-          python-version: "3.12"
-          enable-cache: true
-
-      - name: Install Python dependencies
-        run: uv sync
-
-      - name: Precompute demo data (grounding + verification, fixture provider)
-        run: uv run python scripts/build_demo_data.py
 
       - uses: actions/setup-node@v7
         with:
@@ -37,26 +30,21 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
 
-      - name: Install web dependencies
+      - name: Build
         working-directory: web
-        run: npm ci
+        run: |
+          npm ci
+          npm run build:demo
 
-      - name: Build static demo
-        working-directory: web
-        run: npm run build:demo
-
-      - uses: actions/configure-pages@v6
-
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: web/dist-demo
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
+      - name: Publish to gh-pages
+        env:
+          SITE_DIR: web/dist-demo
+        run: |
+          cd "$SITE_DIR"
+          touch .nojekyll
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "deploy: ${GITHUB_SHA::7}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages

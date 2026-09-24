@@ -2,7 +2,6 @@
 
 **Document extraction that shows its work: every field linked to the exact words it came from.**
 
-[![CI](https://github.com/antonsoo/fieldproof/actions/workflows/ci.yml/badge.svg)](https://github.com/antonsoo/fieldproof/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Live demo](https://img.shields.io/badge/demo-antonsoo.github.io%2Ffieldproof-14524c)](https://antonsoo.github.io/fieldproof/)
 
@@ -274,11 +273,13 @@ uv run mypy src
 cd web && npm ci && npm run typecheck && npm run lint && npm run build
 ```
 
-Regenerate the sample documents and demo data after changing them:
+Regenerate the sample documents and demo data after changing them - the
+output (`web/public/demo-data/`) is committed, since the Pages deploy is a
+plain `npm ci && npm run build:demo` with no Python step:
 
 ```bash
 uv run python scripts/generate_samples.py
-uv run python scripts/build_demo_data.py   # writes web/public/demo-data/ (gitignored, built at Pages deploy time)
+uv run python scripts/build_demo_data.py   # writes + commit web/public/demo-data/
 ```
 
 ## Contributing

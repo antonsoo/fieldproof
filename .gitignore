@@ -17,10 +17,12 @@ web/dist/
 web/dist-demo/
 npm-debug.log*
 
-# Precomputed by scripts/build_demo_data.py at Pages build time (see
-# .github/workflows/pages.yml) - examples/ has the source PDFs + fixtures
-# this is derived from; regenerating here avoids committing PNGs.
-web/public/demo-data/
+# web/public/demo-data/ is intentionally COMMITTED (not ignored): the Pages
+# deploy is a plain Node build (no Python/uv step - see
+# .github/workflows/pages.yml), so the data scripts/build_demo_data.py
+# precomputes has to already be on disk for `npm run build:demo` alone to
+# produce a complete demo. Regenerate it with that script after changing
+# examples/ or its fixtures, and commit the result.
 
 # Generated (built by scripts/build_demo_data.py or the web build - never
 # hand-edited, so committing them would just be stale binary diffs)
