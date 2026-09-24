@@ -70,6 +70,34 @@ function statusLabel(status: FieldStatus): string {
   return status;
 }
 
+/** Field-name leaves (after stripping any "[n]" list index) treated as
+ * currency amounts for display - quantities and counts are numbers, not
+ * money, so they're deliberately not in this set. Presentation only: the
+ * underlying value and JSON/CSV export both stay the raw machine number. */
+const MONEY_FIELD_NAMES = new Set([
+  "amount",
+  "subtotal",
+  "tax",
+  "total",
+  "unit_price",
+  "total_contract_value",
+]);
+
+function isMoneyField(path: string): boolean {
+  const last = path.split(".").pop() ?? "";
+  return MONEY_FIELD_NAMES.has(last.replace(/\[\d+\]$/, ""));
+}
+
+function formatDisplayValue(path: string, value: unknown): string {
+  if (isMoneyField(path)) {
+    const num = typeof value === "number" ? value : Number(value);
+    if (Number.isFinite(num)) {
+      return num.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+  }
+  return String(value);
+}
+
 let toastTimer: number | undefined;
 function toast(message: string): void {
   let el = document.getElementById("toast");
@@ -337,14 +365,27 @@ function getWorkbench(): HTMLElement {
   return el;
 }
 
+//  Lower sorts first - in the combined "All" view, fields worth a second
+//  look surface above fields that already checked out, so a reviewer never
+//  has to scroll to find what needs their attention.
+const STATUS_SORT_PRIORITY: Record<FieldStatus, number> = {
+  unsupported: 0,
+  needs_review: 1,
+  verified: 2,
+};
+
 function filteredFields(): FieldVerification[] {
   const fields = state.extraction?.report.fields ?? [];
   const q = state.searchQuery.trim().toLowerCase();
-  return fields.filter((f) => {
+  const matched = fields.filter((f) => {
     if (state.statusFilter !== "all" && f.status !== state.statusFilter) return false;
     if (!q) return true;
     return f.path.toLowerCase().includes(q) || String(f.value).toLowerCase().includes(q);
   });
+  if (state.statusFilter !== "all") return matched; // already one status - sorting would be a no-op
+  return [...matched].sort(
+    (a, b) => STATUS_SORT_PRIORITY[a.status] - STATUS_SORT_PRIORITY[b.status],
+  );
 }
 
 function renderWorkbench(): void {
@@ -505,7 +546,7 @@ function renderFieldRow(f: FieldVerification): string {
         <span class="field-path">${esc(f.path)}</span>
         <span class="status-chip" data-status="${f.status}">${statusLabel(f.status)}</span>
       </div>
-      <div class="field-value ${review.status === "edited" ? "is-edited" : ""}">${esc(displayValue)}</div>
+      <div class="field-value ${review.status === "edited" ? "is-edited" : ""}">${esc(formatDisplayValue(f.path, displayValue))}</div>
       ${review.status !== "pending" ? `<span class="review-badge">${review.status}</span>` : ""}
       ${reasonsHtml}
       ${evidenceHtml}
