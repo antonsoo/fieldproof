@@ -19,6 +19,13 @@ to confirm or fix whatever's left. Every field ends up `verified`,
 
 ![The review UI catching a hallucinated PO number and a total that doesn't match its line items](docs/assets/hero-review.png)
 
+<details>
+<summary>Dark mode</summary>
+
+![The same review, in dark mode](docs/assets/review-dark.png)
+
+</details>
+
 ## Live demo
 
 **[antonsoo.github.io/fieldproof](https://antonsoo.github.io/fieldproof/)** - three
