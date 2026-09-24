@@ -63,14 +63,19 @@ building the UI first).
   for tests, CI, and offline demos.
 - **Real grounding, not string search** - exact match first, rapidfuzz-based
   fuzzy alignment as a fallback, tolerant of curly quotes, ligatures,
-  hyphenated line-wraps, and OCR noise. Maps back to word bounding boxes and
+  hyphenated line-wraps, and OCR noise. Exact matches are required to land
+  on whole word boundaries (a quote never matches mid-token), and a quote
+  that occurs more than once is disambiguated by locality rather than
+  silently taking the first hit. Maps back to word bounding boxes and
   merges them into per-line highlight rectangles.
 - **Verification, not just a confidence score** - numbers, dates, currency,
   and strings are independently re-derived from the matched evidence and
   compared to the claimed value; line items are checked against subtotal,
   subtotal + tax against total, and due date against issue date.
-- **A review UI that shows the reasoning** - click a field to jump to its
-  evidence on the page; hover a highlight to see which field it supports;
+- **A review UI that shows the reasoning** - flagged fields sort to the top;
+  click a field to jump to its evidence on the page; hover a highlight to
+  see which field it supports; currency fields display formatted (`312.50`,
+  `2,458.00`) while the underlying value and export stay machine numbers;
   approve, edit, or reject; export approved values as JSON or CSV.
 - **Optional OCR** - scanned PDFs fall back to Tesseract if it's installed;
   documented as a degraded mode, not silently pretended to be as reliable as
@@ -85,6 +90,10 @@ fieldproof extract doc.pdf --schema invoice --provider anthropic --out result.js
 fieldproof verify result.json doc.pdf   # re-ground/re-verify an existing extraction
 fieldproof serve --port 8000            # API + review UI
 ```
+
+`--provider anthropic` defaults to `claude-opus-5-5` (Claude Opus 5.5, Anthropic's
+current most capable model); pass `--model claude-opus-5` or any other model id to
+override it.
 
 Real output, captured from this repo's sample documents:
 
@@ -165,20 +174,31 @@ four hold:
    [rapidfuzz](https://github.com/rapidfuzz/RapidFuzz)'s partial-ratio
    alignment (`fuzz.partial_ratio_alignment`) for the best-scoring substring
    of the page. Below a 70/100 score, the quote is treated as not found; a
-   match under 92/100 is flagged as weak evidence even if it's found. The
-   matched span is mapped back through an index map to the exact words it
-   covers (via each word's character offset into the page's flattened
-   text), and those words' bounding boxes are merged into per-line
-   highlight rectangles.
+   match under 92/100 is flagged as weak evidence even if it's found. Exact
+   matches are required to land on whole word boundaries - a quote like
+   `"1"` can never match the trailing digit of a street number like
+   `"4821"` - and when a quote genuinely occurs more than once,
+   `fieldproof.verify.engine` disambiguates it by preferring whichever
+   occurrence is on the same row as another field from the same object
+   that's already been grounded (e.g. a line item's `quantity` next to its
+   already-grounded `description`); with nothing nearby to disambiguate
+   against, the field becomes `needs_review` with an "ambiguous, appears N
+   times" reason rather than silently guessing. The matched span is mapped
+   back through an index map to the exact words it covers (via each word's
+   character offset into the page's flattened text), and those words'
+   bounding boxes are merged into per-line highlight rectangles.
 3. **Value check.** The claimed value is independently re-derived from the
    *matched* evidence text - not trusted just because a quote was found
    nearby - and compared: numbers are parsed with currency/thousands-
-   separator handling (and prefer the last non-percentage number in the
-   evidence, e.g. `"Tax (8.5%) $208.93"` correctly reads `208.93`, not
-   `8.5`), dates are parsed from either ISO-8601 or a handful of common
-   formats and compared as calendar dates, strings use fuzzy partial-ratio
-   (a short value inside a longer quote should still match), booleans look
-   for yes/no/confirmed/denied language. Any mismatch -> `needs_review`.
+   separator handling and checked against every plain number in the
+   evidence, not just the last one (evidence for a row-level field is often
+   the whole row, e.g. a quantity of `1` is checked against `"Fuel
+   surcharge 1 210.50 210.50"`), excluding percentages so `"Tax (8.5%)
+   $208.93"` can't be misread as `8.5`; dates are parsed from either
+   ISO-8601 or a handful of common formats and compared as calendar dates;
+   strings use fuzzy partial-ratio (a short value inside a longer quote
+   should still match); booleans look for yes/no/confirmed/denied
+   language. Any mismatch -> `needs_review`.
 4. **Cross-field rules.** For invoices and receipts: line items must sum to
    the subtotal, subtotal + tax must equal the total (both within a $0.02
    tolerance), and the due date must not precede the issue date. A failed
@@ -190,13 +210,17 @@ four hold:
 exception" - they assert exact match scores and exact reasons against
 documents with known content: an exact quote must score 100, a quote with a
 dropped colon and a curly apostrophe must score ≥85 but not be flagged
-`is_exact`, a quote spanning a hyphenated line-wrap
-(`examples/invoice.pdf`'s line items) must still ground at ≥80, and a quote
-that's genuinely absent must return no match at all rather than a low-quality
-one. `tests/test_e2e.py` runs the full pipeline against the checked-in sample
-documents and pins down exactly which field each planted error is expected to
-surface as - a regression that stops catching the hallucinated PO number or
-the misread date fails a test, not just a manual look at the demo.
+`is_exact`, a quote spanning a hyphenated line-wrap must still ground at
+≥80, a quote that's genuinely absent must return no match at all rather
+than a low-quality one, and - the concrete regression this repo shipped
+with - a bare `"1"` on `examples/invoice.pdf` must ground to one of its two
+line-item quantities, never to the trailing digit of the "4821" street
+address, and must resolve to the *correct* line item by row locality when
+both are plausible. `tests/test_e2e.py` runs the full pipeline against the
+checked-in sample documents and pins down exactly which field each planted
+error is expected to surface as - a regression that stops catching the
+hallucinated PO number or the misread date fails a test, not just a manual
+look at the demo.
 
 ### Performance
 
@@ -237,6 +261,15 @@ anything in this repo.
   or generic value can occasionally find a spurious match inside unrelated
   evidence text. The 92/100 "strong match" threshold and the independent
   value check are there to catch most of this, but neither is a proof.
+- **Ambiguous quotes are resolved by row locality, not proven correct.**
+  When a short quote occurs more than once, fieldproof prefers the
+  occurrence nearest another already-grounded field from the same row
+  (see [How it works](#how-it-works)) rather than flagging every such
+  field `needs_review` - a reasonable heuristic, not a guarantee. Two
+  identical amounts in the same row (a line item where `unit_price` and
+  `amount` happen to be equal) can still ground to either one; the *value*
+  check still passes either way, but the highlighted box may point at the
+  wrong column of an otherwise-correct row.
 - **The Anthropic adapter is unit-tested against a mocked client only** -
   there's no API key configured in this repo's CI, so no test exercises a
   live model response; correctness of the live path depends on the model
