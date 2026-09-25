@@ -1,0 +1,755 @@
+{
+  "document": {
+    "id": "invoice",
+    "filename": "invoice.pdf",
+    "page_count": 1,
+    "pages": [
+      {
+        "number": 1,
+        "width": 612.0,
+        "height": 792.0
+      }
+    ]
+  },
+  "extraction": {
+    "schema": "Invoice",
+    "provider": "fixture",
+    "model": "synthetic-demo-fixture (planted errors, see README)",
+    "data": {
+      "vendor_name": {
+        "value": "Northwind Freight & Supply Co.",
+        "evidence": [
+          "Northwind Freight & Supply Co."
+        ],
+        "page": 1
+      },
+      "invoice_number": {
+        "value": "NW-20260214",
+        "evidence": [
+          "Invoice Number: NW-20260214"
+        ],
+        "page": 1
+      },
+      "issue_date": {
+        "value": "2026-02-14",
+        "evidence": [
+          "Issue Date: February 14, 2026"
+        ],
+        "page": 1
+      },
+      "due_date": {
+        "value": "2026-03-16",
+        "evidence": [
+          "Due Date: March 16, 2026"
+        ],
+        "page": 1
+      },
+      "currency": null,
+      "po_number": {
+        "value": "PO-88214",
+        "evidence": [
+          "PO Number: PO-88214"
+        ],
+        "page": 1
+      },
+      "line_items": [
+        {
+          "description": {
+            "value": "Pallet freight - Oakland to Seattle",
+            "evidence": [
+              "Pallet freight - Oakland to Seattle"
+            ],
+            "page": 1
+          },
+          "quantity": {
+            "value": 12.0,
+            "evidence": [
+              "Pallet freight - Oakland to Seattle 12 145.00 1,740.00"
+            ],
+            "page": 1
+          },
+          "unit_price": {
+            "value": 145.0,
+            "evidence": [
+              "Pallet freight - Oakland to Seattle 12 145.00 1,740.00"
+            ],
+            "page": 1
+          },
+          "amount": {
+            "value": 1740.0,
+            "evidence": [
+              "Pallet freight - Oakland to Seattle 12 145.00 1,740.00"
+            ],
+            "page": 1
+          }
+        },
+        {
+          "description": {
+            "value": "Fuel surcharge",
+            "evidence": [
+              "Fuel surcharge"
+            ],
+            "page": 1
+          },
+          "quantity": {
+            "value": 1.0,
+            "evidence": [
+              "Fuel surcharge 1 210.50 210.50"
+            ],
+            "page": 1
+          },
+          "unit_price": {
+            "value": 210.5,
+            "evidence": [
+              "Fuel surcharge 1 210.50 210.50"
+            ],
+            "page": 1
+          },
+          "amount": {
+            "value": 210.5,
+            "evidence": [
+              "Fuel surcharge 1 210.50 210.50"
+            ],
+            "page": 1
+          }
+        },
+        {
+          "description": {
+            "value": "Liftgate delivery service",
+            "evidence": [
+              "Liftgate delivery service"
+            ],
+            "page": 1
+          },
+          "quantity": {
+            "value": 3.0,
+            "evidence": [
+              "Liftgate delivery service 3 65.00 195.00"
+            ],
+            "page": 1
+          },
+          "unit_price": {
+            "value": 65.0,
+            "evidence": [
+              "Liftgate delivery service 3 65.00 195.00"
+            ],
+            "page": 1
+          },
+          "amount": {
+            "value": 195.0,
+            "evidence": [
+              "Liftgate delivery service 3 65.00 195.00"
+            ],
+            "page": 1
+          }
+        },
+        {
+          "description": {
+            "value": "Warehouse handling fee",
+            "evidence": [
+              "Warehouse handling fee"
+            ],
+            "page": 1
+          },
+          "quantity": {
+            "value": 1.0,
+            "evidence": [
+              "Warehouse handling fee 1 312.50 312.50"
+            ],
+            "page": 1
+          },
+          "unit_price": {
+            "value": 312.5,
+            "evidence": [
+              "Warehouse handling fee 1 312.50 312.50"
+            ],
+            "page": 1
+          },
+          "amount": {
+            "value": 312.5,
+            "evidence": [
+              "Warehouse handling fee 1 312.50 312.50"
+            ],
+            "page": 1
+          }
+        }
+      ],
+      "subtotal": {
+        "value": 2458.0,
+        "evidence": [
+          "Subtotal $2,458.00"
+        ],
+        "page": 1
+      },
+      "tax": {
+        "value": 208.93,
+        "evidence": [
+          "Tax (8.5%) $208.93"
+        ],
+        "page": 1
+      },
+      "total": {
+        "value": 2600.0,
+        "evidence": [
+          "Total Due $2,666.93"
+        ],
+        "page": 1
+      },
+      "payment_terms": {
+        "value": "Net 30",
+        "evidence": [
+          "Payment Terms: Net 30."
+        ],
+        "page": 1
+      }
+    },
+    "report": {
+      "fields": [
+        {
+          "path": "vendor_name",
+          "value": "Northwind Freight & Supply Co.",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Northwind Freight & Supply Co.",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 48.93999999999994,
+              "x1": 356.23999999999995,
+              "bottom": 68.93999999999994
+            }
+          ]
+        },
+        {
+          "path": "invoice_number",
+          "value": "NW-20260214",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Invoice Number: NW-20260214",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 417.95,
+              "top": 74.87,
+              "x1": 558.0,
+              "bottom": 84.87
+            }
+          ]
+        },
+        {
+          "path": "issue_date",
+          "value": "2026-02-14",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue Date: February 14, 2026",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 422.93,
+              "top": 87.11000000000001,
+              "x1": 558.0,
+              "bottom": 97.11000000000001
+            }
+          ]
+        },
+        {
+          "path": "due_date",
+          "value": "2026-03-16",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due Date: March 16, 2026",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 440.72,
+              "top": 99.35000000000002,
+              "x1": 558.0,
+              "bottom": 109.35000000000002
+            }
+          ]
+        },
+        {
+          "path": "po_number",
+          "value": "PO-88214",
+          "status": "unsupported",
+          "reasons": [
+            "none of the evidence quotes ('PO Number: PO-88214') could be located in the document"
+          ],
+          "match_score": null,
+          "matched_text": null,
+          "page": null,
+          "rects": []
+        },
+        {
+          "path": "line_items[0].description",
+          "value": "Pallet freight - Oakland to Seattle",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Pallet freight - Oakland to Seattle",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 208.07000000000005,
+              "x1": 200.74000000000004,
+              "bottom": 218.07000000000005
+            }
+          ]
+        },
+        {
+          "path": "line_items[0].quantity",
+          "value": 12.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 208.07000000000005,
+              "x1": 558.0,
+              "bottom": 218.07000000000005
+            }
+          ]
+        },
+        {
+          "path": "line_items[0].unit_price",
+          "value": 145.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 208.07000000000005,
+              "x1": 558.0,
+              "bottom": 218.07000000000005
+            }
+          ]
+        },
+        {
+          "path": "line_items[0].amount",
+          "value": 1740.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 208.07000000000005,
+              "x1": 558.0,
+              "bottom": 218.07000000000005
+            }
+          ]
+        },
+        {
+          "path": "line_items[1].description",
+          "value": "Fuel surcharge",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Fuel surcharge",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 223.91000000000008,
+              "x1": 120.69,
+              "bottom": 233.91000000000008
+            }
+          ]
+        },
+        {
+          "path": "line_items[1].quantity",
+          "value": 1.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Fuel surcharge 1 210.50 210.50",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 223.91000000000008,
+              "x1": 557.9999999999999,
+              "bottom": 233.91000000000008
+            }
+          ]
+        },
+        {
+          "path": "line_items[1].unit_price",
+          "value": 210.5,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Fuel surcharge 1 210.50 210.50",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 223.91000000000008,
+              "x1": 557.9999999999999,
+              "bottom": 233.91000000000008
+            }
+          ]
+        },
+        {
+          "path": "line_items[1].amount",
+          "value": 210.5,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Fuel surcharge 1 210.50 210.50",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 223.91000000000008,
+              "x1": 557.9999999999999,
+              "bottom": 233.91000000000008
+            }
+          ]
+        },
+        {
+          "path": "line_items[2].description",
+          "value": "Liftgate delivery service",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Liftgate delivery service",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 239.75,
+              "x1": 158.48000000000002,
+              "bottom": 249.75
+            }
+          ]
+        },
+        {
+          "path": "line_items[2].quantity",
+          "value": 3.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Liftgate delivery service 3 65.00 195.00",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 239.75,
+              "x1": 557.9999999999999,
+              "bottom": 249.75
+            }
+          ]
+        },
+        {
+          "path": "line_items[2].unit_price",
+          "value": 65.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Liftgate delivery service 3 65.00 195.00",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 239.75,
+              "x1": 557.9999999999999,
+              "bottom": 249.75
+            }
+          ]
+        },
+        {
+          "path": "line_items[2].amount",
+          "value": 195.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Liftgate delivery service 3 65.00 195.00",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 239.75,
+              "x1": 557.9999999999999,
+              "bottom": 249.75
+            }
+          ]
+        },
+        {
+          "path": "line_items[3].description",
+          "value": "Warehouse handling fee",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Warehouse handling fee",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 255.59000000000003,
+              "x1": 162.39000000000004,
+              "bottom": 265.59000000000003
+            }
+          ]
+        },
+        {
+          "path": "line_items[3].quantity",
+          "value": 1.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Warehouse handling fee 1 312.50 312.50",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 255.59000000000003,
+              "x1": 557.9999999999999,
+              "bottom": 265.59000000000003
+            }
+          ]
+        },
+        {
+          "path": "line_items[3].unit_price",
+          "value": 312.5,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Warehouse handling fee 1 312.50 312.50",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 255.59000000000003,
+              "x1": 557.9999999999999,
+              "bottom": 265.59000000000003
+            }
+          ]
+        },
+        {
+          "path": "line_items[3].amount",
+          "value": 312.5,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Warehouse handling fee 1 312.50 312.50",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 255.59000000000003,
+              "x1": 557.9999999999999,
+              "bottom": 265.59000000000003
+            }
+          ]
+        },
+        {
+          "path": "subtotal",
+          "value": 2458.0,
+          "status": "needs_review",
+          "reasons": [
+            "subtotal + tax = 2666.93 but total is 2600.00"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Subtotal $2,458.00",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 273.6,
+              "top": 296.63,
+              "x1": 557.9999999999999,
+              "bottom": 306.63
+            }
+          ]
+        },
+        {
+          "path": "tax",
+          "value": 208.93,
+          "status": "needs_review",
+          "reasons": [
+            "subtotal + tax = 2666.93 but total is 2600.00"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Tax (8.5%) $208.93",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 273.6,
+              "top": 312.46999999999997,
+              "x1": 558.0,
+              "bottom": 322.46999999999997
+            }
+          ]
+        },
+        {
+          "path": "total",
+          "value": 2600.0,
+          "status": "needs_review",
+          "reasons": [
+            "value 2600 does not match 2666.93 parsed from the evidence",
+            "subtotal + tax = 2666.93 but total is 2600.00"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Total Due $2,666.93",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 273.6,
+              "top": 330.397,
+              "x1": 558.0,
+              "bottom": 341.397
+            }
+          ]
+        },
+        {
+          "path": "payment_terms",
+          "value": "Net 30",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Payment Terms: Net 30.",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 367.983,
+              "x1": 151.53300000000002,
+              "bottom": 376.983
+            }
+          ]
+        }
+      ],
+      "cross_field_issues": [
+        {
+          "fields": [
+            "subtotal",
+            "tax",
+            "total"
+          ],
+          "message": "subtotal + tax = 2666.93 but total is 2600.00"
+        }
+      ],
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      }
+    },
+    "review": {
+      "vendor_name": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "invoice_number": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "issue_date": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "due_date": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "po_number": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[0].description": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[0].quantity": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[0].unit_price": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[0].amount": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[1].description": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[1].quantity": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[1].unit_price": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[1].amount": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[2].description": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[2].quantity": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[2].unit_price": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[2].amount": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[3].description": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[3].quantity": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[3].unit_price": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "line_items[3].amount": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "subtotal": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "tax": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "total": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "payment_terms": {
+        "status": "pending",
+        "edited_value": null
+      }
+    }
+  }
+}

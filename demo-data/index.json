@@ -1,0 +1,14 @@
+[
+  {
+    "id": "invoice",
+    "label": "Invoice"
+  },
+  {
+    "id": "receipt",
+    "label": "Receipt"
+  },
+  {
+    "id": "contract",
+    "label": "Contract"
+  }
+]

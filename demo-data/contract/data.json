@@ -1,0 +1,320 @@
+{
+  "document": {
+    "id": "contract",
+    "filename": "contract.pdf",
+    "page_count": 2,
+    "pages": [
+      {
+        "number": 1,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 2,
+        "width": 612.0,
+        "height": 792.0
+      }
+    ]
+  },
+  "extraction": {
+    "schema": "ContractKeyTerms",
+    "provider": "fixture",
+    "model": "synthetic-demo-fixture (clean extraction, no planted errors)",
+    "data": {
+      "party_a": {
+        "value": "Harborline Analytics, Inc.",
+        "evidence": [
+          "Harborline Analytics, Inc."
+        ],
+        "page": 1
+      },
+      "party_b": {
+        "value": "Meridian Health Systems LLC",
+        "evidence": [
+          "Meridian Health Systems LLC"
+        ],
+        "page": 1
+      },
+      "effective_date": {
+        "value": "2026-04-01",
+        "evidence": [
+          "as of April 1, 2026"
+        ],
+        "page": 1
+      },
+      "term_length": {
+        "value": "24 months",
+        "evidence": [
+          "initial term of 24 months"
+        ],
+        "page": 1
+      },
+      "termination_notice_period": {
+        "value": "60 days",
+        "evidence": [
+          "sixty (60) days"
+        ],
+        "page": 1
+      },
+      "governing_law": {
+        "value": "Delaware",
+        "evidence": [
+          "laws of the State of Delaware"
+        ],
+        "page": 1
+      },
+      "total_contract_value": {
+        "value": 186000.0,
+        "evidence": [
+          "total contract value of $186,000.00"
+        ],
+        "page": 1
+      },
+      "key_obligations": [
+        {
+          "value": "Provider shall maintain 99.5% uptime for all hosted services described in Exhibit A.",
+          "evidence": [
+            "Provider shall maintain 99.5% uptime for all hosted services described in Exhibit A."
+          ],
+          "page": 2
+        },
+        {
+          "value": "Provider shall deliver a security incident report within 24 hours of discovery.",
+          "evidence": [
+            "Provider shall deliver a security incident report within 24 hours of discovery."
+          ],
+          "page": 2
+        },
+        {
+          "value": "Client shall designate a single point of contact for change requests.",
+          "evidence": [
+            "Client shall designate a single point of contact for change requests."
+          ],
+          "page": 2
+        }
+      ]
+    },
+    "report": {
+      "fields": [
+        {
+          "path": "party_a",
+          "value": "Harborline Analytics, Inc.",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Harborline Analytics, Inc.",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 108.522,
+              "top": 102.21300000000008,
+              "x1": 210.55500000000004,
+              "bottom": 111.21300000000008
+            }
+          ]
+        },
+        {
+          "path": "party_b",
+          "value": "Meridian Health Systems LLC",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Meridian Health Systems LLC",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 376.6050000000002,
+              "top": 102.21300000000008,
+              "x1": 498.1410000000004,
+              "bottom": 111.21300000000008
+            }
+          ]
+        },
+        {
+          "path": "effective_date",
+          "value": "2026-04-01",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "as of April 1, 2026",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 322.5780000000001,
+              "top": 90.0630000000001,
+              "x1": 395.1180000000002,
+              "bottom": 99.0630000000001
+            }
+          ]
+        },
+        {
+          "path": "term_length",
+          "value": "24 months",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "initial term of 24 months",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 392.14800000000014,
+              "top": 151.71300000000008,
+              "x1": 490.1850000000004,
+              "bottom": 160.71300000000008
+            }
+          ]
+        },
+        {
+          "path": "termination_notice_period",
+          "value": "60 days",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "sixty (60) days",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 331.6139999999999,
+              "top": 300.213,
+              "x1": 391.34700000000004,
+              "bottom": 309.213
+            }
+          ]
+        },
+        {
+          "path": "governing_law",
+          "value": "Delaware",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "laws of the State of Delaware",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 375.14700000000005,
+              "top": 250.71300000000008,
+              "x1": 494.7030000000003,
+              "bottom": 259.7130000000001
+            }
+          ]
+        },
+        {
+          "path": "total_contract_value",
+          "value": 186000.0,
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "total contract value of $186,000.00",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 179.037,
+              "top": 201.21300000000008,
+              "x1": 319.6259999999999,
+              "bottom": 210.21300000000008
+            }
+          ]
+        },
+        {
+          "path": "key_obligations[0]",
+          "value": "Provider shall maintain 99.5% uptime for all hosted services described in Exhibit A.",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Provider shall maintain 99.5% uptime for all hosted services described in Exhibit A.",
+          "page": 2,
+          "rects": [
+            {
+              "x0": 77.499,
+              "top": 82.86300000000006,
+              "x1": 407.12400000000014,
+              "bottom": 91.86300000000006
+            }
+          ]
+        },
+        {
+          "path": "key_obligations[1]",
+          "value": "Provider shall deliver a security incident report within 24 hours of discovery.",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Provider shall deliver a security incident report within 24 hours of discovery.",
+          "page": 2,
+          "rects": [
+            {
+              "x0": 77.499,
+              "top": 98.61300000000006,
+              "x1": 377.6040000000001,
+              "bottom": 107.61300000000006
+            }
+          ]
+        },
+        {
+          "path": "key_obligations[2]",
+          "value": "Client shall designate a single point of contact for change requests.",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Client shall designate a single point of contact for change requests.",
+          "page": 2,
+          "rects": [
+            {
+              "x0": 77.499,
+              "top": 114.36300000000006,
+              "x1": 344.637,
+              "bottom": 123.36300000000006
+            }
+          ]
+        }
+      ],
+      "cross_field_issues": [],
+      "counts": {
+        "verified": 10,
+        "needs_review": 0,
+        "unsupported": 0
+      }
+    },
+    "review": {
+      "party_a": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "party_b": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "effective_date": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "term_length": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "termination_notice_period": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "governing_law": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "total_contract_value": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "key_obligations[0]": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "key_obligations[1]": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "key_obligations[2]": {
+        "status": "pending",
+        "edited_value": null
+      }
+    }
+  }
+}
