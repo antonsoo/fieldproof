@@ -188,6 +188,50 @@ a {
   flex-wrap: wrap;
 }
 
+.sample-switch {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg, transparent);
+}
+
+.sample-switch-btn {
+  padding: 5px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-ink-faint);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.sample-switch-btn:hover {
+  color: var(--color-ink);
+}
+
+.sample-switch-btn.is-active {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.sample-switch-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .sample-switch {
+    order: 3;
+    width: 100%;
+  }
+  .sample-switch-btn {
+    flex: 1;
+  }
+}
+
 .workbench {
   flex: 1;
   display: flex;
@@ -272,7 +316,9 @@ a {
   padding: 28px;
   color: var(--color-ink-muted);
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
 }
 
 .dropzone:hover,
@@ -374,7 +420,9 @@ a {
   border: 1.5px solid transparent;
   background: transparent;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .highlight-rect[data-status="verified"] {
@@ -627,7 +675,9 @@ a {
   font-size: 13px;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
   z-index: 50;
 }
 
@@ -667,4 +717,11 @@ a {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+.demo-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--color-ink-faint);
 }

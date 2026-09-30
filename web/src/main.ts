@@ -1,12 +1,7 @@
 import "./style.css";
 import { createDataSource } from "./datasource";
 import { computeExportRows, downloadBlob, rowsToCsv } from "./export";
-import type {
-  DocumentSummary,
-  ExtractionResult,
-  FieldStatus,
-  FieldVerification,
-} from "./types";
+import type { DocumentSummary, ExtractionResult, FieldStatus, FieldVerification } from "./types";
 import { SCHEMA_NAMES } from "./types";
 
 /** Page images are rendered server- and build-side at 2x the PDF's point
@@ -154,7 +149,9 @@ function renderTopbar(): void {
       <span class="brand-mark">fieldproof</span>
       ${countsHtml}
     </div>
+    ${sampleSwitchHtml()}
     <div class="topbar-controls">
+      ${ds.kind === "live" && state.document ? `<button class="btn" id="new-document" type="button">New document</button>` : ""}
       ${state.extraction ? exportControlsHtml() : ""}
       <button class="btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">
         ${currentTheme() === "dark" ? "☀️ Light" : "☽ Dark"}
@@ -165,6 +162,38 @@ function renderTopbar(): void {
   bar.querySelector<HTMLButtonElement>("#theme-toggle")?.addEventListener("click", toggleTheme);
   bar.querySelector<HTMLButtonElement>("#export-json")?.addEventListener("click", () => exportAs("json"));
   bar.querySelector<HTMLButtonElement>("#export-csv")?.addEventListener("click", () => exportAs("csv"));
+  bar.querySelector<HTMLButtonElement>("#new-document")?.addEventListener("click", resetToStart);
+  bar.querySelectorAll<HTMLButtonElement>("[data-switch-sample]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // The hash is the single source of truth for which sample is open (deep links, back button).
+      window.location.hash = btn.dataset.switchSample!;
+    });
+  });
+}
+
+/** Demo mode: one button per sample document, so switching doesn't need a reload. */
+function sampleSwitchHtml(): string {
+  if (ds.kind !== "demo" || state.samples.length === 0) return "";
+  const active = state.document?.id;
+  return `
+    <nav class="sample-switch" aria-label="Sample documents">
+      ${state.samples
+        .map(
+          (s) =>
+            `<button class="sample-switch-btn ${s.id === active ? "is-active" : ""}" type="button" data-switch-sample="${esc(s.id)}" ${s.id === active ? 'aria-current="page"' : ""}>${esc(s.label)}</button>`,
+        )
+        .join("")}
+    </nav>
+  `;
+}
+
+function resetToStart(): void {
+  state.document = null;
+  state.extraction = null;
+  state.selectedPath = null;
+  state.fixtureFile = null;
+  renderTopbar();
+  renderWorkbench();
 }
 
 function exportControlsHtml(): string {
@@ -257,17 +286,45 @@ async function renderStart(): Promise<void> {
 
 async function loadSample(id: string): Promise<void> {
   if (!ds.loadSample) return;
-  const { document: doc, extraction } = await ds.loadSample(id);
-  state.document = doc;
-  state.extraction = extraction;
+  let loaded: Awaited<ReturnType<NonNullable<typeof ds.loadSample>>>;
+  try {
+    loaded = await ds.loadSample(id);
+  } catch (err) {
+    toast(err instanceof Error ? `Could not load ${id}: ${err.message}` : `Could not load ${id}`);
+    return;
+  }
+  state.document = loaded.document;
+  state.extraction = loaded.extraction;
   state.currentPage = 1;
   state.zoomIsAuto = true;
   state.selectedPath = null;
   state.statusFilter = "all";
   state.searchQuery = "";
   renderTopbar();
-  renderWorkbench();
+  // Open on the first field the verifier flagged: the demo's point is what it catches.
+  const flagged = filteredFields().find((f) => f.status !== "verified");
+  if (flagged) selectField(flagged.path, { scroll: false });
+  else renderWorkbench();
 }
+
+/** Demo mode opens a sample straight away (the one named in the URL hash, else the first), rather
+ * than a landing page with nothing to inspect. */
+async function bootDemo(): Promise<void> {
+  state.samples = (await ds.listSamples?.().catch(() => [])) ?? [];
+  const requested = decodeURIComponent(window.location.hash.slice(1));
+  const target = state.samples.find((s) => s.id === requested) ?? state.samples[0];
+  if (!target) {
+    void renderStart();
+    return;
+  }
+  await loadSample(target.id);
+}
+
+window.addEventListener("hashchange", () => {
+  if (ds.kind !== "demo") return;
+  const id = decodeURIComponent(window.location.hash.slice(1));
+  if (state.samples.some((s) => s.id === id) && id !== state.document?.id) void loadSample(id);
+});
 
 async function uploadFile(file: File): Promise<void> {
   try {
@@ -341,7 +398,12 @@ async function runExtract(): Promise<void> {
   state.busy = true;
   renderConfigure();
   try {
-    state.extraction = await ds.extract(state.document.id, state.schemaName, state.provider, state.fixtureFile);
+    state.extraction = await ds.extract(
+      state.document.id,
+      state.schemaName,
+      state.provider,
+      state.fixtureFile,
+    );
     state.currentPage = 1;
     state.zoomIsAuto = true;
     renderTopbar();
@@ -383,9 +445,7 @@ function filteredFields(): FieldVerification[] {
     return f.path.toLowerCase().includes(q) || String(f.value).toLowerCase().includes(q);
   });
   if (state.statusFilter !== "all") return matched; // already one status - sorting would be a no-op
-  return [...matched].sort(
-    (a, b) => STATUS_SORT_PRIORITY[a.status] - STATUS_SORT_PRIORITY[b.status],
-  );
+  return [...matched].sort((a, b) => STATUS_SORT_PRIORITY[a.status] - STATUS_SORT_PRIORITY[b.status]);
 }
 
 function renderWorkbench(): void {
@@ -506,6 +566,11 @@ function renderFieldPaneHeader(): string {
       <div class="filter-row">
         <input class="text-input" id="search-input" type="search" placeholder="Search fields…" value="${esc(state.searchQuery)}" />
       </div>
+      ${
+        ds.kind === "demo"
+          ? `<p class="demo-note">Synthetic document. The extraction is a hand-written fixture with planted errors, grounded and verified by the real pipeline. Flagged fields come first; select one to see its evidence on the page.</p>`
+          : ""
+      }
     </div>
   `;
 }
@@ -678,11 +743,14 @@ function onFieldListKeydown(e: KeyboardEvent): void {
   }
 }
 
-function selectField(path: string, opts: { pulse?: boolean } = {}): void {
+function selectField(path: string, opts: { pulse?: boolean; scroll?: boolean } = {}): void {
   const field = state.extraction!.report.fields.find((f) => f.path === path);
   state.selectedPath = path;
   if (field?.page) state.currentPage = field.page;
   renderWorkbench();
+  // An automatic selection (opening a sample) must not scroll the window: on a narrow screen the
+  // panes stack, and scrolling the highlight into view would push the top bar off-screen.
+  if (opts.scroll === false) return;
 
   const rect = document.querySelector<HTMLElement>(`.highlight-rect[data-path="${cssAttrEscape(path)}"]`);
   rect?.scrollIntoView({ block: "center", inline: "center", behavior: "smooth" });
@@ -712,7 +780,11 @@ function setHoveredRow(path: string, on: boolean): void {
     ?.classList.toggle("is-hovered", on);
 }
 
-async function reviewField(path: string, action: "approve" | "edit" | "reject" | "reset", value?: string): Promise<void> {
+async function reviewField(
+  path: string,
+  action: "approve" | "edit" | "reject" | "reset",
+  value?: string,
+): Promise<void> {
   if (!state.document) return;
   try {
     const entry = await ds.review(state.document.id, path, action, value);
@@ -737,4 +809,5 @@ function renderFieldListOnly(): void {
 /* --------------------------------- boot ---------------------------------- */
 
 renderTopbar();
-void renderStart();
+if (ds.kind === "demo") void bootDemo();
+else void renderStart();

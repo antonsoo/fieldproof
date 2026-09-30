@@ -1,9 +1,4 @@
-import type {
-  DocumentSummary,
-  ExtractionResult,
-  ReviewAction,
-  ReviewEntry,
-} from "./types";
+import type { DocumentSummary, ExtractionResult, ReviewAction, ReviewEntry } from "./types";
 
 /** Everything the UI needs from a backend - implemented once against the
  * live FastAPI server, and once against bundled fixture JSON for the
@@ -155,7 +150,9 @@ export class DemoDataSource implements DataSource {
   }
 
   async uploadDocument(): Promise<DocumentSummary> {
-    throw new Error("Uploading isn't available in the static demo - see the README to run fieldproof locally.");
+    throw new Error(
+      "Uploading isn't available in the static demo - see the README to run fieldproof locally.",
+    );
   }
 
   pageImageUrl(documentId: string, pageNumber: number): string {
@@ -166,10 +163,22 @@ export class DemoDataSource implements DataSource {
     throw new Error("Re-extracting isn't available in the static demo.");
   }
 
-  async review(documentId: string, path: string, action: ReviewAction, value?: unknown): Promise<ReviewEntry> {
+  async review(
+    documentId: string,
+    path: string,
+    action: ReviewAction,
+    value?: unknown,
+  ): Promise<ReviewEntry> {
     const overlay = this.loadReviewOverlay(documentId);
     const entry: ReviewEntry = {
-      status: action === "approve" ? "approved" : action === "edit" ? "edited" : action === "reject" ? "rejected" : "pending",
+      status:
+        action === "approve"
+          ? "approved"
+          : action === "edit"
+            ? "edited"
+            : action === "reject"
+              ? "rejected"
+              : "pending",
       edited_value: action === "edit" ? ((value as string | number | boolean | null) ?? null) : null,
     };
     overlay[path] = entry;
