@@ -322,8 +322,9 @@ async function bootDemo(): Promise<void> {
 
 window.addEventListener("hashchange", () => {
   if (ds.kind !== "demo") return;
-  const id = decodeURIComponent(window.location.hash.slice(1));
-  if (state.samples.some((s) => s.id === id) && id !== state.document?.id) void loadSample(id);
+  // No hash (Back to the page as first opened) means the first sample, as in bootDemo.
+  const id = decodeURIComponent(window.location.hash.slice(1)) || state.samples[0]?.id;
+  if (id && state.samples.some((s) => s.id === id) && id !== state.document?.id) void loadSample(id);
 });
 
 async function uploadFile(file: File): Promise<void> {
