@@ -50,5 +50,6 @@ export function downloadBlob(filename: string, content: string, mime: string): v
   document.body.appendChild(a);
   a.click();
   a.remove();
-  URL.revokeObjectURL(url);
+  // Revoking in the same task can cancel the download in some browsers.
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
