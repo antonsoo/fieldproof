@@ -197,10 +197,15 @@ four hold:
    the whole row, e.g. a quantity of `1` is checked against `"Fuel
    surcharge 1 210.50 210.50"`), excluding percentages so `"Tax (8.5%)
    $208.93"` can't be misread as `8.5`; dates are parsed from either
-   ISO-8601 or a handful of common formats and compared as calendar dates;
+   ISO-8601 or a handful of common formats and compared as calendar dates,
+   and a numeric date whose first two parts are both 12 or under
+   (`03/04/2026`) is read in whichever order another date on the same
+   document settles (`03/14/2026` means month first) - with no such date it
+   goes to review rather than being verified under a guessed convention;
    strings use fuzzy partial-ratio (a short value inside a longer quote
-   should still match); booleans look for yes/no/confirmed/denied
-   language. Any mismatch -> `needs_review`.
+   should still match); booleans look for whole words like
+   yes/no/not/confirmed/denied (so "notice" isn't a "no"). Any mismatch ->
+   `needs_review`.
 4. **Cross-field rules.** For invoices and receipts: line items must sum to
    the subtotal, subtotal + tax must equal the total (both within a $0.02
    tolerance), and the due date must not precede the issue date. A failed

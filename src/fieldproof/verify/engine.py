@@ -35,11 +35,13 @@ from fieldproof.ground.align import (
 from fieldproof.schemas.base import iter_evidenced_fields
 from fieldproof.verify.cross_field import CrossFieldIssue, check_cross_field
 from fieldproof.verify.value_checks import (
+    DateOrder,
     ValueCheckResult,
     check_bool,
     check_date,
     check_number,
     check_string,
+    numeric_date_order,
 )
 
 #: Matches the "row" a list-item field belongs to, e.g. "line_items[1]" out
@@ -120,12 +122,17 @@ def verify(data: BaseModel, document: Document) -> VerificationReport:
     """
     results: list[FieldVerification] = []
     row_anchors: dict[str, GroundingMatch] = {}
+    # Whether this document writes numeric dates month or day first, if any of
+    # its dates settles it; see `check_date`.
+    date_order = numeric_date_order(document.full_text())
 
     for path, evidenced in iter_evidenced_fields(data):
         prefix = _row_prefix(path)
         hint = row_anchors.get(prefix) if prefix else None
 
-        result, match = _verify_field(path, evidenced, document, hint_match=hint)
+        result, match = _verify_field(
+            path, evidenced, document, hint_match=hint, date_order=date_order
+        )
         results.append(result)
 
         if prefix is not None and prefix not in row_anchors and match is not None:
@@ -138,7 +145,12 @@ def verify(data: BaseModel, document: Document) -> VerificationReport:
 
 
 def _verify_field(
-    path: str, evidenced: Any, document: Document, *, hint_match: GroundingMatch | None
+    path: str,
+    evidenced: Any,
+    document: Document,
+    *,
+    hint_match: GroundingMatch | None,
+    date_order: DateOrder | None = None,
 ) -> tuple[FieldVerification, GroundingMatch | None]:
     value = evidenced.value
 
@@ -197,7 +209,7 @@ def _verify_field(
             "paraphrase or contains OCR-like noise"
         )
 
-    check = _check_value(path, value, best_match.matched_text)
+    check = _check_value(path, value, best_match.matched_text, date_order)
     if not check.supported:
         reasons.append(check.reason)
 
@@ -218,14 +230,19 @@ def _verify_field(
     return result, best_match
 
 
-def _check_value(path: str, value: str | float | bool, evidence_text: str) -> ValueCheckResult:
+def _check_value(
+    path: str,
+    value: str | float | bool,
+    evidence_text: str,
+    date_order: DateOrder | None = None,
+) -> ValueCheckResult:
     if isinstance(value, bool):
         return check_bool(value, evidence_text)
     if isinstance(value, int | float):
         return check_number(float(value), evidence_text)
     if isinstance(value, str):
         if "date" in path.lower():
-            return check_date(value, evidence_text)
+            return check_date(value, evidence_text, date_order=date_order)
         return check_string(value, evidence_text)
     return ValueCheckResult(True)
 

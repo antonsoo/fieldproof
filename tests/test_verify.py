@@ -11,6 +11,7 @@ from fieldproof.verify.value_checks import (
     check_date,
     check_number,
     check_string,
+    numeric_date_order,
     parse_all_numbers,
     parse_date,
     parse_number,
@@ -60,6 +61,33 @@ def test_check_date_agrees_across_formats() -> None:
     assert not check_date("2026-01-01", "February 2, 2026").supported
 
 
+def test_ambiguous_numeric_date_needs_the_documents_convention() -> None:
+    # 03/04/2026 is 4 March month-first or 3 April day-first; alone it can't verify either.
+    for claimed in ("2026-03-04", "2026-04-03"):
+        result = check_date(claimed, "Date: 03/04/2026")
+        assert not result.supported
+        assert "month first" in result.reason and "day first" in result.reason
+    assert "neither reading" in check_date("2026-05-06", "Date: 03/04/2026").reason
+    # Once the document settles the order, the date verifies (or not) as usual.
+    assert check_date("2026-04-03", "Date: 03/04/2026", date_order="dmy").supported
+    assert not check_date("2026-03-04", "Date: 03/04/2026", date_order="dmy").supported
+    assert check_date("2026-03-04", "Date: 03/04/2026", date_order="mdy").supported
+    # Unambiguous dates are unaffected: a part over 12, equal parts, ISO or a written month.
+    assert check_date("2026-03-14", "03/14/2026 09:41 AM").supported
+    assert check_date("2026-03-14", "14/03/2026").supported
+    assert check_date("2026-04-04", "04/04/2026").supported
+    assert check_date("2026-03-04", "Issued 2026-03-04").supported
+    assert check_date("2026-03-04", "March 4, 2026").supported
+
+
+def test_numeric_date_order_comes_from_a_date_that_settles_it() -> None:
+    assert numeric_date_order("Issued 03/14/2026, due 04/05/2026") == "mdy"
+    assert numeric_date_order("Issued 14/03/2026, due 04/05/2026") == "dmy"
+    assert numeric_date_order("Issued 03/04/2026") is None
+    assert numeric_date_order("14/03/2026 and 03/14/2026") is None
+    assert numeric_date_order("Invoice 2026-03-04, ref 11/12") is None
+
+
 def test_check_string_fuzzy_tolerant_of_minor_differences() -> None:
     assert check_string("Acme Corporation", "Acme Corporation").supported
     assert not check_string("Acme Corporation", "a totally different vendor name").supported
@@ -68,6 +96,14 @@ def test_check_string_fuzzy_tolerant_of_minor_differences() -> None:
 def test_check_bool_reads_yes_no_language() -> None:
     assert check_bool(True, "Confirmed: yes").supported
     assert check_bool(False, "Status: denied").supported
+
+
+def test_check_bool_matches_whole_words() -> None:
+    # "no" inside "notice", "November" or "none" is not a negation.
+    assert check_bool(True, "Approved in November, with notice given").supported
+    assert check_bool(False, "Renewal: no").supported
+    assert check_bool(False, "This agreement is not renewable").supported
+    assert not check_bool(True, "Approved: no").supported
 
 
 def _invoice(**overrides: object) -> Invoice:

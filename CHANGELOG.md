@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased] - 2026-09-30
 
+### Fixed
+
+- A numeric date with both parts 12 or under (`03/04/2026`) was always read
+  month first, so a day-first document's correctly extracted date was flagged
+  and a month-first misreading of it was marked verified. Such a date is now
+  read in the order another date on the same document settles, and goes to
+  review when none does.
+- Boolean checks matched substrings: "no" inside "notice", "November" or
+  "none" counted as a negation. They match whole words now.
+
 ### Changed
 
 - The live demo opens on the invoice with its first flagged field selected,
