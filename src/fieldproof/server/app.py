@@ -19,6 +19,7 @@ from fastapi.responses import JSONResponse, PlainTextResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
+from fieldproof import __version__
 from fieldproof.document.loader import EmptyDocumentError, load_pdf
 from fieldproof.document.render import render_page_png
 from fieldproof.extract.anthropic_provider import AnthropicExtractor
@@ -27,7 +28,7 @@ from fieldproof.schemas import BUILTIN_SCHEMAS
 from fieldproof.server.store import DocumentSession, ReviewState, store
 from fieldproof.verify.engine import verify
 
-app = FastAPI(title="fieldproof", version="0.1.0")
+app = FastAPI(title="fieldproof", version=__version__)
 
 
 def _find_static_dir() -> Path:
