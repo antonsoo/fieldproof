@@ -2,6 +2,25 @@
 
 All notable changes to this project are documented in this file.
 
+## [Unreleased] - 2026-09-30
+
+### Changed
+
+- The live demo opens on the invoice with its first flagged field selected,
+  instead of a landing page with three buttons. A sample switcher in the top
+  bar changes documents without a reload, and `#invoice` / `#receipt` /
+  `#contract` link straight to one.
+- `fieldproof serve`: a "New document" button returns to the upload screen.
+- A short note in the demo's field pane says the documents are synthetic
+  and the extractions are fixtures with planted errors.
+
+### Fixed
+
+- Opening a sample on a narrow screen no longer scrolls the top bar out of
+  view.
+- The Anthropic provider's docs no longer call Claude Opus 5.5 Anthropic's
+  most capable model.
+
 ## [0.1.0] - 2026-09-24
 
 Initial release.

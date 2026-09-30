@@ -19,9 +19,9 @@ from pydantic import BaseModel
 from fieldproof.document.model import Document
 from fieldproof.extract.base import ExtractionError, ExtractionResult
 
-#: Anthropic's current most capable model (see the claude-api skill's model
-#: table). Override via the `model` constructor argument (or the CLI's
-#: `--model` flag) for a cheaper or faster one.
+#: Claude Opus 5.5, the current Opus model. Override via the `model`
+#: constructor argument (or the CLI's `--model` flag), e.g. with
+#: `claude-sonnet-5-5` for a cheaper and faster one.
 DEFAULT_MODEL = "claude-opus-5-5"
 
 _SYSTEM_PROMPT = """You are a meticulous document-extraction assistant. You will be given \

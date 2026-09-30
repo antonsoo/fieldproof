@@ -29,7 +29,9 @@ to confirm or fix whatever's left. Every field ends up `verified`,
 
 **[antonsoo.github.io/fieldproof](https://antonsoo.github.io/fieldproof/)** - three
 synthetic sample documents (invoice, receipt, contract), grounded and
-verified ahead of time by the real Python pipeline. The candidate extractions
+verified ahead of time by the real Python pipeline. It opens on the invoice
+with its first flagged field selected; switch documents from the top bar, or
+link straight to one (`#receipt`, `#contract`). The candidate extractions
 are hand-written fixtures in the shape an LLM returns, with deliberately
 planted errors - a hallucinated PO number, a total
 that doesn't match its line items, and a misread date - so you can see exactly
@@ -92,9 +94,8 @@ fieldproof verify result.json doc.pdf   # re-ground/re-verify an existing extrac
 fieldproof serve --port 8000            # API + review UI
 ```
 
-`--provider anthropic` defaults to `claude-opus-5-5` (Claude Opus 5.5, Anthropic's
-current most capable model); pass `--model claude-opus-5` or any other model id to
-override it.
+`--provider anthropic` defaults to `claude-opus-5-5` (Claude Opus 5.5); pass
+`--model claude-sonnet-5-5` or any other model id to override it.
 
 Real output, captured from this repo's sample documents:
 
