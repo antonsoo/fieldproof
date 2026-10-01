@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from fieldproof.document.loader import load_pdf
+from fieldproof.document.model import BBox, Page, Word
 from fieldproof.ground.align import (
     find_candidates,
     find_quote,
@@ -157,3 +158,68 @@ def test_nearest_candidate_picks_the_occurrence_closest_to_the_hint() -> None:
     resolved = nearest_candidate(candidates, hint)
     assert resolved.top == first_row.top
     assert resolved is not second_row
+
+
+def _page(text: str) -> Page:
+    """A one-line page whose words are split on spaces, the way pdfplumber splits them."""
+    words: list[Word] = []
+    offset = 0
+    for token in text.split(" "):
+        box = BBox(x0=float(offset), top=10.0, x1=float(offset + len(token)), bottom=20.0)
+        words.append(Word(text=token, bbox=box, start=offset, end=offset + len(token)))
+        offset += len(token) + 1
+    return Page(number=1, width=600.0, height=800.0, text=text, words=words)
+
+
+def test_a_fragment_of_a_longer_word_is_not_found() -> None:
+    # The exact matcher refused these, and the fuzzy fallback then scored the
+    # same fragment 100 as a perfect partial match: "verified", on the wrong text.
+    page = _page("Northwind Freight invoice NW-20260214 at 4821 Harbor Road total $2,458.00")
+    for fragment in ("wind", "0214", "1", "58", "bor"):
+        assert find_candidates(fragment, page) == [], fragment
+
+
+def test_a_near_miss_of_a_word_is_a_weak_match_to_the_whole_word() -> None:
+    page = _page("ship to 4821 Harbor Road")
+    (match,) = find_candidates("arbor", page)
+    assert match.matched_text == "Harbor"
+    assert not match.is_exact and not match.is_strong
+
+
+def test_a_longer_fragment_is_judged_against_the_whole_word() -> None:
+    page = _page("Northwind Freight invoice NW-20260214 total $2,458.00")
+    part_of_number = find_candidates("458.00", page)
+    assert [m.matched_text for m in part_of_number] == ["$2,458.00"]
+    assert not part_of_number[0].is_strong
+
+    part_of_id = find_candidates("20260214", page)
+    assert [m.matched_text for m in part_of_id] == ["NW-20260214"]
+    assert not part_of_id[0].is_strong
+
+
+def test_punctuation_glued_to_a_word_may_be_left_out_of_the_quote() -> None:
+    page = _page("Qty: 1, shipped (2) pallets for $2,458.00. Signed by Dana Co.")
+    for quote, matched in (
+        ("1", "1"),
+        ("2", "2"),
+        ("2,458.00", "2,458.00"),
+        ("Dana Co", "Dana Co"),
+    ):
+        candidates = find_candidates(quote, page)
+        assert [(m.matched_text, m.score) for m in candidates] == [(matched, 100.0)], quote
+
+
+def test_every_occurrence_next_to_punctuation_is_a_candidate() -> None:
+    # Reaching the fuzzy fallback returned one of these and hid that the quote is ambiguous.
+    page = _page("Widget 1, 4.00 Gadget 1, 9.00")
+    assert len(find_candidates("1", page)) == 2
+
+
+def test_a_match_cannot_begin_or_end_inside_a_ligature() -> None:
+    page = _page("the \ufb01nal o\ufb03ce report")  # "final office", with fi and ffi ligatures
+    assert [m.matched_text for m in find_candidates("final", page)] == ["\ufb01nal"]
+    assert [m.matched_text for m in find_candidates("office", page)] == ["o\ufb03ce"]
+    # Half of a ligature is a fragment like any other: no exact match, and what
+    # the fuzzy fallback finds is scored against the whole word.
+    assert not any(m.is_strong for m in find_candidates("inal", page))
+    assert find_candidates("off", page) == []

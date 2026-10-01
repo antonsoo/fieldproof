@@ -10,7 +10,6 @@ would have produced.
 
 from __future__ import annotations
 
-import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import TypeVar
@@ -18,7 +17,7 @@ from typing import TypeVar
 from pydantic import BaseModel
 
 from fieldproof.document.model import Document
-from fieldproof.extract.base import ExtractionResult
+from fieldproof.extract.base import ExtractionResult, read_extraction_json, validate_data
 
 T = TypeVar("T", bound=BaseModel)
 
@@ -36,12 +35,12 @@ class FixtureExtractor:
 
     def extract(self, document: Document, schema: type[T]) -> ExtractionResult:
         del document  # unused: part of the Extractor protocol
-        raw = json.loads(Path(self.fixture_path).read_text(encoding="utf-8"))
-        payload = raw.get("data", raw)
-        data = schema.model_validate(payload)
+        source = Path(self.fixture_path).name
+        raw = read_extraction_json(Path(self.fixture_path).read_bytes(), source)
+        model = raw.get("model")
         return ExtractionResult(
             schema_name=schema.__name__,
-            data=data,
+            data=validate_data(raw.get("data", raw), schema, source),
             provider="fixture",
-            model=raw.get("model", str(self.fixture_path)),
+            model=model if isinstance(model, str) else str(self.fixture_path),
         )

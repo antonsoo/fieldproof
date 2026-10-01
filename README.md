@@ -176,10 +176,14 @@ four hold:
    [rapidfuzz](https://github.com/rapidfuzz/RapidFuzz)'s partial-ratio
    alignment (`fuzz.partial_ratio_alignment`) for the best-scoring substring
    of the page. Below a 70/100 score, the quote is treated as not found; a
-   match under 92/100 is flagged as weak evidence even if it's found. Exact
-   matches are required to land on whole word boundaries - a quote like
-   `"1"` can never match the trailing digit of a street number like
-   `"4821"` - and when a quote genuinely occurs more than once,
+   match under 92/100 is flagged as weak evidence even if it's found. A
+   match has to cover whole words - a quote like `"1"` can never match the
+   trailing digit of a street number like `"4821"`, though it may leave out
+   punctuation glued to a word (the comma in `"1,"`, the `$` in
+   `"$2,458.00"`). When the best fuzzy window cuts a word, the quote is
+   scored against the whole words instead, so `"wind"` is not found in
+   `"Northwind"` and `"458.00"` is only a weak match for `"$2,458.00"`.
+   When a quote genuinely occurs more than once,
    `fieldproof.verify.engine` disambiguates it by preferring whichever
    occurrence is on the same row as another field from the same object
    that's already been grounded (e.g. a line item's `quantity` next to its
@@ -203,7 +207,9 @@ four hold:
    document settles (`03/14/2026` means month first) - with no such date it
    goes to review rather than being verified under a guessed convention;
    strings use fuzzy partial-ratio (a short value inside a longer quote
-   should still match); booleans look for whole words like
+   should still match), except that every run of digits in the value must
+   be in the evidence as written - `NW-20260215` is 96% similar to
+   `NW-20260214` and a different invoice; booleans look for whole words like
    yes/no/not/confirmed/denied (so "notice" isn't a "no"). Any mismatch ->
    `needs_review`.
 4. **Cross-field rules.** For invoices and receipts: line items must sum to

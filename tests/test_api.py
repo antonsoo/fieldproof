@@ -169,3 +169,31 @@ def test_extract_anthropic_without_api_key_returns_clear_error(
 def test_unknown_document_returns_404(client: TestClient) -> None:
     r = client.get("/api/documents/does-not-exist")
     assert r.status_code == 404
+
+
+@pytest.mark.parametrize(
+    ("content", "expected"),
+    [
+        (b"{ not json", "extraction.json is not valid JSON"),
+        (b"[1, 2]", "extraction.json must hold a JSON object, not list"),
+        (b"\xff\xfe", "extraction.json is not UTF-8 text"),
+        (b'{"data": {"total": "x"}}', "extraction.json does not match the Invoice schema"),
+    ],
+)
+def test_extract_with_an_unusable_fixture_is_a_422_that_says_why(
+    client: TestClient, simple_invoice_pdf_bytes: bytes, content: bytes, expected: str
+) -> None:
+    # Each of these was an unhandled exception: a bare 500 in the review UI.
+    upload = client.post(
+        "/api/documents",
+        files={"file": ("invoice.pdf", io.BytesIO(simple_invoice_pdf_bytes), "application/pdf")},
+    )
+    doc_id = upload.json()["id"]
+    r = client.post(
+        f"/api/documents/{doc_id}/extract",
+        data={"schema": "invoice", "provider": "fixture"},
+        files={"fixture": ("extraction.json", io.BytesIO(content), "application/json")},
+    )
+    assert r.status_code == 422
+    assert expected in r.json()["detail"]
+    assert client.get(f"/api/documents/{doc_id}/report").status_code == 404  # nothing was stored

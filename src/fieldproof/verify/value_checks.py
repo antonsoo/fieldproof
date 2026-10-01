@@ -270,6 +270,9 @@ def _numeric_date_in(text: str) -> re.Match[str] | None:
     return _NUMERIC_DATE.search(text)
 
 
+_DIGIT_RUN = re.compile(r"\d+")
+
+
 def check_string(
     value: str, evidence_text: str, *, threshold: float = STRING_MATCH_THRESHOLD
 ) -> ValueCheckResult:
@@ -279,6 +282,18 @@ def check_string(
     partial-ratio (best-matching substring) rather than whole-string
     similarity - a short value inside a longer quote should still verify."""
     normalized_value, normalized_evidence = normalize(value), normalize(evidence_text)
+    # Wording can differ a little and still be the same name. A number can't:
+    # "NW-20260215" against a page that reads "NW-20260214" is 96% similar and
+    # a different invoice. Every run of digits in the value has to be in the
+    # evidence as written.
+    evidence_numbers = set(_DIGIT_RUN.findall(normalized_evidence))
+    for number in _DIGIT_RUN.findall(normalized_value):
+        if number not in evidence_numbers:
+            return ValueCheckResult(
+                False,
+                f"value {value!r} contains {number!r}, "
+                f"which the evidence {evidence_text!r} does not",
+            )
     score = fuzz.partial_ratio(normalized_value, normalized_evidence)
     if score >= threshold:
         return ValueCheckResult(True)

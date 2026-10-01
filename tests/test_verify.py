@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from fieldproof.document.loader import load_pdf
@@ -318,3 +319,37 @@ def test_verify_marks_ambiguous_quote_needs_review_when_no_locality_hint() -> No
     po_result = next(f for f in report.fields if f.path == "po_number")
     assert po_result.status == FieldStatus.NEEDS_REVIEW
     assert any("ambiguous" in r for r in po_result.reasons)
+
+
+def test_check_string_requires_the_value_s_digits_in_the_evidence() -> None:
+    # 96% similar, and a different invoice.
+    wrong = check_string("NW-20260215", "Invoice Number: NW-20260214")
+    assert not wrong.supported
+    assert "contains '20260215'" in wrong.reason
+    assert check_string("NW-20260214", "Invoice Number: NW-20260214").supported
+    assert check_string("Net 30", "Payment Terms: Net 30 days").supported
+    assert not check_string("Net 60", "Payment Terms: Net 30 days").supported
+    assert check_string("Acme Corporatian", "Acme Corporation").supported  # wording may differ
+
+
+def _invoice_with(field_name: str, value: object, quote: str):  # type: ignore[no-untyped-def]
+    raw = json.loads((EXAMPLES_DIR / "fixtures" / "invoice.json").read_text())["data"]
+    raw[field_name] = {"value": value, "evidence": [quote], "page": 1}
+    report = verify(Invoice.model_validate(raw), load_pdf(EXAMPLES_DIR / "invoice.pdf"))
+    return next(f for f in report.fields if f.path == field_name)
+
+
+def test_a_value_quoted_from_inside_a_longer_word_is_not_verified() -> None:
+    # The example invoice reads "Northwind Freight & Supply Co." and "NW-20260214".
+    # Both of these came out verified at 100/100.
+    for field_name, value in (("vendor_name", "wind"), ("invoice_number", "0214")):
+        result = _invoice_with(field_name, value, value)
+        assert result.status is FieldStatus.UNSUPPORTED, field_name
+        assert result.rects == []
+
+
+def test_an_identifier_one_digit_off_is_not_verified() -> None:
+    result = _invoice_with("invoice_number", "NW-20260215", "Invoice Number: NW-20260215")
+    assert result.status is FieldStatus.NEEDS_REVIEW
+    assert any("contains '20260215'" in reason for reason in result.reasons)
+    assert result.matched_text == "Invoice Number: NW-20260214"

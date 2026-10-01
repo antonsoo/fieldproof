@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 
+import anthropic
 import pytest
 
 from fieldproof.document.model import Document, Page
@@ -125,3 +126,67 @@ def test_anthropic_extractor_raises_when_no_parsed_output() -> None:
 
     with pytest.raises(ExtractionError, match="max_tokens"):
         extractor.extract(_empty_document(), Invoice)
+
+
+class _FailingMessagesAPI:
+    def __init__(self, error: Exception) -> None:
+        self._error = error
+
+    def parse(self, **kwargs: object) -> SimpleNamespace:
+        raise self._error
+
+
+def test_anthropic_extractor_reports_an_api_failure_as_an_extraction_error() -> None:
+    client = SimpleNamespace(messages=_FailingMessagesAPI(anthropic.AnthropicError("overloaded")))
+    extractor = AnthropicExtractor(client=client)  # type: ignore[arg-type]
+    with pytest.raises(ExtractionError, match="the Anthropic API request failed: overloaded"):
+        extractor.extract(_empty_document(), Invoice)
+
+
+def test_anthropic_extractor_names_missing_credentials() -> None:
+    # What the SDK raises when it has no key or token to send.
+    error = TypeError("Could not resolve authentication method. Expected one of api_key, ...")
+    client = SimpleNamespace(messages=_FailingMessagesAPI(error))
+    extractor = AnthropicExtractor(client=client)  # type: ignore[arg-type]
+    with pytest.raises(ExtractionError, match="set ANTHROPIC_API_KEY"):
+        extractor.extract(_empty_document(), Invoice)
+
+
+def test_anthropic_extractor_leaves_other_type_errors_alone() -> None:
+    client = SimpleNamespace(messages=_FailingMessagesAPI(TypeError("unexpected keyword")))
+    extractor = AnthropicExtractor(client=client)  # type: ignore[arg-type]
+    with pytest.raises(TypeError, match="unexpected keyword"):
+        extractor.extract(_empty_document(), Invoice)
+
+
+@pytest.mark.parametrize(
+    ("content", "message"),
+    [
+        (b"{ not json", r"fixture\.json is not valid JSON \(line 1, column 3"),
+        (b"[1, 2]", "fixture.json must hold a JSON object, not list"),
+        (b"\xff\xfe", "fixture.json is not UTF-8 text"),
+        (b'{"data": {"vendor_name": 5}}', "does not match the Invoice schema: vendor_name: "),
+        (b'{"data": []}', "does not match the Invoice schema: data: "),
+    ],
+)
+def test_fixture_that_cannot_be_used_says_why(tmp_path: Path, content: bytes, message: str) -> None:
+    path = tmp_path / "fixture.json"
+    path.write_bytes(content)
+    with pytest.raises(ExtractionError, match=message):
+        FixtureExtractor(fixture_path=path).extract(_empty_document(), Invoice)
+
+
+def test_schema_mismatch_lists_the_first_problems_and_counts_the_rest(tmp_path: Path) -> None:
+    path = tmp_path / "fixture.json"
+    path.write_text('{"data": {}}')
+    with pytest.raises(ExtractionError) as caught:
+        FixtureExtractor(fixture_path=path).extract(_empty_document(), Invoice)
+    message = str(caught.value)
+    assert message.startswith("fixture.json does not match the Invoice schema: vendor_name: Field")
+    assert message.endswith("(and 1 more)")
+    assert "\n" not in message
+
+
+def test_result_without_data_is_an_extraction_error() -> None:
+    with pytest.raises(ExtractionError, match='result.json has no "data" object'):
+        ExtractionResult.from_dict({"schema": "invoice"}, Invoice, source="result.json")

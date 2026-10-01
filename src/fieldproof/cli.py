@@ -4,13 +4,15 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import NoReturn
 
 import typer
 import uvicorn
 
 from fieldproof.document.loader import EmptyDocumentError, load_pdf
+from fieldproof.document.model import Document
 from fieldproof.extract.anthropic_provider import DEFAULT_MODEL, AnthropicExtractor
-from fieldproof.extract.base import ExtractionResult
+from fieldproof.extract.base import ExtractionError, ExtractionResult, read_extraction_json
 from fieldproof.extract.fixture_provider import FixtureExtractor
 from fieldproof.schemas import BUILTIN_SCHEMAS, resolve_schema
 from fieldproof.verify.engine import verify as run_verify
@@ -20,6 +22,22 @@ app = typer.Typer(
     help="Document extraction that shows its work: every field linked to the words it came from.",
     no_args_is_help=True,
 )
+
+
+def _fail(message: str, code: int = 1) -> NoReturn:
+    typer.echo(f"error: {message}", err=True)
+    raise typer.Exit(code=code)
+
+
+def _load_document(path: Path) -> Document:
+    """The PDF, or a one-line error: a file that isn't a PDF is the caller's to
+    fix, and pdfplumber's own exception for it is a page of traceback."""
+    try:
+        return load_pdf(path)
+    except EmptyDocumentError as exc:
+        _fail(str(exc))
+    except Exception as exc:  # pdfplumber raises a variety of parse errors
+        _fail(f"could not read {path} as a PDF: {exc}")
 
 
 @app.command()
@@ -47,22 +65,19 @@ def extract(
         )
         raise typer.Exit(code=2)
 
-    try:
-        doc = load_pdf(document)
-    except EmptyDocumentError as exc:
-        typer.echo(f"error: {exc}", err=True)
-        raise typer.Exit(code=1) from exc
+    if provider not in ("fixture", "anthropic"):
+        _fail(f"unknown provider {provider!r}", code=2)
+    if provider == "fixture" and fixture is None:
+        _fail("--provider fixture requires --fixture <path>", code=2)
 
-    if provider == "fixture":
-        if fixture is None:
-            typer.echo("error: --provider fixture requires --fixture <path>", err=True)
-            raise typer.Exit(code=2)
-        result = FixtureExtractor(fixture_path=fixture).extract(doc, schema_cls)
-    elif provider == "anthropic":
-        result = AnthropicExtractor(model=model).extract(doc, schema_cls)
-    else:
-        typer.echo(f"error: unknown provider {provider!r}", err=True)
-        raise typer.Exit(code=2)
+    doc = _load_document(document)
+    try:
+        if fixture is not None and provider == "fixture":
+            result = FixtureExtractor(fixture_path=fixture).extract(doc, schema_cls)
+        else:
+            result = AnthropicExtractor(model=model).extract(doc, schema_cls)
+    except (ExtractionError, OSError) as exc:
+        _fail(str(exc))
 
     report = run_verify(result.data, doc)
     # Write the registry key ("invoice"), not result.schema_name (the class
@@ -95,19 +110,21 @@ def verify(
     `schema` name (one of fieldproof's built-ins) and a `data` object shaped
     like that schema, with `{value, evidence, page}` at every leaf.
     """
-    raw = json.loads(result.read_text(encoding="utf-8"))
-    schema_name = raw.get("schema", "")
-    schema_cls = resolve_schema(schema_name)
-    if schema_cls is None:
-        typer.echo(
-            f'error: result.json\'s "schema" is {schema_name!r}; must name one of '
-            f"{sorted(BUILTIN_SCHEMAS)} (by registry key or class name) to re-verify from the CLI",
-            err=True,
-        )
-        raise typer.Exit(code=2)
-
-    extraction = ExtractionResult.from_dict(raw, schema_cls)
-    doc = load_pdf(document)
+    try:
+        raw = read_extraction_json(result.read_bytes(), result.name)
+        schema_name = raw.get("schema", "")
+        schema_cls = resolve_schema(schema_name)
+        if schema_cls is None:
+            _fail(
+                f'{result.name}\'s "schema" is {schema_name!r}; must name one of '
+                f"{sorted(BUILTIN_SCHEMAS)} (by registry key or class name) "
+                "to re-verify from the CLI",
+                code=2,
+            )
+        extraction = ExtractionResult.from_dict(raw, schema_cls, source=result.name)
+    except ExtractionError as exc:
+        _fail(str(exc), code=2)
+    doc = _load_document(document)
     report = run_verify(extraction.data, doc)
 
     destination = out or result

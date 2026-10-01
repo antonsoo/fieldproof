@@ -5,10 +5,14 @@ we can't point at where on the page it actually is - and worse than
 worthless if it points at the *wrong* place while still reporting
 "verified". A short quote like "1" must never be allowed to match the
 trailing digit of a street address like "4821": every exact match is
-required to land on whole word boundaries (`_word_aligned_occurrences`),
-and when a quote genuinely occurs more than once, `find_candidates` returns
-every occurrence rather than silently picking the first one, so a caller
-(`fieldproof.verify.engine`) can disambiguate by context or admit it can't.
+required to cover whole words (`_word_aligned_occurrences`; punctuation
+attached to a word, like the comma in "1," or the "$" in "$2,458.00", may be
+left out, letters and digits may not), and a fuzzy match that cuts a word is
+scored against the whole words it touches (`_fuzzy_match`), so "wind" does
+not count as found in "Northwind". When a quote genuinely occurs more than
+once, `find_candidates` returns every occurrence rather than silently
+picking the first one, so a caller (`fieldproof.verify.engine`) can
+disambiguate by context or admit it can't.
 """
 
 from __future__ import annotations
@@ -62,15 +66,33 @@ class GroundingMatch:
         return sum(w.bbox.top for w in self.words) / len(self.words)
 
 
+def _covers_whole_words(page: Page, start: int, end: int, words: list[Word]) -> bool:
+    """Does the span `[start, end)` cover every letter and digit of the words
+    it touches? Punctuation glued to a word may be left outside: the page's
+    words are split on whitespace, so "1," and "$2,458.00" are one word each,
+    and a quote of "1" or "2,458.00" still names the whole of what is there.
+    "458.00" does not: the "2," it leaves out is part of the number."""
+    left_out = page.text[words[0].start : start] + page.text[end : words[-1].end]
+    return not any(ch.isalnum() for ch in left_out)
+
+
+def _splits_a_character(index_map: list[int], first: int, last: int) -> bool:
+    """One page character can normalize to several (the ligature "\ufb01" to
+    "fi"). Does the normalized span `first..last` begin or end between them?
+    Its page span would then cover a character the quote only half matches."""
+    begins_inside = first > 0 and index_map[first - 1] == index_map[first]
+    ends_inside = last + 1 < len(index_map) and index_map[last + 1] == index_map[last]
+    return begins_inside or ends_inside
+
+
 def _word_aligned_occurrences(quote: str, page: Page) -> list[GroundingMatch]:
-    """Every exact (normalized) occurrence of `quote` in `page` whose span
-    starts and ends on a whole word boundary - i.e. never starts or ends
-    mid-token. Without this check, a one-character quote like "1" would
-    happily match the trailing digit of "4821"; pdfplumber never splits
-    "4821" into separate word tokens, so requiring both the match's start
-    and its end to coincide with some word's start/end offset rules that
-    out entirely, while still allowing a quote that spans several whole
-    words (e.g. a full line-item row)."""
+    """Every exact (normalized) occurrence of `quote` in `page` that covers
+    whole words - i.e. never starts or ends mid-token. Without this check, a
+    one-character quote like "1" would happily match the trailing digit of
+    "4821"; pdfplumber never splits "4821" into separate word tokens, so
+    requiring the match to leave no letter or digit of a touched word
+    uncovered rules that out entirely, while still allowing a quote that
+    spans several whole words (e.g. a full line-item row)."""
     normalized_quote = normalize(quote)
     if not normalized_quote or not page.words:
         return []
@@ -78,9 +100,6 @@ def _word_aligned_occurrences(quote: str, page: Page) -> list[GroundingMatch]:
     norm_page_text, index_map = normalize_with_map(page.text)
     if not norm_page_text:
         return []
-
-    word_starts = {w.start for w in page.words}
-    word_ends = {w.end for w in page.words}
 
     matches: list[GroundingMatch] = []
     qlen = len(normalized_quote)
@@ -91,13 +110,14 @@ def _word_aligned_occurrences(quote: str, page: Page) -> list[GroundingMatch]:
             break
         search_from = idx + 1
 
-        start = index_map[idx]
-        end = index_map[idx + qlen - 1] + 1
-        if start not in word_starts or end not in word_ends:
+        last = idx + qlen - 1
+        if _splits_a_character(index_map, idx, last):
             continue
 
+        start = index_map[idx]
+        end = index_map[last] + 1
         words = _words_overlapping(page.words, start, end)
-        if not words:
+        if not words or not _covers_whole_words(page, start, end, words):
             continue
         matches.append(
             GroundingMatch(
@@ -134,12 +154,25 @@ def _fuzzy_match(quote: str, page: Page) -> GroundingMatch | None:
     if not words:
         return None
 
+    score = alignment.score
+    cut = _splits_a_character(index_map, alignment.dest_start, alignment.dest_end - 1)
+    if cut or not _covers_whole_words(page, start, end, words):
+        # The best window cuts a word: the quote is a fragment of something
+        # longer on the page ("wind" in "Northwind", "0214" in "NW-20260214").
+        # A fragment is a perfect *partial* match, which is exactly the
+        # misleading 100 this module exists to refuse. Judge the quote against
+        # the whole words instead.
+        start, end = words[0].start, words[-1].end
+        score = fuzz.ratio(normalized_quote, normalize(page.text[start:end]))
+        if score < MIN_MATCH_SCORE:
+            return None
+
     return GroundingMatch(
         quote=quote,
         page_number=page.number,
         start=start,
         end=end,
-        score=alignment.score,
+        score=score,
         matched_text=page.text[start:end],
         words=tuple(words),
     )

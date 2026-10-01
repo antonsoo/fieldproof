@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import csv
 import io
-import json
 import os
 from pathlib import Path
 from typing import Annotated, Any
@@ -23,7 +22,12 @@ from fieldproof import __version__
 from fieldproof.document.loader import EmptyDocumentError, load_pdf
 from fieldproof.document.render import render_page_png
 from fieldproof.extract.anthropic_provider import AnthropicExtractor
-from fieldproof.extract.base import ExtractionResult
+from fieldproof.extract.base import (
+    ExtractionError,
+    ExtractionResult,
+    read_extraction_json,
+    validate_data,
+)
 from fieldproof.schemas import BUILTIN_SCHEMAS
 from fieldproof.server.store import DocumentSession, ReviewState, store
 from fieldproof.verify.engine import verify
@@ -127,11 +131,18 @@ async def extract_document(
     if provider == "fixture":
         if fixture is None:
             raise HTTPException(status_code=400, detail="provider=fixture requires a fixture file")
-        raw = json.loads((await fixture.read()).decode("utf-8"))
-        payload = raw.get("data", raw)
-        data = schema.model_validate(payload)
+        source = fixture.filename or "the uploaded extraction"
+        try:
+            raw = read_extraction_json(await fixture.read(), source)
+            data = validate_data(raw.get("data", raw), schema, source)
+        except ExtractionError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
+        model = raw.get("model")
         extraction = ExtractionResult(
-            schema_name=schema.__name__, data=data, provider="fixture", model=raw.get("model")
+            schema_name=schema.__name__,
+            data=data,
+            provider="fixture",
+            model=model if isinstance(model, str) else None,
         )
     elif provider == "anthropic":
         if not os.environ.get("ANTHROPIC_API_KEY"):
@@ -139,7 +150,10 @@ async def extract_document(
                 status_code=400,
                 detail="provider=anthropic requires ANTHROPIC_API_KEY to be set on the server",
             )
-        extraction = AnthropicExtractor().extract(session.document, schema)
+        try:
+            extraction = AnthropicExtractor().extract(session.document, schema)
+        except ExtractionError as exc:
+            raise HTTPException(status_code=502, detail=str(exc)) from exc
     else:
         raise HTTPException(status_code=400, detail=f"unknown provider {provider!r}")
 

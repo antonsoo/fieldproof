@@ -13,7 +13,7 @@ BUILTIN_SCHEMAS: dict[str, type[BaseModel]] = {
 }
 
 
-def resolve_schema(name: str) -> type[BaseModel] | None:
+def resolve_schema(name: object) -> type[BaseModel] | None:
     """Look up a built-in schema by its registry key ("invoice") or its
     Python class name ("Invoice"), case-insensitively.
 
@@ -24,6 +24,8 @@ def resolve_schema(name: str) -> type[BaseModel] | None:
     naturally reaches for the class name instead - `fieldproof verify`
     needs to accept either.
     """
+    if not isinstance(name, str):  # read from someone's JSON: it can be anything
+        return None
     key = name.lower()
     if key in BUILTIN_SCHEMAS:
         return BUILTIN_SCHEMAS[key]

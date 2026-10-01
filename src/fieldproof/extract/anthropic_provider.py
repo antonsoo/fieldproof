@@ -65,13 +65,21 @@ class AnthropicExtractor:
         return self.client if self.client is not None else anthropic.Anthropic()
 
     def extract(self, document: Document, schema: type[T]) -> ExtractionResult:
-        response = self._get_client().messages.parse(
-            model=self.model,
-            max_tokens=self.max_tokens,
-            system=_SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": _build_prompt(document)}],
-            output_format=schema,
-        )
+        try:
+            response = self._get_client().messages.parse(
+                model=self.model,
+                max_tokens=self.max_tokens,
+                system=_SYSTEM_PROMPT,
+                messages=[{"role": "user", "content": _build_prompt(document)}],
+                output_format=schema,
+            )
+        except anthropic.AnthropicError as exc:
+            raise ExtractionError(f"the Anthropic API request failed: {exc}") from exc
+        except TypeError as exc:
+            # How the SDK reports that it found no API key or token to send.
+            if "authentication method" not in str(exc):
+                raise
+            raise ExtractionError("no Anthropic credentials found: set ANTHROPIC_API_KEY") from exc
         data = response.parsed_output
         if data is None:
             raise ExtractionError(
