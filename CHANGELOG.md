@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 
 ## [0.2.1] - 2026-10-01
 
+### Added
+
+- Published to PyPI: `pip install fieldproof`. The package includes the built
+  review UI, so `fieldproof serve` works without a Node toolchain
+  (`scripts/bundle_ui.py` builds it into the package before a release).
+- `fieldproof --version`.
+
 ### Fixed
 
 - A value quoted from inside a longer word could be marked `verified`. The

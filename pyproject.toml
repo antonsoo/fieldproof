@@ -2,10 +2,10 @@
 name = "fieldproof"
 version = "0.2.1"
 description = "Document extraction that shows its work: every field linked to the exact words it came from."
-readme = "README.md"
+dynamic = ["readme"]
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "Anton Soloviev" }]
+authors = [{ name = "Anton Soloviev", email = "anton@praviel.com" }]
 keywords = [
     "document-ai",
     "llm",
@@ -57,8 +57,41 @@ Issues = "https://github.com/antonsoo/fieldproof/issues"
 fieldproof = "fieldproof.cli:app"
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-fancy-pypi-readme"]
 build-backend = "hatchling.build"
+
+# PyPI doesn't resolve relative links, so the README's images and links are
+# rewritten to absolute GitHub URLs when the package is built: images first,
+# then every link that is still relative.
+[tool.hatch.metadata.hooks.fancy-pypi-readme]
+content-type = "text/markdown"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.fragments]]
+path = "README.md"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+pattern = '!\[([^\]]*)\]\((?!https?://)([^)\s]+)\)'
+replacement = '![\1](https://raw.githubusercontent.com/antonsoo/fieldproof/main/\2)'
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+pattern = 'src="(?!https?://)([^"]+)"'
+replacement = 'src="https://raw.githubusercontent.com/antonsoo/fieldproof/main/\1"'
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+pattern = '\]\((?!https?://|#|mailto:)([^)\s]+)\)'
+replacement = '](https://github.com/antonsoo/fieldproof/blob/main/\1)'
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+pattern = 'href="(?!https?://|#|mailto:)([^"]+)"'
+replacement = 'href="https://github.com/antonsoo/fieldproof/blob/main/\1"'
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/docs/*.md", "/README.md", "/CHANGELOG.md", "/LICENSE*", "/pyproject.toml"]
+
+[tool.hatch.build]
+# The review UI is built into this directory by scripts/bundle_ui.py. It is build
+# output, so git ignores it; listing it here puts it in the wheel and the sdist.
+artifacts = ["src/fieldproof/server/static/**"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/fieldproof"]

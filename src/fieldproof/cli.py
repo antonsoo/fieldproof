@@ -9,6 +9,7 @@ from typing import NoReturn
 import typer
 import uvicorn
 
+from fieldproof import __version__
 from fieldproof.document.loader import EmptyDocumentError, load_pdf
 from fieldproof.document.model import Document
 from fieldproof.extract.anthropic_provider import DEFAULT_MODEL, AnthropicExtractor
@@ -22,6 +23,21 @@ app = typer.Typer(
     help="Document extraction that shows its work: every field linked to the words it came from.",
     no_args_is_help=True,
 )
+
+
+def _print_version(value: bool) -> None:
+    if value:
+        typer.echo(f"fieldproof {__version__}")
+        raise typer.Exit
+
+
+@app.callback()
+def _options(
+    version: bool = typer.Option(
+        False, "--version", callback=_print_version, is_eager=True, help="show the version and exit"
+    ),
+) -> None:
+    pass
 
 
 def _fail(message: str, code: int = 1) -> NoReturn:

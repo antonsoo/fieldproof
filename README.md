@@ -40,12 +40,15 @@ JSON and static page images.
 
 ## Quickstart
 
-The sample documents used below live in the repo (`examples/`), so this
-clones it rather than installing blind from the registry-less package alone:
+```bash
+pip install fieldproof
+```
+
+The sample documents used below live in the repo (`examples/`), so clone it
+to try them:
 
 ```bash
-git clone https://github.com/antonsoo/fieldproof && cd fieldproof
-pip install -e .
+git clone --depth 1 https://github.com/antonsoo/fieldproof && cd fieldproof
 fieldproof extract examples/invoice.pdf --schema invoice --provider fixture \
   --fixture examples/fixtures/invoice.json --out result.json
 ```
@@ -53,8 +56,8 @@ fieldproof extract examples/invoice.pdf --schema invoice --provider fixture \
 `--provider fixture` replays a stored JSON extraction (no API key needed,
 useful for CI/offline). To extract with Claude instead, set
 `ANTHROPIC_API_KEY` and pass `--provider anthropic`. To review the result in
-the browser instead: `fieldproof serve` (see [Development](#development) for
-building the UI first).
+the browser instead: `fieldproof serve`. The PyPI package includes the built
+UI; from a source checkout, build it first (see [Development](#development)).
 
 ## Features
 
@@ -318,6 +321,10 @@ uv run mypy src
 
 cd web && npm ci && npm run typecheck && npm run lint && npm run build
 ```
+
+`fieldproof serve` from a checkout serves `web/dist`. For a release,
+`uv run python scripts/bundle_ui.py && uv build` builds the UI into the
+package first, so the wheel carries it.
 
 Regenerate the sample documents and demo data after changing them - the
 output (`web/public/demo-data/`) is committed, since the Pages deploy is a

@@ -102,6 +102,14 @@ def test_extract_accepts_a_model_override_flag() -> None:
     assert "--model" in result.output
 
 
+def test_version_flag() -> None:
+    import fieldproof
+
+    result = runner.invoke(app, ["--version"])
+    assert result.exit_code == 0
+    assert result.stdout.strip() == f"fieldproof {fieldproof.__version__}"
+
+
 def _one_line_error(result) -> str:  # type: ignore[no-untyped-def]
     """The command failed the way a command should: no traceback, one `error:` line."""
     assert result.exception is None or isinstance(result.exception, SystemExit), result.exception
