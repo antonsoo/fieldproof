@@ -27,6 +27,20 @@ All notable changes to this project are documented in this file.
   `NW-20260214` is 96% similar, which passed both the grounding and the value
   check. Every run of digits in a string value now has to appear in the
   evidence as written.
+- `--provider anthropic` against the real SDK. The provider had only met a
+  mocked client, which returned `parsed_output=None` for a reply that isn't
+  the schema. The SDK's `messages.parse` raises instead: an extraction cut
+  off at `max_tokens` (a long invoice) or refused came out as a pydantic
+  traceback, `Invalid JSON: EOF while parsing a string`. The provider now
+  streams the reply, reads its `stop_reason` and says which it was in one
+  line: `error: Claude's reply was cut off at 16000 output tokens, before the
+  Invoice was complete; raise the limit (--max-tokens) or extract a shorter
+  document`. New `--max-tokens` option. The tests run the real SDK over a
+  mocked HTTP transport.
+- The declared minimum `anthropic>=0.40` had no `messages.parse`:
+  `AttributeError: 'Messages' object has no attribute 'parse'`. The minimum
+  is 0.77, the first release with structured outputs on the Messages API,
+  and the provider tests pass on it.
 - A match could begin or end inside a ligature (`inal` matched "ﬁnal").
 - A result or fixture file that isn't valid JSON, isn't an object, or doesn't
   fit the schema printed a traceback from `extract` and `verify`, and was an

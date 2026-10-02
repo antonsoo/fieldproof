@@ -55,7 +55,9 @@ fieldproof extract examples/invoice.pdf --schema invoice --provider fixture \
 
 `--provider fixture` replays a stored JSON extraction (no API key needed,
 useful for CI/offline). To extract with Claude instead, set
-`ANTHROPIC_API_KEY` and pass `--provider anthropic`. To review the result in
+`ANTHROPIC_API_KEY` and pass `--provider anthropic` (`--model` picks the
+model; `--max-tokens` raises the output limit for a document whose
+extraction is cut off at the default 16,000). To review the result in
 the browser instead: `fieldproof serve`. The PyPI package includes the built
 UI; from a source checkout, build it first (see [Development](#development)).
 
@@ -286,11 +288,15 @@ anything in this repo.
   `amount` happen to be equal) can still ground to either one; the *value*
   check still passes either way, but the highlighted box may point at the
   wrong column of an otherwise-correct row.
-- **The Anthropic adapter is unit-tested against a mocked client only** -
-  there's no API key configured in this repo's CI, so no test exercises a
-  live model response; correctness of the live path depends on the model
-  actually following the evidence-quoting instructions in the system
-  prompt, which is a real-world behavior, not something a mock can verify.
+- **The Anthropic adapter is tested against the real SDK, not a live
+  model** - there's no API key configured in this repo's CI. The tests run
+  the `anthropic` SDK over a mocked HTTP transport that answers in the
+  Messages API's wire format, so the request (the schema as structured-output
+  JSON Schema, the prompt, `max_tokens`) and the handling of replies (a
+  complete one, one cut off at `max_tokens`, a refusal, an API error, a
+  missing key) are the real thing. What no such test can check is whether a
+  model follows the evidence-quoting instructions in the system prompt; that
+  is what grounding and verification are for.
 
 ## Architecture
 

@@ -34,7 +34,7 @@ dependencies = [
     "uvicorn[standard]>=0.30",
     "python-multipart>=0.0.9",
     "typer>=0.12",
-    "anthropic>=0.40",
+    "anthropic>=0.77",
 ]
 
 [project.optional-dependencies]

@@ -1,23 +1,35 @@
-"""Anthropic-backed extractor using structured outputs (`messages.parse`).
+"""Anthropic-backed extractor using structured outputs.
+
+The request carries the schema as `output_config.format` (a JSON Schema the
+SDK derives from the Pydantic model with `anthropic.transform_schema`), so
+Claude's reply is constrained to it. The reply is streamed and collected:
+a long extraction can run past the time a plain request is allowed, and the
+SDK refuses a non-streaming call it expects to.
+
+A constrained reply can still fail to be the schema in two ways, and both
+are told from the reply's `stop_reason` rather than from a JSON error: it
+was cut off at `max_tokens` (an invoice with hundreds of line items), or the
+model declined (`refusal`).
 
 No live network calls happen anywhere in this repository - this machine has
-no `ANTHROPIC_API_KEY` configured, and CI never sets one. The unit tests
-(`tests/test_extract_anthropic.py`) construct an `AnthropicExtractor` with a
-mocked `anthropic.Anthropic` client and assert on the request shape (prompt
-contents, schema passed through) and on response handling (including the
-`parsed_output is None` error path), never on a real completion.
+no `ANTHROPIC_API_KEY` configured, and CI never sets one.
+`tests/test_extract_anthropic.py` runs the real `anthropic` SDK over a mocked
+HTTP transport that answers in the Messages API's wire format, so the
+request it checks is the one the SDK really sends and the replies are parsed
+by the SDK's own code; no completion in those tests came from a model.
 """
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
-from typing import TypeVar
+from typing import Any, TypeVar
 
 import anthropic
 from pydantic import BaseModel
 
 from fieldproof.document.model import Document
-from fieldproof.extract.base import ExtractionError, ExtractionResult
+from fieldproof.extract.base import ExtractionError, ExtractionResult, validate_data
 
 #: Claude Opus 5.5, the current Opus model. Override via the `model`
 #: constructor argument (or the CLI's `--model` flag), e.g. with
@@ -65,14 +77,20 @@ class AnthropicExtractor:
         return self.client if self.client is not None else anthropic.Anthropic()
 
     def extract(self, document: Document, schema: type[T]) -> ExtractionResult:
+        # Typed loosely: the SDK's TypedDicts for this parameter have changed names between
+        # the releases this works with.
+        output_config: Any = {
+            "format": {"type": "json_schema", "schema": anthropic.transform_schema(schema)}
+        }
         try:
-            response = self._get_client().messages.parse(
+            with self._get_client().messages.stream(
                 model=self.model,
                 max_tokens=self.max_tokens,
                 system=_SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": _build_prompt(document)}],
-                output_format=schema,
-            )
+                output_config=output_config,
+            ) as stream:
+                message = stream.get_final_message()
         except anthropic.AnthropicError as exc:
             raise ExtractionError(f"the Anthropic API request failed: {exc}") from exc
         except TypeError as exc:
@@ -80,18 +98,40 @@ class AnthropicExtractor:
             if "authentication method" not in str(exc):
                 raise
             raise ExtractionError("no Anthropic credentials found: set ANTHROPIC_API_KEY") from exc
-        data = response.parsed_output
-        if data is None:
-            raise ExtractionError(
-                f"Claude did not return a parsed {schema.__name__} "
-                f"(stop_reason={getattr(response, 'stop_reason', None)!r})"
-            )
         return ExtractionResult(
             schema_name=schema.__name__,
-            data=data,
+            data=_parse_reply(message, schema, self.max_tokens),
             provider="anthropic",
             model=self.model,
         )
+
+
+def _parse_reply(message: Any, schema: type[T], max_tokens: int) -> T:
+    """Claude's reply as an instance of `schema`, or an `ExtractionError` that says why it
+    isn't one."""
+    stop_reason = getattr(message, "stop_reason", None)
+    if stop_reason == "max_tokens":
+        raise ExtractionError(
+            f"Claude's reply was cut off at {max_tokens} output tokens, before the "
+            f"{schema.__name__} was complete; raise the limit (--max-tokens) or extract a "
+            "shorter document"
+        )
+    if stop_reason == "refusal":
+        raise ExtractionError(
+            "Claude declined to extract from this document (stop_reason 'refusal')"
+        )
+    text = "".join(
+        block.text
+        for block in getattr(message, "content", [])
+        if getattr(block, "type", "") == "text"
+    )
+    try:
+        payload = json.loads(text)
+    except ValueError as exc:
+        raise ExtractionError(
+            f"Claude did not return a {schema.__name__} as JSON (stop_reason={stop_reason!r})"
+        ) from exc
+    return validate_data(payload, schema, "Claude's reply")
 
 
 def _build_prompt(document: Document) -> str:

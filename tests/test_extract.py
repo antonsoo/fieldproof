@@ -2,13 +2,10 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from types import SimpleNamespace
 
-import anthropic
 import pytest
 
 from fieldproof.document.model import Document, Page
-from fieldproof.extract.anthropic_provider import DEFAULT_MODEL, AnthropicExtractor
 from fieldproof.extract.base import ExtractionError, ExtractionResult
 from fieldproof.extract.fixture_provider import FixtureExtractor
 from fieldproof.schemas import Evidenced, Invoice
@@ -57,106 +54,6 @@ def test_extraction_result_round_trips_through_dict() -> None:
     round_tripped = ExtractionResult.from_dict(result.to_dict(), Invoice)
     assert round_tripped.data.vendor_name.value == "Acme"
     assert round_tripped.provider == "fixture"
-
-
-class _FakeMessagesAPI:
-    def __init__(self, parsed_output: object, stop_reason: str = "end_turn") -> None:
-        self._parsed_output = parsed_output
-        self._stop_reason = stop_reason
-        self.last_call: dict | None = None
-
-    def parse(self, **kwargs: object) -> SimpleNamespace:
-        self.last_call = kwargs
-        return SimpleNamespace(parsed_output=self._parsed_output, stop_reason=self._stop_reason)
-
-
-class _FakeAnthropicClient:
-    def __init__(self, parsed_output: object, stop_reason: str = "end_turn") -> None:
-        self.messages = _FakeMessagesAPI(parsed_output, stop_reason)
-
-
-def test_anthropic_extractor_uses_structured_output_and_returns_result() -> None:
-    invoice = Invoice(
-        vendor_name=Evidenced(value="Acme", evidence=["Acme"]),
-        invoice_number=Evidenced(value="1", evidence=["1"]),
-        issue_date=Evidenced(value="2026-01-01", evidence=["2026-01-01"]),
-        total=Evidenced(value=10.0, evidence=["10"]),
-    )
-    fake_client = _FakeAnthropicClient(parsed_output=invoice)
-    extractor = AnthropicExtractor(client=fake_client)  # type: ignore[arg-type]
-
-    doc = Document(
-        source="test.pdf",
-        pages=[Page(number=1, width=612, height=792, text="Acme owes $10", words=[])],
-    )
-    result = extractor.extract(doc, Invoice)
-
-    assert result.provider == "anthropic"
-    assert result.model == DEFAULT_MODEL
-    assert result.data is invoice
-
-    call = fake_client.messages.last_call
-    assert call is not None
-    assert call["output_format"] is Invoice
-    assert "Acme owes $10" in call["messages"][0]["content"]
-
-
-def test_anthropic_extractor_model_can_be_overridden() -> None:
-    invoice = Invoice(
-        vendor_name=Evidenced(value="Acme", evidence=["Acme"]),
-        invoice_number=Evidenced(value="1", evidence=["1"]),
-        issue_date=Evidenced(value="2026-01-01", evidence=["2026-01-01"]),
-        total=Evidenced(value=10.0, evidence=["10"]),
-    )
-    fake_client = _FakeAnthropicClient(parsed_output=invoice)
-    extractor = AnthropicExtractor(model="claude-opus-5", client=fake_client)  # type: ignore[arg-type]
-
-    doc = _empty_document()
-    result = extractor.extract(doc, Invoice)
-
-    assert result.model == "claude-opus-5"
-    call = fake_client.messages.last_call
-    assert call is not None
-    assert call["model"] == "claude-opus-5"
-
-
-def test_anthropic_extractor_raises_when_no_parsed_output() -> None:
-    fake_client = _FakeAnthropicClient(parsed_output=None, stop_reason="max_tokens")
-    extractor = AnthropicExtractor(client=fake_client)  # type: ignore[arg-type]
-
-    with pytest.raises(ExtractionError, match="max_tokens"):
-        extractor.extract(_empty_document(), Invoice)
-
-
-class _FailingMessagesAPI:
-    def __init__(self, error: Exception) -> None:
-        self._error = error
-
-    def parse(self, **kwargs: object) -> SimpleNamespace:
-        raise self._error
-
-
-def test_anthropic_extractor_reports_an_api_failure_as_an_extraction_error() -> None:
-    client = SimpleNamespace(messages=_FailingMessagesAPI(anthropic.AnthropicError("overloaded")))
-    extractor = AnthropicExtractor(client=client)  # type: ignore[arg-type]
-    with pytest.raises(ExtractionError, match="the Anthropic API request failed: overloaded"):
-        extractor.extract(_empty_document(), Invoice)
-
-
-def test_anthropic_extractor_names_missing_credentials() -> None:
-    # What the SDK raises when it has no key or token to send.
-    error = TypeError("Could not resolve authentication method. Expected one of api_key, ...")
-    client = SimpleNamespace(messages=_FailingMessagesAPI(error))
-    extractor = AnthropicExtractor(client=client)  # type: ignore[arg-type]
-    with pytest.raises(ExtractionError, match="set ANTHROPIC_API_KEY"):
-        extractor.extract(_empty_document(), Invoice)
-
-
-def test_anthropic_extractor_leaves_other_type_errors_alone() -> None:
-    client = SimpleNamespace(messages=_FailingMessagesAPI(TypeError("unexpected keyword")))
-    extractor = AnthropicExtractor(client=client)  # type: ignore[arg-type]
-    with pytest.raises(TypeError, match="unexpected keyword"):
-        extractor.extract(_empty_document(), Invoice)
 
 
 @pytest.mark.parametrize(

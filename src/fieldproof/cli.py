@@ -71,6 +71,12 @@ def extract(
     model: str = typer.Option(
         DEFAULT_MODEL, "--model", help="Anthropic model id (only used with --provider anthropic)"
     ),
+    max_tokens: int = typer.Option(
+        16000,
+        "--max-tokens",
+        min=1,
+        help="most output tokens Claude may use for the extraction (--provider anthropic)",
+    ),
     out: Path = typer.Option(..., "--out", help="where to write the verified result JSON"),
 ) -> None:
     """Extract a schema from DOCUMENT, ground and verify it, write the result to --out."""
@@ -91,7 +97,7 @@ def extract(
         if fixture is not None and provider == "fixture":
             result = FixtureExtractor(fixture_path=fixture).extract(doc, schema_cls)
         else:
-            result = AnthropicExtractor(model=model).extract(doc, schema_cls)
+            result = AnthropicExtractor(model=model, max_tokens=max_tokens).extract(doc, schema_cls)
     except (ExtractionError, OSError) as exc:
         _fail(str(exc))
 

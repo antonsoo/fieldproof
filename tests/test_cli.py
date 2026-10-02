@@ -177,8 +177,8 @@ def test_a_provider_failure_is_a_one_line_error(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     class _NoCredentials:
-        def __init__(self, model: str) -> None:
-            del model
+        def __init__(self, model: str, max_tokens: int) -> None:
+            del model, max_tokens
 
         def extract(self, document: object, schema: object) -> None:
             raise ExtractionError("no Anthropic credentials found: set ANTHROPIC_API_KEY")
