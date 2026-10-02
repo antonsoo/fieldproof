@@ -2,6 +2,23 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.3] - 2026-10-02
+
+### Security
+
+- The oldest dependency versions the package accepted had published
+  advisories in exactly the code that reads what a stranger uploads:
+  `python-multipart` 0.0.9, `starlette` 0.38.6 (through `fastapi` 0.115),
+  `pdfminer.six` 20231228 (through `pdfplumber` 0.11.0) and `Pillow` 10.4
+  (the `ocr` extra), plus `click` 8.1.8. An ordinary install already got
+  current versions; an install held back by another package's constraints
+  could get those. The minimums are now the first releases without an
+  advisory: `python-multipart>=0.0.31`, `starlette>=1.3.1`,
+  `pdfminer.six>=20251230`, `click>=8.3.3`, `Pillow>=12.3`, and with them
+  `fastapi>=0.133`, `pdfplumber>=0.11.9`, `typer>=0.16`. `pip-audit` reports
+  nothing for the locked versions or for the minimum ones, and the tests pass
+  on both.
+
 ## [0.2.2] - 2026-10-02
 
 ### Fixed
