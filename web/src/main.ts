@@ -1,3 +1,4 @@
+import "./fonts/fonts.css";
 import "./style.css";
 import { createDataSource } from "./datasource";
 import { computeExportRows, downloadBlob, rowsToCsv } from "./export";

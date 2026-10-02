@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.4] - 2026-10-02
+
+### Changed
+
+- The review UI's fonts ship in the package. `fieldproof serve` runs on your
+  own machine, over documents you may not be free to share, and its page
+  asked Google Fonts for its typography on every load (and fell back to
+  system fonts without a connection). The same font files are now part of
+  the wheel, with their SIL Open Font License texts (`web/src/fonts/`), and
+  the page makes no request to any host but the server it came from. Nothing
+  looks different: screenshots before and after match. The wheel grows from
+  about 60 KB to about 530 KB.
+
 ## [0.2.3] - 2026-10-02
 
 ### Security
