@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## [0.2.1] - 2026-10-01
+## [0.2.1] - 2026-10-02
 
 ### Added
 
@@ -41,6 +41,14 @@ All notable changes to this project are documented in this file.
   `AttributeError: 'Messages' object has no attribute 'parse'`. The minimum
   is 0.77, the first release with structured outputs on the Messages API,
   and the provider tests pass on it.
+- Two more declared minimums did not work. With `typer` below 0.15.4 every
+  command stopped (`Type not yet supported: pathlib.Path | None` on 0.12.0;
+  `make_metavar() takes 1 positional argument` on `--help` with a current
+  click), and with `pydantic` below 2.10 a typed result could not be built
+  from `Evidenced` values. The minimums are `typer>=0.15.4` and
+  `pydantic>=2.10`, and CI has a job that installs the oldest allowed version
+  of every direct dependency on the oldest supported Python and runs the
+  tests there.
 - A match could begin or end inside a ligature (`inal` matched "ﬁnal").
 - A result or fixture file that isn't valid JSON, isn't an object, or doesn't
   fit the schema printed a traceback from `extract` and `verify`, and was an

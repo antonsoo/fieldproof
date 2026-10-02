@@ -36,3 +36,4 @@ src/fieldproof/server/static/
 
 # Local scratch
 *.local.json
+.venv-minimums/

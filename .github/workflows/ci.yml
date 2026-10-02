@@ -30,6 +30,27 @@ jobs:
       - name: Test (pytest)
         run: uv run pytest -q
 
+  minimums:
+    name: Oldest supported Python and dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10
+        with:
+          python-version: "3.11"
+          enable-cache: true
+
+      # `requires-python` and every ">=" in pyproject.toml are promises. The lockfile tests
+      # the newest versions; this installs the oldest ones the package says it accepts.
+      - name: Install the oldest allowed version of each direct dependency
+        run: |
+          uv venv .venv-minimums
+          uv pip install --python .venv-minimums --resolution lowest-direct -e ".[dev,ocr]"
+
+      - name: Test (pytest)
+        run: .venv-minimums/bin/pytest -q
+
   web:
     name: Web UI (typecheck, lint, build)
     runs-on: ubuntu-latest
