@@ -147,7 +147,7 @@ function renderTopbar(): void {
 
   bar.innerHTML = `
     <div class="brand">
-      <span class="brand-mark">fieldproof</span>
+      <h1 class="brand-mark">fieldproof</h1>
       ${countsHtml}
     </div>
     ${sampleSwitchHtml()}
@@ -472,7 +472,7 @@ function renderWorkbench(): void {
         <span id="zoom-label">${Math.round(state.zoom * 100)}%</span>
         <button class="btn" id="zoom-in" type="button" aria-label="Zoom in">+</button>
       </div>
-      <div class="viewer-scroll" id="viewer-scroll">
+      <div class="viewer-scroll" id="viewer-scroll" tabindex="0" role="group" aria-label="Document page">
         ${renderPageFrame()}
       </div>
     </section>

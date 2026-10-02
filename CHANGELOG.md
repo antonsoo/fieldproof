@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.6] - 2026-10-02
+
+### Accessibility
+
+- The review UI, checked with axe-core (WCAG 2.1 A and AA, and its best-practice rules) in light and dark,
+  at desktop and phone widths, on each sample
+  document: no findings now. The faint text was 2.6:1 to 3.1:1 (light) and
+  3.4:1 (dark), and the "review" and "verified" labels just under 4.5:1 on
+  their tints. The page has an `h1`, and the page viewer, which scrolls, can
+  take keyboard focus.
+
 ## [0.2.5] - 2026-10-02
 
 ### Security

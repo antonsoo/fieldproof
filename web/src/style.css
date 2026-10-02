@@ -17,16 +17,16 @@
   --color-surface-sunken: #e9ece7;
   --color-ink: #14181a;
   --color-ink-muted: #5c6670;
-  --color-ink-faint: #8b949c;
+  --color-ink-faint: #626b73;
   --color-border: #d7dcd6;
   --color-border-strong: #b7bfb9;
   --color-accent: #14524c;
   --color-accent-ink: #ffffff;
   --color-focus: #1c7a70;
 
-  --color-verified: #0e7a5f;
+  --color-verified: #0e785e;
   --color-verified-bg: #e4f3ec;
-  --color-review: #a6650f;
+  --color-review: #985c0e;
   --color-review-bg: #fbf0dc;
   --color-unsupported: #b3392c;
   --color-unsupported-bg: #fbe7e3;
@@ -46,7 +46,7 @@
     --color-surface-sunken: #0d1216;
     --color-ink: #e8edee;
     --color-ink-muted: #93a1aa;
-    --color-ink-faint: #66727c;
+    --color-ink-faint: #798691;
     --color-border: #2a333b;
     --color-border-strong: #3b4750;
     --color-accent: #49c9b3;
@@ -69,7 +69,7 @@
   --color-surface-sunken: #0d1216;
   --color-ink: #e8edee;
   --color-ink-muted: #93a1aa;
-  --color-ink-faint: #66727c;
+  --color-ink-faint: #798691;
   --color-border: #2a333b;
   --color-border-strong: #3b4750;
   --color-accent: #49c9b3;
@@ -161,6 +161,8 @@ a {
 }
 
 .brand-mark {
+  margin: 0;
+  line-height: inherit;
   font-family: var(--font-display);
   font-weight: 560;
   font-size: 20px;

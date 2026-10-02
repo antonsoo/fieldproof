@@ -1,7 +1,7 @@
 {
   "name": "fieldproof-web",
   "private": true,
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Review UI for fieldproof - a grounded document-extraction workbench.",
   "author": "Anton Soloviev",
   "license": "MIT",
