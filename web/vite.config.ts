@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import { contentSecurityPolicy } from "./vite.csp";
 
 // Two builds share this config:
 //  - `npm run build`      -> served by FastAPI at "/" (fieldproof serve)
@@ -6,6 +7,7 @@ import { defineConfig } from "vite";
 //    bundled fixture data instead of a live API (see src/datasource.ts)
 export default defineConfig(({ mode }) => ({
   base: mode === "demo" ? "/fieldproof/" : "/",
+  plugins: [contentSecurityPolicy()],
   build: {
     outDir: mode === "demo" ? "dist-demo" : "dist",
     emptyOutDir: true,

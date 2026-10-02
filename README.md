@@ -60,7 +60,10 @@ useful for CI/offline). To extract with Claude instead, set
 model; `--max-tokens` raises the output limit for a document whose
 extraction is cut off at the default 16,000). To review the result in
 the browser instead: `fieldproof serve`. The PyPI package includes the built
-UI; from a source checkout, build it first (see [Development](#development)).
+UI, fonts and all, so the page asks no host but your own server for anything,
+and its Content-Security-Policy would not let it: a document you review stays
+on your machine. From a source checkout, build the UI first (see
+[Development](#development)).
 
 ## Features
 

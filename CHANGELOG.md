@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.5] - 2026-10-02
+
+### Security
+
+- The review UI carries a Content-Security-Policy. Scripts, styles and fonts
+  load from the server that served the page only, and `connect-src 'self'`
+  has the browser refuse to send a document, or anything read from it, to
+  any other host, even for a script injected through a bug in how a field
+  is rendered. Inline event handlers and `eval` are not allowed. Checked in
+  Chromium and Firefox with a listener for policy violations, on the demo and
+  on `fieldproof serve` through an upload, an extraction and the page images:
+  none.
+
 ## [0.2.4] - 2026-10-02
 
 ### Changed
