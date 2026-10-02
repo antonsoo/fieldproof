@@ -2,6 +2,7 @@
 
 **Document extraction that shows its work: every field linked to the exact words it came from.**
 
+[![PyPI](https://img.shields.io/pypi/v/fieldproof)](https://pypi.org/project/fieldproof/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Live demo](https://img.shields.io/badge/demo-antonsoo.github.io%2Ffieldproof-14524c)](https://antonsoo.github.io/fieldproof/)
 
