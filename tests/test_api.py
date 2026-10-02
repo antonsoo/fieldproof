@@ -176,7 +176,7 @@ def test_unknown_document_returns_404(client: TestClient) -> None:
     [
         (b"{ not json", "extraction.json is not valid JSON"),
         (b"[1, 2]", "extraction.json must hold a JSON object, not list"),
-        (b"\xff\xfe", "extraction.json is not UTF-8 text"),
+        (b"\x80\x81 not text", "extraction.json is not UTF-8 text"),
         (b'{"data": {"total": "x"}}', "extraction.json does not match the Invoice schema"),
     ],
 )

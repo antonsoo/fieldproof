@@ -5,4 +5,4 @@ reviewer (or a downstream system) can tell a verified value from a
 hallucinated one before it reaches a database.
 """
 
-__version__ = "0.2.1"
+__version__ = "0.2.2"

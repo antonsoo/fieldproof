@@ -61,7 +61,7 @@ def test_extraction_result_round_trips_through_dict() -> None:
     [
         (b"{ not json", r"fixture\.json is not valid JSON \(line 1, column 3"),
         (b"[1, 2]", "fixture.json must hold a JSON object, not list"),
-        (b"\xff\xfe", "fixture.json is not UTF-8 text"),
+        (b"\x80\x81 not text", "fixture.json is not UTF-8 text"),
         (b'{"data": {"vendor_name": 5}}', "does not match the Invoice schema: vendor_name: "),
         (b'{"data": []}', "does not match the Invoice schema: data: "),
     ],
@@ -87,3 +87,22 @@ def test_schema_mismatch_lists_the_first_problems_and_counts_the_rest(tmp_path: 
 def test_result_without_data_is_an_extraction_error() -> None:
     with pytest.raises(ExtractionError, match='result.json has no "data" object'):
         ExtractionResult.from_dict({"schema": "invoice"}, Invoice, source="result.json")
+
+
+@pytest.mark.parametrize(
+    "encode",
+    [
+        lambda text: b"\xef\xbb\xbf" + text.encode("utf-8"),
+        lambda text: b"\xff\xfe" + text.encode("utf-16-le"),
+        lambda text: b"\xfe\xff" + text.encode("utf-16-be"),
+    ],
+    ids=["utf-8 with a byte-order mark", "utf-16 little-endian", "utf-16 big-endian"],
+)
+def test_json_saved_by_windows_tools_is_read(encode) -> None:  # type: ignore[no-untyped-def]
+    # Notepad's "UTF-8 with BOM" and PowerShell's `>` (UTF-16) both put a mark first, which
+    # was refused as "Unexpected UTF-8 BOM" or "not UTF-8 text".
+    from fieldproof.extract.base import read_extraction_json
+
+    expected = {"vendor": "Müller & Søn", "total": 12.5}
+    text = '{"vendor": "Müller & Søn", "total": 12.5}'
+    assert read_extraction_json(encode(text), "result.json") == expected

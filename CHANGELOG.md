@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.2] - 2026-10-02
+
+### Fixed
+
+- A result or fixture JSON saved by a Windows editor or shell. Notepad's
+  "UTF-8 with BOM" and PowerShell's `-Encoding utf8` put a byte-order mark
+  first ("not valid JSON (line 1, column 1: Unexpected UTF-8 BOM ...)"), and
+  PowerShell's `>` writes UTF-16 ("is not UTF-8 text"). All three are read, by
+  the CLI and by the review server.
+- Output written to a pipe or a file is UTF-8, so a document path outside the
+  system's code page can be printed when stdout is redirected on Windows.
+
 ## [0.2.1] - 2026-10-02
 
 ### Added

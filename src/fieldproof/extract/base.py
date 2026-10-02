@@ -19,11 +19,20 @@ class ExtractionError(RuntimeError):
     shape. The message is written for the person who supplied the file."""
 
 
+def _decode(content: bytes) -> str:
+    """A JSON file's text as editors and shells on Windows save it: UTF-8, with or without a
+    byte-order mark (Notepad's "UTF-8 with BOM", PowerShell's `-Encoding utf8`), or UTF-16
+    with one (PowerShell's `>`)."""
+    if content.startswith((b"\xff\xfe", b"\xfe\xff")):
+        return content.decode("utf-16")
+    return content.decode("utf-8-sig")
+
+
 def read_extraction_json(content: str | bytes, source: str) -> dict[str, Any]:
     """Parse a stored extraction (a fixture, or another tool's `result.json`).
     `source` names the file in the error."""
     try:
-        text = content.decode("utf-8") if isinstance(content, bytes) else content
+        text = _decode(content) if isinstance(content, bytes) else content
         raw = json.loads(text)
     except UnicodeDecodeError as exc:
         raise ExtractionError(f"{source} is not UTF-8 text") from exc

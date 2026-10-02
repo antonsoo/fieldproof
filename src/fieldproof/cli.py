@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 from typing import NoReturn
 
@@ -31,13 +32,30 @@ def _print_version(value: bool) -> None:
         raise typer.Exit
 
 
+def _text_streams() -> None:
+    """Make stdout and stderr able to carry any text.
+
+    A pipe or a file gets UTF-8: before 3.15, Python on Windows gives it the system's code
+    page, where a file name outside it raised ``UnicodeEncodeError``. A terminal keeps its
+    own encoding and shows a character it cannot encode as an escape.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is None:  # replaced by something that isn't a text file
+            continue
+        if stream.isatty():
+            reconfigure(errors="backslashreplace")
+        else:
+            reconfigure(encoding="utf-8")
+
+
 @app.callback()
 def _options(
     version: bool = typer.Option(
         False, "--version", callback=_print_version, is_eager=True, help="show the version and exit"
     ),
 ) -> None:
-    pass
+    _text_streams()
 
 
 def _fail(message: str, code: int = 1) -> NoReturn:
