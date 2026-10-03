@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-2eerjYI+xYjuaqgACafvtwXJ/y+Rfn6C7FSAT6j6Rs0='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fieldproof · grounded document review</title>
+    <meta
+      name="description"
+      content="Review UI for fieldproof: every extracted field linked to the exact words it came from."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%2314524c'/%3E%3Cpath d='M7 12.5l3 3 7-7.5' stroke='%23fff' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <script>
+      // Applied before paint so there's no flash of the wrong theme; the
+      // toggle in the toolbar just flips this same attribute + key.
+      (function () {
+        try {
+          var saved = localStorage.getItem("fieldproof-theme");
+          if (saved === "light" || saved === "dark") {
+            document.documentElement.setAttribute("data-theme", saved);
+          }
+        } catch (e) {
+          /* storage unavailable - system preference still applies via CSS */
+        }
+      })();
+    </script>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Officina, open-source tools by Anton Soloviev" />
+    <meta property="og:title" content="fieldproof · grounded document review" />
+    <meta property="og:description" content="Document extraction that shows its work: every LLM-extracted field grounded to its source words, verified, and reviewable." />
+    <meta property="og:url" content="https://antonsoo.github.io/fieldproof/" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/antonsoo/fieldproof/main/docs/assets/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="fieldproof · grounded document review" />
+    <meta name="twitter:description" content="Document extraction that shows its work: every LLM-extracted field grounded to its source words, verified, and reviewable." />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/antonsoo/fieldproof/main/docs/assets/og.png" />
+    <script type="module" crossorigin src="/fieldproof/assets/index-DVq9bjAV.js"></script>
+    <link rel="stylesheet" crossorigin href="/fieldproof/assets/index-4TBi7Ud3.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
