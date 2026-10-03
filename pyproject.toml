@@ -126,3 +126,7 @@ exclude = ["scripts/", "tests/"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+# Keep developer machines and CI on stable-preferred dependency resolution.
+[tool.uv]
+prerelease = "if-necessary"

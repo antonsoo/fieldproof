@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented in this file.
 
+## Unreleased
+
+### Maintenance
+
+- The uv lock now resolves stable httpx 0.28.1 and Pydantic 2.13.5 instead of
+  development/beta versions selected by a permissive local resolver setting. The
+  project explicitly prefers stable releases.
+
 ## [0.2.7] - 2026-10-03
 
 ### Compatibility
