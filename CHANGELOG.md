@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.7] - 2026-10-03
+
+### Compatibility
+
+- Python 3.13 and 3.14 are tested and declared. CI runs the suite on 3.14
+  as well, and the package's classifiers list both versions. The code is
+  unchanged: with the newest release of every dependency, the tests pass on
+  3.14 and on 3.15's release candidate.
+
 ## [0.2.6] - 2026-10-02
 
 ### Accessibility

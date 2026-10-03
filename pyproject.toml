@@ -1,6 +1,6 @@
 [project]
 name = "fieldproof"
-version = "0.2.6"
+version = "0.2.7"
 description = "Document extraction that shows its work: every field linked to the exact words it came from."
 dynamic = ["readme"]
 requires-python = ">=3.11"
