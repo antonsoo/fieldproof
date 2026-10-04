@@ -395,8 +395,10 @@ src layout, fully typed (`mypy --strict`-adjacent; see `pyproject.toml`).
 
 ## Development
 
-See the [2026-10-04 review verification report](docs/verification-review-2026-10-04.md)
-for production-browser, clean-install, and installed-package results.
+See the [2026-10-04 session, resource and PDF evidence report](docs/verification-sessions-2026-10-04.md)
+for the latest production-browser, clean-install and installed-package results.
+The [earlier review-workflow report](docs/verification-review-2026-10-04.md)
+records the first stage of the changes.
 Use Node 24 or newer for the web toolchain.
 
 ```bash

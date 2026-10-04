@@ -1,6 +1,9 @@
 # Review workflow verification, 2026-10-04
 
 Implementation tested: `4835438f349b1c17137952b0dcb4dd41e3f96082`.
+This is the first-stage snapshot. The two open follow-ups below have since
+been completed; see the [session, resource and PDF evidence report](verification-sessions-2026-10-04.md)
+for the latest implementation and results.
 All results below are local. This work has not been pushed, deployed, or
 published as a package; the version remains 0.2.7 with an unreleased changelog.
 

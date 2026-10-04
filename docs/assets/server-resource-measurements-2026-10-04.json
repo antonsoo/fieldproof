@@ -1,0 +1,61 @@
+{
+  "description": "Single local run; largest-child RSS is cumulative across completed workers, not a per-case delta. No live provider or OCR accuracy measurement.",
+  "cases": [
+    {
+      "case": "invoice",
+      "pdf_bytes": 2388,
+      "pages": 1,
+      "words": 91,
+      "outcome": "loaded",
+      "load_seconds": 0.166,
+      "render_seconds": 0.215,
+      "png_bytes": 125063,
+      "largest_child_peak_rss_kib": 134552
+    },
+    {
+      "case": "receipt",
+      "pdf_bytes": 2105,
+      "pages": 1,
+      "words": 58,
+      "outcome": "loaded",
+      "load_seconds": 0.165,
+      "render_seconds": 0.165,
+      "png_bytes": 59942,
+      "largest_child_peak_rss_kib": 134552
+    },
+    {
+      "case": "contract",
+      "pdf_bytes": 3007,
+      "pages": 2,
+      "words": 184,
+      "outcome": "loaded",
+      "load_seconds": 0.166,
+      "render_seconds": 0.216,
+      "png_bytes": 102343,
+      "largest_child_peak_rss_kib": 134552
+    },
+    {
+      "case": "native-64-pages",
+      "pdf_bytes": 51049,
+      "pages": 64,
+      "words": 28160,
+      "outcome": "loaded",
+      "load_seconds": 3.166,
+      "render_seconds": 0.216,
+      "png_bytes": 464479,
+      "largest_child_peak_rss_kib": 143928
+    },
+    {
+      "case": "image-only-scan",
+      "pdf_bytes": 141612,
+      "pages": 1,
+      "words": 0,
+      "outcome": "refused: no text layer",
+      "load_seconds": 0.115,
+      "render_seconds": 0.215,
+      "png_bytes": 209280,
+      "largest_child_peak_rss_kib": 143928
+    }
+  ],
+  "parent_peak_rss_kib": 143928
+}
