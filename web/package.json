@@ -18,15 +18,20 @@
     "preview": "vite preview",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src --max-warnings 0",
-    "format:check": "prettier --check src"
+    "format:check": "prettier --check src",
+    "test": "vitest run",
+    "test:browser": "npm run build && npm run build:demo && playwright test"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
     "@typescript-eslint/eslint-plugin": "^8.15.0",
     "@typescript-eslint/parser": "^8.15.0",
     "eslint": "^9.15.0",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3",
-    "vite": "^7.3.6"
+    "vite": "^7.3.6",
+    "vitest": "5.0.1"
   },
   "allowScripts": {
     "esbuild@0.28.2": true

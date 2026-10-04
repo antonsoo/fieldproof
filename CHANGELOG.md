@@ -4,6 +4,28 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Review workbench
+
+- Corrections of nested fields save correctly and retain numbers and booleans.
+  Approval and rejection retain the correction; Reset restores the original.
+  Invalid corrections leave the decision unchanged and the editor available.
+- Sample/PDF loads and extraction replies belong to the operation that started
+  them. Cancellation and replacement discard stale replies; failed replacement
+  keeps the previous valid document. Late review replies stay with their document.
+- Review progress and decision filters separate human review from automated
+  verification. Exports default to reviewed fields, with an explicit option to
+  include pending fields. Downloads snapshot the displayed decisions and wait
+  for pending saves. Exports add `original_value` and `value_source` columns so a
+  human correction cannot be mistaken for the originally verified value.
+- Demo decisions remain available in the tab when browser storage is blocked;
+  invalid stored overlays are discarded. Sample/index/page-image errors offer
+  recovery. Keyboard focus survives selection, review, filtering and editing;
+  320px layouts use separate Fields/Document views, retain correction drafts,
+  expand filters on demand and fit the document without clipping it.
+- A source checkout serves its fresh web build before an older packaged copy.
+  Production Chromium/Firefox coverage now exercises the static demo and the
+  real local fixture API, alongside review/export contract tests in CI.
+
 ### Maintenance
 
 - The uv lock now resolves stable httpx 0.28.1 and Pydantic 2.13.5 instead of

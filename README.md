@@ -39,6 +39,14 @@ that doesn't match its line items, and a misread date - so you can see exactly
 what the verifier catches. No backend: the demo runs entirely on precomputed
 JSON and static page images.
 
+Review decisions persist in browser storage for the synthetic samples. If that
+storage is unavailable, they remain in the current tab and the UI says so;
+export before reloading. Progress and the Pending/Reviewed filter help track
+human decisions separately from the original automated checks.
+On phones, Fields and Document views give each task enough room. Inspecting a
+field opens its evidence page; returning to Fields retains the selection and
+any correction draft. Filters expand on demand.
+
 ## Quickstart
 
 ```bash
@@ -88,7 +96,9 @@ on your machine. From a source checkout, build the UI first (see
   click a field to jump to its evidence on the page; hover a highlight to
   see which field it supports; currency fields display formatted (`312.50`,
   `2,458.00`) while the underlying value and export stay machine numbers;
-  approve, edit, or reject; export approved values as JSON or CSV.
+  approve, edit, or reject; corrections preserve numbers, strings and booleans.
+  Reviewed-only JSON/CSV export is the default; an explicit all-fields scope
+  includes pending decisions. Both scopes exclude rejected fields.
 - **Optional OCR** - scanned PDFs fall back to Tesseract if it's installed;
   documented as a degraded mode, not silently pretended to be as reliable as
   a native text layer.
@@ -130,6 +140,33 @@ for field in report.fields:
 # tax needs_review ['subtotal + tax = 2666.93 but total is 2600.00']
 # total needs_review ['value 2600 does not match 2666.93 parsed from the evidence', ...]
 ```
+
+### Review decisions and exports
+
+Saving a correction records a human decision; it does not rerun grounding,
+arithmetic or date checks. The UI retains the originally extracted value,
+its evidence and its verification status. Approve and Reject retain a saved
+correction; Reset clears it and restores the original value. A rejected field
+is omitted from either export scope.
+
+The UI defaults to **Reviewed only** (approved or edited fields). **All except
+rejected** also includes pending fields, with their review status attached.
+Exports are disabled during a save and snapshot the displayed decisions when
+clicked. The local server's `/api/documents/{id}/export.json` and `.csv` routes
+accept `?scope=reviewed`; their default remains `all` for existing API clients.
+
+Both formats include these columns, with `original_value` and `value_source`
+added in the current unreleased work:
+
+| Column | Meaning |
+| --- | --- |
+| `field` | Extraction field path, including nested list indices |
+| `value` | Effective value, preserving scalar types in JSON |
+| `original_value` | Value from the original extraction |
+| `value_source` | `extraction` or `correction` |
+| `verification_status` | Automated verdict on the original extracted value |
+| `review_status` | Human decision: pending, approved or edited |
+| `page` | Original evidence page, or null if no page was grounded |
 
 ### Bring your own schema
 
@@ -329,12 +366,29 @@ uv run pytest
 uv run ruff check src tests
 uv run mypy src
 
-cd web && npm ci && npm run typecheck && npm run lint && npm run build
+cd web
+npm ci
+npm run typecheck
+npm run lint
+npm run format:check
+npm test
+npx playwright install chromium firefox   # once per machine
+npm run test:browser                       # builds demo + local UI, tests both
 ```
 
 `fieldproof serve` from a checkout serves `web/dist`. For a release,
 `uv run python scripts/bundle_ui.py && uv build` builds the UI into the
 package first, so the wheel carries it.
+
+The production browser suite runs the bundled synthetic samples and the real
+local PDF/fixture API in Chromium and Firefox. It covers typed corrections,
+JSON/CSV downloads, stale replies, cancellation, storage failures, malformed
+data, retries, keyboard focus and desktop/phone layouts in both themes. Every
+workflow checks for page errors, CSP violations and off-origin requests; the
+accessibility workflows use axe. No live model call is required. Local preview
+and API servers use fixed loopback ports 4290 and 4289 and stop after the suite.
+Cancellation stops waiting in the UI; work already accepted by the local server
+can continue.
 
 Regenerate the sample documents and demo data after changing them - the
 output (`web/public/demo-data/`) is committed, since the Pages deploy is a

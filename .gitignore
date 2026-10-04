@@ -37,3 +37,5 @@ src/fieldproof/server/static/
 # Local scratch
 *.local.json
 .venv-minimums/
+web/test-results/
+web/playwright-report/

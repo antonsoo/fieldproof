@@ -4,6 +4,8 @@ import { createDataSource } from "./datasource";
 import { computeExportRows, downloadBlob, rowsToCsv } from "./export";
 import type { DocumentSummary, ExtractionResult, FieldStatus, FieldVerification } from "./types";
 import { SCHEMA_NAMES } from "./types";
+import { parseEditValue, reviewValue } from "./review";
+import { validateDocument, validateExtraction } from "./validate";
 
 /** Page images are rendered server- and build-side at 2x the PDF's point
  * size (see render_page_png's default `scale=2.0`); every rect in a
@@ -27,6 +29,12 @@ interface AppState {
   statusFilter: FieldStatus | "all";
   searchQuery: string;
   editingPath: string | null;
+  editingValue: string;
+  editError: string | null;
+  reviewFilter: "all" | "pending" | "reviewed";
+  exportScope: "reviewed" | "all";
+  mobilePane: "fields" | "document";
+  filtersOpen: boolean;
   schemaName: (typeof SCHEMA_NAMES)[number];
   provider: "fixture" | "anthropic";
   fixtureFile: File | null;
@@ -44,6 +52,12 @@ const state: AppState = {
   statusFilter: "all",
   searchQuery: "",
   editingPath: null,
+  editingValue: "",
+  editError: null,
+  reviewFilter: "all",
+  exportScope: "reviewed",
+  mobilePane: "fields",
+  filtersOpen: false,
   schemaName: "invoice",
   provider: "fixture",
   fixtureFile: null,
@@ -52,6 +66,115 @@ const state: AppState = {
 };
 
 const app = document.getElementById("app")!;
+let operation: AbortController | null = null;
+let operationMessage = "";
+let operationError = "";
+let retryOperation: (() => void) | null = null;
+const pendingReviews = new WeakMap<ExtractionResult, Set<string>>();
+let renderedExtraction: ExtractionResult | null = null;
+
+function beginOperation(message: string, retry: () => void): AbortController {
+  operation?.abort();
+  operation = new AbortController();
+  operationMessage = message;
+  operationError = "";
+  retryOperation = retry;
+  state.busy = true;
+  renderTopbar();
+  renderOperationStatus();
+  if (state.extraction) renderFieldListOnly();
+  return operation;
+}
+
+function finishOperation(owner: AbortController, error = ""): boolean {
+  if (operation !== owner || owner.signal.aborted) return false;
+  operation = null;
+  state.busy = false;
+  operationError = error;
+  renderTopbar();
+  renderOperationStatus();
+  if (state.extraction) renderFieldListOnly();
+  return true;
+}
+
+function renderOperationStatus(): void {
+  let region = document.getElementById("operation-status");
+  if (!region) {
+    region = document.createElement("div");
+    region.id = "operation-status";
+    region.className = "operation-status";
+    app.insertBefore(region, app.querySelector(".workbench"));
+  }
+  region.hidden = !operation && !operationError;
+  region.innerHTML = operation
+    ? `<span role="status">${esc(operationMessage)}</span><button class="btn" id="cancel-operation" type="button">Cancel</button>`
+    : `<span role="alert">${esc(operationError)}</span><button class="btn" id="retry-operation" type="button">Retry</button>`;
+  region.querySelector("#cancel-operation")?.addEventListener("click", () => {
+    operation?.abort();
+    operation = null;
+    state.busy = false;
+    operationError = "";
+    renderTopbar();
+    renderOperationStatus();
+    renderWorkbench();
+    document
+      .querySelector<HTMLButtonElement>(".sample-switch .is-active, #new-document, #choose-file")
+      ?.focus();
+    toast("Operation cancelled.");
+  });
+  region.querySelector("#retry-operation")?.addEventListener("click", () => retryOperation?.());
+}
+
+function resetView(): void {
+  state.selectedPath = null;
+  state.statusFilter = "all";
+  state.reviewFilter = "all";
+  state.searchQuery = "";
+  state.editingPath = null;
+  state.editingValue = "";
+  state.editError = null;
+  state.currentPage = 1;
+  state.zoomIsAuto = true;
+  state.mobilePane = "fields";
+  state.filtersOpen = false;
+}
+
+/** Restore focus to the same control after replacing its view. */
+function rememberFocus(): () => void {
+  const active = document.activeElement as HTMLElement | null;
+  if (!active || !app.contains(active)) return () => {};
+  const id = active.id;
+  const attributes = [...active.attributes].filter((attr) => attr.name.startsWith("data-"));
+  const path = active.closest<HTMLElement>(".field-row")?.dataset.path;
+  const cursor = active instanceof HTMLInputElement ? [active.selectionStart, active.selectionEnd] : null;
+  return () => {
+    const elements = [...app.querySelectorAll<HTMLElement>("button, input, select, [tabindex]")];
+    let next = id
+      ? document.getElementById(id)
+      : elements.find(
+          (el) =>
+            el.tagName === active.tagName &&
+            attributes.length > 0 &&
+            attributes.every((attr) => el.getAttribute(attr.name) === attr.value),
+        );
+    if (!next && path)
+      next =
+        elements.find((el) => el.dataset.select === path) ??
+        elements.find((el) => el.hasAttribute("data-select")) ??
+        document.getElementById("review-filter");
+    if (next instanceof HTMLButtonElement && next.disabled && path)
+      next = elements.find((el) => el.dataset.select === path);
+    if (!next) return;
+    next.focus({ preventScroll: true });
+    if (cursor && next instanceof HTMLInputElement && next.type !== "number") {
+      try {
+        next.setSelectionRange(cursor[0] ?? null, cursor[1] ?? null);
+      } catch {
+        /* e.g. a search input */
+      }
+    }
+  };
+}
 
 function esc(value: unknown): string {
   return String(value)
@@ -85,11 +208,8 @@ function isMoneyField(path: string): boolean {
 }
 
 function formatDisplayValue(path: string, value: unknown): string {
-  if (isMoneyField(path)) {
-    const num = typeof value === "number" ? value : Number(value);
-    if (Number.isFinite(num)) {
-      return num.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    }
+  if (isMoneyField(path) && typeof value === "number" && Number.isFinite(value)) {
+    return value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
   return String(value);
 }
@@ -133,6 +253,7 @@ function toggleTheme(): void {
 /* ------------------------------- topbar -------------------------------- */
 
 function renderTopbar(): void {
+  const restoreFocus = rememberFocus();
   let bar = document.querySelector<HTMLElement>(".topbar");
   if (!bar) {
     bar = document.createElement("header");
@@ -164,12 +285,19 @@ function renderTopbar(): void {
   bar.querySelector<HTMLButtonElement>("#export-json")?.addEventListener("click", () => exportAs("json"));
   bar.querySelector<HTMLButtonElement>("#export-csv")?.addEventListener("click", () => exportAs("csv"));
   bar.querySelector<HTMLButtonElement>("#new-document")?.addEventListener("click", resetToStart);
+  bar.querySelector<HTMLSelectElement>("#export-scope")?.addEventListener("change", (event) => {
+    state.exportScope = (event.target as HTMLSelectElement).value as AppState["exportScope"];
+    renderTopbar();
+  });
   bar.querySelectorAll<HTMLButtonElement>("[data-switch-sample]").forEach((btn) => {
     btn.addEventListener("click", () => {
       // The hash is the single source of truth for which sample is open (deep links, back button).
-      window.location.hash = btn.dataset.switchSample!;
+      const id = btn.dataset.switchSample!;
+      if (window.location.hash.slice(1) === id) void loadSample(id);
+      else window.location.hash = id;
     });
   });
+  restoreFocus();
 }
 
 /** Demo mode: one button per sample document, so switching doesn't need a reload. */
@@ -189,29 +317,43 @@ function sampleSwitchHtml(): string {
 }
 
 function resetToStart(): void {
+  operation?.abort();
+  operation = null;
+  operationError = "";
+  state.busy = false;
   state.document = null;
   state.extraction = null;
-  state.selectedPath = null;
+  resetView();
+  renderOperationStatus();
   state.fixtureFile = null;
   renderTopbar();
   renderWorkbench();
 }
 
 function exportControlsHtml(): string {
+  const rows = computeExportRows(state.extraction!, state.exportScope);
+  const saving = (pendingReviews.get(state.extraction!)?.size ?? 0) > 0;
+  const disabled = state.busy || saving || rows.length === 0;
   return `
-    <button class="btn" id="export-json" type="button">Export JSON</button>
-    <button class="btn" id="export-csv" type="button">Export CSV</button>
+    <label class="export-scope">Export
+      <select class="select" id="export-scope" aria-label="Export">
+        <option value="reviewed" ${state.exportScope === "reviewed" ? "selected" : ""}>Reviewed only (${computeExportRows(state.extraction!, "reviewed").length})</option>
+        <option value="all" ${state.exportScope === "all" ? "selected" : ""}>All except rejected (${computeExportRows(state.extraction!, "all").length})</option>
+      </select>
+    </label>
+    <button class="btn" id="export-json" type="button" ${disabled ? "disabled" : ""}>Export JSON</button>
+    <button class="btn" id="export-csv" type="button" ${disabled ? "disabled" : ""}>Export CSV</button>
   `;
 }
 
-async function exportAs(format: "json" | "csv"): Promise<void> {
-  if (!state.document || !state.extraction) return;
-  const base = state.document.filename.replace(/\.pdf$/i, "");
-  if (ds.kind === "live") {
-    window.open(ds.exportUrl(state.document.id, format), "_blank");
+function exportAs(format: "json" | "csv"): void {
+  if (!state.document || !state.extraction || state.busy || pendingReviews.get(state.extraction)?.size)
     return;
-  }
-  const rows = computeExportRows(state.extraction);
+  const rows = computeExportRows(state.extraction, state.exportScope);
+  if (rows.length === 0) return;
+  const base = state.document.filename.replace(/\.pdf$/i, "");
+  // A download snapshots the decisions visible in this tab. A later server
+  // response or a different tab cannot change the file after the click.
   if (format === "json") {
     downloadBlob(`${base}.fieldproof.json`, JSON.stringify(rows, null, 2), "application/json");
   } else {
@@ -222,12 +364,9 @@ async function exportAs(format: "json" | "csv"): Promise<void> {
 
 /* ------------------------------ start state ----------------------------- */
 
-async function renderStart(): Promise<void> {
+function renderStart(): void {
   const workbench = getWorkbench();
   if (ds.kind === "demo") {
-    if (state.samples.length === 0) {
-      state.samples = (await ds.listSamples?.()) ?? [];
-    }
     workbench.innerHTML = `
       <div class="start-state">
         <div class="proof-ticks" aria-hidden="true">
@@ -242,6 +381,7 @@ async function renderStart(): Promise<void> {
           a hallucinated PO number, a total that doesn't match its line items, and a misread date.
         </p>
         <div class="sample-grid">
+          ${state.samples.length === 0 ? '<button class="btn btn-primary" id="load-samples" type="button">Load sample documents</button>' : ""}
           ${state.samples
             .map(
               (s) =>
@@ -254,6 +394,7 @@ async function renderStart(): Promise<void> {
     workbench.querySelectorAll<HTMLButtonElement>("[data-sample]").forEach((btn) => {
       btn.addEventListener("click", () => loadSample(btn.dataset.sample!));
     });
+    workbench.querySelector("#load-samples")?.addEventListener("click", () => void bootDemo());
     return;
   }
 
@@ -261,16 +402,17 @@ async function renderStart(): Promise<void> {
     <div class="start-state">
       <h1>Upload a document</h1>
       <p>PDF with a text layer. Extraction runs against the fixture provider or Claude, then every field is grounded and verified against the page.</p>
-      <label class="dropzone" id="dropzone" for="file-input">
-        Drop a PDF here, or click to choose one
-      </label>
-      <input type="file" id="file-input" accept="application/pdf" class="visually-hidden" />
+      <button class="dropzone" id="choose-file" type="button">Drop a PDF here, or choose a file</button>
+      <input type="file" id="file-input" accept="application/pdf" class="visually-hidden" aria-label="PDF document" tabindex="-1" />
     </div>
   `;
   const input = workbench.querySelector<HTMLInputElement>("#file-input")!;
-  const zone = workbench.querySelector<HTMLElement>("#dropzone")!;
+  const zone = workbench.querySelector<HTMLElement>("#choose-file")!;
+  zone.addEventListener("click", () => input.click());
   input.addEventListener("change", () => {
-    if (input.files?.[0]) void uploadFile(input.files[0]);
+    const file = input.files?.[0];
+    input.value = "";
+    if (file) void uploadFile(file);
   });
   zone.addEventListener("dragover", (e) => {
     e.preventDefault();
@@ -287,57 +429,72 @@ async function renderStart(): Promise<void> {
 
 async function loadSample(id: string): Promise<void> {
   if (!ds.loadSample) return;
-  let loaded: Awaited<ReturnType<NonNullable<typeof ds.loadSample>>>;
+  const owner = beginOperation(`Loading ${id}…`, () => void loadSample(id));
   try {
-    loaded = await ds.loadSample(id);
+    const loaded = await ds.loadSample(id, owner.signal);
+    if (operation !== owner || owner.signal.aborted) return;
+    state.document = loaded.document;
+    state.extraction = loaded.extraction;
+    resetView();
+    const flagged = filteredFields().find((f) => f.status !== "verified");
+    state.selectedPath = flagged?.path ?? filteredFields()[0]?.path ?? null;
+    if (flagged?.page) state.currentPage = flagged.page;
+    finishOperation(owner);
+    renderWorkbench();
   } catch (err) {
-    toast(err instanceof Error ? `Could not load ${id}: ${err.message}` : `Could not load ${id}`);
-    return;
+    finishOperation(
+      owner,
+      err instanceof Error ? `Could not load ${id}: ${err.message}` : `Could not load ${id}`,
+    );
   }
-  state.document = loaded.document;
-  state.extraction = loaded.extraction;
-  state.currentPage = 1;
-  state.zoomIsAuto = true;
-  state.selectedPath = null;
-  state.statusFilter = "all";
-  state.searchQuery = "";
-  renderTopbar();
-  // Open on the first field the verifier flagged: the demo's point is what it catches.
-  const flagged = filteredFields().find((f) => f.status !== "verified");
-  if (flagged) selectField(flagged.path, { scroll: false });
-  else renderWorkbench();
+}
+
+function requestedSample(): string | undefined {
+  let hash = "";
+  try {
+    hash = decodeURIComponent(window.location.hash.slice(1));
+  } catch {
+    /* malformed deep link */
+  }
+  return state.samples.find((sample) => sample.id === hash)?.id ?? state.samples[0]?.id;
 }
 
 /** Demo mode opens a sample straight away (the one named in the URL hash, else the first), rather
  * than a landing page with nothing to inspect. */
 async function bootDemo(): Promise<void> {
-  state.samples = (await ds.listSamples?.().catch(() => [])) ?? [];
-  const requested = decodeURIComponent(window.location.hash.slice(1));
-  const target = state.samples.find((s) => s.id === requested) ?? state.samples[0];
-  if (!target) {
-    void renderStart();
-    return;
+  const owner = beginOperation("Loading sample documents…", () => void bootDemo());
+  try {
+    const samples = (await ds.listSamples?.(owner.signal)) ?? [];
+    if (operation !== owner || owner.signal.aborted) return;
+    if (samples.length === 0) throw new Error("No sample documents available.");
+    state.samples = samples;
+    finishOperation(owner);
+    const target = requestedSample();
+    if (target) await loadSample(target);
+  } catch (err) {
+    finishOperation(owner, err instanceof Error ? err.message : "Could not load samples.");
   }
-  await loadSample(target.id);
 }
 
 window.addEventListener("hashchange", () => {
   if (ds.kind !== "demo") return;
-  // No hash (Back to the page as first opened) means the first sample, as in bootDemo.
-  const id = decodeURIComponent(window.location.hash.slice(1)) || state.samples[0]?.id;
-  if (id && state.samples.some((s) => s.id === id) && id !== state.document?.id) void loadSample(id);
+  const id = requestedSample();
+  if (id) void loadSample(id);
 });
 
 async function uploadFile(file: File): Promise<void> {
+  const owner = beginOperation("Loading PDF…", () => void uploadFile(file));
   try {
-    state.document = await ds.uploadDocument(file);
+    const loaded = await ds.uploadDocument(file, owner.signal);
+    if (operation !== owner || owner.signal.aborted) return;
+    state.document = validateDocument(loaded);
     state.extraction = null;
-    state.currentPage = 1;
-    state.zoomIsAuto = true;
-    renderTopbar();
+    state.fixtureFile = null;
+    resetView();
+    finishOperation(owner);
     renderWorkbench();
   } catch (err) {
-    toast(err instanceof Error ? err.message : "Upload failed");
+    finishOperation(owner, err instanceof Error ? err.message : "Upload failed");
   }
 }
 
@@ -392,28 +549,37 @@ function renderConfigure(): void {
 }
 
 async function runExtract(): Promise<void> {
-  if (!state.document) return;
+  if (!state.document || state.busy) return;
   if (state.provider === "fixture" && !state.fixtureFile) {
     toast("Choose a fixture JSON file first");
     return;
   }
-  state.busy = true;
-  renderConfigure();
+  const document = state.document;
+  const owner = beginOperation(
+    state.provider === "anthropic"
+      ? "Extracting with Claude; verification runs locally…"
+      : "Extracting and verifying locally…",
+    () => void runExtract(),
+  );
+  const button = getWorkbench().querySelector<HTMLButtonElement>("#run-extract");
+  if (button) button.disabled = true;
   try {
-    state.extraction = await ds.extract(
-      state.document.id,
+    const extraction = await ds.extract(
+      document.id,
       state.schemaName,
       state.provider,
       state.fixtureFile,
+      owner.signal,
     );
-    state.currentPage = 1;
-    state.zoomIsAuto = true;
-    renderTopbar();
-  } catch (err) {
-    toast(err instanceof Error ? err.message : "Extraction failed");
-  } finally {
-    state.busy = false;
+    if (operation !== owner || owner.signal.aborted || state.document !== document) return;
+    state.extraction = validateExtraction(extraction, document);
+    resetView();
+    state.selectedPath = filteredFields()[0]?.path ?? null;
+    finishOperation(owner);
     renderWorkbench();
+  } catch (err) {
+    if (finishOperation(owner, err instanceof Error ? err.message : "Extraction failed") && button)
+      button.disabled = false;
   }
 }
 
@@ -443,8 +609,16 @@ function filteredFields(): FieldVerification[] {
   const q = state.searchQuery.trim().toLowerCase();
   const matched = fields.filter((f) => {
     if (state.statusFilter !== "all" && f.status !== state.statusFilter) return false;
+    const review = state.extraction?.review[f.path];
+    const pending = !review || review.status === "pending";
+    if (state.reviewFilter === "pending" && !pending) return false;
+    if (state.reviewFilter === "reviewed" && pending) return false;
     if (!q) return true;
-    return f.path.toLowerCase().includes(q) || String(f.value).toLowerCase().includes(q);
+    return (
+      f.path.toLowerCase().includes(q) ||
+      String(f.value).toLowerCase().includes(q) ||
+      String(reviewValue(f, review)).toLowerCase().includes(q)
+    );
   });
   if (state.statusFilter !== "all") return matched; // already one status - sorting would be a no-op
   return [...matched].sort((a, b) => STATUS_SORT_PRIORITY[a.status] - STATUS_SORT_PRIORITY[b.status]);
@@ -452,25 +626,39 @@ function filteredFields(): FieldVerification[] {
 
 function renderWorkbench(): void {
   if (!state.document) {
+    renderedExtraction = null;
     void renderStart();
     return;
   }
   if (!state.extraction) {
+    renderedExtraction = null;
     renderConfigure();
     return;
   }
 
   const workbench = getWorkbench();
+  const restoreFocus = rememberFocus();
+  const listScroll =
+    renderedExtraction === state.extraction ? (document.getElementById("field-list")?.scrollTop ?? 0) : 0;
+  renderedExtraction = state.extraction;
+  workbench.dataset.mobilePane = state.mobilePane;
+  workbench.dataset.filters = state.filtersOpen ? "open" : "closed";
   workbench.innerHTML = `
+    <nav class="mobile-views" aria-label="Review views">
+      <button class="btn" type="button" data-mobile-view="fields" aria-pressed="${state.mobilePane === "fields"}">Fields</button>
+      <button class="btn" type="button" data-mobile-view="document" aria-pressed="${state.mobilePane === "document"}">Document</button>
+      <span>${state.mobilePane === "document" && state.selectedPath ? `Evidence: ${esc(state.selectedPath)}` : "Review and inspect"}</span>
+    </nav>
     <section class="viewer-pane" aria-label="Document page">
       <div class="viewer-toolbar">
-        <button class="btn" id="prev-page" type="button" ${state.currentPage <= 1 ? "disabled" : ""}>←</button>
+        <button class="btn" id="prev-page" type="button" aria-label="Previous page" ${state.currentPage <= 1 ? "disabled" : ""}>←</button>
         <span>Page ${state.currentPage} / ${state.document.page_count}</span>
-        <button class="btn" id="next-page" type="button" ${state.currentPage >= state.document.page_count ? "disabled" : ""}>→</button>
+        <button class="btn" id="next-page" type="button" aria-label="Next page" ${state.currentPage >= state.document.page_count ? "disabled" : ""}>→</button>
         <span style="flex:1"></span>
         <button class="btn" id="zoom-out" type="button" aria-label="Zoom out">−</button>
         <span id="zoom-label">${Math.round(state.zoom * 100)}%</span>
         <button class="btn" id="zoom-in" type="button" aria-label="Zoom in">+</button>
+        <button class="btn" id="zoom-fit" type="button" aria-pressed="${state.zoomIsAuto}">Fit</button>
       </div>
       <div class="viewer-scroll" id="viewer-scroll" tabindex="0" role="group" aria-label="Document page">
         ${renderPageFrame()}
@@ -478,7 +666,7 @@ function renderWorkbench(): void {
     </section>
     <section class="field-pane" aria-label="Extracted fields">
       ${renderFieldPaneHeader()}
-      <ul class="field-list" id="field-list" tabindex="0" aria-label="Fields (arrow keys to navigate, a to approve, r to reject)">
+      <ul class="field-list" id="field-list" tabindex="-1" aria-label="Fields">
         ${renderFieldRows()}
       </ul>
     </section>
@@ -486,6 +674,9 @@ function renderWorkbench(): void {
 
   attachWorkbenchEvents();
   if (state.zoomIsAuto) refreshAutoZoom();
+  const list = document.getElementById("field-list");
+  if (list) list.scrollTop = listScroll;
+  restoreFocus();
 }
 
 /** Rescales the page to fit the viewer pane's width, so a page wider than
@@ -500,9 +691,10 @@ function refreshAutoZoom(): void {
   const page = state.document?.pages.find((p) => p.number === state.currentPage);
   if (!scroll || !page) return;
   const naturalWidth = page.width * PAGE_IMAGE_SCALE;
+  if (scroll.clientWidth <= 48) return;
   const available = scroll.clientWidth - 48; // viewer-scroll padding (24px each side)
-  const fit = Math.min(1, Math.max(0.35, available / naturalWidth));
-  const nextZoom = Math.round(fit * 100) / 100;
+  const fit = Math.min(1, Math.max(0.01, available / naturalWidth));
+  const nextZoom = Math.floor(fit * 1000) / 1000;
   if (nextZoom === state.zoom) return;
   state.zoom = nextZoom;
   scroll.innerHTML = renderPageFrame();
@@ -551,26 +743,45 @@ function renderPageFrame(): string {
 
 function renderFieldPaneHeader(): string {
   const counts = state.extraction!.report.counts;
+  const fields = state.extraction!.report.fields;
+  const remaining = fields.filter(
+    (f) => !state.extraction!.review[f.path] || state.extraction!.review[f.path]!.status === "pending",
+  ).length;
   const chip = (status: FieldStatus | "all", label: string, count: number): string => `
     <button class="count-chip ${state.statusFilter === status ? "is-active" : ""}" data-status-filter="${status}"
-      data-status="${status === "all" ? "" : status}" type="button">
+      data-status="${status === "all" ? "" : status}" type="button" aria-pressed="${state.statusFilter === status}">
       ${esc(label)} ${count}
     </button>
   `;
   return `
     <div class="field-pane-header">
+      <div class="review-summary"><p class="review-progress" id="review-progress" role="status">${fields.length - remaining} of ${fields.length} reviewed · ${remaining} pending</p>
+        <button class="btn mobile-filter-toggle" id="toggle-filters" type="button" aria-expanded="${state.filtersOpen}" aria-controls="review-filters">Filters</button>
+      </div>
+      <div class="review-filters" id="review-filters">
+      <label class="review-filter">Show
+        <select class="select" id="review-filter" aria-label="Show">
+          <option value="all" ${state.reviewFilter === "all" ? "selected" : ""}>All decisions</option>
+          <option value="pending" ${state.reviewFilter === "pending" ? "selected" : ""}>Pending review</option>
+          <option value="reviewed" ${state.reviewFilter === "reviewed" ? "selected" : ""}>Reviewed</option>
+        </select>
+      </label>
       <div class="counts-strip">
         ${chip("all", "All", state.extraction!.report.fields.length)}
         ${chip("verified", "Verified", counts.verified)}
         ${chip("needs_review", "Needs review", counts.needs_review)}
         ${chip("unsupported", "Unsupported", counts.unsupported)}
       </div>
-      <div class="filter-row">
-        <input class="text-input" id="search-input" type="search" placeholder="Search fields…" value="${esc(state.searchQuery)}" />
       </div>
+      <div class="filter-row">
+        <input class="text-input" id="search-input" type="search" aria-label="Search fields" placeholder="Search fields…" value="${esc(state.searchQuery)}" />
+      </div>
+      <details class="review-notes"><summary>Evidence and keyboard help</summary>
+        <p class="review-help">Select a field; use ↑/↓ to navigate, A to approve, R to reject. Verification and evidence describe the original extraction; corrections are human decisions.</p>
+      </details>
       ${
         ds.kind === "demo"
-          ? `<p class="demo-note">Synthetic document. The extraction is a hand-written fixture with planted errors, grounded and verified by the real pipeline. Flagged fields come first; select one to see its evidence on the page.</p>`
+          ? `<p class="demo-note">Synthetic fixture. ${ds.reviewPersistence === "session" ? "Tab only: export before reloading." : "Decisions saved in this browser."}</p>`
           : ""
       }
     </div>
@@ -582,14 +793,18 @@ function renderFieldRows(): string {
   if (fields.length === 0) {
     return `<li class="empty-filtered">No fields match this filter.</li>`;
   }
-  return fields.map((f) => renderFieldRow(f)).join("");
+  const focusPath = fields.some((f) => f.path === state.selectedPath) ? state.selectedPath : fields[0]!.path;
+  return fields.map((f) => renderFieldRow(f, f.path === focusPath)).join("");
 }
 
-function renderFieldRow(f: FieldVerification): string {
+function renderFieldRow(f: FieldVerification, navigable: boolean): string {
   const review = state.extraction!.review[f.path] ?? { status: "pending", edited_value: null };
   const selected = f.path === state.selectedPath;
-  const displayValue = review.status === "edited" ? review.edited_value : f.value;
+  const displayValue = reviewValue(f, review);
+  const corrected = review.edited_value !== null && review.status !== "pending";
   const isEditing = state.editingPath === f.path;
+  const saving = pendingReviews.get(state.extraction!)?.has(f.path) ?? false;
+  const disabled = saving || state.busy ? "disabled" : "";
 
   const reasonsHtml =
     f.reasons.length > 0
@@ -601,19 +816,24 @@ function renderFieldRow(f: FieldVerification): string {
 
   const editHtml = isEditing
     ? `<div class="edit-row">
-        <input class="text-input" id="edit-input-${esc(f.path)}" value="${esc(displayValue)}" />
-        <button class="btn btn-primary" type="button" data-save="${esc(f.path)}">Save</button>
-        <button class="btn" type="button" data-cancel-edit>Cancel</button>
-      </div>`
+        ${
+          typeof f.value === "boolean"
+            ? `<select class="select" id="edit-value" aria-label="Correction for ${esc(f.path)}" ${disabled}><option value="true" ${state.editingValue === "true" ? "selected" : ""}>true</option><option value="false" ${state.editingValue === "false" ? "selected" : ""}>false</option></select>`
+            : `<input class="text-input" id="edit-value" aria-label="Correction for ${esc(f.path)}" ${typeof f.value === "number" ? 'inputmode="decimal"' : ""} value="${esc(state.editingValue)}" aria-invalid="${!!state.editError}" aria-describedby="edit-error" ${disabled} />`
+        }
+        <button class="btn btn-primary" type="button" data-save="${esc(f.path)}" ${disabled}>${saving ? "Saving…" : "Save"}</button>
+        <button class="btn" type="button" data-cancel-edit ${disabled}>Cancel</button>
+      </div><p class="edit-error" id="edit-error" role="alert">${esc(state.editError ?? "")}</p>`
     : "";
 
   return `
     <li class="field-row ${selected ? "is-selected" : ""}" data-path="${esc(f.path)}" aria-current="${selected ? "true" : "false"}">
       <div class="field-row-top">
-        <span class="field-path">${esc(f.path)}</span>
+        <button class="field-path field-select" type="button" data-select="${esc(f.path)}" tabindex="${navigable ? 0 : -1}" aria-label="Inspect ${esc(f.path)}">${esc(f.path)}</button>
         <span class="status-chip" data-status="${f.status}">${statusLabel(f.status)}</span>
       </div>
-      <div class="field-value ${review.status === "edited" ? "is-edited" : ""}">${esc(formatDisplayValue(f.path, displayValue))}</div>
+      <div class="field-value ${corrected ? "is-edited" : ""}">${esc(formatDisplayValue(f.path, displayValue))}</div>
+      ${corrected ? `<p class="original-value">Originally extracted: ${esc(formatDisplayValue(f.path, f.value))}. Correction has not been automatically verified.</p>` : ""}
       ${review.status !== "pending" ? `<span class="review-badge">${review.status}</span>` : ""}
       ${reasonsHtml}
       ${evidenceHtml}
@@ -621,10 +841,11 @@ function renderFieldRow(f: FieldVerification): string {
         isEditing
           ? editHtml
           : `<div class="field-actions">
-              <button class="btn" type="button" data-approve="${esc(f.path)}">Approve</button>
-              <button class="btn" type="button" data-edit="${esc(f.path)}">Edit</button>
-              <button class="btn" type="button" data-reject="${esc(f.path)}">Reject</button>
-              ${review.status !== "pending" ? `<button class="btn" type="button" data-reset="${esc(f.path)}">Reset</button>` : ""}
+              <button class="btn" type="button" data-approve="${esc(f.path)}" ${disabled}>Approve</button>
+              <button class="btn" type="button" data-edit="${esc(f.path)}" ${disabled}>Edit</button>
+              <button class="btn" type="button" data-reject="${esc(f.path)}" ${disabled}>Reject</button>
+              ${review.status !== "pending" ? `<button class="btn" type="button" data-reset="${esc(f.path)}" ${disabled}>Reset</button>` : ""}
+              ${saving ? '<span role="status">Saving…</span>' : ""}
             </div>`
       }
     </li>
@@ -634,6 +855,20 @@ function renderFieldRow(f: FieldVerification): string {
 /* ------------------------------ event wiring ----------------------------- */
 
 function attachViewerRectEvents(): void {
+  const image = document.querySelector<HTMLImageElement>("#page-frame img");
+  image?.addEventListener("error", () => {
+    const scroll = document.getElementById("viewer-scroll");
+    if (!scroll || !scroll.contains(image) || scroll.querySelector(".page-image-error")) return;
+    const error = document.createElement("div");
+    error.className = "page-image-error";
+    error.innerHTML =
+      '<p role="alert">Page image could not load. Field evidence remains available below.</p><button class="btn" type="button">Retry page image</button>';
+    error.querySelector("button")!.addEventListener("click", () => {
+      scroll.innerHTML = renderPageFrame();
+      attachViewerRectEvents();
+    });
+    scroll.prepend(error);
+  });
   document.querySelectorAll<HTMLElement>(".highlight-rect").forEach((rect) => {
     rect.addEventListener("click", () => selectField(rect.dataset.path!, { pulse: true }));
     rect.addEventListener("mouseenter", () => setHoveredRow(rect.dataset.path!, true));
@@ -643,6 +878,16 @@ function attachViewerRectEvents(): void {
 
 function attachWorkbenchEvents(): void {
   const workbench = getWorkbench();
+  workbench.querySelector("#toggle-filters")?.addEventListener("click", () => {
+    state.filtersOpen = !state.filtersOpen;
+    renderWorkbench();
+  });
+  workbench.querySelectorAll<HTMLButtonElement>("[data-mobile-view]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.mobilePane = button.dataset.mobileView as AppState["mobilePane"];
+      renderWorkbench();
+    });
+  });
 
   workbench.querySelector<HTMLButtonElement>("#prev-page")?.addEventListener("click", () => {
     state.currentPage = Math.max(1, state.currentPage - 1);
@@ -663,6 +908,14 @@ function attachWorkbenchEvents(): void {
     renderWorkbench();
   });
 
+  workbench.querySelector<HTMLButtonElement>("#zoom-fit")?.addEventListener("click", () => {
+    state.zoomIsAuto = true;
+    renderWorkbench();
+  });
+  workbench.querySelector<HTMLSelectElement>("#review-filter")?.addEventListener("change", (event) => {
+    state.reviewFilter = (event.target as HTMLSelectElement).value as AppState["reviewFilter"];
+    renderWorkbench();
+  });
   attachViewerRectEvents();
 
   workbench.querySelectorAll<HTMLElement>(".count-chip").forEach((chip) => {
@@ -681,6 +934,10 @@ function attachWorkbenchEvents(): void {
   const list = workbench.querySelector<HTMLUListElement>("#field-list")!;
   list.addEventListener("click", (e) => onFieldListClick(e));
   list.addEventListener("keydown", (e) => onFieldListKeydown(e));
+  list.addEventListener("input", (e) => {
+    if ((e.target as HTMLElement).id === "edit-value")
+      state.editingValue = (e.target as HTMLInputElement | HTMLSelectElement).value;
+  });
 }
 
 function onFieldListClick(e: Event): void {
@@ -697,115 +954,192 @@ function onFieldListClick(e: Event): void {
   if (reject) return void reviewField(reject.dataset.reject!, "reject");
   if (reset) return void reviewField(reset.dataset.reset!, "reset");
   if (edit) {
-    state.editingPath = edit.dataset.edit!;
+    const path = edit.dataset.edit!;
+    const field = state.extraction!.report.fields.find((field) => field.path === path)!;
+    state.editingPath = path;
+    state.editingValue = String(reviewValue(field, state.extraction!.review[path]));
+    state.editError = null;
     renderFieldListOnly();
+    const input = document.getElementById("edit-value") as HTMLInputElement | HTMLSelectElement;
+    input.focus({ preventScroll: true });
+    if (input instanceof HTMLInputElement) input.select();
     return;
   }
   if (cancel) {
     state.editingPath = null;
+    state.editError = null;
     renderFieldListOnly();
     return;
   }
-  if (save) {
-    const path = save.dataset.save!;
-    const input = document.getElementById(`edit-input-${cssEscape(path)}`) as HTMLInputElement | null;
-    void reviewField(path, "edit", input?.value ?? "");
-    state.editingPath = null;
-    return;
-  }
-  if (row) {
-    selectField(row.dataset.path!, { pulse: true });
-  }
+  if (save) return void saveEdit(save.dataset.save!);
+  if (target.closest("input, select")) return;
+  if (row) selectField(row.dataset.path!, { pulse: true, focus: true, showDocument: true });
 }
 
-function cssEscape(s: string): string {
-  return s.replace(/[^a-zA-Z0-9_-]/g, "_");
+function saveEdit(path: string): void {
+  const field = state.extraction?.report.fields.find((field) => field.path === path);
+  const input = document.getElementById("edit-value") as HTMLInputElement | HTMLSelectElement | null;
+  if (!field || !input) return;
+  state.editingValue = input.value;
+  try {
+    const value = parseEditValue(field.value, input.value);
+    state.editError = null;
+    void reviewField(path, "edit", value);
+  } catch (err) {
+    state.editError = err instanceof Error ? err.message : "Invalid correction.";
+    renderFieldListOnly();
+    document.getElementById("edit-value")?.focus({ preventScroll: true });
+  }
 }
 
 function onFieldListKeydown(e: KeyboardEvent): void {
   const target = e.target as HTMLElement;
-  if (target.tagName === "INPUT") return; // typing in search or an edit box
-
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  if (target.matches("input, select")) {
+    if (e.key === "Enter" && state.editingPath) {
+      e.preventDefault();
+      saveEdit(state.editingPath);
+    }
+    if (e.key === "Escape") {
+      e.preventDefault();
+      state.editingPath = null;
+      state.editError = null;
+      renderFieldListOnly();
+    }
+    return;
+  }
+  if (target !== document.getElementById("field-list") && !target.matches("[data-select]")) return;
   const fields = filteredFields();
   if (fields.length === 0) return;
-  const currentIndex = fields.findIndex((f) => f.path === state.selectedPath);
-
-  if (e.key === "ArrowDown" || e.key === "j") {
+  const path = target.dataset.select ?? state.selectedPath;
+  const currentIndex = fields.findIndex((f) => f.path === path);
+  const keys: Record<string, number> = {
+    ArrowDown: Math.min(fields.length - 1, currentIndex + 1),
+    ArrowUp: Math.max(0, currentIndex - 1),
+    Home: 0,
+    End: fields.length - 1,
+  };
+  const index = keys[e.key];
+  if (index !== undefined) {
     e.preventDefault();
-    const next = fields[Math.min(fields.length - 1, currentIndex + 1)] ?? fields[0];
-    selectField(next!.path, { pulse: true });
-  } else if (e.key === "ArrowUp" || e.key === "k") {
+    selectField(fields[index]!.path, { pulse: true, focus: true });
+  } else if (e.key.toLowerCase() === "a" && path) {
     e.preventDefault();
-    const prev = fields[Math.max(0, currentIndex - 1)] ?? fields[0];
-    selectField(prev!.path, { pulse: true });
-  } else if (e.key === "a" && state.selectedPath) {
-    void reviewField(state.selectedPath, "approve");
-  } else if (e.key === "r" && state.selectedPath) {
-    void reviewField(state.selectedPath, "reject");
+    void reviewField(path, "approve");
+  } else if (e.key.toLowerCase() === "r" && path) {
+    e.preventDefault();
+    void reviewField(path, "reject");
   }
 }
 
-function selectField(path: string, opts: { pulse?: boolean; scroll?: boolean } = {}): void {
-  const field = state.extraction!.report.fields.find((f) => f.path === path);
+function fieldRow(path: string): HTMLElement | undefined {
+  return [...document.querySelectorAll<HTMLElement>(".field-row")].find((row) => row.dataset.path === path);
+}
+
+function selectField(
+  path: string,
+  opts: { pulse?: boolean; focus?: boolean; showDocument?: boolean } = {},
+): void {
+  const field = state.extraction?.report.fields.find((field) => field.path === path);
+  if (!field) return;
   state.selectedPath = path;
-  if (field?.page) state.currentPage = field.page;
+  const mobileDocument = opts.showDocument && window.matchMedia("(max-width: 860px)").matches;
+  if (mobileDocument) state.mobilePane = "document";
+  if (field.page) state.currentPage = field.page;
   renderWorkbench();
-  // An automatic selection (opening a sample) must not scroll the window: on a narrow screen the
-  // panes stack, and scrolling the highlight into view would push the top bar off-screen.
-  if (opts.scroll === false) return;
-
-  const rect = document.querySelector<HTMLElement>(`.highlight-rect[data-path="${cssAttrEscape(path)}"]`);
-  rect?.scrollIntoView({ block: "center", inline: "center", behavior: "smooth" });
-  if (opts.pulse && rect) {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!prefersReducedMotion) {
-      rect.classList.add("is-pulsing");
-      window.setTimeout(() => rect.classList.remove("is-pulsing"), 1900);
-    }
+  const rect = [...document.querySelectorAll<HTMLElement>(".highlight-rect")].find(
+    (rect) => rect.dataset.path === path,
+  );
+  if (rect) {
+    const scroll = document.getElementById("viewer-scroll")!;
+    scroll.scrollTo({
+      top: Math.max(0, rect.offsetTop - scroll.clientHeight / 2),
+      left: Math.max(0, rect.offsetLeft - scroll.clientWidth / 2),
+    });
   }
-  // renderWorkbench() just rebuilt #field-list from scratch (fresh scroll
-  // position 0), regardless of what selected `path` - always re-settle it
-  // on the selected row, not just for keyboard nav, or clicking a highlight
-  // rect for a field below the fold silently scrolls the list back to top.
-  document
-    .querySelector<HTMLElement>(`.field-row[data-path="${cssAttrEscape(path)}"]`)
-    ?.scrollIntoView({ block: "nearest" });
-}
-
-function cssAttrEscape(s: string): string {
-  return s.replace(/"/g, '\\"');
+  if (opts.pulse && rect && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    rect.classList.add("is-pulsing");
+    window.setTimeout(() => rect.classList.remove("is-pulsing"), 1900);
+  }
+  const row = fieldRow(path);
+  if (row) {
+    const list = document.getElementById("field-list")!;
+    const rowTop = row.offsetTop - list.offsetTop;
+    if (rowTop < list.scrollTop) list.scrollTop = rowTop;
+    else if (rowTop + row.offsetHeight > list.scrollTop + list.clientHeight)
+      list.scrollTop = rowTop + row.offsetHeight - list.clientHeight;
+    if (opts.focus && !mobileDocument)
+      row.querySelector<HTMLButtonElement>("[data-select]")?.focus({ preventScroll: true });
+  }
+  if (mobileDocument)
+    document
+      .querySelector<HTMLButtonElement>('[data-mobile-view="document"]')
+      ?.focus({ preventScroll: true });
 }
 
 function setHoveredRow(path: string, on: boolean): void {
-  document
-    .querySelector<HTMLElement>(`.field-row[data-path="${cssAttrEscape(path)}"]`)
-    ?.classList.toggle("is-hovered", on);
+  fieldRow(path)?.classList.toggle("is-hovered", on);
 }
 
 async function reviewField(
   path: string,
   action: "approve" | "edit" | "reject" | "reset",
-  value?: string,
+  value?: string | number | boolean,
 ): Promise<void> {
-  if (!state.document) return;
+  const document = state.document;
+  const extraction = state.extraction;
+  if (!document || !extraction || state.busy) return;
+  const pending = pendingReviews.get(extraction) ?? new Set<string>();
+  if (pending.has(path)) return;
+  pending.add(path);
+  pendingReviews.set(extraction, pending);
+  renderTopbar();
+  renderFieldListOnly();
   try {
-    const entry = await ds.review(state.document.id, path, action, value);
-    state.extraction!.review[path] = entry;
-    renderFieldListOnly();
+    const entry = await ds.review(document.id, path, action, value);
+    extraction.review[path] = entry;
+    if (state.document === document && state.extraction === extraction) {
+      if (action === "edit" && state.editingPath === path) state.editingPath = null;
+      toast(`${path}: ${entry.status}`);
+    }
   } catch (err) {
-    toast(err instanceof Error ? err.message : "Couldn't update review status");
+    if (state.document === document && state.extraction === extraction) {
+      const message = err instanceof Error ? err.message : "Couldn't update review status";
+      if (action === "edit") state.editError = message;
+      toast(message);
+    }
+  } finally {
+    pending.delete(path);
+    if (state.document === document && state.extraction === extraction) {
+      renderTopbar();
+      renderFieldListOnly();
+    }
   }
 }
 
 function renderFieldListOnly(): void {
-  // Deliberately leaves the <ul id="field-list"> element and the search
-  // input in place (only their contents/value change) so the delegated
-  // click/keydown listeners on the list and focus/cursor in the search box
-  // both survive a keystroke or a review action - only the counts strip
-  // (which reflects verification, not review, status) never needs this.
   const list = document.getElementById("field-list");
   if (!list) return;
+  const restoreFocus = rememberFocus();
+  const scroll = list.scrollTop;
+  const input = document.getElementById("edit-value") as HTMLInputElement | HTMLSelectElement | null;
+  if (input && input.closest<HTMLElement>(".field-row")?.dataset.path === state.editingPath)
+    state.editingValue = input.value;
   list.innerHTML = renderFieldRows();
+  list.scrollTop = scroll;
+  const progress = document.getElementById("review-progress");
+  const fields = state.extraction!.report.fields;
+  const pending = fields.filter(
+    (field) =>
+      !state.extraction!.review[field.path] || state.extraction!.review[field.path]!.status === "pending",
+  ).length;
+  if (progress)
+    progress.textContent = `${fields.length - pending} of ${fields.length} reviewed · ${pending} pending`;
+  const note = document.querySelector(".demo-note");
+  if (ds.reviewPersistence === "session" && note)
+    note.textContent =
+      "Synthetic fixture with planted errors. Browser storage is unavailable. Tab only: export decisions before reloading.";
+  restoreFocus();
 }
 
 /* --------------------------------- boot ---------------------------------- */

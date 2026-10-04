@@ -9,9 +9,10 @@ from __future__ import annotations
 
 import csv
 import io
+import math
 import os
 from pathlib import Path
-from typing import Annotated, Any
+from typing import Annotated, Any, Literal
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import JSONResponse, PlainTextResponse, Response
@@ -38,16 +39,18 @@ app = FastAPI(title="fieldproof", version=__version__)
 def _find_static_dir() -> Path:
     """The built web UI, if present - not committed (it's build output), so
     a fresh clone has neither candidate until `npm run build` is run in
-    web/. Checked in order: an explicit override, a copy already placed
-    next to this file (e.g. by packaging), and web/dist relative to the
-    repo checkout (the normal case for `pip install -e .` + `fieldproof
-    serve` from source)."""
+    web/. An explicit override wins. In a source checkout, prefer the
+    source build to a potentially stale packaged copy. Installed wheels
+    use the copy next to this file."""
     if override := os.environ.get("FIELDPROOF_STATIC_DIR"):
         return Path(override)
     bundled = Path(__file__).parent / "static"
+    source_root = Path(__file__).resolve().parents[3]
+    repo_dist = source_root / "web" / "dist"
+    if (source_root / "pyproject.toml").is_file() and (repo_dist / "index.html").is_file():
+        return repo_dist
     if (bundled / "index.html").exists():
         return bundled
-    repo_dist = Path(__file__).resolve().parents[3] / "web" / "dist"
     return repo_dist
 
 
@@ -205,11 +208,33 @@ def review_field(document_id: str, req: ReviewRequest) -> dict[str, Any]:
         raise HTTPException(status_code=404, detail=f"no field {req.path!r}")
 
     if req.action == "approve":
-        session.review[req.path] = ReviewState(status="approved")
+        session.review[req.path] = ReviewState(
+            status="approved", edited_value=session.review[req.path].edited_value
+        )
     elif req.action == "edit":
+        original = next(f.value for f in session.report.fields if f.path == req.path)
+        if isinstance(original, bool):
+            valid = isinstance(req.value, bool)
+        elif isinstance(original, (int, float)):
+            try:
+                valid = (
+                    isinstance(req.value, (int, float))
+                    and not isinstance(req.value, bool)
+                    and math.isfinite(req.value)
+                )
+            except OverflowError:
+                valid = False
+        else:
+            valid = isinstance(req.value, str)
+        if not valid:
+            raise HTTPException(
+                status_code=422, detail="correction must keep the field's scalar type and be finite"
+            )
         session.review[req.path] = ReviewState(status="edited", edited_value=req.value)
     elif req.action == "reject":
-        session.review[req.path] = ReviewState(status="rejected")
+        session.review[req.path] = ReviewState(
+            status="rejected", edited_value=session.review[req.path].edited_value
+        )
     elif req.action == "reset":
         session.review[req.path] = ReviewState(status="pending")
     else:
@@ -219,18 +244,24 @@ def review_field(document_id: str, req: ReviewRequest) -> dict[str, Any]:
     return {"path": req.path, "status": state.status, "edited_value": state.edited_value}
 
 
-def _exported_rows(session: DocumentSession) -> list[dict[str, Any]]:
+def _exported_rows(
+    session: DocumentSession, scope: Literal["all", "reviewed"] = "all"
+) -> list[dict[str, Any]]:
     assert session.report is not None
     rows = []
     for f in session.report.fields:
         review = session.review.get(f.path, ReviewState())
         if review.status == "rejected":
             continue
-        value = review.edited_value if review.status == "edited" else f.value
+        if scope == "reviewed" and review.status not in {"approved", "edited"}:
+            continue
+        value = review.edited_value if review.edited_value is not None else f.value
         rows.append(
             {
                 "field": f.path,
                 "value": value,
+                "original_value": f.value,
+                "value_source": "correction" if review.edited_value is not None else "extraction",
                 "verification_status": f.status.value,
                 "review_status": review.status,
                 "page": f.page,
@@ -240,25 +271,40 @@ def _exported_rows(session: DocumentSession) -> list[dict[str, Any]]:
 
 
 @app.get("/api/documents/{document_id}/export.json")
-def export_json(document_id: str) -> JSONResponse:
+def export_json(document_id: str, scope: Literal["all", "reviewed"] = "all") -> JSONResponse:
     session = _session_or_404(document_id)
     if session.report is None:
         raise HTTPException(status_code=404, detail="no extraction has been run yet")
-    return JSONResponse(content=_exported_rows(session))
+    return JSONResponse(content=_exported_rows(session, scope))
 
 
 @app.get("/api/documents/{document_id}/export.csv")
-def export_csv(document_id: str) -> PlainTextResponse:
+def export_csv(document_id: str, scope: Literal["all", "reviewed"] = "all") -> PlainTextResponse:
     session = _session_or_404(document_id)
     if session.report is None:
         raise HTTPException(status_code=404, detail="no extraction has been run yet")
-    rows = _exported_rows(session)
+    rows = _exported_rows(session, scope)
     buf = io.StringIO()
     writer = csv.DictWriter(
-        buf, fieldnames=["field", "value", "verification_status", "review_status", "page"]
+        buf,
+        fieldnames=[
+            "field",
+            "value",
+            "original_value",
+            "value_source",
+            "verification_status",
+            "review_status",
+            "page",
+        ],
     )
     writer.writeheader()
-    writer.writerows(rows)
+    writer.writerows(
+        {
+            key: str(value).lower() if isinstance(value, bool) else value
+            for key, value in row.items()
+        }
+        for row in rows
+    )
     return PlainTextResponse(content=buf.getvalue(), media_type="text/csv")
 
 

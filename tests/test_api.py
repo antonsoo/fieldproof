@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import io
 import json
 
@@ -197,3 +198,142 @@ def test_extract_with_an_unusable_fixture_is_a_422_that_says_why(
     assert r.status_code == 422
     assert expected in r.json()["detail"]
     assert client.get(f"/api/documents/{doc_id}/report").status_code == 404  # nothing was stored
+
+
+@pytest.fixture
+def extracted_document(client, simple_invoice_pdf_bytes, fixture_bytes):
+    document_id = client.post(
+        "/api/documents",
+        files={"file": ("invoice.pdf", simple_invoice_pdf_bytes, "application/pdf")},
+    ).json()["id"]
+    response = client.post(
+        f"/api/documents/{document_id}/extract",
+        data={"schema": "invoice", "provider": "fixture"},
+        files={"fixture": ("fixture.json", fixture_bytes, "application/json")},
+    )
+    assert response.status_code == 200
+    return document_id
+
+
+@pytest.mark.parametrize("value", [321.5, 0, -12.5])
+def test_correction_retains_numeric_type_through_approve_reject_reset(
+    client, extracted_document, value
+):
+    url = f"/api/documents/{extracted_document}"
+    original_report = client.get(f"{url}/report").json()["report"]
+    for action in ["edit", "approve", "reject", "approve"]:
+        response = client.post(
+            f"{url}/review", json={"path": "total", "action": action, "value": value}
+        )
+        assert response.status_code == 200
+        assert response.json()["edited_value"] == value
+        rows = client.get(f"{url}/export.json?scope=reviewed").json()
+        if action == "reject":
+            assert rows == []
+        else:
+            assert rows[0]["value"] == value
+            assert isinstance(rows[0]["value"], (int, float))
+    assert client.get(f"{url}/report").json()["report"] == original_report
+    client.post(f"{url}/review", json={"path": "total", "action": "reset"})
+    assert client.get(f"{url}/export.json?scope=reviewed").json() == []
+    rows = {r["field"]: r for r in client.get(f"{url}/export.json").json()}
+    assert rows["total"]["value"] == 110.0
+
+
+@pytest.mark.parametrize("value", [None, "", "123.5", True, False, [], {}, 10**500])
+def test_invalid_correction_does_not_change_decisions(client, extracted_document, value):
+    url = f"/api/documents/{extracted_document}"
+    before = client.get(f"{url}/report").json()
+    response = client.post(
+        f"{url}/review", json={"path": "total", "action": "edit", "value": value}
+    )
+    assert response.status_code == 422
+    assert client.get(f"{url}/report").json() == before
+
+
+@pytest.mark.parametrize("literal", ["NaN", "Infinity", "-Infinity", "1e309"])
+def test_nonfinite_corrections_are_rejected(client, extracted_document, literal):
+    response = client.post(
+        f"/api/documents/{extracted_document}/review",
+        content='{"path":"total","action":"edit","value":' + literal + "}",
+        headers={"content-type": "application/json"},
+    )
+    assert response.status_code == 422
+
+
+def test_export_scopes_keep_review_and_verification_separate(client, extracted_document):
+    url = f"/api/documents/{extracted_document}"
+    assert client.get(f"{url}/export.json?scope=reviewed").json() == []
+    value = '00034,\r\n"identifier"'
+    client.post(f"{url}/review", json={"path": "invoice_number", "action": "edit", "value": value})
+    client.post(f"{url}/review", json={"path": "invoice_number", "action": "approve"})
+    rows = client.get(f"{url}/export.json?scope=reviewed").json()
+    assert len(rows) == 1
+    assert rows[0]["value"] == value
+    assert rows[0]["original_value"] == "INV-1001"
+    assert rows[0]["value_source"] == "correction"
+    assert rows[0]["review_status"] == "approved"
+    assert rows[0]["verification_status"] == "verified"  # original extraction's check
+    csv_rows = list(
+        csv.DictReader(io.StringIO(client.get(f"{url}/export.csv?scope=reviewed").text))
+    )
+    assert csv_rows[0]["value"] == value
+    assert len(client.get(f"{url}/export.json?scope=all").json()) > 1
+    assert client.get(f"{url}/export.json?scope=typo").status_code == 422
+
+
+def test_source_build_wins_over_stale_packaged_ui_and_explicit_override_wins(tmp_path, monkeypatch):
+    import importlib
+
+    module = importlib.import_module("fieldproof.server.app")
+    source = tmp_path / "checkout"
+    server = source / "src" / "fieldproof" / "server"
+    server.mkdir(parents=True)
+    monkeypatch.setattr(module, "__file__", str(server / "app.py"))
+    monkeypatch.delenv("FIELDPROOF_STATIC_DIR", raising=False)
+    bundled = server / "static"
+    bundled.mkdir()
+    (bundled / "index.html").write_text("older packaged UI")
+    fresh = source / "web" / "dist"
+    fresh.mkdir(parents=True)
+    (fresh / "index.html").write_text("fresh source UI")
+    (source / "pyproject.toml").write_text('[project]\nname="fieldproof"\n')
+    assert module._find_static_dir() == fresh
+    (source / "pyproject.toml").unlink()  # installed wheel has no source checkout
+    assert module._find_static_dir() == bundled
+    override = tmp_path / "override"
+    monkeypatch.setenv("FIELDPROOF_STATIC_DIR", str(override))
+    assert module._find_static_dir() == override
+
+
+def test_boolean_review_preserves_false_through_approval_and_both_export_formats(
+    client, extracted_document
+):
+    from fieldproof.server.store import ReviewState
+    from fieldproof.verify.engine import FieldStatus, FieldVerification
+
+    session = store.get(extracted_document)
+    assert session is not None and session.report is not None
+    session.report.fields.append(FieldVerification("agreed", True, FieldStatus.VERIFIED))
+    session.review["agreed"] = ReviewState()
+    url = f"/api/documents/{extracted_document}"
+    for invalid in ["false", 0, None]:
+        assert (
+            client.post(
+                f"{url}/review", json={"path": "agreed", "action": "edit", "value": invalid}
+            ).status_code
+            == 422
+        )
+    for action in ["edit", "approve"]:
+        response = client.post(
+            f"{url}/review", json={"path": "agreed", "action": action, "value": False}
+        )
+        assert response.json()["edited_value"] is False
+    rows = client.get(f"{url}/export.json?scope=reviewed").json()
+    assert rows[0]["value"] is False
+    assert rows[0]["original_value"] is True
+    csv_rows = list(
+        csv.DictReader(io.StringIO(client.get(f"{url}/export.csv?scope=reviewed").text))
+    )
+    assert csv_rows[0]["value"] == "false"
+    assert csv_rows[0]["original_value"] == "true"
