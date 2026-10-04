@@ -168,6 +168,41 @@ added in the current unreleased work:
 | `review_status` | Human decision: pending, approved or edited |
 | `page` | Original evidence page, or null if no page was grounded |
 
+### Document sessions and limits
+
+The local UI's **Sessions** dialog reopens uploaded PDFs and their saved
+decisions, including after a tab reload. **New document** keeps the previous
+session on the server. **Remove** requires confirmation and frees its PDF,
+text, extraction and decisions; export anything you need first. Sessions
+remain in memory until removal or server restart. They are not a durable
+archive. An open correction must be saved or cancelled before navigating away.
+
+The server refuses new work when a limit is reached and preserves the previous
+document and review. It never evicts a session to make room.
+
+| Resource | Local server limit |
+| --- | --- |
+| Uploaded PDF | 25 MiB; 64 pages; a text layer is required |
+| Rendered page | 16 million pixels at 144 DPI |
+| Extracted document text | 100,000 words and 2 million characters |
+| Retained sessions | 8 documents; 100 MiB of PDFs; 200,000 words total |
+| Fixture / review | 2 MiB fixture JSON; 2,000 fields; 1 MiB of saved corrections per session |
+| Pending work | 4 intake requests; 2 PDF uploads; 4 queued/running PDF operations |
+
+PDF loading and page rendering run one at a time in disposable processes.
+Each operation has a 30-second execution timeout and a bounded queue wait.
+On Linux, each worker also has a 768 MiB address-space limit, 20 seconds of
+CPU time, and a 64 MiB output-file limit. Windows receives the timeout and
+application limits without the Unix process resource limits. These budgets
+contain PDF processing; they do not measure extraction accuracy or guarantee
+that every valid PDF will fit. Scanned PDFs can be processed through the
+CLI's OCR fallback; the review server currently requires a text layer.
+
+API clients can list sessions with `GET /api/documents`, reopen metadata and
+the saved report with the existing document/report routes, and remove one
+with `DELETE /api/documents/{id}`. Removal or concurrent extraction is
+refused while extraction owns that session.
+
 ### Bring your own schema
 
 Any Pydantic model built from `Evidenced[T]` leaves works - `fieldproof.ground`
@@ -362,6 +397,7 @@ src layout, fully typed (`mypy --strict`-adjacent; see `pyproject.toml`).
 
 See the [2026-10-04 review verification report](docs/verification-review-2026-10-04.md)
 for production-browser, clean-install, and installed-package results.
+Use Node 24 or newer for the web toolchain.
 
 ```bash
 uv sync --extra dev --extra ocr
@@ -392,6 +428,16 @@ accessibility workflows use axe. No live model call is required. Local preview
 and API servers use fixed loopback ports 4290 and 4289 and stop after the suite.
 Cancellation stops waiting in the UI; work already accepted by the local server
 can continue.
+
+To measure the disposable PDF workers on Linux with the bundled samples, a
+generated 64-page native PDF and an image-only scan:
+
+```bash
+uv run --extra dev --extra ocr python scripts/measure_server_resources.py --out measurements.json
+```
+
+The output records single-run timings and cumulative process RSS high-water
+marks. It is a local measurement, not an accuracy or worst-case performance claim.
 
 Regenerate the sample documents and demo data after changing them - the
 output (`web/public/demo-data/`) is committed, since the Pages deploy is a

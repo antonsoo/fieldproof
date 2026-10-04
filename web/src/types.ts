@@ -53,6 +53,21 @@ export interface DocumentSummary {
   pages: DocumentPage[];
 }
 
+export interface SessionSummary extends DocumentSummary {
+  pdf_bytes: number;
+  has_extraction: boolean;
+  reviewed_count: number;
+  field_count: number;
+  busy: boolean;
+}
+
+export interface SessionList {
+  documents: SessionSummary[];
+  max_sessions: number;
+  max_pdf_bytes: number;
+  max_pages: number;
+}
+
 export interface ExtractionResult {
   schema: string;
   provider: string;

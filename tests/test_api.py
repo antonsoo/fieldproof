@@ -215,6 +215,70 @@ def extracted_document(client, simple_invoice_pdf_bytes, fixture_bytes):
     return document_id
 
 
+def test_oversized_fixture_preserves_extraction_and_saved_decision(
+    client,
+    extracted_document,
+    fixture_bytes,
+):
+    client.post(
+        f"/api/documents/{extracted_document}/review",
+        json={"path": "total", "action": "edit", "value": 123.5},
+    )
+    before = client.get(f"/api/documents/{extracted_document}/report").json()
+    response = client.post(
+        f"/api/documents/{extracted_document}/extract",
+        data={"schema": "invoice", "provider": "fixture"},
+        files={
+            "fixture": ("large.json", fixture_bytes + b" " * (2 * 1024 * 1024), "application/json")
+        },
+    )
+    assert response.status_code == 413
+    assert client.get(f"/api/documents/{extracted_document}/report").json() == before
+    assert not store.is_busy(extracted_document)
+
+
+def test_excessive_field_count_does_not_replace_prior_review(
+    client,
+    extracted_document,
+    fixture_bytes,
+):
+    client.post(
+        f"/api/documents/{extracted_document}/review",
+        json={"path": "total", "action": "approve"},
+    )
+    before = client.get(f"/api/documents/{extracted_document}/report").json()
+    raw = json.loads(fixture_bytes)
+    item = {
+        "description": {"value": "Widget", "evidence": ["Widget"], "page": 1},
+        "amount": {"value": 1.0, "evidence": ["Widget"], "page": 1},
+    }
+    raw["data"]["line_items"] = [item] * 1000
+    response = client.post(
+        f"/api/documents/{extracted_document}/extract",
+        data={"schema": "invoice", "provider": "fixture"},
+        files={"fixture": ("many.json", json.dumps(raw).encode(), "application/json")},
+    )
+    assert response.status_code == 413
+    assert "2,000-field" in response.json()["detail"]
+    assert client.get(f"/api/documents/{extracted_document}/report").json() == before
+
+
+def test_excessive_correction_bytes_leave_prior_value_intact(client, extracted_document):
+    from fieldproof.server.store import ReviewState
+
+    session = store.get(extracted_document)
+    # Simulate other reviewed fields near the total budget, then use a real
+    # request that exceeds it. The target's original review must survive.
+    session.review["invoice_number"] = ReviewState(status="edited", edited_value="x" * 1048500)
+    before = session.review["vendor_name"]
+    response = client.post(
+        f"/api/documents/{extracted_document}/review",
+        json={"path": "vendor_name", "action": "edit", "value": "y" * 100},
+    )
+    assert response.status_code == 413
+    assert session.review["vendor_name"] is before
+
+
 @pytest.mark.parametrize("value", [321.5, 0, -12.5])
 def test_correction_retains_numeric_type_through_approve_reject_reset(
     client, extracted_document, value

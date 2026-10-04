@@ -1,6 +1,13 @@
-import type { DocumentSummary, ExtractionResult, ReviewAction, ReviewEntry } from "./types";
+import type {
+  DocumentSummary,
+  ExtractionResult,
+  ReviewAction,
+  ReviewEntry,
+  SessionList,
+  SessionSummary,
+} from "./types";
 import { nextReview, validatedOverlay } from "./review";
-import { validateDocument, validateExtraction } from "./validate";
+import { validateDocument, validateExtraction, validateSessions } from "./validate";
 
 /** Everything the UI needs from a backend - implemented once against the
  * live FastAPI server, and once against bundled fixture JSON for the
@@ -16,6 +23,12 @@ export interface DataSource {
     signal?: AbortSignal,
   ): Promise<{ document: DocumentSummary; extraction: ExtractionResult }>;
   listSchemas(): Promise<string[]>;
+  listSessions?(signal?: AbortSignal): Promise<SessionList>;
+  openSession?(
+    id: string,
+    signal?: AbortSignal,
+  ): Promise<{ document: DocumentSummary; extraction: ExtractionResult | null }>;
+  deleteSession?(id: string): Promise<void>;
   uploadDocument(file: File, signal?: AbortSignal): Promise<DocumentSummary>;
   pageImageUrl(documentId: string, pageNumber: number): string;
   extract(
@@ -46,12 +59,41 @@ async function asJson<T>(response: Response): Promise<T> {
 export class ApiDataSource implements DataSource {
   readonly kind = "live" as const;
 
+  async listSessions(signal?: AbortSignal): Promise<SessionList> {
+    return validateSessions(await asJson<unknown>(await fetch("/api/documents", { signal: signal ?? null })));
+  }
+
+  async openSession(
+    id: string,
+    signal?: AbortSignal,
+  ): Promise<{ document: DocumentSummary; extraction: ExtractionResult | null }> {
+    const raw = await asJson<SessionSummary>(
+      await fetch(`/api/documents/${encodeURIComponent(id)}`, { signal: signal ?? null }),
+    );
+    const document = validateDocument(raw);
+    const extraction = raw.has_extraction
+      ? validateExtraction(
+          await asJson<unknown>(
+            await fetch(`/api/documents/${encodeURIComponent(id)}/report`, { signal: signal ?? null }),
+          ),
+          document,
+        )
+      : null;
+    return { document, extraction };
+  }
+
+  async deleteSession(id: string): Promise<void> {
+    const response = await fetch(`/api/documents/${encodeURIComponent(id)}`, { method: "DELETE" });
+    if (!response.ok) await asJson<unknown>(response);
+  }
+
   async listSchemas(): Promise<string[]> {
     const data = await asJson<{ schemas: string[] }>(await fetch("/api/schemas"));
     return data.schemas;
   }
 
   async uploadDocument(file: File, signal?: AbortSignal): Promise<DocumentSummary> {
+    if (file.size > 25 * 1024 * 1024) throw new Error("PDF exceeds the 25 MiB upload limit.");
     const form = new FormData();
     form.append("file", file);
     return asJson<DocumentSummary>(
@@ -70,6 +112,8 @@ export class ApiDataSource implements DataSource {
     fixtureFile: File | null,
     signal?: AbortSignal,
   ): Promise<ExtractionResult> {
+    if (fixtureFile && fixtureFile.size > 2 * 1024 * 1024)
+      throw new Error("Fixture JSON exceeds the 2 MiB limit.");
     const form = new FormData();
     form.append("schema", schemaName);
     form.append("provider", provider);

@@ -6,6 +6,7 @@ import type { DocumentSummary, ExtractionResult, FieldStatus, FieldVerification 
 import { SCHEMA_NAMES } from "./types";
 import { parseEditValue, reviewValue } from "./review";
 import { validateDocument, validateExtraction } from "./validate";
+import { SessionsDialog } from "./sessions";
 
 /** Page images are rendered server- and build-side at 2x the PDF's point
  * size (see render_page_png's default `scale=2.0`); every rect in a
@@ -72,6 +73,20 @@ let operationError = "";
 let retryOperation: (() => void) | null = null;
 const pendingReviews = new WeakMap<ExtractionResult, Set<string>>();
 let renderedExtraction: ExtractionResult | null = null;
+const sessionsDialog =
+  ds.kind === "live"
+    ? new SessionsDialog(ds, {
+        current: () => state.document?.id,
+        blocked: () =>
+          state.busy ||
+          !!state.editingPath ||
+          !!(state.extraction && pendingReviews.get(state.extraction)?.size),
+        open: (id) => void openSession(id),
+        removed: (id) => {
+          if (state.document?.id === id) resetToStart();
+        },
+      })
+    : null;
 
 function beginOperation(message: string, retry: () => void): AbortController {
   operation?.abort();
@@ -273,7 +288,8 @@ function renderTopbar(): void {
     </div>
     ${sampleSwitchHtml()}
     <div class="topbar-controls">
-      ${ds.kind === "live" && state.document ? `<button class="btn" id="new-document" type="button">New document</button>` : ""}
+      ${ds.kind === "live" ? '<button class="btn" id="sessions" type="button">Sessions</button>' : ""}
+      ${ds.kind === "live" && state.document ? `<button class="btn" id="new-document" type="button" ${state.editingPath ? 'disabled title="Save or cancel the correction first"' : ""}>New document</button>` : ""}
       ${state.extraction ? exportControlsHtml() : ""}
       <button class="btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">
         ${currentTheme() === "dark" ? "☀️ Light" : "☽ Dark"}
@@ -285,6 +301,7 @@ function renderTopbar(): void {
   bar.querySelector<HTMLButtonElement>("#export-json")?.addEventListener("click", () => exportAs("json"));
   bar.querySelector<HTMLButtonElement>("#export-csv")?.addEventListener("click", () => exportAs("csv"));
   bar.querySelector<HTMLButtonElement>("#new-document")?.addEventListener("click", resetToStart);
+  bar.querySelector<HTMLButtonElement>("#sessions")?.addEventListener("click", () => sessionsDialog?.show());
   bar.querySelector<HTMLSelectElement>("#export-scope")?.addEventListener("change", (event) => {
     state.exportScope = (event.target as HTMLSelectElement).value as AppState["exportScope"];
     renderTopbar();
@@ -401,7 +418,8 @@ function renderStart(): void {
   workbench.innerHTML = `
     <div class="start-state">
       <h1>Upload a document</h1>
-      <p>PDF with a text layer. Extraction runs against the fixture provider or Claude, then every field is grounded and verified against the page.</p>
+      <p>PDF with a text layer, up to 25 MiB and 64 pages. Extraction runs against the fixture provider or Claude, then every field is grounded and verified against the page.</p>
+      <p>Saved documents can be reopened from Sessions while this server is running.</p>
       <button class="dropzone" id="choose-file" type="button">Drop a PDF here, or choose a file</button>
       <input type="file" id="file-input" accept="application/pdf" class="visually-hidden" aria-label="PDF document" tabindex="-1" />
     </div>
@@ -495,6 +513,27 @@ async function uploadFile(file: File): Promise<void> {
     renderWorkbench();
   } catch (err) {
     finishOperation(owner, err instanceof Error ? err.message : "Upload failed");
+  }
+}
+
+async function openSession(id: string): Promise<void> {
+  if (!ds.openSession) return;
+  const owner = beginOperation("Opening document session…", () => void openSession(id));
+  try {
+    const loaded = await ds.openSession(id, owner.signal);
+    if (operation !== owner || owner.signal.aborted) return;
+    state.document = loaded.document;
+    state.extraction = loaded.extraction;
+    state.fixtureFile = null;
+    resetView();
+    const fields = loaded.extraction?.report.fields ?? [];
+    const selected = fields.find((field) => field.status !== "verified") ?? fields[0];
+    state.selectedPath = selected?.path ?? null;
+    state.currentPage = selected?.page ?? 1;
+    finishOperation(owner);
+    renderWorkbench();
+  } catch (error) {
+    finishOperation(owner, error instanceof Error ? error.message : "Could not open session.");
   }
 }
 
@@ -959,6 +998,7 @@ function onFieldListClick(e: Event): void {
     state.editingPath = path;
     state.editingValue = String(reviewValue(field, state.extraction!.review[path]));
     state.editError = null;
+    renderTopbar();
     renderFieldListOnly();
     const input = document.getElementById("edit-value") as HTMLInputElement | HTMLSelectElement;
     input.focus({ preventScroll: true });
@@ -968,6 +1008,7 @@ function onFieldListClick(e: Event): void {
   if (cancel) {
     state.editingPath = null;
     state.editError = null;
+    renderTopbar();
     renderFieldListOnly();
     return;
   }
@@ -1004,6 +1045,7 @@ function onFieldListKeydown(e: KeyboardEvent): void {
       e.preventDefault();
       state.editingPath = null;
       state.editError = null;
+      renderTopbar();
       renderFieldListOnly();
     }
     return;

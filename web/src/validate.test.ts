@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 import invoice from "../public/demo-data/invoice/data.json";
-import { validateDocument, validateExtraction } from "./validate";
+import { validateDocument, validateExtraction, validateSessions } from "./validate";
 
 it("accepts the actual pipeline fixture and derives verification counts from fields", () => {
   const document = validateDocument(invoice.document);
@@ -38,4 +38,35 @@ it("rejects duplicate field paths instead of attaching one decision to multiple 
   const raw = structuredClone(invoice.extraction);
   raw.report.fields[1]!.path = raw.report.fields[0]!.path;
   expect(() => validateExtraction(raw, invoice.document)).toThrow();
+});
+
+const sessions = {
+  documents: [
+    {
+      ...invoice.document,
+      pdf_bytes: 2388,
+      has_extraction: true,
+      busy: false,
+      field_count: 25,
+      reviewed_count: 4,
+    },
+  ],
+  max_sessions: 8,
+  max_pdf_bytes: 25 * 1024 * 1024,
+  max_pages: 64,
+};
+
+it("accepts valid session metadata without losing original summaries", () => {
+  expect(validateSessions(sessions)).toBe(sessions);
+});
+
+it.each([
+  { ...sessions, max_sessions: 0 },
+  { ...sessions, max_sessions: 1000000 },
+  { ...sessions, documents: [...sessions.documents, ...sessions.documents] },
+  { ...sessions, documents: [{ ...sessions.documents[0], reviewed_count: 26 }] },
+  { ...sessions, documents: [{ ...sessions.documents[0], busy: "false" }] },
+  { ...sessions, documents: [{ ...sessions.documents[0], field_count: -1 }] },
+])("rejects malformed or duplicated session metadata %#", (value) => {
+  expect(() => validateSessions(value)).toThrow();
 });

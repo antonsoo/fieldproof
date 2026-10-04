@@ -25,12 +25,21 @@ All notable changes to this project are documented in this file.
 - A source checkout serves its fresh web build before an older packaged copy.
   Production Chromium/Firefox coverage now exercises the static demo and the
   real local fixture API, alongside review/export contract tests in CI.
+- Local document sessions can be reopened after a tab reload and removed with
+  explicit confirmation. Capacity refusal preserves stored decisions; a
+  correction draft blocks navigation until saved or cancelled.
+- PDF intake, geometry, extracted text and retained sessions have explicit
+  budgets. Parsing/rendering run in disposable processes with time/resource
+  limits; oversized fixtures, field lists and correction totals are refused
+  without replacing a valid review. Concurrent intake and PDF queues are bounded.
 
 ### Maintenance
 
 - The uv lock now resolves stable httpx 0.28.1 and Pydantic 2.13.5 instead of
   development/beta versions selected by a permissive local resolver setting. The
   project explicitly prefers stable releases.
+- The web toolchain uses ESLint 10 with compatible TypeScript lint packages;
+  existing configured rules are retained.
 
 ## [0.2.7] - 2026-10-03
 

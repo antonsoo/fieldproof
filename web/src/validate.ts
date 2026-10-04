@@ -1,4 +1,4 @@
-import type { DocumentSummary, ExtractionResult, FieldStatus } from "./types";
+import type { DocumentSummary, ExtractionResult, FieldStatus, SessionList } from "./types";
 import { validatedOverlay } from "./review";
 
 function object(value: unknown): value is Record<string, unknown> {
@@ -7,6 +7,44 @@ function object(value: unknown): value is Record<string, unknown> {
 
 function finite(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value);
+}
+
+export function validateSessions(value: unknown): SessionList {
+  if (
+    !object(value) ||
+    !Array.isArray(value.documents) ||
+    !Number.isSafeInteger(value.max_sessions) ||
+    (value.max_sessions as number) < 1 ||
+    (value.max_sessions as number) > 64 ||
+    value.documents.length > (value.max_sessions as number) ||
+    !Number.isSafeInteger(value.max_pdf_bytes) ||
+    (value.max_pdf_bytes as number) < 1 ||
+    !Number.isSafeInteger(value.max_pages) ||
+    (value.max_pages as number) < 1
+  ) {
+    throw new Error("Invalid session list.");
+  }
+  const ids = new Set<string>();
+  for (const entry of value.documents) {
+    const document = validateDocument(entry);
+    if (
+      !object(entry) ||
+      ids.has(document.id) ||
+      typeof entry.has_extraction !== "boolean" ||
+      typeof entry.busy !== "boolean" ||
+      !Number.isSafeInteger(entry.pdf_bytes) ||
+      (entry.pdf_bytes as number) < 1 ||
+      !Number.isSafeInteger(entry.field_count) ||
+      (entry.field_count as number) < 0 ||
+      !Number.isSafeInteger(entry.reviewed_count) ||
+      (entry.reviewed_count as number) < 0 ||
+      (entry.reviewed_count as number) > (entry.field_count as number)
+    ) {
+      throw new Error("Invalid session summary.");
+    }
+    ids.add(document.id);
+  }
+  return value as unknown as SessionList;
 }
 
 export function validateDocument(value: unknown): DocumentSummary {
