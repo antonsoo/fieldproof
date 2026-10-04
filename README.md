@@ -360,6 +360,9 @@ src layout, fully typed (`mypy --strict`-adjacent; see `pyproject.toml`).
 
 ## Development
 
+See the [2026-10-04 review verification report](docs/verification-review-2026-10-04.md)
+for production-browser, clean-install, and installed-package results.
+
 ```bash
 uv sync --extra dev --extra ocr
 uv run pytest
