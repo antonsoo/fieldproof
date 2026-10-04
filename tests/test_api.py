@@ -279,6 +279,43 @@ def test_excessive_correction_bytes_leave_prior_value_intact(client, extracted_d
     assert session.review["vendor_name"] is before
 
 
+def test_verification_budget_failure_keeps_previous_review_and_allows_retry(
+    client,
+    extracted_document,
+    fixture_bytes,
+    monkeypatch,
+):
+    import importlib
+
+    from fieldproof.document.limits import DocumentLimitError
+
+    module = importlib.import_module("fieldproof.server.app")
+    client.post(
+        f"/api/documents/{extracted_document}/review",
+        json={"path": "total", "action": "edit", "value": 123.5},
+    )
+    previous = client.get(f"/api/documents/{extracted_document}/report").json()
+    original = module.verify_server_data
+
+    def exhausted(*args):
+        raise DocumentLimitError("Verification exceeded its resource budget")
+
+    monkeypatch.setattr(module, "verify_server_data", exhausted)
+
+    def extract_again():
+        return client.post(
+            f"/api/documents/{extracted_document}/extract",
+            data={"schema": "invoice", "provider": "fixture"},
+            files={"fixture": ("invoice.json", fixture_bytes, "application/json")},
+        )
+
+    assert extract_again().status_code == 413
+    assert client.get(f"/api/documents/{extracted_document}/report").json() == previous
+    assert not store.is_busy(extracted_document)
+    monkeypatch.setattr(module, "verify_server_data", original)
+    assert extract_again().status_code == 200
+
+
 @pytest.mark.parametrize("value", [321.5, 0, -12.5])
 def test_correction_retains_numeric_type_through_approve_reject_reset(
     client, extracted_document, value

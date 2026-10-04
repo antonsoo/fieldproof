@@ -33,7 +33,12 @@ from fieldproof.extract.base import (
 )
 from fieldproof.schemas import BUILTIN_SCHEMAS, iter_evidenced_fields
 from fieldproof.server.body_limit import MAX_FIXTURE_BYTES, MAX_PDF_BYTES, BodyLimitMiddleware
-from fieldproof.server.pdf_work import PdfWorkerBusyError, load_server_pdf, render_server_page
+from fieldproof.server.pdf_work import (
+    PdfWorkerBusyError,
+    load_server_pdf,
+    render_server_page,
+    verify_server_data,
+)
 from fieldproof.server.store import (
     DocumentSession,
     ReviewState,
@@ -41,7 +46,6 @@ from fieldproof.server.store import (
     StoreCapacityError,
     store,
 )
-from fieldproof.verify.engine import verify
 
 app = FastAPI(title="fieldproof", version=__version__)
 app.add_middleware(BodyLimitMiddleware)
@@ -245,7 +249,9 @@ async def extract_document(
                     raise HTTPException(
                         status_code=413, detail="Extraction exceeds the 2,000-field review limit"
                     )
-            report = await run_in_threadpool(verify, extraction.data, session.document)
+            report = await run_in_threadpool(
+                verify_server_data, schema_name, extraction.data, session.document
+            )
 
             with session.review_lock:
                 session.schema_name = schema_name
@@ -256,6 +262,12 @@ async def extract_document(
             return _result_payload(session)
     except SessionBusyError as exc:
         raise HTTPException(status_code=409, detail=str(exc)) from exc
+    except PdfWorkerBusyError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    except DocumentLimitError as exc:
+        raise HTTPException(status_code=413, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
     except KeyError as exc:
         raise HTTPException(status_code=404, detail="Document was removed") from exc
 

@@ -9,6 +9,7 @@ provider calls, no rendering, just what was actually on the page.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from typing import Any
 
 
 @dataclass(frozen=True, slots=True)
@@ -97,3 +98,28 @@ class Document:
         """All pages concatenated, one page per line - used only for
         provider prompts, never for grounding (which is per-page)."""
         return "\n".join(p.text for p in self.pages)
+
+
+def document_from_dict(raw: dict[str, Any]) -> Document:
+    """Rebuild the trusted worker wire format, without pickle deserialization."""
+    return Document(
+        source=raw["source"],
+        pages=[
+            Page(
+                number=page["number"],
+                width=page["width"],
+                height=page["height"],
+                text=page["text"],
+                words=[
+                    Word(
+                        text=word["text"],
+                        bbox=BBox(**word["bbox"]),
+                        start=word["start"],
+                        end=word["end"],
+                    )
+                    for word in page["words"]
+                ],
+            )
+            for page in raw["pages"]
+        ],
+    )

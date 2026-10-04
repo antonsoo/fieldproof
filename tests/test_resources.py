@@ -429,3 +429,39 @@ def test_slow_pdf_work_keeps_api_responsive_and_cannot_overfill_store(
             release.set()
         assert first.result(timeout=5).status_code == 200
         assert len(store.list()) == 1
+
+
+@pytest.mark.parametrize("schema_name", ["invoice", "receipt", "contract"])
+def test_verification_worker_preserves_every_field_and_evidence_coordinate(schema_name):
+    from fieldproof.schemas import BUILTIN_SCHEMAS
+    from fieldproof.server.pdf_work import verify_server_data
+    from fieldproof.verify.engine import verify
+
+    root = Path(__file__).resolve().parents[1]
+    document = load_pdf(root / f"examples/{schema_name}.pdf")
+    fixture = json.loads((root / f"examples/fixtures/{schema_name}.json").read_text())
+    data = BUILTIN_SCHEMAS[schema_name].model_validate(fixture["data"])
+    assert (
+        verify_server_data(schema_name, data, document).to_dict()
+        == verify(data, document).to_dict()
+    )
+
+
+@pytest.mark.skipif(sys.platform != "linux", reason="Linux CPU resource enforcement")
+def test_killed_worker_releases_queue_and_next_real_document_loads(
+    simple_invoice_pdf_bytes,
+    monkeypatch,
+):
+    from fieldproof.server import pdf_work
+
+    original = pdf_work.subprocess.run
+
+    def terminated(command, **kwargs):
+        script = "import resource; resource.setrlimit(resource.RLIMIT_CPU,(1,1))\nwhile True: pass"
+        return original([sys.executable, "-c", script], **kwargs)
+
+    monkeypatch.setattr(pdf_work.subprocess, "run", terminated)
+    with pytest.raises(DocumentLimitError, match="resource budget"):
+        load_server_pdf(simple_invoice_pdf_bytes, "invoice.pdf")
+    monkeypatch.setattr(pdf_work.subprocess, "run", original)
+    assert load_server_pdf(simple_invoice_pdf_bytes, "invoice.pdf").page_count == 1

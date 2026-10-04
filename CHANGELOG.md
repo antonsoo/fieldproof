@@ -29,7 +29,7 @@ All notable changes to this project are documented in this file.
   explicit confirmation. Capacity refusal preserves stored decisions; a
   correction draft blocks navigation until saved or cancelled.
 - PDF intake, geometry, extracted text and retained sessions have explicit
-  budgets. Parsing/rendering run in disposable processes with time/resource
+  budgets. Parsing, rendering and verification run in disposable processes with time/resource
   limits; oversized fixtures, field lists and correction totals are refused
   without replacing a valid review. Concurrent intake and PDF queues are bounded.
 

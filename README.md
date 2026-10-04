@@ -187,14 +187,14 @@ document and review. It never evicts a session to make room.
 | Extracted document text | 100,000 words and 2 million characters |
 | Retained sessions | 8 documents; 100 MiB of PDFs; 200,000 words total |
 | Fixture / review | 2 MiB fixture JSON; 2,000 fields; 1 MiB of saved corrections per session |
-| Pending work | 4 intake requests; 2 PDF uploads; 4 queued/running PDF operations |
+| Pending work | 4 intake requests; 2 PDF uploads; 4 queued/running PDF or verification operations |
 
-PDF loading and page rendering run one at a time in disposable processes.
+PDF loading, page rendering and extraction verification run one at a time in disposable processes.
 Each operation has a 30-second execution timeout and a bounded queue wait.
 On Linux, each worker also has a 768 MiB address-space limit, 20 seconds of
 CPU time, and a 64 MiB output-file limit. Windows receives the timeout and
 application limits without the Unix process resource limits. These budgets
-contain PDF processing; they do not measure extraction accuracy or guarantee
+contain PDF processing and verification; they do not measure extraction accuracy or guarantee
 that every valid PDF will fit. Scanned PDFs can be processed through the
 CLI's OCR fallback; the review server currently requires a text layer.
 

@@ -9,6 +9,7 @@ from pathlib import Path
 
 from fieldproof.document.limits import DocumentLimitError, DocumentLimits
 from fieldproof.document.loader import EmptyDocumentError, load_pdf
+from fieldproof.document.model import document_from_dict
 from fieldproof.document.render import render_page_png
 
 
@@ -39,6 +40,15 @@ def main() -> int:
             Path(destination).write_bytes(
                 render_page_png(Path(source), int(argument), max_pixels=limits.max_pixels)
             )
+        elif action == "verify":
+            from fieldproof.schemas import BUILTIN_SCHEMAS
+            from fieldproof.verify.engine import verify
+
+            raw = json.loads(Path(source).read_bytes())
+            document = document_from_dict(raw["document"])
+            data = BUILTIN_SCHEMAS[argument].model_validate(raw["data"])
+            report = verify(data, document)
+            Path(destination).write_text(json.dumps(report.to_dict()), encoding="utf-8")
         else:
             raise ValueError("unknown PDF operation")
     except EmptyDocumentError:
@@ -52,7 +62,7 @@ def main() -> int:
         return 3
     except Exception:
         print(
-            "could not read or render PDF; check that it is valid and not encrypted",
+            "PDF processing or verification failed; check the document and extraction",
             file=sys.stderr,
         )
         return 1

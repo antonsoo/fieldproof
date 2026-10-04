@@ -6,12 +6,17 @@ import json
 import subprocess
 import sys
 import threading
+from dataclasses import asdict
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from pydantic import BaseModel
+
 from fieldproof.document.limits import DocumentLimitError
 from fieldproof.document.loader import EmptyDocumentError
-from fieldproof.document.model import BBox, Document, Page, Word
+from fieldproof.document.model import Document, document_from_dict
+from fieldproof.verify.cross_field import CrossFieldIssue
+from fieldproof.verify.engine import FieldStatus, FieldVerification, VerificationReport
 
 PDF_TIMEOUT_SECONDS = 30
 MAX_OUTPUT_BYTES = 64 * 1024 * 1024
@@ -83,28 +88,27 @@ def _execute_pdf_worker(pdf_bytes: bytes, action: str, argument: str) -> bytes:
 
 def load_server_pdf(pdf_bytes: bytes, filename: str) -> Document:
     raw = json.loads(_run_pdf_worker(pdf_bytes, "load", filename))
-    return Document(
-        source=raw["source"],
-        pages=[
-            Page(
-                number=page["number"],
-                width=page["width"],
-                height=page["height"],
-                text=page["text"],
-                words=[
-                    Word(
-                        text=word["text"],
-                        bbox=BBox(**word["bbox"]),
-                        start=word["start"],
-                        end=word["end"],
-                    )
-                    for word in page["words"]
-                ],
-            )
-            for page in raw["pages"]
-        ],
-    )
+    return document_from_dict(raw)
 
 
 def render_server_page(pdf_bytes: bytes, page_number: int) -> bytes:
     return _run_pdf_worker(pdf_bytes, "render", str(page_number))
+
+
+def verify_server_data(schema_name: str, data: BaseModel, document: Document) -> VerificationReport:
+    content = json.dumps(
+        {"document": asdict(document), "data": data.model_dump(mode="json")}
+    ).encode()
+    if len(content) > MAX_OUTPUT_BYTES:
+        raise DocumentLimitError("Verification input exceeded the worker size limit")
+    raw = json.loads(_run_pdf_worker(content, "verify", schema_name))
+    return VerificationReport(
+        fields=[
+            FieldVerification(**{**field, "status": FieldStatus(field["status"])})
+            for field in raw["fields"]
+        ],
+        cross_field_issues=[
+            CrossFieldIssue(tuple(issue["fields"]), issue["message"])
+            for issue in raw["cross_field_issues"]
+        ],
+    )
