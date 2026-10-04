@@ -16,9 +16,9 @@ from typing import Any
 class BBox:
     """A rectangle in PDF points, origin top-left, y growing downward.
 
-    This matches pdfplumber's convention (not the PDF spec's bottom-left
-    origin) so bounding boxes can be drawn directly onto a top-left-origin
-    page image without a flip.
+    Native text coordinates are translated from pdfplumber's page frame to
+    the rendered visible canvas, including its crop and rotation. Boxes can
+    be drawn directly onto a top-left-origin page image without a flip.
     """
 
     x0: float

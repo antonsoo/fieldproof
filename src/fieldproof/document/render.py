@@ -10,6 +10,7 @@ linked, so `pip install` is enough - no system PDF tooling required.
 from __future__ import annotations
 
 import io
+import math
 from pathlib import Path
 
 import pypdfium2 as pdfium
@@ -61,7 +62,7 @@ def page_pixel_size(
     try:
         page = pdf[page_number - 1]
         width_pt, height_pt = page.get_size()
-        return round(width_pt * scale), round(height_pt * scale)
+        return math.ceil(width_pt * scale), math.ceil(height_pt * scale)
     finally:
         if page is not None:
             page.close()

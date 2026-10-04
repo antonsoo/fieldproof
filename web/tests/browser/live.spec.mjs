@@ -287,3 +287,30 @@ test('oversized fixture is refused before sending it and uploaded PDF remains us
   await page.getByRole('button', { name: 'Retry', exact: true }).click();
   await expect(row(page, 'total')).toBeVisible();
 });
+
+test('cropped PDF uses the visible canvas and highlights the actual evidence position', async ({ page }) => {
+  const cropped = fileURLToPath(new URL('../../../tests/fixtures/cropped-marker.pdf', import.meta.url));
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(cropped);
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles({
+    name: 'marker.json', mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      vendor_name: { value: 'Marker', evidence: ['Marker'], page: 1 },
+      invoice_number: { value: 'M1', evidence: [] },
+      issue_date: { value: '2026-10-04', evidence: [] },
+      total: { value: 1, evidence: [] },
+    })),
+  });
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  await expect(row(page, 'vendor_name').locator('.field-value')).toHaveText('Marker');
+  await page.getByRole('button', { name: 'Inspect vendor_name', exact: true }).click();
+  const image = page.locator('#page-frame img');
+  await expect.poll(() => image.evaluate(el => [el.naturalWidth, el.naturalHeight])).toEqual([800, 1000]);
+  const highlight = page.locator('.highlight-rect[data-path="vendor_name"]');
+  await expect(highlight).toHaveAttribute('data-status', 'verified');
+  const frame = await page.locator('#page-frame').boundingBox();
+  const box = await highlight.boundingBox();
+  expect(Math.abs((box.x - frame.x) / frame.width - 50 / 400)).toBeLessThan(0.005);
+  expect(Math.abs((box.y - frame.y) / frame.height - 90.484 / 500)).toBeLessThan(0.005);
+});

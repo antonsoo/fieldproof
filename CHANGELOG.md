@@ -32,6 +32,10 @@ All notable changes to this project are documented in this file.
   budgets. Parsing, rendering and verification run in disposable processes with time/resource
   limits; oversized fixtures, field lists and correction totals are refused
   without replacing a valid review. Concurrent intake and PDF queues are bounded.
+- Cropped and rotated PDFs use the rendered visible canvas for text/evidence
+  coordinates, including shifted MediaBox origins. Text outside that canvas is
+  excluded; glyph baseline directions retain logical words and decimal numbers.
+  Fractional page pixel sizes use the renderer's ceiling.
 
 ### Maintenance
 
