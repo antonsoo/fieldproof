@@ -10,6 +10,7 @@ we only need pixels there, not text.
 from __future__ import annotations
 
 import io
+from contextlib import closing
 from pathlib import Path
 from typing import Any
 
@@ -86,7 +87,7 @@ def load_pdf(
 def _visible_page_boxes(source: str | Path | bytes) -> list[tuple[float, float, float, float]]:
     """Visible top-left rectangles relative to each rotated MediaBox."""
     boxes = []
-    with pdfium.PdfDocument(source) as pdf:
+    with closing(pdfium.PdfDocument(source)) as pdf:
         for index in range(len(pdf)):
             page = pdf[index]
             try:

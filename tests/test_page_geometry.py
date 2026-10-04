@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import io
+from contextlib import closing
 
 import pypdfium2 as pdfium
 import pytest
@@ -30,7 +31,7 @@ def marked_pdf(*, rotation=0, crop=None, media=None, text_rotation=0, text="Mark
         pdf.drawString(150, 600, text)
     pdf.drawString(20, 720, "HIDDEN")
     pdf.save()
-    with pdfium.PdfDocument(buffer.getvalue()) as document:
+    with closing(pdfium.PdfDocument(buffer.getvalue())) as document:
         page = document[0]
         if media is not None:
             page.set_mediabox(*media)

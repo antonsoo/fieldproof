@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+from contextlib import closing
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -35,7 +36,7 @@ def check_page_pixels(width: float, height: float, scale: float, maximum: int) -
 
 def check_pdf_geometry(source: str | Path | bytes, limits: DocumentLimits) -> None:
     """Inspect page metadata before pdfplumber creates per-page text objects."""
-    with pdfium.PdfDocument(source) as pdf:
+    with closing(pdfium.PdfDocument(source)) as pdf:
         if not 1 <= len(pdf) <= limits.max_pages:
             raise DocumentLimitError(f"PDF must contain between 1 and {limits.max_pages} pages")
         for number in range(len(pdf)):
