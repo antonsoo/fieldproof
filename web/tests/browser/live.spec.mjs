@@ -26,6 +26,25 @@ async function extract(page) {
   await expect(row(page, 'total')).toBeVisible();
 }
 
+test('an omitted minus stays visible and readable in the real PDF review', async ({ page }) => {
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/signed-amount.pdf', import.meta.url)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('../../../examples/fixtures/signed-amount.json', import.meta.url)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  const field = row(page, 'total');
+  await expect(field.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+  await expect(field.locator('.field-evidence')).toContainText('- $100.00');
+  await expect(field.locator('.field-reasons')).toContainText('does not match -100');
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const theme of ['light', 'dark']) {
+      await page.evaluate(theme => document.documentElement.setAttribute('data-theme', theme), theme);
+      await scan(page);
+    }
+  }
+});
+
 test('real PDF and fixture extraction support nested corrections and identical API exports', async ({ page, request }) => {
   await extract(page);
   const field = row(page, 'line_items[0].amount');

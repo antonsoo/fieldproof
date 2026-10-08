@@ -850,7 +850,7 @@ function renderFieldRow(f: FieldVerification, navigable: boolean): string {
       ? `<ul class="field-reasons">${f.reasons.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>`
       : "";
   const evidenceHtml = f.matched_text
-    ? `<div class="field-evidence">“${esc(f.matched_text)}”${f.match_score !== null && f.match_score < 100 ? ` <span style="opacity:.7">(${Math.round(f.match_score)}% match)</span>` : ""}</div>`
+    ? `<div class="field-evidence">“${esc(f.matched_text)}”${f.match_score !== null && f.match_score < 100 ? ` <span>(${Math.round(f.match_score)}% match)</span>` : ""}</div>`
     : "";
 
   const editHtml = isEditing

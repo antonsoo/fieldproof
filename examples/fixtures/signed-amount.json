@@ -1,0 +1,35 @@
+{
+  "schema": "Invoice",
+  "provider": "fixture",
+  "model": "synthetic numeric-evidence fixture (deliberately omitted minus sign)",
+  "data": {
+    "vendor_name": {
+      "value": "Example Workshop",
+      "evidence": [
+        "Example Workshop"
+      ],
+      "page": 1
+    },
+    "invoice_number": {
+      "value": "FP-SIGN",
+      "evidence": [
+        "Invoice Number: FP-SIGN"
+      ],
+      "page": 1
+    },
+    "issue_date": {
+      "value": "2026-10-08",
+      "evidence": [
+        "Issue Date: October 8, 2026"
+      ],
+      "page": 1
+    },
+    "total": {
+      "value": 100.0,
+      "evidence": [
+        "$100.00"
+      ],
+      "page": 1
+    }
+  }
+}
