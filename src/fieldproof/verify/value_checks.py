@@ -19,28 +19,44 @@ from typing import Literal
 from rapidfuzz import fuzz
 
 from fieldproof.ground.normalize import normalize
+from fieldproof.ground.values import (
+    NUMERIC_DATE,
+    NumberStyle,
+    number_readings,
+    numeric_date_readings,
+)
 
-#: Absolute tolerance (in the field's own units, e.g. dollars) for numeric
-#: value-vs-evidence comparisons - covers rounding in how the model or the
-#: document itself formats cents.
-NUMBER_TOLERANCE = 0.01
+#: Largest absolute difference (in the field's own units, e.g. dollars) a numeric value may
+#: have from the number the evidence shows. A value agrees with a number written to `p`
+#: decimal places if it rounds to it, that is, if it is within half a unit of the last
+#: place written, but never by more than this: a page that says 9.00 does not support 9.01.
+NUMBER_TOLERANCE = 0.005
 
 #: Below this rapidfuzz ratio (0-100), a string value is not considered
 #: supported by its evidence text.
 STRING_MATCH_THRESHOLD = 82.0
 
-_MONEY_STRIP = re.compile(r"[^0-9.\-]")
-
 #: A currency/plain-number token, optionally wrapped in parens (accounting
 #: negative) or followed by "%" (so a rate like "8.5%" can be told apart
 #: from the dollar amount next to it, e.g. "Tax (8.5%) $208.93").
-_NUMBER_TOKEN = re.compile(r"\(?-?\$?\d[\d,]*(?:\.\d+)?\)?%?")
+_NUMBER_TOKEN = re.compile(
+    r"\(?-?\$?\d[\d,]*(?:(?:\.\d{3})+,\d{1,2}|(?:\.\d{3}){2,}(?!\d)|\.\d+)?\)?%?"
+)
 
 _DATE_FORMATS = (
     "%Y-%m-%d",
     "%m/%d/%Y",
     "%m/%d/%y",
     "%d/%m/%Y",
+    "%d/%m/%y",
+    "%m-%d-%Y",
+    "%d-%m-%Y",
+    "%m-%d-%y",
+    "%d-%m-%y",
+    "%m.%d.%Y",
+    "%d.%m.%Y",
+    "%m.%d.%y",
+    "%d.%m.%y",
     "%B %d, %Y",
     "%b %d, %Y",
     "%d %B %Y",
@@ -54,7 +70,7 @@ _DATE_FORMATS = (
 #: strptime match would reject that and never find the date at all.
 _DATE_SEARCH_PATTERNS = (
     re.compile(r"\d{4}-\d{2}-\d{2}"),
-    re.compile(r"\d{1,2}/\d{1,2}/\d{2,4}"),
+    re.compile(r"\d{1,2}[/.\-]\d{1,2}[/.\-]\d{2,4}"),
     re.compile(r"[A-Za-z]{3,9}\.?\s+\d{1,2},?\s+\d{4}"),
     re.compile(r"\d{1,2}\s+[A-Za-z]{3,9}\.?\s+\d{4}"),
 )
@@ -66,18 +82,6 @@ class ValueCheckResult:
     reason: str = ""
 
 
-def _token_to_float(token: str) -> float | None:
-    negative = token.startswith("(") or token.endswith(")")
-    cleaned = _MONEY_STRIP.sub("", token.replace(",", ""))
-    if not cleaned or cleaned in {"-", "."}:
-        return None
-    try:
-        value = float(cleaned)
-    except ValueError:
-        return None
-    return -abs(value) if negative else value
-
-
 def parse_all_numbers(text: str) -> list[float]:
     """Every plain (non-percentage) number in `text`, in reading order -
     strips currency symbols and thousands separators, and excludes rate-like
@@ -86,23 +90,7 @@ def parse_all_numbers(text: str) -> list[float]:
     210.50" for a quantity of 1), so a value check needs to ask "does this
     number appear anywhere in the evidence", not just "is it the last
     number" - see `check_number`."""
-    text = text.strip()
-    if not text:
-        return []
-
-    if text.startswith("(") and text.endswith(")"):
-        inner = _MONEY_STRIP.sub("", text[1:-1].replace(",", ""))
-        if inner and inner not in {"-", "."}:
-            try:
-                return [-abs(float(inner))]
-            except ValueError:
-                pass
-
-    matches = list(_NUMBER_TOKEN.finditer(text))
-    non_percent = [m for m in matches if not m.group(0).endswith("%")]
-    candidates = non_percent or matches
-    values = [_token_to_float(m.group(0)) for m in candidates]
-    return [v for v in values if v is not None]
+    return [readings[0][0] for readings in _evidence_readings(text, None)]
 
 
 def parse_number(text: str) -> float | None:
@@ -145,23 +133,54 @@ def _try_formats(text: str) -> date | None:
     return None
 
 
-def check_number(value: float, evidence_text: str) -> ValueCheckResult:
+def _evidence_readings(
+    evidence_text: str, number_style: NumberStyle | None
+) -> list[list[tuple[float, int]]]:
+    """Per plain (non-percentage) number token in the evidence, every reading of it as
+    (value, decimal places written)."""
+    text = evidence_text.strip()
+    if not text:
+        return []
+    matches = list(_NUMBER_TOKEN.finditer(text))
+    non_percent = [m for m in matches if not m.group(0).endswith("%")]
+    tokens: list[list[tuple[float, int]]] = []
+    for m in non_percent or matches:
+        raw = m.group(0)
+        negative = raw.startswith("(") or raw.endswith(")") or raw.startswith("-")
+        digits = raw.strip("()%-$")
+        readings = [
+            (-abs(float(r.value)) if negative else float(r.value), r.places)
+            for r in number_readings(digits, number_style)
+        ]
+        if readings:
+            tokens.append(readings)
+    return tokens
+
+
+def check_number(
+    value: float, evidence_text: str, *, number_style: NumberStyle | None = None
+) -> ValueCheckResult:
     """Does `value` appear anywhere among the numbers in `evidence_text`?
     Evidence for a row-level field can be the whole row (several numbers,
     one of which is the value), not just the value on its own - so this
-    checks membership, not just "is it the last number parsed"."""
-    candidates = parse_all_numbers(evidence_text)
-    if not candidates:
+    checks membership, not just "is it the last number parsed".
+
+    A number is compared as a value, to the precision the page wrote it: 9.00
+    supports 9 and 9.001, not 9.01. A token like "60.000" has two readings (sixty,
+    sixty thousand) unless `number_style` says which way the document writes `.`
+    (see `fieldproof.ground.values.number_style`); the value may match either."""
+    tokens = _evidence_readings(evidence_text, number_style)
+    if not tokens:
         return ValueCheckResult(False, f"could not parse a number from evidence {evidence_text!r}")
-    if any(abs(c - value) <= NUMBER_TOLERANCE for c in candidates):
-        return ValueCheckResult(True)
-    closest = min(candidates, key=lambda c: abs(c - value))
+    readings = [r for token in tokens for r in token]
+    for number, places in readings:
+        if abs(number - value) <= min(0.5 * 10**-places, NUMBER_TOLERANCE) + 1e-9:
+            return ValueCheckResult(True)
+    closest = min((r[0] for r in readings), key=lambda c: abs(c - value))
     return ValueCheckResult(
         False, f"value {value:g} does not match {closest:g} parsed from the evidence"
     )
 
-
-_NUMERIC_DATE = re.compile(r"(?<!\d)(\d{1,2})/(\d{1,2})/(\d{4}|\d{2})(?!\d)")
 
 DateOrder = Literal["mdy", "dmy"]
 
@@ -172,8 +191,8 @@ def numeric_date_order(text: str) -> DateOrder | None:
     date's first part is (14/03/2026), None if no date settles it or the
     document mixes both."""
     month_first = day_first = False
-    for m in _NUMERIC_DATE.finditer(text):
-        first, second = int(m.group(1)), int(m.group(2))
+    for m in NUMERIC_DATE.finditer(text):
+        first, second = int(m.group(1)), int(m.group(3))
         if second > 12 >= first:
             month_first = True
         elif first > 12 >= second:
@@ -181,22 +200,6 @@ def numeric_date_order(text: str) -> DateOrder | None:
     if month_first == day_first:
         return None
     return "mdy" if month_first else "dmy"
-
-
-def _numeric_readings(match: re.Match[str]) -> dict[DateOrder, date]:
-    first, second, year = match.group(1), match.group(2), match.group(3)
-    year_fmt = "%Y" if len(year) == 4 else "%y"
-    readings: dict[DateOrder, date] = {}
-    orders: tuple[tuple[DateOrder, str], ...] = (
-        ("mdy", f"%m/%d/{year_fmt}"),
-        ("dmy", f"%d/%m/{year_fmt}"),
-    )
-    for order, fmt in orders:
-        try:
-            readings[order] = datetime.strptime(f"{first}/{second}/{year}", fmt).date()
-        except ValueError:
-            continue
-    return readings
 
 
 def check_date(
@@ -212,7 +215,7 @@ def check_date(
 
     numeric = _numeric_date_in(evidence_text.strip())
     if numeric is not None:
-        readings = _numeric_readings(numeric)
+        readings = numeric_date_readings(numeric)
         if len(set(readings.values())) == 2:
             if date_order is not None:
                 found = readings[date_order]
@@ -252,7 +255,9 @@ def check_date(
 
 
 #: Formats in `_DATE_FORMATS` where day and month can't be confused.
-_UNAMBIGUOUS_FORMATS = tuple(f for f in _DATE_FORMATS if not f.startswith(("%m/", "%d/")))
+_UNAMBIGUOUS_FORMATS = tuple(
+    f for f in _DATE_FORMATS if not f.startswith(("%m/", "%d/", "%m-", "%d-", "%m.", "%d."))
+)
 
 
 def _numeric_date_in(text: str) -> re.Match[str] | None:
@@ -267,10 +272,35 @@ def _numeric_date_in(text: str) -> re.Match[str] | None:
             continue
     if _DATE_SEARCH_PATTERNS[0].search(text):
         return None
-    return _NUMERIC_DATE.search(text)
+    return NUMERIC_DATE.search(text)
 
 
 _DIGIT_RUN = re.compile(r"\d+")
+
+
+_WORD_RUN = re.compile(r"[^\W_]+")
+
+
+def _alnum_words(text: str) -> list[str]:
+    return _WORD_RUN.findall(normalize(text).casefold())
+
+
+def _said_in(value_words: list[str], evidence_words: list[str]) -> bool:
+    """Do the letters and digits of `value_words` read, in order and without any other, as
+    a run of whole words of the evidence? Case, spacing and punctuation do not count:
+    "D.I.Y." says "DIY", "Sdn. Bhd." says "SDN BHD". A letter that differs does."""
+    target = "".join(value_words)
+    if not target:
+        return False
+    for i in range(len(evidence_words)):
+        built = ""
+        for word in evidence_words[i:]:
+            built += word
+            if built == target:
+                return True
+            if not target.startswith(built):
+                break
+    return False
 
 
 def check_string(
@@ -278,9 +308,14 @@ def check_string(
 ) -> ValueCheckResult:
     """Is `value` actually present in `evidence_text`? Evidence is a
     verbatim quote and is often longer than the value it supports (e.g. the
-    quote "Invoice Number: INV-1001" for the value "INV-1001"), so this uses
-    partial-ratio (best-matching substring) rather than whole-string
-    similarity - a short value inside a longer quote should still verify."""
+    quote "Invoice Number: INV-1001" for the value "INV-1001"), so the value
+    only has to be a run of the evidence's words.
+
+    The value is the model's rendering of what the evidence says, so it may differ
+    in case, spacing and punctuation, and leave words out at either end. It may not
+    differ in a letter or digit: "Northwind Traders" against evidence that reads
+    "Northwlnd Traders" is 94% similar and is not what the page says. A value that is only
+    similar to the evidence is reported as such and sent to review."""
     normalized_value, normalized_evidence = normalize(value), normalize(evidence_text)
     # Wording can differ a little and still be the same name. A number can't:
     # "NW-20260215" against a page that reads "NW-20260214" is 96% similar and
@@ -294,9 +329,17 @@ def check_string(
                 f"value {value!r} contains {number!r}, "
                 f"which the evidence {evidence_text!r} does not",
             )
+    if _said_in(_alnum_words(value), _alnum_words(evidence_text)):
+        return ValueCheckResult(True)
+    if not _alnum_words(value) and normalized_value and normalized_value in normalized_evidence:
+        return ValueCheckResult(True)  # a value of nothing but punctuation, such as "-"
     score = fuzz.partial_ratio(normalized_value, normalized_evidence)
     if score >= threshold:
-        return ValueCheckResult(True)
+        return ValueCheckResult(
+            False,
+            f"value {value!r} is {score:.0f}% similar to evidence {evidence_text!r} but "
+            "differs from it in letters or digits",
+        )
     return ValueCheckResult(
         False, f"value {value!r} is only {score:.0f}% similar to evidence {evidence_text!r}"
     )

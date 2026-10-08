@@ -32,6 +32,7 @@ from fieldproof.ground.align import (
     nearest_candidate,
     rects_for_match,
 )
+from fieldproof.ground.values import NumberStyle, number_style
 from fieldproof.schemas.base import iter_evidenced_fields
 from fieldproof.verify.cross_field import CrossFieldIssue, check_cross_field
 from fieldproof.verify.value_checks import (
@@ -125,13 +126,15 @@ def verify(data: BaseModel, document: Document) -> VerificationReport:
     # Whether this document writes numeric dates month or day first, if any of
     # its dates settles it; see `check_date`.
     date_order = numeric_date_order(document.full_text())
+    # Likewise whether it writes "60.000" as sixty or sixty thousand; see `check_number`.
+    style = number_style(document.full_text())
 
     for path, evidenced in iter_evidenced_fields(data):
         prefix = _row_prefix(path)
         hint = row_anchors.get(prefix) if prefix else None
 
         result, match = _verify_field(
-            path, evidenced, document, hint_match=hint, date_order=date_order
+            path, evidenced, document, hint_match=hint, date_order=date_order, style=style
         )
         results.append(result)
 
@@ -151,6 +154,7 @@ def _verify_field(
     *,
     hint_match: GroundingMatch | None,
     date_order: DateOrder | None = None,
+    style: NumberStyle | None = None,
 ) -> tuple[FieldVerification, GroundingMatch | None]:
     value = evidenced.value
 
@@ -204,12 +208,18 @@ def _verify_field(
         return result, None
 
     if not best_match.is_strong:
-        reasons.append(
-            f"evidence match quality is only {best_match.score:.0f}/100 - the quote is a loose "
-            "paraphrase or contains OCR-like noise"
-        )
+        if best_match.letters_agree is False:
+            reasons.append(
+                f"the quote is {best_match.score:.0f}/100 like {best_match.matched_text!r} "
+                "on the page but differs from it in letters or digits"
+            )
+        else:
+            reasons.append(
+                f"evidence match quality is only {best_match.score:.0f}/100 - the quote is a "
+                "loose paraphrase or contains OCR-like noise"
+            )
 
-    check = _check_value(path, value, best_match.matched_text, date_order)
+    check = _check_value(path, value, best_match.matched_text, date_order, style)
     if not check.supported:
         reasons.append(check.reason)
 
@@ -235,11 +245,12 @@ def _check_value(
     value: str | float | bool,
     evidence_text: str,
     date_order: DateOrder | None = None,
+    style: NumberStyle | None = None,
 ) -> ValueCheckResult:
     if isinstance(value, bool):
         return check_bool(value, evidence_text)
     if isinstance(value, int | float):
-        return check_number(float(value), evidence_text)
+        return check_number(float(value), evidence_text, number_style=style)
     if isinstance(value, str):
         if "date" in path.lower():
             return check_date(value, evidence_text, date_order=date_order)

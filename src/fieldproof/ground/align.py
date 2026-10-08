@@ -23,6 +23,7 @@ from rapidfuzz import fuzz
 
 from fieldproof.document.model import BBox, Document, Page, Word
 from fieldproof.ground.normalize import normalize, normalize_with_map
+from fieldproof.ground.values import amount_readings, dates_in, whole_date
 
 #: Below this fuzzy score (0-100), we consider the quote not found on the
 #: page rather than report a misleading low-confidence match.
@@ -34,10 +35,25 @@ MIN_MATCH_SCORE = 70.0
 STRONG_MATCH_SCORE = 92.0
 
 
+#: Score of a match that is exact except for letter case: not 100, which means the page has
+#: the quote's characters, but a strong match.
+CASE_ONLY_SCORE = 99.0
+
+
 @dataclass(frozen=True, slots=True)
 class GroundingMatch:
     """Where a quote was found: its span in `Page.text`, the words it
-    covers, and how good the match was (100 = exact)."""
+    covers, and how good the match was (100 = exact).
+
+    `letters_agree` says whether the quote and the words it was found at have the same
+    letters and digits in the same order, ignoring case, spacing and punctuation (None: not
+    judged, so only `score` speaks). A fuzzy match can score 97/100 with one letter
+    different, which is how a misquoted name looks, so it is not strong evidence; a fuzzy
+    match that differs only in case, spacing or punctuation is, whatever its score.
+
+    `by_value` marks a match found by reading both the quote and the page as numbers or
+    dates and finding the same value ("60000" at "60.000", "2018-12-25" at "25/12/2018"),
+    not by comparing characters."""
 
     quote: str
     page_number: int
@@ -46,14 +62,18 @@ class GroundingMatch:
     score: float
     matched_text: str
     words: tuple[Word, ...]
+    letters_agree: bool | None = None
+    by_value: bool = False
 
     @property
     def is_exact(self) -> bool:
-        return self.score >= 100.0
+        return self.score >= 100.0 and not self.by_value
 
     @property
     def is_strong(self) -> bool:
-        return self.score >= STRONG_MATCH_SCORE
+        if self.letters_agree is None:
+            return self.score >= STRONG_MATCH_SCORE
+        return self.letters_agree
 
     @property
     def top(self) -> float:
@@ -72,8 +92,13 @@ def _covers_whole_words(page: Page, start: int, end: int, words: list[Word]) -> 
     words are split on whitespace, so "1," and "$2,458.00" are one word each,
     and a quote of "1" or "2,458.00" still names the whole of what is there.
     "458.00" does not: the "2," it leaves out is part of the number."""
-    left_out = page.text[words[0].start : start] + page.text[end : words[-1].end]
-    return not any(ch.isalnum() for ch in left_out)
+    before = page.text[words[0].start : start]
+    left_out = before + page.text[end : words[-1].end]
+    if any(ch.isalnum() for ch in left_out):
+        return False
+    # A minus sign is not punctuation to be left out: "30,000" is not "-30,000" (change
+    # given back on a receipt), and a total is not its refund.
+    return not (before.endswith(("-", "\u2212")) and page.text[start : start + 1].isdigit())
 
 
 def _splits_a_character(index_map: list[int], first: int, last: int) -> bool:
@@ -85,7 +110,9 @@ def _splits_a_character(index_map: list[int], first: int, last: int) -> bool:
     return begins_inside or ends_inside
 
 
-def _word_aligned_occurrences(quote: str, page: Page) -> list[GroundingMatch]:
+def _word_aligned_occurrences(
+    quote: str, page: Page, *, fold_case: bool = False
+) -> list[GroundingMatch]:
     """Every exact (normalized) occurrence of `quote` in `page` that covers
     whole words - i.e. never starts or ends mid-token. Without this check, a
     one-character quote like "1" would happily match the trailing digit of
@@ -100,6 +127,13 @@ def _word_aligned_occurrences(quote: str, page: Page) -> list[GroundingMatch]:
     norm_page_text, index_map = normalize_with_map(page.text)
     if not norm_page_text:
         return []
+    if fold_case:
+        # A quote that differs from the page only in case is found at every place the
+        # page has it, just as an exact one is, so a repeated name stays ambiguous.
+        folded_page, folded_quote = norm_page_text.lower(), normalized_quote.lower()
+        if len(folded_page) != len(norm_page_text) or len(folded_quote) != len(normalized_quote):
+            return []
+        norm_page_text, normalized_quote = folded_page, folded_quote
 
     matches: list[GroundingMatch] = []
     qlen = len(normalized_quote)
@@ -125,7 +159,8 @@ def _word_aligned_occurrences(quote: str, page: Page) -> list[GroundingMatch]:
                 page_number=page.number,
                 start=start,
                 end=end,
-                score=100.0,
+                score=CASE_ONLY_SCORE if fold_case else 100.0,
+                letters_agree=True if fold_case else None,
                 matched_text=page.text[start:end],
                 words=tuple(words),
             )
@@ -142,7 +177,12 @@ def _fuzzy_match(quote: str, page: Page) -> GroundingMatch | None:
     if not norm_page_text:
         return None
 
-    alignment = fuzz.partial_ratio_alignment(normalized_quote, norm_page_text)
+    # Case is not what a misquote gets wrong, and a model that title-cases a name has
+    # not changed what the page says; letters and digits are checked separately below.
+    folded_page = norm_page_text.lower()
+    if len(folded_page) != len(norm_page_text):
+        folded_page = norm_page_text
+    alignment = fuzz.partial_ratio_alignment(normalized_quote.lower(), folded_page)
     if alignment is None or alignment.dest_end <= alignment.dest_start:
         return None
     if alignment.score < MIN_MATCH_SCORE:
@@ -163,29 +203,108 @@ def _fuzzy_match(quote: str, page: Page) -> GroundingMatch | None:
         # misleading 100 this module exists to refuse. Judge the quote against
         # the whole words instead.
         start, end = words[0].start, words[-1].end
-        score = fuzz.ratio(normalized_quote, normalize(page.text[start:end]))
+        score = fuzz.ratio(normalized_quote.lower(), normalize(page.text[start:end]).lower())
         if score < MIN_MATCH_SCORE:
             return None
 
+    matched_text = page.text[start:end]
     return GroundingMatch(
         quote=quote,
         page_number=page.number,
         start=start,
         end=end,
         score=score,
-        matched_text=page.text[start:end],
+        matched_text=matched_text,
         words=tuple(words),
+        letters_agree=_skeleton(quote) == _skeleton(matched_text),
     )
+
+
+def _skeleton(text: str) -> str:
+    """The letters and digits of `text` in order, case-folded: what is left when case,
+    spacing and punctuation are ignored. A separator between two digits is kept, because
+    there it is part of the number: "12.00" and "12:00" are not the same, and neither is
+    "1,200". So is a minus sign in front of a number."""
+    folded = normalize(text).casefold()
+    kept: list[str] = []
+    for i, ch in enumerate(folded):
+        before = folded[i - 1] if i else ""
+        after = folded[i + 1 : i + 2]
+        if ch.isalnum():
+            kept.append(ch)
+        elif ch.isspace():
+            continue
+        elif before.isdigit() and after.isdigit():
+            kept.append(ch)
+        elif ch == "-" and after.isdigit() and not before.isalnum():
+            kept.append(ch)  # a minus sign
+    return "".join(kept)
+
+
+def _value_occurrences(quote: str, page: Page) -> list[GroundingMatch]:
+    """Where `page` writes the same number or date as `quote`, however it writes it.
+
+    Only a quote that is nothing but an amount ("60000", "$1,234.50") or nothing but a date
+    ("2018-12-25", "25 December 2018") is read this way. A model that normalizes a value
+    and quotes the normalized form has rewritten the page's characters; comparing the
+    characters by edit distance finds "19.80" at "18.90" and misses "60000" at "60.000",
+    so these are compared as values. A token with two readings ("60.000") matches on
+    either; `fieldproof.verify` says which the document means."""
+    stripped = quote.strip()
+    if not stripped or not page.words:
+        return []
+    found: list[tuple[int, int]] = []
+
+    wanted = amount_readings(stripped) if len(stripped.split()) == 1 else []
+    if wanted:
+        for word in page.words:
+            theirs = amount_readings(word.text)
+            if any(a.value == b.value for a in wanted for b in theirs):
+                found.append((word.start, word.end))
+    else:
+        days = whole_date(stripped)
+        if days:
+            for start, end, page_days in dates_in(page.text):
+                if days & page_days:
+                    found.append((start, end))
+
+    matches: list[GroundingMatch] = []
+    for start, end in found:
+        words = _words_overlapping(page.words, start, end)
+        if not words or not _covers_whole_words(page, start, end, words):
+            continue
+        matches.append(
+            GroundingMatch(
+                quote=quote,
+                page_number=page.number,
+                start=words[0].start,
+                end=words[-1].end,
+                score=100.0,
+                matched_text=page.text[words[0].start : words[-1].end],
+                words=tuple(words),
+                letters_agree=True,
+                by_value=True,
+            )
+        )
+    return matches
 
 
 def find_candidates(quote: str, page: Page) -> list[GroundingMatch]:
     """All plausible locations for `quote` on `page`: every word-aligned
-    exact occurrence if there is at least one, otherwise the single best
-    fuzzy match (fuzzy scoring across many candidates isn't meaningful, so
+    exact occurrence if there is at least one, otherwise every one that differs
+    only in case, otherwise every place the page writes
+    the same number or date as a quote that is only that (`_value_occurrences`),
+    otherwise the single best fuzzy match (fuzzy scoring across many candidates isn't meaningful, so
     fuzzy only ever contributes one). An empty list means not found."""
     exact = _word_aligned_occurrences(quote, page)
     if exact:
         return exact
+    folded = _word_aligned_occurrences(quote, page, fold_case=True)
+    if folded:
+        return folded
+    by_value = _value_occurrences(quote, page)
+    if by_value:
+        return by_value
     fuzzy = _fuzzy_match(quote, page)
     return [fuzzy] if fuzzy is not None else []
 
@@ -231,8 +350,9 @@ def find_candidates_in_document(
     page has word-aligned exact occurrences, only exact occurrences (from
     all pages, `hint_page` first) are returned - fuzzy matches from other
     pages are never mixed in as "maybe this instead" once an exact hit
-    exists anywhere. If none do, falls back to the single best fuzzy match
-    across pages."""
+    exists anywhere. If none do, a quote that is only a number or a date is
+    looked for by value (`_value_occurrences`); anything else falls back to the
+    single best fuzzy match across pages."""
     pages = sorted(document.pages, key=lambda p: p.number != hint_page)
 
     exact: list[GroundingMatch] = []
@@ -240,6 +360,18 @@ def find_candidates_in_document(
         exact.extend(_word_aligned_occurrences(quote, page))
     if exact:
         return exact
+
+    folded: list[GroundingMatch] = []
+    for page in pages:
+        folded.extend(_word_aligned_occurrences(quote, page, fold_case=True))
+    if folded:
+        return folded
+
+    by_value: list[GroundingMatch] = []
+    for page in pages:
+        by_value.extend(_value_occurrences(quote, page))
+    if by_value:
+        return by_value
 
     best_fuzzy: GroundingMatch | None = None
     for page in pages:

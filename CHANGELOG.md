@@ -4,6 +4,26 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Grounding and verification, measured on annotated receipts
+
+Checked against 1,052 CORD v2 and SROIE receipts (`studies/cord-grounding`). In 0.2.7 a
+total one cent off was `verified` in 45% of held-out cases and a name with one letter
+changed in 77%; amounts written `60.000` and dates written `23-01-2019` were not read.
+
+- A string value must be a run of the evidence's words, ignoring case, spacing and
+  punctuation; a value that differs in a letter or digit is `needs_review`.
+- A fuzzy match is strong only if its letters and digits agree with the page (a
+  separator between digits and a leading minus count). `GroundingMatch` gains
+  `letters_agree` and `by_value`.
+- A quote that is only a number or a date is found by value (`60000` at `60.000`,
+  `2018-12-25` at `25/12/2018`); a quote that differs only in case is found at every
+  place the page has it. New module `fieldproof.ground.values`.
+- Numbers are compared to the precision the page wrote (`9.00` does not support `9.01`;
+  `NUMBER_TOLERANCE` is half a cent, was a whole one), and `60.000` is read as sixty or
+  sixty thousand unless the document settles which (`check_number(..., number_style=)`).
+- Numeric dates written with `-` or `.` and two-digit years are read.
+- A minus sign is no longer treated as punctuation that a quote may leave out.
+
 ### Review workbench
 
 - Corrections of nested fields save correctly and retain numbers and booleans.

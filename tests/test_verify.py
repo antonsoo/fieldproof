@@ -329,7 +329,10 @@ def test_check_string_requires_the_value_s_digits_in_the_evidence() -> None:
     assert check_string("NW-20260214", "Invoice Number: NW-20260214").supported
     assert check_string("Net 30", "Payment Terms: Net 30 days").supported
     assert not check_string("Net 60", "Payment Terms: Net 30 days").supported
-    assert check_string("Acme Corporatian", "Acme Corporation").supported  # wording may differ
+    # a letter that differs is a different word, not "wording may differ" (OCR noise is in
+    # the page text, which the quote copies; see studies/cord-grounding)
+    assert not check_string("Acme Corporatian", "Acme Corporation").supported
+    assert check_string("ACME CORPORATION", "Acme Corporation").supported
 
 
 def _invoice_with(field_name: str, value: object, quote: str):  # type: ignore[no-untyped-def]
