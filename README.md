@@ -26,7 +26,24 @@ to confirm or fix whatever's left. Every field ends up `verified`,
 
 </details>
 
+## A quote must keep the sign
+
+The source checkout (unreleased) catches a positive `100` quoted from a PDF's
+`- $100.00`, preserving the minus in the review highlight. Numeric checks no
+longer accept fragments of `1e6` or `AB123CD`, treat a percentage as a plain
+amount, or erase a printed digit before comparison.
+
+In 44 deliberately constructed PDFs, incorrect or unsupported claims verified
+fell from 21 of 23 to zero; all 21 supported claims now verify. A fresh audit of
+133,722 cases on the receipt corpus found no newly verified wrong location,
+with five additional reviews among 6,031 fields quoted as written with context. The cases, costs,
+limits, installed-package screenshots and actual corrected exports are in the
+[numeric evidence study](studies/numeric-evidence/README.md).
+
 ## Measured on 1,052 real receipts
+
+The figures below describe the earlier grounding update, before the numeric
+evidence change above; its fresh comparison is recorded separately.
 
 Grounding and verification were run on CORD v2 and SROIE receipts, which come
 with the words on the page and the correct field values. No model was called:
@@ -305,7 +322,9 @@ four hold:
    match has to cover whole words - a quote like `"1"` can never match the
    trailing digit of a street number like `"4821"`, though it may leave out
    punctuation glued to a word (the comma in `"1,"`, the `$` in
-   `"$2,458.00"`). When the best fuzzy window cuts a word, the quote is
+   `"$2,458.00"`). Numeric signs and rate markers stay attached; incomplete
+   quotes are weak candidates, retained so an unrelated occurrence does not
+   become uniquely verified. When the best fuzzy window cuts a word, the quote is
    scored against the whole words instead, so `"wind"` is not found in
    `"Northwind"` and `"458.00"` is only a weak match for `"$2,458.00"`.
    Two further steps sit between the exact match and the fuzzy one (source
@@ -315,7 +334,7 @@ four hold:
    `"60.000"` and `"2018-12-25"` at `"25/12/2018"`, which edit distance at the
    grounding stage would miss. A fuzzy match whose
    letters or digits differ from the page's (ignoring case, spacing and
-   punctuation; a separator between digits counts) is never strong, however
+   punctuation; separators between digits and numeric signs/units count) is never strong, however
    high its score: one misquoted letter in a name scores 95 and is not the
    name on the page.
    When a quote genuinely occurs more than once,
@@ -342,7 +361,11 @@ four hold:
    evidence, not just the last one (evidence for a row-level field is often
    the whole row, e.g. a quantity of `1` is checked against `"Fuel
    surcharge 1 210.50 210.50"`), excluding percentages so `"Tax (8.5%)
-   $208.93"` can't be misread as `8.5`; dates are parsed from either
+   $208.93"` can't be misread as `8.5`. Comparisons retain printed decimal
+   digits; supported numeric tokens include their signs and can span words
+   on the same visual line. A footer dash on another line does not negate a
+   preceding total. Scientific notation, fractions and unfamiliar attached
+   units go to review instead of supplying numeric fragments; dates are parsed from either
    ISO-8601 or a handful of common formats and compared as calendar dates,
    and a numeric date whose first two parts are both 12 or under
    (`03/04/2026`) is read in whichever order another date on the same

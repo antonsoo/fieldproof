@@ -4,7 +4,25 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
-### Grounding and verification, measured on annotated receipts
+### Numeric evidence and signed amounts
+
+- Preserve leading, Unicode, accounting and trailing minus signs, including
+  signs separated from currency symbols. A clipped quote remains weak evidence
+  with the full numeric source highlighted; other occurrences remain ambiguous.
+- Parse whole supported tokens. Exponents, identifiers, malformed grouping,
+  fractions and rates cannot supply smaller numeric fragments. Retain `2x`/`x2`
+  quantity notation and support leading decimal points and valid Indian grouping.
+- Use printed decimals in numeric comparisons; preserve exact integer inputs,
+  reject non-finite claims, and remove the additional floating-point allowance.
+- Respect visual row boundaries so a footer dash does not negate the prior total.
+- Keep weak-match score text readable in both review themes. Add a synthetic
+  credit note and a real PDF upload/review regression.
+- Fresh before/after evidence: 44 controlled PDFs, all 133,722 receipt cases,
+  and the installed wheel's browser correction/export workflow. The
+  [numeric study](studies/numeric-evidence/README.md) records five newly reviewed
+  annotated fields and the reference-parser limitations; it is in-sample.
+
+### Grounding and verification, earlier annotated-receipt study
 
 Checked against 1,052 CORD v2 and SROIE receipts (`studies/cord-grounding`), with what a
 model returns imitated by rule. In 0.2.7 a total one cent off was `verified` in 42% of

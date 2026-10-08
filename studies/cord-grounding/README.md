@@ -1,5 +1,10 @@
 # Grounding checked against annotated receipts: what fieldproof finds, and what it accepts that is not there
 
+These tables describe the earlier grounding update. The later
+[numeric evidence audit](../numeric-evidence/README.md) reruns all 133,722 cases
+on the same pinned corpus before and after the sign/token fix, and records its
+costs and reference-parser limitations. It does not replace this historical result.
+
 fieldproof exists to catch a model that reports a value the document does not
 contain. Until now its grounding had been tested on its own three sample
 documents with hand-written assertions, so neither failure had a rate: failing
