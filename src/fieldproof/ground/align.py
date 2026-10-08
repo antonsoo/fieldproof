@@ -20,6 +20,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from rapidfuzz import fuzz
+from rapidfuzz.distance import Levenshtein
 
 from fieldproof.document.model import BBox, Document, Page, Word
 from fieldproof.ground.normalize import normalize, normalize_with_map
@@ -239,6 +240,12 @@ def _skeleton(text: str) -> str:
         elif ch == "-" and after.isdigit() and not before.isalnum():
             kept.append(ch)  # a minus sign
     return "".join(kept)
+
+
+def letter_distance(a: str, b: str) -> int:
+    """How many letters or digits must change to turn `a` into `b`, ignoring case, spacing
+    and punctuation (see `_skeleton`)."""
+    return Levenshtein.distance(_skeleton(a), _skeleton(b))
 
 
 def _value_occurrences(quote: str, page: Page) -> list[GroundingMatch]:

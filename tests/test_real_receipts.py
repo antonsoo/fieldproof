@@ -1,6 +1,9 @@
 """Behaviour changed after grounding was measured on annotated receipts
 (`studies/cord-grounding/`). Every page text here is a few words of a CORD v2 or SROIE
-receipt, so each case is one that went wrong on a real document."""
+receipt, so each case is one that went wrong on a real document.
+
+CORD v2: Park et al., "CORD: A Consolidated Receipt Dataset for Post-OCR Parsing",
+Document Intelligence Workshop at NeurIPS 2019, CC BY 4.0. SROIE: ICDAR 2019."""
 
 from __future__ import annotations
 
@@ -131,3 +134,45 @@ def test_a_minus_sign_is_part_of_the_number() -> None:
     assert not any(m.is_strong for m in find_candidates("30,000", page))
     assert [m.matched_text for m in find_candidates("-30,000", page)] == ["-30,000"]
     assert [m.matched_text for m in find_candidates("50,000", page)] == ["50,000"]
+
+
+def _name_report(quote: str, value: str, page: str, **kw):
+    from pydantic import BaseModel
+
+    class Name(BaseModel):
+        merchant_name: Evidenced[str]
+
+    data = Name(merchant_name=Evidenced(value=value, evidence=[quote], page=1))
+    (field,) = verify(data, _document(page), **kw).fields
+    return field
+
+
+def test_text_edit_tolerance_is_off_by_default_and_recorded_when_on() -> None:
+    # An OCR-garbled page ("DECO" read as "DEC0"): the model copies the quote faithfully
+    # and writes the repaired name as the value.
+    page = "INDAH GIFT & HOME DEC0 27,JALAN DEDAP 13,"
+    quote, value = "INDAH GIFT & HOME DEC0", "INDAH GIFT & HOME DECO"
+    strict = _name_report(quote, value, page)
+    assert strict.status is FieldStatus.NEEDS_REVIEW and not strict.notes
+    tolerant = _name_report(quote, value, page, text_edit_tolerance=1)
+    assert tolerant.status is FieldStatus.VERIFIED
+    assert "by 1 letter" in tolerant.notes[0] and "text_edit_tolerance=1" in tolerant.notes[0]
+    assert tolerant.to_dict()["notes"] == tolerant.notes
+    assert "notes" not in strict.to_dict()
+
+
+def test_text_edit_tolerance_has_limits() -> None:
+    page = "INDAH GIFT & HOME DEC0 27,JALAN DEDAP 13,"
+    # two letters off with a tolerance of one
+    assert (
+        _name_report(
+            "INDAH GIFT & HOME DEC0", "INDAH GIFT & HOME DEQQ0", page, text_edit_tolerance=1
+        ).status
+        is FieldStatus.NEEDS_REVIEW
+    )
+    # a short string: one letter is a different company
+    short = _name_report("SDN BHD", "SDM BHD", "TAN SDN BHD", text_edit_tolerance=1)
+    assert short.status is FieldStatus.NEEDS_REVIEW
+    # a made-up name that is not close to the page
+    far = _name_report("ACME TRADING COMPANY", "ACME TRADING COMPANY", page, text_edit_tolerance=2)
+    assert far.status is FieldStatus.UNSUPPORTED

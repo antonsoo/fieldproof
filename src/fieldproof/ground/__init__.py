@@ -6,6 +6,7 @@ from fieldproof.ground.align import (
     find_candidates_in_document,
     find_quote,
     ground_quote,
+    letter_distance,
     nearest_candidate,
     rects_for_match,
 )
@@ -18,6 +19,7 @@ __all__ = [
     "find_candidates",
     "find_candidates_in_document",
     "find_quote",
+    "letter_distance",
     "ground_quote",
     "nearest_candidate",
     "normalize",

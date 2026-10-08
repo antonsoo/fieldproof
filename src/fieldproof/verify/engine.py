@@ -29,6 +29,7 @@ from fieldproof.document.model import Document
 from fieldproof.ground.align import (
     GroundingMatch,
     find_candidates_in_document,
+    letter_distance,
     nearest_candidate,
     rects_for_match,
 )
@@ -36,6 +37,7 @@ from fieldproof.ground.values import NumberStyle, number_style
 from fieldproof.schemas.base import iter_evidenced_fields
 from fieldproof.verify.cross_field import CrossFieldIssue, check_cross_field
 from fieldproof.verify.value_checks import (
+    TOLERANT_MIN_LETTERS,
     DateOrder,
     ValueCheckResult,
     check_bool,
@@ -64,6 +66,7 @@ class FieldVerification:
     value: str | float | bool
     status: FieldStatus
     reasons: list[str] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)
     match_score: float | None = None
     matched_text: str | None = None
     page: int | None = None
@@ -75,6 +78,7 @@ class FieldVerification:
             "value": self.value,
             "status": self.status.value,
             "reasons": self.reasons,
+            **({"notes": self.notes} if self.notes else {}),
             "match_score": self.match_score,
             "matched_text": self.matched_text,
             "page": self.page,
@@ -109,8 +113,17 @@ def _row_prefix(path: str) -> str | None:
     return match.group(1) if match else None
 
 
-def verify(data: BaseModel, document: Document) -> VerificationReport:
+def verify(
+    data: BaseModel, document: Document, *, text_edit_tolerance: int = 0
+) -> VerificationReport:
     """Verify every `Evidenced` field under `data` against `document`.
+
+    By default a text value or quote that differs from the page in a letter or digit is
+    `needs_review`, whatever the cause (a model's typo, or a model repairing an OCR error).
+    `text_edit_tolerance=n` lets a text field of at least `TOLERANT_MIN_LETTERS` letters
+    differ from the page by up to `n` letters in the quote and again in the value and stay
+    `verified`, with what differed recorded in the field's `notes`. Numbers, dates and
+    booleans are never given this tolerance.
 
     Fields are walked in schema-declaration order (`iter_evidenced_fields`),
     which for a list item means its fields come in the order they're
@@ -134,7 +147,13 @@ def verify(data: BaseModel, document: Document) -> VerificationReport:
         hint = row_anchors.get(prefix) if prefix else None
 
         result, match = _verify_field(
-            path, evidenced, document, hint_match=hint, date_order=date_order, style=style
+            path,
+            evidenced,
+            document,
+            hint_match=hint,
+            date_order=date_order,
+            style=style,
+            text_edit_tolerance=text_edit_tolerance,
         )
         results.append(result)
 
@@ -155,6 +174,7 @@ def _verify_field(
     hint_match: GroundingMatch | None,
     date_order: DateOrder | None = None,
     style: NumberStyle | None = None,
+    text_edit_tolerance: int = 0,
 ) -> tuple[FieldVerification, GroundingMatch | None]:
     value = evidenced.value
 
@@ -207,8 +227,27 @@ def _verify_field(
         )
         return result, None
 
+    notes: list[str] = []
+    tolerant = (
+        text_edit_tolerance > 0
+        and isinstance(value, str)
+        and not isinstance(value, bool)
+        and "date" not in path.lower()
+    )
     if not best_match.is_strong:
-        if best_match.letters_agree is False:
+        distance = letter_distance(best_match.quote, best_match.matched_text)
+        if (
+            tolerant
+            and best_match.letters_agree is False
+            and distance <= text_edit_tolerance
+            and len(best_match.quote) >= TOLERANT_MIN_LETTERS
+        ):
+            notes.append(
+                f"the quote differs from the page text {best_match.matched_text!r} by "
+                f"{distance} letter{'s' if distance != 1 else ''} (accepted: "
+                f"text_edit_tolerance={text_edit_tolerance})"
+            )
+        elif best_match.letters_agree is False:
             reasons.append(
                 f"the quote is {best_match.score:.0f}/100 like {best_match.matched_text!r} "
                 "on the page but differs from it in letters or digits"
@@ -219,9 +258,18 @@ def _verify_field(
                 "loose paraphrase or contains OCR-like noise"
             )
 
-    check = _check_value(path, value, best_match.matched_text, date_order, style)
+    check = _check_value(
+        path,
+        value,
+        best_match.matched_text,
+        date_order,
+        style,
+        text_edit_tolerance if tolerant else 0,
+    )
     if not check.supported:
         reasons.append(check.reason)
+    elif check.reason:
+        notes.append(check.reason)
 
     status = FieldStatus.NEEDS_REVIEW if reasons else FieldStatus.VERIFIED
 
@@ -232,6 +280,7 @@ def _verify_field(
         value=value,
         status=status,
         reasons=reasons,
+        notes=notes,
         match_score=best_match.score,
         matched_text=best_match.matched_text,
         page=best_match.page_number,
@@ -246,6 +295,7 @@ def _check_value(
     evidence_text: str,
     date_order: DateOrder | None = None,
     style: NumberStyle | None = None,
+    max_edits: int = 0,
 ) -> ValueCheckResult:
     if isinstance(value, bool):
         return check_bool(value, evidence_text)
@@ -254,7 +304,7 @@ def _check_value(
     if isinstance(value, str):
         if "date" in path.lower():
             return check_date(value, evidence_text, date_order=date_order)
-        return check_string(value, evidence_text)
+        return check_string(value, evidence_text, max_edits=max_edits)
     return ValueCheckResult(True)
 
 

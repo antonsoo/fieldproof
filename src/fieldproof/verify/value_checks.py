@@ -17,6 +17,7 @@ from datetime import date, datetime
 from typing import Literal
 
 from rapidfuzz import fuzz
+from rapidfuzz.distance import Levenshtein
 
 from fieldproof.ground.normalize import normalize
 from fieldproof.ground.values import (
@@ -303,8 +304,34 @@ def _said_in(value_words: list[str], evidence_words: list[str]) -> bool:
     return False
 
 
+#: Fewest letters and digits a string must have before `text_edit_tolerance` applies to it:
+#: one changed letter in "SDN BHD" is a different company, in a 25-letter name it may be a
+#: misread.
+TOLERANT_MIN_LETTERS = 12
+
+
+def _skeleton_words(text: str) -> str:
+    return "".join(_alnum_words(text))
+
+
+def edits_from_evidence(value: str, evidence_text: str) -> int | None:
+    """Fewest letter edits between `value` and any stretch of `evidence_text`, ignoring case,
+    spacing and punctuation; None if `value` has no letters or digits."""
+    target, haystack = _skeleton_words(value), _skeleton_words(evidence_text)
+    if not target or not haystack:
+        return None
+    window = fuzz.partial_ratio_alignment(target, haystack)
+    if window is None:
+        return None
+    return Levenshtein.distance(target, haystack[window.dest_start : window.dest_end])
+
+
 def check_string(
-    value: str, evidence_text: str, *, threshold: float = STRING_MATCH_THRESHOLD
+    value: str,
+    evidence_text: str,
+    *,
+    threshold: float = STRING_MATCH_THRESHOLD,
+    max_edits: int = 0,
 ) -> ValueCheckResult:
     """Is `value` actually present in `evidence_text`? Evidence is a
     verbatim quote and is often longer than the value it supports (e.g. the
@@ -315,7 +342,9 @@ def check_string(
     in case, spacing and punctuation, and leave words out at either end. It may not
     differ in a letter or digit: "Northwind Traders" against evidence that reads
     "Northwlnd Traders" is 94% similar and is not what the page says. A value that is only
-    similar to the evidence is reported as such and sent to review."""
+    similar to the evidence is reported as such and sent to review, unless `max_edits` allows
+    a string of at least `TOLERANT_MIN_LETTERS` letters to differ by that many; the result is
+    then supported and its `reason` says what differed."""
     normalized_value, normalized_evidence = normalize(value), normalize(evidence_text)
     # Wording can differ a little and still be the same name. A number can't:
     # "NW-20260215" against a page that reads "NW-20260214" is 96% similar and
@@ -333,6 +362,14 @@ def check_string(
         return ValueCheckResult(True)
     if not _alnum_words(value) and normalized_value and normalized_value in normalized_evidence:
         return ValueCheckResult(True)  # a value of nothing but punctuation, such as "-"
+    if max_edits > 0 and len(_skeleton_words(value)) >= TOLERANT_MIN_LETTERS:
+        edits = edits_from_evidence(value, evidence_text)
+        if edits is not None and edits <= max_edits:
+            return ValueCheckResult(
+                True,
+                f"value {value!r} differs from the evidence {evidence_text!r} by {edits} "
+                f"letter{'s' if edits != 1 else ''} (accepted: text_edit_tolerance={max_edits})",
+            )
     score = fuzz.partial_ratio(normalized_value, normalized_evidence)
     if score >= threshold:
         return ValueCheckResult(
