@@ -64,9 +64,14 @@ def test_an_exact_match_always_covers_whole_words(block: int) -> None:
         rng = random.Random(seed)
         page = _page(rng)
 
-        # Any run of whole words is found, exactly, where it is.
+        # A run of whole words, including adjacent sign words, is found where
+        # it is. A quote that omits the '-' in '- $100' is no longer exact.
         first = rng.randrange(len(page.words))
         last = rng.randrange(first, min(len(page.words), first + 5))
+        while first > 0 and page.words[first - 1].text == "-":
+            first -= 1
+        while last + 1 < len(page.words) and page.words[last + 1].text == "-":
+            last += 1
         quote = page.text[page.words[first].start : page.words[last].end]
         found = find_candidates(quote, page)
         assert found, f"seed {seed}: {quote!r} not found in {page.text!r}"

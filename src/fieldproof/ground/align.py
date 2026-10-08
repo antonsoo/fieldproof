@@ -23,8 +23,9 @@ from rapidfuzz import fuzz
 from rapidfuzz.distance import Levenshtein
 
 from fieldproof.document.model import BBox, Document, Page, Word
+from fieldproof.ground.lines import separate_lines
 from fieldproof.ground.normalize import normalize, normalize_with_map
-from fieldproof.ground.values import amount_readings, dates_in, whole_date
+from fieldproof.ground.values import amount_readings, dates_in, number_tokens, whole_date
 
 #: Below this fuzzy score (0-100), we consider the quote not found on the
 #: page rather than report a misleading low-confidence match.
@@ -47,7 +48,8 @@ class GroundingMatch:
     covers, and how good the match was (100 = exact).
 
     `letters_agree` says whether the quote and the words it was found at have the same
-    letters and digits in the same order, ignoring case, spacing and punctuation (None: not
+    letters, digits and numeric signs/units in the same order, ignoring case, spacing
+    and other punctuation (None: not
     judged, so only `score` speaks). A fuzzy match can score 97/100 with one letter
     different, which is how a misquoted name looks, so it is not strong evidence; a fuzzy
     match that differs only in case, spacing or punctuation is, whatever its score.
@@ -87,7 +89,9 @@ class GroundingMatch:
         return sum(w.bbox.top for w in self.words) / len(self.words)
 
 
-def _covers_whole_words(page: Page, start: int, end: int, words: list[Word]) -> bool:
+def _covers_whole_words(
+    page: Page, start: int, end: int, words: list[Word], *, numeric_modifiers: bool = True
+) -> bool:
     """Does the span `[start, end)` cover every letter and digit of the words
     it touches? Punctuation glued to a word may be left outside: the page's
     words are split on whitespace, so "1," and "$2,458.00" are one word each,
@@ -97,9 +101,29 @@ def _covers_whole_words(page: Page, start: int, end: int, words: list[Word]) -> 
     left_out = before + page.text[end : words[-1].end]
     if any(ch.isalnum() for ch in left_out):
         return False
-    # A minus sign is not punctuation to be left out: "30,000" is not "-30,000" (change
-    # given back on a receipt), and a total is not its refund.
-    return not (before.endswith(("-", "\u2212")) and page.text[start : start + 1].isdigit())
+    if not numeric_modifiers:
+        return True
+    # Currency can be omitted, but a sign, accounting bracket or percentage cannot.
+    # Include adjacent words too: "- $100" is one signed amount, not a positive
+    # number because a model quoted only the word with the currency symbol.
+    for token in number_tokens(separate_lines(page.text, page.words)):
+        if token.start < end and token.end > start and (token.start < start or token.end > end):
+            fragment_text = page.text[max(start, token.start) : min(end, token.end)]
+            if not any(ch.isdecimal() for ch in fragment_text):
+                continue  # A quote of the label/sign alone makes no numeric claim.
+            original = token.readings()
+            fragment = amount_readings(fragment_text)
+            if not original or {r.value for r in original} != {r.value for r in fragment}:
+                return False
+    return True
+
+
+def _whole_numeric_span(page: Page, start: int, end: int) -> tuple[int, int]:
+    """Expand an incomplete quote to the entire numeric token it touches."""
+    for token in number_tokens(separate_lines(page.text, page.words)):
+        if token.start < end and token.end > start:
+            start, end = min(start, token.start), max(end, token.end)
+    return start, end
 
 
 def _splits_a_character(index_map: list[int], first: int, last: int) -> bool:
@@ -114,8 +138,9 @@ def _splits_a_character(index_map: list[int], first: int, last: int) -> bool:
 def _word_aligned_occurrences(
     quote: str, page: Page, *, fold_case: bool = False
 ) -> list[GroundingMatch]:
-    """Every exact (normalized) occurrence of `quote` in `page` that covers
-    whole words - i.e. never starts or ends mid-token. Without this check, a
+    """Every normalized occurrence of `quote` in `page` that covers whole words.
+    Occurrences omitting a numeric modifier are expanded and marked weak so they
+    remain visible to ambiguity checking. Without word boundaries, a
     one-character quote like "1" would happily match the trailing digit of
     "4821"; pdfplumber never splits "4821" into separate word tokens, so
     requiring the match to leave no letter or digit of a touched word
@@ -152,7 +177,27 @@ def _word_aligned_occurrences(
         start = index_map[idx]
         end = index_map[last] + 1
         words = _words_overlapping(page.words, start, end)
-        if not words or not _covers_whole_words(page, start, end, words):
+        if not words or not _covers_whole_words(page, start, end, words, numeric_modifiers=False):
+            continue
+        if not _covers_whole_words(page, start, end, words):
+            # Keep this occurrence as weak evidence instead of deleting it.
+            # Otherwise "6" on a page with "6%" and an unrelated "6" becomes
+            # uniquely verified at the unrelated place. The full token is what
+            # the value check and the human review highlight must see.
+            start, end = _whole_numeric_span(page, start, end)
+            matched_text = page.text[start:end]
+            matches.append(
+                GroundingMatch(
+                    quote=quote,
+                    page_number=page.number,
+                    start=start,
+                    end=end,
+                    score=fuzz.ratio(normalized_quote.lower(), normalize(matched_text).lower()),
+                    matched_text=matched_text,
+                    words=tuple(_words_overlapping(page.words, start, end)),
+                    letters_agree=False,
+                )
+            )
             continue
         matches.append(
             GroundingMatch(
@@ -203,7 +248,8 @@ def _fuzzy_match(quote: str, page: Page) -> GroundingMatch | None:
         # A fragment is a perfect *partial* match, which is exactly the
         # misleading 100 this module exists to refuse. Judge the quote against
         # the whole words instead.
-        start, end = words[0].start, words[-1].end
+        start, end = _whole_numeric_span(page, words[0].start, words[-1].end)
+        words = _words_overlapping(page.words, start, end)
         score = fuzz.ratio(normalized_quote.lower(), normalize(page.text[start:end]).lower())
         if score < MIN_MATCH_SCORE:
             return None
@@ -225,10 +271,19 @@ def _skeleton(text: str) -> str:
     """The letters and digits of `text` in order, case-folded: what is left when case,
     spacing and punctuation are ignored. A separator between two digits is kept, because
     there it is part of the number: "12.00" and "12:00" are not the same, and neither is
-    "1,200". So is a minus sign in front of a number."""
+    "1,200". Numeric signs (including accounting parentheses) and rates are kept too."""
     folded = normalize(text).casefold()
+    # Record modifiers where their amount starts. Signs before a currency symbol,
+    # trailing minus signs and accounting parentheses carry the same numeric role.
+    markers = {
+        token.start: ("-" if token.negative else "") + ("%" if token.percent else "")
+        for token in number_tokens(folded)
+        if token.negative or token.percent
+    }
     kept: list[str] = []
     for i, ch in enumerate(folded):
+        if i in markers:
+            kept.append(markers[i])
         before = folded[i - 1] if i else ""
         after = folded[i + 1 : i + 2]
         if ch.isalnum():
@@ -237,8 +292,6 @@ def _skeleton(text: str) -> str:
             continue
         elif before.isdigit() and after.isdigit():
             kept.append(ch)
-        elif ch == "-" and after.isdigit() and not before.isalnum():
-            kept.append(ch)  # a minus sign
     return "".join(kept)
 
 
@@ -298,7 +351,7 @@ def _value_occurrences(quote: str, page: Page) -> list[GroundingMatch]:
 
 def find_candidates(quote: str, page: Page) -> list[GroundingMatch]:
     """All plausible locations for `quote` on `page`: every word-aligned
-    exact occurrence if there is at least one, otherwise every one that differs
+    occurrence (including weak numeric omissions) if there is one, otherwise every one that differs
     only in case, otherwise every place the page writes
     the same number or date as a quote that is only that (`_value_occurrences`),
     otherwise the single best fuzzy match (fuzzy scoring across many candidates isn't meaningful, so
@@ -354,10 +407,11 @@ def find_candidates_in_document(
     quote: str, document: Document, *, hint_page: int | None = None
 ) -> list[GroundingMatch]:
     """Every plausible location for `quote` anywhere in `document`. If any
-    page has word-aligned exact occurrences, only exact occurrences (from
+    page has word-aligned occurrences, only those occurrences (from
     all pages, `hint_page` first) are returned - fuzzy matches from other
     pages are never mixed in as "maybe this instead" once an exact hit
-    exists anywhere. If none do, a quote that is only a number or a date is
+    exists anywhere. Weak numeric omissions are retained to preserve ambiguity.
+    If none do, a quote that is only a number or a date is
     looked for by value (`_value_occurrences`); anything else falls back to the
     single best fuzzy match across pages."""
     pages = sorted(document.pages, key=lambda p: p.number != hint_page)

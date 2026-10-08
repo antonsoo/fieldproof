@@ -33,6 +33,7 @@ from fieldproof.ground.align import (
     nearest_candidate,
     rects_for_match,
 )
+from fieldproof.ground.lines import separate_lines
 from fieldproof.ground.values import NumberStyle, number_style
 from fieldproof.schemas.base import iter_evidenced_fields
 from fieldproof.verify.cross_field import CrossFieldIssue, check_cross_field
@@ -160,7 +161,8 @@ def verify(
         raise ValueError(f'default_date_order must be "dmy" or "mdy", not {default_date_order!r}')
     date_order = numeric_date_order(document.full_text()) or default_date_order
     # Likewise whether it writes "60.000" as sixty or sixty thousand; see `check_number`.
-    style = number_style(document.full_text()) or default_number_style
+    numeric_text = "\n".join(separate_lines(page.text, page.words) for page in document.pages)
+    style = number_style(numeric_text) or default_number_style
 
     for path, evidenced in iter_evidenced_fields(data):
         prefix = _row_prefix(path)
@@ -270,7 +272,7 @@ def _verify_field(
         elif best_match.letters_agree is False:
             reasons.append(
                 f"the quote is {best_match.score:.0f}/100 like {best_match.matched_text!r} "
-                "on the page but differs from it in letters or digits"
+                "on the page but differs from it in letters or digits, or numeric signs/units"
             )
         else:
             reasons.append(
@@ -278,10 +280,13 @@ def _verify_field(
                 "loose paraphrase or contains OCR-like noise"
             )
 
+    value_text = best_match.matched_text
+    if isinstance(value, int | float) and not isinstance(value, bool):
+        value_text = separate_lines(value_text, best_match.words, start=best_match.start)
     check = _check_value(
         path,
         value,
-        best_match.matched_text,
+        value_text,
         date_order,
         style,
         text_edit_tolerance if tolerant else 0,
@@ -320,7 +325,7 @@ def _check_value(
     if isinstance(value, bool):
         return check_bool(value, evidence_text)
     if isinstance(value, int | float):
-        return check_number(float(value), evidence_text, number_style=style)
+        return check_number(value, evidence_text, number_style=style)
     if isinstance(value, str):
         if "date" in path.lower():
             return check_date(value, evidence_text, date_order=date_order)

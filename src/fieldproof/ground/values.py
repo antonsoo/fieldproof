@@ -15,10 +15,13 @@ April) are returned as every reading the token has, and `number_style` and
 from __future__ import annotations
 
 import re
+import unicodedata
 from dataclasses import dataclass
 from datetime import date, datetime
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal
 from typing import Literal
+
+from fieldproof.ground.normalize import normalize_with_map
 
 NumberStyle = Literal["decimal", "thousands"]
 
@@ -28,8 +31,9 @@ _COMMA_THOUSANDS = re.compile(r"^\d{1,3}(?:,\d{3})+(?:\.\d+)?$")
 _DOT_THOUSANDS_MANY = re.compile(r"^\d{1,3}(?:\.\d{3}){2,}(?:,\d{1,2})?$")
 _DOT_THOUSANDS_ONE = re.compile(r"^[1-9]\d{0,2}\.\d{3}$")
 _DOT_THOUSANDS_COMMA_DECIMAL = re.compile(r"^\d{1,3}(?:\.\d{3})+,\d{1,2}$")
-_COMMA_DECIMAL = re.compile(r"^\d+,\d{1,2}$")
-_PLAIN = re.compile(r"^\d+(?:\.\d+)?$")
+_COMMA_DECIMAL = re.compile(r"^\d*,\d{1,2}$")
+_PLAIN = re.compile(r"^(?:\d+(?:\.\d+)?|\.\d+)$")
+_INDIAN_THOUSANDS = re.compile(r"^\d{1,2}(?:,\d{2})+,\d{3}(?:\.\d+)?$")
 
 
 @dataclass(frozen=True, slots=True)
@@ -74,11 +78,8 @@ def number_readings(token: str, style: NumberStyle | None = None) -> list[Number
                 return [thousands]
             return [literal, thousands]
         return [literal]
-    if token.count(",") and not token.count("."):
-        try:
-            return [NumberReading(Decimal(token.replace(",", "")), 0)]
-        except InvalidOperation:
-            return []
+    if _INDIAN_THOUSANDS.match(token):
+        return [NumberReading(Decimal(token.replace(",", "")), len(token.partition(".")[2]))]
     return []
 
 
@@ -94,29 +95,136 @@ def number_style(text: str) -> NumberStyle | None:
     (1.591.600 or 1.234,50), None if the document shows neither or both. A bare "9.99"
     says nothing, since a receipt that prints "TOTAL 60.000" may also print "Qty 4.00",
     and neither does "111,000": a receipt can print that beside "222.000"."""
-    decimal = bool(_COMMA_THOUSANDS_TOKEN.search(text))
-    thousands = bool(_DOT_THOUSANDS_TOKEN.search(text) or _DOT_THOUSANDS_DECIMAL_TOKEN.search(text))
+    decimal = thousands = False
+    for token in number_tokens(text):
+        if token.count or not token.readings():
+            continue
+        digits = token.digits.rstrip(".,")
+        decimal |= bool(_COMMA_THOUSANDS_TOKEN.fullmatch(digits))
+        thousands |= bool(
+            _DOT_THOUSANDS_TOKEN.fullmatch(digits) or _DOT_THOUSANDS_DECIMAL_TOKEN.fullmatch(digits)
+        )
     if decimal == thousands:
         return None
     return "decimal" if decimal else "thousands"
 
 
-_AMOUNT_WORD = re.compile(
-    r"^(?:[$\u20ac\u00a3\u00a5]|Rp\.?|RM|US\$|S\$)?(\(?)(-?)(\d[\d.,]*\d|\d)(\)?)[*:;,.]?$"
+_CURRENCY = r"(?:US\$|S\$|R\$|USD|EUR|GBP|JPY|CNY|INR|CHF|CAD|AUD|NZD|SGD|HKD|Rp\.?|RM|\$)"
+# The candidate is intentionally broader than a supported amount: consume the WHOLE
+# spelling, then reject it if necessary. Otherwise 1e6, .50 or 1,2,3 can yield a
+# perfectly plausible number that was only a fragment of what the page said.
+_NUMBER_TOKEN = re.compile(
+    r"(?<![\w.,'/%+\-$])(?<!\d:)"
+    r"(?P<open>\( *)?"
+    r"(?P<sign>[+-] *)?"
+    rf"(?P<currency>{_CURRENCY} *)?"
+    r"(?P<inner_sign>[+-] *)?"
+    r"(?P<count_prefix>x)?"
+    r"(?P<number>(?:\d[\d.,']*|[.,]\d[\d.,']*)(?:[eE][+-]?\d+)?)"
+    r"(?P<count_suffix>x)?"
+    # A minus followed by another amount belongs to that amount. Do not steal
+    # the prefix of the next receipt row ("Subtotal 18,182 - 15% DISC").
+    rf"(?P<trailing_sign> *-(?! *(?:[\d.,]|{_CURRENCY})))?"
+    r"(?P<percent> *[%\u2030])?"
+    r"(?P<close> *\))?"
+    r"(?![\w.,'/%+\-$]|:\d)",
+    re.IGNORECASE,
 )
+
+
+@dataclass(frozen=True, slots=True)
+class NumberToken:
+    """A whole numeric spelling and its original source span, including signs/units.
+
+    Unsupported spellings still have a span: grounding must not remove their
+    modifiers just to make a smaller quote match.
+    """
+
+    start: int
+    end: int
+    digits: str
+    negative: bool
+    percent: bool
+    count: bool
+    well_formed: bool
+
+    def readings(self, style: NumberStyle | None = None) -> list[NumberReading]:
+        if not self.well_formed or self.percent:
+            return []
+        readings = number_readings(self.digits, style)
+        # A sentence's closing period/comma is not a decimal/thousands separator.
+        if not readings and self.digits.endswith((".", ",")):
+            readings = number_readings(self.digits[:-1], style)
+        if self.negative:
+            readings = [NumberReading(r.value.copy_negate(), r.places) for r in readings]
+        return readings
+
+
+def number_tokens(text: str) -> tuple[NumberToken, ...]:
+    """Whole numeric tokens, never digits carved out of an identifier or exponent.
+
+    Grounding's Unicode normalization handles minus signs, fullwidth characters and
+    whitespace. Currency symbols share one lexical role; this does not convert units.
+    The offset map preserves the exact original evidence and its bounding boxes.
+    """
+    normalized, offsets = normalize_with_map(text)
+    # Grounding normalizes whitespace, but an amount's sign/unit must stay on
+    # its line. Callers with page geometry restore those boundaries first.
+    normalized = "".join(
+        "\n" if c == " " and any(ch in "\r\n" for ch in text[offsets[i] : offsets[i + 1]]) else c
+        for i, c in enumerate(normalized)
+    )
+    normalized = "".join(
+        "$" if unicodedata.category(c) == "Sc" else "-" if c == "−" else c for c in normalized
+    )
+    tokens: list[NumberToken] = []
+    for match in _NUMBER_TOKEN.finditer(normalized):
+        open_, close = bool(match["open"]), bool(match["close"])
+        signs = [
+            match[name].strip() for name in ("sign", "inner_sign", "trailing_sign") if match[name]
+        ]
+        percent = bool(match["percent"])
+        count = bool(match["count_prefix"] or match["count_suffix"])
+        count_formed = not count or (
+            not (match["count_prefix"] and match["count_suffix"])
+            and not match["currency"]
+            and not percent
+        )
+        start, end = offsets[match.start()], offsets[match.end() - 1] + 1
+        # NFKC flattens superscripts and fractions. That is useful for finding
+        # text, but 10² is not the amount 102 and ½ is neither 1 nor 2.
+        decimal_glyphs = all(not c.isnumeric() or c.isdecimal() for c in text[start:end])
+        tokens.append(
+            NumberToken(
+                start=start,
+                end=end,
+                digits=match["number"],
+                negative="-" in signs or (open_ and close and not percent),
+                percent=percent,
+                count=count,
+                well_formed=(
+                    open_ == close
+                    and len(signs) <= 1
+                    and not (open_ and signs)
+                    and decimal_glyphs
+                    and count_formed
+                ),
+            )
+        )
+    return tuple(tokens)
 
 
 def amount_readings(word: str, style: NumberStyle | None = None) -> list[NumberReading]:
     """Readings of a whole word that is an amount and nothing else: "$2,458.00", "Rp60.000",
     "(12.50)", "-3". A word with other letters or digits in it is not an amount."""
-    m = _AMOUNT_WORD.match(word)
-    if not m:
+    stripped = word.strip().rstrip("*:;")
+    tokens = number_tokens(stripped)
+    if len(tokens) != 1:
         return []
-    open_, sign, digits, close = m.groups()
-    readings = number_readings(digits, style)
-    if sign or (open_ and close):
-        readings = [NumberReading(-r.value, r.places) for r in readings]
-    return readings
+    token = tokens[0]
+    if token.count or token.start != 0 or token.end != len(stripped):
+        return []
+    return token.readings(style)
 
 
 def same_value(a: NumberReading, b: NumberReading) -> bool:

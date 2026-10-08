@@ -14,6 +14,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 from datetime import date, datetime
+from decimal import Decimal, localcontext
 from typing import Literal
 
 from rapidfuzz import fuzz
@@ -22,8 +23,9 @@ from rapidfuzz.distance import Levenshtein
 from fieldproof.ground.normalize import normalize
 from fieldproof.ground.values import (
     NUMERIC_DATE,
+    NumberReading,
     NumberStyle,
-    number_readings,
+    number_tokens,
     numeric_date_readings,
 )
 
@@ -36,13 +38,6 @@ NUMBER_TOLERANCE = 0.005
 #: Below this rapidfuzz ratio (0-100), a string value is not considered
 #: supported by its evidence text.
 STRING_MATCH_THRESHOLD = 82.0
-
-#: A currency/plain-number token, optionally wrapped in parens (accounting
-#: negative) or followed by "%" (so a rate like "8.5%" can be told apart
-#: from the dollar amount next to it, e.g. "Tax (8.5%) $208.93").
-_NUMBER_TOKEN = re.compile(
-    r"\(?-?\$?\d[\d,]*(?:(?:\.\d{3})+,\d{1,2}|(?:\.\d{3}){2,}(?!\d)|\.\d+)?\)?%?"
-)
 
 _DATE_FORMATS = (
     "%Y-%m-%d",
@@ -91,7 +86,7 @@ def parse_all_numbers(text: str) -> list[float]:
     210.50" for a quantity of 1), so a value check needs to ask "does this
     number appear anywhere in the evidence", not just "is it the last
     number" - see `check_number`."""
-    return [readings[0][0] for _, readings in _evidence_readings(text, None)]
+    return [float(readings[0].value) for _, readings in _evidence_readings(text, None)]
 
 
 def parse_number(text: str) -> float | None:
@@ -136,34 +131,27 @@ def _try_formats(text: str) -> date | None:
 
 def _evidence_readings(
     evidence_text: str, number_style: NumberStyle | None
-) -> list[tuple[str, list[tuple[float, int]]]]:
+) -> list[tuple[str, list[NumberReading]]]:
     """Per plain (non-percentage) number token in the evidence, the token as written and
     every reading of it as (value, decimal places written)."""
-    text = evidence_text.strip()
-    if not text:
-        return []
-    matches = list(_NUMBER_TOKEN.finditer(text))
-    non_percent = [m for m in matches if not m.group(0).endswith("%")]
-    tokens: list[tuple[str, list[tuple[float, int]]]] = []
-    for m in non_percent or matches:
-        raw = m.group(0)
-        negative = raw.startswith("(") or raw.endswith(")") or raw.startswith("-")
-        digits = raw.strip("()%-$")
+    tokens: list[tuple[str, list[NumberReading]]] = []
+    for token in number_tokens(evidence_text):
         readings = [
-            (-abs(float(r.value)) if negative else float(r.value), r.places)
-            for r in number_readings(digits, number_style)
+            r
+            for r in token.readings(number_style)
+            if r.value.is_zero() or -324 <= r.value.adjusted() <= 308
         ]
         if readings:
-            tokens.append((digits, readings))
+            tokens.append((token.digits, readings))
     return tokens
 
 
-def _plain(number: float) -> str:
-    return str(int(number)) if number == int(number) else repr(number)
+def _plain(number: Decimal) -> str:
+    return str(int(number)) if number == int(number) else format(number, "f")
 
 
 def check_number(
-    value: float, evidence_text: str, *, number_style: NumberStyle | None = None
+    value: int | float, evidence_text: str, *, number_style: NumberStyle | None = None
 ) -> ValueCheckResult:
     """Does `value` appear anywhere among the numbers in `evidence_text`?
     Evidence for a row-level field can be the whole row (several numbers,
@@ -176,13 +164,26 @@ def check_number(
     that says which way the document writes `.` (see
     `fieldproof.ground.values.number_style`), and otherwise can't verify a value on
     its own."""
+    claimed = Decimal(str(value))
+    if not claimed.is_finite():
+        return ValueCheckResult(False, "a non-finite value cannot be verified as an amount")
     tokens = _evidence_readings(evidence_text, number_style)
     if not tokens:
         return ValueCheckResult(False, f"could not parse a number from evidence {evidence_text!r}")
-    undecided: tuple[str, list[tuple[float, int]]] | None = None
+    undecided: tuple[str, list[NumberReading]] | None = None
     for raw, readings in tokens:
-        for number, places in readings:
-            if abs(number - value) <= min(0.5 * 10**-places, NUMBER_TOLERANCE) + 1e-9:
+        for reading in readings:
+            # Comparing floats can erase a printed digit beyond 2**53 or a tiny
+            # decimal. Compare the printed decimal to the caller's actual value.
+            with localcontext() as context:
+                context.prec = max(
+                    28, len(reading.value.as_tuple().digits), len(claimed.as_tuple().digits)
+                )
+                tolerance = min(
+                    Decimal(5).scaleb(-reading.places - 1), Decimal(str(NUMBER_TOLERANCE))
+                )
+                agrees = abs(reading.value - claimed) <= tolerance
+            if agrees:
                 if len(readings) == 1:
                     return ValueCheckResult(True)
                 undecided = undecided or (raw, readings)
@@ -190,13 +191,13 @@ def check_number(
         raw, readings = undecided
         return ValueCheckResult(
             False,
-            f"the evidence number {raw!r} reads as {_plain(abs(readings[0][0]))} (a decimal "
-            f"point) or {_plain(abs(readings[1][0]))} (a thousands separator), and no other "
+            f"the evidence number {raw!r} reads as {_plain(abs(readings[0].value))} (a decimal "
+            f"point) or {_plain(abs(readings[1].value))} (a thousands separator), and no other "
             "number on the document settles which",
         )
-    closest = min((r[0] for _, token in tokens for r in token), key=lambda c: abs(c - value))
+    closest = min((r.value for _, token in tokens for r in token), key=lambda c: abs(c - claimed))
     return ValueCheckResult(
-        False, f"value {value:g} does not match {closest:g} parsed from the evidence"
+        False, f"value {value!r} does not match {_plain(closest)} parsed from the evidence"
     )
 
 

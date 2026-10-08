@@ -198,7 +198,7 @@ def test_a_longer_fragment_is_judged_against_the_whole_word() -> None:
 
 
 def test_punctuation_glued_to_a_word_may_be_left_out_of_the_quote() -> None:
-    page = _page("Qty: 1, shipped (2) pallets for $2,458.00. Signed by Dana Co.")
+    page = _page("Qty: 1, shipped 2 pallets for $2,458.00. Signed by Dana Co.")
     for quote, matched in (
         ("1", "1"),
         ("2", "2"),
