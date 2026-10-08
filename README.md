@@ -26,6 +26,21 @@ to confirm or fix whatever's left. Every field ends up `verified`,
 
 </details>
 
+## Measured on 1,052 real receipts
+
+Grounding and verification were run on CORD v2 and SROIE receipts, which come
+with the words on the page and the correct field values (no model was called).
+Offered a value that is not on the page, the released version (0.2.7) marked a
+total one cent off as `verified` 45% of the time and a name with one letter
+changed 77% of the time (held-out half: 141 of 312 and 866 of 1,124). It accepted
+almost none of the other wrong amounts, dates and names. It also missed values
+that were there: `60.000` read as sixty, `23-01-2019` not read as a date, and
+a rewritten quote such as `2018-12-25` found at the right place 0% of the time.
+In the source checkout (unreleased) both false-accept cases are 0 of the same
+cases, amounts found at the right place go from 77.6% to 95.9% and dates from
+36.7% to 60.4%. The study, its numbers and what it does not show:
+[`studies/cord-grounding`](studies/cord-grounding/README.md).
+
 ## Live demo
 
 **[antonsoo.github.io/fieldproof](https://antonsoo.github.io/fieldproof/)** - three
@@ -81,9 +96,12 @@ on your machine. From a source checkout, build the UI first (see
 - **Provider-agnostic** - an `Extractor` protocol with an Anthropic
   (Claude) implementation using structured outputs, and a fixture provider
   for tests, CI, and offline demos.
-- **Real grounding, not string search** - exact match first, rapidfuzz-based
-  fuzzy alignment as a fallback, tolerant of curly quotes, ligatures,
-  hyphenated line-wraps, and OCR noise. Exact matches are required to land
+- **Real grounding, not string search** - exact match first, then a match
+  that differs only in case, then (for a quote that is only a number or a
+  date) the same value written differently, then rapidfuzz-based fuzzy
+  alignment as a fallback, tolerant of curly quotes, ligatures, hyphenated
+  line-wraps, and OCR noise. A fuzzy match counts as strong evidence only if
+  its letters and digits agree with the page. Exact matches are required to land
   on whole word boundaries (a quote never matches mid-token), and a quote
   that occurs more than once is disambiguated by locality rather than
   silently taking the first hit. Maps back to word bounding boxes and
@@ -264,6 +282,16 @@ four hold:
    `"$2,458.00"`). When the best fuzzy window cuts a word, the quote is
    scored against the whole words instead, so `"wind"` is not found in
    `"Northwind"` and `"458.00"` is only a weak match for `"$2,458.00"`.
+   Two further steps sit between the exact match and the fuzzy one (source
+   checkout, unreleased): a quote that differs from the page only in letter
+   case is found at every place the page has it, and a quote that is nothing
+   but a number or a date is compared by value, so `"60000"` is found at
+   `"60.000"` and `"2018-12-25"` at `"25/12/2018"`, where edit distance would
+   miss both and happily match `"19.80"` to `"18.90"`. A fuzzy match whose
+   letters or digits differ from the page's (ignoring case, spacing and
+   punctuation; a separator between digits counts) is never strong, however
+   high its score: one misquoted letter in a name scores 95 and is not the
+   name on the page.
    When a quote genuinely occurs more than once,
    `fieldproof.verify.engine` disambiguates it by preferring whichever
    occurrence is on the same row as another field from the same object
@@ -277,7 +305,11 @@ four hold:
 3. **Value check.** The claimed value is independently re-derived from the
    *matched* evidence text - not trusted just because a quote was found
    nearby - and compared: numbers are parsed with currency/thousands-
-   separator handling and checked against every plain number in the
+   separator handling (a document that writes `1.591.600` or `1,234.50`
+   settles whether `60.000` is sixty or sixty thousand; with nothing to settle
+   it, either reading matches), compared to the precision the page wrote
+   them (a page that says `9.00` supports `9`, not `9.01`), and checked
+   against every plain number in the
    evidence, not just the last one (evidence for a row-level field is often
    the whole row, e.g. a quantity of `1` is checked against `"Fuel
    surcharge 1 210.50 210.50"`), excluding percentages so `"Tax (8.5%)
@@ -287,10 +319,12 @@ four hold:
    (`03/04/2026`) is read in whichever order another date on the same
    document settles (`03/14/2026` means month first) - with no such date it
    goes to review rather than being verified under a guessed convention;
-   strings use fuzzy partial-ratio (a short value inside a longer quote
-   should still match), except that every run of digits in the value must
-   be in the evidence as written - `NW-20260215` is 96% similar to
-   `NW-20260214` and a different invoice; booleans look for whole words like
+   a string value has to be a run of the evidence's words, ignoring case,
+   spacing and punctuation (so a value may leave words off either end and a
+   short value inside a longer quote still matches), and every run of digits
+   in the value must be in the evidence as written - `NW-20260215` is 96%
+   similar to `NW-20260214` and a different invoice, and a name with one
+   letter changed is 94% similar to the original and a different name; booleans look for whole words like
    yes/no/not/confirmed/denied (so "notice" isn't a "no"). Any mismatch ->
    `needs_review`.
 4. **Cross-field rules.** For invoices and receipts: line items must sum to
@@ -351,10 +385,15 @@ anything in this repo.
   (`fieldproof.verify.cross_field`); a custom schema gets grounding and
   value-vs-evidence checks but no arithmetic/date-ordering rules unless you
   add your own.
-- **String matching is fuzzy by design**, which means a sufficiently short
-  or generic value can occasionally find a spurious match inside unrelated
-  evidence text. The 92/100 "strong match" threshold and the independent
-  value check are there to catch most of this, but neither is a proof.
+- **Fuzzy matching locates; it does not verify.** A quote whose letters or
+  digits differ from the page can still be found and highlighted, so a
+  reviewer sees what it was probably meant to be, but the field is
+  `needs_review`. That means a name the model silently corrected, or one
+  Tesseract garbled and the quote copied faithfully, is exact and verified,
+  while a quote that disagrees with the page text in a letter goes to a human.
+  Fuzzy alignment returns one best window, so a fuzzy-matched quote that
+  occurs twice is not reported as ambiguous. How these rules behave on real
+  receipts is in [`studies/cord-grounding`](studies/cord-grounding/README.md).
 - **Ambiguous quotes are resolved by row locality, not proven correct.**
   When a short quote occurs more than once, fieldproof prefers the
   occurrence nearest another already-grounded field from the same row

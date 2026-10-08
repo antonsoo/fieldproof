@@ -39,3 +39,4 @@ src/fieldproof/server/static/
 .venv-minimums/
 web/test-results/
 web/playwright-report/
+/studies/*/cache/
