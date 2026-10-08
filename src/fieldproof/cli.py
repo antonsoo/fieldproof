@@ -74,6 +74,14 @@ def _load_document(path: Path) -> Document:
         _fail(f"could not read {path} as a PDF: {exc}")
 
 
+def _check_conventions(number_style: str | None, date_order: str | None) -> None:
+    """Refuse a mistyped --number-style or --date-order before any work is done."""
+    if number_style not in (None, "decimal", "thousands"):
+        _fail(f"--number-style must be decimal or thousands, not {number_style!r}", code=2)
+    if date_order not in (None, "dmy", "mdy"):
+        _fail(f"--date-order must be dmy or mdy, not {date_order!r}", code=2)
+
+
 @app.command()
 def extract(
     document: Path = typer.Argument(..., exists=True, readable=True, help="PDF to extract from"),
@@ -95,9 +103,21 @@ def extract(
         min=1,
         help="most output tokens Claude may use for the extraction (--provider anthropic)",
     ),
+    number_style: str | None = typer.Option(
+        None,
+        "--number-style",
+        help='how to read "60.000" where the document does not settle it: '
+        "decimal (sixty) or thousands (sixty thousand)",
+    ),
+    date_order: str | None = typer.Option(
+        None,
+        "--date-order",
+        help='how to read "03/04/2026" where the document does not settle it: dmy or mdy',
+    ),
     out: Path = typer.Option(..., "--out", help="where to write the verified result JSON"),
 ) -> None:
     """Extract a schema from DOCUMENT, ground and verify it, write the result to --out."""
+    _check_conventions(number_style, date_order)
     schema_cls = BUILTIN_SCHEMAS.get(schema)
     if schema_cls is None:
         typer.echo(
@@ -119,7 +139,12 @@ def extract(
     except (ExtractionError, OSError) as exc:
         _fail(str(exc))
 
-    report = run_verify(result.data, doc)
+    report = run_verify(
+        result.data,
+        doc,
+        default_number_style=number_style,  # type: ignore[arg-type]
+        default_date_order=date_order,  # type: ignore[arg-type]
+    )
     # Write the registry key ("invoice"), not result.schema_name (the class
     # name, "Invoice") - so `fieldproof verify result.json doc.pdf` on our
     # own output resolves the schema without needing resolve_schema's
@@ -140,6 +165,17 @@ def verify(
     document: Path = typer.Argument(
         ..., exists=True, readable=True, help="the PDF it was extracted from"
     ),
+    number_style: str | None = typer.Option(
+        None,
+        "--number-style",
+        help='how to read "60.000" where the document does not settle it: '
+        "decimal (sixty) or thousands (sixty thousand)",
+    ),
+    date_order: str | None = typer.Option(
+        None,
+        "--date-order",
+        help='how to read "03/04/2026" where the document does not settle it: dmy or mdy',
+    ),
     out: Path | None = typer.Option(
         None, "--out", help="write the re-verified result here (default: overwrite RESULT)"
     ),
@@ -150,6 +186,7 @@ def verify(
     `schema` name (one of fieldproof's built-ins) and a `data` object shaped
     like that schema, with `{value, evidence, page}` at every leaf.
     """
+    _check_conventions(number_style, date_order)
     try:
         raw = read_extraction_json(result.read_bytes(), result.name)
         schema_name = raw.get("schema", "")
@@ -165,7 +202,12 @@ def verify(
     except ExtractionError as exc:
         _fail(str(exc), code=2)
     doc = _load_document(document)
-    report = run_verify(extraction.data, doc)
+    report = run_verify(
+        extraction.data,
+        doc,
+        default_number_style=number_style,  # type: ignore[arg-type]
+        default_date_order=date_order,  # type: ignore[arg-type]
+    )
 
     destination = out or result
     destination.write_text(

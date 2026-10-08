@@ -37,16 +37,24 @@ the wrong line, the wrong column, a derived or invented total. Of those, only
   `text_edit_tolerance=1`, brings back 66% of them and with them 70% of the
   one-letter false accepts.
 - **It also failed to find values that were there, because it compared numbers
-  and dates as strings.** With the label quoted as a model would quote it,
-  78% of amounts and 40% of dates were verified at the right place; now 95%
-  and 63%. Indonesian receipts write sixty thousand as `60.000`, which was
-  read as sixty; dates written `23-01-2019` were not read at all. A date or an
-  amount the model had rewritten (`2018-12-25`, `60000`) was found 0% and 8%
-  of the time, now 49% and 46%.
-- **One false accept is untouched: a factor of a thousand.** Where the page
-  says `60.000` and nothing else on it settles what the dot means, sixty and
-  sixty thousand both pass. Offered the wrong one, both versions accept it 383
-  times in 409. On these receipts nothing ever settles it.
+  and dates as strings.** Dates written `23-01-2019` were not read at all, and
+  a date or an amount the model had rewritten (`2018-12-25`, `60000`) was found
+  0% and 8% of the time, now 49% and 39%. With the label quoted as a model
+  would quote it, 40% of dates were verified at the right place, now 63%.
+- **And it verified amounts a thousand times too small.** Indonesian receipts
+  write sixty thousand as `60.000`. The released version read that as sixty:
+  of 409 such amounts it verified the right value 7 times, and the value a
+  thousand times too small 382 times in 408. Nothing on any of these receipts
+  says what the dot means. The checkout verifies neither reading of such a
+  number and says why, so the wrong value passes once in 408 and the right
+  one 9 times in 409: by default these amounts are in review.
+- **What a receipt cannot settle, the caller can.** Told that these receipts
+  write thousands with a dot (`default_number_style="thousands"`), the
+  checkout verifies 385 of the 409 and the same one wrong value. Told that
+  SROIE's dates are day first (`default_date_order="dmy"`), it verifies 98% of
+  them at the right place instead of 63%, and still none of the 205 with day
+  and month swapped. Over all amounts that is 95% found against 79% by default
+  and 78% released.
 
 The rules were written while reading these receipts, all of them. There is no
 held-out set here. The two halves the tables show are a consistency check, not
@@ -155,24 +163,33 @@ and both copied as garbled.
 
 All 1,052 receipts. "Released" is v0.2.7 built from its tag, "checkout" is
 this repository with its defaults, and "tolerance 1" is this repository with
-`text_edit_tolerance=1`. Every row is in `results.json`.
+`text_edit_tolerance=1`. "Conventions stated" is this repository told what a
+caller who knows where the receipts come from would tell it: for CORD
+`default_number_style="thousands"`, for SROIE `default_number_style="decimal"`,
+and `default_date_order="dmy"` for both. Every row is in `results.json`.
 
 Found at the right place (verified, at the annotated words):
 
-| | n | Released | Checkout |
-|---|---:|---:|---:|
-| **Quote with its label, value as printed** | | | |
-| amount | 2,360 | 78.4% | 94.9% |
-| quantity | 853 | 41.6% | 41.6% |
-| date | 565 | 39.6% | 63.0% |
-| text | 2,253 | 96.6% | 96.4% |
-| **Value rewritten, quote verbatim** | | | |
-| text (case, punctuation, trimmed) | 13,116 | 65.7% | 94.6% |
-| **Value and quote rewritten, quote bare** | | | |
-| amount | 7,080 | 8.3% | 45.9% |
-| quantity | 853 | 20.4% | 20.6% |
-| date | 1,130 | 0.0% | 48.8% |
-| text | 13,116 | 62.1% | 90.6% |
+| | n | Released | Checkout | Conventions stated |
+|---|---:|---:|---:|---:|
+| **Quote with its label, value as printed** | | | | |
+| amount | 2,360 | 78.4% | 79.0% | 94.9% |
+| quantity | 853 | 41.6% | 41.6% | 41.6% |
+| date | 565 | 39.6% | 63.0% | 98.2% |
+| text | 2,253 | 96.6% | 96.4% | 96.4% |
+| **Value rewritten, quote verbatim** | | | | |
+| text (case, punctuation, trimmed) | 13,116 | 65.7% | 94.6% | 94.6% |
+| **Value and quote rewritten, quote bare** | | | | |
+| amount | 7,080 | 8.3% | 38.8% | 45.9% |
+| quantity | 853 | 20.4% | 20.6% | 20.6% |
+| date | 1,130 | 0.0% | 48.8% | 78.2% |
+| text | 13,116 | 62.1% | 90.6% | 90.6% |
+
+The stated conventions are the ones the study's own gold values were read
+with (`run.py`: a separator before exactly three digits is thousands, SROIE
+dates are day first). So the last column shows that fieldproof reads a number
+or a date the way it is told. It is not evidence that the convention is right
+for every receipt.
 
 Accepted although the value is not on the page (the quote is the label and the
 wrong value, as a model inventing it would write):
@@ -217,31 +234,54 @@ The default is the strict one because the tool's promise is the page's exact
 words. A pipeline whose model tidies up OCR text will see every such name in
 review, with the reason given.
 
-The thousands separator, true quote with the wrong value:
+The numbers and dates a page can leave unsettled, offered with the true quote.
+The first four rows are verified counts; the stated column is the same as the
+checkout wherever the document's own numbers are enough.
 
-| The page says | Offered | n | Released accepts | Checkout accepts |
-|---|---|---:|---:|---:|
-| `60.000` | 60 | 409 | 383 | 383 |
-| `60,000` | 60 | 1,243 | 16 | 4 |
-| any other amount | ten times it | 708 | 44 | 44 |
+| The page says | Offered | n | Released | Checkout | Conventions stated |
+|---|---|---:|---:|---:|---:|
+| `60.000` | 60000, the true value | 409 | 7 | 9 | 385 |
+| `60.000` | 60, a thousand times too small | 408 | 382 | 1 | 1 |
+| `60,000` | 60000, the true value | 1,243 | 1,189 | 1,201 | 1,201 |
+| `60,000` | 60 | 1,243 | 16 | 0 | 0 |
+| a SROIE date | the true date | 565 | 224 | 356 | 555 |
+| a SROIE date, day and month both 12 or under | day and month swapped | 205 | 0 | 0 | 0 |
+| any other amount | ten times it | 662 | 0 | 0 | 0 |
 
 On the 119 receipts with an `x.000` amount, no other number on the page
 settles whether the dot is a decimal point or a thousands separator, for any
-of their 401 such fields (`thousands.json`). The 44 tenfold accepts were not
-looked into.
+of their 401 such fields (`thousands.json`). So the checkout's default sends
+them to review, with a reason such as "the evidence number '60.000' reads as 60
+(a decimal point) or 60000 (a thousands separator), and no other number on the
+document settles which". Of the 24 true values still unverified with the
+convention stated, 23 are amounts the receipt prints twice and one is a quote
+that was not found.
 
-The two halves, checkout, right place with the label quoted: amounts 93.9%
-and 95.9%, dates 65.6% and 60.4%, text 97.3% and 95.5%. They move together.
+The one wrong value still verified is a price of 6,000 offered as 6 with the
+whole row as its quote, `6 GORENGAN 6.000`: the row's quantity is 6, and a
+number is accepted if it is any number in the quoted evidence. 47 amounts of
+zero are left out of the wrong-value rows, because a thousandth of zero or
+ten times zero is the true value; an earlier version of this table counted
+them as 45 accepts.
+
+The two halves, checkout, right place with the label quoted: amounts 80.1%
+and 77.8% (93.9% and 95.9% with conventions stated), dates 65.6% and 60.4%
+(97.9% and 98.6%), text 97.3% and 95.5%. They move together.
 
 ### Why the rest is still in review
 
 From `results.json` (`not_verified_with_label_as_written`, checkout):
 
-- amounts: 119 ambiguous (a value written twice) and 1 not found;
+- amounts: 376 written `x.000` with nothing to settle the dot, 119 ambiguous
+  (a value written twice) and 1 not found;
 - dates: 199 numeric dates that could be day first or month first, 10 ambiguous;
 - quantities: 496 ambiguous, which is right: a bare `1` is on a receipt many
-  times;
+  times; and 2 where the study's rule reads a weight printed `0.264X` as 264
+  and fieldproof reads 0.264;
 - text: 44 ambiguous, 22 where letters differ from the page, 15 not found.
+
+With the conventions stated, the 376 and the 199 are verified and the rest
+stay.
 
 Of 1,949 annotated single-word fields whose value is written more than once on
 the page, all went to review as ambiguous when quoted bare; none was verified
@@ -256,9 +296,10 @@ asserted that a misspelt name was supported and now asserts it is not.
 1. **Numbers are compared as values, to the precision the page wrote.** `9.00`
    supports `9` and `9.001`, not `9.01`: the tolerance is half a unit of the
    last printed place, never more than half a cent (`NUMBER_TOLERANCE`, which
-   was a whole cent). A token such as `60.000` has two readings, and either
-   matches unless the document settles which (`ground/values.py`,
-   `number_style`).
+   was a whole cent). A token such as `60.000` has two readings a thousand
+   apart. It is read the way the document's other numbers settle
+   (`ground/values.py`, `number_style`), and where they settle nothing it
+   verifies neither, as an unsettled `03/04/2026` already did.
 2. **Numeric dates with `-` or `.` and two-digit years are read**, not only `/`.
 3. **A quote that is only a number or only a date is found by value** when no
    character match exists: `60000` at `60.000`, `2018-12-25` at `25/12/2018`
@@ -276,6 +317,11 @@ asserted that a misspelt name was supported and now asserts it is not.
    or more differ from the page by up to `n` letters and stay verified, with
    what differed recorded in the field's notes. Off by default. Numbers and
    dates never get it.
+7. **`verify(..., default_number_style=, default_date_order=)`** say how to
+   read a number or a date that the document does not settle: `"decimal"` or
+   `"thousands"`, `"dmy"` or `"mdy"`. A document whose own numbers or dates
+   settle the question is read its own way whatever these say. The CLI has
+   them as `--number-style` and `--date-order`.
 
 Two constants moved: the number tolerance, from a cent to half a cent, and a
 new score given to a match that differs only in case. The recognition of
@@ -283,12 +329,17 @@ amounts knows the currency marks these receipts use (`Rp`, `RM`).
 
 ## What is left
 
-- **The thousands ambiguity**, above. The honest fix is to send an unsettled
-  `x.000` amount to review instead of accepting both readings; it was not done.
+- **Without the conventions, 16% of amounts and 35% of dates wait for a
+  person** (376 of 2,360 and 199 of 565). Nothing on these receipts settles
+  them, and the library does not guess a country from a page.
+- **A number is accepted if it is any number in the quoted evidence.** A quote
+  that is a whole row verifies the row's quantity as its price, once in 408
+  here.
+- **`60,000` is always sixty thousand.** A comma before three digits is never
+  read as a decimal comma, and `default_number_style` does not change that.
+  Documents that write one were not tried.
 - A fuzzy-matched quote that occurs twice is not reported as ambiguous: fuzzy
   alignment returns one best window.
-- 37% of dates still go to review, most because nothing on the receipt settles
-  day-first against month-first. That is the existing design.
 - Quantities: unchanged at 42%. A bare `1` cannot be placed.
 
 ## What this does not show
@@ -329,14 +380,16 @@ run --src ../../src --out cache/r-checkout.jsonl
 run --src ../../src --ocr --out cache/o-checkout.jsonl
 run --src ../../src --tolerance 1 --out cache/r-tol1.jsonl
 run --src ../../src --tolerance 1 --ocr --out cache/o-tol1.jsonl
+run --src ../../src --stated --out cache/r-stated.jsonl
 python3 -I analyze.py released=cache/r-released.jsonl,cache/o-released.jsonl \
     checkout=cache/r-checkout.jsonl,cache/o-checkout.jsonl \
-    tol1=cache/r-tol1.jsonl,cache/o-tol1.jsonl
+    tol1=cache/r-tol1.jsonl,cache/o-tol1.jsonl stated=cache/r-stated.jsonl
 /tmp/fp-venv/bin/python -I thousands.py --src ../../src --out thousands.json
 ```
 
 `analyze.py` writes `results.json` and prints the tables. `run.py` takes a
-couple of minutes per run with four workers.
+couple of minutes per run with four workers. Run again on 8 October 2026, the
+released version gave the same count in every one of its 930 cells.
 
 ## References and licences
 

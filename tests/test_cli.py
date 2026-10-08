@@ -198,3 +198,19 @@ def test_a_provider_failure_is_a_one_line_error(
     )
     assert "set ANTHROPIC_API_KEY" in _one_line_error(result)
     assert not out.exists()
+
+
+def test_verify_takes_the_conventions_and_refuses_a_mistyped_one(tmp_path: Path) -> None:
+    out = tmp_path / "result.json"
+    fixture = EXAMPLES_DIR / "fixtures" / "receipt.json"
+    extract = ["extract", str(EXAMPLES_DIR / "receipt.pdf"), "--schema", "receipt"]
+    extract += ["--provider", "fixture", "--fixture", str(fixture), "--out", str(out)]
+    result = runner.invoke(app, [*extract, "--number-style", "thousands", "--date-order", "dmy"])
+    assert result.exit_code == 0, result.output
+
+    verify = ["verify", str(out), str(EXAMPLES_DIR / "receipt.pdf")]
+    assert runner.invoke(app, [*verify, "--date-order", "mdy"]).exit_code == 0
+    mistyped = runner.invoke(app, [*verify, "--number-style", "european"])
+    assert mistyped.exit_code == 2
+    assert "--number-style must be decimal or thousands" in mistyped.output
+    assert runner.invoke(app, [*extract, "--date-order", "ymd"]).exit_code == 2

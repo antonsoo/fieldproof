@@ -43,11 +43,16 @@ a letter, a digit or a cent.
   garbled one character and the model repairs it, 0.2.7 verified the name 83%
   of the time and the checkout sends every one to review. An opt-in
   `text_edit_tolerance` restores most of both.
-- **Values that are there are found more often**: amounts at the right place
-  78% to 95%, dates 40% to 63%, because `60.000` is no longer read as sixty and
-  `23-01-2019` is read as a date.
-- **Still accepted**: a value wrong by a factor of a thousand where the page
-  says `60.000` and nothing settles what the dot means, 383 times in 409.
+- **0.2.7 also verified totals a thousand times too small.** Indonesian
+  receipts write sixty thousand as `60.000`. Reading that as sixty, 0.2.7
+  verified the wrong value 382 times in 408 and the right one 7 times in 409.
+  Nothing on those receipts says what the dot means, so the checkout verifies
+  neither reading and says why (1 and 9), and verifies the right one 385 times
+  in 409 once the caller says how such documents write numbers
+  (`default_number_style="thousands"`).
+- **Dates are read**: `23-01-2019` was not a date to 0.2.7. 40% of dates were
+  verified at the right place, 63% now, and 98% when the caller says the
+  receipts write the day first (`default_date_order="dmy"`).
 
 The rules were written with these receipts in view; none of this is out of
 sample. The study, its numbers and what it does not show:
@@ -145,6 +150,12 @@ fieldproof extract doc.pdf --schema invoice --provider anthropic --out result.js
 fieldproof verify result.json doc.pdf   # re-ground/re-verify an existing extraction
 fieldproof serve --port 8000            # API + review UI
 ```
+
+A number written `60.000` is sixty or sixty thousand, and `03/04/2026` is 4
+March or 3 April. When nothing else in the document settles which, the field
+is `needs_review`. `--number-style thousands` (or `decimal`) and `--date-order
+dmy` (or `mdy`) on either command say how your documents write them (source
+checkout, unreleased).
 
 `--provider anthropic` defaults to `claude-opus-5-5` (Claude Opus 5.5); pass
 `--model claude-sonnet-5-5` or any other model id to override it.
@@ -322,7 +333,10 @@ four hold:
    nearby - and compared: numbers are parsed with currency/thousands-
    separator handling (a document that writes `1.591.600` or `1,234.50`
    settles whether `60.000` is sixty or sixty thousand; with nothing to settle
-   it, either reading matches), compared to the precision the page wrote
+   it, neither reading is verified and the field goes to review, unless the
+   caller says how to read it with `verify(..., default_number_style=)` or
+   `--number-style`; source checkout, unreleased), compared to the precision
+   the page wrote
    them (a page that says `9.00` supports `9`, not `9.01`), and checked
    against every plain number in the
    evidence, not just the last one (evidence for a row-level field is often

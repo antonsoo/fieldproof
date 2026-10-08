@@ -114,9 +114,23 @@ def _row_prefix(path: str) -> str | None:
 
 
 def verify(
-    data: BaseModel, document: Document, *, text_edit_tolerance: int = 0
+    data: BaseModel,
+    document: Document,
+    *,
+    text_edit_tolerance: int = 0,
+    default_number_style: NumberStyle | None = None,
+    default_date_order: DateOrder | None = None,
 ) -> VerificationReport:
     """Verify every `Evidenced` field under `data` against `document`.
+
+    A number written "60.000" is sixty or sixty thousand, and a date written
+    "03/04/2026" is 4 March or 3 April. Each is read the way the document's own
+    numbers and dates settle it; where they settle nothing, neither reading is
+    verified and the field is `needs_review`. `default_number_style` ("decimal":
+    `.` is the decimal point, "thousands": it separates thousands) and
+    `default_date_order` ("dmy" or "mdy") say how to read them in that case, for a
+    caller who knows where the documents come from. A document that settles the
+    question itself is read its own way whatever these say.
 
     By default a text value or quote that differs from the page in a letter or digit is
     `needs_review`, whatever the cause (a model's typo, or a model repairing an OCR error).
@@ -138,9 +152,15 @@ def verify(
     row_anchors: dict[str, GroundingMatch] = {}
     # Whether this document writes numeric dates month or day first, if any of
     # its dates settles it; see `check_date`.
-    date_order = numeric_date_order(document.full_text())
+    if default_number_style not in (None, "decimal", "thousands"):
+        raise ValueError(
+            f'default_number_style must be "decimal" or "thousands", not {default_number_style!r}'
+        )
+    if default_date_order not in (None, "dmy", "mdy"):
+        raise ValueError(f'default_date_order must be "dmy" or "mdy", not {default_date_order!r}')
+    date_order = numeric_date_order(document.full_text()) or default_date_order
     # Likewise whether it writes "60.000" as sixty or sixty thousand; see `check_number`.
-    style = number_style(document.full_text())
+    style = number_style(document.full_text()) or default_number_style
 
     for path, evidenced in iter_evidenced_fields(data):
         prefix = _row_prefix(path)

@@ -8,7 +8,8 @@ All notable changes to this project are documented in this file.
 
 Checked against 1,052 CORD v2 and SROIE receipts (`studies/cord-grounding`), with what a
 model returns imitated by rule. In 0.2.7 a total one cent off was `verified` in 42% of
-cases and a name with one letter changed in 78%; amounts written `60.000` and dates
+cases and a name with one letter changed in 78%; an amount written `60.000` was read as
+sixty, so a total a thousand times too small was `verified` 382 times in 408; and dates
 written `23-01-2019` were not read. The rules below reject those by construction, and
 they also send to review every name in which a model has repaired an OCR misread
 (0.2.7 verified 83% of those). They were written with these receipts in view.
@@ -16,6 +17,11 @@ they also send to review every name in which a model has repaired an OCR misread
 - `verify(..., text_edit_tolerance=n)`, off by default: a text field of twelve letters or
   more may differ from the page by up to `n` letters and stay `verified`, with what
   differed in the field's `notes`.
+- `verify(..., default_number_style=, default_date_order=)` and the CLI's `--number-style`
+  and `--date-order` say how to read a number (`"decimal"`, `"thousands"`) or a numeric
+  date (`"dmy"`, `"mdy"`) that the document itself does not settle. On these receipts
+  they take amounts verified at the right place from 79% to 95% and dates from 63% to
+  98%. A document that settles the question is read its own way whatever they say.
 
 - A string value must be a run of the evidence's words, ignoring case, spacing and
   punctuation; a value that differs in a letter or digit is `needs_review`.
@@ -26,8 +32,10 @@ they also send to review every name in which a model has repaired an OCR misread
   `2018-12-25` at `25/12/2018`); a quote that differs only in case is found at every
   place the page has it. New module `fieldproof.ground.values`.
 - Numbers are compared to the precision the page wrote (`9.00` does not support `9.01`;
-  `NUMBER_TOLERANCE` is half a cent, was a whole one), and `60.000` is read as sixty or
-  sixty thousand unless the document settles which (`check_number(..., number_style=)`).
+  `NUMBER_TOLERANCE` is half a cent, was a whole one). `60.000` is sixty or sixty
+  thousand: it is read the way the document's other numbers settle
+  (`check_number(..., number_style=)`), and where they settle nothing neither reading is
+  verified and the field is `needs_review` with the two readings given.
 - Numeric dates written with `-` or `.` and two-digit years are read.
 - A minus sign is no longer treated as punctuation that a quote may leave out.
 

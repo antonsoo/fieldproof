@@ -36,12 +36,23 @@ def test_a_value_is_not_supported_by_a_number_a_cent_away() -> None:
     assert check_number(9.9999, "TOTAL 10.00").supported  # rounding is still rounding
 
 
-def test_dot_thousands_read_either_way_until_the_document_says_which() -> None:
-    # CORD (Indonesian receipts): "TOTAL 60.000" is sixty thousand rupiah.
-    assert check_number(60000.0, "TOTAL 60.000").supported
-    assert check_number(60.0, "TOTAL 60.000").supported  # nothing on this page settles it
+def test_dot_thousands_verify_neither_reading_until_something_says_which() -> None:
+    # CORD (Indonesian receipts): "TOTAL 60.000" is sixty thousand rupiah. Both readings
+    # used to pass, so a value a thousand times too small was verified 383 times in 409.
+    for value in (60000.0, 60.0):
+        unsettled = check_number(value, "TOTAL 60.000")
+        assert not unsettled.supported
+        assert "reads as 60 (a decimal point) or 60000 (a thousands separator)" in unsettled.reason
+    assert check_number(60000.0, "TOTAL 60.000", number_style="thousands").supported
     assert not check_number(60.0, "TOTAL 60.000", number_style="thousands").supported
+    assert check_number(60.0, "TOTAL 60.000", number_style="decimal").supported
     assert not check_number(60000.0, "TOTAL 60.000", number_style="decimal").supported
+    # a number that reads one way is not held back by a neighbour that reads two
+    assert check_number(60000.0, "TOTAL 60.000 60,000").supported
+    assert check_number(4.0, "4 60.000").supported
+    assert check_number(0.125, "0.125").supported  # no thousands group starts with 0
+    wrong = check_number(61.0, "TOTAL 60.000")
+    assert not wrong.supported and "does not match" in wrong.reason
     assert number_style("Subtotal 1.591.600 TAX 5.455") == "thousands"
     assert number_style("TOTAL 1,234.50 CASH 60.000") == "decimal"
     assert number_style("3 111,000 222.000") is None  # CORD: one receipt, both conventions
@@ -176,3 +187,66 @@ def test_text_edit_tolerance_has_limits() -> None:
     # a made-up name that is not close to the page
     far = _name_report("ACME TRADING COMPANY", "ACME TRADING COMPANY", page, text_edit_tolerance=2)
     assert far.status is FieldStatus.UNSUPPORTED
+
+
+def _amount_report(value: float, quote: str, page: str, **kw):
+    from pydantic import BaseModel
+
+    class Total(BaseModel):
+        total: Evidenced[float]
+
+    data = Total(total=Evidenced(value=value, evidence=[quote], page=1))
+    (field,) = verify(data, _document(page), **kw).fields
+    return field
+
+
+def test_an_unsettled_amount_is_for_review_until_the_caller_says_how_to_read_it() -> None:
+    page = "Nasi Goreng 1 25.000 TOTAL 60.000 CASH 100.000"
+    for value in (60000.0, 60.0):
+        field = _amount_report(value, "TOTAL 60.000", page)
+        assert field.status is FieldStatus.NEEDS_REVIEW
+        assert "settles which" in field.reasons[0]
+    stated = {"default_number_style": "thousands"}
+    assert _amount_report(60000.0, "TOTAL 60.000", page, **stated).status is FieldStatus.VERIFIED
+    assert _amount_report(60.0, "TOTAL 60.000", page, **stated).status is FieldStatus.NEEDS_REVIEW
+    # the quote a model rewrote as a plain number is held to the same reading
+    assert _amount_report(60000.0, "60000", page, **stated).status is FieldStatus.VERIFIED
+    assert _amount_report(60.0, "60", page, **stated).status is FieldStatus.NEEDS_REVIEW
+    assert _amount_report(60.0, "60", page).status is FieldStatus.NEEDS_REVIEW
+
+
+def test_a_document_that_settles_its_own_numbers_is_read_its_own_way() -> None:
+    page = "Subtotal 1.591.600 TAX 5.455 TOTAL 60.000"
+    assert _amount_report(60000.0, "TOTAL 60.000", page).status is FieldStatus.VERIFIED
+    told_otherwise = _amount_report(60.0, "TOTAL 60.000", page, default_number_style="decimal")
+    assert told_otherwise.status is FieldStatus.NEEDS_REVIEW
+    assert "does not match 60000" in told_otherwise.reasons[0]
+
+
+def test_default_date_order_reads_a_date_nothing_on_the_page_settles() -> None:
+    from pydantic import BaseModel
+
+    class Receipt(BaseModel):
+        transaction_date: Evidenced[str]
+
+    def status(value: str, page: str, **kw) -> FieldStatus:
+        data = Receipt(transaction_date=Evidenced(value=value, evidence=["03/04/2019"], page=1))
+        (field,) = verify(data, _document(page), **kw).fields
+        return field.status
+
+    page = "DATE: 03/04/2019 TOTAL 9.00"  # SROIE: Malaysian receipts write the day first
+    assert status("2019-04-03", page) is FieldStatus.NEEDS_REVIEW
+    assert status("2019-04-03", page, default_date_order="dmy") is FieldStatus.VERIFIED
+    assert status("2019-03-04", page, default_date_order="dmy") is FieldStatus.NEEDS_REVIEW
+    # another date on the page says month first: the default does not override it
+    settled = "DATE: 03/04/2019 DUE 03/25/2019"
+    assert status("2019-03-04", settled, default_date_order="dmy") is FieldStatus.VERIFIED
+
+
+def test_a_mistyped_default_is_an_error() -> None:
+    import pytest
+
+    with pytest.raises(ValueError, match="default_number_style"):
+        _amount_report(1.0, "1", "1", default_number_style="european")
+    with pytest.raises(ValueError, match="default_date_order"):
+        _amount_report(1.0, "1", "1", default_date_order="ymd")

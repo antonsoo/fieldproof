@@ -336,6 +336,17 @@ def _modelclass():
 #: `text_edit_tolerance` handed to `verify` (0: the default; needs a checkout that has it)
 TOLERANCE = 0
 
+#: What a caller who knows where the receipts come from tells `verify` (`--stated`; needs a
+#: checkout that has the arguments). CORD is Indonesian: a dot separates thousands. SROIE is
+#: Malaysian: the dot is the decimal point. Both write the day before the month.
+STATED = {
+    "cord": {"default_number_style": "thousands", "default_date_order": "dmy"},
+    "sroie": {"default_number_style": "decimal", "default_date_order": "dmy"},
+}
+
+#: keyword arguments for the `verify` call of the case being judged
+VERIFY_KW: dict = {}
+
 #: a grounding is at the gold words if it covers at least half of them and takes in at most
 #: this many other words (the label a quote carries: up to two, and slack for one more)
 EXTRA_WORDS = 3
@@ -352,7 +363,7 @@ def judge(doc, gold_idx: set[int], quote: str, value, ftype: str, models):
         data = OneDate(transaction_date={"value": value, "evidence": [quote], "page": 1})
     else:
         data = OneText(text={"value": value, "evidence": [quote], "page": 1})
-    rep = verify(data, doc, **({"text_edit_tolerance": TOLERANCE} if TOLERANCE else {}))
+    rep = verify(data, doc, **VERIFY_KW)
     f = rep.fields[0]
     page = doc.pages[0]
 
@@ -391,9 +402,10 @@ def judge(doc, gold_idx: set[int], quote: str, value, ftype: str, models):
 
 
 def process(args):
-    global TOLERANCE
-    src, tolerance, cases_spec, mode = args
+    global TOLERANCE, VERIFY_KW
+    src, tolerance, cases_spec, mode, stated = args
     TOLERANCE = tolerance
+    VERIFY_KW = {"text_edit_tolerance": tolerance} if tolerance else {}
     sys.path.insert(0, src)
 
     models = _modelclass()
@@ -402,6 +414,8 @@ def process(args):
         return ocr_rows(cases_spec, models)
     for spec in cases_spec:
         case = spec
+        if stated:
+            VERIFY_KW = {**VERIFY_KW, **STATED[case["dataset"]]}
         by_kind: dict[str, list] = {}
         for g in case["golds"]:
             by_kind.setdefault(g.kind, []).append(g)
@@ -578,6 +592,11 @@ def main() -> None:
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--tolerance", type=int, default=0, help="text_edit_tolerance for verify")
     ap.add_argument("--ocr", action="store_true", help="measure OCR-garbled pages instead")
+    ap.add_argument(
+        "--stated",
+        action="store_true",
+        help="tell verify each dataset's number and date conventions (see STATED)",
+    )
     a = ap.parse_args()
     src = str(Path(a.src).resolve())
     sys.path.insert(0, src)
@@ -609,7 +628,9 @@ def main() -> None:
             }
         )
     mode = "ocr" if a.ocr else "main"
-    chunks = [(src, a.tolerance, specs[i :: a.workers * 8], mode) for i in range(a.workers * 8)]
+    chunks = [
+        (src, a.tolerance, specs[i :: a.workers * 8], mode, a.stated) for i in range(a.workers * 8)
+    ]
     with Pool(a.workers) as pool, open(a.out, "w") as fh:
         for rows in pool.imap_unordered(process, chunks):
             for r in rows:

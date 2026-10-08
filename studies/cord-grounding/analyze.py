@@ -1,10 +1,12 @@
 """Aggregate `run.py` rows into results.json and print the markdown tables.
 
-    python3 -I analyze.py released=a.jsonl,b.jsonl checkout=c.jsonl,d.jsonl tol1=e.jsonl,f.jsonl
+    python3 -I analyze.py released=a.jsonl,b.jsonl checkout=c.jsonl,d.jsonl \
+        tol1=e.jsonl,f.jsonl stated=g.jsonl
 
 Each version is a comma-separated list of row files (the main run and the `--ocr` run). The
-versions are the released 0.2.7, this checkout with its default settings, and this checkout
-with `text_edit_tolerance=1`.
+versions are the released 0.2.7, this checkout with its default settings, this checkout
+with `text_edit_tolerance=1`, and this checkout told each dataset's number and date
+conventions (`run.py --stated`).
 
 Outcome of a case, from the status `verify` gave it:
 
@@ -94,6 +96,7 @@ def reason_class(reason: str) -> str:
     for needle, name in (
         ("ambiguous (appears", "quote occurs more than once"),
         ("the evidence date", "numeric date could be day-first or month-first"),
+        ("the evidence number", "number could have a decimal point or a thousands separator"),
         ("matches neither reading", "numeric date matches neither reading"),
         ("could not parse a date", "date format not read"),
         ("does not match", "value differs from the number in the evidence"),
@@ -328,7 +331,8 @@ def ocr_table(rows: dict, names: list[str]) -> list[str]:
 def thousands_table(paths: dict[str, str]) -> dict:
     """Wrong-by-a-thousand (or by ten) values offered with the true quote, on amounts whose
     value is written d.ddd or d,ddd. These are left out of the other tables because the
-    wrong value is also a reading of a token on the page."""
+    wrong value is also a reading of a token on the page. An amount of zero is counted apart:
+    a thousandth of it, or ten times it, is the same value, so accepting it is not an error."""
     out: dict[str, dict] = {}
     for name, path in paths.items():
         c: dict[str, list[int]] = defaultdict(lambda: [0, 0])
@@ -340,7 +344,9 @@ def thousands_table(paths: dict[str, str]) -> dict:
             ):
                 continue
             form = (
-                "dot_thousands (60.000 offered as 60)"
+                "amounts of zero (the scaled value is the true value)"
+                if r["value"] == 0
+                else "dot_thousands (60.000 offered as 60)"
                 if r["locale_ambiguous"] and "," not in r["quote"].split()[-1]
                 else "comma_thousands (60,000 offered as 60)"
                 if r["locale_ambiguous"]
@@ -352,6 +358,38 @@ def thousands_table(paths: dict[str, str]) -> dict:
     return out
 
 
+def unsettled_table(paths: dict[str, str]) -> dict:
+    """The fields a document can leave unsettled, with the true value and the true quote:
+    amounts written d.ddd, and dates whose day and month are both 12 or under. How many each
+    version verifies, and how many it accepts when the value is the other reading (a thousand
+    times too small, or day and month swapped)."""
+    out: dict[str, dict] = {}
+    for name, path in paths.items():
+        c: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+        for r in read_rows(path):
+            if r["quote_style"] not in ("page_context", "true_quote"):
+                continue
+            true = r["measure"] == "present_written"
+            if r["ftype"] == "amount" and r["locale_ambiguous"]:
+                if not true and (r["measure"] != "absent" or r["variant"] != "scaled_wrong"):
+                    continue
+                form = "amount d,ddd" if "," in r["quote"].split()[-1] else "amount d.ddd"
+            elif r["ftype"] == "date":
+                if not true and (r["measure"] != "absent" or r["variant"] != "day_month_swapped"):
+                    continue
+                form = "date"
+            else:
+                continue
+            key = f"{r['dataset']} {form}, {'true value' if true else 'other reading'}"
+            c[key]["cases"] += 1
+            c[key]["verified"] += r["status"] == "verified"
+            c[key]["verified_at_the_right_place"] += r["status"] == "verified" and bool(
+                r["place_ok"]
+            )
+        out[name] = {k: dict(v) for k, v in sorted(c.items())}
+    return out
+
+
 def main() -> None:
     versions = dict(a.split("=", 1) for a in sys.argv[1:])
     names = list(versions)
@@ -359,11 +397,13 @@ def main() -> None:
     summary = {v: data_summary(p) for v, p in versions.items()}
     intervals = {v: cell_intervals(p, CELLS) for v, p in versions.items()}
     thousands = thousands_table(versions)
+    unsettled = unsettled_table(versions)
     extra = HERE / "thousands.json"
     out = {
         "summary": summary,
         "intervals": intervals,
         "scaled_wrong_true_quote": thousands,
+        "unsettled_numbers_and_dates": unsettled,
         "dot_thousands_settled_by_document": json.loads(extra.read_text())
         if extra.exists()
         else None,
@@ -384,6 +424,16 @@ def main() -> None:
             print(v, k, {a: (round(b, 4) if isinstance(b, float) else b) for a, b in e.items()})
     print("\n### scaled_wrong true quote")
     print(json.dumps(thousands, indent=1))
+    print("\n### unsettled numbers and dates: cases / verified / verified at the right place")
+    for key in sorted({k for v in unsettled.values() for k in v}):
+        cells = []
+        for v in names:
+            e = unsettled[v].get(key, {})
+            cells.append(
+                f"{v} {e.get('cases', 0)}/{e.get('verified', 0)}"
+                f"/{e.get('verified_at_the_right_place', 0)}"
+            )
+        print(f"{key}: " + "  ".join(cells))
 
 
 if __name__ == "__main__":

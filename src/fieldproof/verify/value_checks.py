@@ -91,7 +91,7 @@ def parse_all_numbers(text: str) -> list[float]:
     210.50" for a quantity of 1), so a value check needs to ask "does this
     number appear anywhere in the evidence", not just "is it the last
     number" - see `check_number`."""
-    return [readings[0][0] for readings in _evidence_readings(text, None)]
+    return [readings[0][0] for _, readings in _evidence_readings(text, None)]
 
 
 def parse_number(text: str) -> float | None:
@@ -136,15 +136,15 @@ def _try_formats(text: str) -> date | None:
 
 def _evidence_readings(
     evidence_text: str, number_style: NumberStyle | None
-) -> list[list[tuple[float, int]]]:
-    """Per plain (non-percentage) number token in the evidence, every reading of it as
-    (value, decimal places written)."""
+) -> list[tuple[str, list[tuple[float, int]]]]:
+    """Per plain (non-percentage) number token in the evidence, the token as written and
+    every reading of it as (value, decimal places written)."""
     text = evidence_text.strip()
     if not text:
         return []
     matches = list(_NUMBER_TOKEN.finditer(text))
     non_percent = [m for m in matches if not m.group(0).endswith("%")]
-    tokens: list[list[tuple[float, int]]] = []
+    tokens: list[tuple[str, list[tuple[float, int]]]] = []
     for m in non_percent or matches:
         raw = m.group(0)
         negative = raw.startswith("(") or raw.endswith(")") or raw.startswith("-")
@@ -154,8 +154,12 @@ def _evidence_readings(
             for r in number_readings(digits, number_style)
         ]
         if readings:
-            tokens.append(readings)
+            tokens.append((digits, readings))
     return tokens
+
+
+def _plain(number: float) -> str:
+    return str(int(number)) if number == int(number) else repr(number)
 
 
 def check_number(
@@ -168,16 +172,29 @@ def check_number(
 
     A number is compared as a value, to the precision the page wrote it: 9.00
     supports 9 and 9.001, not 9.01. A token like "60.000" has two readings (sixty,
-    sixty thousand) unless `number_style` says which way the document writes `.`
-    (see `fieldproof.ground.values.number_style`); the value may match either."""
+    sixty thousand), a factor of a thousand apart. It is read in `number_style` when
+    that says which way the document writes `.` (see
+    `fieldproof.ground.values.number_style`), and otherwise can't verify a value on
+    its own."""
     tokens = _evidence_readings(evidence_text, number_style)
     if not tokens:
         return ValueCheckResult(False, f"could not parse a number from evidence {evidence_text!r}")
-    readings = [r for token in tokens for r in token]
-    for number, places in readings:
-        if abs(number - value) <= min(0.5 * 10**-places, NUMBER_TOLERANCE) + 1e-9:
-            return ValueCheckResult(True)
-    closest = min((r[0] for r in readings), key=lambda c: abs(c - value))
+    undecided: tuple[str, list[tuple[float, int]]] | None = None
+    for raw, readings in tokens:
+        for number, places in readings:
+            if abs(number - value) <= min(0.5 * 10**-places, NUMBER_TOLERANCE) + 1e-9:
+                if len(readings) == 1:
+                    return ValueCheckResult(True)
+                undecided = undecided or (raw, readings)
+    if undecided is not None:
+        raw, readings = undecided
+        return ValueCheckResult(
+            False,
+            f"the evidence number {raw!r} reads as {_plain(abs(readings[0][0]))} (a decimal "
+            f"point) or {_plain(abs(readings[1][0]))} (a thousands separator), and no other "
+            "number on the document settles which",
+        )
+    closest = min((r[0] for _, token in tokens for r in token), key=lambda c: abs(c - value))
     return ValueCheckResult(
         False, f"value {value:g} does not match {closest:g} parsed from the evidence"
     )
