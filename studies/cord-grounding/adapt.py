@@ -46,7 +46,7 @@ class Gold:
 class Case:
     doc_id: str
     dataset: str
-    split: str  # "dev" or "heldout"
+    split: str  # "A" or "B": the two halves, both read during development
     document: Document
     golds: list[Gold] = field(default_factory=list)
 
@@ -171,7 +171,7 @@ def sroie_cases(path: str) -> list[Case]:
     for rg in range(pf.num_row_groups):
         for row in pf.read_row_group(rg, columns=["ocr"]).to_pylist():
             doc_id = f"sroie-{n}"
-            split = "dev" if n % 2 == 0 else "heldout"
+            split = "A" if n % 2 == 0 else "B"
             n += 1
             raw: list[RawWord] = []
             gid = 0

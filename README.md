@@ -29,16 +29,28 @@ to confirm or fix whatever's left. Every field ends up `verified`,
 ## Measured on 1,052 real receipts
 
 Grounding and verification were run on CORD v2 and SROIE receipts, which come
-with the words on the page and the correct field values (no model was called).
-Offered a value that is not on the page, the released version (0.2.7) marked a
-total one cent off as `verified` 45% of the time and a name with one letter
-changed 77% of the time (held-out half: 141 of 312 and 866 of 1,124). It accepted
-almost none of the other wrong amounts, dates and names. It also missed values
-that were there: `60.000` read as sixty, `23-01-2019` not read as a date, and
-a rewritten quote such as `2018-12-25` found at the right place 0% of the time.
-In the source checkout (unreleased) both false-accept cases are 0 of the same
-cases, amounts found at the right place go from 77.6% to 95.9% and dates from
-36.7% to 60.4%. The study, its numbers and what it does not show:
+with the words on the page and the correct field values. No model was called:
+what a model returns was imitated by rule, with values rewritten or damaged by
+a letter, a digit or a cent.
+
+- **The released version (0.2.7) verified names the page does not say.** A
+  name with one letter changed was `verified` 78% of the time (1,754 of 2,251),
+  and a total one cent off 42% of the time (265 of 631). It accepted almost
+  none of the other wrong amounts and dates.
+- **The source checkout (unreleased) accepts neither, by rule**: a text value
+  must be a run of the page's words and a number must match to the printed
+  precision. The cost is the same event from the other side: when OCR has
+  garbled one character and the model repairs it, 0.2.7 verified the name 83%
+  of the time and the checkout sends every one to review. An opt-in
+  `text_edit_tolerance` restores most of both.
+- **Values that are there are found more often**: amounts at the right place
+  78% to 95%, dates 40% to 63%, because `60.000` is no longer read as sixty and
+  `23-01-2019` is read as a date.
+- **Still accepted**: a value wrong by a factor of a thousand where the page
+  says `60.000` and nothing settles what the dot means, 383 times in 409.
+
+The rules were written with these receipts in view; none of this is out of
+sample. The study, its numbers and what it does not show:
 [`studies/cord-grounding`](studies/cord-grounding/README.md).
 
 ## Live demo
@@ -99,9 +111,12 @@ on your machine. From a source checkout, build the UI first (see
 - **Real grounding, not string search** - exact match first, then a match
   that differs only in case, then (for a quote that is only a number or a
   date) the same value written differently, then rapidfuzz-based fuzzy
-  alignment as a fallback, tolerant of curly quotes, ligatures, hyphenated
-  line-wraps, and OCR noise. A fuzzy match counts as strong evidence only if
-  its letters and digits agree with the page. Exact matches are required to land
+  alignment as a fallback, tolerant of curly quotes, ligatures and hyphenated
+  line-wraps. A fuzzy match counts as strong evidence only if its letters and
+  digits agree with the page, so a quote that differs from the page by a
+  letter, an OCR misread a model has repaired included, goes to review
+  (source checkout; `verify(..., text_edit_tolerance=1)` allows it for long
+  text fields). Exact matches are required to land
   on whole word boundaries (a quote never matches mid-token), and a quote
   that occurs more than once is disambiguated by locality rather than
   silently taking the first hit. Maps back to word bounding boxes and
@@ -286,8 +301,8 @@ four hold:
    checkout, unreleased): a quote that differs from the page only in letter
    case is found at every place the page has it, and a quote that is nothing
    but a number or a date is compared by value, so `"60000"` is found at
-   `"60.000"` and `"2018-12-25"` at `"25/12/2018"`, where edit distance would
-   miss both and happily match `"19.80"` to `"18.90"`. A fuzzy match whose
+   `"60.000"` and `"2018-12-25"` at `"25/12/2018"`, which edit distance at the
+   grounding stage would miss. A fuzzy match whose
    letters or digits differ from the page's (ignoring case, spacing and
    punctuation; a separator between digits counts) is never strong, however
    high its score: one misquoted letter in a name scores 95 and is not the

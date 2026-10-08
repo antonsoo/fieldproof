@@ -1,0 +1,11 @@
+{
+ "dot_thousands_amount_fields": 401,
+ "receipts_with_such_a_field": 119,
+ "fields_in_receipts_where_style_is_settled_thousands": 0,
+ "fields_in_receipts_where_style_is_settled_decimal": 0,
+ "fields_in_receipts_where_nothing_settles_it": 401,
+ "fields_in_receipts_with_a_bare_x_dd_token": 81,
+ "fields_in_receipts_that_also_print_comma_thousands": 49,
+ "sroie_receipts_in_half_B": 326,
+ "sroie_half_B_receipts_whose_company_text_also_heads_a_half_A_receipt": 232
+}

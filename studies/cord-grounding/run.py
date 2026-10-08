@@ -333,6 +333,9 @@ def _modelclass():
     return OneNumber, OneText, OneDate
 
 
+#: `text_edit_tolerance` handed to `verify` (0: the default; needs a checkout that has it)
+TOLERANCE = 0
+
 #: a grounding is at the gold words if it covers at least half of them and takes in at most
 #: this many other words (the label a quote carries: up to two, and slack for one more)
 EXTRA_WORDS = 3
@@ -349,7 +352,7 @@ def judge(doc, gold_idx: set[int], quote: str, value, ftype: str, models):
         data = OneDate(transaction_date={"value": value, "evidence": [quote], "page": 1})
     else:
         data = OneText(text={"value": value, "evidence": [quote], "page": 1})
-    rep = verify(data, doc)
+    rep = verify(data, doc, **({"text_edit_tolerance": TOLERANCE} if TOLERANCE else {}))
     f = rep.fields[0]
     page = doc.pages[0]
 
@@ -388,11 +391,15 @@ def judge(doc, gold_idx: set[int], quote: str, value, ftype: str, models):
 
 
 def process(args):
-    src, cases_spec = args
+    global TOLERANCE
+    src, tolerance, cases_spec, mode = args
+    TOLERANCE = tolerance
     sys.path.insert(0, src)
 
     models = _modelclass()
     out = []
+    if mode == "ocr":
+        return ocr_rows(cases_spec, models)
     for spec in cases_spec:
         case = spec
         by_kind: dict[str, list] = {}
@@ -485,14 +492,80 @@ def process(args):
     return out
 
 
+#: Characters an OCR engine confuses, and what it reads instead. A page is garbled by
+#: replacing one such character in one annotated word; the table is the study's own choice
+#: (the usual look-alikes), not measured from an OCR engine.
+OCR_CONFUSIONS = {
+    "O": "0", "0": "O", "l": "1", "1": "l", "I": "l", "S": "5", "5": "S",
+    "B": "8", "8": "B", "o": "0", "e": "c", "a": "o", "D": "O", "Q": "O",
+}  # fmt: skip
+
+
+def _garble(doc, idx: list[int], rng: random.Random):
+    """The document with one look-alike character replaced in one of the gold words."""
+    from fieldproof.document.model import Document, Page, Word
+
+    page = doc.pages[0]
+    options = [(i, j) for i in idx for j, c in enumerate(page.words[i].text) if c in OCR_CONFUSIONS]
+    if not options:
+        return None
+    i, j = rng.choice(options)
+    text = page.words[i].text
+    bad = text[:j] + OCR_CONFUSIONS[text[j]] + text[j + 1 :]
+    words, parts, pos = [], [], 0
+    for k, w in enumerate(page.words):
+        t = bad if k == i else w.text
+        if parts:
+            pos += 1
+        words.append(Word(text=t, bbox=w.bbox, start=pos, end=pos + len(t)))
+        parts.append(t)
+        pos += len(t)
+    garbled = Document(
+        source=doc.source,
+        pages=[
+            Page(number=1, width=page.width, height=page.height, text=" ".join(parts), words=words)
+        ],
+    )
+    return garbled
+
+
+def ocr_rows(specs, models):
+    """Measurement 4: the page text has one OCR-garbled character in the name. Three things a
+    model can do with it: copy the garbled text as the quote and repair it in the value (A);
+    repair both (B); copy it into both, so the value says what the page says (C)."""
+    out = []
+    for case in specs:
+        for gi, g in enumerate(case["golds"]):
+            if FIELD_TYPE[g.kind] != "text":
+                continue
+            doc = _garble(case["doc"], g.word_idx, rng_for(case["id"], g.kind, gi, "ocr"))
+            if doc is None:
+                continue
+            label = label_before(doc, g.word_idx)
+            garbled_text = " ".join(doc.pages[0].words[i].text for i in g.word_idx)
+            base = {
+                "doc": case["id"], "dataset": case["dataset"], "split": case["split"],
+                "kind": g.kind, "ftype": "text", "gi": gi, "measure": "ocr_garble",
+                "present_elsewhere": False, "locale_ambiguous": False,
+            }  # fmt: skip
+            for variant, quote, value in (
+                ("A_quote_copied_value_repaired", f"{label} {garbled_text}".strip(), g.text),
+                ("B_quote_and_value_repaired", f"{label} {g.text}".strip(), g.text),
+                ("C_quote_and_value_copied", f"{label} {garbled_text}".strip(), garbled_text),
+            ):
+                res = judge(doc, set(g.word_idx), quote, value, "text", models)
+                out.append({**base, "variant": variant, "quote_style": "page_context", **res})
+    return out
+
+
 def load_cases():
     import adapt
 
     cache = HERE / "cache"
     cases = []
-    cases += adapt.cord_cases(str(next(cache.glob("train-00000-of-00004-*.parquet"))), "dev")
-    cases += adapt.cord_cases(str(next(cache.glob("validation-*.parquet"))), "heldout")
-    cases += adapt.cord_cases(str(next(cache.glob("test-*.parquet"))), "heldout")
+    cases += adapt.cord_cases(str(next(cache.glob("train-00000-of-00004-*.parquet"))), "A")
+    cases += adapt.cord_cases(str(next(cache.glob("validation-*.parquet"))), "B")
+    cases += adapt.cord_cases(str(next(cache.glob("test-*.parquet"))), "B")
     cases += adapt.sroie_cases(str(next(cache.glob("train-00000-of-00001-*.parquet"))))
     return cases
 
@@ -503,6 +576,8 @@ def main() -> None:
     ap.add_argument("--out", required=True)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--tolerance", type=int, default=0, help="text_edit_tolerance for verify")
+    ap.add_argument("--ocr", action="store_true", help="measure OCR-garbled pages instead")
     a = ap.parse_args()
     src = str(Path(a.src).resolve())
     sys.path.insert(0, src)
@@ -533,7 +608,8 @@ def main() -> None:
                 "others": others,
             }
         )
-    chunks = [(src, specs[i :: a.workers * 8]) for i in range(a.workers * 8)]
+    mode = "ocr" if a.ocr else "main"
+    chunks = [(src, a.tolerance, specs[i :: a.workers * 8], mode) for i in range(a.workers * 8)]
     with Pool(a.workers) as pool, open(a.out, "w") as fh:
         for rows in pool.imap_unordered(process, chunks):
             for r in rows:

@@ -6,9 +6,16 @@ All notable changes to this project are documented in this file.
 
 ### Grounding and verification, measured on annotated receipts
 
-Checked against 1,052 CORD v2 and SROIE receipts (`studies/cord-grounding`). In 0.2.7 a
-total one cent off was `verified` in 45% of held-out cases and a name with one letter
-changed in 77%; amounts written `60.000` and dates written `23-01-2019` were not read.
+Checked against 1,052 CORD v2 and SROIE receipts (`studies/cord-grounding`), with what a
+model returns imitated by rule. In 0.2.7 a total one cent off was `verified` in 42% of
+cases and a name with one letter changed in 78%; amounts written `60.000` and dates
+written `23-01-2019` were not read. The rules below reject those by construction, and
+they also send to review every name in which a model has repaired an OCR misread
+(0.2.7 verified 83% of those). They were written with these receipts in view.
+
+- `verify(..., text_edit_tolerance=n)`, off by default: a text field of twelve letters or
+  more may differ from the page by up to `n` letters and stay `verified`, with what
+  differed in the field's `notes`.
 
 - A string value must be a run of the evidence's words, ignoring case, spacing and
   punctuation; a value that differs in a letter or digit is `needs_review`.
