@@ -27,9 +27,23 @@ export interface CrossFieldIssue {
   message: string;
 }
 
+export interface CrossFieldCheck {
+  rule: string;
+  fields: string[];
+  status: "passed" | "failed" | "not_checked";
+  message: string;
+  operands: Record<string, string | null>;
+  computed: string | null;
+  observed: string | null;
+  difference: string | null;
+  tolerance: string | null;
+}
+
 export interface VerificationReport {
   fields: FieldVerification[];
   cross_field_issues: CrossFieldIssue[];
+  /** Original extracted claims; does not incorporate subsequent human review edits. */
+  cross_field_checks?: CrossFieldCheck[];
   counts: Record<FieldStatus, number>;
 }
 

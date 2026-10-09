@@ -15,7 +15,7 @@ from pydantic import BaseModel
 from fieldproof.document.limits import DocumentLimitError
 from fieldproof.document.loader import EmptyDocumentError
 from fieldproof.document.model import Document, document_from_dict
-from fieldproof.verify.cross_field import CrossFieldIssue
+from fieldproof.verify.cross_field import CrossFieldCheck, CrossFieldIssue
 from fieldproof.verify.engine import FieldStatus, FieldVerification, VerificationReport
 
 PDF_TIMEOUT_SECONDS = 30
@@ -110,5 +110,9 @@ def verify_server_data(schema_name: str, data: BaseModel, document: Document) ->
         cross_field_issues=[
             CrossFieldIssue(tuple(issue["fields"]), issue["message"])
             for issue in raw["cross_field_issues"]
+        ],
+        cross_field_checks=[
+            CrossFieldCheck(**{**check, "fields": tuple(check["fields"])})
+            for check in raw["cross_field_checks"]
         ],
     )

@@ -108,10 +108,16 @@ def test_extract_with_fixture_provider_and_review_flow(
     assert r.status_code == 200
     body = r.json()
     assert body["report"]["counts"]["verified"] == 6
+    checks = body["report"]["cross_field_checks"]
+    assert [c["status"] for c in checks] == ["not_checked", "passed", "not_checked"]
+    assert checks[1]["computed"] == "110"
+    assert checks[1]["difference"] == "0"
+    assert checks[1]["operands"] == {"subtotal": "100.0", "tax": "10.0", "total": "110.0"}
 
     r2 = client.get(f"/api/documents/{doc_id}/report")
     assert r2.status_code == 200
     assert r2.json()["report"]["counts"]["verified"] == 6
+    assert r2.json()["report"]["cross_field_checks"] == checks
 
     review = client.post(
         f"/api/documents/{doc_id}/review", json={"path": "total", "action": "approve"}

@@ -36,7 +36,7 @@ from fieldproof.ground.align import (
 from fieldproof.ground.lines import separate_lines
 from fieldproof.ground.values import NumberStyle, number_style
 from fieldproof.schemas.base import iter_evidenced_fields
-from fieldproof.verify.cross_field import CrossFieldIssue, check_cross_field
+from fieldproof.verify.cross_field import CrossFieldCheck, CrossFieldIssue, audit_cross_field
 from fieldproof.verify.value_checks import (
     TOLERANT_MIN_LETTERS,
     DateOrder,
@@ -91,6 +91,7 @@ class FieldVerification:
 class VerificationReport:
     fields: list[FieldVerification]
     cross_field_issues: list[CrossFieldIssue]
+    cross_field_checks: list[CrossFieldCheck] = field(default_factory=list)
 
     @property
     def counts(self) -> dict[str, int]:
@@ -106,6 +107,7 @@ class VerificationReport:
                 {"fields": list(i.fields), "message": i.message} for i in self.cross_field_issues
             ],
             "counts": self.counts,
+            "cross_field_checks": [check.to_dict() for check in self.cross_field_checks],
         }
 
 
@@ -182,10 +184,15 @@ def verify(
         if prefix is not None and prefix not in row_anchors and match is not None:
             row_anchors[prefix] = match
 
-    cross_field_issues = check_cross_field(data)
+    cross_field_checks = audit_cross_field(data)
+    cross_field_issues = [issue for check in cross_field_checks if (issue := check.issue())]
     _apply_cross_field_issues(results, cross_field_issues)
 
-    return VerificationReport(fields=results, cross_field_issues=cross_field_issues)
+    return VerificationReport(
+        fields=results,
+        cross_field_issues=cross_field_issues,
+        cross_field_checks=cross_field_checks,
+    )
 
 
 def _verify_field(
