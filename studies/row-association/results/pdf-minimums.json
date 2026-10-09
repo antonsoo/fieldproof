@@ -1,0 +1,2740 @@
+{
+  "scope": "Constructed PDFs, no model; includes a known wrong-column limitation.",
+  "source_sha256": {
+    "fieldproof/__init__.py": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde",
+    "fieldproof/cli.py": "51af443d248af6af0c579dd56c0c09539b225bbfa33bf625fa1daf945e5187de",
+    "fieldproof/document/__init__.py": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074",
+    "fieldproof/document/limits.py": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71",
+    "fieldproof/document/loader.py": "1c8e2b68dad7f3f3baf6e69d59fc1737e035b6e3871f01f8e18c29f075ed10e1",
+    "fieldproof/document/model.py": "6b6fd35ea98237decf1a458645b0e7a40a15f65c05c14e87391dbf0f6522d1b9",
+    "fieldproof/document/ocr.py": "6f3f01e44af491224a59bb79d414cd2838c221e5ec9a1a2b1277b1e78dc9d2cf",
+    "fieldproof/document/render.py": "651c776a68820bb29002bc21ebede0891a1ddf281c4d71c5035fc5296f59f502",
+    "fieldproof/document/worker.py": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142",
+    "fieldproof/extract/__init__.py": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e",
+    "fieldproof/extract/anthropic_provider.py": "d160541e1b1ea14e78a68b8e0113d4b5b6bf26d5ace9fd4c66866855b605f121",
+    "fieldproof/extract/base.py": "caa64bba3320fba941b1d1105104c11ad09aeed44337eeb50c3e0e51668b0b85",
+    "fieldproof/extract/fixture_provider.py": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49",
+    "fieldproof/ground/__init__.py": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd",
+    "fieldproof/ground/align.py": "a923a3874410d90ac92470b89c71babbe3aed5041929566bc3f9bd4b0ed2143a",
+    "fieldproof/ground/lines.py": "aa8715ff767e0dba4d90e5a87d902f74a07135099b20ad816a04e2e7f58b069c",
+    "fieldproof/ground/normalize.py": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520",
+    "fieldproof/ground/values.py": "e9cadd53435a9f2d5e90d46575f35b227e54f2ccd79791a1c0e91bbbd0d1a036",
+    "fieldproof/schemas/__init__.py": "21e84fd670cb5138e8371c61e2d4d46d5d8631783165a1445a7976368e1cb560",
+    "fieldproof/schemas/base.py": "ee163ef0585b60ade9967f0d8d401a429898c16bec69743480e763fa60e82b68",
+    "fieldproof/schemas/contract.py": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0",
+    "fieldproof/schemas/invoice.py": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b",
+    "fieldproof/schemas/receipt.py": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e",
+    "fieldproof/server/__init__.py": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b",
+    "fieldproof/server/app.py": "ea617ac88bef134d155fb4f8b11f2f4556f8a6f08c62a4edafb906a2a586b901",
+    "fieldproof/server/body_limit.py": "643b1b15addbba19b418cd6941d4f712170592b74f5878a54fefcf49ac74cd7f",
+    "fieldproof/server/pdf_work.py": "ccb789122fb58e8141bc5efdbff560bbb9b5521d959fd3fb6f856a40121dea79",
+    "fieldproof/server/store.py": "b9b0c2089ef628163674539cdae0bd4d2f74f0fa207adc4da9501ebf9c0cee30",
+    "fieldproof/verify/__init__.py": "62fd9bbd5492a3305fb1a9d43c9b4078b5b40bf9582f5ce9aaf8eeabe8ed78a6",
+    "fieldproof/verify/cross_field.py": "13050c95c2d4553a4c407f5415e44aafa469ce097bf6c8a84588322fc79b922e",
+    "fieldproof/verify/engine.py": "814a6f7b4bf8b9e1e573341f5ec6d8e86c5e24f3be72b0357f9423300aa4f020",
+    "fieldproof/verify/rows.py": "70ab98696ef27a23d171182581ae1a1f6ac5694db06fa898e2b8516fb1534005",
+    "fieldproof/verify/value_checks.py": "218a2012645a50b7d30834bd3ea32fd69b97719bfec68a464ddd727c528e0b0e"
+  },
+  "cases": 9,
+  "disagreements": [],
+  "remaining_verified_misassignments": [
+    "wrong_column_same_line"
+  ],
+  "results": [
+    {
+      "id": "unique_other_row",
+      "pages": [
+        [
+          [
+            700,
+            "Delivery 3 90.00"
+          ],
+          [
+            670,
+            "Packing 2 15.00"
+          ]
+        ]
+      ],
+      "kind": "misassigned",
+      "expect": "needs_review",
+      "pdf_sha256": "f7699b512eba9a28d0620e8b833b05587e3ff99eed96a86f3cf6d5ced8e93fcd",
+      "quantity": {
+        "path": "line_items[0].quantity",
+        "value": 2.0,
+        "status": "needs_review",
+        "reasons": [
+          "row association needs review: line_items[0].quantity is quoted from a different visual line than line_items[0].description on page 1; check the item assignment or a wrapped table layout"
+        ],
+        "match_score": 100.0,
+        "matched_text": "2",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 96.02,
+            "top": 112.48400000000004,
+            "x1": 102.692,
+            "bottom": 124.48400000000004
+          }
+        ]
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "invoice_number",
+            "value": "ROW-TEST",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 2.0,
+            "status": "needs_review",
+            "reasons": [
+              "row association needs review: line_items[0].quantity is quoted from a different visual line than line_items[0].description on page 1; check the item assignment or a wrapped table layout"
+            ],
+            "match_score": 100.0,
+            "matched_text": "2",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 96.02,
+                "top": 112.48400000000004,
+                "x1": 102.692,
+                "bottom": 124.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 90.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "90.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 106.676,
+                "top": 82.48400000000004,
+                "x1": 136.7,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 105.0,
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 1,
+          "unsupported": 4
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "2.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "90.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "90.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "105.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "separate",
+            "reason": "line_items[0].quantity is quoted from a different visual line than line_items[0].description on page 1",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "2",
+              "start": 25,
+              "end": 26,
+              "rects": [
+                {
+                  "x0": 96.02,
+                  "top": 112.48400000000004,
+                  "x1": 102.692,
+                  "bottom": 124.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "90.00",
+              "start": 11,
+              "end": 16,
+              "rects": [
+                {
+                  "x0": 106.676,
+                  "top": 82.48400000000004,
+                  "x1": 136.7,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "id": "unique_other_page",
+      "pages": [
+        [
+          [
+            700,
+            "Delivery 3 90.00"
+          ]
+        ],
+        [
+          [
+            700,
+            "Packing 2 15.00"
+          ]
+        ]
+      ],
+      "kind": "misassigned",
+      "expect": "needs_review",
+      "pdf_sha256": "41224de0f5afb8bd78489247ae3abf57ee30f7892a75c81b6f204a454096a8fd",
+      "quantity": {
+        "path": "line_items[0].quantity",
+        "value": 2.0,
+        "status": "needs_review",
+        "reasons": [
+          "row association needs review: line_items[0].quantity is quoted from page 2, but line_items[0].description is on page 1; check the item assignment or a wrapped table layout"
+        ],
+        "match_score": 100.0,
+        "matched_text": "2",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 96.02,
+            "top": 82.48400000000004,
+            "x1": 102.692,
+            "bottom": 94.48400000000004
+          }
+        ]
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "invoice_number",
+            "value": "ROW-TEST",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 2.0,
+            "status": "needs_review",
+            "reasons": [
+              "row association needs review: line_items[0].quantity is quoted from page 2, but line_items[0].description is on page 1; check the item assignment or a wrapped table layout"
+            ],
+            "match_score": 100.0,
+            "matched_text": "2",
+            "page": 2,
+            "rects": [
+              {
+                "x0": 96.02,
+                "top": 82.48400000000004,
+                "x1": 102.692,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 90.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "90.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 106.676,
+                "top": 82.48400000000004,
+                "x1": 136.7,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 105.0,
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 1,
+          "unsupported": 4
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "2.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "90.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "90.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "105.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "separate",
+            "reason": "line_items[0].quantity is quoted from page 2, but line_items[0].description is on page 1",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 2,
+              "text": "2",
+              "start": 8,
+              "end": 9,
+              "rects": [
+                {
+                  "x0": 96.02,
+                  "top": 82.48400000000004,
+                  "x1": 102.692,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "90.00",
+              "start": 11,
+              "end": 16,
+              "rects": [
+                {
+                  "x0": 106.676,
+                  "top": 82.48400000000004,
+                  "x1": 136.7,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "id": "receipt_other_row",
+      "schema": "receipt",
+      "pages": [
+        [
+          [
+            700,
+            "Delivery 3 90.00"
+          ],
+          [
+            670,
+            "Packing 2 15.00"
+          ]
+        ]
+      ],
+      "kind": "misassigned",
+      "expect": "needs_review",
+      "pdf_sha256": "f7699b512eba9a28d0620e8b833b05587e3ff99eed96a86f3cf6d5ced8e93fcd",
+      "quantity": {
+        "path": "items[0].quantity",
+        "value": 2.0,
+        "status": "needs_review",
+        "reasons": [
+          "row association needs review: items[0].quantity is quoted from a different visual line than items[0].description on page 1; check the item assignment or a wrapped table layout"
+        ],
+        "match_score": 100.0,
+        "matched_text": "2",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 96.02,
+            "top": 112.48400000000004,
+            "x1": 102.692,
+            "bottom": 124.48400000000004
+          }
+        ]
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "Example",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-09",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 2.0,
+            "status": "needs_review",
+            "reasons": [
+              "row association needs review: items[0].quantity is quoted from a different visual line than items[0].description on page 1; check the item assignment or a wrapped table layout"
+            ],
+            "match_score": 100.0,
+            "matched_text": "2",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 96.02,
+                "top": 112.48400000000004,
+                "x1": 102.692,
+                "bottom": 124.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].amount",
+            "value": 90.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "90.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 106.676,
+                "top": 82.48400000000004,
+                "x1": 136.7,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 105.0,
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 1,
+          "unsupported": 3
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: missing subtotal",
+            "operands": {
+              "items[0].amount": "90.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "105.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "items[0].quantity",
+            "anchor": "items[0].description",
+            "status": "separate",
+            "reason": "items[0].quantity is quoted from a different visual line than items[0].description on page 1",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "2",
+              "start": 25,
+              "end": 26,
+              "rects": [
+                {
+                  "x0": 96.02,
+                  "top": 112.48400000000004,
+                  "x1": 102.692,
+                  "bottom": 124.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "items[0].amount",
+            "anchor": "items[0].description",
+            "status": "same_line",
+            "reason": "items[0].amount and items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "90.00",
+              "start": 11,
+              "end": 16,
+              "rects": [
+                {
+                  "x0": 106.676,
+                  "top": 82.48400000000004,
+                  "x1": 136.7,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "id": "wrong_description",
+      "description_quote": "Packing",
+      "pages": [
+        [
+          [
+            700,
+            "Delivery 3 90.00"
+          ],
+          [
+            670,
+            "Packing 2 15.00"
+          ]
+        ]
+      ],
+      "kind": "misassigned",
+      "expect": "needs_review",
+      "pdf_sha256": "f7699b512eba9a28d0620e8b833b05587e3ff99eed96a86f3cf6d5ced8e93fcd",
+      "quantity": {
+        "path": "line_items[0].quantity",
+        "value": 2.0,
+        "status": "needs_review",
+        "reasons": [
+          "row association needs review: line_items[0].description has no independently supported, unedited source location; check the item assignment or a wrapped table layout"
+        ],
+        "match_score": 100.0,
+        "matched_text": "2",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 96.02,
+            "top": 112.48400000000004,
+            "x1": 102.692,
+            "bottom": 124.48400000000004
+          }
+        ]
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "invoice_number",
+            "value": "ROW-TEST",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Delivery",
+            "status": "needs_review",
+            "reasons": [
+              "value 'Delivery' is only 18% similar to evidence 'Packing'"
+            ],
+            "match_score": 100.0,
+            "matched_text": "Packing",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 112.48400000000004,
+                "x1": 92.684,
+                "bottom": 124.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 2.0,
+            "status": "needs_review",
+            "reasons": [
+              "row association needs review: line_items[0].description has no independently supported, unedited source location; check the item assignment or a wrapped table layout"
+            ],
+            "match_score": 100.0,
+            "matched_text": "2",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 96.02,
+                "top": 112.48400000000004,
+                "x1": 102.692,
+                "bottom": 124.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 90.0,
+            "status": "needs_review",
+            "reasons": [
+              "row association needs review: line_items[0].description has no independently supported, unedited source location; check the item assignment or a wrapped table layout"
+            ],
+            "match_score": 100.0,
+            "matched_text": "90.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 106.676,
+                "top": 82.48400000000004,
+                "x1": 136.7,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 105.0,
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 3,
+          "unsupported": 4
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "2.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "90.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "90.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "105.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].description has no independently supported, unedited source location",
+            "field_source_status": "verified",
+            "anchor_source_status": "needs_review",
+            "field_location": {
+              "page": 1,
+              "text": "2",
+              "start": 25,
+              "end": 26,
+              "rects": [
+                {
+                  "x0": 96.02,
+                  "top": 112.48400000000004,
+                  "x1": 102.692,
+                  "bottom": 124.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Packing",
+              "start": 17,
+              "end": 24,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 112.48400000000004,
+                  "x1": 92.684,
+                  "bottom": 124.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "needs_review",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Packing",
+              "start": 17,
+              "end": 24,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 112.48400000000004,
+                  "x1": 92.684,
+                  "bottom": 124.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].description has no independently supported, unedited source location",
+            "field_source_status": "verified",
+            "anchor_source_status": "needs_review",
+            "field_location": {
+              "page": 1,
+              "text": "90.00",
+              "start": 11,
+              "end": 16,
+              "rects": [
+                {
+                  "x0": 106.676,
+                  "top": 82.48400000000004,
+                  "x1": 136.7,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Packing",
+              "start": 17,
+              "end": 24,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 112.48400000000004,
+                  "x1": 92.684,
+                  "bottom": 124.48400000000004
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "id": "missing_description",
+      "description_quote": null,
+      "pages": [
+        [
+          [
+            700,
+            "Delivery 3 90.00"
+          ],
+          [
+            670,
+            "Packing 2 15.00"
+          ]
+        ]
+      ],
+      "kind": "misassigned",
+      "expect": "needs_review",
+      "pdf_sha256": "f7699b512eba9a28d0620e8b833b05587e3ff99eed96a86f3cf6d5ced8e93fcd",
+      "quantity": {
+        "path": "line_items[0].quantity",
+        "value": 2.0,
+        "status": "needs_review",
+        "reasons": [
+          "row association needs review: line_items[0].description has no independently supported, unedited source location; check the item assignment or a wrapped table layout"
+        ],
+        "match_score": 100.0,
+        "matched_text": "2",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 96.02,
+            "top": 112.48400000000004,
+            "x1": 102.692,
+            "bottom": 124.48400000000004
+          }
+        ]
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "invoice_number",
+            "value": "ROW-TEST",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Delivery",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 2.0,
+            "status": "needs_review",
+            "reasons": [
+              "row association needs review: line_items[0].description has no independently supported, unedited source location; check the item assignment or a wrapped table layout"
+            ],
+            "match_score": 100.0,
+            "matched_text": "2",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 96.02,
+                "top": 112.48400000000004,
+                "x1": 102.692,
+                "bottom": 124.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 90.0,
+            "status": "needs_review",
+            "reasons": [
+              "row association needs review: line_items[0].description has no independently supported, unedited source location; check the item assignment or a wrapped table layout"
+            ],
+            "match_score": 100.0,
+            "matched_text": "90.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 106.676,
+                "top": 82.48400000000004,
+                "x1": 136.7,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 105.0,
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 2,
+          "unsupported": 5
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "2.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "90.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "90.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "105.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].description has no independently supported, unedited source location",
+            "field_source_status": "verified",
+            "anchor_source_status": "unsupported",
+            "field_location": {
+              "page": 1,
+              "text": "2",
+              "start": 25,
+              "end": 26,
+              "rects": [
+                {
+                  "x0": 96.02,
+                  "top": 112.48400000000004,
+                  "x1": 102.692,
+                  "bottom": 124.48400000000004
+                }
+              ]
+            },
+            "anchor_location": null
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "unsupported",
+            "field_location": null,
+            "anchor_location": null
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].description has no independently supported, unedited source location",
+            "field_source_status": "verified",
+            "anchor_source_status": "unsupported",
+            "field_location": {
+              "page": 1,
+              "text": "90.00",
+              "start": 11,
+              "end": 16,
+              "rects": [
+                {
+                  "x0": 106.676,
+                  "top": 82.48400000000004,
+                  "x1": 136.7,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": null
+          }
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "id": "correct_one_line",
+      "pages": [
+        [
+          [
+            700,
+            "Delivery 2 90.00"
+          ],
+          [
+            670,
+            "Packing 3 15.00"
+          ]
+        ]
+      ],
+      "kind": "correct",
+      "expect": "verified",
+      "pdf_sha256": "61e49a821de2132100b1e0708ecf1eadf8ded5ad2cb072923449439744ae8b66",
+      "quantity": {
+        "path": "line_items[0].quantity",
+        "value": 2.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "2",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 96.668,
+            "top": 82.48400000000004,
+            "x1": 103.34,
+            "bottom": 94.48400000000004
+          }
+        ]
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "invoice_number",
+            "value": "ROW-TEST",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 2.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 96.668,
+                "top": 82.48400000000004,
+                "x1": 103.34,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 90.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "90.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 106.676,
+                "top": 82.48400000000004,
+                "x1": 136.7,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 105.0,
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 3,
+          "needs_review": 0,
+          "unsupported": 4
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "2.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "90.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "90.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "105.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "2",
+              "start": 9,
+              "end": 10,
+              "rects": [
+                {
+                  "x0": 96.668,
+                  "top": 82.48400000000004,
+                  "x1": 103.34,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "90.00",
+              "start": 11,
+              "end": 16,
+              "rects": [
+                {
+                  "x0": 106.676,
+                  "top": 82.48400000000004,
+                  "x1": 136.7,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "id": "correct_receipt",
+      "schema": "receipt",
+      "pages": [
+        [
+          [
+            700,
+            "Delivery 2 90.00"
+          ],
+          [
+            670,
+            "Packing 3 15.00"
+          ]
+        ]
+      ],
+      "kind": "correct",
+      "expect": "verified",
+      "pdf_sha256": "61e49a821de2132100b1e0708ecf1eadf8ded5ad2cb072923449439744ae8b66",
+      "quantity": {
+        "path": "items[0].quantity",
+        "value": 2.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "2",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 96.668,
+            "top": 82.48400000000004,
+            "x1": 103.34,
+            "bottom": 94.48400000000004
+          }
+        ]
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "Example",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-09",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 2.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 96.668,
+                "top": 82.48400000000004,
+                "x1": 103.34,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].amount",
+            "value": 90.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "90.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 106.676,
+                "top": 82.48400000000004,
+                "x1": 136.7,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 105.0,
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 3,
+          "needs_review": 0,
+          "unsupported": 3
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: missing subtotal",
+            "operands": {
+              "items[0].amount": "90.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "105.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "items[0].quantity",
+            "anchor": "items[0].description",
+            "status": "same_line",
+            "reason": "items[0].quantity and items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "2",
+              "start": 9,
+              "end": 10,
+              "rects": [
+                {
+                  "x0": 96.668,
+                  "top": 82.48400000000004,
+                  "x1": 103.34,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "items[0].amount",
+            "anchor": "items[0].description",
+            "status": "same_line",
+            "reason": "items[0].amount and items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "90.00",
+              "start": 11,
+              "end": 16,
+              "rects": [
+                {
+                  "x0": 106.676,
+                  "top": 82.48400000000004,
+                  "x1": 136.7,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "id": "correct_wrapped",
+      "pages": [
+        [
+          [
+            700,
+            "Delivery"
+          ],
+          [
+            686,
+            "2 90.00"
+          ]
+        ]
+      ],
+      "kind": "correct_but_layout_unresolved",
+      "expect": "needs_review",
+      "pdf_sha256": "5c28652a717a11643622e28ad4451a12e250571d200b20f44bba26d1f36fc810",
+      "quantity": {
+        "path": "line_items[0].quantity",
+        "value": 2.0,
+        "status": "needs_review",
+        "reasons": [
+          "row association needs review: line_items[0].quantity is quoted from a different visual line than line_items[0].description on page 1; check the item assignment or a wrapped table layout"
+        ],
+        "match_score": 100.0,
+        "matched_text": "2",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 50.0,
+            "top": 96.48400000000004,
+            "x1": 56.672,
+            "bottom": 108.48400000000004
+          }
+        ]
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "invoice_number",
+            "value": "ROW-TEST",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 2.0,
+            "status": "needs_review",
+            "reasons": [
+              "row association needs review: line_items[0].quantity is quoted from a different visual line than line_items[0].description on page 1; check the item assignment or a wrapped table layout"
+            ],
+            "match_score": 100.0,
+            "matched_text": "2",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 96.48400000000004,
+                "x1": 56.672,
+                "bottom": 108.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 90.0,
+            "status": "needs_review",
+            "reasons": [
+              "row association needs review: line_items[0].amount is quoted from a different visual line than line_items[0].description on page 1; check the item assignment or a wrapped table layout"
+            ],
+            "match_score": 100.0,
+            "matched_text": "90.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 60.008,
+                "top": 96.48400000000004,
+                "x1": 90.032,
+                "bottom": 108.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 105.0,
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 2,
+          "unsupported": 4
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "2.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "90.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "90.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "105.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "separate",
+            "reason": "line_items[0].quantity is quoted from a different visual line than line_items[0].description on page 1",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "2",
+              "start": 9,
+              "end": 10,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 96.48400000000004,
+                  "x1": 56.672,
+                  "bottom": 108.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "separate",
+            "reason": "line_items[0].amount is quoted from a different visual line than line_items[0].description on page 1",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "90.00",
+              "start": 11,
+              "end": 16,
+              "rects": [
+                {
+                  "x0": 60.008,
+                  "top": 96.48400000000004,
+                  "x1": 90.032,
+                  "bottom": 108.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "agrees": true
+    },
+    {
+      "id": "wrong_column_same_line",
+      "quantity_quote": "2.00",
+      "pages": [
+        [
+          [
+            700,
+            "Delivery 3 2.00 6.00"
+          ]
+        ]
+      ],
+      "amount": 6,
+      "amount_quote": "6.00",
+      "kind": "known_semantic_limit",
+      "expect": "verified",
+      "pdf_sha256": "212c7e3929fa624791d2d7109610d2d910ef53edffe5a72d4b90b08a66203140",
+      "quantity": {
+        "path": "line_items[0].quantity",
+        "value": 2.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "2.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 106.676,
+            "top": 82.48400000000004,
+            "x1": 130.028,
+            "bottom": 94.48400000000004
+          }
+        ]
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "invoice_number",
+            "value": "ROW-TEST",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 2.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 106.676,
+                "top": 82.48400000000004,
+                "x1": 130.028,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 6.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "6.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 133.36399999999998,
+                "top": 82.48400000000004,
+                "x1": 156.71599999999998,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 105.0,
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 3,
+          "needs_review": 0,
+          "unsupported": 4
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "2.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "6.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "6.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "105.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "2.00",
+              "start": 11,
+              "end": 15,
+              "rects": [
+                {
+                  "x0": 106.676,
+                  "top": 82.48400000000004,
+                  "x1": 130.028,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "6.00",
+              "start": 16,
+              "end": 20,
+              "rects": [
+                {
+                  "x0": 133.36399999999998,
+                  "top": 82.48400000000004,
+                  "x1": 156.71599999999998,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Delivery",
+              "start": 0,
+              "end": 8,
+              "rects": [
+                {
+                  "x0": 50.0,
+                  "top": 82.48400000000004,
+                  "x1": 93.332,
+                  "bottom": 94.48400000000004
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "agrees": true
+    }
+  ]
+}

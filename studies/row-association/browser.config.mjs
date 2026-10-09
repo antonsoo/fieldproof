@@ -1,5 +1,7 @@
 // Run against a separately launched installed wheel; opt in to the whole suite.
 import { fileURLToPath } from 'node:url';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 
 const all = process.env.FIELDPROOF_BROWSER_FULL === '1';
 const liveURL = process.env.FIELDPROOF_BROWSER_URL || 'http://127.0.0.1:4300/';
@@ -8,7 +10,7 @@ export default {
   testDir: fileURLToPath(new URL('../../web/tests/browser', import.meta.url)),
   ...(all ? {} : { grep: /a unique quote keeps its location/ }),
   timeout: 30000, workers: 1, fullyParallel: false, reporter: 'list',
-  outputDir: process.env.FIELDPROOF_BROWSER_OUTPUT || '/tmp/claude-1000/fieldproof-assignment/browser',
+  outputDir: process.env.FIELDPROOF_BROWSER_OUTPUT || join(tmpdir(), 'fieldproof-row-association-browser'),
   use: { viewport: { width: 1440, height: 960 }, trace: 'retain-on-failure' },
   projects: ['chromium', 'firefox'].flatMap(browserName => [
     { name: `${browserName}-live`, testMatch: /live\.spec\.mjs/, use: { browserName, baseURL: liveURL } },
