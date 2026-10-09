@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Repeated quotes and row evidence
+
+- Resolve a repeated quote only when exactly one occurrence shares a visual
+  line on the same page as a strongly grounded, value-supported sibling.
+  Do not borrow the nearest value from another row or page, break column
+  ties, or let a rejected/edited description disambiguate another field.
+- Unresolved evidence retains an explicit reason and no invented highlight.
+  Resolved fields' JSON notes identify the anchor and the limits of the choice.
+- Add a synthetic PDF, installed-package review/export coverage and a
+  [paired audit of 2,853 scripted claims on 400 CORD receipts](studies/row-locality/README.md).
+  Wrong verified locations among repeated quotes fell from 431 to 14;
+  197 previously correct locations now need review. This does not establish
+  table-column or semantic field correctness, especially for unique quotes.
+
 ### Inspectable arithmetic
 
 - Check invoice quantity times unit price against each line amount. Failed

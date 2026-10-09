@@ -26,6 +26,12 @@ to confirm or fix whatever's left. Every field ends up `verified`,
 
 </details>
 
+The source checkout also refuses to resolve a repeated quantity by borrowing it
+from another row or page. In the [row-evidence example and receipt audit](studies/row-locality/README.md),
+an extracted `1` for a line printed as `Delivery 3` now requires review.
+The audit records the cost too: more correct locations need human review, and
+table-column and field-role mistakes remain possible. This change is unreleased.
+
 ## The quote can be right while the calculation is wrong
 
 The source checkout (unreleased) also checks each invoice line's quantity times
@@ -166,8 +172,9 @@ on your machine. From a source checkout, build the UI first (see
   (source checkout; `verify(..., text_edit_tolerance=1)` allows it for long
   text fields). Exact matches are required to land
   on whole word boundaries (a quote never matches mid-token), and a quote
-  that occurs more than once is disambiguated by locality rather than
-  silently taking the first hit. Maps back to word bounding boxes and
+  that occurs more than once resolves only when one occurrence shares a visual
+  line with a strongly grounded, value-supported sibling (source checkout).
+  Other repeated quotes need review. Maps back to word bounding boxes and
   merges them into per-line highlight rectangles.
 - **Verification, not just a confidence score** - numbers, dates, currency,
   and strings are independently re-derived from the matched evidence and
@@ -365,12 +372,13 @@ four hold:
    high its score: one misquoted letter in a name scores 95 and is not the
    name on the page.
    When a quote genuinely occurs more than once,
-   `fieldproof.verify.engine` disambiguates it by preferring whichever
-   occurrence is on the same row as another field from the same object
-   that's already been grounded (e.g. a line item's `quantity` next to its
-   already-grounded `description`); with nothing nearby to disambiguate
-   against, the field becomes `needs_review` with an "ambiguous, appears N
-   times" reason rather than silently guessing. The matched span is mapped
+   `fieldproof.verify.engine` requires exactly one occurrence on the same
+   visual line and page as a strongly grounded, value-supported sibling
+   (e.g. a line item's `description`). Weak evidence and accepted text edits
+   cannot supply that anchor. Different rows or pages, multiple matching
+   columns and multiline anchors remain ambiguous, with no selected box.
+   [The precise rule and measured tradeoff](studies/row-locality/README.md)
+   apply to the unreleased checkout. The matched span is mapped
    back through an index map to the exact words it covers (via each word's
    character offset into the page's flattened text), and those words'
    bounding boxes are merged into per-line highlight rectangles.
@@ -474,14 +482,13 @@ anything in this repo.
   occurs twice is not reported as ambiguous. How these rules behave on real
   receipts is in [`studies/cord-grounding`](studies/cord-grounding/README.md).
 - **Ambiguous quotes are resolved by row locality, not proven correct.**
-  When a short quote occurs more than once, fieldproof prefers the
-  occurrence nearest another already-grounded field from the same row
-  (see [How it works](#how-it-works)) rather than flagging every such
-  field `needs_review` - a reasonable heuristic, not a guarantee. Two
-  identical amounts in the same row (a line item where `unit_price` and
-  `amount` happen to be equal) can still ground to either one; the *value*
-  check still passes either way, but the highlighted box may point at the
-  wrong column of an otherwise-correct row.
+  The source checkout requires a unique same-line occurrence instead of
+  always choosing the nearest one. Strongly skewed text and multiline cells
+  can therefore require review. Vertical overlap does not prove a table
+  column, an item's identity or a field's semantic role. The
+  [receipt audit](studies/row-locality/README.md) retains 14 remaining wrong
+  verified locations among repeated quotes. Unique quotes are still checked
+  independently and can support a value attached to the wrong field.
 - **The Anthropic adapter is tested against the real SDK, not a live
   model** - there's no API key configured in this repo's CI. The tests run
   the `anthropic` SDK over a mocked HTTP transport that answers in the

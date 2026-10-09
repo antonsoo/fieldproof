@@ -46,6 +46,55 @@ test('an omitted minus stays visible and readable in the real PDF review', async
   }
 });
 
+test('a repeated quantity from another row stays unresolved through review and export', async ({ page, request, browserName }) => {
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/row-locality.pdf', import.meta.url)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('../../../examples/fixtures/row-locality.json', import.meta.url)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  const quantity = row(page, 'line_items[0].quantity');
+  await expect(quantity.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+  await expect(quantity.locator('.field-reasons')).toContainText('no unique occurrence shares the visual line');
+  await quantity.getByRole('button', { name: 'Inspect line_items[0].quantity', exact: true }).click();
+  await expect(page.locator('#page-frame img')).toBeVisible();
+  await expect(page.locator('.highlight-rect[data-path="line_items[0].quantity"]')).toHaveCount(0);
+  for (const index of [1, 2]) {
+    await expect(row(page, `line_items[${index}].quantity`).locator('.status-chip')).toHaveAttribute('data-status', 'verified');
+    await expect(page.locator(`.highlight-rect[data-path="line_items[${index}].quantity"]`)).toHaveCount(1);
+  }
+  const url = (await page.locator('#page-frame img').getAttribute('src')).replace(/\/pages\/\d+\.png$/, '');
+  const original = await (await request.get(`${url}/report`)).json();
+  expect(original.report.counts).toEqual({ verified: 14, needs_review: 1, unsupported: 0 });
+  const evidence = original.report.fields.find(field => field.path === 'line_items[0].quantity');
+  expect(evidence).toMatchObject({ value: 1, page: null, rects: [], matched_text: null });
+  expect(original.report.fields.find(field => field.path === 'line_items[1].quantity').notes[0]).toContain('line_items[1].description');
+  const directory = fileURLToPath(new URL('../../../docs/assets/row-locality', import.meta.url));
+  if (process.env.UPDATE_LOCALITY_SCREENSHOTS) mkdirSync(directory, { recursive: true });
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 960 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await scan(page);
+    if (process.env.UPDATE_LOCALITY_SCREENSHOTS) await page.screenshot({ path: `${directory}/${browserName}-${width}.png`, fullPage: true });
+  }
+  await page.setViewportSize({ width: 1440, height: 960 });
+  await quantity.getByRole('button', { name: 'Edit', exact: true }).click();
+  await quantity.getByRole('textbox').fill('3');
+  await quantity.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect(quantity.locator('.review-badge')).toHaveText('edited');
+  const exported = JSON.parse((await downloadText(page, 'JSON')).text);
+  expect(exported).toHaveLength(1);
+  expect(exported[0]).toMatchObject({ field: 'line_items[0].quantity', value: 3, original_value: 1, value_source: 'correction' });
+  expect(await (await request.get(`${url}/export.json?scope=reviewed`)).json()).toEqual(exported);
+  expect((await (await request.get(`${url}/report`)).json()).report).toEqual(original.report);
+  await page.reload();
+  await page.getByRole('button', { name: 'Sessions', exact: true }).click();
+  const session = page.getByRole('dialog', { name: 'Document sessions' }).locator('li').filter({ hasText: 'row-locality.pdf' });
+  await session.getByRole('button', { name: 'Open', exact: true }).click();
+  await expect(row(page, 'line_items[0].quantity').locator('.review-badge')).toHaveText('edited');
+  expect(JSON.parse((await downloadText(page, 'JSON')).text)).toEqual(exported);
+  if (process.env.UPDATE_LOCALITY_SCREENSHOTS) writeFileSync(`${directory}/${browserName}-observations.json`, JSON.stringify({ evidence, exported }, null, 2) + '\n');
+});
+
 test('quoted but inconsistent line arithmetic is reviewable and corrections keep their provenance', async ({ page, request, browserName }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/line-arithmetic.pdf', import.meta.url)));

@@ -1,0 +1,1087 @@
+{
+  "scope": "Synthetic PDF layouts through the real loader and verifier; no model calls.",
+  "python": "3.12.12",
+  "seconds": 0.054631263003102504,
+  "source_sha256": {
+    "fieldproof/__init__.py": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde",
+    "fieldproof/cli.py": "51af443d248af6af0c579dd56c0c09539b225bbfa33bf625fa1daf945e5187de",
+    "fieldproof/document/__init__.py": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074",
+    "fieldproof/document/limits.py": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71",
+    "fieldproof/document/loader.py": "1c8e2b68dad7f3f3baf6e69d59fc1737e035b6e3871f01f8e18c29f075ed10e1",
+    "fieldproof/document/model.py": "6b6fd35ea98237decf1a458645b0e7a40a15f65c05c14e87391dbf0f6522d1b9",
+    "fieldproof/document/ocr.py": "6f3f01e44af491224a59bb79d414cd2838c221e5ec9a1a2b1277b1e78dc9d2cf",
+    "fieldproof/document/render.py": "651c776a68820bb29002bc21ebede0891a1ddf281c4d71c5035fc5296f59f502",
+    "fieldproof/document/worker.py": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142",
+    "fieldproof/extract/__init__.py": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e",
+    "fieldproof/extract/anthropic_provider.py": "d160541e1b1ea14e78a68b8e0113d4b5b6bf26d5ace9fd4c66866855b605f121",
+    "fieldproof/extract/base.py": "caa64bba3320fba941b1d1105104c11ad09aeed44337eeb50c3e0e51668b0b85",
+    "fieldproof/extract/fixture_provider.py": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49",
+    "fieldproof/ground/__init__.py": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd",
+    "fieldproof/ground/align.py": "a923a3874410d90ac92470b89c71babbe3aed5041929566bc3f9bd4b0ed2143a",
+    "fieldproof/ground/lines.py": "aa8715ff767e0dba4d90e5a87d902f74a07135099b20ad816a04e2e7f58b069c",
+    "fieldproof/ground/normalize.py": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520",
+    "fieldproof/ground/values.py": "e9cadd53435a9f2d5e90d46575f35b227e54f2ccd79791a1c0e91bbbd0d1a036",
+    "fieldproof/schemas/__init__.py": "21e84fd670cb5138e8371c61e2d4d46d5d8631783165a1445a7976368e1cb560",
+    "fieldproof/schemas/base.py": "ee163ef0585b60ade9967f0d8d401a429898c16bec69743480e763fa60e82b68",
+    "fieldproof/schemas/contract.py": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0",
+    "fieldproof/schemas/invoice.py": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b",
+    "fieldproof/schemas/receipt.py": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e",
+    "fieldproof/server/__init__.py": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b",
+    "fieldproof/server/app.py": "ea617ac88bef134d155fb4f8b11f2f4556f8a6f08c62a4edafb906a2a586b901",
+    "fieldproof/server/body_limit.py": "643b1b15addbba19b418cd6941d4f712170592b74f5878a54fefcf49ac74cd7f",
+    "fieldproof/server/pdf_work.py": "1ea1b1cb56b32c56dd3da9297e305944ebf7022b364ae9c291c3fbd02e70bbaf",
+    "fieldproof/server/store.py": "b9b0c2089ef628163674539cdae0bd4d2f74f0fa207adc4da9501ebf9c0cee30",
+    "fieldproof/verify/__init__.py": "7cb4475017ae8f14fce0d888cfb45da84c5496c244c1611d1cc3cf85c1a35e98",
+    "fieldproof/verify/cross_field.py": "13050c95c2d4553a4c407f5415e44aafa469ce097bf6c8a84588322fc79b922e",
+    "fieldproof/verify/engine.py": "03c33c1231cbbd3f4ab322668d05e29d24c089a34da4ef30b7451926b74754b8",
+    "fieldproof/verify/value_checks.py": "218a2012645a50b7d30834bd3ea32fd69b97719bfec68a464ddd727c528e0b0e"
+  },
+  "cases": 14,
+  "disagreements": [],
+  "observations": [
+    {
+      "name": "other_row",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "Delivery 3"
+          ],
+          [
+            50,
+            600,
+            "Packing 1"
+          ],
+          [
+            50,
+            500,
+            "Handling 1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Delivery",
+      "expected": "needs_review",
+      "text_edit_tolerance": 0,
+      "expected_xy": null,
+      "pdf_sha256": "b580ec810b96f32d4eb368cfe075a8ea881aecd47aff64972072fdbe15fa50e2",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '1' is ambiguous (appears 2 times); no unique occurrence shares the visual line of items[0].description on page 1; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "adjacent_row",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "Delivery 3"
+          ],
+          [
+            50,
+            686,
+            "Packing 1"
+          ],
+          [
+            50,
+            672,
+            "Handling 1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Delivery",
+      "expected": "needs_review",
+      "text_edit_tolerance": 0,
+      "expected_xy": null,
+      "pdf_sha256": "ca4cbf437d36c92c8872c4daffd9e84e472641700aef394efc7265fc18b20fb9",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '1' is ambiguous (appears 2 times); no unique occurrence shares the visual line of items[0].description on page 1; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "other_page",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "Delivery 3"
+          ]
+        ],
+        [
+          [
+            50,
+            700,
+            "Packing 1"
+          ],
+          [
+            50,
+            600,
+            "Handling 1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Delivery",
+      "expected": "needs_review",
+      "text_edit_tolerance": 0,
+      "expected_xy": null,
+      "pdf_sha256": "ee9d633059c29e6f86cdab90aca5f328745e98f1f06c96d125d5451f5d743e8d",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '1' is ambiguous (appears 2 times); no unique occurrence shares the visual line of items[0].description on page 1; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "unsupported_anchor",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "Delivery 3"
+          ],
+          [
+            50,
+            600,
+            "Packing 1"
+          ],
+          [
+            50,
+            500,
+            "Handling 1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Packing",
+      "expected": "needs_review",
+      "text_edit_tolerance": 0,
+      "expected_xy": null,
+      "pdf_sha256": "b580ec810b96f32d4eb368cfe075a8ea881aecd47aff64972072fdbe15fa50e2",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "needs_review",
+            "reasons": [
+              "value 'Delivery' is only 18% similar to evidence 'Packing'"
+            ],
+            "match_score": 100.0,
+            "matched_text": "Packing",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 182.48400000000004,
+                "x1": 92.684,
+                "bottom": 194.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '1' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 2,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "fuzzy_anchor",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "Deliverx 1"
+          ],
+          [
+            50,
+            600,
+            "Packing 1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Delivery",
+      "expected": "needs_review",
+      "text_edit_tolerance": 0,
+      "expected_xy": null,
+      "pdf_sha256": "cb9a2cbe83f630ad5a094e1a4a45b96799b0b26fa0a035cbd242d7093fa222fb",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "needs_review",
+            "reasons": [
+              "the quote is 88/100 like 'Deliverx' on the page but differs from it in letters or digits, or numeric signs/units",
+              "value 'Delivery' is 93% similar to evidence 'Deliverx' but differs from it in letters or digits"
+            ],
+            "match_score": 87.5,
+            "matched_text": "Deliverx",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '1' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 2,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "tolerated_anchor",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "International deliverx 1"
+          ],
+          [
+            50,
+            600,
+            "Packing 1"
+          ]
+        ]
+      ],
+      "description": "International delivery",
+      "quote": "International delivery",
+      "expected": "needs_review",
+      "text_edit_tolerance": 1,
+      "expected_xy": null,
+      "pdf_sha256": "5f9687f1917fb398554f31de2c38060a7030d9d755a2ba6905e6f8c09d80a74c",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "International delivery",
+            "status": "verified",
+            "reasons": [],
+            "notes": [
+              "the quote differs from the page text 'International deliverx' by 1 letter (accepted: text_edit_tolerance=1)",
+              "value 'International delivery' differs from the evidence 'International deliverx' by 1 letter (accepted: text_edit_tolerance=1)"
+            ],
+            "match_score": 95.45454545454545,
+            "matched_text": "International deliverx",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 160.712,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '1' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "two_columns",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "Delivery"
+          ],
+          [
+            250,
+            700,
+            "1"
+          ],
+          [
+            350,
+            700,
+            "1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Delivery",
+      "expected": "needs_review",
+      "text_edit_tolerance": 0,
+      "expected_xy": null,
+      "pdf_sha256": "d6e4d006fe43d4764415acc48d778a07a9561a4e07f8aad43b16c6db692562ad",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '1' is ambiguous (appears 2 times); no unique occurrence shares the visual line of items[0].description on page 1; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "two_columns_skew",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "Delivery"
+          ],
+          [
+            250,
+            700,
+            "1"
+          ],
+          [
+            350,
+            697,
+            "1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Delivery",
+      "expected": "needs_review",
+      "text_edit_tolerance": 0,
+      "expected_xy": null,
+      "pdf_sha256": "166ab76696627a8662bdc80e8d745fb7fcaf5e67955164da7fc2a31cb03a2a96",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '1' is ambiguous (appears 2 times); no unique occurrence shares the visual line of items[0].description on page 1; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "multiline_anchor",
+      "pages": [
+        [
+          [
+            50,
+            720,
+            "Delivery"
+          ],
+          [
+            50,
+            680,
+            "service"
+          ],
+          [
+            250,
+            700,
+            "1"
+          ],
+          [
+            250,
+            600,
+            "1"
+          ]
+        ]
+      ],
+      "description": "Delivery service",
+      "quote": "Delivery service",
+      "expected": "needs_review",
+      "text_edit_tolerance": 0,
+      "expected_xy": null,
+      "pdf_sha256": "9e4b0c461e95d4326b113d0591cbb4bc793e5a011943068f4ed969ad76a177bd",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery service",
+            "status": "needs_review",
+            "reasons": [
+              "the quote is 94/100 like 'Delivery 1 service' on the page but differs from it in letters or digits, or numeric signs/units",
+              "value 'Delivery service' is 88% similar to evidence 'Delivery 1 service' but differs from it in letters or digits"
+            ],
+            "match_score": 94.11764705882352,
+            "matched_text": "Delivery 1 service",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 93.332,
+                "bottom": 74.48400000000004
+              },
+              {
+                "x0": 250.0,
+                "top": 82.48400000000004,
+                "x1": 256.672,
+                "bottom": 94.48400000000004
+              },
+              {
+                "x0": 50.0,
+                "top": 102.48400000000004,
+                "x1": 88.00399999999999,
+                "bottom": 114.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '1' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 2,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "one_same_row",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "Delivery"
+          ],
+          [
+            250,
+            700,
+            "1"
+          ],
+          [
+            50,
+            600,
+            "Packing 1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Delivery",
+      "expected": "verified",
+      "text_edit_tolerance": 0,
+      "expected_xy": [
+        250,
+        700
+      ],
+      "pdf_sha256": "16dce7101b332983498e249f7169a10d46f45cf011963034e6641548cb275b92",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "notes": [
+              "located one of 2 evidence occurrences on the same visual line as items[0].description (page 1); this does not establish the table column or field role"
+            ],
+            "match_score": 100.0,
+            "matched_text": "1",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 250.0,
+                "top": 82.48400000000004,
+                "x1": 256.672,
+                "bottom": 94.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "one_same_row_skew",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "Delivery"
+          ],
+          [
+            250,
+            697,
+            "1"
+          ],
+          [
+            50,
+            600,
+            "Packing 1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Delivery",
+      "expected": "verified",
+      "text_edit_tolerance": 0,
+      "expected_xy": [
+        250,
+        697
+      ],
+      "pdf_sha256": "7af8d79c5f22e8310f998b5c5b6cbbf2a675ba06799fcf09f9947bb20b9719cf",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "notes": [
+              "located one of 2 evidence occurrences on the same visual line as items[0].description (page 1); this does not establish the table column or field role"
+            ],
+            "match_score": 100.0,
+            "matched_text": "1",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 250.0,
+                "top": 85.48400000000004,
+                "x1": 256.672,
+                "bottom": 97.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "same_row_second",
+      "pages": [
+        [
+          [
+            50,
+            730,
+            "Packing 1"
+          ],
+          [
+            50,
+            700,
+            "Delivery"
+          ],
+          [
+            250,
+            700,
+            "1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Delivery",
+      "expected": "verified",
+      "text_edit_tolerance": 0,
+      "expected_xy": [
+        250,
+        700
+      ],
+      "pdf_sha256": "113855a1e381fa0bc0527d010dcedc98fb618124eabcd4f02a98c8cfa6904ee3",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "notes": [
+              "located one of 2 evidence occurrences on the same visual line as items[0].description (page 1); this does not establish the table column or field role"
+            ],
+            "match_score": 100.0,
+            "matched_text": "1",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 250.0,
+                "top": 82.48400000000004,
+                "x1": 256.672,
+                "bottom": 94.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "same_row_other_page_decoy",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "Delivery"
+          ],
+          [
+            250,
+            700,
+            "1"
+          ]
+        ],
+        [
+          [
+            250,
+            700,
+            "1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Delivery",
+      "expected": "verified",
+      "text_edit_tolerance": 0,
+      "expected_xy": [
+        250,
+        700
+      ],
+      "pdf_sha256": "aaa65a5d47f50a9f05a63026969b3d3aacbfae15b3c7730201b29efe41540918",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Delivery",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 93.332,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "notes": [
+              "located one of 2 evidence occurrences on the same visual line as items[0].description (page 1); this does not establish the table column or field role"
+            ],
+            "match_score": 100.0,
+            "matched_text": "1",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 250.0,
+                "top": 82.48400000000004,
+                "x1": 256.672,
+                "bottom": 94.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    },
+    {
+      "name": "case_only_anchor",
+      "pages": [
+        [
+          [
+            50,
+            700,
+            "DELIVERY"
+          ],
+          [
+            250,
+            700,
+            "1"
+          ],
+          [
+            50,
+            600,
+            "Packing 1"
+          ]
+        ]
+      ],
+      "description": "Delivery",
+      "quote": "Delivery",
+      "expected": "verified",
+      "text_edit_tolerance": 0,
+      "expected_xy": [
+        250,
+        700
+      ],
+      "pdf_sha256": "bdc1416ba6b0e135e4b2ff07dc1fd75d3557375b7f07567c214518e207f0bb59",
+      "report": {
+        "fields": [
+          {
+            "path": "items[0].description",
+            "value": "Delivery",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 99.0,
+            "matched_text": "DELIVERY",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 82.48400000000004,
+                "x1": 109.35200000000002,
+                "bottom": 94.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "items[0].quantity",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "notes": [
+              "located one of 2 evidence occurrences on the same visual line as items[0].description (page 1); this does not establish the table column or field role"
+            ],
+            "match_score": 100.0,
+            "matched_text": "1",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 250.0,
+                "top": 82.48400000000004,
+                "x1": 256.672,
+                "bottom": 94.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": []
+      },
+      "agrees": true
+    }
+  ]
+}

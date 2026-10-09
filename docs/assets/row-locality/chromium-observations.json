@@ -1,0 +1,25 @@
+{
+  "evidence": {
+    "path": "line_items[0].quantity",
+    "value": 1,
+    "status": "needs_review",
+    "reasons": [
+      "evidence '1' is ambiguous (appears 2 times); no unique occurrence shares the visual line of line_items[0].description on page 1; quote more context"
+    ],
+    "match_score": null,
+    "matched_text": null,
+    "page": null,
+    "rects": []
+  },
+  "exported": [
+    {
+      "field": "line_items[0].quantity",
+      "value": 3,
+      "original_value": 1,
+      "value_source": "correction",
+      "verification_status": "needs_review",
+      "review_status": "edited",
+      "page": null
+    }
+  ]
+}
