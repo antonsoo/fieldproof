@@ -1,0 +1,718 @@
+{
+  "stats": {
+    "startTime": "2026-10-09T20:11:58.387Z",
+    "duration": 183819.24399999998,
+    "expected": 64,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "name": "an omitted minus stays visible and readable in the real PDF review",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3069
+        }
+      ]
+    },
+    {
+      "name": "a repeated quantity from another row stays unresolved through review and export",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4505
+        }
+      ]
+    },
+    {
+      "name": "quoted but inconsistent line arithmetic is reviewable and corrections keep their provenance",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5585
+        }
+      ]
+    },
+    {
+      "name": "real PDF and fixture extraction support nested corrections and identical API exports",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7405
+        }
+      ]
+    },
+    {
+      "name": "failed review saves keep the editor and prior value for retry",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3385
+        }
+      ]
+    },
+    {
+      "name": "late review reply stays with its document and pending saves disable export",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4588
+        }
+      ]
+    },
+    {
+      "name": "cancelled extraction cannot resurrect a reset document",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 954
+        }
+      ]
+    },
+    {
+      "name": "fixture failure is recoverable without losing the uploaded document",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1758
+        }
+      ]
+    },
+    {
+      "name": "upload and configure controls are accessible in both themes at phone widths",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2097
+        }
+      ]
+    },
+    {
+      "name": "a cancelled slow upload cannot replace a newer uploaded PDF",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 590
+        }
+      ]
+    },
+    {
+      "name": "sessions reopen saved corrections after reload and removal needs explicit confirmation",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2592
+        }
+      ]
+    },
+    {
+      "name": "session dialog is keyboard accessible in both themes at narrow phone width",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1883
+        }
+      ]
+    },
+    {
+      "name": "session listing and deletion failures can be retried without losing decisions",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1971
+        }
+      ]
+    },
+    {
+      "name": "session controls cannot discard an unsaved correction",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1915
+        }
+      ]
+    },
+    {
+      "name": "full capacity refuses uploads, keeps reviewed values, and removal permits recovery",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3873
+        }
+      ]
+    },
+    {
+      "name": "oversized fixture is refused before sending it and uploaded PDF remains usable",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1934
+        }
+      ]
+    },
+    {
+      "name": "cropped PDF uses the visible canvas and highlights the actual evidence position",
+      "project": "chromium-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1121
+        }
+      ]
+    },
+    {
+      "name": "an omitted minus stays visible and readable in the real PDF review",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6956
+        }
+      ]
+    },
+    {
+      "name": "a repeated quantity from another row stays unresolved through review and export",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5463
+        }
+      ]
+    },
+    {
+      "name": "quoted but inconsistent line arithmetic is reviewable and corrections keep their provenance",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4827
+        }
+      ]
+    },
+    {
+      "name": "real PDF and fixture extraction support nested corrections and identical API exports",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4335
+        }
+      ]
+    },
+    {
+      "name": "failed review saves keep the editor and prior value for retry",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2092
+        }
+      ]
+    },
+    {
+      "name": "late review reply stays with its document and pending saves disable export",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4396
+        }
+      ]
+    },
+    {
+      "name": "cancelled extraction cannot resurrect a reset document",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1523
+        }
+      ]
+    },
+    {
+      "name": "fixture failure is recoverable without losing the uploaded document",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1528
+        }
+      ]
+    },
+    {
+      "name": "upload and configure controls are accessible in both themes at phone widths",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3429
+        }
+      ]
+    },
+    {
+      "name": "a cancelled slow upload cannot replace a newer uploaded PDF",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2922
+        }
+      ]
+    },
+    {
+      "name": "sessions reopen saved corrections after reload and removal needs explicit confirmation",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2883
+        }
+      ]
+    },
+    {
+      "name": "session dialog is keyboard accessible in both themes at narrow phone width",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3642
+        }
+      ]
+    },
+    {
+      "name": "session listing and deletion failures can be retried without losing decisions",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2523
+        }
+      ]
+    },
+    {
+      "name": "session controls cannot discard an unsaved correction",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1956
+        }
+      ]
+    },
+    {
+      "name": "full capacity refuses uploads, keeps reviewed values, and removal permits recovery",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3999
+        }
+      ]
+    },
+    {
+      "name": "oversized fixture is refused before sending it and uploaded PDF remains usable",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1471
+        }
+      ]
+    },
+    {
+      "name": "cropped PDF uses the visible canvas and highlights the actual evidence position",
+      "project": "firefox-live",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1683
+        }
+      ]
+    },
+    {
+      "name": "the line arithmetic sample exposes the original calculation and exports a correction",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4252
+        }
+      ]
+    },
+    {
+      "name": "nested numeric correction saves the typed value and approval retains it",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 828
+        }
+      ]
+    },
+    {
+      "name": "a slow earlier sample cannot replace a newer selection",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 855
+        }
+      ]
+    },
+    {
+      "name": "page-session review survives sample switches when storage is blocked",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 549
+        }
+      ]
+    },
+    {
+      "name": "invalid numeric edits remain editable and reset restores the original extraction",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 984
+        }
+      ]
+    },
+    {
+      "name": "reviewed export excludes pending and rejected values, all scope remains explicit",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 616
+        }
+      ]
+    },
+    {
+      "name": "stored invalid overlays are ignored and valid corrections survive a reload",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 527
+        }
+      ]
+    },
+    {
+      "name": "sample and index failures have retry, and failed replacement preserves the previous review",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 799
+        }
+      ]
+    },
+    {
+      "name": "keyboard navigation retains focus through selection, decisions, filters and editing",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 912
+        }
+      ]
+    },
+    {
+      "name": "desktop and phone review, fit, edit and themes have accessible bounded layouts",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 14721
+        }
+      ]
+    },
+    {
+      "name": "phone inspection opens the matching page and returns to the field and its draft",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 684
+        }
+      ]
+    },
+    {
+      "name": "page image failure exposes retry without losing field evidence",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 395
+        }
+      ]
+    },
+    {
+      "name": "damaged replacement reports preserve the original document and decision",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 428
+        }
+      ]
+    },
+    {
+      "name": "boolean corrections remain false and markup-like corrections are inert in the UI and files",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 991
+        }
+      ]
+    },
+    {
+      "name": "malformed deep links and malformed sample indexes recover without page errors",
+      "project": "chromium-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 436
+        }
+      ]
+    },
+    {
+      "name": "the line arithmetic sample exposes the original calculation and exports a correction",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5842
+        }
+      ]
+    },
+    {
+      "name": "nested numeric correction saves the typed value and approval retains it",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1078
+        }
+      ]
+    },
+    {
+      "name": "a slow earlier sample cannot replace a newer selection",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1367
+        }
+      ]
+    },
+    {
+      "name": "page-session review survives sample switches when storage is blocked",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1162
+        }
+      ]
+    },
+    {
+      "name": "invalid numeric edits remain editable and reset restores the original extraction",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2018
+        }
+      ]
+    },
+    {
+      "name": "reviewed export excludes pending and rejected values, all scope remains explicit",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1098
+        }
+      ]
+    },
+    {
+      "name": "stored invalid overlays are ignored and valid corrections survive a reload",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 796
+        }
+      ]
+    },
+    {
+      "name": "sample and index failures have retry, and failed replacement preserves the previous review",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1035
+        }
+      ]
+    },
+    {
+      "name": "keyboard navigation retains focus through selection, decisions, filters and editing",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1234
+        }
+      ]
+    },
+    {
+      "name": "desktop and phone review, fit, edit and themes have accessible bounded layouts",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 24037
+        }
+      ]
+    },
+    {
+      "name": "phone inspection opens the matching page and returns to the field and its draft",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1107
+        }
+      ]
+    },
+    {
+      "name": "page image failure exposes retry without losing field evidence",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 799
+        }
+      ]
+    },
+    {
+      "name": "damaged replacement reports preserve the original document and decision",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 830
+        }
+      ]
+    },
+    {
+      "name": "boolean corrections remain false and markup-like corrections are inert in the UI and files",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1403
+        }
+      ]
+    },
+    {
+      "name": "malformed deep links and malformed sample indexes recover without page errors",
+      "project": "firefox-demo",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 531
+        }
+      ]
+    }
+  ],
+  "server": "installed wheel, launched separately; production static demo on a separate port",
+  "errors": []
+}
