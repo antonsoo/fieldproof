@@ -18,6 +18,7 @@ disambiguate by context or admit it can't.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from math import isfinite
 
 from rapidfuzz import fuzz
 from rapidfuzz.distance import Levenshtein
@@ -445,16 +446,47 @@ def find_candidates_in_document(
 def nearest_candidate(candidates: list[GroundingMatch], hint: GroundingMatch) -> GroundingMatch:
     """Pick whichever of several ambiguous `candidates` is closest to
     `hint` - same page first, then smallest vertical distance between
-    their word tops. Used to resolve "the quote appears N times" by
-    preferring the occurrence on the same row as another field from the
-    same object that's already been grounded (e.g. a line item's
-    description) - see `fieldproof.verify.engine`."""
+    their word tops. This ranking helper always chooses, even across pages or
+    on a tie. Verification uses `unique_row_candidate` instead: proximity
+    alone cannot establish a quote's location."""
 
     def distance(candidate: GroundingMatch) -> tuple[int, float]:
         same_page = 0 if candidate.page_number == hint.page_number else 1
         return (same_page, abs(candidate.top - hint.top))
 
     return min(candidates, key=distance)
+
+
+def unique_row_candidate(
+    candidates: list[GroundingMatch], hint: GroundingMatch
+) -> GroundingMatch | None:
+    """Resolve only one occurrence sharing the hint's actual visual line.
+
+    Every word in both matches must share a vertical band at least half the
+    shortest word's height, on the same page. This tolerates modest OCR skew
+    without treating the nearest *different* row as evidence. A multiline
+    quote cannot use its average height to invent an anchor between lines.
+    Two matching columns remain ambiguous, even if one is slightly closer.
+
+    This locates words, not table cells or semantic field roles. The caller
+    must supply a strong hint whose value is independently supported.
+    """
+    local = []
+    for candidate in candidates:
+        if candidate.page_number != hint.page_number or not hint.words or not candidate.words:
+            continue
+        boxes = [word.bbox for word in (*hint.words, *candidate.words)]
+        if any(
+            not all(isfinite(v) for v in (box.x0, box.x1, box.top, box.bottom))
+            or box.height <= 0
+            or box.width <= 0
+            for box in boxes
+        ):
+            continue
+        overlap = min(box.bottom for box in boxes) - max(box.top for box in boxes)
+        if overlap > 0 and overlap >= min(box.height for box in boxes) / 2:
+            local.append(candidate)
+    return local[0] if len(local) == 1 else None
 
 
 def _words_overlapping(words: list[Word], start: int, end: int) -> list[Word]:

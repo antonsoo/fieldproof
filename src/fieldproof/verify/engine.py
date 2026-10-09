@@ -30,8 +30,8 @@ from fieldproof.ground.align import (
     GroundingMatch,
     find_candidates_in_document,
     letter_distance,
-    nearest_candidate,
     rects_for_match,
+    unique_row_candidate,
 )
 from fieldproof.ground.lines import separate_lines
 from fieldproof.ground.values import NumberStyle, number_style
@@ -145,14 +145,15 @@ def verify(
     Fields are walked in schema-declaration order (`iter_evidenced_fields`),
     which for a list item means its fields come in the order they're
     declared on the model - e.g. `LineItem.description` before
-    `LineItem.quantity`. The first field of each "row" (an indexed list
-    item, e.g. `line_items[1]`) that grounds successfully becomes that
-    row's locality anchor, used to disambiguate a later sibling field whose
-    quote turns out to occur more than once on the page (see
-    `_verify_field`'s `hint_match` and `fieldproof.ground.nearest_candidate`).
+    `LineItem.quantity`. The first strongly grounded, value-supported field
+    of each indexed list item becomes its locality anchor. A later sibling's
+    repeated quote resolves only if exactly one occurrence shares that
+    anchor's visual line on the same page. Weak matches, including accepted
+    text edits, cannot establish anchors. Arithmetic checks run afterwards
+    and do not establish or change a location.
     """
     results: list[FieldVerification] = []
-    row_anchors: dict[str, GroundingMatch] = {}
+    row_anchors: dict[str, tuple[str, GroundingMatch]] = {}
     # Whether this document writes numeric dates month or day first, if any of
     # its dates settles it; see `check_date`.
     if default_number_style not in (None, "decimal", "thousands"):
@@ -174,15 +175,25 @@ def verify(
             path,
             evidenced,
             document,
-            hint_match=hint,
+            hint_match=hint[1] if hint else None,
+            hint_path=hint[0] if hint else None,
             date_order=date_order,
             style=style,
             text_edit_tolerance=text_edit_tolerance,
         )
         results.append(result)
 
-        if prefix is not None and prefix not in row_anchors and match is not None:
-            row_anchors[prefix] = match
+        if (
+            prefix is not None
+            and prefix not in row_anchors
+            and match is not None
+            and match.is_strong
+            and result.status == FieldStatus.VERIFIED
+            and not result.notes
+        ):
+            # Accepted edits are explicitly noted by the value check too: a
+            # corrected value must not silently lend authority to another field.
+            row_anchors[prefix] = (path, match)
 
     cross_field_checks = audit_cross_field(data)
     cross_field_issues = [issue for check in cross_field_checks if (issue := check.issue())]
@@ -201,6 +212,7 @@ def _verify_field(
     document: Document,
     *,
     hint_match: GroundingMatch | None,
+    hint_path: str | None,
     date_order: DateOrder | None = None,
     style: NumberStyle | None = None,
     text_edit_tolerance: int = 0,
@@ -231,32 +243,41 @@ def _verify_field(
         return result, None
 
     reasons: list[str] = []
+    notes: list[str] = []
     best_match: GroundingMatch | None
 
     if len(candidates) == 1:
         best_match = candidates[0]
     elif hint_match is not None:
-        # Multiple occurrences of the same quote - prefer whichever is
-        # closest to another field from the same row that's already been
-        # grounded (e.g. this line item's description).
-        best_match = nearest_candidate(candidates, hint_match)
+        best_match = unique_row_candidate(candidates, hint_match)
+        if best_match is not None:
+            notes.append(
+                f"located one of {len(candidates)} evidence occurrences on the same visual "
+                f"line as {hint_path} (page {hint_match.page_number}); "
+                "this does not establish the table column or field role"
+            )
     else:
         # Ambiguous with nothing nearby to disambiguate it against - don't
         # silently guess; a wrong guess here is exactly the "verified but
         # actually wrong" failure mode this tool exists to catch.
         best_match = None
-        reasons.append(
-            f"evidence {candidates[0].quote!r} is ambiguous (appears {len(candidates)} times); "
-            "quote more context"
-        )
 
     if best_match is None:
+        detail = (
+            f"no unique occurrence shares the visual line of {hint_path} "
+            f"on page {hint_match.page_number}"
+            if hint_match is not None
+            else "no strongly grounded, value-supported sibling establishes a row"
+        )
+        reasons.append(
+            f"evidence {candidates[0].quote!r} is ambiguous (appears {len(candidates)} times); "
+            f"{detail}; quote more context"
+        )
         result = FieldVerification(
             path=path, value=value, status=FieldStatus.NEEDS_REVIEW, reasons=reasons
         )
         return result, None
 
-    notes: list[str] = []
     tolerant = (
         text_edit_tolerance > 0
         and isinstance(value, str)

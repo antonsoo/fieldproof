@@ -9,6 +9,7 @@ from fieldproof.ground.align import (
     letter_distance,
     nearest_candidate,
     rects_for_match,
+    unique_row_candidate,
 )
 from fieldproof.ground.normalize import normalize, normalize_with_map
 
@@ -25,4 +26,5 @@ __all__ = [
     "normalize",
     "normalize_with_map",
     "rects_for_match",
+    "unique_row_candidate",
 ]
