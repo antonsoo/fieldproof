@@ -31,6 +31,8 @@ def main() -> None:
     parser.add_argument("before", type=Path)
     parser.add_argument("after", type=Path)
     parser.add_argument("out", type=Path)
+    parser.add_argument("--before-ref", default="c7f7cbc")
+    parser.add_argument("--compact", action="store_true")
     args = parser.parse_args()
     before_summary, before = read(args.before)
     after_summary, after = read(args.after)
@@ -39,6 +41,7 @@ def main() -> None:
     transitions: Counter = Counter()
     changes = []
     remaining = []
+    remaining_all = []
     for key, left in before.items():
         right = after[key]
         assert all(left[k] == right[k] for k in INPUT)
@@ -52,12 +55,15 @@ def main() -> None:
                     "before_rects": left["result"]["rects"],
                     "after_rects": right["result"]["rects"],
                     "reasons": right["result"]["reasons"],
+                    "row_checks": right.get("row_checks", []),
                 }
             )
         if right["repeated"] and right["outcome"] == "verified_wrong":
             remaining.append(right)
+        if right["outcome"] == "verified_wrong":
+            remaining_all.append(right)
     result = {
-        "baseline_commit": "c7f7cbc",
+        "baseline_commit": args.before_ref,
         "before": before_summary,
         "after": after_summary,
         "transitions": [
@@ -65,8 +71,11 @@ def main() -> None:
         ],
         "changes": changes,
         "remaining_repeated_quote_errors": remaining,
+        "remaining_verified_errors": remaining_all,
     }
-    args.out.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
+    args.out.write_text(
+        json.dumps(result, indent=None if args.compact else 2, ensure_ascii=False) + "\n"
+    )
     print(json.dumps({"paired_cases": len(before), "transitions": result["transitions"]}, indent=2))
     assert transitions[("verified_correct", "verified_wrong")] == 0
 

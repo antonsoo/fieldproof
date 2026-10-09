@@ -4,6 +4,24 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Item association for unique quotes
+
+- Apply explicit row-evidence rules to invoice and receipt line-item numbers,
+  including unique quotes. A number quoted from another item now needs review
+  while retaining its real source highlight. Missing, rejected or edited
+  descriptions cannot establish the item's row.
+- Add `report.row_checks` with `same_line`, `separate` and `unavailable`
+  outcomes, both source locations and source-support verdicts captured before
+  row/arithmetic checks. These observations do not establish table columns.
+- Add `RowEvidenceRule` for custom schemas, with independently grounded named
+  anchors regardless of declaration order, validated collection paths and an
+  explicit `row_rules=[]` override for independent source checks.
+- In a paired replay of the same 2,853 scripted receipt claims, wrong verified
+  unique quotes fell from 746 to five; 192 previously correct locations now
+  need review. Repeated-quote results stayed unchanged. The
+  [study](studies/row-association/README.md) preserves all 19 remaining errors
+  and a constructed wrong-column case that still verifies.
+
 ### Repeated quotes and row evidence
 
 - Resolve a repeated quote only when exactly one occurrence shares a visual

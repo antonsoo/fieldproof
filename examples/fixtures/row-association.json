@@ -1,0 +1,120 @@
+{
+  "schema": "invoice",
+  "provider": "fixture",
+  "model": "synthetic item association",
+  "data": {
+    "vendor_name": {
+      "value": "Example Dispatch",
+      "evidence": [
+        "Example Dispatch"
+      ],
+      "page": 1
+    },
+    "invoice_number": {
+      "value": "FP-ASSOC",
+      "evidence": [
+        "Invoice Number: FP-ASSOC"
+      ],
+      "page": 1
+    },
+    "issue_date": {
+      "value": "2026-10-09",
+      "evidence": [
+        "Issue Date: October 9, 2026"
+      ],
+      "page": 1
+    },
+    "line_items": [
+      {
+        "description": {
+          "value": "Delivery",
+          "evidence": [
+            "Delivery"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 2,
+          "evidence": [
+            "2"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 90,
+          "evidence": [
+            "Delivery 3 90.00"
+          ],
+          "page": 1
+        }
+      },
+      {
+        "description": {
+          "value": "Packing",
+          "evidence": [
+            "Packing"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 2,
+          "evidence": [
+            "2"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 15,
+          "evidence": [
+            "Packing 2 15.00"
+          ],
+          "page": 1
+        }
+      },
+      {
+        "description": {
+          "value": "Handling",
+          "evidence": [
+            "Handling"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 1,
+          "evidence": [
+            "1"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 5,
+          "evidence": [
+            "Handling 1 5.00"
+          ],
+          "page": 1
+        }
+      }
+    ],
+    "subtotal": {
+      "value": 110,
+      "evidence": [
+        "Subtotal 110.00"
+      ],
+      "page": 1
+    },
+    "tax": {
+      "value": 0,
+      "evidence": [
+        "Tax 0.00"
+      ],
+      "page": 1
+    },
+    "total": {
+      "value": 110,
+      "evidence": [
+        "Total 110.00"
+      ],
+      "page": 1
+    }
+  }
+}

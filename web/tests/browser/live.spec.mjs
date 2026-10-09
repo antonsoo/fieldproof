@@ -46,6 +46,53 @@ test('an omitted minus stays visible and readable in the real PDF review', async
   }
 });
 
+test('a unique quote keeps its location while the wrong item association requires review', async ({ page, request, browserName }) => {
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/row-association.pdf', import.meta.url)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('../../../examples/fixtures/row-association.json', import.meta.url)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  const field = row(page, 'line_items[0].quantity');
+  await expect(field.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+  await expect(field.locator('.field-evidence')).toContainText('2');
+  await expect(field.locator('.field-reasons')).toContainText('different visual line than line_items[0].description');
+  await field.getByRole('button', { name: 'Inspect line_items[0].quantity', exact: true }).click();
+  const highlight = page.locator('.highlight-rect[data-path="line_items[0].quantity"]');
+  await expect(highlight).toHaveCount(1);
+  await expect(highlight).toHaveAttribute('data-status', 'needs_review');
+  await expect(page.locator('#page-frame img')).toBeVisible();
+  const url = (await page.locator('#page-frame img').getAttribute('src')).replace(/\/pages\/\d+\.png$/, '');
+  const before = await (await request.get(`${url}/report`)).json();
+  expect(before.report.counts).toEqual({ verified: 14, needs_review: 1, unsupported: 0 });
+  const relation = before.report.row_checks.find(check => check.field === 'line_items[0].quantity');
+  expect(relation).toMatchObject({ status: 'separate', field_source_status: 'verified', anchor_source_status: 'verified' });
+  expect(relation.field_location.text).toBe('2');
+  expect(relation.anchor_location.text).toBe('Delivery');
+  expect(relation.field_location.rects[0].top).toBeGreaterThan(relation.anchor_location.rects[0].bottom);
+  const directory = fileURLToPath(new URL('../../../docs/assets/row-association', import.meta.url));
+  if (process.env.UPDATE_ASSOCIATION_SCREENSHOTS) mkdirSync(directory, { recursive: true });
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 960 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await scan(page);
+    if (process.env.UPDATE_ASSOCIATION_SCREENSHOTS) await page.screenshot({ path: `${directory}/${browserName}-${width}.png`, fullPage: true });
+  }
+  await page.setViewportSize({ width: 1440, height: 960 });
+  await field.getByRole('button', { name: 'Edit', exact: true }).click();
+  await field.getByRole('textbox').fill('3');
+  await field.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect(field.locator('.review-badge')).toHaveText('edited');
+  const exported = JSON.parse((await downloadText(page, 'JSON')).text);
+  expect(exported[0]).toMatchObject({ field: 'line_items[0].quantity', value: 3, original_value: 2, value_source: 'correction' });
+  expect((await (await request.get(`${url}/report`)).json()).report.row_checks).toEqual(before.report.row_checks);
+  await page.reload();
+  await page.getByRole('button', { name: 'Sessions', exact: true }).click();
+  await page.getByRole('dialog', { name: 'Document sessions' }).locator('li').filter({ hasText: 'row-association.pdf' }).getByRole('button', { name: 'Open', exact: true }).click();
+  await expect(row(page, 'line_items[0].quantity').locator('.review-badge')).toHaveText('edited');
+  expect(JSON.parse((await downloadText(page, 'JSON')).text)).toEqual(exported);
+  if (process.env.UPDATE_ASSOCIATION_SCREENSHOTS) writeFileSync(`${directory}/${browserName}-observations.json`, JSON.stringify({ relation, exported }, null, 2) + '\n');
+});
+
 test('a repeated quantity from another row stays unresolved through review and export', async ({ page, request, browserName }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/row-locality.pdf', import.meta.url)));

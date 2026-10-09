@@ -26,11 +26,12 @@ to confirm or fix whatever's left. Every field ends up `verified`,
 
 </details>
 
-The source checkout also refuses to resolve a repeated quantity by borrowing it
-from another row or page. In the [row-evidence example and receipt audit](studies/row-locality/README.md),
-an extracted `1` for a line printed as `Delivery 3` now requires review.
-The audit records the cost too: more correct locations need human review, and
-table-column and field-role mistakes remain possible. This change is unreleased.
+The source checkout also checks which item a quoted number belongs to. A unique
+`2` borrowed from another line no longer verifies as the quantity for `Delivery 3`.
+Invoice and receipt rows get this check by default; custom schemas can declare
+the relationship. The [PDF example and receipt audit](studies/row-association/README.md)
+show the caught errors, extra reviews and remaining table-column/skew mistakes.
+This change is unreleased.
 
 ## The quote can be right while the calculation is wrong
 
@@ -181,6 +182,10 @@ on your machine. From a source checkout, build the UI first (see
   compared to the claimed value; invoice quantity times unit price is checked
   against the line amount (source checkout), line items against subtotal,
   subtotal + tax against total, and due date against issue date.
+- **Item association (source checkout)** - a quoted line-item number must
+  share its description's visual line. `report.row_checks` keeps both source
+  locations and distinguishes same-line, separate and unavailable evidence.
+  Wrapped rows may need review; sharing a line does not prove a table column.
 - **A review UI that shows the reasoning** - flagged fields sort to the top;
   click a field to jump to its evidence on the page; hover a highlight to
   see which field it supports; currency fields display formatted (`312.50`,
@@ -414,7 +419,13 @@ four hold:
    letter changed is 94% similar to the original and a different name; booleans look for whole words like
    yes/no/not/confirmed/denied (so "notice" isn't a "no"). Any mismatch ->
    `needs_review`.
-4. **Cross-field rules.** For invoices and receipts: line items must sum to
+4. **Cross-field rules.** The source checkout first records whether each
+   invoice/receipt line-item number shares a visual line with its independently
+   grounded description, including numbers quoted only once. Separate or
+   unavailable row evidence sends otherwise supported numbers to review;
+   their located quotes remain visible. Custom schemas opt in using
+   [`RowEvidenceRule`](studies/row-association/README.md#api-and-report-contract).
+   For invoices and receipts: line items must sum to
    the subtotal, subtotal + tax must equal the total (both within a $0.02
    tolerance), and the due date must not precede the issue date. A failed
    rule marks every field it involves as `needs_review` and records why.
@@ -486,9 +497,12 @@ anything in this repo.
   always choosing the nearest one. Strongly skewed text and multiline cells
   can therefore require review. Vertical overlap does not prove a table
   column, an item's identity or a field's semantic role. The
-  [receipt audit](studies/row-locality/README.md) retains 14 remaining wrong
-  verified locations among repeated quotes. Unique quotes are still checked
-  independently and can support a value attached to the wrong field.
+  [earlier receipt audit](studies/row-locality/README.md) retains 14 remaining
+  wrong verified locations among repeated quotes. The later
+  [item-association audit](studies/row-association/README.md) also checks unique
+  quotes against a declared description and retains five additional wrong
+  locations. Custom schemas without row rules still get independent value
+  checks; neither mode establishes semantic field correctness.
 - **The Anthropic adapter is tested against the real SDK, not a live
   model** - there's no API key configured in this repo's CI. The tests run
   the `anthropic` SDK over a mocked HTTP transport that answers in the

@@ -19,6 +19,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--src", required=True, type=Path)
     parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument(
+        "--row-checks", action="store_true", help="declare the item/description relationship"
+    )
     args = parser.parse_args()
     src = args.src.resolve()
     sys.path.insert(0, str(src))
@@ -33,6 +36,12 @@ def main() -> None:
     from fieldproof.ground.align import find_candidates_in_document
     from fieldproof.schemas import Evidenced
     from fieldproof.verify.engine import verify
+
+    verification_options = {}
+    if args.row_checks:
+        from fieldproof.verify.rows import RowEvidenceRule
+
+        verification_options["row_rules"] = [RowEvidenceRule("items", "description", ("number",))]
 
     assert Path(fieldproof.__file__).resolve().is_relative_to(src)
 
@@ -135,6 +144,7 @@ def main() -> None:
                             ),
                             document,
                             default_number_style="thousands",
+                            **verification_options,
                         )
                         result = report.fields[1]
                         expected_boxes = [page.words[i].bbox.to_dict() for i in by_line[target]]
@@ -177,11 +187,15 @@ def main() -> None:
                                 "description_status": report.fields[0].status.value,
                                 "result": result.to_dict(),
                                 "expected_boxes": expected_boxes,
+                                "row_checks": [
+                                    check.to_dict() for check in getattr(report, "row_checks", [])
+                                ],
                             }
                         )
     summary = {
         "scope": "CORD annotation replay; scripted claims, not model extraction accuracy.",
         "documents": documents,
+        "explicit_row_checks": args.row_checks,
         "cases": len(observations),
         "seconds": perf_counter() - started,
         "skipped": dict(skipped),

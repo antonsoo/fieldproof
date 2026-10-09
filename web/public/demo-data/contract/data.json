@@ -273,7 +273,8 @@
         "needs_review": 0,
         "unsupported": 0
       },
-      "cross_field_checks": []
+      "cross_field_checks": [],
+      "row_checks": []
     },
     "review": {
       "party_a": {

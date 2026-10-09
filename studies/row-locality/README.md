@@ -8,7 +8,10 @@ value failed verification could also become the anchor for that choice.
 
 The source checkout now leaves those repeated quotes unresolved. This is
 unreleased work, compared with local baseline `c7f7cbc`; the implementation is
-`4d1b24b`. Nothing was pushed, published or deployed for this study.
+`4d1b24b`. This measurement preceded the
+[subsequent item-association checks](../row-association/README.md), which address
+most of the unique-quote failures recorded below. Its retained results are
+historical snapshots, not a measurement of the later implementation.
 
 ![Installed-package review: the delivery quantity needs review, with the source PDF beside it](../../docs/assets/row-locality/chromium-1440.png)
 
