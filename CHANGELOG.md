@@ -4,6 +4,25 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Inspectable arithmetic
+
+- Check invoice quantity times unit price against each line amount. Failed
+  calculations send all three participating fields to review, with the
+  calculation, difference and tolerance visible beside their source quotes.
+- Add `report.cross_field_checks`: passed, failed and not-checked rules with
+  their operands and exact decimal results. Preserve `cross_field_issues` as
+  the failed subset. Missing tax or quantity is not silently zero or one.
+- Perform sums, products and inclusive tolerance comparisons in decimal
+  arithmetic. Avoid false failures at the two-cent boundary and small amounts
+  disappearing when added to large ones; isolate calculations from the
+  caller's decimal context.
+- Add a synthetic line-arithmetic PDF and a fourth local static demo sample.
+  Retain controlled PDF, independent rational-arithmetic, installed-wheel and
+  browser evidence in [the arithmetic study](studies/arithmetic-evidence/README.md).
+- The audit describes original extracted claims. Review edits remain separate
+  and do not recalculate it; unmodelled discounts, units and currency rounding
+  can require review even when a transaction is legitimate.
+
 ### Numeric evidence and signed amounts
 
 - Preserve leading, Unicode, accounting and trailing minus signs, including

@@ -26,6 +26,27 @@ to confirm or fix whatever's left. Every field ends up `verified`,
 
 </details>
 
+## The quote can be right while the calculation is wrong
+
+The source checkout (unreleased) also checks each invoice line's quantity times
+unit price. In the new [synthetic invoice](examples/line-arithmetic.pdf), every
+extracted value is printed on the page, but `3 x 19.95` is `59.85`, not the
+printed `39.90`. The previous checkout verified all ten fields; the current
+one sends the three participating fields to review and retains the exact
+operands, result and difference. Discounts or other adjustments can explain
+such a difference; review is not a declaration that the invoice is wrong.
+
+![Reviewing a quoted line whose calculation disagrees](docs/assets/arithmetic/chromium-1440.png)
+
+Arithmetic uses decimal calculations with an inclusive `0.02` tolerance.
+Missing inputs produce `not_checked`, distinct from a passing calculation.
+The [arithmetic study](studies/arithmetic-evidence/README.md) retains 13 controlled
+PDFs' results, 4,800 independent rational-arithmetic comparisons, before/after
+measurements, and actual browser correction exports. These constructed cases
+do not measure extraction accuracy on real invoices. See the
+[rules and report format](docs/arithmetic-checks.md), including the limits on
+rounding, discounts and subsequent human edits.
+
 ## A quote must keep the sign
 
 The source checkout (unreleased) catches a positive `100` quoted from a PDF's
@@ -88,6 +109,11 @@ that doesn't match its line items, and a misread date - so you can see exactly
 what the verifier catches. No backend: the demo runs entirely on precomputed
 JSON and static page images.
 
+The locally built, unreleased demo adds a fourth **Arithmetic** sample
+(`#line-arithmetic` after the demo's base path). It uses the same verification
+pipeline and supports correction, reload and export. The published site has
+not been updated by this change.
+
 Review decisions persist in browser storage for the synthetic samples. If that
 storage is unavailable, they remain in the current tab and the UI says so;
 export before reloading. Progress and the Pending/Reviewed filter help track
@@ -145,7 +171,8 @@ on your machine. From a source checkout, build the UI first (see
   merges them into per-line highlight rectangles.
 - **Verification, not just a confidence score** - numbers, dates, currency,
   and strings are independently re-derived from the matched evidence and
-  compared to the claimed value; line items are checked against subtotal,
+  compared to the claimed value; invoice quantity times unit price is checked
+  against the line amount (source checkout), line items against subtotal,
   subtotal + tax against total, and due date against issue date.
 - **A review UI that shows the reasoning** - flagged fields sort to the top;
   click a field to jump to its evidence on the page; hover a highlight to
