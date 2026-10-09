@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import re
 from collections import defaultdict
+from collections.abc import Sequence
 from dataclasses import dataclass, field
 from enum import StrEnum
 from typing import Any
@@ -37,6 +38,13 @@ from fieldproof.ground.lines import separate_lines
 from fieldproof.ground.values import NumberStyle, number_style
 from fieldproof.schemas.base import iter_evidenced_fields
 from fieldproof.verify.cross_field import CrossFieldCheck, CrossFieldIssue, audit_cross_field
+from fieldproof.verify.rows import (
+    RowEvidenceCheck,
+    RowEvidenceRule,
+    check_row_field,
+    configured_rows,
+    default_row_rules,
+)
 from fieldproof.verify.value_checks import (
     TOLERANT_MIN_LETTERS,
     DateOrder,
@@ -92,6 +100,7 @@ class VerificationReport:
     fields: list[FieldVerification]
     cross_field_issues: list[CrossFieldIssue]
     cross_field_checks: list[CrossFieldCheck] = field(default_factory=list)
+    row_checks: list[RowEvidenceCheck] = field(default_factory=list)
 
     @property
     def counts(self) -> dict[str, int]:
@@ -108,6 +117,7 @@ class VerificationReport:
             ],
             "counts": self.counts,
             "cross_field_checks": [check.to_dict() for check in self.cross_field_checks],
+            "row_checks": [check.to_dict() for check in self.row_checks],
         }
 
 
@@ -123,6 +133,7 @@ def verify(
     text_edit_tolerance: int = 0,
     default_number_style: NumberStyle | None = None,
     default_date_order: DateOrder | None = None,
+    row_rules: Sequence[RowEvidenceRule] | None = None,
 ) -> VerificationReport:
     """Verify every `Evidenced` field under `data` against `document`.
 
@@ -151,6 +162,13 @@ def verify(
     anchor's visual line on the same page. Weak matches, including accepted
     text edits, cannot establish anchors. Arithmetic checks run afterwards
     and do not establish or change a location.
+
+    Invoice and receipt line-item numbers additionally require a source
+    location sharing their description's visual line, even for unique quotes.
+    `row_rules` declares equivalent relationships for custom schemas; an empty
+    sequence disables these checks. The report records same-line, separate,
+    and unavailable evidence, preserving source locations for review. This
+    spatial check does not establish table columns or semantic field roles.
     """
     results: list[FieldVerification] = []
     row_anchors: dict[str, tuple[str, GroundingMatch]] = {}
@@ -167,11 +185,35 @@ def verify(
     numeric_text = "\n".join(separate_lines(page.text, page.words) for page in document.pages)
     style = number_style(numeric_text) or default_number_style
 
-    for path, evidenced in iter_evidenced_fields(data):
+    fields = dict(iter_evidenced_fields(data))
+    rows = configured_rows(data, default_row_rules(data) if row_rules is None else tuple(row_rules))
+    anchor_results: dict[str, tuple[FieldVerification, GroundingMatch | None]] = {}
+    for row_prefix, rule in rows.items():
+        anchor_path = f"{row_prefix}.{rule.anchor}"
+        if anchor_path not in fields:
+            continue
+        anchor_result, anchor_match = _verify_field(
+            anchor_path,
+            fields[anchor_path],
+            document,
+            hint_match=None,
+            hint_path=None,
+            date_order=date_order,
+            style=style,
+            text_edit_tolerance=text_edit_tolerance,
+        )
+        anchor_results[anchor_path] = (anchor_result, anchor_match)
+        if _can_anchor(anchor_result, anchor_match):
+            assert anchor_match is not None
+            row_anchors[row_prefix] = (anchor_path, anchor_match)
+
+    matches: dict[str, GroundingMatch | None] = {}
+
+    for path, evidenced in fields.items():
         prefix = _row_prefix(path)
         hint = row_anchors.get(prefix) if prefix else None
 
-        result, match = _verify_field(
+        result, match = anchor_results.get(path) or _verify_field(
             path,
             evidenced,
             document,
@@ -182,18 +224,46 @@ def verify(
             text_edit_tolerance=text_edit_tolerance,
         )
         results.append(result)
+        matches[path] = match
 
         if (
             prefix is not None
+            and prefix not in rows
             and prefix not in row_anchors
-            and match is not None
-            and match.is_strong
-            and result.status == FieldStatus.VERIFIED
-            and not result.notes
+            and _can_anchor(result, match)
         ):
             # Accepted edits are explicitly noted by the value check too: a
             # corrected value must not silently lend authority to another field.
+            assert match is not None
             row_anchors[prefix] = (path, match)
+
+    by_path = {result.path: result for result in results}
+    row_checks = [
+        check_row_field(
+            f"{prefix}.{name}",
+            f"{prefix}.{rule.anchor}",
+            by_path.get(f"{prefix}.{name}"),
+            by_path.get(f"{prefix}.{rule.anchor}"),
+            matches.get(f"{prefix}.{name}"),
+            matches.get(f"{prefix}.{rule.anchor}"),
+            anchor_trusted=prefix in row_anchors,
+        )
+        for prefix, rule in rows.items()
+        for name in rule.fields
+    ]
+    # Capture every source verdict before changing any final field verdict.
+    for check in row_checks:
+        checked_result = by_path.get(check.field)
+        if (
+            checked_result is not None
+            and checked_result.status == FieldStatus.VERIFIED
+            and check.status != "same_line"
+        ):
+            checked_result.status = FieldStatus.NEEDS_REVIEW
+            checked_result.reasons.append(
+                f"row association needs review: {check.reason}; check the item assignment "
+                "or a wrapped table layout"
+            )
 
     cross_field_checks = audit_cross_field(data)
     cross_field_issues = [issue for check in cross_field_checks if (issue := check.issue())]
@@ -203,6 +273,16 @@ def verify(
         fields=results,
         cross_field_issues=cross_field_issues,
         cross_field_checks=cross_field_checks,
+        row_checks=row_checks,
+    )
+
+
+def _can_anchor(result: FieldVerification, match: GroundingMatch | None) -> bool:
+    return (
+        match is not None
+        and match.is_strong
+        and result.status == FieldStatus.VERIFIED
+        and not result.notes
     )
 
 

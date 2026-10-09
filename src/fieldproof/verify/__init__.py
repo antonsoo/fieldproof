@@ -5,6 +5,7 @@ from fieldproof.verify.cross_field import (
     check_cross_field,
 )
 from fieldproof.verify.engine import FieldStatus, FieldVerification, VerificationReport, verify
+from fieldproof.verify.rows import RowEvidenceCheck, RowEvidenceRule
 from fieldproof.verify.value_checks import (
     ValueCheckResult,
     check_bool,
@@ -23,6 +24,8 @@ __all__ = [
     "FieldVerification",
     "ValueCheckResult",
     "VerificationReport",
+    "RowEvidenceCheck",
+    "RowEvidenceRule",
     "audit_cross_field",
     "check_bool",
     "check_cross_field",

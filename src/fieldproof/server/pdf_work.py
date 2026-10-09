@@ -17,6 +17,7 @@ from fieldproof.document.loader import EmptyDocumentError
 from fieldproof.document.model import Document, document_from_dict
 from fieldproof.verify.cross_field import CrossFieldCheck, CrossFieldIssue
 from fieldproof.verify.engine import FieldStatus, FieldVerification, VerificationReport
+from fieldproof.verify.rows import RowEvidenceCheck
 
 PDF_TIMEOUT_SECONDS = 30
 MAX_OUTPUT_BYTES = 64 * 1024 * 1024
@@ -115,4 +116,5 @@ def verify_server_data(schema_name: str, data: BaseModel, document: Document) ->
             CrossFieldCheck(**{**check, "fields": tuple(check["fields"])})
             for check in raw["cross_field_checks"]
         ],
+        row_checks=[RowEvidenceCheck(**check) for check in raw["row_checks"]],
     )
