@@ -1,0 +1,32 @@
+{
+  "calculation": {
+    "rule": "invoice.line_extension",
+    "fields": [
+      "line_items[0].quantity",
+      "line_items[0].unit_price",
+      "line_items[0].amount"
+    ],
+    "status": "failed",
+    "message": "line_items[0]: quantity x unit price = 59.85 (before discounts or adjustments) but amount 39.9 (difference -19.95; tolerance 0.02)",
+    "operands": {
+      "line_items[0].quantity": "3.0",
+      "line_items[0].unit_price": "19.95",
+      "line_items[0].amount": "39.9"
+    },
+    "computed": "59.85",
+    "observed": "39.9",
+    "difference": "-19.95",
+    "tolerance": "0.02"
+  },
+  "downloadedRows": [
+    {
+      "field": "line_items[0].quantity",
+      "value": 2,
+      "original_value": 3,
+      "value_source": "correction",
+      "verification_status": "needs_review",
+      "review_status": "edited",
+      "page": 1
+    }
+  ]
+}

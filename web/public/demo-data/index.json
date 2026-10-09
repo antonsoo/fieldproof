@@ -10,5 +10,9 @@
   {
     "id": "contract",
     "label": "Contract"
+  },
+  {
+    "id": "line-arithmetic",
+    "label": "Arithmetic"
   }
 ]

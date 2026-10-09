@@ -1,0 +1,3319 @@
+{
+  "scope": "Controlled PDFs and rational-arithmetic cases; no real transactions or model output.",
+  "python": "3.14.7",
+  "caseSourceSha256": "da0b85dbd6f0e9892011fd3a4ce2c5d2671000327b4ed369df1c72969a8e84f5",
+  "implementationSha256": "13050c95c2d4553a4c407f5415e44aafa469ce097bf6c8a84588322fc79b922e",
+  "pdfCases": [
+    {
+      "id": "wrong-extension",
+      "pdfSha256": "8f5fe3e51d8304d30d7776e04e29c7c02a071f6a1361be7bae78fd3055116418",
+      "expectedReview": [
+        "line_items[0].amount",
+        "line_items[0].quantity",
+        "line_items[0].unit_price"
+      ],
+      "observedReview": [
+        "line_items[0].amount",
+        "line_items[0].quantity",
+        "line_items[0].unit_price"
+      ],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Precision bolts",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].description: Precision bolts",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 213.84,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 3.0,
+            "status": "needs_review",
+            "reasons": [
+              "line_items[0]: quantity x unit price = 59.85 (before discounts or adjustments) but amount 39.9 (difference -19.95; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].quantity: 3.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 149.39000000000001,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].unit_price",
+            "value": 19.95,
+            "status": "needs_review",
+            "reasons": [
+              "line_items[0]: quantity x unit price = 59.85 (before discounts or adjustments) but amount 39.9 (difference -19.95; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].unit_price: 19.95",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 168.84000000000003,
+                "bottom": 200.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 39.9,
+            "status": "needs_review",
+            "reasons": [
+              "line_items[0]: quantity x unit price = 59.85 (before discounts or adjustments) but amount 39.9 (difference -19.95; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].amount: 39.9",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 216.07000000000005,
+                "x1": 153.28000000000003,
+                "bottom": 226.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": 39.9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "subtotal: 39.9",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 242.07000000000005,
+                "x1": 96.04000000000002,
+                "bottom": 252.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": 3.19,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "tax: 3.19",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 268.07000000000005,
+                "x1": 74.36000000000001,
+                "bottom": 278.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 43.09,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: 43.09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 294.07,
+                "x1": 85.48000000000002,
+                "bottom": 304.07
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [
+          {
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "message": "line_items[0]: quantity x unit price = 59.85 (before discounts or adjustments) but amount 39.9 (difference -19.95; tolerance 0.02)"
+          }
+        ],
+        "counts": {
+          "verified": 7,
+          "needs_review": 3,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "failed",
+            "message": "line_items[0]: quantity x unit price = 59.85 (before discounts or adjustments) but amount 39.9 (difference -19.95; tolerance 0.02)",
+            "operands": {
+              "line_items[0].quantity": "3.0",
+              "line_items[0].unit_price": "19.95",
+              "line_items[0].amount": "39.9"
+            },
+            "computed": "59.85",
+            "observed": "39.9",
+            "difference": "-19.95",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "passed",
+            "message": "line items sum = 39.9 matches subtotal 39.9 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].amount": "39.9",
+              "subtotal": "39.9"
+            },
+            "computed": "39.9",
+            "observed": "39.9",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "passed",
+            "message": "subtotal + tax = 43.09 matches total 43.09 (difference 0; tolerance 0.02)",
+            "operands": {
+              "subtotal": "39.9",
+              "tax": "3.19",
+              "total": "43.09"
+            },
+            "computed": "43.09",
+            "observed": "43.09",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "correct-extension",
+      "pdfSha256": "0767c2a5f38285b6371cba0a644783d46cd6642fed57fc716aa3801b362b49b5",
+      "expectedReview": [],
+      "observedReview": [],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Precision bolts",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].description: Precision bolts",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 213.84,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 2.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].quantity: 2.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 149.39000000000001,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].unit_price",
+            "value": 19.95,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].unit_price: 19.95",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 168.84000000000003,
+                "bottom": 200.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 39.9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].amount: 39.9",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 216.07000000000005,
+                "x1": 153.28000000000003,
+                "bottom": 226.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": 39.9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "subtotal: 39.9",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 242.07000000000005,
+                "x1": 96.04000000000002,
+                "bottom": 252.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": 3.19,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "tax: 3.19",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 268.07000000000005,
+                "x1": 74.36000000000001,
+                "bottom": 278.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 43.09,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: 43.09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 294.07,
+                "x1": 85.48000000000002,
+                "bottom": 304.07
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 10,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "passed",
+            "message": "line_items[0]: quantity x unit price = 39.9 (before discounts or adjustments) matches amount 39.9 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].quantity": "2.0",
+              "line_items[0].unit_price": "19.95",
+              "line_items[0].amount": "39.9"
+            },
+            "computed": "39.9",
+            "observed": "39.9",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "passed",
+            "message": "line items sum = 39.9 matches subtotal 39.9 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].amount": "39.9",
+              "subtotal": "39.9"
+            },
+            "computed": "39.9",
+            "observed": "39.9",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "passed",
+            "message": "subtotal + tax = 43.09 matches total 43.09 (difference 0; tolerance 0.02)",
+            "operands": {
+              "subtotal": "39.9",
+              "tax": "3.19",
+              "total": "43.09"
+            },
+            "computed": "43.09",
+            "observed": "43.09",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unmodelled-discount",
+      "pdfSha256": "07cc4ff0ee4cf8e50a12743f0af6cd72a2733f57052bf076ced7817bf9413983",
+      "expectedReview": [
+        "line_items[0].amount",
+        "line_items[0].quantity",
+        "line_items[0].unit_price"
+      ],
+      "observedReview": [
+        "line_items[0].amount",
+        "line_items[0].quantity",
+        "line_items[0].unit_price"
+      ],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Precision bolts",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].description: Precision bolts",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 213.84,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 3.0,
+            "status": "needs_review",
+            "reasons": [
+              "line_items[0]: quantity x unit price = 59.85 (before discounts or adjustments) but amount 39.9 (difference -19.95; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].quantity: 3.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 149.39000000000001,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].unit_price",
+            "value": 19.95,
+            "status": "needs_review",
+            "reasons": [
+              "line_items[0]: quantity x unit price = 59.85 (before discounts or adjustments) but amount 39.9 (difference -19.95; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].unit_price: 19.95",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 168.84000000000003,
+                "bottom": 200.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 39.9,
+            "status": "needs_review",
+            "reasons": [
+              "line_items[0]: quantity x unit price = 59.85 (before discounts or adjustments) but amount 39.9 (difference -19.95; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].amount: 39.9",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 216.07000000000005,
+                "x1": 153.28000000000003,
+                "bottom": 226.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": 39.9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "subtotal: 39.9",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 242.07000000000005,
+                "x1": 96.04000000000002,
+                "bottom": 252.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": 3.19,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "tax: 3.19",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 268.07000000000005,
+                "x1": 74.36000000000001,
+                "bottom": 278.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 43.09,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: 43.09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 294.07,
+                "x1": 85.48000000000002,
+                "bottom": 304.07
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [
+          {
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "message": "line_items[0]: quantity x unit price = 59.85 (before discounts or adjustments) but amount 39.9 (difference -19.95; tolerance 0.02)"
+          }
+        ],
+        "counts": {
+          "verified": 7,
+          "needs_review": 3,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "failed",
+            "message": "line_items[0]: quantity x unit price = 59.85 (before discounts or adjustments) but amount 39.9 (difference -19.95; tolerance 0.02)",
+            "operands": {
+              "line_items[0].quantity": "3.0",
+              "line_items[0].unit_price": "19.95",
+              "line_items[0].amount": "39.9"
+            },
+            "computed": "59.85",
+            "observed": "39.9",
+            "difference": "-19.95",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "passed",
+            "message": "line items sum = 39.9 matches subtotal 39.9 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].amount": "39.9",
+              "subtotal": "39.9"
+            },
+            "computed": "39.9",
+            "observed": "39.9",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "passed",
+            "message": "subtotal + tax = 43.09 matches total 43.09 (difference 0; tolerance 0.02)",
+            "operands": {
+              "subtotal": "39.9",
+              "tax": "3.19",
+              "total": "43.09"
+            },
+            "computed": "43.09",
+            "observed": "43.09",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "missing-unit-price",
+      "pdfSha256": "684ddd5aa7794856b2a724652cf9dcb562d1944691e2af534b862c05d8cd4288",
+      "expectedReview": [],
+      "observedReview": [],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Precision bolts",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].description: Precision bolts",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 213.84,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 3.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].quantity: 3.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 149.39000000000001,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 39.9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].amount: 39.9",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 153.28000000000003,
+                "bottom": 200.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": 39.9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "subtotal: 39.9",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 216.07000000000005,
+                "x1": 96.04000000000002,
+                "bottom": 226.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": 3.19,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "tax: 3.19",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 242.07000000000005,
+                "x1": 74.36000000000001,
+                "bottom": 252.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 43.09,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: 43.09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 268.07000000000005,
+                "x1": 85.48000000000002,
+                "bottom": 278.07000000000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 9,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "3.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "39.9"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "passed",
+            "message": "line items sum = 39.9 matches subtotal 39.9 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].amount": "39.9",
+              "subtotal": "39.9"
+            },
+            "computed": "39.9",
+            "observed": "39.9",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "passed",
+            "message": "subtotal + tax = 43.09 matches total 43.09 (difference 0; tolerance 0.02)",
+            "operands": {
+              "subtotal": "39.9",
+              "tax": "3.19",
+              "total": "43.09"
+            },
+            "computed": "43.09",
+            "observed": "43.09",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "inclusive-boundary",
+      "pdfSha256": "46d978426879d9218939ef95f5d2dc5c79c7d80a6a94ed63af8788e689543006",
+      "expectedReview": [],
+      "observedReview": [],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Precision bolts",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].description: Precision bolts",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 213.84,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].quantity: 1.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 149.39000000000001,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].unit_price",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].unit_price: 1.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 157.72000000000003,
+                "bottom": 200.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].amount: 1.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 216.07000000000005,
+                "x1": 147.72000000000003,
+                "bottom": 226.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": 1.02,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "subtotal: 1.02",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 242.07000000000005,
+                "x1": 96.04000000000002,
+                "bottom": 252.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": 0.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "tax: 0.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 268.07000000000005,
+                "x1": 68.8,
+                "bottom": 278.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.02,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: 1.02",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 294.07,
+                "x1": 79.92000000000002,
+                "bottom": 304.07
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 10,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "passed",
+            "message": "line_items[0]: quantity x unit price = 1 (before discounts or adjustments) matches amount 1 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].quantity": "1.0",
+              "line_items[0].unit_price": "1.0",
+              "line_items[0].amount": "1.0"
+            },
+            "computed": "1",
+            "observed": "1",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "passed",
+            "message": "line items sum = 1 matches subtotal 1.02 (difference 0.02; tolerance 0.02)",
+            "operands": {
+              "line_items[0].amount": "1.0",
+              "subtotal": "1.02"
+            },
+            "computed": "1",
+            "observed": "1.02",
+            "difference": "0.02",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "passed",
+            "message": "subtotal + tax = 1.02 matches total 1.02 (difference 0; tolerance 0.02)",
+            "operands": {
+              "subtotal": "1.02",
+              "tax": "0.0",
+              "total": "1.02"
+            },
+            "computed": "1.02",
+            "observed": "1.02",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "outside-boundary",
+      "pdfSha256": "2818b7f16f25f3061ea1bdb4fb8fc4fdb40c56d20c80f3cba5ead01e65b72468",
+      "expectedReview": [
+        "line_items[0].amount",
+        "subtotal"
+      ],
+      "observedReview": [
+        "line_items[0].amount",
+        "subtotal"
+      ],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Precision bolts",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].description: Precision bolts",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 213.84,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].quantity: 1.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 149.39000000000001,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].unit_price",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].unit_price: 1.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 157.72000000000003,
+                "bottom": 200.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "line items sum = 1 but subtotal 1.021 (difference 0.021; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].amount: 1.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 216.07000000000005,
+                "x1": 147.72000000000003,
+                "bottom": 226.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": 1.021,
+            "status": "needs_review",
+            "reasons": [
+              "line items sum = 1 but subtotal 1.021 (difference 0.021; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "subtotal: 1.021",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 242.07000000000005,
+                "x1": 101.60000000000002,
+                "bottom": 252.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": 0.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "tax: 0.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 268.07000000000005,
+                "x1": 68.8,
+                "bottom": 278.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.021,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: 1.021",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 294.07,
+                "x1": 85.48000000000002,
+                "bottom": 304.07
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [
+          {
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "message": "line items sum = 1 but subtotal 1.021 (difference 0.021; tolerance 0.02)"
+          }
+        ],
+        "counts": {
+          "verified": 8,
+          "needs_review": 2,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "passed",
+            "message": "line_items[0]: quantity x unit price = 1 (before discounts or adjustments) matches amount 1 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].quantity": "1.0",
+              "line_items[0].unit_price": "1.0",
+              "line_items[0].amount": "1.0"
+            },
+            "computed": "1",
+            "observed": "1",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "failed",
+            "message": "line items sum = 1 but subtotal 1.021 (difference 0.021; tolerance 0.02)",
+            "operands": {
+              "line_items[0].amount": "1.0",
+              "subtotal": "1.021"
+            },
+            "computed": "1",
+            "observed": "1.021",
+            "difference": "0.021",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "passed",
+            "message": "subtotal + tax = 1.021 matches total 1.021 (difference 0; tolerance 0.02)",
+            "operands": {
+              "subtotal": "1.021",
+              "tax": "0.0",
+              "total": "1.021"
+            },
+            "computed": "1.021",
+            "observed": "1.021",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tax-erased-by-float",
+      "pdfSha256": "e99579288ecdf0ab290650fa336b3dfdddd0c2c770ee2f7ee98a4b372849c5ac",
+      "expectedReview": [
+        "subtotal",
+        "tax",
+        "total"
+      ],
+      "observedReview": [
+        "subtotal",
+        "tax",
+        "total"
+      ],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": 1e+16,
+            "status": "needs_review",
+            "reasons": [
+              "subtotal + tax = 10000000000000001 but total 10000000000000000 (difference -1; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "subtotal: 10000000000000000",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 171.10000000000002,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "subtotal + tax = 10000000000000001 but total 10000000000000000 (difference -1; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "tax: 1.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 68.8,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1e+16,
+            "status": "needs_review",
+            "reasons": [
+              "subtotal + tax = 10000000000000001 but total 10000000000000000 (difference -1; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "total: 10000000000000000",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 154.98000000000002,
+                "bottom": 200.07000000000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [
+          {
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "message": "subtotal + tax = 10000000000000001 but total 10000000000000000 (difference -1; tolerance 0.02)"
+          }
+        ],
+        "counts": {
+          "verified": 3,
+          "needs_review": 3,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": "1e+16"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "failed",
+            "message": "subtotal + tax = 10000000000000001 but total 10000000000000000 (difference -1; tolerance 0.02)",
+            "operands": {
+              "subtotal": "1e+16",
+              "tax": "1.0",
+              "total": "1e+16"
+            },
+            "computed": "10000000000000001",
+            "observed": "10000000000000000",
+            "difference": "-1",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "cancellation",
+      "pdfSha256": "edda70bb0d1018ee92b9b481263c54a9b98aace72fdedaa772f7c64c293ac388",
+      "expectedReview": [
+        "line_items[0].amount",
+        "line_items[1].amount",
+        "line_items[2].amount",
+        "subtotal"
+      ],
+      "observedReview": [
+        "line_items[0].amount",
+        "line_items[1].amount",
+        "line_items[2].amount",
+        "subtotal"
+      ],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Charge",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].description: Charge",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 181.61,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 1e+16,
+            "status": "needs_review",
+            "reasons": [
+              "line items sum = 1 but subtotal 0 (difference -1; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].amount: 10000000000000000",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 228.34000000000003,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[1].description",
+            "value": "Fee",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[1].description: Fee",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 166.05,
+                "bottom": 200.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[1].amount",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "line items sum = 1 but subtotal 0 (difference -1; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "line_items[1].amount: 1.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 216.07000000000005,
+                "x1": 147.72000000000003,
+                "bottom": 226.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[2].description",
+            "value": "Credit",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[2].description: Credit",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 242.07000000000005,
+                "x1": 175.49,
+                "bottom": 252.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[2].amount",
+            "value": -1e+16,
+            "status": "needs_review",
+            "reasons": [
+              "line items sum = 1 but subtotal 0 (difference -1; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "line_items[2].amount: -10000000000000000",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 268.07000000000005,
+                "x1": 231.67000000000004,
+                "bottom": 278.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": 0.0,
+            "status": "needs_review",
+            "reasons": [
+              "line items sum = 1 but subtotal 0 (difference -1; tolerance 0.02)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "subtotal: 0.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 294.07,
+                "x1": 90.48000000000002,
+                "bottom": 304.07
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": 0.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "tax: 0.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 320.07,
+                "x1": 68.8,
+                "bottom": 330.07
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 0.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: 0.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 346.07,
+                "x1": 74.36000000000001,
+                "bottom": 356.07
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [
+          {
+            "fields": [
+              "line_items[0].amount",
+              "line_items[1].amount",
+              "line_items[2].amount",
+              "subtotal"
+            ],
+            "message": "line items sum = 1 but subtotal 0 (difference -1; tolerance 0.02)"
+          }
+        ],
+        "counts": {
+          "verified": 8,
+          "needs_review": 4,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].quantity, line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": null,
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "1e+16"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[1].quantity",
+              "line_items[1].unit_price",
+              "line_items[1].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[1]: quantity x unit price not checked: missing line_items[1].quantity, line_items[1].unit_price",
+            "operands": {
+              "line_items[1].quantity": null,
+              "line_items[1].unit_price": null,
+              "line_items[1].amount": "1.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[2].quantity",
+              "line_items[2].unit_price",
+              "line_items[2].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[2]: quantity x unit price not checked: missing line_items[2].quantity, line_items[2].unit_price",
+            "operands": {
+              "line_items[2].quantity": null,
+              "line_items[2].unit_price": null,
+              "line_items[2].amount": "-1e+16"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "line_items[1].amount",
+              "line_items[2].amount",
+              "subtotal"
+            ],
+            "status": "failed",
+            "message": "line items sum = 1 but subtotal 0 (difference -1; tolerance 0.02)",
+            "operands": {
+              "line_items[0].amount": "1e+16",
+              "line_items[1].amount": "1.0",
+              "line_items[2].amount": "-1e+16",
+              "subtotal": "0.0"
+            },
+            "computed": "1",
+            "observed": "0",
+            "difference": "-1",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "passed",
+            "message": "subtotal + tax = 0 matches total 0 (difference 0; tolerance 0.02)",
+            "operands": {
+              "subtotal": "0.0",
+              "tax": "0.0",
+              "total": "0.0"
+            },
+            "computed": "0",
+            "observed": "0",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "negative-quantity",
+      "pdfSha256": "dbaefc8ea4016c550bf6d4c4121797183b6058a3dccbfe16cacc5c29fb6aaf47",
+      "expectedReview": [],
+      "observedReview": [],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Precision bolts",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].description: Precision bolts",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 213.84,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": -2.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].quantity: -2.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 152.72000000000003,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].unit_price",
+            "value": 19.95,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].unit_price: 19.95",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 168.84000000000003,
+                "bottom": 200.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": -39.9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].amount: -39.9",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 216.07000000000005,
+                "x1": 156.61,
+                "bottom": 226.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": -39.9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "subtotal: -39.9",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 242.07000000000005,
+                "x1": 99.37,
+                "bottom": 252.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": -3.19,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "tax: -3.19",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 268.07000000000005,
+                "x1": 77.69000000000001,
+                "bottom": 278.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": -43.09,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: -43.09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 294.07,
+                "x1": 88.81,
+                "bottom": 304.07
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 10,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "passed",
+            "message": "line_items[0]: quantity x unit price = -39.9 (before discounts or adjustments) matches amount -39.9 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].quantity": "-2.0",
+              "line_items[0].unit_price": "19.95",
+              "line_items[0].amount": "-39.9"
+            },
+            "computed": "-39.9",
+            "observed": "-39.9",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "passed",
+            "message": "line items sum = -39.9 matches subtotal -39.9 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].amount": "-39.9",
+              "subtotal": "-39.9"
+            },
+            "computed": "-39.9",
+            "observed": "-39.9",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "passed",
+            "message": "subtotal + tax = -43.09 matches total -43.09 (difference 0; tolerance 0.02)",
+            "operands": {
+              "subtotal": "-39.9",
+              "tax": "-3.19",
+              "total": "-43.09"
+            },
+            "computed": "-43.09",
+            "observed": "-43.09",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "fractional-quantity",
+      "pdfSha256": "b692f10ec9050ec7343b22b926cf1ca56f942adddbe35c67a463ae3fa90ff3ff",
+      "expectedReview": [],
+      "observedReview": [],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Precision bolts",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].description: Precision bolts",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 213.84,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 0.25,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].quantity: 0.25",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 154.95000000000002,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].unit_price",
+            "value": 19.96,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].unit_price: 19.96",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 168.84000000000003,
+                "bottom": 200.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 4.99,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].amount: 4.99",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 216.07000000000005,
+                "x1": 153.28000000000003,
+                "bottom": 226.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": 4.99,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "subtotal: 4.99",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 242.07000000000005,
+                "x1": 96.04000000000002,
+                "bottom": 252.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": 0.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "tax: 0.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 268.07000000000005,
+                "x1": 68.8,
+                "bottom": 278.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 4.99,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: 4.99",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 294.07,
+                "x1": 79.92000000000002,
+                "bottom": 304.07
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 10,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "passed",
+            "message": "line_items[0]: quantity x unit price = 4.99 (before discounts or adjustments) matches amount 4.99 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].quantity": "0.25",
+              "line_items[0].unit_price": "19.96",
+              "line_items[0].amount": "4.99"
+            },
+            "computed": "4.99",
+            "observed": "4.99",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "passed",
+            "message": "line items sum = 4.99 matches subtotal 4.99 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].amount": "4.99",
+              "subtotal": "4.99"
+            },
+            "computed": "4.99",
+            "observed": "4.99",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "passed",
+            "message": "subtotal + tax = 4.99 matches total 4.99 (difference 0; tolerance 0.02)",
+            "operands": {
+              "subtotal": "4.99",
+              "tax": "0.0",
+              "total": "4.99"
+            },
+            "computed": "4.99",
+            "observed": "4.99",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "rounded-line",
+      "pdfSha256": "bf002946aa9fdcdb170e924b22bc9dea48484404d4bbd850c9ca417f18684ca5",
+      "expectedReview": [],
+      "observedReview": [],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Precision bolts",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].description: Precision bolts",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 213.84,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 3.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].quantity: 3.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 149.39000000000001,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].unit_price",
+            "value": 0.335,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].unit_price: 0.335",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 168.84000000000003,
+                "bottom": 200.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 1.01,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "line_items[0].amount: 1.01",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 216.07000000000005,
+                "x1": 153.28000000000003,
+                "bottom": 226.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": 1.01,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "subtotal: 1.01",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 242.07000000000005,
+                "x1": 96.04000000000002,
+                "bottom": 252.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": 0.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "tax: 0.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 268.07000000000005,
+                "x1": 68.8,
+                "bottom": 278.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.01,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: 1.01",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 294.07,
+                "x1": 79.92000000000002,
+                "bottom": 304.07
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 10,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "passed",
+            "message": "line_items[0]: quantity x unit price = 1.005 (before discounts or adjustments) matches amount 1.01 (difference 0.005; tolerance 0.02)",
+            "operands": {
+              "line_items[0].quantity": "3.0",
+              "line_items[0].unit_price": "0.335",
+              "line_items[0].amount": "1.01"
+            },
+            "computed": "1.005",
+            "observed": "1.01",
+            "difference": "0.005",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "passed",
+            "message": "line items sum = 1.01 matches subtotal 1.01 (difference 0; tolerance 0.02)",
+            "operands": {
+              "line_items[0].amount": "1.01",
+              "subtotal": "1.01"
+            },
+            "computed": "1.01",
+            "observed": "1.01",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "passed",
+            "message": "subtotal + tax = 1.01 matches total 1.01 (difference 0; tolerance 0.02)",
+            "operands": {
+              "subtotal": "1.01",
+              "tax": "0.0",
+              "total": "1.01"
+            },
+            "computed": "1.01",
+            "observed": "1.01",
+            "difference": "0",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unobserved-totals",
+      "pdfSha256": "4f0ff687420798fc6d2e587b628646e32b8f090ac25000d456ef246450c05eac",
+      "expectedReview": [],
+      "observedReview": [],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Example Workshop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "vendor_name: Example Workshop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 189.39000000000001,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FP-MATH",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "invoice_number: FP-MATH",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 156.58,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "issue_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 141.06000000000003,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 43.09,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: 43.09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 85.48000000000002,
+                "bottom": 148.07000000000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "43.09"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be present and parseable",
+            "operands": {
+              "issue_date": "2026-10-09",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "receipt-boundary",
+      "pdfSha256": "64ee664a6a7926f0afc26755eda1c3e2d872d3fc03f92596738189b812d8b86c",
+      "expectedReview": [],
+      "observedReview": [],
+      "agrees": true,
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "Example Shop",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "merchant_name: Example Shop",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 60.07000000000005,
+                "x1": 178.84000000000003,
+                "bottom": 70.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-09",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "transaction_date: 2026-10-09",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 86.07000000000005,
+                "x1": 166.63000000000005,
+                "bottom": 96.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "items[0].description",
+            "value": "Item A",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "items[0].description: Item A",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 112.07000000000005,
+                "x1": 156.6,
+                "bottom": 122.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "items[0].amount",
+            "value": 0.2,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "items[0].amount: 0.2",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 138.07000000000005,
+                "x1": 126.60000000000002,
+                "bottom": 148.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "items[1].description",
+            "value": "Item B",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "items[1].description: Item B",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 164.07000000000005,
+                "x1": 156.6,
+                "bottom": 174.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "items[1].amount",
+            "value": 0.8,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "items[1].amount: 0.8",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 190.07000000000005,
+                "x1": 126.60000000000002,
+                "bottom": 200.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "subtotal",
+            "value": 1.02,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "subtotal: 1.02",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 216.07000000000005,
+                "x1": 96.04000000000002,
+                "bottom": 226.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "tax",
+            "value": 0.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "tax: 0.0",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 242.07000000000005,
+                "x1": 68.8,
+                "bottom": 252.07000000000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.02,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "total: 1.02",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 36.0,
+                "top": 268.07000000000005,
+                "x1": 79.92000000000002,
+                "bottom": 278.07000000000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 9,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "items[0].amount",
+              "items[1].amount",
+              "subtotal"
+            ],
+            "status": "passed",
+            "message": "items sum = 1 matches subtotal 1.02 (difference 0.02; tolerance 0.02)",
+            "operands": {
+              "items[0].amount": "0.2",
+              "items[1].amount": "0.8",
+              "subtotal": "1.02"
+            },
+            "computed": "1",
+            "observed": "1.02",
+            "difference": "0.02",
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "passed",
+            "message": "subtotal + tax = 1.02 matches total 1.02 (difference 0; tolerance 0.02)",
+            "operands": {
+              "subtotal": "1.02",
+              "tax": "0.0",
+              "total": "1.02"
+            },
+            "computed": "1.02",
+            "observed": "1.02",
+            "difference": "0",
+            "tolerance": "0.02"
+          }
+        ]
+      }
+    }
+  ],
+  "oracle": {
+    "cases": 4800,
+    "expectedPassed": 2555,
+    "expectedFailed": 2245,
+    "disagreements": [],
+    "seconds": 0.6793849690002389
+  }
+}

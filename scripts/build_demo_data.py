@@ -26,13 +26,18 @@ ROOT = Path(__file__).resolve().parent.parent
 EXAMPLES_DIR = ROOT / "examples"
 OUT_DIR = ROOT / "web" / "public" / "demo-data"
 
-SAMPLES = ["invoice", "receipt", "contract"]
+SAMPLES = [
+    ("invoice", "Invoice", "invoice"),
+    ("receipt", "Receipt", "receipt"),
+    ("contract", "Contract", "contract"),
+    ("line-arithmetic", "Arithmetic", "invoice"),
+]
 
 
-def build_sample(name: str) -> None:
+def build_sample(name: str, schema_name: str) -> None:
     pdf_path = EXAMPLES_DIR / f"{name}.pdf"
     fixture_path = EXAMPLES_DIR / "fixtures" / f"{name}.json"
-    schema = BUILTIN_SCHEMAS[name]
+    schema = BUILTIN_SCHEMAS[schema_name]
 
     document = load_pdf(pdf_path)
     extraction = FixtureExtractor(fixture_path=fixture_path).extract(document, schema)
@@ -65,14 +70,14 @@ def build_sample(name: str) -> None:
 
 
 def build_index() -> None:
-    index = [{"id": name, "label": name.capitalize()} for name in SAMPLES]
+    index = [{"id": name, "label": label} for name, label, _ in SAMPLES]
     (OUT_DIR / "index.json").write_text(json.dumps(index, indent=2), encoding="utf-8")
 
 
 def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    for name in SAMPLES:
-        build_sample(name)
+    for name, _, schema_name in SAMPLES:
+        build_sample(name, schema_name)
     build_index()
 
 

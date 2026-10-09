@@ -1,0 +1,265 @@
+{
+  "schema": "invoice",
+  "provider": "fixture",
+  "model": "synthetic line arithmetic",
+  "data": {
+    "vendor_name": {
+      "value": "Example Workshop",
+      "evidence": [
+        "Example Workshop"
+      ],
+      "page": 1
+    },
+    "invoice_number": {
+      "value": "FP-MATH",
+      "evidence": [
+        "Invoice Number: FP-MATH"
+      ],
+      "page": 1
+    },
+    "issue_date": {
+      "value": "2026-10-09",
+      "evidence": [
+        "Issue Date: October 9, 2026"
+      ],
+      "page": 1
+    },
+    "due_date": null,
+    "currency": null,
+    "po_number": null,
+    "line_items": [
+      {
+        "description": {
+          "value": "Precision bolts",
+          "evidence": [
+            "Precision bolts"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 3.0,
+          "evidence": [
+            "Precision bolts 3 19.95 39.90"
+          ],
+          "page": 1
+        },
+        "unit_price": {
+          "value": 19.95,
+          "evidence": [
+            "Precision bolts 3 19.95 39.90"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 39.9,
+          "evidence": [
+            "Precision bolts 3 19.95 39.90"
+          ],
+          "page": 1
+        }
+      }
+    ],
+    "subtotal": {
+      "value": 39.9,
+      "evidence": [
+        "Subtotal 39.90"
+      ],
+      "page": 1
+    },
+    "tax": {
+      "value": 3.19,
+      "evidence": [
+        "Tax 3.19"
+      ],
+      "page": 1
+    },
+    "total": {
+      "value": 43.09,
+      "evidence": [
+        "Total 43.09"
+      ],
+      "page": 1
+    },
+    "payment_terms": null
+  },
+  "report": {
+    "fields": [
+      {
+        "path": "vendor_name",
+        "value": "Example Workshop",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Example Workshop",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 77.38199999999995,
+            "x1": 289.28000000000003,
+            "bottom": 103.38199999999995
+          }
+        ]
+      },
+      {
+        "path": "invoice_number",
+        "value": "FP-MATH",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Invoice Number: FP-MATH",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 127.48400000000004,
+            "x1": 192.02399999999994,
+            "bottom": 139.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "issue_date",
+        "value": "2026-10-09",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Issue Date: October 9, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 153.48400000000004,
+            "x1": 198.08399999999997,
+            "bottom": 165.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "line_items[0].description",
+        "value": "Precision bolts",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Precision bolts",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 250.48400000000004,
+            "x1": 126.024,
+            "bottom": 262.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "line_items[0].quantity",
+        "value": 3.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Precision bolts 3 19.95 39.90",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 250.48400000000004,
+            "x1": 559.024,
+            "bottom": 262.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "line_items[0].unit_price",
+        "value": 19.95,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Precision bolts 3 19.95 39.90",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 250.48400000000004,
+            "x1": 559.024,
+            "bottom": 262.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "line_items[0].amount",
+        "value": 39.9,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Precision bolts 3 19.95 39.90",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 250.48400000000004,
+            "x1": 559.024,
+            "bottom": 262.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "subtotal",
+        "value": 39.9,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Subtotal 39.90",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 388.0,
+            "top": 315.898,
+            "x1": 564.0,
+            "bottom": 329.898
+          }
+        ]
+      },
+      {
+        "path": "tax",
+        "value": 3.19,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Tax 3.19",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 388.0,
+            "top": 343.898,
+            "x1": 564.0,
+            "bottom": 357.898
+          }
+        ]
+      },
+      {
+        "path": "total",
+        "value": 43.09,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Total 43.09",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 388.0,
+            "top": 383.898,
+            "x1": 564.0,
+            "bottom": 397.898
+          }
+        ]
+      }
+    ],
+    "cross_field_issues": [],
+    "counts": {
+      "verified": 10,
+      "needs_review": 0,
+      "unsupported": 0
+    }
+  }
+}

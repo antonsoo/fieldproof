@@ -562,7 +562,7 @@
           "value": 2458.0,
           "status": "needs_review",
           "reasons": [
-            "subtotal + tax = 2666.93 but total is 2600.00"
+            "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
           ],
           "match_score": 100.0,
           "matched_text": "Subtotal $2,458.00",
@@ -581,7 +581,7 @@
           "value": 208.93,
           "status": "needs_review",
           "reasons": [
-            "subtotal + tax = 2666.93 but total is 2600.00"
+            "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
           ],
           "match_score": 100.0,
           "matched_text": "Tax (8.5%) $208.93",
@@ -600,8 +600,8 @@
           "value": 2600.0,
           "status": "needs_review",
           "reasons": [
-            "value 2600 does not match 2666.93 parsed from the evidence",
-            "subtotal + tax = 2666.93 but total is 2600.00"
+            "value 2600.0 does not match 2666.93 parsed from the evidence",
+            "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
           ],
           "match_score": 100.0,
           "matched_text": "Total Due $2,666.93",
@@ -640,14 +640,151 @@
             "tax",
             "total"
           ],
-          "message": "subtotal + tax = 2666.93 but total is 2600.00"
+          "message": "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
         }
       ],
       "counts": {
         "verified": 21,
         "needs_review": 3,
         "unsupported": 1
-      }
+      },
+      "cross_field_checks": [
+        {
+          "rule": "invoice.line_extension",
+          "fields": [
+            "line_items[0].quantity",
+            "line_items[0].unit_price",
+            "line_items[0].amount"
+          ],
+          "status": "passed",
+          "message": "line_items[0]: quantity x unit price = 1740 (before discounts or adjustments) matches amount 1740 (difference 0; tolerance 0.02)",
+          "operands": {
+            "line_items[0].quantity": "12.0",
+            "line_items[0].unit_price": "145.0",
+            "line_items[0].amount": "1740.0"
+          },
+          "computed": "1740",
+          "observed": "1740",
+          "difference": "0",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.line_extension",
+          "fields": [
+            "line_items[1].quantity",
+            "line_items[1].unit_price",
+            "line_items[1].amount"
+          ],
+          "status": "passed",
+          "message": "line_items[1]: quantity x unit price = 210.5 (before discounts or adjustments) matches amount 210.5 (difference 0; tolerance 0.02)",
+          "operands": {
+            "line_items[1].quantity": "1.0",
+            "line_items[1].unit_price": "210.5",
+            "line_items[1].amount": "210.5"
+          },
+          "computed": "210.5",
+          "observed": "210.5",
+          "difference": "0",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.line_extension",
+          "fields": [
+            "line_items[2].quantity",
+            "line_items[2].unit_price",
+            "line_items[2].amount"
+          ],
+          "status": "passed",
+          "message": "line_items[2]: quantity x unit price = 195 (before discounts or adjustments) matches amount 195 (difference 0; tolerance 0.02)",
+          "operands": {
+            "line_items[2].quantity": "3.0",
+            "line_items[2].unit_price": "65.0",
+            "line_items[2].amount": "195.0"
+          },
+          "computed": "195",
+          "observed": "195",
+          "difference": "0",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.line_extension",
+          "fields": [
+            "line_items[3].quantity",
+            "line_items[3].unit_price",
+            "line_items[3].amount"
+          ],
+          "status": "passed",
+          "message": "line_items[3]: quantity x unit price = 312.5 (before discounts or adjustments) matches amount 312.5 (difference 0; tolerance 0.02)",
+          "operands": {
+            "line_items[3].quantity": "1.0",
+            "line_items[3].unit_price": "312.5",
+            "line_items[3].amount": "312.5"
+          },
+          "computed": "312.5",
+          "observed": "312.5",
+          "difference": "0",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.items_subtotal",
+          "fields": [
+            "line_items[0].amount",
+            "line_items[1].amount",
+            "line_items[2].amount",
+            "line_items[3].amount",
+            "subtotal"
+          ],
+          "status": "passed",
+          "message": "line items sum = 2458 matches subtotal 2458 (difference 0; tolerance 0.02)",
+          "operands": {
+            "line_items[0].amount": "1740.0",
+            "line_items[1].amount": "210.5",
+            "line_items[2].amount": "195.0",
+            "line_items[3].amount": "312.5",
+            "subtotal": "2458.0"
+          },
+          "computed": "2458",
+          "observed": "2458",
+          "difference": "0",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.subtotal_tax_total",
+          "fields": [
+            "subtotal",
+            "tax",
+            "total"
+          ],
+          "status": "failed",
+          "message": "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)",
+          "operands": {
+            "subtotal": "2458.0",
+            "tax": "208.93",
+            "total": "2600.0"
+          },
+          "computed": "2666.93",
+          "observed": "2600",
+          "difference": "-66.93",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.due_date_order",
+          "fields": [
+            "issue_date",
+            "due_date"
+          ],
+          "status": "passed",
+          "message": "due date 2026-03-16 is on or after issue date 2026-02-14",
+          "operands": {
+            "issue_date": "2026-02-14",
+            "due_date": "2026-03-16"
+          },
+          "computed": null,
+          "observed": null,
+          "difference": null,
+          "tolerance": null
+        }
+      ]
     },
     "review": {
       "vendor_name": {

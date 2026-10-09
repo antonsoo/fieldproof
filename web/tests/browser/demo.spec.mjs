@@ -1,7 +1,35 @@
 import { test, expect } from '@playwright/test';
+import { fileURLToPath } from 'node:url';
 
 import { row, downloadText, scan, installAudit } from './helpers.mjs';
 installAudit(test);
+
+test('the line arithmetic sample exposes the original calculation and exports a correction', async ({ page }) => {
+  await page.goto('./#line-arithmetic', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.sample-switch .is-active')).toHaveText('Arithmetic');
+  const quantity = row(page, 'line_items[0].quantity');
+  await expect(quantity.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+  await expect(quantity.locator('.field-reasons')).toContainText('59.85');
+  await expect(quantity.locator('.field-evidence')).toContainText('Precision bolts 3 19.95 39.90');
+  for (const width of [1440, 375, 320]) {
+    await page.setViewportSize({ width, height: 960 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await scan(page);
+    if (process.env.UPDATE_ARITHMETIC_SCREENSHOTS) {
+      await page.screenshot({ path: fileURLToPath(new URL(`../../../docs/assets/arithmetic/demo-${test.info().project.name}-${width}.png`, import.meta.url)), fullPage: true });
+    }
+  }
+  await quantity.getByRole('button', { name: 'Edit', exact: true }).click();
+  await quantity.getByRole('textbox').fill('2');
+  await quantity.getByRole('button', { name: 'Save', exact: true }).click();
+  await page.reload();
+  await expect(row(page, 'line_items[0].quantity').locator('.field-value')).toHaveText('2');
+  const downloaded = await downloadText(page, 'JSON');
+  expect(downloaded.filename).toBe('line-arithmetic.fieldproof.json');
+  expect(JSON.parse(downloaded.text)).toEqual([
+    expect.objectContaining({ field: 'line_items[0].quantity', value: 2, original_value: 3, value_source: 'correction' }),
+  ]);
+});
 
 test('nested numeric correction saves the typed value and approval retains it', async ({ page }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });

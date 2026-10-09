@@ -296,6 +296,7 @@ a {
   }
   .sample-switch-btn {
     flex: 1;
+    padding-inline: 6px;
   }
 }
 

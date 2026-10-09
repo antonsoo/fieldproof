@@ -6,7 +6,7 @@
     "pages": [
       {
         "number": 1,
-        "width": 230.4,
+        "width": 230.39999389648438,
         "height": 468.0
       }
     ]
@@ -469,7 +469,51 @@
         "verified": 17,
         "needs_review": 1,
         "unsupported": 0
-      }
+      },
+      "cross_field_checks": [
+        {
+          "rule": "receipt.items_subtotal",
+          "fields": [
+            "items[0].amount",
+            "items[1].amount",
+            "items[2].amount",
+            "items[3].amount",
+            "subtotal"
+          ],
+          "status": "passed",
+          "message": "items sum = 31.5 matches subtotal 31.5 (difference 0; tolerance 0.02)",
+          "operands": {
+            "items[0].amount": "5.25",
+            "items[1].amount": "4.5",
+            "items[2].amount": "4.75",
+            "items[3].amount": "17.0",
+            "subtotal": "31.5"
+          },
+          "computed": "31.5",
+          "observed": "31.5",
+          "difference": "0",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "receipt.subtotal_tax_total",
+          "fields": [
+            "subtotal",
+            "tax",
+            "total"
+          ],
+          "status": "passed",
+          "message": "subtotal + tax = 34.34 matches total 34.34 (difference 0; tolerance 0.02)",
+          "operands": {
+            "subtotal": "31.5",
+            "tax": "2.84",
+            "total": "34.34"
+          },
+          "computed": "34.34",
+          "observed": "34.34",
+          "difference": "0",
+          "tolerance": "0.02"
+        }
+      ]
     },
     "review": {
       "merchant_name": {

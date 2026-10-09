@@ -1,0 +1,100 @@
+{
+  "python": "3.12.12",
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "implementationSha256": "2e07ac60e4b93b081e73f5985a54ae7a62b54cc2b718fcc68fc407015033e4fd",
+  "method": "9 batches of 10 documents per operation, after one warm-up; no model calls",
+  "measurements": [
+    {
+      "document": "invoice.pdf",
+      "pdfSha256": "32d026999bf2318034f8d03df2b655b2c5f210245b3153b4068f64f333147175",
+      "operation": "verify parsed PDF",
+      "millisecondsPerDocument": [
+        13.734208300229511,
+        12.91578220007068,
+        13.426361799793085,
+        13.509024700033478,
+        13.310700399961206,
+        13.374901199858868,
+        14.37736389998463,
+        14.848353499837685,
+        15.132733199789072
+      ],
+      "medianMilliseconds": 13.509024700033478,
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "reportJsonBytes": 7157
+    },
+    {
+      "document": "invoice.pdf",
+      "pdfSha256": "32d026999bf2318034f8d03df2b655b2c5f210245b3153b4068f64f333147175",
+      "operation": "load + verify",
+      "millisecondsPerDocument": [
+        30.23927390022436,
+        30.541367100158823,
+        29.232506200060016,
+        27.40369319981255,
+        30.07123560018954,
+        27.08786049988703,
+        26.869210900258622,
+        27.190468499975395,
+        26.001732900112984
+      ],
+      "medianMilliseconds": 27.40369319981255,
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "reportJsonBytes": 7157
+    },
+    {
+      "document": "line-arithmetic.pdf",
+      "pdfSha256": "f375a9e52a0508c40d21baf44d450fbe126506ea4982c46a2730fb4d8c009b48",
+      "operation": "verify parsed PDF",
+      "millisecondsPerDocument": [
+        3.848918099902221,
+        3.9429091000783956,
+        4.038566300005186,
+        3.9971898000658257,
+        4.115627200008021,
+        4.110876000049757,
+        4.333469300036086,
+        7.133997100027045,
+        4.629715800183476
+      ],
+      "medianMilliseconds": 4.110876000049757,
+      "counts": {
+        "verified": 10,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "reportJsonBytes": 2610
+    },
+    {
+      "document": "line-arithmetic.pdf",
+      "pdfSha256": "f375a9e52a0508c40d21baf44d450fbe126506ea4982c46a2730fb4d8c009b48",
+      "operation": "load + verify",
+      "millisecondsPerDocument": [
+        14.04686509995372,
+        15.511106100166216,
+        15.171263099909993,
+        14.652797999951872,
+        13.175995599885937,
+        13.20641410020471,
+        14.072762100113323,
+        13.205843600007938,
+        13.975009800196858
+      ],
+      "medianMilliseconds": 14.04686509995372,
+      "counts": {
+        "verified": 10,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "reportJsonBytes": 2610
+    }
+  ]
+}

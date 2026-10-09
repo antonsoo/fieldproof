@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { fileURLToPath } from 'node:url';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { row, downloadText, scan, installAudit } from './helpers.mjs';
 
 const pdf = fileURLToPath(new URL('../../../examples/invoice.pdf', import.meta.url));
@@ -42,6 +43,56 @@ test('an omitted minus stays visible and readable in the real PDF review', async
       await page.evaluate(theme => document.documentElement.setAttribute('data-theme', theme), theme);
       await scan(page);
     }
+  }
+});
+
+test('quoted but inconsistent line arithmetic is reviewable and corrections keep their provenance', async ({ page, request, browserName }) => {
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/line-arithmetic.pdf', import.meta.url)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('../../../examples/fixtures/line-arithmetic.json', import.meta.url)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  const quantity = row(page, 'line_items[0].quantity');
+  for (const path of ['quantity', 'unit_price', 'amount']) {
+    const field = row(page, `line_items[0].${path}`);
+    await expect(field.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+    await expect(field.locator('.field-reasons')).toContainText('59.85');
+    await expect(field.locator('.field-reasons')).toContainText('before discounts or adjustments');
+  }
+  await expect(quantity.locator('.field-evidence')).toContainText('Precision bolts 3 19.95 39.90');
+  await quantity.getByRole('button', { name: 'Inspect line_items[0].quantity', exact: true }).click();
+  await expect(page.locator('#page-frame img')).toBeVisible();
+  const url = (await page.locator('#page-frame img').getAttribute('src')).replace(/\/pages\/\d+\.png$/, '');
+  const original = await (await request.get(`${url}/report`)).json();
+  const calculation = original.report.cross_field_checks[0];
+  expect(calculation.status).toBe('failed');
+  expect([calculation.computed, calculation.observed, calculation.difference]).toEqual(['59.85', '39.9', '-19.95']);
+
+  const directory = fileURLToPath(new URL('../../../docs/assets/arithmetic', import.meta.url));
+  if (process.env.UPDATE_ARITHMETIC_SCREENSHOTS) mkdirSync(directory, { recursive: true });
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 960 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await scan(page);
+    if (process.env.UPDATE_ARITHMETIC_SCREENSHOTS) {
+      await page.screenshot({ path: `${directory}/${browserName}-${width}.png`, fullPage: true });
+    }
+  }
+  await page.setViewportSize({ width: 1440, height: 960 });
+  await quantity.getByRole('button', { name: 'Edit', exact: true }).click();
+  await quantity.getByRole('textbox').fill('2');
+  await quantity.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect(quantity.locator('.review-badge')).toHaveText('edited');
+  const downloaded = await downloadText(page, 'JSON');
+  const rows = JSON.parse(downloaded.text);
+  expect(rows).toHaveLength(1);
+  expect(rows[0]).toMatchObject({ field: 'line_items[0].quantity', value: 2, original_value: 3, value_source: 'correction' });
+  expect(await (await request.get(`${url}/export.json?scope=reviewed`)).json()).toEqual(rows);
+  const reviewed = await (await request.get(`${url}/report`)).json();
+  // The audit describes the original extraction; human edits are separate evidence.
+  expect(reviewed.report.cross_field_checks).toEqual(original.report.cross_field_checks);
+  if (process.env.UPDATE_ARITHMETIC_SCREENSHOTS) {
+    writeFileSync(`${directory}/${browserName}-observations.json`, JSON.stringify({ calculation, downloadedRows: rows }, null, 2) + '\n');
   }
 });
 
