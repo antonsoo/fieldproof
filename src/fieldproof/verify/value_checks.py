@@ -66,7 +66,9 @@ _DATE_FORMATS = (
 #: strptime match would reject that and never find the date at all.
 _DATE_SEARCH_PATTERNS = (
     re.compile(r"\d{4}-\d{2}-\d{2}"),
-    re.compile(r"\d{1,2}[/.\-]\d{1,2}[/.\-]\d{2,4}"),
+    # Share the convention/grounding boundaries: a permissive fallback here
+    # would accept the identifier fragments those callers deliberately reject.
+    NUMERIC_DATE,
     re.compile(r"[A-Za-z]{3,9}\.?\s+\d{1,2},?\s+\d{4}"),
     re.compile(r"\d{1,2}\s+[A-Za-z]{3,9}\.?\s+\d{4}"),
 )
@@ -205,20 +207,19 @@ DateOrder = Literal["mdy", "dmy"]
 
 
 def numeric_date_order(text: str) -> DateOrder | None:
-    """The day/month order a document's numeric dates settle between them:
-    "mdy" if some date's second part is over 12 (03/14/2026), "dmy" if some
-    date's first part is (14/03/2026), None if no date settles it or the
-    document mixes both."""
-    month_first = day_first = False
-    for m in NUMERIC_DATE.finditer(text):
-        first, second = int(m.group(1)), int(m.group(3))
-        if second > 12 >= first:
-            month_first = True
-        elif first > 12 >= second:
-            day_first = True
-    if month_first == day_first:
-        return None
-    return "mdy" if month_first else "dmy"
+    """The order established by complete, calendar-valid numeric dates.
+
+    A token settles the convention only when exactly one order is a valid
+    calendar date. Invalid days, months and leap dates cannot disambiguate
+    other fields or override a caller's default. None means no valid token
+    settles the order, or valid tokens establish conflicting conventions.
+    """
+    settled: set[DateOrder] = set()
+    for match in NUMERIC_DATE.finditer(text):
+        readings = numeric_date_readings(match)
+        if len(readings) == 1:
+            settled.update(readings)
+    return next(iter(settled)) if len(settled) == 1 else None
 
 
 def check_date(
