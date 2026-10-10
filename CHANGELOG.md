@@ -11,8 +11,8 @@ All notable changes to this project are documented in this file.
   pieces of phone numbers no longer override a caller's default.
 - Use the same numeric-date boundaries in grounding and the parser fallback,
   so rejected fragments cannot silently return as verified date evidence.
-- Retain 210 before/after checks through 35 constructed PDFs: 43 unsupported
-  verifications and 17 unnecessary reviews become zero on these inputs.
+- Retain 252 before/after checks through 42 constructed PDFs: 58 unsupported
+  verifications and 20 unnecessary reviews become zero on these inputs.
   All 7,600 scripted receipt date claims keep their prior outcomes. The
   [study](studies/date-conventions/README.md) records four changed document
   conventions, a fused-OCR limitation and an existing wrong-location match.

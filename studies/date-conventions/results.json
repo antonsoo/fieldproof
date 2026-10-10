@@ -3,25 +3,25 @@
   "scope": "Constructed PDFs and existing receipt annotations; no OCR or model run.",
   "pdf": {
     "before": {
-      "scope": "35 constructed PDFs; two readings and three defaults; no model calls.",
-      "cases": 210,
-      "mismatches": 60,
-      "wrong_or_unsupported_verified": 43,
-      "supported_sent_to_review": 17,
+      "scope": "42 constructed PDFs; two readings and three defaults; no model calls.",
+      "cases": 252,
+      "mismatches": 78,
+      "wrong_or_unsupported_verified": 58,
+      "supported_sent_to_review": 20,
       "verdicts": {
-        "needs_review": 118,
-        "verified": 92
+        "needs_review": 139,
+        "verified": 113
       }
     },
     "after": {
-      "scope": "35 constructed PDFs; two readings and three defaults; no model calls.",
-      "cases": 210,
+      "scope": "42 constructed PDFs; two readings and three defaults; no model calls.",
+      "cases": 252,
       "mismatches": 0,
       "wrong_or_unsupported_verified": 0,
       "supported_sent_to_review": 0,
       "verdicts": {
-        "needs_review": 144,
-        "verified": 66
+        "needs_review": 177,
+        "verified": 75
       }
     },
     "claims": [
@@ -1914,6 +1914,384 @@
         "pdf_sha256": "b54cfd03448928a3202b74ad32693aa13a8647f20cabbdfef9808591d3300385",
         "before": "verified",
         "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-7",
+        "default": null,
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "71a97b7f5a200cdf4d0911d60c9b932db9e701d8d9ae8cc783c7fa1f98267a69",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-7",
+        "default": null,
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "71a97b7f5a200cdf4d0911d60c9b932db9e701d8d9ae8cc783c7fa1f98267a69",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-7",
+        "default": "mdy",
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "71a97b7f5a200cdf4d0911d60c9b932db9e701d8d9ae8cc783c7fa1f98267a69",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-7",
+        "default": "mdy",
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "71a97b7f5a200cdf4d0911d60c9b932db9e701d8d9ae8cc783c7fa1f98267a69",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-7",
+        "default": "dmy",
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "71a97b7f5a200cdf4d0911d60c9b932db9e701d8d9ae8cc783c7fa1f98267a69",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-7",
+        "default": "dmy",
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "71a97b7f5a200cdf4d0911d60c9b932db9e701d8d9ae8cc783c7fa1f98267a69",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-8",
+        "default": null,
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "b3dc4d4a939ba68a69533ec383ad055e890eabf00cf8ceaa54b2aab50cdb3b35",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-8",
+        "default": null,
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "b3dc4d4a939ba68a69533ec383ad055e890eabf00cf8ceaa54b2aab50cdb3b35",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-8",
+        "default": "mdy",
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "b3dc4d4a939ba68a69533ec383ad055e890eabf00cf8ceaa54b2aab50cdb3b35",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-8",
+        "default": "mdy",
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "b3dc4d4a939ba68a69533ec383ad055e890eabf00cf8ceaa54b2aab50cdb3b35",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-8",
+        "default": "dmy",
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "b3dc4d4a939ba68a69533ec383ad055e890eabf00cf8ceaa54b2aab50cdb3b35",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-8",
+        "default": "dmy",
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "b3dc4d4a939ba68a69533ec383ad055e890eabf00cf8ceaa54b2aab50cdb3b35",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-9",
+        "default": null,
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "1263c542158ecffa347807350b4b958a8baf907d078e8793679e59658a26c658",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-9",
+        "default": null,
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "1263c542158ecffa347807350b4b958a8baf907d078e8793679e59658a26c658",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-9",
+        "default": "mdy",
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "1263c542158ecffa347807350b4b958a8baf907d078e8793679e59658a26c658",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-9",
+        "default": "mdy",
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "1263c542158ecffa347807350b4b958a8baf907d078e8793679e59658a26c658",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-9",
+        "default": "dmy",
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "1263c542158ecffa347807350b4b958a8baf907d078e8793679e59658a26c658",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-identifier-9",
+        "default": "dmy",
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "1263c542158ecffa347807350b4b958a8baf907d078e8793679e59658a26c658",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-0",
+        "default": null,
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "0705d93a54ffe4c746b156e870173aba3b2ee509cb015ecf2e7ac348b7ec7150",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-0",
+        "default": null,
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "0705d93a54ffe4c746b156e870173aba3b2ee509cb015ecf2e7ac348b7ec7150",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-0",
+        "default": "mdy",
+        "value": "2026-03-04",
+        "expected": "verified",
+        "pdf_sha256": "0705d93a54ffe4c746b156e870173aba3b2ee509cb015ecf2e7ac348b7ec7150",
+        "before": "verified",
+        "after": "verified"
+      },
+      {
+        "case": "quoted-invalid-iso-0",
+        "default": "mdy",
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "0705d93a54ffe4c746b156e870173aba3b2ee509cb015ecf2e7ac348b7ec7150",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-0",
+        "default": "dmy",
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "0705d93a54ffe4c746b156e870173aba3b2ee509cb015ecf2e7ac348b7ec7150",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-0",
+        "default": "dmy",
+        "value": "2026-04-03",
+        "expected": "verified",
+        "pdf_sha256": "0705d93a54ffe4c746b156e870173aba3b2ee509cb015ecf2e7ac348b7ec7150",
+        "before": "needs_review",
+        "after": "verified"
+      },
+      {
+        "case": "quoted-invalid-iso-1",
+        "default": null,
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "b33af44c31d3cdeec72d84223738047a35c017c0bce8ec957511b76a483328fe",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-1",
+        "default": null,
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "b33af44c31d3cdeec72d84223738047a35c017c0bce8ec957511b76a483328fe",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-1",
+        "default": "mdy",
+        "value": "2026-03-04",
+        "expected": "verified",
+        "pdf_sha256": "b33af44c31d3cdeec72d84223738047a35c017c0bce8ec957511b76a483328fe",
+        "before": "verified",
+        "after": "verified"
+      },
+      {
+        "case": "quoted-invalid-iso-1",
+        "default": "mdy",
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "b33af44c31d3cdeec72d84223738047a35c017c0bce8ec957511b76a483328fe",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-1",
+        "default": "dmy",
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "b33af44c31d3cdeec72d84223738047a35c017c0bce8ec957511b76a483328fe",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-1",
+        "default": "dmy",
+        "value": "2026-04-03",
+        "expected": "verified",
+        "pdf_sha256": "b33af44c31d3cdeec72d84223738047a35c017c0bce8ec957511b76a483328fe",
+        "before": "needs_review",
+        "after": "verified"
+      },
+      {
+        "case": "quoted-invalid-iso-2",
+        "default": null,
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "364629eb60ddd14935494133fc784fcf45427cf0bf6da0dae5b9326cbed40b85",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-2",
+        "default": null,
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "364629eb60ddd14935494133fc784fcf45427cf0bf6da0dae5b9326cbed40b85",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-2",
+        "default": "mdy",
+        "value": "2026-03-04",
+        "expected": "verified",
+        "pdf_sha256": "364629eb60ddd14935494133fc784fcf45427cf0bf6da0dae5b9326cbed40b85",
+        "before": "verified",
+        "after": "verified"
+      },
+      {
+        "case": "quoted-invalid-iso-2",
+        "default": "mdy",
+        "value": "2026-04-03",
+        "expected": "needs_review",
+        "pdf_sha256": "364629eb60ddd14935494133fc784fcf45427cf0bf6da0dae5b9326cbed40b85",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-2",
+        "default": "dmy",
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "364629eb60ddd14935494133fc784fcf45427cf0bf6da0dae5b9326cbed40b85",
+        "before": "verified",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-invalid-iso-2",
+        "default": "dmy",
+        "value": "2026-04-03",
+        "expected": "verified",
+        "pdf_sha256": "364629eb60ddd14935494133fc784fcf45427cf0bf6da0dae5b9326cbed40b85",
+        "before": "needs_review",
+        "after": "verified"
+      },
+      {
+        "case": "quoted-iso-control",
+        "default": null,
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "087f447d1166cab44d04c924ce3cfae387f995f6c2641cfa0a95471af488db03",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-iso-control",
+        "default": null,
+        "value": "2026-04-03",
+        "expected": "verified",
+        "pdf_sha256": "087f447d1166cab44d04c924ce3cfae387f995f6c2641cfa0a95471af488db03",
+        "before": "verified",
+        "after": "verified"
+      },
+      {
+        "case": "quoted-iso-control",
+        "default": "mdy",
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "087f447d1166cab44d04c924ce3cfae387f995f6c2641cfa0a95471af488db03",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-iso-control",
+        "default": "mdy",
+        "value": "2026-04-03",
+        "expected": "verified",
+        "pdf_sha256": "087f447d1166cab44d04c924ce3cfae387f995f6c2641cfa0a95471af488db03",
+        "before": "verified",
+        "after": "verified"
+      },
+      {
+        "case": "quoted-iso-control",
+        "default": "dmy",
+        "value": "2026-03-04",
+        "expected": "needs_review",
+        "pdf_sha256": "087f447d1166cab44d04c924ce3cfae387f995f6c2641cfa0a95471af488db03",
+        "before": "needs_review",
+        "after": "needs_review"
+      },
+      {
+        "case": "quoted-iso-control",
+        "default": "dmy",
+        "value": "2026-04-03",
+        "expected": "verified",
+        "pdf_sha256": "087f447d1166cab44d04c924ce3cfae387f995f6c2641cfa0a95471af488db03",
+        "before": "verified",
+        "after": "verified"
       }
     ]
   },

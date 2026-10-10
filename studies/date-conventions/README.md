@@ -16,7 +16,8 @@ unambiguous date in the document still takes precedence.
 Numeric token boundaries are shared by grounding, convention discovery and the
 free-text parser. This last part matters: otherwise an identifier rejected by
 the ambiguity check could fall through to a permissive parser and verify as
-month-first. Sentence punctuation and labels such as `Date:14/03/2026` remain
+month-first. An impossible ISO token elsewhere in the same quote must also not
+suppress the numeric ambiguity check. Sentence punctuation and labels such as `Date:14/03/2026` remain
 supported; attached letters, underscores and continuing separators do not.
 
 ## Try the actual PDF
@@ -41,19 +42,21 @@ automated verdict or pretend to reverify the new date.
 
 ## Before and after through the PDF loader
 
-`run.py` generates 35 deterministic PDFs and runs both claimed readings with
-no default, `mdy` and `dmy`: 210 checks. The expected interpretation is specified
+`run.py` generates 42 deterministic PDFs and runs both claimed readings with
+no default, `mdy` and `dmy`: 252 checks. The expected interpretation is specified
 in the scenario, independently of the parser. Controls cover actual day/month
 conventions, labels, sentence punctuation, equal day/month, leap years and
 Gregorian century exceptions. Failure cases include impossible dates, long
 years, attached identifiers and a date-shaped prefix of a longer token.
-Seven PDFs cite the identifier itself, exercising the fallback parser.
+Ten PDFs cite identifiers themselves. Three quote an ambiguous date beside an
+impossible ISO token, and one confirms a valid ISO quote still verifies. These
+cases exercise format selection and the fallback parser.
 
 | Outcome on these constructed claims | Before | After |
 | --- | ---: | ---: |
-| Wrong or unsupported claims verified | 43 | 0 |
-| Supported claims sent to review | 17 | 0 |
-| All verdict mismatches | 60 | 0 |
+| Wrong or unsupported claims verified | 58 | 0 |
+| Supported claims sent to review | 20 | 0 |
+| All verdict mismatches | 78 | 0 |
 
 These are deliberate reproductions, not an estimate of real-world error rates.
 The independent unit oracle additionally checks numeric components 0 through
@@ -107,7 +110,7 @@ for the receipt replay; the normal package does not gain a dependency.
 ```bash
 uv sync --locked --extra dev
 mkdir -p /tmp/fieldproof-date-baseline
- git archive 7be880a | tar -x -C /tmp/fieldproof-date-baseline
+git archive 7be880a | tar -x -C /tmp/fieldproof-date-baseline
 uv run --locked python -I studies/date-conventions/run.py \
   --src /tmp/fieldproof-date-baseline/src --out /tmp/date-before --observe-only
 uv run --locked python -I studies/date-conventions/run.py \
@@ -130,7 +133,7 @@ results. Raw receipt replay hashes are retained with the compact comparison.
 ReportLab versions can change PDF bytes; use the locked environment to reproduce
 the committed hashes. No timing benchmark or production accuracy claim is made.
 
-The [installed-package replay](installed.json) checks all 210 full field results
+The [installed-package replay](installed.json) checks all 252 full field results
 and six real CLI invocations outside the source tree. The focused browser run
 uses a separately installed server on port 4300:
 

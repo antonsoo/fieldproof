@@ -9,7 +9,7 @@
     "fastapi": "0.143.0"
   },
   "imported_installed_package": true,
-  "pdf_checks": 210,
+  "pdf_checks": 252,
   "pdf_result_dicts_match_source": true,
   "cli_checks": [
     {
