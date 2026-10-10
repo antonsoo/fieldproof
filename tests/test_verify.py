@@ -94,17 +94,36 @@ def test_check_string_fuzzy_tolerant_of_minor_differences() -> None:
     assert not check_string("Acme Corporation", "a totally different vendor name").supported
 
 
-def test_check_bool_reads_yes_no_language() -> None:
+def test_check_bool_reads_explicit_answers() -> None:
     assert check_bool(True, "Confirmed: yes").supported
-    assert check_bool(False, "Status: denied").supported
-
-
-def test_check_bool_matches_whole_words() -> None:
-    # "no" inside "notice", "November" or "none" is not a negation.
-    assert check_bool(True, "Approved in November, with notice given").supported
     assert check_bool(False, "Renewal: no").supported
-    assert check_bool(False, "This agreement is not renewable").supported
+    assert check_bool(True, "APPROVED = TRUE.").supported
+    assert check_bool(True, "November notice: yes").supported
+    assert check_bool(False, "false").supported
     assert not check_bool(True, "Approved: no").supported
+    assert "disagrees" in check_bool(False, "Approved: yes").reason
+
+
+def test_check_bool_does_not_infer_prose_polarity() -> None:
+    for quote in (
+        "The request is approved, not denied.",
+        "No changes: approval confirmed.",
+        "Approval was denied previously, but is confirmed today.",
+        "Approved in November, with notice given",
+        "This agreement is not renewable",
+        "Status: denied",
+        "True only if approved",
+        "No earlier than November",
+        "Approval: yes or no",
+        "Approval: yes; Renewal: no",
+        "Approval: yes\nRenewal: yes",
+        "Yes/No: yes",
+        "Approval: yes?",
+    ):
+        for value in (True, False):
+            check = check_bool(value, quote)
+            assert not check.supported, (quote, value)
+            assert "single explicit" in check.reason
 
 
 def _invoice(**overrides: object) -> Invoice:

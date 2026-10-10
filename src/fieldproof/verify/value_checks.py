@@ -405,20 +405,33 @@ def check_string(
     )
 
 
-_POSITIVE_WORDS = frozenset({"yes", "true", "confirmed", "agreed", "approved"})
-_NEGATIVE_WORDS = frozenset({"no", "not", "false", "denied", "declined"})
-_WORD = re.compile(r"[a-z]+")
+_BOOL_ANSWER = re.compile(
+    r"(?:(?P<label>\w[\w ()/&,'-]*)\s*[:=]\s*)?(?P<answer>yes|no|true|false)\.?"
+)
+_BOOL_WORD = re.compile(r"\b(?:yes|no|true|false)\b")
 
 
 def check_bool(value: bool, evidence_text: str) -> ValueCheckResult:
-    # Whole words: "no" inside "notice" or "November" is not a negation.
-    words = set(_WORD.findall(normalize(evidence_text).lower()))
-    positive = bool(words & _POSITIVE_WORDS)
-    negative = bool(words & _NEGATIVE_WORDS)
-    if value and positive and not negative:
-        return ValueCheckResult(True)
-    if not value and negative:
-        return ValueCheckResult(True)
-    return ValueCheckResult(
-        False, f"boolean value {value} is not clearly supported by evidence {evidence_text!r}"
-    )
+    """Compare an explicit Boolean answer, never infer the polarity of prose.
+
+    A quote can say "approved, not denied" or "no changes: approval confirmed".
+    Collecting positive/negative words would verify False for both. Only a single
+    yes/no or true/false answer, optionally after a label and colon/equal sign,
+    supplies a value here. Other language keeps its grounded quote for review.
+    As with numeric membership, this does not establish the label's meaning or
+    its association with the caller's schema field.
+    """
+    match = _BOOL_ANSWER.fullmatch(normalize(evidence_text).casefold())
+    if match is None or _BOOL_WORD.search(match["label"] or ""):
+        return ValueCheckResult(
+            False,
+            "boolean evidence needs a single explicit yes/no or true/false answer "
+            "(optionally 'Label: yes' or 'Label = false'); prose, choices and multiple "
+            "answers need review",
+        )
+    answer = match["answer"]
+    if value != (answer in {"yes", "true"}):
+        return ValueCheckResult(
+            False, f"boolean value {value} disagrees with explicit answer {answer!r}"
+        )
+    return ValueCheckResult(True)
