@@ -326,6 +326,14 @@ class PurchaseOrder(BaseModel):
     amount: Evidenced[float]
 ```
 
+In the source checkout, Boolean leaves need one explicit `yes`/`no` or
+`true`/`false` answer, optionally labelled (`Approval: yes`, `Renewal = false`).
+Prose and checkbox choices need review: a real quote saying "approved, not
+denied" must not verify `approved=False` just because it contains "not".
+The [Boolean evidence replay](studies/boolean-evidence/README.md) retains the
+PDFs, both claimed values, and their unchanged source highlights. This checks
+the written answer, not whether its label belongs to the chosen schema field.
+
 Cross-field rules (line-item sums, date ordering) are schema-specific and
 currently only implemented for the built-in Invoice/Receipt templates - see
 [Limitations](#accuracy-and-limitations).
@@ -424,8 +432,10 @@ four hold:
    short value inside a longer quote still matches), and every run of digits
    in the value must be in the evidence as written - `NW-20260215` is 96%
    similar to `NW-20260214` and a different invoice, and a name with one
-   letter changed is 94% similar to the original and a different name; booleans look for whole words like
-   yes/no/not/confirmed/denied (so "notice" isn't a "no"). Any mismatch ->
+   letter changed is 94% similar to the original and a different name. In the
+   source checkout, booleans require a single explicit yes/no or true/false
+   answer, optionally after a label and `:` or `=`. Inferring polarity from
+   prose, conditions or checkbox choices requires review. Any mismatch ->
    `needs_review`.
 4. **Cross-field rules.** The source checkout first records whether each
    invoice/receipt line-item number shares a visual line with its independently

@@ -1,0 +1,1879 @@
+{
+  "schema_version": 1,
+  "python": "3.11.13",
+  "package_version": "0.2.7",
+  "module_source": "installed package",
+  "value_checks_sha256": "635da75e05be566d941a83c82838bb1f57259edf82c3ce8b8de61516ef902d32",
+  "driver_sha256": "832d87277fc36f6d2bb6b52dff9abd6f66e647f530e527421050262b9363ccac",
+  "pdfs": [
+    {
+      "file": "approved-not-denied.pdf",
+      "bytes": 1759,
+      "sha256": "cc379fc29c2398572bf0ddee788c2d1c46709e0debf892f3dbd7eeec3962fbcc"
+    },
+    {
+      "file": "unrelated-no.pdf",
+      "bytes": 1754,
+      "sha256": "62cb49a38171005741feaa0a112e89920673521672fe7a1f48aab6eb8cabcd7b"
+    },
+    {
+      "file": "previous-denial.pdf",
+      "bytes": 1778,
+      "sha256": "b40c230996e7e479ea490bf41a54cd2b5f89c5535472f39051d64233ba8f8119"
+    },
+    {
+      "file": "not-only.pdf",
+      "bytes": 1769,
+      "sha256": "50fa8097971e8ae508cf74d345a83063d1de6d051c6a97e617e82217bdfe30ec"
+    },
+    {
+      "file": "positive-prose.pdf",
+      "bytes": 1765,
+      "sha256": "e5cda98fd79e1e480cc50df9eb6d09fec8451ad173b6ebe24f8a5c6badc74ab4"
+    },
+    {
+      "file": "negative-prose.pdf",
+      "bytes": 1760,
+      "sha256": "7ead7149687f40e597f966f1451e413e6163fef6b3820399d28cd004a560c72b"
+    },
+    {
+      "file": "denied-status.pdf",
+      "bytes": 1745,
+      "sha256": "1240ec7f394623f2a2c5df6c51739e71f6859e807e086bae833a0a6b43c34a76"
+    },
+    {
+      "file": "not-denied.pdf",
+      "bytes": 1754,
+      "sha256": "b809a72f4d6fc2e70a9688cc00efdc9bacdb81bfb4a6e9cdf4f732e7b29c356a"
+    },
+    {
+      "file": "not-false.pdf",
+      "bytes": 1755,
+      "sha256": "e37d1ec2917d4d646d310eabac2aa775170139af03c64405a77f2b992bb94579"
+    },
+    {
+      "file": "future.pdf",
+      "bytes": 1765,
+      "sha256": "0c4d9a4192c240df254cb35779f7ba70c87d461d15a3ad59c8e7c9fd919728ad"
+    },
+    {
+      "file": "condition.pdf",
+      "bytes": 1758,
+      "sha256": "43b96c86370f0fb03bdb11d01e57b48a5bb51c9ee1e044ce6a6fc254f340a17f"
+    },
+    {
+      "file": "exception.pdf",
+      "bytes": 1761,
+      "sha256": "290e2c71a560bef4b5f1beef0fba81167474f59149aefdfd2b0b77487d750e62"
+    },
+    {
+      "file": "number-constraint.pdf",
+      "bytes": 1764,
+      "sha256": "6432077c74fd4e636e273622e9330e69e3d70de7503b3730e34e31c8e92cdc66"
+    },
+    {
+      "file": "choice-or.pdf",
+      "bytes": 1745,
+      "sha256": "e295cb765ba5c46b40fc25263aecd18a69d1f3fcbec966f2e7be206da92b2b28"
+    },
+    {
+      "file": "choice-slash.pdf",
+      "bytes": 1744,
+      "sha256": "b3dfc1dab1425cddd211424542d4c6a173559a14965d9441b8f08ad9492ac834"
+    },
+    {
+      "file": "choice-label.pdf",
+      "bytes": 1744,
+      "sha256": "5ca8fe9f8c362e0e0df62b63f0d6cd79c80a1d9e9c18952fa5138177f6bfd648"
+    },
+    {
+      "file": "two-answers.pdf",
+      "bytes": 1755,
+      "sha256": "c77cb5f7a4635beaada5536aed484a10851dd47e28cf28ff6ee4d06098c7a3a8"
+    },
+    {
+      "file": "question.pdf",
+      "bytes": 1745,
+      "sha256": "0e04e25e9d5057a86270430a9eb937ec2c77ae692066d8b099ea4a7d18955a58"
+    },
+    {
+      "file": "checked-yes.pdf",
+      "bytes": 1753,
+      "sha256": "deae02261ff54110ed84f9a7fed0f4961004b714207e4e89d4d6c651ea31962a"
+    },
+    {
+      "file": "checked-no.pdf",
+      "bytes": 1753,
+      "sha256": "7a9b06f4fec6e2aed91a66ce1d64761af73accea62287a285303e2cf55636146"
+    },
+    {
+      "file": "literal-yes.pdf",
+      "bytes": 1735,
+      "sha256": "60657ff375e3960f0be9992623f3c9eff5e7bb0ee807760c9af5218ee4e6006d"
+    },
+    {
+      "file": "literal-no.pdf",
+      "bytes": 1733,
+      "sha256": "2bc82e45836aeaa21508f79aa059bcd8e39f5350c82d31fdec7cddc85cbf95cd"
+    },
+    {
+      "file": "literal-true.pdf",
+      "bytes": 1735,
+      "sha256": "c3e2cc74b8644f9da66dad86ae88b46b834e3403e166d37d4a606600b0b0351d"
+    },
+    {
+      "file": "literal-false.pdf",
+      "bytes": 1738,
+      "sha256": "fadf0e0c740c06bcd29dbd17332cd8bafa35e9632ae2f364384fb6d1dd729451"
+    },
+    {
+      "file": "label-yes.pdf",
+      "bytes": 1741,
+      "sha256": "fcb486b2cddc894e045cfdd73c6ea2bff65645e492389e9d29450530a4d17501"
+    },
+    {
+      "file": "label-no.pdf",
+      "bytes": 1739,
+      "sha256": "cd61ce8f51c9ed9dc146a8d70a2c3998c63ddc7a277c58681209b23881c3628d"
+    },
+    {
+      "file": "label-true.pdf",
+      "bytes": 1741,
+      "sha256": "08ed478e42dc1869a73283454e30990c03dfe78360aa47bed86569451176d6a1"
+    },
+    {
+      "file": "label-false.pdf",
+      "bytes": 1743,
+      "sha256": "7d7866babff9f0c8f16ff23e8f182f9bdeb847009a79f8016178b41f0fb4673f"
+    },
+    {
+      "file": "upper-equal.pdf",
+      "bytes": 1748,
+      "sha256": "665007b236addd05235b78b578fb99ed7589caeb2a261efbb1240a1ab3a986ce"
+    },
+    {
+      "file": "mixed-case.pdf",
+      "bytes": 1745,
+      "sha256": "e4fecb4c10b7baf3e448462b3b72948516f1072b0161be716f1f70d9bfa897f7"
+    },
+    {
+      "file": "confirmed-answer.pdf",
+      "bytes": 1745,
+      "sha256": "7e192bbd3ec9e699ce83c5ffee69f3a0c8bcd7ea4a68ec53025b47ccafcbae3e"
+    },
+    {
+      "file": "renewal-answer.pdf",
+      "bytes": 1744,
+      "sha256": "1410fe57a40852c1b94c5ff39adb8c3b66e2f746f54c672db2dcd193dab2d9d1"
+    }
+  ],
+  "cases": [
+    {
+      "case": "approved-not-denied",
+      "quote": "The request is approved, not denied.",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "The request is approved, not denied.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 237.44400000000002,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "approved-not-denied",
+      "quote": "The request is approved, not denied.",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "The request is approved, not denied.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 237.44400000000002,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "unrelated-no",
+      "quote": "No changes: approval confirmed.",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "No changes: approval confirmed.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 218.076,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "unrelated-no",
+      "quote": "No changes: approval confirmed.",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "No changes: approval confirmed.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 218.076,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "previous-denial",
+      "quote": "Approval was denied previously, but is confirmed today.",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval was denied previously, but is confirmed today.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 338.12400000000014,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "previous-denial",
+      "quote": "Approval was denied previously, but is confirmed today.",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval was denied previously, but is confirmed today.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 338.12400000000014,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "not-only",
+      "quote": "The request is not only approved but expedited.",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "The request is not only approved but expedited.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 295.476,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "not-only",
+      "quote": "The request is not only approved but expedited.",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "The request is not only approved but expedited.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 295.476,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "positive-prose",
+      "quote": "Approved in November, with notice given",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approved in November, with notice given",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 260.08799999999997,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "positive-prose",
+      "quote": "Approved in November, with notice given",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approved in November, with notice given",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 260.08799999999997,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "negative-prose",
+      "quote": "This agreement is not renewable",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "This agreement is not renewable",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 216.07199999999995,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "negative-prose",
+      "quote": "This agreement is not renewable",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "This agreement is not renewable",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 216.07199999999995,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "denied-status",
+      "quote": "Status: denied",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Status: denied",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 118.71599999999998,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "denied-status",
+      "quote": "Status: denied",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Status: denied",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 118.71599999999998,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "not-denied",
+      "quote": "The request was not denied.",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "The request was not denied.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 193.41599999999997,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "not-denied",
+      "quote": "The request was not denied.",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "The request was not denied.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 193.41599999999997,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "not-false",
+      "quote": "The statement is not false.",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "The statement is not false.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 182.73599999999996,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "not-false",
+      "quote": "The statement is not false.",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "The statement is not false.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 182.73599999999996,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "future",
+      "quote": "The request will be approved after review.",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "The request will be approved after review.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 264.75600000000003,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "future",
+      "quote": "The request will be approved after review.",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "The request will be approved after review.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 264.75600000000003,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "condition",
+      "quote": "Approval: yes, pending signature",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: yes, pending signature",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 216.75599999999997,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "condition",
+      "quote": "Approval: yes, pending signature",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: yes, pending signature",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 216.75599999999997,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "exception",
+      "quote": "Approval: no (unless reviewed)",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: no (unless reviewed)",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 206.72399999999993,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "exception",
+      "quote": "Approval: no (unless reviewed)",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: no (unless reviewed)",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 206.72399999999993,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "number-constraint",
+      "quote": "No more than one signature is required.",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "No more than one signature is required.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 253.42800000000003,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "number-constraint",
+      "quote": "No more than one signature is required.",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "No more than one signature is required.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 253.42800000000003,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "choice-or",
+      "quote": "Approval: yes or no",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: yes or no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 145.37999999999997,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "choice-or",
+      "quote": "Approval: yes or no",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: yes or no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 145.37999999999997,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "choice-slash",
+      "quote": "Approval: yes/no",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: yes/no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 131.376,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "choice-slash",
+      "quote": "Approval: yes/no",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: yes/no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 131.376,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "choice-label",
+      "quote": "Yes/No: yes",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Yes/No: yes",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 106.692,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "choice-label",
+      "quote": "Yes/No: yes",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Yes/No: yes",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 106.692,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "two-answers",
+      "quote": "Approved: yes; Renewal: no",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approved: yes; Renewal: no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 192.072,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "two-answers",
+      "quote": "Approved: yes; Renewal: no",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approved: yes; Renewal: no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 192.072,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "question",
+      "quote": "Approval: false?",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: false?",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 128.04,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "question",
+      "quote": "Approval: false?",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: false?",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 128.04,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "checked-yes",
+      "quote": "Approval: [x] yes [ ] no",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: [x] yes [ ] no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 160.72799999999998,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "checked-yes",
+      "quote": "Approval: [x] yes [ ] no",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: [x] yes [ ] no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 160.72799999999998,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "checked-no",
+      "quote": "Approval: [ ] yes [x] no",
+      "explicit_answer": null,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: [ ] yes [x] no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 160.72799999999998,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "checked-no",
+      "quote": "Approval: [ ] yes [x] no",
+      "explicit_answer": null,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean evidence needs a single explicit yes/no or true/false answer (optionally 'Label: yes' or 'Label = false'); prose, choices and multiple answers need review"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: [ ] yes [x] no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 160.72799999999998,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "literal-yes",
+      "quote": "yes",
+      "explicit_answer": true,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value False disagrees with explicit answer 'yes'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "yes",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 60.672,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "literal-yes",
+      "quote": "yes",
+      "explicit_answer": true,
+      "claim": true,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "yes",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 60.672,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "literal-no",
+      "quote": "no",
+      "explicit_answer": false,
+      "claim": false,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 55.343999999999994,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "literal-no",
+      "quote": "no",
+      "explicit_answer": false,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value True disagrees with explicit answer 'no'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 55.343999999999994,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "literal-true",
+      "quote": "true",
+      "explicit_answer": true,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value False disagrees with explicit answer 'true'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "true",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 62.676,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "literal-true",
+      "quote": "true",
+      "explicit_answer": true,
+      "claim": true,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "true",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 62.676,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "literal-false",
+      "quote": "false",
+      "explicit_answer": false,
+      "claim": false,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "false",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 67.344,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "literal-false",
+      "quote": "false",
+      "explicit_answer": false,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value True disagrees with explicit answer 'false'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "false",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 67.344,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "label-yes",
+      "quote": "Approval: yes",
+      "explicit_answer": true,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value False disagrees with explicit answer 'yes'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: yes",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 114.696,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "label-yes",
+      "quote": "Approval: yes",
+      "explicit_answer": true,
+      "claim": true,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Approval: yes",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 114.696,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "label-no",
+      "quote": "Approval: no",
+      "explicit_answer": false,
+      "claim": false,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Approval: no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 109.368,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "label-no",
+      "quote": "Approval: no",
+      "explicit_answer": false,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value True disagrees with explicit answer 'no'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 109.368,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "label-true",
+      "quote": "Approval: true",
+      "explicit_answer": true,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value False disagrees with explicit answer 'true'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: true",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 116.7,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "label-true",
+      "quote": "Approval: true",
+      "explicit_answer": true,
+      "claim": true,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Approval: true",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 116.7,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "label-false",
+      "quote": "Approval: false",
+      "explicit_answer": false,
+      "claim": false,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Approval: false",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 121.368,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "label-false",
+      "quote": "Approval: false",
+      "explicit_answer": false,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value True disagrees with explicit answer 'false'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval: false",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 121.368,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "upper-equal",
+      "quote": "APPROVAL = TRUE.",
+      "explicit_answer": true,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value False disagrees with explicit answer 'true'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "APPROVAL = TRUE.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 156.372,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "upper-equal",
+      "quote": "APPROVAL = TRUE.",
+      "explicit_answer": true,
+      "claim": true,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "APPROVAL = TRUE.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 156.372,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "mixed-case",
+      "quote": "Approval = False",
+      "explicit_answer": false,
+      "claim": false,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Approval = False",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 132.37199999999999,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "mixed-case",
+      "quote": "Approval = False",
+      "explicit_answer": false,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value True disagrees with explicit answer 'false'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Approval = False",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 132.37199999999999,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "confirmed-answer",
+      "quote": "Confirmed: yes",
+      "explicit_answer": true,
+      "claim": false,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value False disagrees with explicit answer 'yes'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Confirmed: yes",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 122.68799999999999,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "confirmed-answer",
+      "quote": "Confirmed: yes",
+      "explicit_answer": true,
+      "claim": true,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Confirmed: yes",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 122.68799999999999,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "renewal-answer",
+      "quote": "Renewal: no",
+      "explicit_answer": false,
+      "claim": false,
+      "expected_status": "verified",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": false,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Renewal: no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 108.696,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "renewal-answer",
+      "quote": "Renewal: no",
+      "explicit_answer": false,
+      "claim": true,
+      "expected_status": "needs_review",
+      "passed": true,
+      "field": {
+        "path": "approved",
+        "value": true,
+        "status": "needs_review",
+        "reasons": [
+          "boolean value True disagrees with explicit answer 'no'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Renewal: no",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 42.0,
+            "top": 147.48400000000004,
+            "x1": 108.696,
+            "bottom": 159.48400000000004
+          }
+        ]
+      }
+    }
+  ],
+  "passed": 64,
+  "total": 64,
+  "located_quotes_and_rectangles_retained": 64
+}

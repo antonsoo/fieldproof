@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Explicit Boolean evidence
+
+- Verify Boolean leaves from a single explicit yes/no or true/false answer,
+  optionally after a label and colon/equal sign. Compare the claimed value to
+  that answer; preserve case and whitespace normalization.
+- Send prose, conditions, choice lists and multiple answers to review.
+  A quote saying "approved, not denied" no longer verifies `approved=False`
+  because of unrelated negative words. Preserve the claim, source text,
+  page and highlight; verification does not silently correct an extracted value.
+- [Retain 32 synthetic PDFs and 64 paired claims](studies/boolean-evidence/README.md),
+  including explicit-answer controls and both polarities of each ambiguous quote.
+  Boolean fields are exposed through custom Python schemas; this change does
+  not establish a label's semantic association with a schema field.
+
 ### Calendar-valid date evidence
 
 - Require complete, valid calendar dates before inferring day-first or

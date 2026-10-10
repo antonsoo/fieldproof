@@ -1,0 +1,223 @@
+{
+  "source_revision": "1b87206102369f8596c1d587048afc5545987df0",
+  "before_revision": "79c3061",
+  "python_source": [
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.11",
+        "--extra",
+        "dev",
+        "--extra",
+        "ocr"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.156,
+      "log": "python-0.log"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src",
+        "tests",
+        "studies/boolean-evidence/run.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.054,
+      "log": "python-1.log"
+    },
+    {
+      "command": [
+        ".venv/bin/mypy",
+        "src"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 7.468,
+      "log": "python-2.log"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 23.166,
+      "log": "python-3.log"
+    }
+  ],
+  "web": [
+    {
+      "command": [
+        "npm",
+        "ci"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 2.277,
+      "log": "web-0.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 1.358,
+      "log": "web-1.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "format:check"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.581,
+      "log": "web-2.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.873,
+      "log": "web-3.log"
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.465,
+      "log": "web-4.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 1.269,
+      "log": "web-5.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build:demo"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 1.219,
+      "log": "web-6.log"
+    }
+  ],
+  "installed": [
+    {
+      "python": "3.11",
+      "exit": 0,
+      "elapsed_seconds": 1.537,
+      "wheel_sha256": "5d849228dfadc227b54c2ca3d962b467c113c64f794508e52b3a8f0d612ffa82"
+    },
+    {
+      "python": "3.14",
+      "exit": 0,
+      "elapsed_seconds": 25.973,
+      "wheel_sha256": "5d849228dfadc227b54c2ca3d962b467c113c64f794508e52b3a8f0d612ffa82"
+    }
+  ],
+  "test_results": {
+    "source_python_3_11": 338,
+    "source_python_3_12": 338,
+    "installed_python_3_14": 338,
+    "web": 50
+  },
+  "installed_cli": [
+    {
+      "python": "3.11",
+      "command": [
+        "fieldproof",
+        "extract",
+        "examples/invoice.pdf",
+        "--schema",
+        "invoice",
+        "--provider",
+        "fixture",
+        "--fixture",
+        "examples/fixtures/invoice.json",
+        "--out",
+        "<scratch>/invoice-3.11.json"
+      ],
+      "exit": 0
+    },
+    {
+      "python": "3.11",
+      "command": [
+        "fieldproof",
+        "verify",
+        "<scratch>/invoice-3.11.json",
+        "examples/invoice.pdf"
+      ],
+      "exit": 0
+    },
+    {
+      "python": "3.14",
+      "command": [
+        "fieldproof",
+        "extract",
+        "examples/invoice.pdf",
+        "--schema",
+        "invoice",
+        "--provider",
+        "fixture",
+        "--fixture",
+        "examples/fixtures/invoice.json",
+        "--out",
+        "<scratch>/invoice-3.14.json"
+      ],
+      "exit": 0
+    },
+    {
+      "python": "3.14",
+      "command": [
+        "fieldproof",
+        "verify",
+        "<scratch>/invoice-3.14.json",
+        "examples/invoice.pdf"
+      ],
+      "exit": 0
+    }
+  ],
+  "wheel_build": [
+    "python3 scripts/bundle_ui.py",
+    "uv build --wheel"
+  ],
+  "wheel_file": "fieldproof-0.2.7-py3-none-any.whl",
+  "pdf_visual_inspection": [
+    "approved-not-denied.pdf",
+    "previous-denial.pdf",
+    "label-yes.pdf"
+  ],
+  "initial_environment_issue": "A uv run command followed the checkout Python pin instead of the preceding Python 3.11 sync and removed dev tools. The final run invoked the fresh Python 3.11 environment executables directly.",
+  "no_browser_rerun": "The fix applies to Boolean leaves in custom Python schemas; the stock browser schemas have no Boolean fields.",
+  "output_directories": [
+    "web/dist",
+    "web/dist-demo"
+  ],
+  "evidence_retained_unchanged": [
+    "claim value and JSON Boolean type",
+    "match_score",
+    "matched_text",
+    "page",
+    "rects"
+  ]
+}
