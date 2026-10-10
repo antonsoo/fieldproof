@@ -83,8 +83,21 @@ def test_date_parser_fallback_cannot_reaccept_rejected_identifier_fragments() ->
         "03/04/2026-XYZ",
         "03/04/2026/99",
         "03/04/2026.7",
+        "ABC2026-04-03XYZ",
+        "2026-04-03/99",
+        "2026-04-03.7",
     ):
         for default in (None, "mdy", "dmy"):
             for value in ("2026-03-04", "2026-04-03"):
                 assert not check_date(value, f"Reference: {quote}", date_order=default).supported
     assert check_date("2026-03-04", "Date:03/04/2026.", date_order="mdy").supported
+
+
+def test_invalid_iso_in_same_quote_cannot_bypass_numeric_ambiguity() -> None:
+    for iso in ("2026-99-99", "2026-02-29", "ABC2026-99-99XYZ"):
+        quote = f"Issue: 03/04/2026; reference: {iso}"
+        for value in ("2026-03-04", "2026-04-03"):
+            assert not check_date(value, quote).supported
+            assert check_date(value, quote, date_order="mdy").supported == (value == "2026-03-04")
+            assert check_date(value, quote, date_order="dmy").supported == (value == "2026-04-03")
+    assert check_date("2026-04-03", "Date:2026-04-03.").supported

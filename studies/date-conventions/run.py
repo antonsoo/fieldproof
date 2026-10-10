@@ -54,6 +54,9 @@ QUOTED_IDENTIFIERS = [
     "03/04/2026-XYZ",
     "03/04/2026/99",
     "03/04/2026.7",
+    "ABC2026-04-03XYZ",
+    "2026-04-03/99",
+    "2026-04-03.7",
 ]
 
 
@@ -89,6 +92,18 @@ def main() -> None:
         (f"quoted-identifier-{i}", f"Reference: {token}", None, f"Reference: {token}", True)
         for i, token in enumerate(QUOTED_IDENTIFIERS)
     ]
+    cases += [
+        (
+            f"quoted-invalid-iso-{i}",
+            f"Issue: 03/04/2026; reference: {token}",
+            None,
+            f"Issue: 03/04/2026; reference: {token}",
+            False,
+        )
+        for i, token in enumerate(("2026-99-99", "2026-02-29", "ABC2026-99-99XYZ"))
+    ]
+    # A literal ISO quote denotes April 3 regardless of the caller's convention.
+    cases.append(("quoted-iso-control", "Date:2026-04-03.", "dmy", "Date:2026-04-03.", False))
     for name, context, convention, quote, identifier_quote in cases:
         stream = BytesIO()
         canvas = Canvas(stream, pagesize=(612, 792), invariant=True)

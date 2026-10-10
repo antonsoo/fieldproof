@@ -238,7 +238,7 @@ def same_value(a: NumberReading, b: NumberReading) -> bool:
 #: longer number, so "2026-03-14" is not read as "26-03-14". Letter/underscore
 #: boundaries also prevent a fragment of an identifier from becoming date evidence.
 NUMERIC_DATE = re.compile(r"(?<![\w.\-/])(\d{1,2})([/.\-])(\d{1,2})\2(\d{4}|\d{2})(?![\w/\-]|\.\w)")
-ISO_DATE = re.compile(r"(?<![\d.\-/])(\d{4})-(\d{2})-(\d{2})(?!\d)")
+ISO_DATE = re.compile(r"(?<![\w.\-/])(\d{4})-(\d{2})-(\d{2})(?![\w/\-]|\.\w)")
 WRITTEN_DATE = (
     re.compile(r"[A-Za-z]{3,9}\.?\s+\d{1,2},?\s+\d{4}"),
     re.compile(r"\d{1,2}\s+[A-Za-z]{3,9}\.?\s+\d{4}"),

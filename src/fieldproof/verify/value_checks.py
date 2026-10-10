@@ -22,6 +22,7 @@ from rapidfuzz.distance import Levenshtein
 
 from fieldproof.ground.normalize import normalize
 from fieldproof.ground.values import (
+    ISO_DATE,
     NUMERIC_DATE,
     NumberReading,
     NumberStyle,
@@ -65,7 +66,7 @@ _DATE_FORMATS = (
 #: label or surrounding words the schema's ISO-8601 value never does; a full
 #: strptime match would reject that and never find the date at all.
 _DATE_SEARCH_PATTERNS = (
-    re.compile(r"\d{4}-\d{2}-\d{2}"),
+    ISO_DATE,
     # Share the convention/grounding boundaries: a permissive fallback here
     # would accept the identifier fragments those callers deliberately reject.
     NUMERIC_DATE,
@@ -290,7 +291,10 @@ def _numeric_date_in(text: str) -> re.Match[str] | None:
             return None
         except ValueError:
             continue
-    if _DATE_SEARCH_PATTERNS[0].search(text):
+    iso = ISO_DATE.search(text)
+    # parse_date falls through an impossible ISO-shaped token to the numeric
+    # date. Keep its ambiguity check in that case; appearance is not validity.
+    if iso is not None and _try_formats(iso.group(0)) is not None:
         return None
     return NUMERIC_DATE.search(text)
 
