@@ -213,6 +213,13 @@ is `needs_review`. `--number-style thousands` (or `decimal`) and `--date-order
 dmy` (or `mdy`) on either command say how your documents write them (source
 checkout, unreleased).
 
+Only a complete, calendar-valid numeric date can settle the date order. An
+unrelated `99/01/2026`, a phone-number fragment or `ABC14/03/2026XYZ` cannot
+override your `--date-order` default or verify an ambiguous issue date. The
+[date evidence study](studies/date-conventions/README.md) includes a runnable
+PDF example, before/after results and the cost of rejecting fused OCR tokens
+(source checkout, unreleased).
+
 `--provider anthropic` defaults to `claude-opus-5-5` (Claude Opus 5.5); pass
 `--model claude-sonnet-5-5` or any other model id to override it.
 
@@ -409,8 +416,9 @@ four hold:
    ISO-8601 or a handful of common formats and compared as calendar dates,
    and a numeric date whose first two parts are both 12 or under
    (`03/04/2026`) is read in whichever order another date on the same
-   document settles (`03/14/2026` means month first) - with no such date it
-   goes to review rather than being verified under a guessed convention;
+   document settles (`03/14/2026` means month first). Invalid calendar dates
+   and numeric date fragments inside identifiers cannot settle that order.
+   With no usable convention or caller default, the ambiguous date needs review;
    a string value has to be a run of the evidence's words, ignoring case,
    spacing and punctuation (so a value may leave words off either end and a
    short value inside a longer quote still matches), and every run of digits

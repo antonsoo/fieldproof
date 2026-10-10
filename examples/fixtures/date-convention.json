@@ -1,0 +1,35 @@
+{
+  "schema": "Invoice",
+  "provider": "fixture",
+  "model": "synthetic ambiguous-date claim",
+  "data": {
+    "vendor_name": {
+      "value": "Example Workshop",
+      "evidence": [
+        "Example Workshop"
+      ],
+      "page": 1
+    },
+    "invoice_number": {
+      "value": "FP-DATE",
+      "evidence": [
+        "Invoice Number: FP-DATE"
+      ],
+      "page": 1
+    },
+    "issue_date": {
+      "value": "2026-04-03",
+      "evidence": [
+        "Issue Date: 03/04/2026"
+      ],
+      "page": 1
+    },
+    "total": {
+      "value": 100.0,
+      "evidence": [
+        "$100.00"
+      ],
+      "page": 1
+    }
+  }
+}

@@ -27,6 +27,51 @@ async function extract(page) {
   await expect(row(page, 'total')).toBeVisible();
 }
 
+test('an invalid date reference cannot settle an ambiguous issue date through review and export', async ({ page, request, browserName }) => {
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/date-convention.pdf', import.meta.url)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('../../../examples/fixtures/date-convention.json', import.meta.url)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  const date = row(page, 'issue_date');
+  await expect(date.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+  await expect(date.locator('.field-reasons')).toContainText('no other date on the document settles which');
+  await date.getByRole('button', { name: 'Inspect issue_date', exact: true }).click();
+  await expect(page.locator('#page-frame img')).toBeVisible();
+  const highlight = page.locator('.highlight-rect[data-path="issue_date"]');
+  await expect(highlight).toHaveCount(1);
+  await expect(highlight).toHaveAttribute('data-status', 'needs_review');
+  const url = (await page.locator('#page-frame img').getAttribute('src')).replace(/\/pages\/\d+\.png$/, '');
+  const before = await (await request.get(`${url}/report`)).json();
+  expect(before.report.counts).toEqual({ verified: 3, needs_review: 1, unsupported: 0 });
+  const evidence = before.report.fields.find(field => field.path === 'issue_date');
+  expect(evidence).toMatchObject({ page: 1, value: '2026-04-03', matched_text: 'Issue Date: 03/04/2026' });
+  const directory = fileURLToPath(new URL('../../../docs/assets/date-conventions', import.meta.url));
+  if (process.env.UPDATE_DATE_SCREENSHOTS) mkdirSync(directory, { recursive: true });
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 960 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await scan(page);
+    if (process.env.UPDATE_DATE_SCREENSHOTS) await page.screenshot({ path: `${directory}/${browserName}-${width}.png`, fullPage: true });
+  }
+  await page.setViewportSize({ width: 1440, height: 960 });
+  await date.getByRole('button', { name: 'Edit', exact: true }).click();
+  await date.getByRole('textbox').fill('2026-03-04');
+  await date.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect(date.locator('.review-badge')).toHaveText('edited');
+  const exported = JSON.parse((await downloadText(page, 'JSON')).text);
+  expect(exported).toHaveLength(1);
+  expect(exported[0]).toMatchObject({ field: 'issue_date', value: '2026-03-04', original_value: '2026-04-03', value_source: 'correction', verification_status: 'needs_review' });
+  expect(await (await request.get(`${url}/export.json?scope=reviewed`)).json()).toEqual(exported);
+  expect((await (await request.get(`${url}/report`)).json()).report).toEqual(before.report);
+  await page.reload();
+  await page.getByRole('button', { name: 'Sessions', exact: true }).click();
+  await page.getByRole('dialog', { name: 'Document sessions' }).locator('li').filter({ hasText: 'date-convention.pdf' }).getByRole('button', { name: 'Open', exact: true }).click();
+  await expect(row(page, 'issue_date').locator('.review-badge')).toHaveText('edited');
+  expect(JSON.parse((await downloadText(page, 'JSON')).text)).toEqual(exported);
+  if (process.env.UPDATE_DATE_SCREENSHOTS) writeFileSync(`${directory}/${browserName}-observations.json`, JSON.stringify({ evidence, exported }, null, 2) + '\n');
+});
+
 test('an omitted minus stays visible and readable in the real PDF review', async ({ page }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/signed-amount.pdf', import.meta.url)));

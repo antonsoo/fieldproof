@@ -1,0 +1,180 @@
+{
+  "python": "3.11.13",
+  "dependencies": {
+    "fieldproof": "0.2.7",
+    "pydantic": "2.14.0",
+    "pdfplumber": "0.11.10",
+    "pypdfium2": "5.14.0",
+    "rapidfuzz": "3.14.6",
+    "fastapi": "0.143.0"
+  },
+  "imported_installed_package": true,
+  "pdf_checks": 210,
+  "pdf_result_dicts_match_source": true,
+  "cli_checks": [
+    {
+      "default": null,
+      "value": "2026-03-04",
+      "field": {
+        "path": "issue_date",
+        "value": "2026-03-04",
+        "status": "needs_review",
+        "reasons": [
+          "the evidence date '03/04/2026' reads as 2026-03-04 (month first) or 2026-04-03 (day first), and no other date on the document settles which"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Issue Date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 172.48400000000004,
+            "x1": 172.07999999999996,
+            "bottom": 184.48400000000004
+          }
+        ]
+      },
+      "counts": {
+        "verified": 3,
+        "needs_review": 1,
+        "unsupported": 0
+      }
+    },
+    {
+      "default": null,
+      "value": "2026-04-03",
+      "field": {
+        "path": "issue_date",
+        "value": "2026-04-03",
+        "status": "needs_review",
+        "reasons": [
+          "the evidence date '03/04/2026' reads as 2026-03-04 (month first) or 2026-04-03 (day first), and no other date on the document settles which"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Issue Date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 172.48400000000004,
+            "x1": 172.07999999999996,
+            "bottom": 184.48400000000004
+          }
+        ]
+      },
+      "counts": {
+        "verified": 3,
+        "needs_review": 1,
+        "unsupported": 0
+      }
+    },
+    {
+      "default": "mdy",
+      "value": "2026-03-04",
+      "field": {
+        "path": "issue_date",
+        "value": "2026-03-04",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Issue Date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 172.48400000000004,
+            "x1": 172.07999999999996,
+            "bottom": 184.48400000000004
+          }
+        ]
+      },
+      "counts": {
+        "verified": 4,
+        "needs_review": 0,
+        "unsupported": 0
+      }
+    },
+    {
+      "default": "mdy",
+      "value": "2026-04-03",
+      "field": {
+        "path": "issue_date",
+        "value": "2026-04-03",
+        "status": "needs_review",
+        "reasons": [
+          "value 2026-04-03 does not match 2026-03-04 parsed from the evidence (this document writes dates month first)"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Issue Date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 172.48400000000004,
+            "x1": 172.07999999999996,
+            "bottom": 184.48400000000004
+          }
+        ]
+      },
+      "counts": {
+        "verified": 3,
+        "needs_review": 1,
+        "unsupported": 0
+      }
+    },
+    {
+      "default": "dmy",
+      "value": "2026-03-04",
+      "field": {
+        "path": "issue_date",
+        "value": "2026-03-04",
+        "status": "needs_review",
+        "reasons": [
+          "value 2026-03-04 does not match 2026-04-03 parsed from the evidence (this document writes dates day first)"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Issue Date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 172.48400000000004,
+            "x1": 172.07999999999996,
+            "bottom": 184.48400000000004
+          }
+        ]
+      },
+      "counts": {
+        "verified": 3,
+        "needs_review": 1,
+        "unsupported": 0
+      }
+    },
+    {
+      "default": "dmy",
+      "value": "2026-04-03",
+      "field": {
+        "path": "issue_date",
+        "value": "2026-04-03",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Issue Date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 172.48400000000004,
+            "x1": 172.07999999999996,
+            "bottom": 184.48400000000004
+          }
+        ]
+      },
+      "counts": {
+        "verified": 4,
+        "needs_review": 0,
+        "unsupported": 0
+      }
+    }
+  ]
+}
