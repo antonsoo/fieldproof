@@ -1,0 +1,60 @@
+{
+  "source_commit": "639ef2d",
+  "clean_archive": {
+    "python": "3.14.7",
+    "pytest_passed": 357,
+    "ruff": "passed (src, tests and new study)",
+    "mypy": "passed",
+    "wheel_from_sdist": true
+  },
+  "web": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "tests_passed": 50,
+    "production_and_demo_builds": "passed"
+  },
+  "installed": {
+    "python": "3.11.13",
+    "dependencies": {
+      "pydantic": "2.14.0",
+      "pdfplumber": "0.11.10",
+      "pypdfium2": "5.14.0",
+      "fastapi": "0.143.0",
+      "rapidfuzz": "3.14.6",
+      "reportlab": "5.0.1"
+    },
+    "imported_installed_package": true,
+    "pdf_cases": 36,
+    "cli_cases": 12,
+    "targeted_tests_passed": 39,
+    "bundled_ui_files_matching_clean_build": 23
+  },
+  "browser": {
+    "installed_server": true,
+    "engines": [
+      "chromium",
+      "firefox"
+    ],
+    "widths": [
+      1440,
+      375
+    ],
+    "workflows_passed": 2,
+    "checks": [
+      "review verdict",
+      "PDF highlight",
+      "unchanged original claim",
+      "not_checked date order",
+      "edit",
+      "JSON and CSV downloads",
+      "original report preserved",
+      "accessibility",
+      "no page errors or external requests"
+    ]
+  },
+  "wheel": {
+    "filename": "fieldproof-0.2.7-py3-none-any.whl",
+    "sha256": "a4aea71c5f35006752c54d21aeae6d8e67a2918727b1b4d198048a43cae61f45"
+  },
+  "limits": "Synthetic fixture extractions, no provider calls. No registry release or changed hosted demo."
+}

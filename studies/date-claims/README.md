@@ -57,3 +57,29 @@ evidence utility; `parse_iso_date` exposes the strict claim parser. The date-fie
 selection rules are unchanged. This correction does not establish that a cited
 date semantically belongs to the field, perform OCR or validate a real model.
 It is not yet in a PyPI release.
+
+## Compatibility and installed review
+
+The existing receipt replay was run on both revisions, checking the hashes of
+all four cached annotation files. All **7,600 scripted date claims** and the
+date-convention records of **1,052 documents** are identical. The existing
+annotations, adapter assumptions and two unparseable annotated dates are
+unchanged; this is compatibility evidence, not a new accuracy measurement.
+[receipts.json](results/receipts.json) retains the input and result hashes.
+
+A clean archive of `639ef2d` passed lint, mypy and all **357 Python tests** on
+Python 3.14.7. The UI passed lint, typecheck, 50 tests and both production builds.
+The bundled wheel, built from its source distribution, was separately installed
+on Python 3.11.13. All 36 PDF scenarios, 12 CLI scenarios and 39 targeted tests
+passed there. All 23 installed UI files match the clean build.
+
+Chromium and Firefox exercised that installed server at 1440 and 375 pixels:
+the false claim needs review, the original PDF highlight remains available,
+date ordering is unchecked, and edited JSON/CSV exports retain the original
+claim and verification status. Accessibility checks found no violations. The
+screenshots were visually inspected. [verification.json](results/verification.json)
+records the wheel hash, dependency versions and exact scope; the installed
+[PDF](results/installed-pdf.json) and [CLI](results/installed-cli.json) receipts
+retain each case.
+
+![The installed review UI keeps the negated date claim beside its real page evidence](../../docs/assets/date-claims/chromium-1440.png)
