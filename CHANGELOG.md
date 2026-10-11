@@ -4,6 +4,15 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Complete written-date evidence
+
+- Reject written dates carved out of longer days, years or identifiers in
+  both grounding and value checks. A printed `May 1, 20260` no longer verifies
+  `2026-05-01`; the complete quote and highlight remain available for review.
+- Share supported written-month parsing, including `Jan. 1, 2026`, `1 Jan. 2026`
+  and `May 1 2026`, so value checks accept the spellings grounding recognizes.
+- Retain actual PDF and CLI before/after results in `studies/written-dates`.
+
 ### Extracted date claims
 
 - Require one calendar-valid `YYYY-MM-DD` value for a date claim. Negated prose,

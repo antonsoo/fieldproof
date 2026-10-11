@@ -70,6 +70,51 @@ test('a negated extracted date remains reviewable with its original evidence and
   if (process.env.UPDATE_DATE_CLAIM_SCREENSHOTS) writeFileSync(`${directory}/${browserName}-observations.json`, JSON.stringify({ evidence, exported }, null, 2) + '\n');
 });
 
+test('a written date keeps every printed year digit through review and export', async ({ page, request, browserName }) => {
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../studies/written-dates/extra-year-digit.pdf', import.meta.url)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Schema', { exact: true }).selectOption('contract');
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('../../../studies/written-dates/extra-year-digit.json', import.meta.url)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  const date = row(page, 'effective_date');
+  await expect(date.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+  await expect(date.locator('.field-reasons')).toContainText('could not parse a date');
+  await expect(date.locator('.field-evidence')).toContainText('May 1, 20260');
+  await date.getByRole('button', { name: 'Inspect effective_date', exact: true }).click();
+  await expect(page.locator('#page-frame img')).toBeVisible();
+  const highlight = page.locator('.highlight-rect[data-path="effective_date"]');
+  await expect(highlight).toHaveCount(1);
+  await expect(highlight).toHaveAttribute('data-status', 'needs_review');
+  const url = (await page.locator('#page-frame img').getAttribute('src')).replace(/\/pages\/\d+\.png$/, '');
+  const before = await (await request.get(`${url}/report`)).json();
+  expect(before.report.counts).toEqual({ verified: 2, needs_review: 1, unsupported: 0 });
+  const evidence = before.report.fields.find(field => field.path === 'effective_date');
+  expect(evidence).toMatchObject({ page: 1, value: '2026-05-01', matched_text: 'Effective date: May 1, 20260' });
+  const directory = fileURLToPath(new URL('../../../docs/assets/written-dates', import.meta.url));
+  if (process.env.UPDATE_WRITTEN_DATE_SCREENSHOTS) mkdirSync(directory, { recursive: true });
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 960 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await scan(page);
+    if (process.env.UPDATE_WRITTEN_DATE_SCREENSHOTS) await page.screenshot({ path: `${directory}/${browserName}-${width}.png`, fullPage: true });
+  }
+  await page.setViewportSize({ width: 1440, height: 960 });
+  // A human can confirm the intended date. That decision must not rewrite
+  // the automated verdict or the literal evidence retained in the report.
+  await date.getByRole('button', { name: 'Confirm', exact: true }).click();
+  const exported = JSON.parse((await downloadText(page, 'JSON')).text);
+  expect(exported).toHaveLength(1);
+  expect(exported[0]).toMatchObject({ field: 'effective_date', value: '2026-05-01', verification_status: 'needs_review' });
+  expect(await (await request.get(`${url}/export.json?scope=reviewed`)).json()).toEqual(exported);
+  expect((await (await request.get(`${url}/report`)).json()).report).toEqual(before.report);
+  await page.reload();
+  await page.getByRole('button', { name: 'Sessions', exact: true }).click();
+  await page.getByRole('dialog', { name: 'Document sessions' }).locator('li').filter({ hasText: 'extra-year-digit.pdf' }).getByRole('button', { name: 'Open', exact: true }).click();
+  expect(JSON.parse((await downloadText(page, 'JSON')).text)).toEqual(exported);
+  if (process.env.UPDATE_WRITTEN_DATE_SCREENSHOTS) writeFileSync(`${directory}/${browserName}-observations.json`, JSON.stringify({ evidence, exported }, null, 2) + '\n');
+});
+
 test('an invalid date reference cannot settle an ambiguous issue date through review and export', async ({ page, request, browserName }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/date-convention.pdf', import.meta.url)));

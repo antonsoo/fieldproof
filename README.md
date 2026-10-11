@@ -229,6 +229,12 @@ until both claims meet this format. [Actual PDF and CLI captures](studies/date-c
 retain the original values, evidence and page highlights. This is a source
 correction, not a PyPI release.
 
+Written date **evidence** must keep its complete day and year too. The source
+checkout sends `May 1, 20260` to review instead of verifying May 1, 2026 by
+dropping a digit. Grounding and value checks share the same written-date
+boundaries and supported month abbreviations. The [PDF replay](studies/written-dates/README.md)
+retains the false verification, corrected report and supported-date controls.
+
 `--provider anthropic` defaults to `claude-opus-5-5` (Claude Opus 5.5); pass
 `--model claude-sonnet-5-5` or any other model id to override it.
 

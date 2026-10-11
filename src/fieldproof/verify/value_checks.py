@@ -24,10 +24,12 @@ from fieldproof.ground.normalize import normalize
 from fieldproof.ground.values import (
     ISO_DATE,
     NUMERIC_DATE,
+    WRITTEN_DATE,
     NumberReading,
     NumberStyle,
     number_tokens,
     numeric_date_readings,
+    written_date,
 )
 
 #: Largest absolute difference (in the field's own units, e.g. dollars) a numeric value may
@@ -70,8 +72,7 @@ _DATE_SEARCH_PATTERNS = (
     # Share the convention/grounding boundaries: a permissive fallback here
     # would accept the identifier fragments those callers deliberately reject.
     NUMERIC_DATE,
-    re.compile(r"[A-Za-z]{3,9}\.?\s+\d{1,2},?\s+\d{4}"),
-    re.compile(r"\d{1,2}\s+[A-Za-z]{3,9}\.?\s+\d{4}"),
+    *WRITTEN_DATE,
 )
 
 
@@ -144,7 +145,9 @@ def _try_formats(text: str) -> date | None:
             return datetime.strptime(text, fmt).date()
         except ValueError:
             continue
-    return None
+    # Grounding also accepts abbreviated months with a period and month-first
+    # dates without a comma. A supported spelling must survive value checking.
+    return written_date(text)
 
 
 def _evidence_readings(

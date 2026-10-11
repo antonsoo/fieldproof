@@ -1,0 +1,1413 @@
+{
+  "scope": "Constructed PDF boundary and support controls; no model or OCR calls.",
+  "pdfs": 26,
+  "cases": 52,
+  "unsupported_verified": 0,
+  "supported_not_verified": 2,
+  "results": [
+    {
+      "case": "long-year",
+      "printed": "Effective date: May 1, 20260",
+      "quote_style": "printed",
+      "quote": "Effective date: May 1, 20260",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "813b1a2d660b5f6560fa2452d723aa81808ee5fb0d44a063882a93c6faffe541",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: May 1, 20260'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: May 1, 20260",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 188.08799999999997,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "long-year",
+      "printed": "Effective date: May 1, 20260",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "813b1a2d660b5f6560fa2452d723aa81808ee5fb0d44a063882a93c6faffe541",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "long-year-day-first",
+      "printed": "Effective date: 1 May 20260",
+      "quote_style": "printed",
+      "quote": "Effective date: 1 May 20260",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "8fb5ee6aeca3d714b4180ca5cab263b65f3ce97a7d078690296acccb1133d91a",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: 1 May 20260'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: 1 May 20260",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 184.75199999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "long-year-day-first",
+      "printed": "Effective date: 1 May 20260",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "8fb5ee6aeca3d714b4180ca5cab263b65f3ce97a7d078690296acccb1133d91a",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "long-day",
+      "printed": "Effective date: 111 January 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: 111 January 2026",
+      "value": "2026-01-11",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "55ee48c899ed69979f7417fb6241c0ffedc41d86a2e44b113e516f8ec2eaa703",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-11",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: 111 January 2026'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: 111 January 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 211.44,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "long-day",
+      "printed": "Effective date: 111 January 2026",
+      "quote_style": "iso",
+      "quote": "2026-01-11",
+      "value": "2026-01-11",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "55ee48c899ed69979f7417fb6241c0ffedc41d86a2e44b113e516f8ec2eaa703",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-11",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-01-11') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "long-day-zero-prefix",
+      "printed": "Effective date: 001 January 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: 001 January 2026",
+      "value": "2026-01-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "57e0197fe70d84b6eea13fbbeafd70cb54493e8f582996629523f7119d1cf3bc",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: 001 January 2026'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: 001 January 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 211.44,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "long-day-zero-prefix",
+      "printed": "Effective date: 001 January 2026",
+      "quote_style": "iso",
+      "quote": "2026-01-01",
+      "value": "2026-01-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "57e0197fe70d84b6eea13fbbeafd70cb54493e8f582996629523f7119d1cf3bc",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-01-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "year-letter",
+      "printed": "Effective date: May 1, 2026A",
+      "quote_style": "printed",
+      "quote": "Effective date: May 1, 2026A",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "6333bdcaea2c5f32ade2cf662f205839fab054ac749b72b83cde1d7ddd60bf91",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: May 1, 2026A'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: May 1, 2026A",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 189.41999999999996,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "year-letter",
+      "printed": "Effective date: May 1, 2026A",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "6333bdcaea2c5f32ade2cf662f205839fab054ac749b72b83cde1d7ddd60bf91",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "year-underscore",
+      "printed": "Effective date: May 1, 2026_ref",
+      "quote_style": "printed",
+      "quote": "Effective date: May 1, 2026_ref",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "28e9db519702da8b4b9f14bf7e56ef86da63640b6ecc89d80b7caec18532fc14",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: May 1, 2026_ref'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: May 1, 2026_ref",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 202.09199999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "year-underscore",
+      "printed": "Effective date: May 1, 2026_ref",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "28e9db519702da8b4b9f14bf7e56ef86da63640b6ecc89d80b7caec18532fc14",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "month-word",
+      "printed": "Effective date: XMay 1, 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: XMay 1, 2026",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "cf48ce14cbad591f99c86772091aa009d81cd7ac5ee843b55096866a4894d6b8",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: XMay 1, 2026'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: XMay 1, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 189.42,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "month-word",
+      "printed": "Effective date: XMay 1, 2026",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "cf48ce14cbad591f99c86772091aa009d81cd7ac5ee843b55096866a4894d6b8",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "day-word",
+      "printed": "Effective date: X1 May 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: X1 May 2026",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "288dcf37f948a6420278c11d9796fd706c06568f2c80fba99d2d79d4ce1901bc",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: X1 May 2026'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: X1 May 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 186.08399999999997,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "day-word",
+      "printed": "Effective date: X1 May 2026",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "288dcf37f948a6420278c11d9796fd706c06568f2c80fba99d2d79d4ce1901bc",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "identifier-prefix",
+      "printed": "Effective date: ref-May 1, 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: ref-May 1, 2026",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "4798f9237c8ce5f053717d13d882b5f8072e10b8d187de13a5025759990f73bb",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: ref-May 1, 2026'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: ref-May 1, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 199.416,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "identifier-prefix",
+      "printed": "Effective date: ref-May 1, 2026",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "4798f9237c8ce5f053717d13d882b5f8072e10b8d187de13a5025759990f73bb",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "identifier-suffix",
+      "printed": "Effective date: May 1, 2026-X",
+      "quote_style": "printed",
+      "quote": "Effective date: May 1, 2026-X",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "fb05e6226e2038009f6970423e37f04fb287ff00e177a0eda8a38c2551d1e790",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: May 1, 2026-X'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: May 1, 2026-X",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 193.41599999999997,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "identifier-suffix",
+      "printed": "Effective date: May 1, 2026-X",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "fb05e6226e2038009f6970423e37f04fb287ff00e177a0eda8a38c2551d1e790",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "slash-suffix",
+      "printed": "Effective date: May 1, 2026/99",
+      "quote_style": "printed",
+      "quote": "Effective date: May 1, 2026/99",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "a5772221911284d1ae53bb5e4b499c1c8510c3cd4072da9b9fab872e379e7180",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: May 1, 2026/99'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: May 1, 2026/99",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 198.09599999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "slash-suffix",
+      "printed": "Effective date: May 1, 2026/99",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "a5772221911284d1ae53bb5e4b499c1c8510c3cd4072da9b9fab872e379e7180",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "decimal-suffix",
+      "printed": "Effective date: May 1, 2026.7",
+      "quote_style": "printed",
+      "quote": "Effective date: May 1, 2026.7",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "a7db03e30610dc2a7c1129e815a19fa44c23ec2d60b9ce6afa4bfef45cada554",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: May 1, 2026.7'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: May 1, 2026.7",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 191.42399999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "decimal-suffix",
+      "printed": "Effective date: May 1, 2026.7",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "a7db03e30610dc2a7c1129e815a19fa44c23ec2d60b9ce6afa4bfef45cada554",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "invalid-leap",
+      "printed": "Effective date: February 29, 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: February 29, 2026",
+      "value": "2026-02-28",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "88b61d5c7d8d4f963806bbf8d3e9632a7b5ce18b406610f5a08f3580bbebfb21",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-02-28",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: February 29, 2026'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: February 29, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 213.432,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "invalid-leap",
+      "printed": "Effective date: February 29, 2026",
+      "quote_style": "iso",
+      "quote": "2026-02-28",
+      "value": "2026-02-28",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "88b61d5c7d8d4f963806bbf8d3e9632a7b5ce18b406610f5a08f3580bbebfb21",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-02-28",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-02-28') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "invalid-day",
+      "printed": "Effective date: April 31, 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: April 31, 2026",
+      "value": "2026-04-30",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "9f8fc4f343c4fb673956642d1d770d065aa85c65dfa553be4863661b82428b95",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-04-30",
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a date from evidence 'Effective date: April 31, 2026'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Effective date: April 31, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 189.42,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "invalid-day",
+      "printed": "Effective date: April 31, 2026",
+      "quote_style": "iso",
+      "quote": "2026-04-30",
+      "value": "2026-04-30",
+      "supported": false,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "9f8fc4f343c4fb673956642d1d770d065aa85c65dfa553be4863661b82428b95",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-04-30",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-04-30') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "month-comma",
+      "printed": "Effective date: May 1, 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: May 1, 2026",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "a820e08c6229d14b6d8e47f5de68e6ad586d9f73dcbc0e9648e667c943c214c6",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: May 1, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 181.41599999999997,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "month-comma",
+      "printed": "Effective date: May 1, 2026",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "a820e08c6229d14b6d8e47f5de68e6ad586d9f73dcbc0e9648e667c943c214c6",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "May 1, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 115.38,
+            "top": 62.48400000000004,
+            "x1": 181.41599999999997,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "month-no-comma",
+      "printed": "Effective date: May 1 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: May 1 2026",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "3f38794ae9146e97e61fa715e1866e7b78b9eada77c7c8ccbc7e0c5d95c35d7f",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: May 1 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 178.07999999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "month-no-comma",
+      "printed": "Effective date: May 1 2026",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "3f38794ae9146e97e61fa715e1866e7b78b9eada77c7c8ccbc7e0c5d95c35d7f",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "May 1 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 115.38,
+            "top": 62.48400000000004,
+            "x1": 178.07999999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "month-upper",
+      "printed": "Effective date: MAY 1, 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: MAY 1, 2026",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "dbb78df11d851b8ff9903e5243bb32df6aa2933168d41bece25dc4a0ce6b4cce",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: MAY 1, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 184.75199999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "month-upper",
+      "printed": "Effective date: MAY 1, 2026",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "dbb78df11d851b8ff9903e5243bb32df6aa2933168d41bece25dc4a0ce6b4cce",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "MAY 1, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 115.38,
+            "top": 62.48400000000004,
+            "x1": 184.75199999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "month-short",
+      "printed": "Effective date: Jan 1, 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: Jan 1, 2026",
+      "value": "2026-01-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "3cef976a7fa7fba03320812a1a44099d739d665901df61cb88e6542252157f76",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: Jan 1, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 178.09199999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "month-short",
+      "printed": "Effective date: Jan 1, 2026",
+      "quote_style": "iso",
+      "quote": "2026-01-01",
+      "value": "2026-01-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "3cef976a7fa7fba03320812a1a44099d739d665901df61cb88e6542252157f76",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Jan 1, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 115.38,
+            "top": 62.48400000000004,
+            "x1": 178.09199999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "month-short-period",
+      "printed": "Effective date: Jan. 1, 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: Jan. 1, 2026",
+      "value": "2026-01-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "d100b00a66588143a18f2509dee0b8b746398be8ec46cba6c8722b34068b9a9e",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: Jan. 1, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 181.42799999999997,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "month-short-period",
+      "printed": "Effective date: Jan. 1, 2026",
+      "quote_style": "iso",
+      "quote": "2026-01-01",
+      "value": "2026-01-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "d100b00a66588143a18f2509dee0b8b746398be8ec46cba6c8722b34068b9a9e",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Jan. 1, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 115.38,
+            "top": 62.48400000000004,
+            "x1": 181.42799999999997,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "day-full",
+      "printed": "Effective date: 1 January 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: 1 January 2026",
+      "value": "2026-01-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "59c674f5df0f9b41bf3f8a7030ec3c8fe3e56409b9c383967a4f83584970b904",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: 1 January 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 198.09599999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "day-full",
+      "printed": "Effective date: 1 January 2026",
+      "quote_style": "iso",
+      "quote": "2026-01-01",
+      "value": "2026-01-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "59c674f5df0f9b41bf3f8a7030ec3c8fe3e56409b9c383967a4f83584970b904",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "1 January 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 115.38,
+            "top": 62.48400000000004,
+            "x1": 198.09599999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "day-short",
+      "printed": "Effective date: 1 Jan 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: 1 Jan 2026",
+      "value": "2026-01-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "54b4366b31a78df93ef5daff83f12aa2076eac5f0460637a38107a5794bcf5ca",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: 1 Jan 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 174.75599999999997,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "day-short",
+      "printed": "Effective date: 1 Jan 2026",
+      "quote_style": "iso",
+      "quote": "2026-01-01",
+      "value": "2026-01-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "54b4366b31a78df93ef5daff83f12aa2076eac5f0460637a38107a5794bcf5ca",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "1 Jan 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 115.38,
+            "top": 62.48400000000004,
+            "x1": 174.75599999999997,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "day-short-period",
+      "printed": "Effective date: 1 Jan. 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: 1 Jan. 2026",
+      "value": "2026-01-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "ade8cc94939035e868399c6805511afa47fb082eb9152286604873f3c70c2e2f",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: 1 Jan. 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 178.09199999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "day-short-period",
+      "printed": "Effective date: 1 Jan. 2026",
+      "quote_style": "iso",
+      "quote": "2026-01-01",
+      "value": "2026-01-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "ade8cc94939035e868399c6805511afa47fb082eb9152286604873f3c70c2e2f",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-01-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "1 Jan. 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 115.38,
+            "top": 62.48400000000004,
+            "x1": 178.09199999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "parentheses",
+      "printed": "Effective date: (May 1, 2026)",
+      "quote_style": "printed",
+      "quote": "Effective date: (May 1, 2026)",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "b1a6778caddff8a633306c0ceff53dfa846b2f778413406b814a489286a05810",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: (May 1, 2026)",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 189.408,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "parentheses",
+      "printed": "Effective date: (May 1, 2026)",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": true,
+      "agrees": true,
+      "pdf_sha256": "b1a6778caddff8a633306c0ceff53dfa846b2f778413406b814a489286a05810",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "sentence-period",
+      "printed": "Effective date: May 1, 2026.",
+      "quote_style": "printed",
+      "quote": "Effective date: May 1, 2026.",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "eb82b45cc7d1936b154e65993ee905ea3443682882a49b83cba30bd794ef0071",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: May 1, 2026.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 184.75199999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "sentence-period",
+      "printed": "Effective date: May 1, 2026.",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "eb82b45cc7d1936b154e65993ee905ea3443682882a49b83cba30bd794ef0071",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "May 1, 2026.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 115.38,
+            "top": 62.48400000000004,
+            "x1": 184.75199999999998,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "colon-no-space",
+      "printed": "Effective date: Date:May 1, 2026",
+      "quote_style": "printed",
+      "quote": "Effective date: Date:May 1, 2026",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "01164344ce5c1b26f8e99554d09d2b2a0227aad99f9dd370371ae3b4c324c8b1",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: Date:May 1, 2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 210.096,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "colon-no-space",
+      "printed": "Effective date: Date:May 1, 2026",
+      "quote_style": "iso",
+      "quote": "2026-05-01",
+      "value": "2026-05-01",
+      "supported": true,
+      "known_grounding_limit": true,
+      "agrees": true,
+      "pdf_sha256": "01164344ce5c1b26f8e99554d09d2b2a0227aad99f9dd370371ae3b4c324c8b1",
+      "field": {
+        "path": "effective_date",
+        "value": "2026-05-01",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('2026-05-01') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "valid-leap",
+      "printed": "Effective date: February 29, 2024",
+      "quote_style": "printed",
+      "quote": "Effective date: February 29, 2024",
+      "value": "2024-02-29",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "4a6f14af54908d5df98255b2b5ce22c9785b857ac4cc225f604d208c678163f7",
+      "field": {
+        "path": "effective_date",
+        "value": "2024-02-29",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Effective date: February 29, 2024",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 36.0,
+            "top": 62.48400000000004,
+            "x1": 213.432,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "case": "valid-leap",
+      "printed": "Effective date: February 29, 2024",
+      "quote_style": "iso",
+      "quote": "2024-02-29",
+      "value": "2024-02-29",
+      "supported": true,
+      "known_grounding_limit": false,
+      "agrees": true,
+      "pdf_sha256": "4a6f14af54908d5df98255b2b5ce22c9785b857ac4cc225f604d208c678163f7",
+      "field": {
+        "path": "effective_date",
+        "value": "2024-02-29",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "February 29, 2024",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 115.38,
+            "top": 62.48400000000004,
+            "x1": 213.432,
+            "bottom": 74.48400000000004
+          }
+        ]
+      }
+    }
+  ]
+}

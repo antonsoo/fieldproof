@@ -239,9 +239,15 @@ def same_value(a: NumberReading, b: NumberReading) -> bool:
 #: boundaries also prevent a fragment of an identifier from becoming date evidence.
 NUMERIC_DATE = re.compile(r"(?<![\w.\-/])(\d{1,2})([/.\-])(\d{1,2})\2(\d{4}|\d{2})(?![\w/\-]|\.\w)")
 ISO_DATE = re.compile(r"(?<![\w.\-/])(\d{4})-(\d{2})-(\d{2})(?![\w/\-]|\.\w)")
+# Keep the same token boundaries for written months: neither the last two
+# digits of a longer day nor the first four of a longer year are evidence.
 WRITTEN_DATE = (
-    re.compile(r"[A-Za-z]{3,9}\.?\s+\d{1,2},?\s+\d{4}"),
-    re.compile(r"\d{1,2}\s+[A-Za-z]{3,9}\.?\s+\d{4}"),
+    re.compile(
+        r"(?<![\w.\-/])[A-Za-z]{3,9}\.?\s+\d{1,2},?\s+\d{4}(?![\w/\-]|\.\w)"
+    ),
+    re.compile(
+        r"(?<![\w.\-/])\d{1,2}\s+[A-Za-z]{3,9}\.?\s+\d{4}(?![\w/\-]|\.\w)"
+    ),
 )
 _WRITTEN_FORMATS = ("%B %d, %Y", "%b %d, %Y", "%d %B %Y", "%d %b %Y", "%B %d %Y", "%b %d %Y")
 
