@@ -1,0 +1,21 @@
+{
+  "merchant_name": {
+    "value": "northwnd",
+    "evidence": [
+      "northwnd"
+    ],
+    "page": 1
+  },
+  "transaction_date": {
+    "value": "2026-10-11",
+    "evidence": [
+      "2026-10-11"
+    ]
+  },
+  "total": {
+    "value": 1,
+    "evidence": [
+      "1.00"
+    ]
+  }
+}

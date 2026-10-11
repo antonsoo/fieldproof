@@ -1,0 +1,42 @@
+[
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "width": 1440,
+    "id": "repeated-name",
+    "merchant": {
+      "path": "merchant_name",
+      "value": "ACME",
+      "status": "verified",
+      "reasons": [],
+      "match_score": 100,
+      "matched_text": "Acme",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 50,
+          "top": 86.32421920000002,
+          "x1": 100.81835960000001,
+          "bottom": 104.32421920000002
+        }
+      ]
+    },
+    "exported": [
+      {
+        "field": "merchant_name",
+        "value": "ACME",
+        "original_value": "ACME",
+        "value_source": "extraction",
+        "verification_status": "verified",
+        "review_status": "approved",
+        "page": 1
+      }
+    ],
+    "errors": [],
+    "external": [],
+    "accessibility": [],
+    "csp": [],
+    "screenshot": "chromium-1440-repeated-name-before.png",
+    "screenshot_sha256": "ecea113dbf136f063f0d17feb4662b5d8c5c73a668bb0d1ffbcb8f74efad7173"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "cases": 133722,
+  "documents": 1052,
+  "complete_row_changes": 0,
+  "before_file_sha256": "ad39621f8c8020a41eed470aaf17eb50fa82f3fd9dcb56ab8e144c6a63a3a67e",
+  "after_file_sha256": "ad39621f8c8020a41eed470aaf17eb50fa82f3fd9dcb56ab8e144c6a63a3a67e",
+  "canonical_complete_rows_sha256": "7ff0c1d30d29e6466ca108693f477c88688662af1b119a548f20b71d27900a6c",
+  "counts": {
+    "needs_review": 60687,
+    "unsupported": 16334,
+    "verified": 56701
+  },
+  "scope": "Compatibility with the retained corpus adapter; not a new accuracy estimate."
+}

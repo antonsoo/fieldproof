@@ -1,0 +1,12 @@
+[
+  {"id":"unrelated-expansion","pages":[["İstanbul","ACME"]],"quote":"acme","expect":"verified","candidates":1},
+  {"id":"repeated-name","pages":[["İstanbul","Acme","Acme"]],"quote":"ACME","expect":"needs_review","candidates":2},
+  {"id":"repeated-dotted-i","pages":[["İstanbul","İstanbul"]],"quote":"i̇stanbul","expect":"needs_review","candidates":2},
+  {"id":"german-expansion","pages":[["Straße","STRASSE"]],"quote":"strasse","expect":"needs_review","candidates":2},
+  {"id":"greek-sigma","pages":[["ΟΣ","ος"]],"quote":"οσ","expect":"needs_review","candidates":2},
+  {"id":"fuzzy-after-expansion","pages":[["İstanbul","NORTHWIND"]],"quote":"northwnd","expect":"needs_review","candidates":1},
+  {"id":"partial-expanded-letter","pages":[["ß"]],"quote":"s","expect":"unsupported","candidates":0},
+  {"id":"complete-expanded-word","pages":[["Straße"]],"quote":"STRASSE","expect":"verified","candidates":1},
+  {"id":"exact-duplicates-control","pages":[["İstanbul","Acme","Acme"]],"quote":"Acme","expect":"needs_review","candidates":2},
+  {"id":"page-hint-duplicates","pages":[["İstanbul","Acme"],["Acme"]],"quote":"ACME","hint_page":2,"expect":"needs_review","candidates":2}
+]

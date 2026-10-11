@@ -406,6 +406,10 @@ four hold:
    punctuation; separators between digits and numeric signs/units count) is never strong, however
    high its score: one misquoted letter in a name scores 95 and is not the
    name on the page.
+   Case folding retains source offsets even when one Unicode character expands
+   into several. A dotted capital I elsewhere on the page cannot hide repeated
+   names; [actual PDF counterexamples](studies/unicode-grounding/README.md) retain
+   all candidates and the original highlighted text.
    When a quote genuinely occurs more than once,
    `fieldproof.verify.engine` requires exactly one occurrence on the same
    visual line and page as a strongly grounded, value-supported sibling

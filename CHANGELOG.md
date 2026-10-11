@@ -4,6 +4,17 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Unicode evidence locations
+
+- Keep original character offsets through Unicode case folding. A dotted capital
+  I elsewhere on a page no longer disables case-insensitive matching or lets a
+  repeated name become a single verified fuzzy match.
+- Retain every caseless occurrence for expansions such as sharp S and dotted I,
+  and for Greek sigma variants. Never accept half of an expanded character as
+  whole-word evidence; original PDF text and boxes remain the evidence shown.
+- Retain ten actual synthetic PDFs and API before/after reports in
+  `studies/unicode-grounding`, including four false verified-location repairs.
+
 ### Repeated evidence on invoices
 
 - Prepare page text, numeric tokens and source offsets once per verification;

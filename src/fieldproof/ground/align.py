@@ -20,6 +20,7 @@ from __future__ import annotations
 from bisect import bisect_left, bisect_right
 from collections import OrderedDict
 from dataclasses import dataclass, replace
+from functools import cached_property
 from math import isfinite
 
 from rapidfuzz import fuzz
@@ -117,6 +118,18 @@ class _PageIndex:
             and all(word.start < word.end for word in self.page.words)
         )
 
+    @cached_property
+    def casefolded(self) -> tuple[str, list[int]]:
+        # Case folding can expand one source character (e.g. İ or ß). Map every
+        # output character back to that source offset so later text stays aligned,
+        # and _splits_a_character can reject half of an expanded character.
+        offsets = [
+            offset
+            for ch, offset in zip(self.normalized, self.offsets, strict=True)
+            for _ in ch.casefold()
+        ]
+        return self.normalized.casefold(), offsets
+
     def words_overlapping(self, start: int, end: int) -> list[Word]:
         if not self.ordered_words:
             return [w for w in self.page.words if w.start < end and w.end > start]
@@ -199,10 +212,8 @@ def _word_aligned_occurrences(
     if fold_case:
         # A quote that differs from the page only in case is found at every place the
         # page has it, just as an exact one is, so a repeated name stays ambiguous.
-        folded_page, folded_quote = norm_page_text.lower(), normalized_quote.lower()
-        if len(folded_page) != len(norm_page_text) or len(folded_quote) != len(normalized_quote):
-            return []
-        norm_page_text, normalized_quote = folded_page, folded_quote
+        norm_page_text, index_map = index.casefolded
+        normalized_quote = normalized_quote.casefold()
 
     matches: list[GroundingMatch] = []
     qlen = len(normalized_quote)
@@ -235,7 +246,9 @@ def _word_aligned_occurrences(
                     page_number=page.number,
                     start=start,
                     end=end,
-                    score=fuzz.ratio(normalized_quote.lower(), normalize(matched_text).lower()),
+                    score=fuzz.ratio(
+                        normalized_quote.casefold(), normalize(matched_text).casefold()
+                    ),
                     matched_text=matched_text,
                     words=tuple(index.words_overlapping(start, end)),
                     letters_agree=False,
@@ -263,16 +276,13 @@ def _fuzzy_match(quote: str, index: _PageIndex) -> GroundingMatch | None:
     if not normalized_quote or not page.words:
         return None
 
-    norm_page_text, index_map = index.normalized, index.offsets
+    norm_page_text, index_map = index.casefolded
     if not norm_page_text:
         return None
 
     # Case is not what a misquote gets wrong, and a model that title-cases a name has
     # not changed what the page says; letters and digits are checked separately below.
-    folded_page = norm_page_text.lower()
-    if len(folded_page) != len(norm_page_text):
-        folded_page = norm_page_text
-    alignment = fuzz.partial_ratio_alignment(normalized_quote.lower(), folded_page)
+    alignment = fuzz.partial_ratio_alignment(normalized_quote.casefold(), norm_page_text)
     if alignment is None or alignment.dest_end <= alignment.dest_start:
         return None
     if alignment.score < MIN_MATCH_SCORE:
@@ -294,7 +304,7 @@ def _fuzzy_match(quote: str, index: _PageIndex) -> GroundingMatch | None:
         # the whole words instead.
         start, end = _whole_numeric_span(index, words[0].start, words[-1].end)
         words = index.words_overlapping(start, end)
-        score = fuzz.ratio(normalized_quote.lower(), normalize(page.text[start:end]).lower())
+        score = fuzz.ratio(normalized_quote.casefold(), normalize(page.text[start:end]).casefold())
         if score < MIN_MATCH_SCORE:
             return None
 
