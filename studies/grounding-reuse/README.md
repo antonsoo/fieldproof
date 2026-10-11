@@ -102,3 +102,30 @@ uv run python studies/grounding-reuse/compare_receipts.py \
 Regressions also cover signed/percent evidence, page-hint ordering, duplicate
 quotes with different claimed values, cache eviction, changed geometry between
 verifications, and nonmonotonic word lists supplied by library callers.
+
+## Clean build and installed review
+
+An archive of `ac4c329` passed Ruff, mypy (33 source files), all 381 Python
+tests, and the web lint/typecheck/format checks and 50 web tests. Production and
+static-demo builds succeeded. `uv run python scripts/bundle_ui.py && uv build`
+built the wheel through the sdist, with the review UI included.
+
+The wheel was installed with runtime dependencies into a fresh Python 3.11.13
+environment, then exercised outside both checkouts with no `PYTHONPATH` override.
+All four complete library reports matched the source hashes; both actual API
+worker requests succeeded and matched too. All 33 installed Python sources
+matched the archive. Every one of the 23 served UI assets matched the clean
+production build. [Installation receipt](results/installed-verification.json),
+[installed timings](results/installed-measurement.json), and
+[browser receipt](results/browser-installed.json).
+
+All four installed-browser review/export flows passed, with no script errors,
+unexpected external requests, CSP violations, accessibility violations or
+horizontal viewport overflow. All six screenshots were inspected. At 375px a
+whole-page PDF is small; zoom controls remain available and the field/review
+panel is readable. This is local wheel verification, not a package release or
+hosted-demo update.
+
+![Installed wheel: the same invoice now opens with source highlights](../../docs/assets/grounding-reuse/chromium-1440-evidence.png)
+
+![Installed wheel: repeated amounts still require review on mobile](../../docs/assets/grounding-reuse/firefox-375-review.png)

@@ -1,0 +1,130 @@
+[
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "width": 1440,
+    "outcome": "accepted",
+    "status": 200,
+    "seconds": 0.7070905780000001,
+    "reportSha256": "68f7e771e3b3b3a69befe6d0c7bbe5fa321b7eef35b588d987309a6139fe346a",
+    "exported": [
+      {
+        "field": "line_items[99].quantity",
+        "value": 1,
+        "original_value": 1,
+        "value_source": "extraction",
+        "verification_status": "verified",
+        "review_status": "approved",
+        "page": 2
+      }
+    ],
+    "errors": [],
+    "externalRequests": [],
+    "cspViolations": [],
+    "accessibilityViolations": [],
+    "screenshots": [
+      {
+        "file": "chromium-1440-evidence.png",
+        "sha256": "4f1acc7d26d9d9173c258ebd493845f891625293b28dd997a7a53979961930af"
+      }
+    ]
+  },
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "width": 375,
+    "outcome": "accepted",
+    "status": 200,
+    "seconds": 0.3895054799999998,
+    "reportSha256": "68f7e771e3b3b3a69befe6d0c7bbe5fa321b7eef35b588d987309a6139fe346a",
+    "exported": [
+      {
+        "field": "line_items[99].quantity",
+        "value": 1,
+        "original_value": 1,
+        "value_source": "extraction",
+        "verification_status": "verified",
+        "review_status": "approved",
+        "page": 2
+      }
+    ],
+    "errors": [],
+    "externalRequests": [],
+    "cspViolations": [],
+    "accessibilityViolations": [],
+    "screenshots": [
+      {
+        "file": "chromium-375-evidence.png",
+        "sha256": "caa5c9a9cab5f2f5c145ae16ab619def9fea36fc09434aee22b719ac2f00f20f"
+      },
+      {
+        "file": "chromium-375-review.png",
+        "sha256": "927fac66ab15e66368d4d60112ece0e5ec875d55692b8e1af8d387a71c2d014c"
+      }
+    ]
+  },
+  {
+    "engine": "firefox",
+    "version": "155.0",
+    "width": 1440,
+    "outcome": "accepted",
+    "status": 200,
+    "seconds": 0.40860488400000033,
+    "reportSha256": "68f7e771e3b3b3a69befe6d0c7bbe5fa321b7eef35b588d987309a6139fe346a",
+    "exported": [
+      {
+        "field": "line_items[99].quantity",
+        "value": 1,
+        "original_value": 1,
+        "value_source": "extraction",
+        "verification_status": "verified",
+        "review_status": "approved",
+        "page": 2
+      }
+    ],
+    "errors": [],
+    "externalRequests": [],
+    "cspViolations": [],
+    "accessibilityViolations": [],
+    "screenshots": [
+      {
+        "file": "firefox-1440-evidence.png",
+        "sha256": "4d444b3702743916f63a33418cdfd80f3d3f584d78f600db36a6239041c53233"
+      }
+    ]
+  },
+  {
+    "engine": "firefox",
+    "version": "155.0",
+    "width": 375,
+    "outcome": "accepted",
+    "status": 200,
+    "seconds": 0.4038753909999996,
+    "reportSha256": "68f7e771e3b3b3a69befe6d0c7bbe5fa321b7eef35b588d987309a6139fe346a",
+    "exported": [
+      {
+        "field": "line_items[99].quantity",
+        "value": 1,
+        "original_value": 1,
+        "value_source": "extraction",
+        "verification_status": "verified",
+        "review_status": "approved",
+        "page": 2
+      }
+    ],
+    "errors": [],
+    "externalRequests": [],
+    "cspViolations": [],
+    "accessibilityViolations": [],
+    "screenshots": [
+      {
+        "file": "firefox-375-evidence.png",
+        "sha256": "a596936cc48706294eab3f91cdccc2d08151d2e580fde6a20511d0f5ad83dc20"
+      },
+      {
+        "file": "firefox-375-review.png",
+        "sha256": "4b25eb2909b464e729d48504f59a3aecf452a9157bd71b8c5350ead8d37430c2"
+      }
+    ]
+  }
+]
