@@ -1,0 +1,76 @@
+{
+  "source_commit": "8879cfd4b2084479f1a71e607d146f2fb211541d",
+  "files": [
+    {
+      "path": "src/fieldproof/ground/values.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/8879cfd4b2084479f1a71e607d146f2fb211541d/src/fieldproof/ground/values.py",
+      "sha256": "c896bb3594ba17b30ebd8a7e1ec612e63c187d43b0fcdb08d821f54164c672d2",
+      "bytes": 13243,
+      "identical_to_local": true
+    },
+    {
+      "path": "src/fieldproof/verify/value_checks.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/8879cfd4b2084479f1a71e607d146f2fb211541d/src/fieldproof/verify/value_checks.py",
+      "sha256": "266f131e97b2211292a1e3272b6993ad5310cadc3c57fe0990341c9cd956af0c",
+      "bytes": 18683,
+      "identical_to_local": true
+    },
+    {
+      "path": "tests/test_written_dates.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/8879cfd4b2084479f1a71e607d146f2fb211541d/tests/test_written_dates.py",
+      "sha256": "756227fc9587ddc0a626cf3f1e45267ed91abb73a3a50aafbcdfc3b47219d3f5",
+      "bytes": 2116,
+      "identical_to_local": true
+    },
+    {
+      "path": "studies/written-dates/extra-year-digit.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/8879cfd4b2084479f1a71e607d146f2fb211541d/studies/written-dates/extra-year-digit.pdf",
+      "sha256": "b2e775737aab3e35cc714b971eb2715760ad33d354272cfb47ed97d16955ff5f",
+      "bytes": 1719,
+      "identical_to_local": true
+    },
+    {
+      "path": "studies/written-dates/README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/8879cfd4b2084479f1a71e607d146f2fb211541d/studies/written-dates/README.md",
+      "sha256": "1492d71c3834cfa124372f57c23f0fb3f96fa41528d1e7555060c1b4a56dec7f",
+      "bytes": 5054,
+      "identical_to_local": true
+    },
+    {
+      "path": "studies/written-dates/after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/8879cfd4b2084479f1a71e607d146f2fb211541d/studies/written-dates/after.json",
+      "sha256": "edcc7dc073f62686568ecc3699b6e41f3516cfaa4d774cfcc68ff6feed42f2f8",
+      "bytes": 41641,
+      "identical_to_local": true
+    },
+    {
+      "path": "studies/written-dates/receipts.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/8879cfd4b2084479f1a71e607d146f2fb211541d/studies/written-dates/receipts.json",
+      "sha256": "f1ea0f638bd4cb5907437bc655237803c56d636d16e3927f367ee3f38bc8f283",
+      "bytes": 1103,
+      "identical_to_local": true
+    },
+    {
+      "path": "studies/written-dates/installed.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/8879cfd4b2084479f1a71e607d146f2fb211541d/studies/written-dates/installed.json",
+      "sha256": "8b84be264a62d876f82ff046191ce2b221e93e561ecf55e6bb43da4c81f55ecb",
+      "bytes": 6027,
+      "identical_to_local": true
+    },
+    {
+      "path": "studies/written-dates/verification.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/8879cfd4b2084479f1a71e607d146f2fb211541d/studies/written-dates/verification.json",
+      "sha256": "fa2530b26b2872d4f66999c773b412deebb804cefb668b9f5a26eeb61be2bf06",
+      "bytes": 2329,
+      "identical_to_local": true
+    },
+    {
+      "path": "docs/assets/written-dates/firefox-observations.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/8879cfd4b2084479f1a71e607d146f2fb211541d/docs/assets/written-dates/firefox-observations.json",
+      "sha256": "5f69bc3a7ebf56d574208f73ac12705b85319e1c9fe308bddc988882dbf9859e",
+      "bytes": 728,
+      "identical_to_local": true
+    }
+  ],
+  "scope": "Pinned public GitHub source and evidence bytes. Does not establish a PyPI release or hosted-demo update."
+}

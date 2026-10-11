@@ -82,6 +82,11 @@ The [Chromium](../../docs/assets/written-dates/chromium-observations.json) and
 retain the actual field evidence and approved export. These local package checks
 do not establish a PyPI release or an update to the hosted static demo.
 
+The [public-source receipt](public-source.json) later fetched ten pinned files
+at `8879cfd` from GitHub and compared their bytes with this checkout, including
+the PDF, parser, verdicts and installed/browser evidence. It establishes source
+availability, independently of registry and hosted-demo state.
+
 ## Receipt compatibility
 
 The [receipt comparison](receipts.json) hash-checks the four pinned CORD/SROIE
