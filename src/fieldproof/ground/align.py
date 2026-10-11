@@ -17,7 +17,9 @@ disambiguate by context or admit it can't.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from bisect import bisect_left, bisect_right
+from collections import OrderedDict
+from dataclasses import dataclass, replace
 from math import isfinite
 
 from rapidfuzz import fuzz
@@ -26,7 +28,13 @@ from rapidfuzz.distance import Levenshtein
 from fieldproof.document.model import BBox, Document, Page, Word
 from fieldproof.ground.lines import separate_lines
 from fieldproof.ground.normalize import normalize, normalize_with_map
-from fieldproof.ground.values import amount_readings, dates_in, number_tokens, whole_date
+from fieldproof.ground.values import (
+    NumberToken,
+    amount_readings,
+    dates_in,
+    number_tokens,
+    whole_date,
+)
 
 #: Below this fuzzy score (0-100), we consider the quote not found on the
 #: page rather than report a misleading low-confidence match.
@@ -90,14 +98,47 @@ class GroundingMatch:
         return sum(w.bbox.top for w in self.words) / len(self.words)
 
 
+class _PageIndex:
+    """One verification's text/geometry snapshot, prepared once per page."""
+
+    def __init__(self, page: Page) -> None:
+        self.page = replace(page, words=list(page.words))
+        self.normalized, self.offsets = normalize_with_map(page.text)
+        self.numbers = number_tokens(separate_lines(page.text, self.page.words))
+        self.number_starts = [token.start for token in self.numbers]
+        self.number_ends = [token.end for token in self.numbers]
+        self.word_starts = [word.start for word in self.page.words]
+        self.word_ends = [word.end for word in self.page.words]
+        # Loader words are ordered by text offset. Library callers can supply
+        # unusual word lists; preserve their original ordering and membership.
+        self.ordered_words = (
+            self.word_starts == sorted(self.word_starts)
+            and self.word_ends == sorted(self.word_ends)
+            and all(word.start < word.end for word in self.page.words)
+        )
+
+    def words_overlapping(self, start: int, end: int) -> list[Word]:
+        if not self.ordered_words:
+            return [w for w in self.page.words if w.start < end and w.end > start]
+        first = bisect_right(self.word_ends, start)
+        last = bisect_left(self.word_starts, end)
+        return self.page.words[first:last]
+
+    def numbers_overlapping(self, start: int, end: int) -> tuple[NumberToken, ...]:
+        first = bisect_right(self.number_ends, start)
+        last = bisect_left(self.number_starts, end)
+        return self.numbers[first:last]
+
+
 def _covers_whole_words(
-    page: Page, start: int, end: int, words: list[Word], *, numeric_modifiers: bool = True
+    index: _PageIndex, start: int, end: int, words: list[Word], *, numeric_modifiers: bool = True
 ) -> bool:
     """Does the span `[start, end)` cover every letter and digit of the words
     it touches? Punctuation glued to a word may be left outside: the page's
     words are split on whitespace, so "1," and "$2,458.00" are one word each,
     and a quote of "1" or "2,458.00" still names the whole of what is there.
     "458.00" does not: the "2," it leaves out is part of the number."""
+    page = index.page
     before = page.text[words[0].start : start]
     left_out = before + page.text[end : words[-1].end]
     if any(ch.isalnum() for ch in left_out):
@@ -107,7 +148,7 @@ def _covers_whole_words(
     # Currency can be omitted, but a sign, accounting bracket or percentage cannot.
     # Include adjacent words too: "- $100" is one signed amount, not a positive
     # number because a model quoted only the word with the currency symbol.
-    for token in number_tokens(separate_lines(page.text, page.words)):
+    for token in index.numbers_overlapping(start, end):
         if token.start < end and token.end > start and (token.start < start or token.end > end):
             fragment_text = page.text[max(start, token.start) : min(end, token.end)]
             if not any(ch.isdecimal() for ch in fragment_text):
@@ -119,9 +160,9 @@ def _covers_whole_words(
     return True
 
 
-def _whole_numeric_span(page: Page, start: int, end: int) -> tuple[int, int]:
+def _whole_numeric_span(index: _PageIndex, start: int, end: int) -> tuple[int, int]:
     """Expand an incomplete quote to the entire numeric token it touches."""
-    for token in number_tokens(separate_lines(page.text, page.words)):
+    for token in index.numbers:
         if token.start < end and token.end > start:
             start, end = min(start, token.start), max(end, token.end)
     return start, end
@@ -137,7 +178,7 @@ def _splits_a_character(index_map: list[int], first: int, last: int) -> bool:
 
 
 def _word_aligned_occurrences(
-    quote: str, page: Page, *, fold_case: bool = False
+    quote: str, index: _PageIndex, *, fold_case: bool = False
 ) -> list[GroundingMatch]:
     """Every normalized occurrence of `quote` in `page` that covers whole words.
     Occurrences omitting a numeric modifier are expanded and marked weak so they
@@ -147,11 +188,12 @@ def _word_aligned_occurrences(
     requiring the match to leave no letter or digit of a touched word
     uncovered rules that out entirely, while still allowing a quote that
     spans several whole words (e.g. a full line-item row)."""
+    page = index.page
     normalized_quote = normalize(quote)
     if not normalized_quote or not page.words:
         return []
 
-    norm_page_text, index_map = normalize_with_map(page.text)
+    norm_page_text, index_map = index.normalized, index.offsets
     if not norm_page_text:
         return []
     if fold_case:
@@ -177,15 +219,15 @@ def _word_aligned_occurrences(
 
         start = index_map[idx]
         end = index_map[last] + 1
-        words = _words_overlapping(page.words, start, end)
-        if not words or not _covers_whole_words(page, start, end, words, numeric_modifiers=False):
+        words = index.words_overlapping(start, end)
+        if not words or not _covers_whole_words(index, start, end, words, numeric_modifiers=False):
             continue
-        if not _covers_whole_words(page, start, end, words):
+        if not _covers_whole_words(index, start, end, words):
             # Keep this occurrence as weak evidence instead of deleting it.
             # Otherwise "6" on a page with "6%" and an unrelated "6" becomes
             # uniquely verified at the unrelated place. The full token is what
             # the value check and the human review highlight must see.
-            start, end = _whole_numeric_span(page, start, end)
+            start, end = _whole_numeric_span(index, start, end)
             matched_text = page.text[start:end]
             matches.append(
                 GroundingMatch(
@@ -195,7 +237,7 @@ def _word_aligned_occurrences(
                     end=end,
                     score=fuzz.ratio(normalized_quote.lower(), normalize(matched_text).lower()),
                     matched_text=matched_text,
-                    words=tuple(_words_overlapping(page.words, start, end)),
+                    words=tuple(index.words_overlapping(start, end)),
                     letters_agree=False,
                 )
             )
@@ -215,12 +257,13 @@ def _word_aligned_occurrences(
     return matches
 
 
-def _fuzzy_match(quote: str, page: Page) -> GroundingMatch | None:
+def _fuzzy_match(quote: str, index: _PageIndex) -> GroundingMatch | None:
+    page = index.page
     normalized_quote = normalize(quote)
     if not normalized_quote or not page.words:
         return None
 
-    norm_page_text, index_map = normalize_with_map(page.text)
+    norm_page_text, index_map = index.normalized, index.offsets
     if not norm_page_text:
         return None
 
@@ -237,20 +280,20 @@ def _fuzzy_match(quote: str, page: Page) -> GroundingMatch | None:
 
     start = index_map[alignment.dest_start]
     end = index_map[alignment.dest_end - 1] + 1
-    words = _words_overlapping(page.words, start, end)
+    words = index.words_overlapping(start, end)
     if not words:
         return None
 
     score = alignment.score
     cut = _splits_a_character(index_map, alignment.dest_start, alignment.dest_end - 1)
-    if cut or not _covers_whole_words(page, start, end, words):
+    if cut or not _covers_whole_words(index, start, end, words):
         # The best window cuts a word: the quote is a fragment of something
         # longer on the page ("wind" in "Northwind", "0214" in "NW-20260214").
         # A fragment is a perfect *partial* match, which is exactly the
         # misleading 100 this module exists to refuse. Judge the quote against
         # the whole words instead.
-        start, end = _whole_numeric_span(page, words[0].start, words[-1].end)
-        words = _words_overlapping(page.words, start, end)
+        start, end = _whole_numeric_span(index, words[0].start, words[-1].end)
+        words = index.words_overlapping(start, end)
         score = fuzz.ratio(normalized_quote.lower(), normalize(page.text[start:end]).lower())
         if score < MIN_MATCH_SCORE:
             return None
@@ -302,7 +345,7 @@ def letter_distance(a: str, b: str) -> int:
     return Levenshtein.distance(_skeleton(a), _skeleton(b))
 
 
-def _value_occurrences(quote: str, page: Page) -> list[GroundingMatch]:
+def _value_occurrences(quote: str, index: _PageIndex) -> list[GroundingMatch]:
     """Where `page` writes the same number or date as `quote`, however it writes it.
 
     Only a quote that is nothing but an amount ("60000", "$1,234.50") or nothing but a date
@@ -311,6 +354,7 @@ def _value_occurrences(quote: str, page: Page) -> list[GroundingMatch]:
     characters by edit distance finds "19.80" at "18.90" and misses "60000" at "60.000",
     so these are compared as values. A token with two readings ("60.000") matches on
     either; `fieldproof.verify` says which the document means."""
+    page = index.page
     stripped = quote.strip()
     if not stripped or not page.words:
         return []
@@ -331,8 +375,8 @@ def _value_occurrences(quote: str, page: Page) -> list[GroundingMatch]:
 
     matches: list[GroundingMatch] = []
     for start, end in found:
-        words = _words_overlapping(page.words, start, end)
-        if not words or not _covers_whole_words(page, start, end, words):
+        words = index.words_overlapping(start, end)
+        if not words or not _covers_whole_words(index, start, end, words):
             continue
         matches.append(
             GroundingMatch(
@@ -357,16 +401,19 @@ def find_candidates(quote: str, page: Page) -> list[GroundingMatch]:
     the same number or date as a quote that is only that (`_value_occurrences`),
     otherwise the single best fuzzy match (fuzzy scoring across many candidates isn't meaningful, so
     fuzzy only ever contributes one). An empty list means not found."""
-    exact = _word_aligned_occurrences(quote, page)
+    if not page.words or not normalize(quote):
+        return []
+    index = _PageIndex(page)
+    exact = _word_aligned_occurrences(quote, index)
     if exact:
         return exact
-    folded = _word_aligned_occurrences(quote, page, fold_case=True)
+    folded = _word_aligned_occurrences(quote, index, fold_case=True)
     if folded:
         return folded
-    by_value = _value_occurrences(quote, page)
+    by_value = _value_occurrences(quote, index)
     if by_value:
         return by_value
-    fuzzy = _fuzzy_match(quote, page)
+    fuzzy = _fuzzy_match(quote, index)
     return [fuzzy] if fuzzy is not None else []
 
 
@@ -415,7 +462,49 @@ def find_candidates_in_document(
     If none do, a quote that is only a number or a date is
     looked for by value (`_value_occurrences`); anything else falls back to the
     single best fuzzy match across pages."""
-    pages = sorted(document.pages, key=lambda p: p.number != hint_page)
+    return GroundingIndex(document).candidates(quote, hint_page=hint_page)
+
+
+class GroundingIndex:
+    """Reuse a document snapshot only within one verification operation.
+
+    Candidate reuse never chooses a location: page hints, repeated quotes and
+    numeric omissions retain the same complete candidate lists. Both entry and
+    candidate/word-reference limits bound the cache; oversized lists are computed normally.
+    A new verification creates a new index, so documents and later edits cannot
+    inherit an earlier document's source positions or grounding decisions.
+    """
+
+    MAX_QUOTES = 256
+    MAX_REFERENCES = 8192
+
+    def __init__(self, document: Document) -> None:
+        self._pages = [_PageIndex(page) for page in document.pages]
+        self._cache: OrderedDict[tuple[str, int | None], tuple[GroundingMatch, ...]] = OrderedDict()
+        self._references = 0
+
+    def candidates(self, quote: str, *, hint_page: int | None = None) -> list[GroundingMatch]:
+        key = (quote, hint_page)
+        cached = self._cache.get(key)
+        if cached is not None:
+            self._cache.move_to_end(key)
+            return list(cached)
+        pages = sorted(self._pages, key=lambda index: index.page.number != hint_page)
+        matches = _candidates_in_pages(quote, pages)
+        references = len(matches) + sum(len(match.words) for match in matches)
+        if references <= self.MAX_REFERENCES:
+            while self._cache and (
+                len(self._cache) >= self.MAX_QUOTES
+                or self._references + references > self.MAX_REFERENCES
+            ):
+                _, removed = self._cache.popitem(last=False)
+                self._references -= len(removed) + sum(len(match.words) for match in removed)
+            self._cache[key] = tuple(matches)
+            self._references += references
+        return matches
+
+
+def _candidates_in_pages(quote: str, pages: list[_PageIndex]) -> list[GroundingMatch]:
 
     exact: list[GroundingMatch] = []
     for page in pages:
@@ -487,10 +576,6 @@ def unique_row_candidate(
         if overlap > 0 and overlap >= min(box.height for box in boxes) / 2:
             local.append(candidate)
     return local[0] if len(local) == 1 else None
-
-
-def _words_overlapping(words: list[Word], start: int, end: int) -> list[Word]:
-    return [w for w in words if w.start < end and w.end > start]
 
 
 def rects_for_match(match: GroundingMatch, line_tolerance: float = 3.0) -> list[BBox]:

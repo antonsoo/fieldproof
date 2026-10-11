@@ -1,0 +1,92 @@
+{
+  "python": "3.12.12",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "implementation_sha256": {
+    "ground/align.py": "a923a3874410d90ac92470b89c71babbe3aed5041929566bc3f9bd4b0ed2143a",
+    "verify/engine.py": "814a6f7b4bf8b9e1e573341f5ec6d8e86c5e24f3be72b0357f9423300aa4f020",
+    "document/worker.py": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142",
+    "server/pdf_work.py": "ccb789122fb58e8141bc5efdbff560bbb9b5521d959fd3fb6f856a40121dea79"
+  },
+  "library": [
+    {
+      "rows": 25,
+      "pages": 1,
+      "words": 139,
+      "fields": 104,
+      "counts": {
+        "verified": 54,
+        "needs_review": 50,
+        "unsupported": 0
+      },
+      "seconds": [
+        1.9316577110002981,
+        2.175416732992744,
+        1.9765855940058827
+      ],
+      "median_seconds": 1.9765855940058827,
+      "pdf_sha256": "e38dc2d526814c62d3571e9fd55d2b0172e797eac732253b51ad06b7b9c9e4f4",
+      "fixture_sha256": "b57a94003d9e2861af2d932fdbf10747d26eb63a6532ca8ccdcbd43e322e23f4",
+      "complete_report_sha256": "9711051558b2e13deb97ef4f729f2b8562c20e71797921151b89ff1013e77d68"
+    },
+    {
+      "rows": 50,
+      "pages": 1,
+      "words": 264,
+      "fields": 204,
+      "counts": {
+        "verified": 104,
+        "needs_review": 100,
+        "unsupported": 0
+      },
+      "seconds": [
+        15.41147851900314,
+        14.532455074004247,
+        14.038862807006808
+      ],
+      "median_seconds": 14.532455074004247,
+      "pdf_sha256": "d2f34e27ff634ada0613908f705a084e6c2e178b4aec61e0cf7ac84a71c12bc8",
+      "fixture_sha256": "4ac3de2f63c8867d9f36865f40f04da47746b8e81c401701fb0984398695d1c0",
+      "complete_report_sha256": "48b468483af29523c38c14aa5eb2b57a070265a811865a1df4444ee1835c2372"
+    },
+    {
+      "rows": 100,
+      "pages": 2,
+      "words": 525,
+      "fields": 404,
+      "counts": {
+        "verified": 201,
+        "needs_review": 203,
+        "unsupported": 0
+      },
+      "seconds": [
+        58.83550751500297,
+        59.10858309399919,
+        61.033559976000106
+      ],
+      "median_seconds": 59.10858309399919,
+      "pdf_sha256": "6f46ffb1457c1bd8f8e25c515e896b442587f5828070ddf4e012b1f8a372a07f",
+      "fixture_sha256": "11aecdafd0451043e2ec48f047b2c66364f9de92c3d79a09bd87fdff833a16e5",
+      "complete_report_sha256": "d964e35b4baf1f00574a2738b4c9afe2435c019135060e90dcd83ed9b52a838e"
+    }
+  ],
+  "api": [
+    {
+      "rows": 100,
+      "upload_status": 200,
+      "extraction_status": 413,
+      "seconds": 20.030929052998545,
+      "error": {
+        "detail": "PDF worker exceeded its resource budget"
+      }
+    },
+    {
+      "rows": 400,
+      "upload_status": 200,
+      "extraction_status": 413,
+      "seconds": 20.047396841007867,
+      "error": {
+        "detail": "PDF worker exceeded its resource budget"
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "manifest_sha256": "228c7fa063cdc1be0804ee8feb9fdea73c3cdded37f030851e728e8686de3d81",
+  "files": [
+    {
+      "name": "train-00000-of-00004-b4aaeceff1d90ecb.parquet",
+      "bytes": 490224630,
+      "sha256": "da3994eee1bf9bd3c57f0d53a72c3a6812c8696c5ba26245987949ddf73483cc"
+    },
+    {
+      "name": "validation-00000-of-00001-cc3c5779fe22e8ca.parquet",
+      "bytes": 242080800,
+      "sha256": "0d0f6dac11fdcc549de2746aa9f53136a3bc22a2a1aff2b0b847f7622ad60c15"
+    },
+    {
+      "name": "test-00000-of-00001-9c204eb3f4e11791.parquet",
+      "bytes": 234202795,
+      "sha256": "51c65f1788faff392abe2a0b55b023eb23e9be551c509138eaa3a832514224e7"
+    },
+    {
+      "name": "train-00000-of-00001-66201d4afd6b73ca.parquet",
+      "bytes": 217146103,
+      "sha256": "6f88c537f3eaac955e2d1c59d3c269a9e83a30836c92efcd82b0e9d467f814cf"
+    }
+  ]
+}

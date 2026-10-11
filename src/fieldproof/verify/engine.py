@@ -28,8 +28,8 @@ from pydantic import BaseModel
 
 from fieldproof.document.model import Document
 from fieldproof.ground.align import (
+    GroundingIndex,
     GroundingMatch,
-    find_candidates_in_document,
     letter_distance,
     rects_for_match,
     unique_row_candidate,
@@ -170,6 +170,7 @@ def verify(
     and unavailable evidence, preserving source locations for review. This
     spatial check does not establish table columns or semantic field roles.
     """
+    grounding = GroundingIndex(document)
     results: list[FieldVerification] = []
     row_anchors: dict[str, tuple[str, GroundingMatch]] = {}
     # Whether this document writes numeric dates month or day first, if any of
@@ -195,7 +196,7 @@ def verify(
         anchor_result, anchor_match = _verify_field(
             anchor_path,
             fields[anchor_path],
-            document,
+            grounding,
             hint_match=None,
             hint_path=None,
             date_order=date_order,
@@ -216,7 +217,7 @@ def verify(
         result, match = anchor_results.get(path) or _verify_field(
             path,
             evidenced,
-            document,
+            grounding,
             hint_match=hint[1] if hint else None,
             hint_path=hint[0] if hint else None,
             date_order=date_order,
@@ -289,7 +290,7 @@ def _can_anchor(result: FieldVerification, match: GroundingMatch | None) -> bool
 def _verify_field(
     path: str,
     evidenced: Any,
-    document: Document,
+    grounding: GroundingIndex,
     *,
     hint_match: GroundingMatch | None,
     hint_path: str | None,
@@ -310,7 +311,7 @@ def _verify_field(
 
     candidates: list[GroundingMatch] = []
     for quote in evidenced.evidence:
-        candidates.extend(find_candidates_in_document(quote, document, hint_page=evidenced.page))
+        candidates.extend(grounding.candidates(quote, hint_page=evidenced.page))
 
     if not candidates:
         quoted = ", ".join(repr(q) for q in evidenced.evidence)

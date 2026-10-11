@@ -4,6 +4,17 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Repeated evidence on invoices
+
+- Prepare page text, numeric tokens and source offsets once per verification;
+  reuse bounded quote candidate lists while checking each claimed value and row
+  independently. A 100-row synthetic invoice that exhausted the review server's
+  CPU budget now completes without changing that budget or its report.
+- Keep document snapshots local to each verification, preserve page-hint order,
+  and retain every occurrence when a candidate list exceeds the reuse limit.
+- Retain actual PDF/API/browser reproductions, timings, and an unchanged
+  133,722-case receipt replay in `studies/grounding-reuse`.
+
 ### Complete written-date evidence
 
 - Reject written dates carved out of longer days, years or identifiers in

@@ -1,0 +1,1532 @@
+{
+  "vendor_name": {
+    "value": "Synthetic Parts Co.",
+    "evidence": [
+      "Synthetic Parts Co."
+    ],
+    "page": 1
+  },
+  "invoice_number": {
+    "value": "PERF-001",
+    "evidence": [
+      "PERF-001"
+    ],
+    "page": 1
+  },
+  "issue_date": {
+    "value": "2026-10-11",
+    "evidence": [
+      "2026-10-11"
+    ],
+    "page": 1
+  },
+  "total": {
+    "value": 600,
+    "evidence": [
+      "600.00"
+    ],
+    "page": 1
+  },
+  "line_items": [
+    {
+      "description": {
+        "value": "Component 0001",
+        "evidence": [
+          "Component 0001"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0002",
+        "evidence": [
+          "Component 0002"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0003",
+        "evidence": [
+          "Component 0003"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0004",
+        "evidence": [
+          "Component 0004"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0005",
+        "evidence": [
+          "Component 0005"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0006",
+        "evidence": [
+          "Component 0006"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0007",
+        "evidence": [
+          "Component 0007"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0008",
+        "evidence": [
+          "Component 0008"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0009",
+        "evidence": [
+          "Component 0009"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0010",
+        "evidence": [
+          "Component 0010"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0011",
+        "evidence": [
+          "Component 0011"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0012",
+        "evidence": [
+          "Component 0012"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0013",
+        "evidence": [
+          "Component 0013"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0014",
+        "evidence": [
+          "Component 0014"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0015",
+        "evidence": [
+          "Component 0015"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0016",
+        "evidence": [
+          "Component 0016"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0017",
+        "evidence": [
+          "Component 0017"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0018",
+        "evidence": [
+          "Component 0018"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0019",
+        "evidence": [
+          "Component 0019"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0020",
+        "evidence": [
+          "Component 0020"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0021",
+        "evidence": [
+          "Component 0021"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0022",
+        "evidence": [
+          "Component 0022"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0023",
+        "evidence": [
+          "Component 0023"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0024",
+        "evidence": [
+          "Component 0024"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0025",
+        "evidence": [
+          "Component 0025"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0026",
+        "evidence": [
+          "Component 0026"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0027",
+        "evidence": [
+          "Component 0027"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0028",
+        "evidence": [
+          "Component 0028"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0029",
+        "evidence": [
+          "Component 0029"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0030",
+        "evidence": [
+          "Component 0030"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0031",
+        "evidence": [
+          "Component 0031"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0032",
+        "evidence": [
+          "Component 0032"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0033",
+        "evidence": [
+          "Component 0033"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0034",
+        "evidence": [
+          "Component 0034"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0035",
+        "evidence": [
+          "Component 0035"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0036",
+        "evidence": [
+          "Component 0036"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0037",
+        "evidence": [
+          "Component 0037"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0038",
+        "evidence": [
+          "Component 0038"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0039",
+        "evidence": [
+          "Component 0039"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0040",
+        "evidence": [
+          "Component 0040"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0041",
+        "evidence": [
+          "Component 0041"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0042",
+        "evidence": [
+          "Component 0042"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0043",
+        "evidence": [
+          "Component 0043"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0044",
+        "evidence": [
+          "Component 0044"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0045",
+        "evidence": [
+          "Component 0045"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0046",
+        "evidence": [
+          "Component 0046"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0047",
+        "evidence": [
+          "Component 0047"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0048",
+        "evidence": [
+          "Component 0048"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0049",
+        "evidence": [
+          "Component 0049"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    },
+    {
+      "description": {
+        "value": "Component 0050",
+        "evidence": [
+          "Component 0050"
+        ],
+        "page": 1
+      },
+      "quantity": {
+        "value": 1,
+        "evidence": [
+          "1"
+        ],
+        "page": 1
+      },
+      "unit_price": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      },
+      "amount": {
+        "value": 12,
+        "evidence": [
+          "12.00"
+        ],
+        "page": 1
+      }
+    }
+  ]
+}

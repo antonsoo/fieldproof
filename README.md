@@ -484,16 +484,24 @@ look at the demo.
 
 ### Performance
 
-Measured on this machine (14 vCPU, 48 GB RAM, WSL2 Linux), 200-iteration
-average, on `examples/invoice.pdf` (25 leaf fields across 4 line items):
+Repeated quotes previously caused the same page to be parsed for each match
+and field. A synthetic 100-row invoice (two pages, 404 evidenced fields)
+exhausted the review server's 20-second CPU budget. Preparing page indexes once
+per verification and reusing bounded candidate lists fixes that failure:
 
-| Stage | Time |
-|---|---|
-| PDF text-layer load (pdfplumber) | 22.6 ms |
-| Grounding + verification, all 25 fields | 4.3 ms |
+| Measurement | Before | Current source |
+|---|---:|---:|
+| Grounding + verification, 100 rows | 59.109 s | 0.076 s |
+| Local API extraction, 100 rows | HTTP 413, 20.031 s | HTTP 200, 0.332 s |
+| Local API extraction, 400 rows | HTTP 413, 20.047 s | HTTP 200, 0.666 s |
 
-Extraction time is dominated by the provider's network round trip, not
-anything in this repo.
+Python 3.12.12 on a shared 14-vCPU, 48-GB WSL2 Linux machine, 2026-10-11.
+Library times are medians of three runs excluding PDF load; API times are
+single requests through the real worker, using fixture extraction without a
+model call. Worker limits are unchanged. These cases exercise repeated numeric
+evidence, not every document shape or provider's latency. The complete 100-row
+report is byte-identical: 201 fields verify and 203 still require review.
+See the [inputs, reproduction and compatibility checks](studies/grounding-reuse/README.md).
 
 ## Accuracy and limitations
 

@@ -1,0 +1,22 @@
+[
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "width": 1440,
+    "outcome": "rejected",
+    "status": 413,
+    "seconds": 20.32908608,
+    "reportSha256": null,
+    "exported": null,
+    "errors": [],
+    "externalRequests": [],
+    "cspViolations": [],
+    "accessibilityViolations": [],
+    "screenshots": [
+      {
+        "file": "chromium-1440-rejected.png",
+        "sha256": "224f97936c1e4f95e6561075a0892e90e05dada3edf7485a47658e70fec318cc"
+      }
+    ]
+  }
+]

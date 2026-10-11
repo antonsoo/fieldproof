@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import io
 import json
+from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
@@ -59,6 +60,45 @@ def test_list_schemas(client: TestClient) -> None:
     r = client.get("/api/schemas")
     assert r.status_code == 200
     assert set(r.json()["schemas"]) == {"invoice", "receipt", "contract"}
+
+
+def test_repeated_amount_invoice_fits_existing_worker_budget_and_keeps_ambiguity(client):
+    fixtures = Path(__file__).resolve().parents[1] / "studies/grounding-reuse/fixtures"
+    uploaded = client.post(
+        "/api/documents",
+        files={
+            "file": ("rows-100.pdf", (fixtures / "rows-100.pdf").read_bytes(), "application/pdf"),
+        },
+    )
+    assert uploaded.status_code == 200
+    document_id = uploaded.json()["id"]
+    response = client.post(
+        f"/api/documents/{document_id}/extract",
+        data={
+            "schema": "invoice",
+            "provider": "fixture",
+        },
+        files={
+            "fixture": (
+                "rows-100.json",
+                (fixtures / "rows-100.json").read_bytes(),
+                "application/json",
+            ),
+        },
+    )
+    assert response.status_code == 200, response.text
+    report = response.json()["report"]
+    assert report["counts"] == {"verified": 201, "needs_review": 203, "unsupported": 0}
+    assert len(report["fields"]) == 404
+    fields = {field["path"]: field for field in report["fields"]}
+    for index in (0, 49, 50, 99):
+        quantity = fields[f"line_items[{index}].quantity"]
+        assert quantity["status"] == "verified" and quantity["value"] == 1
+        assert quantity["matched_text"] == "1" and quantity["page"] == index // 50 + 1
+        amount = fields[f"line_items[{index}].amount"]
+        assert amount["status"] == "needs_review" and amount["rects"] == []
+        assert "ambiguous (appears 200 times)" in amount["reasons"][0]
+    assert client.get(f"/api/documents/{document_id}/report").json()["report"] == report
 
 
 def test_upload_document(client: TestClient, simple_invoice_pdf_bytes: bytes) -> None:
