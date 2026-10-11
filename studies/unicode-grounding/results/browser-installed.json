@@ -1,0 +1,222 @@
+[
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "width": 1440,
+    "id": "repeated-name",
+    "merchant": {
+      "path": "merchant_name",
+      "value": "ACME",
+      "status": "needs_review",
+      "reasons": [
+        "evidence 'ACME' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+      ],
+      "match_score": null,
+      "matched_text": null,
+      "page": null,
+      "rects": []
+    },
+    "exported": [
+      {
+        "field": "merchant_name",
+        "value": "ACME",
+        "original_value": "ACME",
+        "value_source": "extraction",
+        "verification_status": "needs_review",
+        "review_status": "approved",
+        "page": null
+      }
+    ],
+    "errors": [],
+    "external": [],
+    "accessibility": [],
+    "csp": [],
+    "screenshot": "chromium-1440-repeated-name-after.png",
+    "screenshot_sha256": "352720c65057e7eb30efeac60a5e86f2926c9a7445e40ff9e5bc756ba5331a0e"
+  },
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "width": 1440,
+    "id": "complete-expanded-word",
+    "merchant": {
+      "path": "merchant_name",
+      "value": "STRASSE",
+      "status": "verified",
+      "reasons": [],
+      "match_score": 99,
+      "matched_text": "Straße",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 50,
+          "top": 46.324219200000016,
+          "x1": 109.32617119999999,
+          "bottom": 64.32421920000002
+        }
+      ]
+    },
+    "exported": [
+      {
+        "field": "merchant_name",
+        "value": "STRASSE",
+        "original_value": "STRASSE",
+        "value_source": "extraction",
+        "verification_status": "verified",
+        "review_status": "approved",
+        "page": 1
+      }
+    ],
+    "errors": [],
+    "external": [],
+    "accessibility": [],
+    "csp": [],
+    "screenshot": "chromium-1440-complete-expanded-word-after.png",
+    "screenshot_sha256": "3ee6b4372fe51e5f9ea11badd48e69ed1e3f98080fd730ec9438570221c536af"
+  },
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "width": 375,
+    "id": "repeated-name",
+    "merchant": {
+      "path": "merchant_name",
+      "value": "ACME",
+      "status": "needs_review",
+      "reasons": [
+        "evidence 'ACME' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+      ],
+      "match_score": null,
+      "matched_text": null,
+      "page": null,
+      "rects": []
+    },
+    "exported": [
+      {
+        "field": "merchant_name",
+        "value": "ACME",
+        "original_value": "ACME",
+        "value_source": "extraction",
+        "verification_status": "needs_review",
+        "review_status": "approved",
+        "page": null
+      }
+    ],
+    "errors": [],
+    "external": [],
+    "accessibility": [],
+    "csp": [],
+    "screenshot": "chromium-375-repeated-name-after.png",
+    "screenshot_sha256": "822b906dd92adc1540c45cb32eb8b66a507a2c44377b522c035a0408a3db30e9"
+  },
+  {
+    "engine": "firefox",
+    "version": "155.0",
+    "width": 1440,
+    "id": "repeated-name",
+    "merchant": {
+      "path": "merchant_name",
+      "value": "ACME",
+      "status": "needs_review",
+      "reasons": [
+        "evidence 'ACME' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+      ],
+      "match_score": null,
+      "matched_text": null,
+      "page": null,
+      "rects": []
+    },
+    "exported": [
+      {
+        "field": "merchant_name",
+        "value": "ACME",
+        "original_value": "ACME",
+        "value_source": "extraction",
+        "verification_status": "needs_review",
+        "review_status": "approved",
+        "page": null
+      }
+    ],
+    "errors": [],
+    "external": [],
+    "accessibility": [],
+    "csp": [],
+    "screenshot": "firefox-1440-repeated-name-after.png",
+    "screenshot_sha256": "94640516af0ccaa68cd5b36c3aa3f47473b079e0b33b7cda1293d4976ee23f25"
+  },
+  {
+    "engine": "firefox",
+    "version": "155.0",
+    "width": 1440,
+    "id": "complete-expanded-word",
+    "merchant": {
+      "path": "merchant_name",
+      "value": "STRASSE",
+      "status": "verified",
+      "reasons": [],
+      "match_score": 99,
+      "matched_text": "Straße",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 50,
+          "top": 46.324219200000016,
+          "x1": 109.32617119999999,
+          "bottom": 64.32421920000002
+        }
+      ]
+    },
+    "exported": [
+      {
+        "field": "merchant_name",
+        "value": "STRASSE",
+        "original_value": "STRASSE",
+        "value_source": "extraction",
+        "verification_status": "verified",
+        "review_status": "approved",
+        "page": 1
+      }
+    ],
+    "errors": [],
+    "external": [],
+    "accessibility": [],
+    "csp": [],
+    "screenshot": "firefox-1440-complete-expanded-word-after.png",
+    "screenshot_sha256": "9ef146e722bcaf8f1ec0e1aab7118433764c21e50c6cb1af9bcc75eb1399700f"
+  },
+  {
+    "engine": "firefox",
+    "version": "155.0",
+    "width": 375,
+    "id": "repeated-name",
+    "merchant": {
+      "path": "merchant_name",
+      "value": "ACME",
+      "status": "needs_review",
+      "reasons": [
+        "evidence 'ACME' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+      ],
+      "match_score": null,
+      "matched_text": null,
+      "page": null,
+      "rects": []
+    },
+    "exported": [
+      {
+        "field": "merchant_name",
+        "value": "ACME",
+        "original_value": "ACME",
+        "value_source": "extraction",
+        "verification_status": "needs_review",
+        "review_status": "approved",
+        "page": null
+      }
+    ],
+    "errors": [],
+    "external": [],
+    "accessibility": [],
+    "csp": [],
+    "screenshot": "firefox-375-repeated-name-after.png",
+    "screenshot_sha256": "1737a3d6e4be000e94377d610d48ad9b115743a02b7d27044bf3bda8e2779694"
+  }
+]

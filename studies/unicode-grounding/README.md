@@ -64,3 +64,47 @@ For the baseline, archive the named commit and run the same script with
 These hand-specified cases establish the reported failures and source-coordinate
 repairs. They are not a multilingual extraction accuracy benchmark, and do not
 prove that a repeated name belongs to a particular document field.
+
+## Installed application and compatibility
+
+An archive of `86bb216` passed Ruff, mypy (33 source files), 391 Python tests,
+web lint/typecheck/format checks and 50 web tests. The production and static-demo
+builds succeeded. `uv run python scripts/bundle_ui.py && uv build` built the
+wheel through the sdist with the review UI included.
+
+Fresh installations on Python 3.11.13 and 3.14.7 reproduced all ten library
+and actual API-worker records byte-for-byte, outside the checkout without a
+`PYTHONPATH` override. Three installed CLI extractions matched the library too.
+All 33 installed Python files and all 23 served UI assets matched the clean
+source/build. [Installation receipt](results/installed-verification.json),
+[Python 3.11 replay](results/installed.json), [Python 3.14 replay](results/installed314.json).
+
+Chromium and Firefox checked the repeated-name review at 1440px dark and 375px
+light, and the complete sharp-S highlight at desktop width: six installed UI
+flows. Approving a field and exporting it preserves its original automated
+verdict. Each flow checks the retained server report, rendered PDF where shown,
+overflow, accessibility, script errors, CSP and unexpected external requests.
+All six captures were inspected; no findings were reported.
+[Browser receipt](results/browser-installed.json).
+
+![Before: one of two names is incorrectly selected as verified](../../docs/assets/unicode-grounding/before.png)
+
+![After: both names remain visible and the claim requires review](../../docs/assets/unicode-grounding/chromium-1440-repeated-name-after.png)
+
+![The complete original word remains highlighted after case expansion](../../docs/assets/unicode-grounding/firefox-1440-complete-expanded-word-after.png)
+
+A fresh full replay of the unchanged CORD/SROIE adapter produces identical
+complete records for **133,722 cases across 1,052 receipts**. The comparison uses
+the same manifest-checked input files described in the
+[preceding performance study](../grounding-reuse/README.md#compatibility-on-retained-receipts).
+[Compatibility receipt](results/receipt-compatibility.json). This retained
+mostly Latin-script corpus does not establish broad multilingual accuracy.
+
+The final installed wheel also preserves all four complete invoice reports from
+the performance repair. On the shared WSL2 machine, the 100-row library median
+is 0.088 seconds, with API HTTP 200 in 0.340 seconds; the 400-row API succeeds in
+0.805 seconds. Limits remain unchanged.
+[Final invoice replay](results/invoice-compatibility.json).
+
+These checks establish local installed behavior. They do not establish a
+registry release or an update to the hosted static demo.

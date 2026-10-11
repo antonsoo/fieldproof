@@ -1,0 +1,1370 @@
+{
+  "implementation_sha256": "519441050c619a0ef8e62bca94072fc200f467e49ebb2b4f12e41e5916577f4c",
+  "cases": [
+    {
+      "id": "unrelated-expansion",
+      "pdf_sha256": "33643568315aedca835f0821cd439fee2d9aee60a8560f32a7f11837d0d18dc0",
+      "source_pages": [
+        "İstanbul ACME 2026-10-11 Total 1.00"
+      ],
+      "candidates": [
+        {
+          "page": 1,
+          "start": 9,
+          "end": 13,
+          "text": "ACME",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "ACME",
+              "bbox": {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 101.78515580000001,
+                "bottom": 104.32421920000002
+              }
+            }
+          ]
+        }
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "acme",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 99.0,
+            "matched_text": "ACME",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 101.78515580000001,
+                "bottom": 104.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-11",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2026-10-11",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 126.32421920000002,
+                "x1": 154.60742480000002,
+                "bottom": 144.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "1.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 100.8183578,
+                "top": 166.32421920000002,
+                "x1": 140.89648459999998,
+                "bottom": 184.32421920000002
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 3,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "1.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": []
+      }
+    },
+    {
+      "id": "repeated-name",
+      "pdf_sha256": "d6b1f872486ade54b93deae60314c313f17ff8e455a68c716803cd1448ab58c8",
+      "source_pages": [
+        "İstanbul Acme Acme 2026-10-11 Total 1.00"
+      ],
+      "candidates": [
+        {
+          "page": 1,
+          "start": 9,
+          "end": 13,
+          "text": "Acme",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "Acme",
+              "bbox": {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 100.81835960000001,
+                "bottom": 104.32421920000002
+              }
+            }
+          ]
+        },
+        {
+          "page": 1,
+          "start": 14,
+          "end": 18,
+          "text": "Acme",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "Acme",
+              "bbox": {
+                "x0": 50.0,
+                "top": 126.32421920000002,
+                "x1": 100.81835960000001,
+                "bottom": 144.32421920000002
+              }
+            }
+          ]
+        }
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "ACME",
+            "status": "needs_review",
+            "reasons": [
+              "evidence 'ACME' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-11",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2026-10-11",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 166.32421920000002,
+                "x1": 154.60742480000002,
+                "bottom": 184.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "1.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 100.8183578,
+                "top": 206.32421920000002,
+                "x1": 140.89648459999998,
+                "bottom": 224.32421920000002
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "1.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": []
+      }
+    },
+    {
+      "id": "repeated-dotted-i",
+      "pdf_sha256": "18895fb6b81ef6d6c945f1ae05f2771eaa424614e401f7b54ad68d3203952a57",
+      "source_pages": [
+        "İstanbul İstanbul 2026-10-11 Total 1.00"
+      ],
+      "candidates": [
+        {
+          "page": 1,
+          "start": 0,
+          "end": 8,
+          "text": "İstanbul",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "İstanbul",
+              "bbox": {
+                "x0": 50.0,
+                "top": 46.324219200000016,
+                "x1": 122.01757879999998,
+                "bottom": 64.32421920000002
+              }
+            }
+          ]
+        },
+        {
+          "page": 1,
+          "start": 9,
+          "end": 17,
+          "text": "İstanbul",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "İstanbul",
+              "bbox": {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 122.01757879999998,
+                "bottom": 104.32421920000002
+              }
+            }
+          ]
+        }
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "i̇stanbul",
+            "status": "needs_review",
+            "reasons": [
+              "evidence 'i̇stanbul' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-11",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2026-10-11",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 126.32421920000002,
+                "x1": 154.60742480000002,
+                "bottom": 144.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "1.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 100.8183578,
+                "top": 166.32421920000002,
+                "x1": 140.89648459999998,
+                "bottom": 184.32421920000002
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "1.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": []
+      }
+    },
+    {
+      "id": "german-expansion",
+      "pdf_sha256": "5e615435165f33bf6b33783792312e01b2702bdc252b788c411b6020aa17d17f",
+      "source_pages": [
+        "Straße STRASSE 2026-10-11 Total 1.00"
+      ],
+      "candidates": [
+        {
+          "page": 1,
+          "start": 0,
+          "end": 6,
+          "text": "Straße",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "Straße",
+              "bbox": {
+                "x0": 50.0,
+                "top": 46.324219200000016,
+                "x1": 109.32617119999999,
+                "bottom": 64.32421920000002
+              }
+            }
+          ]
+        },
+        {
+          "page": 1,
+          "start": 7,
+          "end": 14,
+          "text": "STRASSE",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "STRASSE",
+              "bbox": {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 131.4658166,
+                "bottom": 104.32421920000002
+              }
+            }
+          ]
+        }
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "strasse",
+            "status": "needs_review",
+            "reasons": [
+              "evidence 'strasse' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-11",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2026-10-11",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 126.32421920000002,
+                "x1": 154.60742480000002,
+                "bottom": 144.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "1.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 100.8183578,
+                "top": 166.32421920000002,
+                "x1": 140.89648459999998,
+                "bottom": 184.32421920000002
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "1.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": []
+      }
+    },
+    {
+      "id": "greek-sigma",
+      "pdf_sha256": "b6aa91a225f4b0cdcbd2743ed52dde9d3cea3b286d2e8da7ca357143798863bd",
+      "source_pages": [
+        "ΟΣ ος 2026-10-11 Total 1.00"
+      ],
+      "candidates": [
+        {
+          "page": 1,
+          "start": 0,
+          "end": 2,
+          "text": "ΟΣ",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "ΟΣ",
+              "bbox": {
+                "x0": 50.0,
+                "top": 46.324219200000016,
+                "x1": 75.5410154,
+                "bottom": 64.32421920000002
+              }
+            }
+          ]
+        },
+        {
+          "page": 1,
+          "start": 3,
+          "end": 5,
+          "text": "ος",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "ος",
+              "bbox": {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 71.577149,
+                "bottom": 104.32421920000002
+              }
+            }
+          ]
+        }
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "οσ",
+            "status": "needs_review",
+            "reasons": [
+              "evidence 'οσ' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-11",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2026-10-11",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 126.32421920000002,
+                "x1": 154.60742480000002,
+                "bottom": 144.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "1.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 100.8183578,
+                "top": 166.32421920000002,
+                "x1": 140.89648459999998,
+                "bottom": 184.32421920000002
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "1.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": []
+      }
+    },
+    {
+      "id": "fuzzy-after-expansion",
+      "pdf_sha256": "ddacb413724c932954360b6d607d4e1a2e4ce6e01992d42d17d0d07568198da5",
+      "source_pages": [
+        "İstanbul NORTHWIND 2026-10-11 Total 1.00"
+      ],
+      "candidates": [
+        {
+          "page": 1,
+          "start": 9,
+          "end": 18,
+          "text": "NORTHWIND",
+          "strong": false,
+          "score": 94.11764705882352,
+          "words": [
+            {
+              "text": "NORTHWIND",
+              "bbox": {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 165.1015616,
+                "bottom": 104.32421920000002
+              }
+            }
+          ]
+        }
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "northwnd",
+            "status": "needs_review",
+            "reasons": [
+              "the quote is 94/100 like 'NORTHWIND' on the page but differs from it in letters or digits, or numeric signs/units",
+              "value 'northwnd' is only 0% similar to evidence 'NORTHWIND'"
+            ],
+            "match_score": 94.11764705882352,
+            "matched_text": "NORTHWIND",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 165.1015616,
+                "bottom": 104.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-11",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2026-10-11",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 126.32421920000002,
+                "x1": 154.60742480000002,
+                "bottom": 144.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "1.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 100.8183578,
+                "top": 166.32421920000002,
+                "x1": 140.89648459999998,
+                "bottom": 184.32421920000002
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "1.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": []
+      }
+    },
+    {
+      "id": "partial-expanded-letter",
+      "pdf_sha256": "f7dfc84fc9e17c5c1587fa6f5e8117b913f1562222b10eb0f37a20c2d0d9f8ab",
+      "source_pages": [
+        "ß 2026-10-11 Total 1.00"
+      ],
+      "candidates": [],
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "s",
+            "status": "unsupported",
+            "reasons": [
+              "none of the evidence quotes ('s') could be located in the document"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-11",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2026-10-11",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 154.60742480000002,
+                "bottom": 104.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "1.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 100.8183578,
+                "top": 126.32421920000002,
+                "x1": 140.89648459999998,
+                "bottom": 144.32421920000002
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 0,
+          "unsupported": 1
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "1.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": []
+      }
+    },
+    {
+      "id": "complete-expanded-word",
+      "pdf_sha256": "b7c26ee0601ec90d85e69a668b8192bdc3eb0bff6bf4c19468808fc860fb3f38",
+      "source_pages": [
+        "Straße 2026-10-11 Total 1.00"
+      ],
+      "candidates": [
+        {
+          "page": 1,
+          "start": 0,
+          "end": 6,
+          "text": "Straße",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "Straße",
+              "bbox": {
+                "x0": 50.0,
+                "top": 46.324219200000016,
+                "x1": 109.32617119999999,
+                "bottom": 64.32421920000002
+              }
+            }
+          ]
+        }
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "STRASSE",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 99.0,
+            "matched_text": "Straße",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 46.324219200000016,
+                "x1": 109.32617119999999,
+                "bottom": 64.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-11",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2026-10-11",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 154.60742480000002,
+                "bottom": 104.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "1.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 100.8183578,
+                "top": 126.32421920000002,
+                "x1": 140.89648459999998,
+                "bottom": 144.32421920000002
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 3,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "1.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": []
+      }
+    },
+    {
+      "id": "exact-duplicates-control",
+      "pdf_sha256": "d6b1f872486ade54b93deae60314c313f17ff8e455a68c716803cd1448ab58c8",
+      "source_pages": [
+        "İstanbul Acme Acme 2026-10-11 Total 1.00"
+      ],
+      "candidates": [
+        {
+          "page": 1,
+          "start": 9,
+          "end": 13,
+          "text": "Acme",
+          "strong": true,
+          "score": 100.0,
+          "words": [
+            {
+              "text": "Acme",
+              "bbox": {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 100.81835960000001,
+                "bottom": 104.32421920000002
+              }
+            }
+          ]
+        },
+        {
+          "page": 1,
+          "start": 14,
+          "end": 18,
+          "text": "Acme",
+          "strong": true,
+          "score": 100.0,
+          "words": [
+            {
+              "text": "Acme",
+              "bbox": {
+                "x0": 50.0,
+                "top": 126.32421920000002,
+                "x1": 100.81835960000001,
+                "bottom": 144.32421920000002
+              }
+            }
+          ]
+        }
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "Acme",
+            "status": "needs_review",
+            "reasons": [
+              "evidence 'Acme' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-11",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "2026-10-11",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 166.32421920000002,
+                "x1": 154.60742480000002,
+                "bottom": 184.32421920000002
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 1.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "1.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 100.8183578,
+                "top": 206.32421920000002,
+                "x1": 140.89648459999998,
+                "bottom": 224.32421920000002
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "1.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": []
+      }
+    },
+    {
+      "id": "page-hint-duplicates",
+      "pdf_sha256": "2fabcd590c4bc45deced6f0addaf8509470b489614253d44c92b92014304d24c",
+      "source_pages": [
+        "İstanbul Acme 2026-10-11 Total 1.00",
+        "Acme 2026-10-11 Total 1.00"
+      ],
+      "candidates": [
+        {
+          "page": 2,
+          "start": 0,
+          "end": 4,
+          "text": "Acme",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "Acme",
+              "bbox": {
+                "x0": 50.0,
+                "top": 46.324219200000016,
+                "x1": 100.81835960000001,
+                "bottom": 64.32421920000002
+              }
+            }
+          ]
+        },
+        {
+          "page": 1,
+          "start": 9,
+          "end": 13,
+          "text": "Acme",
+          "strong": true,
+          "score": 99.0,
+          "words": [
+            {
+              "text": "Acme",
+              "bbox": {
+                "x0": 50.0,
+                "top": 86.32421920000002,
+                "x1": 100.81835960000001,
+                "bottom": 104.32421920000002
+              }
+            }
+          ]
+        }
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "merchant_name",
+            "value": "ACME",
+            "status": "needs_review",
+            "reasons": [
+              "evidence 'ACME' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "transaction_date",
+            "value": "2026-10-11",
+            "status": "needs_review",
+            "reasons": [
+              "evidence '2026-10-11' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "total",
+            "value": 1.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '1.00' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 3,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "receipt.items_subtotal",
+            "fields": [
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "items sum not checked: no item amounts were extracted",
+            "operands": {
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "receipt.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "1.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          }
+        ],
+        "row_checks": []
+      }
+    }
+  ],
+  "api": [
+    {
+      "id": "unrelated-expansion",
+      "status": 200,
+      "report_matches_library": true
+    },
+    {
+      "id": "repeated-name",
+      "status": 200,
+      "report_matches_library": true
+    },
+    {
+      "id": "repeated-dotted-i",
+      "status": 200,
+      "report_matches_library": true
+    },
+    {
+      "id": "german-expansion",
+      "status": 200,
+      "report_matches_library": true
+    },
+    {
+      "id": "greek-sigma",
+      "status": 200,
+      "report_matches_library": true
+    },
+    {
+      "id": "fuzzy-after-expansion",
+      "status": 200,
+      "report_matches_library": true
+    },
+    {
+      "id": "partial-expanded-letter",
+      "status": 200,
+      "report_matches_library": true
+    },
+    {
+      "id": "complete-expanded-word",
+      "status": 200,
+      "report_matches_library": true
+    },
+    {
+      "id": "exact-duplicates-control",
+      "status": 200,
+      "report_matches_library": true
+    },
+    {
+      "id": "page-hint-duplicates",
+      "status": 200,
+      "report_matches_library": true
+    }
+  ]
+}

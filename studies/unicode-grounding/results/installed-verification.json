@@ -1,0 +1,157 @@
+{
+  "source_commit": "86bb216a8cfb1f970e8f47e556df7c344887fe5c",
+  "clean_checks": {
+    "python_tests": 391,
+    "web_tests": 50,
+    "ruff": "passed",
+    "mypy_files": 33,
+    "web_lint_typecheck_format": "passed",
+    "production_and_demo_builds": "passed"
+  },
+  "installed_pythons": [
+    "3.11.13",
+    "3.14.7"
+  ],
+  "wheel": {
+    "name": "fieldproof-0.2.7-py3-none-any.whl",
+    "sha256": "cb601c6c48644b004391cd96281945e27ec43a89b07ed70e2892d47a95c1fea8",
+    "bytes": 571497
+  },
+  "package_source_files_identical": 33,
+  "all_ten_library_and_api_reports_byte_identical": true,
+  "cli": [
+    {
+      "id": "repeated-name",
+      "sha256": "bd2a2ce11ba6902dc5efe440c0fb67bb845fabdcc13150bcd4ef309e04f997e8",
+      "report_matches_library": true
+    },
+    {
+      "id": "complete-expanded-word",
+      "sha256": "2eba83bfe1b434799481b6633216cba2ec126df4a04d3ffb994ee4019f5b3890",
+      "report_matches_library": true
+    },
+    {
+      "id": "page-hint-duplicates",
+      "sha256": "76b2d66025d02cda88fb667735900611f44a94387835f1f2267c9d44b3d3379f",
+      "report_matches_library": true
+    }
+  ],
+  "served_assets_match_clean_build": [
+    {
+      "path": "assets/fraunces-latin-DihXLNYH.woff2",
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783",
+      "bytes": 67304
+    },
+    {
+      "path": "assets/fraunces-latin-ext-CJcjJNj7.woff2",
+      "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e",
+      "bytes": 59388
+    },
+    {
+      "path": "assets/fraunces-vietnamese-Czevyj-6.woff2",
+      "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4",
+      "bytes": 19700
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "bytes": 8356
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "bytes": 6912
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "bytes": 14708
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "bytes": 13348
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "bytes": 5868
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "bytes": 8460
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "bytes": 6972
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "bytes": 14888
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "bytes": 13432
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "bytes": 6040
+    },
+    {
+      "path": "assets/index-Cc6zao9e.js",
+      "sha256": "447d74f331b715bd0d4627e96510bda6c536ba147e7e7bda3a28da33c293fae9",
+      "bytes": 41564
+    },
+    {
+      "path": "assets/index-DiNKwaEo.css",
+      "sha256": "1f5ee42b05a2277f5de95ff6f789dde47f1635fa5ada2c38adcc15953d24db4a",
+      "bytes": 26277
+    },
+    {
+      "path": "assets/inter-cyrillic-DqGufNeO.woff2",
+      "sha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075",
+      "bytes": 18748
+    },
+    {
+      "path": "assets/inter-cyrillic-ext-BOeWTOD4.woff2",
+      "sha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd",
+      "bytes": 25960
+    },
+    {
+      "path": "assets/inter-greek-CkhJZR-_.woff2",
+      "sha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6",
+      "bytes": 18996
+    },
+    {
+      "path": "assets/inter-greek-ext-DlzME5K_.woff2",
+      "sha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190",
+      "bytes": 11232
+    },
+    {
+      "path": "assets/inter-latin-Dx4kXJAl.woff2",
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+      "bytes": 48256
+    },
+    {
+      "path": "assets/inter-latin-ext-DO1Apj_S.woff2",
+      "sha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956",
+      "bytes": 85068
+    },
+    {
+      "path": "assets/inter-vietnamese-CBcvBZtf.woff2",
+      "sha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2",
+      "bytes": 10252
+    },
+    {
+      "path": "index.html",
+      "sha256": "4be2193cc2c56f6ca5774b5f6df0799f14533522c0ff3bb7fbad393abcaaf401",
+      "bytes": 2885
+    }
+  ],
+  "scope": "Fresh wheels outside checkout; no registry release or hosted deployment."
+}
