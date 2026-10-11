@@ -1,0 +1,2479 @@
+{
+  "python": "3.12.12",
+  "package_version": "0.2.7",
+  "scope": "Synthetic PDF and extraction claims; no model calls. All original claims and geometry retained.",
+  "pdf_sha256": "9f1d842505cdc6b52ab4a9fcfaf8d66a068ec6cafdcb71d3ac605587dbde49c7",
+  "cases": 36,
+  "disagreements": 27,
+  "results": [
+    {
+      "case": "canonical",
+      "date_order": null,
+      "expected": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "canonical",
+      "date_order": "mdy",
+      "expected": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "canonical",
+      "date_order": "dmy",
+      "expected": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "negated-issue",
+      "date_order": null,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "not 2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "not 2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "negated-issue",
+      "date_order": "mdy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "not 2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "not 2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "negated-issue",
+      "date_order": "dmy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "not 2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "not 2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "alternative-issue",
+      "date_order": null,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04 or 2026-04-03",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04 or 2026-04-03",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "alternative-issue",
+      "date_order": "mdy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04 or 2026-04-03",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04 or 2026-04-03",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "alternative-issue",
+      "date_order": "dmy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04 or 2026-04-03",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04 or 2026-04-03",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "labeled-claim",
+      "date_order": null,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "Issue: 2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "Issue: 2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "labeled-claim",
+      "date_order": "mdy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "Issue: 2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "Issue: 2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "labeled-claim",
+      "date_order": "dmy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "Issue: 2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "Issue: 2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "ambiguous-claim",
+      "date_order": null,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "03/04/2026",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "03/04/2026",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "ambiguous-claim",
+      "date_order": "mdy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "03/04/2026",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "03/04/2026",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "ambiguous-claim",
+      "date_order": "dmy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "03/04/2026",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "03/04/2026",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "written-claim",
+      "date_order": null,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "March 4, 2026",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "March 4, 2026",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "written-claim",
+      "date_order": "mdy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "March 4, 2026",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "March 4, 2026",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "written-claim",
+      "date_order": "dmy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "March 4, 2026",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "March 4, 2026",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "unpadded-claim",
+      "date_order": null,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-3-4",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-3-4",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "unpadded-claim",
+      "date_order": "mdy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-3-4",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-3-4",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "unpadded-claim",
+      "date_order": "dmy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-3-4",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-3-4",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "invalid-calendar",
+      "date_order": null,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-02-29",
+          "status": "needs_review",
+          "reasons": [
+            "value '2026-02-29' is not a parseable ISO-8601 date"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be present and parseable",
+        "operands": {
+          "issue_date": "2026-02-29",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "invalid-calendar",
+      "date_order": "mdy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-02-29",
+          "status": "needs_review",
+          "reasons": [
+            "value '2026-02-29' is not a parseable ISO-8601 date"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be present and parseable",
+        "operands": {
+          "issue_date": "2026-02-29",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "invalid-calendar",
+      "date_order": "dmy",
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-02-29",
+          "status": "needs_review",
+          "reasons": [
+            "value '2026-02-29' is not a parseable ISO-8601 date"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be present and parseable",
+        "operands": {
+          "issue_date": "2026-02-29",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "wrong-canonical-date",
+      "date_order": null,
+      "expected": [
+        "needs_review",
+        "needs_review",
+        "failed"
+      ],
+      "actual": [
+        "needs_review",
+        "needs_review",
+        "failed"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-04-03",
+          "status": "needs_review",
+          "reasons": [
+            "value 2026-04-03 does not match 2026-03-04 parsed from the evidence",
+            "due date 2026-03-05 is before issue date 2026-04-03"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "needs_review",
+          "reasons": [
+            "due date 2026-03-05 is before issue date 2026-04-03"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "failed",
+        "message": "due date 2026-03-05 is before issue date 2026-04-03",
+        "operands": {
+          "issue_date": "2026-04-03",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "wrong-canonical-date",
+      "date_order": "mdy",
+      "expected": [
+        "needs_review",
+        "needs_review",
+        "failed"
+      ],
+      "actual": [
+        "needs_review",
+        "needs_review",
+        "failed"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-04-03",
+          "status": "needs_review",
+          "reasons": [
+            "value 2026-04-03 does not match 2026-03-04 parsed from the evidence",
+            "due date 2026-03-05 is before issue date 2026-04-03"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "needs_review",
+          "reasons": [
+            "due date 2026-03-05 is before issue date 2026-04-03"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "failed",
+        "message": "due date 2026-03-05 is before issue date 2026-04-03",
+        "operands": {
+          "issue_date": "2026-04-03",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "wrong-canonical-date",
+      "date_order": "dmy",
+      "expected": [
+        "needs_review",
+        "needs_review",
+        "failed"
+      ],
+      "actual": [
+        "needs_review",
+        "needs_review",
+        "failed"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-04-03",
+          "status": "needs_review",
+          "reasons": [
+            "value 2026-04-03 does not match 2026-03-04 parsed from the evidence",
+            "due date 2026-03-05 is before issue date 2026-04-03"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "needs_review",
+          "reasons": [
+            "due date 2026-03-05 is before issue date 2026-04-03"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "failed",
+        "message": "due date 2026-03-05 is before issue date 2026-04-03",
+        "operands": {
+          "issue_date": "2026-04-03",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "negated-due",
+      "date_order": null,
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "not 2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "not 2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "negated-due",
+      "date_order": "mdy",
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "not 2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "not 2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "negated-due",
+      "date_order": "dmy",
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "not 2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "not 2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "alternative-due",
+      "date_order": null,
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05 or 2026-03-06",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "2026-03-05 or 2026-03-06"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "alternative-due",
+      "date_order": "mdy",
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05 or 2026-03-06",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "2026-03-05 or 2026-03-06"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "alternative-due",
+      "date_order": "dmy",
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05 or 2026-03-06",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "2026-03-05 or 2026-03-06"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "ambiguous-due",
+      "date_order": null,
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "03/05/2026",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "03/05/2026"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "ambiguous-due",
+      "date_order": "mdy",
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "03/05/2026",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "03/05/2026"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "ambiguous-due",
+      "date_order": "dmy",
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": false,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "03/05/2026",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "03/05/2026"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    }
+  ]
+}

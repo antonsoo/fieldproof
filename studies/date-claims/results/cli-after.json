@@ -1,0 +1,849 @@
+{
+  "python": "3.12.12",
+  "scope": "Actual fixture-provider CLI calls on synthetic PDF; no model calls.",
+  "cases": 12,
+  "disagreements": 0,
+  "results": [
+    {
+      "case": "canonical",
+      "exit_code": 0,
+      "expected": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "actual": [
+        "verified",
+        "verified",
+        "passed"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-05 is on or after issue date 2026-03-04",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "negated-issue",
+      "exit_code": 0,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "not 2026-03-04",
+          "status": "needs_review",
+          "reasons": [
+            "value 'not 2026-03-04' must be one calendar-valid date in YYYY-MM-DD format"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "not 2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "alternative-issue",
+      "exit_code": 0,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04 or 2026-04-03",
+          "status": "needs_review",
+          "reasons": [
+            "value '2026-03-04 or 2026-04-03' must be one calendar-valid date in YYYY-MM-DD format"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-03-04 or 2026-04-03",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "labeled-claim",
+      "exit_code": 0,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "Issue: 2026-03-04",
+          "status": "needs_review",
+          "reasons": [
+            "value 'Issue: 2026-03-04' must be one calendar-valid date in YYYY-MM-DD format"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "Issue: 2026-03-04",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "ambiguous-claim",
+      "exit_code": 0,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "03/04/2026",
+          "status": "needs_review",
+          "reasons": [
+            "value '03/04/2026' must be one calendar-valid date in YYYY-MM-DD format"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "03/04/2026",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "written-claim",
+      "exit_code": 0,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "March 4, 2026",
+          "status": "needs_review",
+          "reasons": [
+            "value 'March 4, 2026' must be one calendar-valid date in YYYY-MM-DD format"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "March 4, 2026",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "unpadded-claim",
+      "exit_code": 0,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-3-4",
+          "status": "needs_review",
+          "reasons": [
+            "value '2026-3-4' must be one calendar-valid date in YYYY-MM-DD format"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-3-4",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "invalid-calendar",
+      "exit_code": 0,
+      "expected": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "actual": [
+        "needs_review",
+        "verified",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-02-29",
+          "status": "needs_review",
+          "reasons": [
+            "value '2026-02-29' must be one calendar-valid date in YYYY-MM-DD format"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-02-29",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "wrong-canonical-date",
+      "exit_code": 0,
+      "expected": [
+        "needs_review",
+        "needs_review",
+        "failed"
+      ],
+      "actual": [
+        "needs_review",
+        "needs_review",
+        "failed"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-04-03",
+          "status": "needs_review",
+          "reasons": [
+            "value 2026-04-03 does not match 2026-03-04 parsed from the evidence",
+            "due date 2026-03-05 is before issue date 2026-04-03"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05",
+          "status": "needs_review",
+          "reasons": [
+            "due date 2026-03-05 is before issue date 2026-04-03"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "failed",
+        "message": "due date 2026-03-05 is before issue date 2026-04-03",
+        "operands": {
+          "issue_date": "2026-04-03",
+          "due_date": "2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "negated-due",
+      "exit_code": 0,
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "not 2026-03-05",
+          "status": "needs_review",
+          "reasons": [
+            "value 'not 2026-03-05' must be one calendar-valid date in YYYY-MM-DD format"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "not 2026-03-05"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "alternative-due",
+      "exit_code": 0,
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "2026-03-05 or 2026-03-06",
+          "status": "needs_review",
+          "reasons": [
+            "value '2026-03-05 or 2026-03-06' must be one calendar-valid date in YYYY-MM-DD format"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "2026-03-05 or 2026-03-06"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    },
+    {
+      "case": "ambiguous-due",
+      "exit_code": 0,
+      "expected": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "actual": [
+        "verified",
+        "needs_review",
+        "not_checked"
+      ],
+      "agrees": true,
+      "fields": {
+        "issue_date": {
+          "path": "issue_date",
+          "value": "2026-03-04",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "Issue date: 2026-03-04",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 122.48400000000004,
+              "x1": 165.40799999999996,
+              "bottom": 134.48400000000004
+            }
+          ]
+        },
+        "due_date": {
+          "path": "due_date",
+          "value": "03/05/2026",
+          "status": "needs_review",
+          "reasons": [
+            "value '03/05/2026' must be one calendar-valid date in YYYY-MM-DD format"
+          ],
+          "match_score": 100.0,
+          "matched_text": "Due date: 2026-03-05",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 42.0,
+              "top": 152.48400000000004,
+              "x1": 158.73599999999996,
+              "bottom": 164.48400000000004
+            }
+          ]
+        }
+      },
+      "date_check": {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-03-04",
+          "due_date": "03/05/2026"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    }
+  ]
+}

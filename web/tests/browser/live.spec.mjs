@@ -27,6 +27,49 @@ async function extract(page) {
   await expect(row(page, 'total')).toBeVisible();
 }
 
+test('a negated extracted date remains reviewable with its original evidence and exports', async ({ page, request, browserName }) => {
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../studies/date-claims/date-claims.pdf', import.meta.url)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('../../../studies/date-claims/negated-claim.json', import.meta.url)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  const date = row(page, 'issue_date');
+  await expect(date.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+  await expect(date.locator('.field-reasons')).toContainText('one calendar-valid date in YYYY-MM-DD format');
+  await expect(date).toContainText('not 2026-03-04');
+  await date.getByRole('button', { name: 'Inspect issue_date', exact: true }).click();
+  const highlight = page.locator('.highlight-rect[data-path="issue_date"]');
+  await expect(highlight).toHaveCount(1);
+  await expect(highlight).toHaveAttribute('data-status', 'needs_review');
+  await expect(page.locator('#page-frame img')).toBeVisible();
+  const url = (await page.locator('#page-frame img').getAttribute('src')).replace(/\/pages\/\d+\.png$/, '');
+  const before = await (await request.get(`${url}/report`)).json();
+  const evidence = before.report.fields.find(field => field.path === 'issue_date');
+  expect(evidence).toMatchObject({ value: 'not 2026-03-04', page: 1, matched_text: 'Issue date: 2026-03-04' });
+  expect(before.report.cross_field_checks.find(check => check.rule === 'invoice.due_date_order').status).toBe('not_checked');
+  const directory = fileURLToPath(new URL('../../../docs/assets/date-claims', import.meta.url));
+  if (process.env.UPDATE_DATE_CLAIM_SCREENSHOTS) mkdirSync(directory, { recursive: true });
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 960 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await scan(page);
+    if (process.env.UPDATE_DATE_CLAIM_SCREENSHOTS) await page.screenshot({ path: `${directory}/${browserName}-${width}.png`, fullPage: true });
+  }
+  await page.setViewportSize({ width: 1440, height: 960 });
+  await date.getByRole('button', { name: 'Edit', exact: true }).click();
+  await date.getByRole('textbox').fill('2026-03-04');
+  await date.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect(date.locator('.review-badge')).toHaveText('edited');
+  const exported = JSON.parse((await downloadText(page, 'JSON')).text);
+  expect(exported).toHaveLength(1);
+  expect(exported[0]).toMatchObject({ field: 'issue_date', value: '2026-03-04', original_value: 'not 2026-03-04', value_source: 'correction', verification_status: 'needs_review' });
+  expect((await (await request.get(`${url}/report`)).json()).report).toEqual(before.report);
+  const csv = (await downloadText(page, 'CSV')).text;
+  expect(csv).toContain('not 2026-03-04');
+  expect(csv).toContain('needs_review');
+  if (process.env.UPDATE_DATE_CLAIM_SCREENSHOTS) writeFileSync(`${directory}/${browserName}-observations.json`, JSON.stringify({ evidence, exported }, null, 2) + '\n');
+});
+
 test('an invalid date reference cannot settle an ambiguous issue date through review and export', async ({ page, request, browserName }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/date-convention.pdf', import.meta.url)));

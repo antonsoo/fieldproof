@@ -123,6 +123,21 @@ def parse_date(text: str) -> date | None:
     return None
 
 
+def parse_iso_date(value: str) -> date | None:
+    """One extracted calendar date in the schema's YYYY-MM-DD format.
+
+    Evidence may contain labels or use a local date order. An extracted claim
+    must already have resolved those choices: finding a convenient substring
+    would approve negation, alternatives, or an ambiguous day/month ordering.
+    """
+    if re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", value) is None:
+        return None
+    try:
+        return date.fromisoformat(value)
+    except ValueError:
+        return None
+
+
 def _try_formats(text: str) -> date | None:
     for fmt in _DATE_FORMATS:
         try:
@@ -230,9 +245,11 @@ def check_date(
     parts are both 12 or under (03/04/2026) reads as 4 March or 3 April; it is
     read in `date_order` (see `numeric_date_order`) when the document settles
     that, and otherwise can't verify a value on its own."""
-    claimed = parse_date(value)
+    claimed = parse_iso_date(value)
     if claimed is None:
-        return ValueCheckResult(False, f"value {value!r} is not a parseable ISO-8601 date")
+        return ValueCheckResult(
+            False, f"value {value!r} must be one calendar-valid date in YYYY-MM-DD format"
+        )
 
     numeric = _numeric_date_in(evidence_text.strip())
     if numeric is not None:

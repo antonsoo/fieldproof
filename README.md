@@ -220,6 +220,15 @@ override your `--date-order` default or verify an ambiguous issue date. The
 PDF example, before/after results and the cost of rejecting fused OCR tokens
 (source checkout, unreleased).
 
+Extracted date **values** must be one calendar-valid `YYYY-MM-DD` date, as the
+built-in schemas request. Evidence can still say `March 4, 2026` or use a numeric
+local format. A value such as `not 2026-03-04`, `03/04/2026`, or two alternative
+dates needs review; the verifier no longer selects a convenient substring or
+assumes the claim's day/month order. Invoice date ordering remains `not_checked`
+until both claims meet this format. [Actual PDF and CLI captures](studies/date-claims/README.md)
+retain the original values, evidence and page highlights. This is a source
+correction, not a PyPI release.
+
 `--provider anthropic` defaults to `claude-opus-5-5` (Claude Opus 5.5); pass
 `--model claude-sonnet-5-5` or any other model id to override it.
 
@@ -420,7 +429,8 @@ four hold:
    digits; supported numeric tokens include their signs and can span words
    on the same visual line. A footer dash on another line does not negate a
    preceding total. Scientific notation, fractions and unfamiliar attached
-   units go to review instead of supplying numeric fragments; dates are parsed from either
+   units go to review instead of supplying numeric fragments; extracted dates must
+   be single calendar-valid `YYYY-MM-DD` values, while date evidence is parsed from
    ISO-8601 or a handful of common formats and compared as calendar dates,
    and a numeric date whose first two parts are both 12 or under
    (`03/04/2026`) is read in whichever order another date on the same

@@ -15,7 +15,7 @@ from pydantic import BaseModel
 
 from fieldproof.schemas.invoice import Invoice
 from fieldproof.schemas.receipt import Receipt
-from fieldproof.verify.value_checks import parse_date
+from fieldproof.verify.value_checks import parse_iso_date
 
 # Absolute, inclusive tolerance in the extracted amounts' units. This is not a
 # currency-specific rounding rule and does not round each line before summing.
@@ -141,14 +141,14 @@ def _date_check(invoice: Invoice) -> CrossFieldCheck:
     fields = ("issue_date", "due_date")
     due_value = invoice.due_date.value if invoice.due_date is not None else None
     operands = {"issue_date": invoice.issue_date.value, "due_date": due_value}
-    issue = parse_date(invoice.issue_date.value)
-    due = parse_date(due_value) if due_value is not None else None
+    issue = parse_iso_date(invoice.issue_date.value)
+    due = parse_iso_date(due_value) if due_value is not None else None
     if issue is None or due is None:
         return CrossFieldCheck(
             "invoice.due_date_order",
             fields,
             "not_checked",
-            "date order not checked: both extracted dates must be present and parseable",
+            "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
             operands,
         )
     before = due < issue

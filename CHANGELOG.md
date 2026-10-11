@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Extracted date claims
+
+- Require one calendar-valid `YYYY-MM-DD` value for a date claim. Negated prose,
+  alternative dates and ambiguous numeric claims no longer verify because one
+  substring matches the evidence. Localized formats remain supported in evidence.
+- Leave invoice date ordering explicitly `not_checked` when either extracted
+  date fails the contract. Preserve the original claim, quote, page and boxes
+  for review; do not normalize or correct the extraction silently.
+- Retain before/after actual PDF grounding and CLI captures in `studies/date-claims`.
+
 ### Explicit Boolean evidence
 
 - Verify Boolean leaves from a single explicit yes/no or true/false answer,

@@ -14,6 +14,7 @@ from fieldproof.verify.value_checks import (
     check_string,
     parse_all_numbers,
     parse_date,
+    parse_iso_date,
     parse_number,
 )
 
@@ -34,6 +35,7 @@ __all__ = [
     "check_string",
     "parse_all_numbers",
     "parse_date",
+    "parse_iso_date",
     "parse_number",
     "verify",
 ]

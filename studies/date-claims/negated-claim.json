@@ -1,0 +1,42 @@
+{
+  "schema": "invoice",
+  "model": "synthetic-date-claims",
+  "data": {
+    "vendor_name": {
+      "value": "Example Workshop",
+      "evidence": [
+        "Example Workshop"
+      ],
+      "page": 1
+    },
+    "invoice_number": {
+      "value": "DATE-001",
+      "evidence": [
+        "Invoice: DATE-001"
+      ],
+      "page": 1
+    },
+    "issue_date": {
+      "value": "not 2026-03-04",
+      "evidence": [
+        "Issue date: 2026-03-04"
+      ],
+      "page": 1
+    },
+    "due_date": {
+      "value": "2026-03-05",
+      "evidence": [
+        "Due date: 2026-03-05"
+      ],
+      "page": 1
+    },
+    "total": {
+      "value": 10.0,
+      "evidence": [
+        "Total: $10.00"
+      ],
+      "page": 1
+    },
+    "line_items": []
+  }
+}
