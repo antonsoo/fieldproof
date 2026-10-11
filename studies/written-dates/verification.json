@@ -1,0 +1,69 @@
+{
+  "implementation_commit": "62dd52696f73179bc847d93b820cce9fa3e39285",
+  "clean_archive": {
+    "python": "3.12.12",
+    "ruff": "passed: src tests studies/written-dates",
+    "mypy": "passed: 33 source files",
+    "pytest": {
+      "passed": 375,
+      "seconds": 71.54
+    },
+    "web": {
+      "npm_ci": "passed",
+      "lint": "passed",
+      "typecheck": "passed",
+      "tests": 50,
+      "build": "passed; 23 assets bundled into wheel and sdist"
+    }
+  },
+  "installed": "installed.json",
+  "receipt_compatibility": "receipts.json",
+  "browser": {
+    "package": "installed Python 3.11 wheel at loopback server",
+    "engines": [
+      "Chromium",
+      "Firefox"
+    ],
+    "viewports": [
+      1440,
+      375
+    ],
+    "scenarios": 2,
+    "checks": [
+      "fixture upload and contract extraction",
+      "needs_review verdict and complete literal quote",
+      "matching PDF highlight",
+      "accessible report without viewport overflow",
+      "explicit human approval",
+      "JSON export and API export agree",
+      "original automated report remains unchanged",
+      "session reload preserves decision and export",
+      "no off-origin requests or CSP errors"
+    ],
+    "test_file_sha256": "4d016dd900bd57e40eeb20c385dd116d2d5c8e6a1cc8cca4754908521a068363",
+    "test_harness_note": "Clean archive browser replay uses corrected locators for the existing Schema combobox and Approve button; no UI or package code changed.",
+    "screenshots": {
+      "firefox-1440.png": {
+        "sha256": "7aacca4f583c3dd768d61520c2a2e1a32003b0212d636d5a08840e769c1a07ef",
+        "bytes": 103078,
+        "visually_inspected": true
+      },
+      "chromium-375.png": {
+        "sha256": "7b2e8845d62210dad27e18c9fb052747a34a0949381cd28dd8b847a6451f7496",
+        "bytes": 51251,
+        "visually_inspected": true
+      },
+      "firefox-375.png": {
+        "sha256": "0381dc7bf3cbef8cd7667640e544227556204f60fa326489049736faf621e740",
+        "bytes": 62512,
+        "visually_inspected": true
+      },
+      "chromium-1440.png": {
+        "sha256": "ded055cb2c2f47bda115502863583c7b7666243de4f1a13674f7ccb45b6f0a0c",
+        "bytes": 82751,
+        "visually_inspected": true
+      }
+    }
+  },
+  "scope": "Local source, clean build, installed wheel and browser evidence. No PyPI release or manual site deployment."
+}

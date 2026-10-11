@@ -1,0 +1,32 @@
+{
+  "evidence": {
+    "path": "effective_date",
+    "value": "2026-05-01",
+    "status": "needs_review",
+    "reasons": [
+      "could not parse a date from evidence 'Effective date: May 1, 20260'"
+    ],
+    "match_score": 100,
+    "matched_text": "Effective date: May 1, 20260",
+    "page": 1,
+    "rects": [
+      {
+        "x0": 42,
+        "top": 152.48400000000004,
+        "x1": 194.08799999999997,
+        "bottom": 164.48400000000004
+      }
+    ]
+  },
+  "exported": [
+    {
+      "field": "effective_date",
+      "value": "2026-05-01",
+      "original_value": "2026-05-01",
+      "value_source": "extraction",
+      "verification_status": "needs_review",
+      "review_status": "approved",
+      "page": 1
+    }
+  ]
+}

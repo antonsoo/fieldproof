@@ -74,7 +74,7 @@ test('a written date keeps every printed year digit through review and export', 
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../studies/written-dates/extra-year-digit.pdf', import.meta.url)));
   await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
-  await page.getByLabel('Schema', { exact: true }).selectOption('contract');
+  await page.getByRole('combobox', { name: 'Schema', exact: true }).selectOption('contract');
   await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('../../../studies/written-dates/extra-year-digit.json', import.meta.url)));
   await page.getByRole('button', { name: 'Run extraction' }).click();
   const date = row(page, 'effective_date');
@@ -102,7 +102,7 @@ test('a written date keeps every printed year digit through review and export', 
   await page.setViewportSize({ width: 1440, height: 960 });
   // A human can confirm the intended date. That decision must not rewrite
   // the automated verdict or the literal evidence retained in the report.
-  await date.getByRole('button', { name: 'Confirm', exact: true }).click();
+  await date.getByRole('button', { name: 'Approve', exact: true }).click();
   const exported = JSON.parse((await downloadText(page, 'JSON')).text);
   expect(exported).toHaveLength(1);
   expect(exported[0]).toMatchObject({ field: 'effective_date', value: '2026-05-01', verification_status: 'needs_review' });

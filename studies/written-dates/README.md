@@ -1,7 +1,7 @@
 # A written date must keep every digit
 
 At source `7a0b35e`, the fixture-provider command verified a contract's effective
- date as `2026-05-01` from the exact printed quote `Effective date: May 1, 20260`.
+date as `2026-05-01` from the exact printed quote `Effective date: May 1, 20260`.
 Grounding found the complete quote with a score of 100, but the value parser
 silently dropped the last digit. The same path read `111 January 2026` as
 January 11. These are constructed counterexamples, not model or OCR measurements.
@@ -55,3 +55,42 @@ To compare an older checkout, supply `--src /path/to/old/src --observe-only`.
 A date's presence still does not establish its semantic role or the intended
 meaning of a malformed source. A human confirmation remains separate from the
 automated verdict.
+
+## Installed review workflow
+
+The [clean-build receipt](verification.json) records 375 Python checks,
+50 web checks, lint, types, UI bundling and wheel/sdist builds. Fresh Python
+3.11.13 and 3.14.7 installations reproduce all 52 PDF cases byte-for-byte and
+the actual malformed-year CLI report. The [installed receipt](installed.json)
+also compares 33 source files and 23 UI assets with the build, then checks all
+23 assets fetched from the installed server.
+
+Chromium and Firefox upload the PDF and extraction fixture to that installed
+server, inspect the complete year in the highlighted quote, approve the field
+as a human decision, export JSON and reopen the saved session. The original
+automated `needs_review` verdict remains unchanged. The two browser scenarios
+also check 1440px and 375px layouts, accessibility and absence of off-origin
+requests or CSP errors.
+
+![Installed Firefox review retains the malformed year](../../docs/assets/written-dates/firefox-1440.png)
+
+Other inspected captures: [Chromium desktop](../../docs/assets/written-dates/chromium-1440.png),
+[Chromium mobile](../../docs/assets/written-dates/chromium-375.png),
+[Firefox mobile](../../docs/assets/written-dates/firefox-375.png).
+The [Chromium](../../docs/assets/written-dates/chromium-observations.json) and
+[Firefox](../../docs/assets/written-dates/firefox-observations.json) observations
+retain the actual field evidence and approved export. These local package checks
+do not establish a PyPI release or an update to the hosted static demo.
+
+## Receipt compatibility
+
+The [receipt comparison](receipts.json) hash-checks the four pinned CORD/SROIE
+annotation files and replays 7,600 date claims over 1,052 documents. All verdicts,
+grounding candidate counts, gold-location outcomes and document conventions
+are byte-identical to `7a0b35e`. Two unparseable annotated dates stay explicitly
+skipped. This is compatibility evidence from existing word annotations, not a
+new OCR or extraction run.
+
+```sh
+uv run --locked --with pyarrow python studies/date-conventions/receipts.py --src src --out /tmp/written-date-receipts.json
+```

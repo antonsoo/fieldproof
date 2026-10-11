@@ -1,0 +1,21 @@
+{
+  "input_sha256": {
+    "train-00000-of-00004-b4aaeceff1d90ecb.parquet": "da3994eee1bf9bd3c57f0d53a72c3a6812c8696c5ba26245987949ddf73483cc",
+    "validation-00000-of-00001-cc3c5779fe22e8ca.parquet": "0d0f6dac11fdcc549de2746aa9f53136a3bc22a2a1aff2b0b847f7622ad60c15",
+    "test-00000-of-00001-9c204eb3f4e11791.parquet": "51c65f1788faff392abe2a0b55b023eb23e9be551c509138eaa3a832514224e7",
+    "train-00000-of-00001-66201d4afd6b73ca.parquet": "6f88c537f3eaac955e2d1c59d3c269a9e83a30836c92efcd82b0e9d467f814cf"
+  },
+  "documents": 1052,
+  "date_checks": 7600,
+  "skipped": {
+    "unparseable_annotated_date": 2
+  },
+  "baseline_commit": "7a0b35eea2af477fd3886a30daaeca72ff223c47",
+  "implementation_commit": "62dd526",
+  "before_sha256": "5e2448303f5b2ba80895e719a909188fa7b6c02bd65718d68a979fd95a407cce",
+  "after_sha256": "5e2448303f5b2ba80895e719a909188fa7b6c02bd65718d68a979fd95a407cce",
+  "conventions_unchanged": true,
+  "changed_cases": 0,
+  "changes": [],
+  "scope": "Pinned CORD/SROIE word annotations; existing adapter, no OCR or model rerun. Compatibility evidence, not extraction accuracy."
+}
