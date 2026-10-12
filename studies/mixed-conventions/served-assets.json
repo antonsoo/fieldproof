@@ -1,0 +1,79 @@
+{
+  "driverSha256": "1d5bddaccbab01096fcd70cd3340bee9205ea5574f46eb7a8434aa5cfe6b60d9",
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "assets": {
+        "assets/fraunces-latin-DihXLNYH.woff2": {
+          "bytes": 67304,
+          "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+        },
+        "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        },
+        "assets/index-Cc6zao9e.js": {
+          "bytes": 41564,
+          "sha256": "447d74f331b715bd0d4627e96510bda6c536ba147e7e7bda3a28da33c293fae9"
+        },
+        "assets/index-DiNKwaEo.css": {
+          "bytes": 26277,
+          "sha256": "1f5ee42b05a2277f5de95ff6f789dde47f1635fa5ada2c38adcc15953d24db4a"
+        },
+        "assets/inter-latin-Dx4kXJAl.woff2": {
+          "bytes": 48256,
+          "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+        },
+        "index.html": {
+          "bytes": 2885,
+          "sha256": "4be2193cc2c56f6ca5774b5f6df0799f14533522c0ff3bb7fbad393abcaaf401"
+        }
+      },
+      "externalRequests": 0,
+      "pageErrors": [],
+      "counts": {
+        "verified": 2,
+        "needs_review": 2,
+        "unsupported": 0
+      }
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "assets": {
+        "assets/fraunces-latin-DihXLNYH.woff2": {
+          "bytes": 67304,
+          "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+        },
+        "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        },
+        "assets/index-Cc6zao9e.js": {
+          "bytes": 41564,
+          "sha256": "447d74f331b715bd0d4627e96510bda6c536ba147e7e7bda3a28da33c293fae9"
+        },
+        "assets/index-DiNKwaEo.css": {
+          "bytes": 26277,
+          "sha256": "1f5ee42b05a2277f5de95ff6f789dde47f1635fa5ada2c38adcc15953d24db4a"
+        },
+        "assets/inter-latin-Dx4kXJAl.woff2": {
+          "bytes": 48256,
+          "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+        },
+        "index.html": {
+          "bytes": 2885,
+          "sha256": "4be2193cc2c56f6ca5774b5f6df0799f14533522c0ff3bb7fbad393abcaaf401"
+        }
+      },
+      "externalRequests": 0,
+      "pageErrors": [],
+      "counts": {
+        "verified": 2,
+        "needs_review": 2,
+        "unsupported": 0
+      }
+    }
+  ]
+}

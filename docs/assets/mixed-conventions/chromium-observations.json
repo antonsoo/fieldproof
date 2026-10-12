@@ -1,0 +1,160 @@
+{
+  "report": {
+    "fields": [
+      {
+        "path": "vendor_name",
+        "value": "Example Workshop",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100,
+        "matched_text": "Example Workshop",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48,
+            "top": 81.38199999999995,
+            "x1": 289.28000000000003,
+            "bottom": 107.38199999999995
+          }
+        ]
+      },
+      {
+        "path": "invoice_number",
+        "value": "FP-MIXED",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100,
+        "matched_text": "Invoice Number: FP-MIXED",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48,
+            "top": 137.48400000000004,
+            "x1": 196.03199999999995,
+            "bottom": 149.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "issue_date",
+        "value": "2026-04-03",
+        "status": "needs_review",
+        "reasons": [
+          "the evidence date '03/04/2026' reads as 2026-03-04 (month first) or 2026-04-03 (day first), and no other date on the document settles which",
+          "the document contains both month-first and day-first date conventions; a document-wide date default cannot settle conflicting evidence"
+        ],
+        "match_score": 100,
+        "matched_text": "Issue Date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48,
+            "top": 172.48400000000004,
+            "x1": 172.07999999999996,
+            "bottom": 184.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "total",
+        "value": 60000,
+        "status": "needs_review",
+        "reasons": [
+          "the evidence number '60.000' reads as 60 (a decimal point) or 60000 (a thousands separator), and no other number on the document settles which",
+          "the document contains both decimal-point and dot-thousands conventions; a document-wide number default cannot settle conflicting evidence"
+        ],
+        "match_score": 100,
+        "matched_text": "60.000",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 508.956,
+            "top": 212.726,
+            "x1": 564.0000000000001,
+            "bottom": 230.726
+          }
+        ]
+      }
+    ],
+    "cross_field_issues": [],
+    "counts": {
+      "verified": 2,
+      "needs_review": 2,
+      "unsupported": 0
+    },
+    "cross_field_checks": [
+      {
+        "rule": "invoice.items_subtotal",
+        "fields": [
+          "subtotal"
+        ],
+        "status": "not_checked",
+        "message": "line items sum not checked: no item amounts were extracted",
+        "operands": {
+          "subtotal": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.subtotal_tax_total",
+        "fields": [
+          "subtotal",
+          "tax",
+          "total"
+        ],
+        "status": "not_checked",
+        "message": "subtotal + tax not checked: missing subtotal, tax",
+        "operands": {
+          "subtotal": null,
+          "tax": null,
+          "total": "60000.0"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-04-03",
+          "due_date": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    ],
+    "row_checks": []
+  },
+  "exported": [
+    {
+      "field": "issue_date",
+      "value": "2026-03-04",
+      "original_value": "2026-04-03",
+      "value_source": "correction",
+      "verification_status": "needs_review",
+      "review_status": "edited",
+      "page": 1
+    },
+    {
+      "field": "total",
+      "value": 60,
+      "original_value": 60000,
+      "value_source": "correction",
+      "verification_status": "needs_review",
+      "review_status": "edited",
+      "page": 1
+    }
+  ]
+}

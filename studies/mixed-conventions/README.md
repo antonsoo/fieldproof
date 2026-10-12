@@ -55,6 +55,9 @@ The original receipt study's unchanged adapter and claim generator replay
 133,722 cases across all 1,052 CORD/SROIE documents, with that study's stated
 number/date defaults. Every input is paired, and **no verdict or location result
 changes**. The cached source files are hash-checked against the original manifest.
+The [comparison](receipts.json) retains the paired results, and the
+[input receipt](corpus-inputs.json) records all four source-file hashes and the
+observed convention sets.
 This is compatibility evidence for those annotated words and generated claims,
 not a fresh OCR/model run or an independent estimate of accuracy.
 
@@ -64,6 +67,48 @@ A valid-looking numeric token is not proof that it is semantically a date. The
 pre-existing verifier limitations and the adapter's ground-truth limitations
 remain; unchanged wrong locations in the corpus are not repaired by this work.
 [Sources, licences and original study limits](../cord-grounding/README.md) apply.
+
+## Installed package and review workflow
+
+The [verification receipt](verification.json) identifies the clean archive,
+wheel, sdist, dependency versions and checks. The clean Python 3.12 checkout
+passes lint, formatting, mypy and 412 tests with the OCR extra installed.
+The built wheel passes those same 412 tests on Python 3.14, Python 3.11 with
+current dependencies, and Python 3.11 with minimum direct dependencies. Each
+installed environment also reproduces all 144 reports, including evidence
+locations, from the exact same eight PDF byte strings. Minimum dependencies
+are resolved with the project's requirements listed explicitly as direct
+requirements; applying `lowest-direct` only to a wheel does not do that.
+
+The [CLI driver](cli.py) exercises both `verify` and fixture-backed `extract`,
+all nine fallback pairs and both paired interpretations. All 36 invocations
+pass independently on Python 3.14 and minimum-dependency Python 3.11. Their
+normalized report hashes agree. This exercises the real commands without a
+model or provider connection.
+
+The clean web build passes typechecking, lint, formatting, 50 unit checks and
+74 production-browser scenarios. The new conflict scenario also runs against
+the separately installed wheel's bundled UI, in Chromium and Firefox at
+1440 and 375 pixels. It checks the explanations, PDF highlights, accessibility,
+page overflow, explicit human corrections, actual JSON downloads and session
+reload. The exported correction retains the original automated `needs_review`
+verdict. [Chromium observations](../../docs/assets/mixed-conventions/chromium-observations.json)
+and [Firefox observations](../../docs/assets/mixed-conventions/firefox-observations.json)
+retain the original reports and downloaded corrections.
+
+All four screenshots were opened and inspected:
+
+| Browser | Desktop | Mobile |
+|---|---|---|
+| Chromium | [1440 pixels](../../docs/assets/mixed-conventions/chromium-1440.png) | [375 pixels](../../docs/assets/mixed-conventions/chromium-375.png) |
+| Firefox | [1440 pixels](../../docs/assets/mixed-conventions/firefox-1440.png) | [375 pixels](../../docs/assets/mixed-conventions/firefox-375.png) |
+
+The [served-asset receipt](served-assets.json) compares each browser's six actual
+HTML, JavaScript, CSS and font responses to the installed package bytes. All
+bundled static files also match the clean web build. Neither browser makes an
+external request during this scenario. The review UI uses a local Python server;
+the separate static demo's offline checks do not imply offline live extraction.
+These observations apply to the local wheel and build, not the hosted demo.
 
 ## Limits
 
@@ -93,8 +138,31 @@ uv run python studies/mixed-conventions/review_example.py
 
 For the baseline, extract `git archive c006a5e` into a separate directory, pass
 that directory as `--source`, and add `--baseline`. Omit `--source` to exercise
-a separately installed wheel. The generated PDF hashes must agree between runs.
+a separately installed wheel. For cross-version checks, add `--reuse-pdfs` and
+point `--pdf-dir` to the first run's directory: PDF generators can change metadata
+across versions, so reuse the exact bytes when comparing verifier behavior.
 The example generator recreates the checked-in PDF and fixture exactly.
+
+Build the bundled wheel using `uv run python scripts/bundle_ui.py && uv build`,
+then install it in a separate virtual environment. From outside the checkout:
+
+```bash
+/path/to/venv/bin/python /path/to/fieldproof/studies/mixed-conventions/replay.py \
+  --output /tmp/installed-replay.json --pdf-dir /tmp/fieldproof-mixed-pdfs --reuse-pdfs
+/path/to/venv/bin/python /path/to/fieldproof/studies/mixed-conventions/cli.py \
+  --bin /path/to/venv/bin/fieldproof --output /tmp/installed-cli.json
+/path/to/venv/bin/fieldproof serve --host 127.0.0.1 --port 59494
+```
+
+With that server running, use the checkout's own Playwright installation from
+`web/` (do not mix its test runner with another checkout's tests):
+
+```bash
+FIELDPROOF_BROWSER_URL=http://127.0.0.1:59494/ \
+  ./node_modules/.bin/playwright test --config ../studies/mixed-conventions/browser.config.mjs
+node ../studies/mixed-conventions/served-assets.mjs . http://127.0.0.1:59494 \
+  /path/to/venv/lib/python3.14/site-packages/fieldproof/server/static /tmp/served-assets.json
+```
 
 For the full receipt replay, retain the earlier study's source cache and run its
 driver twice with `--stated`, changing only the source tree:

@@ -77,6 +77,11 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--pdf-dir", type=Path, required=True)
     parser.add_argument("--baseline", action="store_true")
+    parser.add_argument(
+        "--reuse-pdfs",
+        action="store_true",
+        help="Read the exact existing PDF bytes instead of generating them.",
+    )
     args = parser.parse_args()
     if args.source:
         sys.path.insert(0, str(args.source.resolve() / "src"))
@@ -97,25 +102,28 @@ def main() -> None:
     args.pdf_dir.mkdir(parents=True, exist_ok=True)
     records, documents = [], []
     for name, contexts, styles, orders in CONTEXTS:
-        stream = BytesIO()
-        canvas = Canvas(stream, pagesize=(612, 792), invariant=True)
-        canvas.setTitle(f"Synthetic convention example: {name}")
-        for page in range(1, max([1, *[p for p, _ in contexts]]) + 1):
-            lines = [f"SYNTHETIC CONVENTION EXAMPLE: {name}"]
-            if page == 1:
-                lines += [
-                    "Total: 60.000",
-                    "Issue date: 03/04/2026",
-                    "Explicit amount: 17.50",
-                    "Explicit date: 2026-06-18",
-                ]
-            lines += [text for p, text in contexts if p == page]
-            for index, line in enumerate(lines):
-                canvas.drawString(40, 740 - index * 32, line)
-            canvas.showPage()
-        canvas.save()
-        pdf = stream.getvalue()
-        (args.pdf_dir / f"{name}.pdf").write_bytes(pdf)
+        if args.reuse_pdfs:
+            pdf = (args.pdf_dir / f"{name}.pdf").read_bytes()
+        else:
+            stream = BytesIO()
+            canvas = Canvas(stream, pagesize=(612, 792), invariant=True)
+            canvas.setTitle(f"Synthetic convention example: {name}")
+            for page in range(1, max([1, *[p for p, _ in contexts]]) + 1):
+                lines = [f"SYNTHETIC CONVENTION EXAMPLE: {name}"]
+                if page == 1:
+                    lines += [
+                        "Total: 60.000",
+                        "Issue date: 03/04/2026",
+                        "Explicit amount: 17.50",
+                        "Explicit date: 2026-06-18",
+                    ]
+                lines += [text for p, text in contexts if p == page]
+                for index, line in enumerate(lines):
+                    canvas.drawString(40, 740 - index * 32, line)
+                canvas.showPage()
+            canvas.save()
+            pdf = stream.getvalue()
+            (args.pdf_dir / f"{name}.pdf").write_bytes(pdf)
         document = load_pdf(pdf)
         documents.append(
             {
