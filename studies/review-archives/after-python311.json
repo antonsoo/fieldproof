@@ -1,0 +1,82 @@
+{
+  "cases": [
+    {
+      "sample": "invoice",
+      "pdf_sha256": "32d026999bf2318034f8d03df2b655b2c5f210245b3153b4068f64f333147175",
+      "fields": 25,
+      "save_archive_status": 200,
+      "save_ms": 2.136,
+      "old_session_after_restart": 404,
+      "restore_status": 200,
+      "restore_ms": 390.31,
+      "report_and_decisions_equal": true,
+      "exports_equal": {
+        "json": true,
+        "csv": true,
+        "xlsx": true
+      },
+      "rendered_page_bytes": 125063,
+      "archive_bytes": 9110,
+      "archive_sha256": "d4ad2ae06715cd255240923620fa4366f012c09adf99ac6af26b089ddccff13b"
+    },
+    {
+      "sample": "receipt",
+      "pdf_sha256": "7cef321b47e1272523a831148e2c2787d8805c4835c536aa3fb326421aabffee",
+      "fields": 18,
+      "save_archive_status": 200,
+      "save_ms": 1.104,
+      "old_session_after_restart": 404,
+      "restore_status": 200,
+      "restore_ms": 385.662,
+      "report_and_decisions_equal": true,
+      "exports_equal": {
+        "json": true,
+        "csv": true,
+        "xlsx": true
+      },
+      "rendered_page_bytes": 59942,
+      "archive_bytes": 6926,
+      "archive_sha256": "7b7a1a29834caa90a32ede586e1b189119d417c1dbe921e03eeb4d6cc6e241cf"
+    },
+    {
+      "sample": "contract",
+      "pdf_sha256": "8b0dfce01c4758e673ab7423b51809caa3610c22a90091447999e9aa98562318",
+      "fields": 10,
+      "save_archive_status": 200,
+      "save_ms": 1.188,
+      "old_session_after_restart": 404,
+      "restore_status": 200,
+      "restore_ms": 385.723,
+      "report_and_decisions_equal": true,
+      "exports_equal": {
+        "json": true,
+        "csv": true,
+        "xlsx": true
+      },
+      "rendered_page_bytes": 102343,
+      "archive_bytes": 6459,
+      "archive_sha256": "96544fd6348b2f6bd2ac5119b6061225a02421cfb9e78c0e6b9bf7087a802d52"
+    },
+    {
+      "sample": "line-arithmetic",
+      "pdf_sha256": "f375a9e52a0508c40d21baf44d450fbe126506ea4982c46a2730fb4d8c009b48",
+      "fields": 10,
+      "save_archive_status": 200,
+      "save_ms": 1.449,
+      "old_session_after_restart": 404,
+      "restore_status": 200,
+      "restore_ms": 385.381,
+      "report_and_decisions_equal": true,
+      "exports_equal": {
+        "json": true,
+        "csv": true,
+        "xlsx": true
+      },
+      "rendered_page_bytes": 104345,
+      "archive_bytes": 5393,
+      "archive_sha256": "362462702de42e1a27f834a6e63f477d8d04b137934954289985878297bfeed5"
+    }
+  ],
+  "model_calls": 0,
+  "inputs": "Four repository synthetic PDF/fixture pairs"
+}

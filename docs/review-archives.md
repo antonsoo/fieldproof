@@ -39,6 +39,12 @@ establish that a new automated check passed. The UI marks reopened documents
 as coming from an archive. Provider/model labels describe the original
 extraction; opening it does not call that provider.
 
+![Synthetic invoice reopened after a server restart](assets/review-archives/chromium-1440.png)
+
+The study's test edit (`123.5`) deliberately differs from the printed total.
+It returns as human input, with the original extraction and evidence alongside
+it; reopening does not make the edit a verified amount.
+
 An archive is an explicit snapshot of the server's saved session. Unsaved
 correction drafts, filters, zoom and scroll position are not stored. Changes
 in another browser tab can affect the server snapshot; JSON/CSV/XLSX value

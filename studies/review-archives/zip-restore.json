@@ -1,0 +1,37 @@
+{
+  "runtime": "installed wheel, Python 3.11.13",
+  "cases": [
+    {
+      "archive": "contract.fieldproof.repacked.zip",
+      "restore_status": 200,
+      "original_claims_equal": true,
+      "all_decisions_equal": true,
+      "resaved_stored_zip_equals_original": true,
+      "sha256": "1553c78b131709d2d3651627764728a255d71ef7457e32d10a6943f3b471ac4f"
+    },
+    {
+      "archive": "invoice.fieldproof.repacked.zip",
+      "restore_status": 200,
+      "original_claims_equal": true,
+      "all_decisions_equal": true,
+      "resaved_stored_zip_equals_original": true,
+      "sha256": "a3352ade402ad48ee1a38a90ee7fd0591f701273bf94f5fc6b9c295a71b2b6a9"
+    },
+    {
+      "archive": "line-arithmetic.fieldproof.repacked.zip",
+      "restore_status": 200,
+      "original_claims_equal": true,
+      "all_decisions_equal": true,
+      "resaved_stored_zip_equals_original": true,
+      "sha256": "7fc60bf2d5e44aa37764187dd85990f065fae23563926838c7413f531c9211bd"
+    },
+    {
+      "archive": "receipt.fieldproof.repacked.zip",
+      "restore_status": 200,
+      "original_claims_equal": true,
+      "all_decisions_equal": true,
+      "resaved_stored_zip_equals_original": true,
+      "sha256": "196cbfa08a9bb6f797da7aa759b48c02df555c5936cdbb2811e547e83ffd2816"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-12",
+  "baseline_commit": "f11b663a1a4abe434fb8f06c5ee963a3913f0ef2",
+  "implementation_commit": "28dead8c58124c37eadd07d5582cac0c45f2c1f6",
+  "clean_source": {
+    "tracked_files_compared": 619,
+    "all_equal_before_checks": true,
+    "all_unchanged_after_checks": true
+  },
+  "commands": [
+    "uv sync --locked --extra dev --extra ocr --python 3.12",
+    ".venv/bin/ruff check src tests",
+    ".venv/bin/mypy src",
+    ".venv/bin/pytest -q",
+    ".venv/bin/python scripts/bundle_ui.py",
+    "npm --prefix web run lint",
+    "npm --prefix web run typecheck",
+    "npm --prefix web run format:check",
+    "npm --prefix web test",
+    "npm --prefix web run build:demo",
+    "cd web && ./node_modules/.bin/playwright test",
+    "uv build"
+  ],
+  "python_checks": {
+    "passed": 536,
+    "skipped": 1,
+    "skip_reason": "Real Tesseract executable unavailable; optional real OCR test skipped"
+  },
+  "web_checks": {
+    "node": "24.21.0",
+    "npm": "12.0.1",
+    "unit_passed": 62,
+    "browser_passed": 86
+  },
+  "package": {
+    "wheel": "fieldproof-0.2.7-py3-none-any.whl",
+    "wheel_sha256": "0bb4e6548794a608d7a7081337add4d87f98c0c0c39ff100bcba7c548d85853f",
+    "wheel_bytes": 591442,
+    "bundled_files_match": 23,
+    "clean_source_entries": 619,
+    "source_commit": "28dead8c58124c37eadd07d5582cac0c45f2c1f6"
+  },
+  "installed_environments": [
+    {
+      "python": "3.12.12",
+      "dependencies": {
+        "pydantic": "2.14.1",
+        "pdfplumber": "0.11.10",
+        "pypdfium2": "5.14.0",
+        "fastapi": "0.143.0",
+        "starlette": "1.7.0",
+        "uvicorn": "0.54.0"
+      },
+      "imported_from_isolated_site_packages": true,
+      "python_source_files_match": 36
+    },
+    {
+      "python": "3.11.13",
+      "dependencies": {
+        "pydantic": "2.14.1",
+        "pdfplumber": "0.11.10",
+        "pypdfium2": "5.14.0",
+        "fastapi": "0.143.0",
+        "starlette": "1.7.0",
+        "uvicorn": "0.54.0"
+      },
+      "imported_from_isolated_site_packages": true,
+      "python_source_files_match": 36
+    }
+  ],
+  "browser_replay": {
+    "engines": [
+      "chromium 153.0.8010.12",
+      "firefox 155.0"
+    ],
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 1000,
+        "theme": "dark"
+      },
+      {
+        "width": 375,
+        "height": 1000,
+        "theme": "light"
+      }
+    ],
+    "workflows": 8,
+    "actual_downloads": 32,
+    "served_assets_compared_per_context": 6,
+    "all_23_bundle_files_match_source_tested_build": true,
+    "report_decisions_pdf_and_export_bytes_match_across_restart": true,
+    "screenshots_inspected": 4,
+    "external_requests": 0,
+    "page_errors": 0,
+    "csp_errors": 0,
+    "axe_violations": 0,
+    "horizontal_overflow": false
+  },
+  "zip_tools": {
+    "independent_read_cases": 4,
+    "independent_repack_restore_cases": 4,
+    "pdf_bytes_equal": true,
+    "resaved_archive_bytes_equal": true
+  },
+  "machine": "14 vCPU WSL2 Linux, 48 GiB RAM; restore timings are single-pass observations on four small synthetic PDFs",
+  "limits": [
+    "Explicit save, not autosave",
+    "Editable unencrypted files; hashes do not authenticate decisions",
+    "Original automated report is not stored; checks are recomputed",
+    "Built-in schemas and text-layer PDFs only",
+    "Local source/package checks; no package release or hosted deployment"
+  ]
+}

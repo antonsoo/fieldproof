@@ -1,0 +1,42 @@
+{
+  "unzip": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.",
+  "zip": "This is Zip 3.0 (July 5th 2008), by Info-ZIP.",
+  "cases": [
+    {
+      "archive": "contract.fieldproof.zip",
+      "original_pdf_equal": true,
+      "unzip_crc_checks": "passed",
+      "manifest_hashes_equal": true,
+      "zip_bytes": 6459,
+      "repacked_bytes": 3464,
+      "repacked_sha256": "1553c78b131709d2d3651627764728a255d71ef7457e32d10a6943f3b471ac4f"
+    },
+    {
+      "archive": "invoice.fieldproof.zip",
+      "original_pdf_equal": true,
+      "unzip_crc_checks": "passed",
+      "manifest_hashes_equal": true,
+      "zip_bytes": 9110,
+      "repacked_bytes": 3382,
+      "repacked_sha256": "a3352ade402ad48ee1a38a90ee7fd0591f701273bf94f5fc6b9c295a71b2b6a9"
+    },
+    {
+      "archive": "line-arithmetic.fieldproof.zip",
+      "original_pdf_equal": true,
+      "unzip_crc_checks": "passed",
+      "manifest_hashes_equal": true,
+      "zip_bytes": 5393,
+      "repacked_bytes": 2942,
+      "repacked_sha256": "7fc60bf2d5e44aa37764187dd85990f065fae23563926838c7413f531c9211bd"
+    },
+    {
+      "archive": "receipt.fieldproof.zip",
+      "original_pdf_equal": true,
+      "unzip_crc_checks": "passed",
+      "manifest_hashes_equal": true,
+      "zip_bytes": 6926,
+      "repacked_bytes": 2956,
+      "repacked_sha256": "196cbfa08a9bb6f797da7aa759b48c02df555c5936cdbb2811e547e83ffd2816"
+    }
+  ]
+}

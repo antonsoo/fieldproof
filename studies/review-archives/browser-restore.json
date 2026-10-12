@@ -1,0 +1,224 @@
+{
+  "cases": [
+    {
+      "id": "chromium-1440",
+      "browser": "153.0.8010.12",
+      "document_id": "fc9bd559ac024e79b0b9b810f53956ce",
+      "report_sha256": "49497cb3438258c3da549126bdc406c5a7bbab4aea24ddacb9f5c54699e7d072",
+      "page_sha256": "74b8cb7356f9bd537c75ace4cc4778d9711fa6f6549e43e769ad169891c68544",
+      "archive_sha256": "7aabc2a9e77fe2e3f901bb0e4cb584019617c11106617ea79d1aeb355623e3e5",
+      "archive_bytes": 9065,
+      "exports": {
+        "json": {
+          "bytes": 680,
+          "sha256": "0eccee2d2437b0c7264334952c2bfeb0e89b1615f65ef74c1947c9d77c7913bf"
+        },
+        "csv": {
+          "bytes": 300,
+          "sha256": "3e406af1372ba77e8b9decbd6eb1f6db67be3ecb26bb7614f128827fc81dfcdd"
+        },
+        "xlsx": {
+          "bytes": 2026,
+          "sha256": "6fc7935ae0d86585415836730ccd7c076c412b7f6815b9066eefc43e681d37d8"
+        }
+      },
+      "assets": {
+        "index.html": {
+          "bytes": 2885,
+          "sha256": "1178427dfd667d6426d9e32c99602516228f454cdba7ed6f39b38efccd08cb7f"
+        },
+        "assets/index-CRqRRMnO.js": {
+          "bytes": 56835,
+          "sha256": "d0a0ae822018fc1fb171b6f4bb62d27fd4b3973f492c80f11dd2019fd083024c"
+        },
+        "assets/index-WrPZNeWN.css": {
+          "bytes": 26277,
+          "sha256": "35dc00d5a7879d9a1b9ff332210ecea813b0c84604ecc94a16b8ddd812d11407"
+        },
+        "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        },
+        "assets/fraunces-latin-DihXLNYH.woff2": {
+          "bytes": 67304,
+          "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+        },
+        "assets/inter-latin-Dx4kXJAl.woff2": {
+          "bytes": 48256,
+          "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+        }
+      },
+      "page_errors": [],
+      "external_requests": [],
+      "csp_errors": [],
+      "axe_violations": [],
+      "overflow": false,
+      "restored_after_server_restart": true
+    },
+    {
+      "id": "chromium-375",
+      "browser": "153.0.8010.12",
+      "document_id": "5bfd3aec38d44e22bcb6c97de7582817",
+      "report_sha256": "49497cb3438258c3da549126bdc406c5a7bbab4aea24ddacb9f5c54699e7d072",
+      "page_sha256": "74b8cb7356f9bd537c75ace4cc4778d9711fa6f6549e43e769ad169891c68544",
+      "archive_sha256": "7aabc2a9e77fe2e3f901bb0e4cb584019617c11106617ea79d1aeb355623e3e5",
+      "archive_bytes": 9065,
+      "exports": {
+        "json": {
+          "bytes": 680,
+          "sha256": "0eccee2d2437b0c7264334952c2bfeb0e89b1615f65ef74c1947c9d77c7913bf"
+        },
+        "csv": {
+          "bytes": 300,
+          "sha256": "3e406af1372ba77e8b9decbd6eb1f6db67be3ecb26bb7614f128827fc81dfcdd"
+        },
+        "xlsx": {
+          "bytes": 2026,
+          "sha256": "6fc7935ae0d86585415836730ccd7c076c412b7f6815b9066eefc43e681d37d8"
+        }
+      },
+      "assets": {
+        "index.html": {
+          "bytes": 2885,
+          "sha256": "1178427dfd667d6426d9e32c99602516228f454cdba7ed6f39b38efccd08cb7f"
+        },
+        "assets/index-WrPZNeWN.css": {
+          "bytes": 26277,
+          "sha256": "35dc00d5a7879d9a1b9ff332210ecea813b0c84604ecc94a16b8ddd812d11407"
+        },
+        "assets/index-CRqRRMnO.js": {
+          "bytes": 56835,
+          "sha256": "d0a0ae822018fc1fb171b6f4bb62d27fd4b3973f492c80f11dd2019fd083024c"
+        },
+        "assets/inter-latin-Dx4kXJAl.woff2": {
+          "bytes": 48256,
+          "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+        },
+        "assets/fraunces-latin-DihXLNYH.woff2": {
+          "bytes": 67304,
+          "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+        },
+        "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        }
+      },
+      "page_errors": [],
+      "external_requests": [],
+      "csp_errors": [],
+      "axe_violations": [],
+      "overflow": false,
+      "restored_after_server_restart": true
+    },
+    {
+      "id": "firefox-1440",
+      "browser": "155.0",
+      "document_id": "581f8497295c4976b3807505e78aba73",
+      "report_sha256": "49497cb3438258c3da549126bdc406c5a7bbab4aea24ddacb9f5c54699e7d072",
+      "page_sha256": "74b8cb7356f9bd537c75ace4cc4778d9711fa6f6549e43e769ad169891c68544",
+      "archive_sha256": "7aabc2a9e77fe2e3f901bb0e4cb584019617c11106617ea79d1aeb355623e3e5",
+      "archive_bytes": 9065,
+      "exports": {
+        "json": {
+          "bytes": 680,
+          "sha256": "0eccee2d2437b0c7264334952c2bfeb0e89b1615f65ef74c1947c9d77c7913bf"
+        },
+        "csv": {
+          "bytes": 300,
+          "sha256": "3e406af1372ba77e8b9decbd6eb1f6db67be3ecb26bb7614f128827fc81dfcdd"
+        },
+        "xlsx": {
+          "bytes": 2026,
+          "sha256": "6fc7935ae0d86585415836730ccd7c076c412b7f6815b9066eefc43e681d37d8"
+        }
+      },
+      "assets": {
+        "index.html": {
+          "bytes": 2885,
+          "sha256": "1178427dfd667d6426d9e32c99602516228f454cdba7ed6f39b38efccd08cb7f"
+        },
+        "assets/index-CRqRRMnO.js": {
+          "bytes": 56835,
+          "sha256": "d0a0ae822018fc1fb171b6f4bb62d27fd4b3973f492c80f11dd2019fd083024c"
+        },
+        "assets/index-WrPZNeWN.css": {
+          "bytes": 26277,
+          "sha256": "35dc00d5a7879d9a1b9ff332210ecea813b0c84604ecc94a16b8ddd812d11407"
+        },
+        "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        },
+        "assets/fraunces-latin-DihXLNYH.woff2": {
+          "bytes": 67304,
+          "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+        },
+        "assets/inter-latin-Dx4kXJAl.woff2": {
+          "bytes": 48256,
+          "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+        }
+      },
+      "page_errors": [],
+      "external_requests": [],
+      "csp_errors": [],
+      "axe_violations": [],
+      "overflow": false,
+      "restored_after_server_restart": true
+    },
+    {
+      "id": "firefox-375",
+      "browser": "155.0",
+      "document_id": "c555a90e693c4db2bd834f8aae80690c",
+      "report_sha256": "49497cb3438258c3da549126bdc406c5a7bbab4aea24ddacb9f5c54699e7d072",
+      "page_sha256": "74b8cb7356f9bd537c75ace4cc4778d9711fa6f6549e43e769ad169891c68544",
+      "archive_sha256": "7aabc2a9e77fe2e3f901bb0e4cb584019617c11106617ea79d1aeb355623e3e5",
+      "archive_bytes": 9065,
+      "exports": {
+        "json": {
+          "bytes": 680,
+          "sha256": "0eccee2d2437b0c7264334952c2bfeb0e89b1615f65ef74c1947c9d77c7913bf"
+        },
+        "csv": {
+          "bytes": 300,
+          "sha256": "3e406af1372ba77e8b9decbd6eb1f6db67be3ecb26bb7614f128827fc81dfcdd"
+        },
+        "xlsx": {
+          "bytes": 2026,
+          "sha256": "6fc7935ae0d86585415836730ccd7c076c412b7f6815b9066eefc43e681d37d8"
+        }
+      },
+      "assets": {
+        "index.html": {
+          "bytes": 2885,
+          "sha256": "1178427dfd667d6426d9e32c99602516228f454cdba7ed6f39b38efccd08cb7f"
+        },
+        "assets/index-CRqRRMnO.js": {
+          "bytes": 56835,
+          "sha256": "d0a0ae822018fc1fb171b6f4bb62d27fd4b3973f492c80f11dd2019fd083024c"
+        },
+        "assets/index-WrPZNeWN.css": {
+          "bytes": 26277,
+          "sha256": "35dc00d5a7879d9a1b9ff332210ecea813b0c84604ecc94a16b8ddd812d11407"
+        },
+        "assets/fraunces-latin-DihXLNYH.woff2": {
+          "bytes": 67304,
+          "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+        },
+        "assets/inter-latin-Dx4kXJAl.woff2": {
+          "bytes": 48256,
+          "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+        },
+        "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        }
+      },
+      "page_errors": [],
+      "external_requests": [],
+      "csp_errors": [],
+      "axe_violations": [],
+      "overflow": false,
+      "restored_after_server_restart": true
+    }
+  ]
+}

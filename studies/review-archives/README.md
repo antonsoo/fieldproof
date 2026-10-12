@@ -22,6 +22,11 @@ The input artifacts remain in `examples/`; candidate extractions are in
 `examples/fixtures/`. The contract has two pages, while this API replay renders
 only its first page. Automated reports are recomputed, not copied from the ZIP.
 
+The retained after replay uses an independently installed wheel on Python
+3.12.12. [`after-python311.json`](after-python311.json) repeats the four-document
+restart on Python 3.11.13. Both import the package from isolated `site-packages`,
+with all 36 Python source files matching the tested implementation.
+
 ## Browser workflow
 
 `browser.py` starts a real server, runs four browser workflows, terminates it,
@@ -48,6 +53,43 @@ horizontal overflow. It captures the reopened review at each viewport.
 That broader dark-mode check also exposed an existing unsupported badge with
 4.3:1 contrast (`#e2685c` on `#33282b`). The dark foreground is now `#f07a6f`;
 the replay checks its rendered state along with the new archive controls.
+
+The retained [`browser-save.json`](browser-save.json) and
+[`browser-restore.json`](browser-restore.json) come from the installed wheel.
+All six served assets per browser context match the package's static files;
+all 23 bundled files match the earlier source build. No page/CSP errors,
+external requests, axe violations or horizontal overflow were observed in
+these eight workflows. All four final screenshots were visually inspected:
+[Chromium desktop](../../docs/assets/review-archives/chromium-1440.png),
+[Chromium phone](../../docs/assets/review-archives/chromium-375.png),
+[Firefox desktop](../../docs/assets/review-archives/firefox-1440.png),
+[Firefox phone](../../docs/assets/review-archives/firefox-375.png).
+
+## Clean package and independent ZIP tools
+
+Implementation commit `28dead8c58124c37eadd07d5582cac0c45f2c1f6` was unpacked
+into a clean directory; all 619 tracked files matched before and after checks.
+The fresh Python/Node 24 installation passed lint, type checks, formatting,
+536 Python tests, 62 web contract tests, both production builds and 86 browser
+workflows. One optional real-Tesseract test was skipped because the executable
+was unavailable. The wheel was built through the source distribution, then
+installed into separate Python 3.11 and 3.12 environments. Its local version
+number remains 0.2.7; it was not uploaded to a registry.
+
+[`verification.json`](verification.json) records commands, runtime versions,
+the wheel size/hash and scope. Info-ZIP's independent `unzip` reader passed
+all four generated archives' CRCs, hashes and exact original PDF bytes
+([receipt](zip-tools.json)). Its `zip` writer then repacked those members with
+deflate compression. All four repacks restored through the installed Python
+3.11 server and re-saved to the original stored ZIP bytes
+([receipt](zip-restore.json)).
+
+The `save_ms` and `restore_ms` values are single observations on these small
+synthetic files, on 14 vCPU WSL2 Linux with 48 GiB RAM. They are not a latency
+guarantee for other PDFs or machines. Initial replay-harness errors concerned
+a missing URL slash and an incorrect expectation that API and browser JSON
+whitespace matched; the final scripts normalize the URL and compare JSON
+semantically across writers. The dark badge contrast issue was fixed in the UI.
 
 ## Run it
 
