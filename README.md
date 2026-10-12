@@ -193,9 +193,12 @@ on your machine. From a source checkout, build the UI first (see
   approve, edit, or reject; corrections preserve numbers, strings and booleans.
   Reviewed-only JSON/CSV export is the default; an explicit all-fields scope
   includes pending decisions. Both scopes exclude rejected fields.
-- **Optional OCR** - scanned PDFs fall back to Tesseract if it's installed;
-  documented as a degraded mode, not silently pretended to be as reliable as
-  a native text layer.
+- **Optional OCR (source checkout, unreleased)** - `extract` and `verify`
+  fall back to local Tesseract when every PDF page lacks extractable text.
+  The CLI previously stopped before reaching its OCR loader. Results now record
+  the engine, language, rendering resolution and blank recognized pages in
+  `report.ocr`; verification checks recognized text, with an explicit warning.
+  [Actual OCR runs and limits](studies/ocr-fallback/README.md).
 
 ## Usage
 
@@ -206,6 +209,16 @@ fieldproof extract doc.pdf --schema invoice --provider anthropic --out result.js
 fieldproof verify result.json doc.pdf   # re-ground/re-verify an existing extraction
 fieldproof serve --port 8000            # API + review UI
 ```
+
+For image-only PDFs, install this source checkout with `pip install '.[ocr]'`
+and install Tesseract with its English language data through your system's
+package manager. The same `extract` and `verify` commands then use the fallback
+automatically; no remote OCR service is called. The CLI uses English at 144 DPI,
+with a 30-second Tesseract timeout per page and the document limits described in
+the [OCR study](studies/ocr-fallback/README.md). The library's `load_scanned_pdf`
+also accepts `language`, `timeout` and `limits`. PDFs containing some native text
+still use the native loader; this does not add OCR for individual image-only pages
+inside a mixed document. The review server still requires a text layer.
 
 A number written `60.000` is sixty or sixty thousand, and `03/04/2026` is 4
 March or 3 April. When nothing else in the document settles which, the field

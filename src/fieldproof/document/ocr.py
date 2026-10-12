@@ -21,9 +21,15 @@ from __future__ import annotations
 
 import importlib.util
 import io
+import math
+from contextlib import closing
 from pathlib import Path
 
-from fieldproof.document.model import BBox, Document, Page, Word
+import pypdfium2 as pdfium
+
+from fieldproof.document.limits import DocumentLimitError, DocumentLimits, check_pdf_geometry
+from fieldproof.document.loader import EmptyDocumentError
+from fieldproof.document.model import BBox, Document, OcrProvenance, Page, Word
 from fieldproof.document.render import render_page_png
 
 #: Checked without importing either package, so `import fieldproof.document.ocr`
@@ -49,14 +55,27 @@ def is_available() -> bool:
 
 
 def load_scanned_pdf(
-    source: str | Path | bytes, page_count: int, *, label: str | None = None
+    source: str | Path | bytes,
+    page_count: int | None = None,
+    *,
+    label: str | None = None,
+    language: str = "eng",
+    timeout: float = 30.0,
+    limits: DocumentLimits | None = None,
 ) -> Document:
     """OCR every page of a PDF that has no text layer.
 
-    Raises `RuntimeError` if OCR isn't available - callers should check
-    `is_available()` first and give the user a clear message rather than
-    let this raise from deep in a pipeline.
+    The optional legacy `page_count` must match the PDF; it cannot silently
+    truncate it. Each Tesseract process has a positive wall-clock timeout.
+    Default geometry/text budgets match DocumentLimits. These are not a
+    process sandbox or a timeout on the PDF renderer.
     """
+    if not math.isfinite(timeout) or timeout <= 0:
+        raise ValueError("OCR timeout must be finite and positive")
+    if not language or any(not (ch.isascii() and (ch.isalnum() or ch in "_+")) for ch in language):
+        raise ValueError(
+            "OCR language must name installed Tesseract languages, e.g. eng or eng+fra"
+        )
     if not is_available():
         raise RuntimeError(
             "OCR is not available: install the 'ocr' extra (pytesseract, Pillow) "
@@ -66,15 +85,47 @@ def load_scanned_pdf(
     import pytesseract
     from PIL import Image
 
+    limits = limits or DocumentLimits()
+    check_pdf_geometry(source, limits)
+    with closing(pdfium.PdfDocument(source)) as pdf:
+        actual_pages = len(pdf)
+    if page_count is not None and page_count != actual_pages:
+        raise ValueError(
+            f"OCR page_count {page_count} does not match the PDF's {actual_pages} pages"
+        )
+    version = str(pytesseract.get_tesseract_version())
     pages: list[Page] = []
-    for page_number in range(1, page_count + 1):
-        png_bytes = render_page_png(source, page_number, scale=2.0)
-        image = Image.open(io.BytesIO(png_bytes))
-        data = pytesseract.image_to_data(image, output_type=pytesseract.Output.DICT)
-        pages.append(_page_from_ocr(page_number, image.width, image.height, data))
+    words = text_chars = 0
+    for page_number in range(1, actual_pages + 1):
+        png_bytes = render_page_png(source, page_number, scale=2.0, max_pixels=limits.max_pixels)
+        with Image.open(io.BytesIO(png_bytes)) as image:
+            try:
+                data = pytesseract.image_to_data(
+                    image, lang=language, timeout=timeout, output_type=pytesseract.Output.DICT
+                )
+            except (RuntimeError, OSError) as exc:
+                raise RuntimeError(f"OCR failed on page {page_number}: {exc}") from exc
+            page = _page_from_ocr(page_number, image.width, image.height, data)
+        words += len(page.words)
+        text_chars += len(page.text)
+        if words > limits.max_words or text_chars > limits.max_text_chars:
+            raise DocumentLimitError("OCR text exceeds the document word/character budget")
+        pages.append(page)
+
+    if not words:
+        raise EmptyDocumentError("OCR recognized no words on any page; check the scan and language")
 
     return Document(
-        source=label or (source if isinstance(source, str) else "<scanned>"), pages=pages
+        source=label or (str(source) if isinstance(source, str | Path) else "<scanned>"),
+        pages=pages,
+        ocr=OcrProvenance(
+            engine="tesseract",
+            version=version,
+            language=language,
+            render_dpi=144,
+            page_count=actual_pages,
+            empty_pages=[page.number for page in pages if not page.words],
+        ),
     )
 
 

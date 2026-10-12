@@ -26,7 +26,7 @@ from typing import Any
 
 from pydantic import BaseModel
 
-from fieldproof.document.model import Document
+from fieldproof.document.model import Document, OcrProvenance
 from fieldproof.ground.align import (
     GroundingIndex,
     GroundingMatch,
@@ -101,6 +101,7 @@ class VerificationReport:
     cross_field_issues: list[CrossFieldIssue]
     cross_field_checks: list[CrossFieldCheck] = field(default_factory=list)
     row_checks: list[RowEvidenceCheck] = field(default_factory=list)
+    ocr: OcrProvenance | None = None
 
     @property
     def counts(self) -> dict[str, int]:
@@ -118,6 +119,7 @@ class VerificationReport:
             "counts": self.counts,
             "cross_field_checks": [check.to_dict() for check in self.cross_field_checks],
             "row_checks": [check.to_dict() for check in self.row_checks],
+            **({"ocr": self.ocr.to_dict()} if self.ocr is not None else {}),
         }
 
 
@@ -285,6 +287,7 @@ def verify(
         cross_field_issues=cross_field_issues,
         cross_field_checks=cross_field_checks,
         row_checks=row_checks,
+        ocr=document.ocr,
     )
 
 

@@ -68,8 +68,17 @@ def _load_document(path: Path) -> Document:
     fix, and pdfplumber's own exception for it is a page of traceback."""
     try:
         return load_pdf(path)
-    except EmptyDocumentError as exc:
-        _fail(str(exc))
+    except EmptyDocumentError:
+        # Lazy import keeps the OCR extra optional for native text PDFs.
+        from fieldproof.document.ocr import load_scanned_pdf
+
+        try:
+            document = load_scanned_pdf(path)
+        except Exception as exc:
+            _fail(f"could not OCR {path}: {exc}")
+        assert document.ocr is not None
+        typer.echo(f"OCR: {document.ocr.note}", err=True)
+        return document
     except Exception as exc:  # pdfplumber raises a variety of parse errors
         _fail(f"could not read {path} as a PDF: {exc}")
 

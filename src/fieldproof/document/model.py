@@ -8,7 +8,7 @@ provider calls, no rendering, just what was actually on the page.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from typing import Any
 
 
@@ -74,6 +74,25 @@ class Page:
 
 
 @dataclass(slots=True)
+class OcrProvenance:
+    """How the text was recognized; this is not an OCR accuracy estimate."""
+
+    engine: str
+    version: str
+    language: str
+    render_dpi: int
+    page_count: int
+    empty_pages: list[int]
+    note: str = (
+        "Grounding checks the text recognized by OCR, not the printed original. "
+        "Review the scanned page, especially numbers, dates and word boxes."
+    )
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(slots=True)
 class Document:
     """A loaded document: one or more pages with extracted text layers.
 
@@ -83,6 +102,7 @@ class Document:
 
     source: str
     pages: list[Page] = field(default_factory=list)
+    ocr: OcrProvenance | None = None
 
     @property
     def page_count(self) -> int:
@@ -104,6 +124,7 @@ def document_from_dict(raw: dict[str, Any]) -> Document:
     """Rebuild the trusted worker wire format, without pickle deserialization."""
     return Document(
         source=raw["source"],
+        ocr=OcrProvenance(**raw["ocr"]) if raw.get("ocr") is not None else None,
         pages=[
             Page(
                 number=page["number"],

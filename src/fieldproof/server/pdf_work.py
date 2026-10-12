@@ -14,7 +14,7 @@ from pydantic import BaseModel
 
 from fieldproof.document.limits import DocumentLimitError
 from fieldproof.document.loader import EmptyDocumentError
-from fieldproof.document.model import Document, document_from_dict
+from fieldproof.document.model import Document, OcrProvenance, document_from_dict
 from fieldproof.verify.cross_field import CrossFieldCheck, CrossFieldIssue
 from fieldproof.verify.engine import FieldStatus, FieldVerification, VerificationReport
 from fieldproof.verify.rows import RowEvidenceCheck
@@ -117,4 +117,5 @@ def verify_server_data(schema_name: str, data: BaseModel, document: Document) ->
             for check in raw["cross_field_checks"]
         ],
         row_checks=[RowEvidenceCheck(**check) for check in raw["row_checks"]],
+        ocr=OcrProvenance(**raw["ocr"]) if raw.get("ocr") is not None else None,
     )

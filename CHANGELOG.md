@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Scanned-PDF CLI fallback
+
+- Connect `extract` and `verify` to the existing optional local Tesseract loader
+  when the PDF has no extractable text. Preserve page numbers and record OCR
+  provenance in verification reports, with a CLI warning about recognized text.
+- Bound OCR page rendering, text volume and Tesseract runtime; reject empty
+  recognition and mismatched explicit page counts without writing a result.
+- Retain actual engine/CLI captures and coordinate checks in `studies/ocr-fallback`.
+  Native-text PDFs and the review server retain their existing loading policy.
+
 ### Conflicting document conventions
 
 - Distinguish missing number/date convention evidence from conflicting evidence.
