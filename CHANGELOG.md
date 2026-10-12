@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Literal spreadsheet export
+
+- Add XLSX downloads in the review UI and API. Identifiers and formula-like
+  strings use text cells; numbers and booleans keep their types. Review scopes,
+  corrections and original verification status match JSON/CSV.
+- Refuse oversized or unsupported text with a JSON fallback instead of producing
+  a partial workbook.
+
 ### Explicit table-column evidence
 
 - Flag supported numeric quotes aligned with a different declared table header,

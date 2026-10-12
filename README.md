@@ -196,7 +196,7 @@ on your machine. From a source checkout, build the UI first (see
   see which field it supports; currency fields display formatted (`312.50`,
   `2,458.00`) while the underlying value and export stay machine numbers;
   approve, edit, or reject; corrections preserve numbers, strings and booleans.
-  Reviewed-only JSON/CSV export is the default; an explicit all-fields scope
+  Reviewed-only JSON/CSV/XLSX export is the default; an explicit all-fields scope
   includes pending decisions. Both scopes exclude rejected fields.
 - **Optional OCR (source checkout, unreleased)** - `extract` and `verify`
   fall back to local Tesseract when every PDF page lacks extractable text.
@@ -296,10 +296,18 @@ is omitted from either export scope.
 The UI defaults to **Reviewed only** (approved or edited fields). **All except
 rejected** also includes pending fields, with their review status attached.
 Exports are disabled during a save and snapshot the displayed decisions when
-clicked. The local server's `/api/documents/{id}/export.json` and `.csv` routes
+clicked. The local server's `/api/documents/{id}/export.json`, `.csv` and `.xlsx` routes
 accept `?scope=reviewed`; their default remains `all` for existing API clients.
 
-Both formats include these columns, with `original_value` and `value_source`
+**XLSX is the spreadsheet option:** text identifiers such as `00034`, `1E10`
+and `=1+1` are stored as text cells; numbers and booleans retain their types.
+No formulas or hyperlinks are generated. CSV remains a raw data export: a
+spreadsheet importer can reinterpret its text as numbers, dates or formulas.
+XLSX refuses oversized or unsupported text with a JSON fallback instead of
+truncating it. Spreadsheet programs still have their own numeric precision
+and newline behavior; see the [spreadsheet export study](studies/spreadsheet-export/README.md).
+
+All three formats include these columns, with `original_value` and `value_source`
 added in the current unreleased work:
 
 | Column | Meaning |

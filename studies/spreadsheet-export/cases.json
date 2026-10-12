@@ -1,0 +1,245 @@
+[
+  {
+    "field": "case_0",
+    "value": "00034",
+    "original_value": "00034",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_1",
+    "value": "=1+1",
+    "original_value": "=1+1",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_2",
+    "value": "+1+1",
+    "original_value": "+1+1",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_3",
+    "value": "-1+1",
+    "original_value": "-1+1",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_4",
+    "value": "@SUM(A1)",
+    "original_value": "@SUM(A1)",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_5",
+    "value": "1E10",
+    "original_value": "1E10",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_6",
+    "value": "2026-01-02",
+    "original_value": "2026-01-02",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_7",
+    "value": "12345678901234567890",
+    "original_value": "12345678901234567890",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_8",
+    "value": " https://example.invalid/ ",
+    "original_value": " https://example.invalid/ ",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_9",
+    "value": "\t=1+1",
+    "original_value": "\t=1+1",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_10",
+    "value": "\n=1+1",
+    "original_value": "\n=1+1",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_11",
+    "value": "\r=1+1",
+    "original_value": "\r=1+1",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_12",
+    "value": "a\r\nb",
+    "original_value": "a\r\nb",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_13",
+    "value": "a\rb",
+    "original_value": "a\rb",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_14",
+    "value": "a\nb",
+    "original_value": "a\nb",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_15",
+    "value": "a\tb",
+    "original_value": "a\tb",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_16",
+    "value": "_x0041_",
+    "original_value": "_x0041_",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_17",
+    "value": "_x000D_",
+    "original_value": "_x000D_",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_18",
+    "value": "_x005F_x0041_",
+    "original_value": "_x005F_x0041_",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_19",
+    "value": "&<>\"",
+    "original_value": "&<>\"",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_20",
+    "value": "caf\u00e9 \u6f22\u5b57 \ud83d\ude00",
+    "original_value": "caf\u00e9 \u6f22\u5b57 \ud83d\ude00",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_21",
+    "value": "",
+    "original_value": "",
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_22",
+    "value": true,
+    "original_value": true,
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_23",
+    "value": false,
+    "original_value": false,
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_24",
+    "value": 0,
+    "original_value": 0,
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_25",
+    "value": -12.5,
+    "original_value": -12.5,
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "case_26",
+    "value": null,
+    "original_value": null,
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "approved",
+    "page": 1
+  }
+]

@@ -711,3 +711,10 @@ test('explicit headers expose a quantity and price swap while preserving arithme
   expect((await (await request.get(`${url}/report`)).json()).report).toEqual(original.report);
   if (process.env.UPDATE_COLUMN_SCREENSHOTS) writeFileSync(`${directory}/${baseline ? 'before' : 'after'}-${browserName}.json`, JSON.stringify({ report: original.report, exported }, null, 2) + '\n');
 });
+
+import { spreadsheetScenario } from './spreadsheet.mjs';
+test('spreadsheet download preserves literal text and review scope offline', async ({ page, context }, info) => {
+  await configure(page);
+  await extract(page);
+  await spreadsheetScenario(page, context, info);
+});

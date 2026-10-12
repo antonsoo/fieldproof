@@ -39,6 +39,7 @@ from fieldproof.server.pdf_work import (
     render_server_page,
     verify_server_data,
 )
+from fieldproof.server.spreadsheet import XLSX_MIME, rows_to_xlsx
 from fieldproof.server.store import (
     DocumentSession,
     ReviewState,
@@ -438,6 +439,22 @@ def export_csv(document_id: str, scope: Literal["all", "reviewed"] = "all") -> P
         for row in rows
     )
     return PlainTextResponse(content=buf.getvalue(), media_type="text/csv")
+
+
+@app.get("/api/documents/{document_id}/export.xlsx")
+def export_xlsx(document_id: str, scope: Literal["all", "reviewed"] = "all") -> Response:
+    session = _session_or_404(document_id)
+    if session.report is None:
+        raise HTTPException(status_code=404, detail="no extraction has been run yet")
+    try:
+        workbook = rows_to_xlsx(_exported_rows(session, scope))
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return Response(
+        content=workbook,
+        media_type=XLSX_MIME,
+        headers={"Content-Disposition": 'attachment; filename="fieldproof.xlsx"'},
+    )
 
 
 if _STATIC_DIR.is_dir() and (_STATIC_DIR / "index.html").exists():

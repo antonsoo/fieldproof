@@ -287,3 +287,23 @@ test('malformed deep links and malformed sample indexes recover without page err
   await page.getByRole('button', { name: 'Retry', exact: true }).click();
   await expect(row(page, 'po_number')).toBeVisible();
 });
+
+import { spreadsheetScenario } from './spreadsheet.mjs';
+test('spreadsheet download preserves literal text and review scope offline', async ({ page, context }, info) => {
+  await page.goto('./', { waitUntil: 'networkidle' });
+  await spreadsheetScenario(page, context, info);
+});
+
+test('oversized spreadsheet text leaves JSON export available', async ({ page }) => {
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  const field = row(page, 'invoice_number');
+  await field.getByRole('button', { name: 'Edit', exact: true }).click();
+  await field.getByRole('textbox').fill('a'.repeat(32768));
+  await field.getByRole('button', { name: 'Save', exact: true }).click();
+  const downloads = [];
+  page.on('download', d => downloads.push(d));
+  await page.getByRole('button', { name: 'Export XLSX' }).click();
+  await expect(page.locator('.toast')).toContainText('Export JSON to keep the complete data');
+  expect(downloads).toHaveLength(0);
+  expect(JSON.parse((await downloadText(page, 'JSON')).text)[0].value).toHaveLength(32768);
+});

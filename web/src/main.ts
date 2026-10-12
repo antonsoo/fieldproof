@@ -2,6 +2,7 @@ import "./fonts/fonts.css";
 import "./style.css";
 import { createDataSource } from "./datasource";
 import { computeExportRows, downloadBlob, rowsToCsv } from "./export";
+import { rowsToXlsx, XLSX_MIME } from "./spreadsheet";
 import type { DocumentSummary, ExtractionResult, FieldStatus, FieldVerification } from "./types";
 import { SCHEMA_NAMES } from "./types";
 import { parseEditValue, reviewValue } from "./review";
@@ -300,6 +301,7 @@ function renderTopbar(): void {
   bar.querySelector<HTMLButtonElement>("#theme-toggle")?.addEventListener("click", toggleTheme);
   bar.querySelector<HTMLButtonElement>("#export-json")?.addEventListener("click", () => exportAs("json"));
   bar.querySelector<HTMLButtonElement>("#export-csv")?.addEventListener("click", () => exportAs("csv"));
+  bar.querySelector<HTMLButtonElement>("#export-xlsx")?.addEventListener("click", () => exportAs("xlsx"));
   bar.querySelector<HTMLButtonElement>("#new-document")?.addEventListener("click", resetToStart);
   bar.querySelector<HTMLButtonElement>("#sessions")?.addEventListener("click", () => sessionsDialog?.show());
   bar.querySelector<HTMLSelectElement>("#export-scope")?.addEventListener("change", (event) => {
@@ -360,10 +362,11 @@ function exportControlsHtml(): string {
     </label>
     <button class="btn" id="export-json" type="button" ${disabled ? "disabled" : ""}>Export JSON</button>
     <button class="btn" id="export-csv" type="button" ${disabled ? "disabled" : ""}>Export CSV</button>
+    <button class="btn" id="export-xlsx" type="button" title="Spreadsheet: text stays literal, including leading zeros and = signs" ${disabled ? "disabled" : ""}>Export XLSX</button>
   `;
 }
 
-function exportAs(format: "json" | "csv"): void {
+function exportAs(format: "json" | "csv" | "xlsx"): void {
   if (!state.document || !state.extraction || state.busy || pendingReviews.get(state.extraction)?.size)
     return;
   const rows = computeExportRows(state.extraction, state.exportScope);
@@ -373,8 +376,15 @@ function exportAs(format: "json" | "csv"): void {
   // response or a different tab cannot change the file after the click.
   if (format === "json") {
     downloadBlob(`${base}.fieldproof.json`, JSON.stringify(rows, null, 2), "application/json");
-  } else {
+  } else if (format === "csv") {
     downloadBlob(`${base}.fieldproof.csv`, rowsToCsv(rows), "text/csv");
+  } else {
+    try {
+      downloadBlob(`${base}.fieldproof.xlsx`, rowsToXlsx(rows), XLSX_MIME);
+    } catch (error) {
+      toast(error instanceof Error ? error.message : "XLSX export failed. Export JSON instead.");
+      return;
+    }
   }
   toast(`Exported ${rows.length} field${rows.length === 1 ? "" : "s"}`);
 }

@@ -484,3 +484,42 @@ def test_boolean_review_preserves_false_through_approval_and_both_export_formats
     )
     assert csv_rows[0]["value"] == "false"
     assert csv_rows[0]["original_value"] == "true"
+
+
+def test_xlsx_export_uses_same_review_snapshot(client, extracted_document):
+    from test_spreadsheet import workbook_rows
+
+    from fieldproof.server.spreadsheet import COLUMNS, XLSX_MIME
+
+    url = f"/api/documents/{extracted_document}"
+    assert workbook_rows(client.get(f"{url}/export.xlsx?scope=reviewed").content) == [list(COLUMNS)]
+    for field, value in [("invoice_number", "00034"), ("vendor_name", "=1+1")]:
+        assert (
+            client.post(
+                f"{url}/review", json={"path": field, "action": "edit", "value": value}
+            ).status_code
+            == 200
+        )
+    client.post(f"{url}/review", json={"path": "invoice_number", "action": "approve"})
+    client.post(f"{url}/review", json={"path": "tax", "action": "reject"})
+    for scope in ["reviewed", "all"]:
+        response = client.get(f"{url}/export.xlsx?scope={scope}")
+        assert response.headers["content-type"] == XLSX_MIME
+        assert response.headers["content-disposition"] == 'attachment; filename="fieldproof.xlsx"'
+        rows = client.get(f"{url}/export.json?scope={scope}").json()
+        assert workbook_rows(response.content) == [list(COLUMNS), *[list(r.values()) for r in rows]]
+    assert client.get(f"{url}/export.xlsx?scope=typo").status_code == 422
+    assert client.get("/api/documents/missing/export.xlsx").status_code == 404
+    long_value = "a" * 32768
+    client.post(
+        f"{url}/review", json={"path": "invoice_number", "action": "edit", "value": long_value}
+    )
+    response = client.get(f"{url}/export.xlsx")
+    assert response.status_code == 422
+    assert "Export JSON" in response.json()["detail"]
+    assert (
+        next(r for r in client.get(f"{url}/export.json").json() if r["field"] == "invoice_number")[
+            "value"
+        ]
+        == long_value
+    )
