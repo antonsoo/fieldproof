@@ -1,0 +1,296 @@
+{
+  "expected": "after",
+  "runtime": {
+    "python": "3.14.7",
+    "package": "0.2.7",
+    "pytesseract": "0.3.13",
+    "ocrAvailable": true,
+    "engine": "5.3.4"
+  },
+  "commands": [
+    {
+      "case": "native-invoice",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/native-invoice-extract.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "201b4323bd8a185a9533aa4cbc6bdd304d31d6ec06ccd70e93ae2ecdc94026e3"
+    },
+    {
+      "case": "native-invoice",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/native-invoice-verify.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "69b9d25b6d131de565e60c0265c8eecbe627d340ab853b3da6fa95b2c4631292"
+    },
+    {
+      "case": "scanned-invoice",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/scanned-invoice-extract.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "bf6b644e54477a6d2f03964ddba9dab8e27664ceca24e4c26ab10fbaa043813e"
+    },
+    {
+      "case": "scanned-invoice",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/scanned-invoice-verify.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "01f8d7bd004ea15d5960b31e9687c8161eefa1725be75ec6adee680d5a75ce6e"
+    },
+    {
+      "case": "native-receipt",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/native-receipt-extract.json - 17 verified, 1 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 17,
+        "needs_review": 1,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "19b3c0db2787bcf07f526c3fa9244a66e1356a26b55e5efb8f85f04f04042197"
+    },
+    {
+      "case": "native-receipt",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/native-receipt-verify.json - 17 verified, 1 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 17,
+        "needs_review": 1,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "82d6a72d77fd9b24359e59fb1bd2e80ea4d6f8b6bb82a7474d408d63bc9538e0"
+    },
+    {
+      "case": "scanned-receipt",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/scanned-receipt-extract.json - 14 verified, 4 needs review, 0 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 14,
+        "needs_review": 4,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "919b2da9dadd4450e90a87a4452920bf041f3b08a06239c28ca6c48b3ea7fbb5"
+    },
+    {
+      "case": "scanned-receipt",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/scanned-receipt-verify.json - 14 verified, 4 needs review, 0 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 14,
+        "needs_review": 4,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "73089a420f39da07927efca68ae0d1d5a74659f6369204c450e915fe2cfc0075"
+    },
+    {
+      "case": "native-contract",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/native-contract-extract.json - 10 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 10,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "dee3af0024eba5da5c42d0b0dda9bb7245dfc533413caea50c6e0194527e48fe"
+    },
+    {
+      "case": "native-contract",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/native-contract-verify.json - 10 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 10,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "1b82ef46a953855f57bc413a4fff468087dc3b4c90ce973d6670dd38c886441d"
+    },
+    {
+      "case": "scanned-contract",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/scanned-contract-extract.json - 10 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 10,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "73cbf2517ffe1550905d0ce28823e5e4dbcbaea907b2e432e88c4ce66c0e6f06"
+    },
+    {
+      "case": "scanned-contract",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/scanned-contract-verify.json - 10 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 10,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "51733df234e0c4fb50f639991400a944df3d2976bc36e6a64a1107a0c095c91c"
+    },
+    {
+      "case": "blank-first-page",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/blank-first-page-extract.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "38a319bc921c52992f288c7d1de8ada0edd86913a324fd0d813271281aacee2d"
+    },
+    {
+      "case": "blank-first-page",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/blank-first-page-verify.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "0a74ba73b62ddc57ac577493cc58f03a6b998f5937620b4ee792e24478a8296f"
+    },
+    {
+      "case": "blank",
+      "command": "extract",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: could not OCR <repo>/studies/ocr-fallback/inputs/blank.pdf: OCR recognized no words on any page; check the scan and language\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "blank",
+      "command": "verify",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: could not OCR <repo>/studies/ocr-fallback/inputs/blank.pdf: OCR recognized no words on any page; check the scan and language\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "missing-engine",
+      "command": "extract",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: could not OCR <repo>/studies/ocr-fallback/inputs/scanned-invoice.pdf: OCR is not available: install the 'ocr' extra (pytesseract, Pillow) and the Tesseract binary (e.g. `apt install tesseract-ocr`).\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "missing-engine",
+      "command": "verify",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: could not OCR <repo>/studies/ocr-fallback/inputs/scanned-invoice.pdf: OCR is not available: install the 'ocr' extra (pytesseract, Pillow) and the Tesseract binary (e.g. `apt install tesseract-ocr`).\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "missing-language-data",
+      "command": "extract",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: could not OCR <repo>/studies/ocr-fallback/inputs/scanned-invoice.pdf: OCR failed on page 1: (1, 'Error opening data file <empty-runtime>/eng.traineddata Please make sure the TESSDATA_PREFIX environment variable is set to your \"tessdata\" directory. Failed loading language \\'eng\\' Tesseract couldn\\'t load any languages! Could not initialize tesseract.')\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "missing-language-data",
+      "command": "verify",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: could not OCR <repo>/studies/ocr-fallback/inputs/scanned-invoice.pdf: OCR failed on page 1: (1, 'Error opening data file <empty-runtime>/eng.traineddata Please make sure the TESSDATA_PREFIX environment variable is set to your \"tessdata\" directory. Failed loading language \\'eng\\' Tesseract couldn\\'t load any languages! Could not initialize tesseract.')\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "native-without-engine",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/native-without-engine-extract.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "201b4323bd8a185a9533aa4cbc6bdd304d31d6ec06ccd70e93ae2ecdc94026e3"
+    },
+    {
+      "case": "native-without-engine",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/after/native-without-engine-verify.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "69b9d25b6d131de565e60c0265c8eecbe627d340ab853b3da6fa95b2c4631292"
+    }
+  ]
+}

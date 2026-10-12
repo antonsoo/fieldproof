@@ -1,0 +1,723 @@
+{
+  "coreCommit": "4d63128bef4432f5157044c53571c66d21ec4251",
+  "buildArtifacts": [
+    {
+      "path": "fieldproof-0.2.7-py3-none-any.whl",
+      "bytes": 573653,
+      "sha256": "c9009f85a107e5f34a81f6fb2df5e51fd4a41dba7b8293824f9bf6cb7ac06d30"
+    },
+    {
+      "path": "fieldproof-0.2.7.tar.gz",
+      "bytes": 595702,
+      "sha256": "5fd9fd649140b053a89e49e173d56b4c7469362d0efaf8b877522c94c16a7442"
+    }
+  ],
+  "environments": [
+    {
+      "environment": "installed311",
+      "python": "3.11.13",
+      "dependencies": {
+        "pydantic": "2.10.0",
+        "idna": "3.20",
+        "cffi": "2.1.1",
+        "pypdfium2": "4.30.0",
+        "anthropic": "0.77.0",
+        "rich": "15.0.0",
+        "pydantic_core": "2.27.0",
+        "typing-inspection": "0.4.4",
+        "distro": "1.9.0",
+        "cryptography": "50.0.2",
+        "pluggy": "1.6.0",
+        "pdfminer.six": "20251230",
+        "fastapi": "0.133.0",
+        "certifi": "2026.7.22",
+        "starlette": "1.3.1",
+        "click": "8.3.3",
+        "chardet": "7.6.0",
+        "pycparser": "3.11",
+        "ruff": "0.6.0",
+        "docstring_parser": "0.18.0",
+        "httpcore": "1.0.9",
+        "uvicorn": "0.30.0",
+        "watchfiles": "1.3.0",
+        "websockets": "17.2",
+        "fieldproof": "0.2.7",
+        "h11": "0.16.0",
+        "uvloop": "0.23.0",
+        "rapidfuzz": "3.9.0",
+        "anyio": "4.15.1",
+        "shellingham": "1.5.4",
+        "python-dotenv": "1.2.4",
+        "typing_extensions": "4.16.0",
+        "pdfplumber": "0.11.9",
+        "iniconfig": "2.3.1",
+        "annotated-doc": "0.0.5",
+        "mypy": "1.11.0",
+        "jiter": "0.17.0",
+        "annotated-types": "0.8.0",
+        "pytest-cov": "5.0.0",
+        "mdurl": "0.1.2",
+        "python-multipart": "0.0.31",
+        "httpx": "0.27.0",
+        "charset-normalizer": "3.5.2",
+        "coverage": "7.16.2",
+        "Pygments": "2.21.0",
+        "pytesseract": "0.3.10",
+        "markdown-it-py": "4.2.0",
+        "pytest": "9.0.3",
+        "sniffio": "1.3.1",
+        "httptools": "0.9.0",
+        "reportlab": "4.2.0",
+        "mypy_extensions": "1.1.0",
+        "typer": "0.16.0",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "PyYAML": "6.0.3"
+      },
+      "allWheelPackageFilesMatch": 56
+    },
+    {
+      "environment": "installed314",
+      "python": "3.14.7",
+      "dependencies": {
+        "idna": "3.20",
+        "opentelemetry-api": "1.45.1",
+        "cffi": "2.1.1",
+        "RapidFuzz": "3.14.6",
+        "librt": "0.16.0",
+        "rich": "15.0.0",
+        "httpcore2": "2.13.1",
+        "typing-inspection": "0.4.4",
+        "pdfplumber": "0.11.10",
+        "typer": "0.27.3",
+        "ruff": "0.17.0",
+        "cryptography": "50.0.2",
+        "python-multipart": "0.0.32",
+        "pluggy": "1.6.0",
+        "certifi": "2026.7.22",
+        "truststore": "0.10.4",
+        "click": "8.5.0",
+        "pdfminer.six": "20260107",
+        "pycparser": "3.11",
+        "pydantic": "2.14.1",
+        "uvicorn": "0.54.0",
+        "docstring_parser": "0.18.0",
+        "httpcore": "1.0.9",
+        "watchfiles": "1.3.0",
+        "websockets": "17.2",
+        "fieldproof": "0.2.7",
+        "h11": "0.16.0",
+        "pydantic_core": "2.50.1",
+        "uvloop": "0.23.0",
+        "pytesseract": "0.3.13",
+        "fastapi": "0.143.0",
+        "anyio": "4.15.1",
+        "shellingham": "1.5.4",
+        "python-dotenv": "1.2.4",
+        "typing_extensions": "4.16.0",
+        "iniconfig": "2.3.1",
+        "annotated-doc": "0.0.5",
+        "httpx2": "2.13.1",
+        "pytest": "9.1.1",
+        "jiter": "0.17.0",
+        "starlette": "1.7.0",
+        "annotated-types": "0.8.0",
+        "pypdfium2": "5.14.0",
+        "httpx": "0.28.1",
+        "pytest-cov": "7.1.0",
+        "mdurl": "0.1.2",
+        "charset-normalizer": "3.5.2",
+        "coverage": "7.16.2",
+        "Pygments": "2.21.0",
+        "markdown-it-py": "4.2.0",
+        "sniffio": "1.3.1",
+        "pathspec": "1.1.1",
+        "httptools": "0.9.0",
+        "mypy": "2.4.0",
+        "anthropic": "1.13.0",
+        "mypy_extensions": "1.1.0",
+        "reportlab": "5.0.1",
+        "packaging": "26.3",
+        "ast_serialize": "0.12.1",
+        "pillow": "12.3.0",
+        "PyYAML": "6.0.3"
+      },
+      "allWheelPackageFilesMatch": 56
+    },
+    {
+      "environment": "core311",
+      "python": "3.11.13",
+      "dependencies": {
+        "idna": "3.20",
+        "opentelemetry-api": "1.45.1",
+        "cffi": "2.1.1",
+        "RapidFuzz": "3.14.6",
+        "rich": "15.0.0",
+        "httpcore2": "2.13.1",
+        "typing-inspection": "0.4.4",
+        "pdfplumber": "0.11.10",
+        "typer": "0.27.3",
+        "cryptography": "50.0.2",
+        "python-multipart": "0.0.32",
+        "truststore": "0.10.4",
+        "click": "8.5.0",
+        "pdfminer.six": "20260107",
+        "pycparser": "3.11",
+        "pydantic": "2.14.1",
+        "uvicorn": "0.54.0",
+        "docstring_parser": "0.18.0",
+        "watchfiles": "1.3.0",
+        "websockets": "17.2",
+        "fieldproof": "0.2.7",
+        "h11": "0.16.0",
+        "pydantic_core": "2.50.1",
+        "uvloop": "0.23.0",
+        "fastapi": "0.143.0",
+        "anyio": "4.15.1",
+        "shellingham": "1.5.4",
+        "python-dotenv": "1.2.4",
+        "typing_extensions": "4.16.0",
+        "annotated-doc": "0.0.5",
+        "httpx2": "2.13.1",
+        "jiter": "0.17.0",
+        "starlette": "1.7.0",
+        "annotated-types": "0.8.0",
+        "pypdfium2": "5.14.0",
+        "mdurl": "0.1.2",
+        "charset-normalizer": "3.5.2",
+        "Pygments": "2.21.0",
+        "markdown-it-py": "4.2.0",
+        "sniffio": "1.3.1",
+        "httptools": "0.9.0",
+        "anthropic": "1.13.0",
+        "pillow": "12.3.0",
+        "PyYAML": "6.0.3"
+      },
+      "allWheelPackageFilesMatch": 56
+    }
+  ],
+  "sourceInputs": [
+    {
+      "path": "LICENSE",
+      "sha256": "e26144be8673d69c175126ad8dcd9ed78431464f0b97120b799dc75ec7edb647"
+    },
+    {
+      "path": "README.md",
+      "sha256": "f557aff55a417853a4c474b0f81437b1c23af742fee10c5413c52cd3e2d0ad4d"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "ac8b5f834d51bc838f73547c57513ba44b62627933a08dcc20261539c32ef7a3"
+    },
+    {
+      "path": "scripts/bundle_ui.py",
+      "sha256": "63b4f2f6a10abbf3f471566a1abb632f7ac3226f0472fd5365e10e8edb0de47f"
+    },
+    {
+      "path": "src/fieldproof/__init__.py",
+      "sha256": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde"
+    },
+    {
+      "path": "src/fieldproof/cli.py",
+      "sha256": "6339be5c503941b1f64a79cd6918480e3d00a2e34a111e67cc97e5e85f1d254a"
+    },
+    {
+      "path": "src/fieldproof/document/__init__.py",
+      "sha256": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074"
+    },
+    {
+      "path": "src/fieldproof/document/limits.py",
+      "sha256": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71"
+    },
+    {
+      "path": "src/fieldproof/document/loader.py",
+      "sha256": "1c8e2b68dad7f3f3baf6e69d59fc1737e035b6e3871f01f8e18c29f075ed10e1"
+    },
+    {
+      "path": "src/fieldproof/document/model.py",
+      "sha256": "cd230415e6ccd8b664779a9d74210ef8c317b51a310504266694cec5454d6f23"
+    },
+    {
+      "path": "src/fieldproof/document/ocr.py",
+      "sha256": "5a260a5d29206df3dd00533c646e0b18b26996ba137219e610427abe98365f29"
+    },
+    {
+      "path": "src/fieldproof/document/render.py",
+      "sha256": "651c776a68820bb29002bc21ebede0891a1ddf281c4d71c5035fc5296f59f502"
+    },
+    {
+      "path": "src/fieldproof/document/worker.py",
+      "sha256": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142"
+    },
+    {
+      "path": "src/fieldproof/extract/__init__.py",
+      "sha256": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e"
+    },
+    {
+      "path": "src/fieldproof/extract/anthropic_provider.py",
+      "sha256": "d160541e1b1ea14e78a68b8e0113d4b5b6bf26d5ace9fd4c66866855b605f121"
+    },
+    {
+      "path": "src/fieldproof/extract/base.py",
+      "sha256": "caa64bba3320fba941b1d1105104c11ad09aeed44337eeb50c3e0e51668b0b85"
+    },
+    {
+      "path": "src/fieldproof/extract/fixture_provider.py",
+      "sha256": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49"
+    },
+    {
+      "path": "src/fieldproof/ground/__init__.py",
+      "sha256": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd"
+    },
+    {
+      "path": "src/fieldproof/ground/align.py",
+      "sha256": "519441050c619a0ef8e62bca94072fc200f467e49ebb2b4f12e41e5916577f4c"
+    },
+    {
+      "path": "src/fieldproof/ground/lines.py",
+      "sha256": "aa8715ff767e0dba4d90e5a87d902f74a07135099b20ad816a04e2e7f58b069c"
+    },
+    {
+      "path": "src/fieldproof/ground/normalize.py",
+      "sha256": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520"
+    },
+    {
+      "path": "src/fieldproof/ground/values.py",
+      "sha256": "1a876375896662382dde616fad06a08f54c750602a4f7063faf2f20ba168a340"
+    },
+    {
+      "path": "src/fieldproof/schemas/__init__.py",
+      "sha256": "21e84fd670cb5138e8371c61e2d4d46d5d8631783165a1445a7976368e1cb560"
+    },
+    {
+      "path": "src/fieldproof/schemas/base.py",
+      "sha256": "ee163ef0585b60ade9967f0d8d401a429898c16bec69743480e763fa60e82b68"
+    },
+    {
+      "path": "src/fieldproof/schemas/contract.py",
+      "sha256": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0"
+    },
+    {
+      "path": "src/fieldproof/schemas/invoice.py",
+      "sha256": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b"
+    },
+    {
+      "path": "src/fieldproof/schemas/receipt.py",
+      "sha256": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e"
+    },
+    {
+      "path": "src/fieldproof/server/__init__.py",
+      "sha256": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b"
+    },
+    {
+      "path": "src/fieldproof/server/app.py",
+      "sha256": "ea617ac88bef134d155fb4f8b11f2f4556f8a6f08c62a4edafb906a2a586b901"
+    },
+    {
+      "path": "src/fieldproof/server/body_limit.py",
+      "sha256": "643b1b15addbba19b418cd6941d4f712170592b74f5878a54fefcf49ac74cd7f"
+    },
+    {
+      "path": "src/fieldproof/server/pdf_work.py",
+      "sha256": "72b36ae66d90af38f034e99d4ece7f2c6621678d4ca998c900cd59803b813a48"
+    },
+    {
+      "path": "src/fieldproof/server/store.py",
+      "sha256": "b9b0c2089ef628163674539cdae0bd4d2f74f0fa207adc4da9501ebf9c0cee30"
+    },
+    {
+      "path": "src/fieldproof/verify/__init__.py",
+      "sha256": "de568754f13423483bef878de8d3b558262d2c06623b105ebc696fa59580bb56"
+    },
+    {
+      "path": "src/fieldproof/verify/cross_field.py",
+      "sha256": "ad1a7facac1c39cc4ebec47412db36dc258b76dd1d2b4b603007fadcf928b365"
+    },
+    {
+      "path": "src/fieldproof/verify/engine.py",
+      "sha256": "387edc16242f19644a162d43de53f72bf59b148ac2faaf421f60e40cfd7571fd"
+    },
+    {
+      "path": "src/fieldproof/verify/rows.py",
+      "sha256": "70ab98696ef27a23d171182581ae1a1f6ac5694db06fa898e2b8516fb1534005"
+    },
+    {
+      "path": "src/fieldproof/verify/value_checks.py",
+      "sha256": "7ba4980ae4c907f2fdea4f33bac0eb3546d24ce318df5ad25118e8d17acc17e1"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "bbcc8d2cbd7dd927635eb3cf340086c7d8bd09e232a098abaca31ccb233f990c"
+    },
+    {
+      "path": "web/package-lock.json",
+      "sha256": "a27688b8abb149441e4f149419d6f0f81e222ba6d06764e1d7c8d82fe71c8cca"
+    },
+    {
+      "path": "web/package.json",
+      "sha256": "e0d69ceceb8571d73ce15d43e7595d22e05964b3eb9c0c09853ee4d1f486f9dd"
+    },
+    {
+      "path": "web/src/datasource.ts",
+      "sha256": "623d108410a1e24b82ed8345ba0cab2d9e5dbf0a01de535678d15aa0e2f75a6d"
+    },
+    {
+      "path": "web/src/export.ts",
+      "sha256": "aa53aeff7b5775ae6156a839e811d55528e64f6f59e77e774f61825f09872788"
+    },
+    {
+      "path": "web/src/fonts/LICENSE.txt",
+      "sha256": "11a4d861226ad2d7a42174946d51ea50c7a1744dc60eb3910aed9419dec4f770"
+    },
+    {
+      "path": "web/src/fonts/fonts.css",
+      "sha256": "d1bdcc3d97ff9b35b676208aad04b90f92cf5992b5eb4f2e03ecd7d4984bcbe1"
+    },
+    {
+      "path": "web/src/fonts/fraunces-latin-ext.woff2",
+      "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e"
+    },
+    {
+      "path": "web/src/fonts/fraunces-latin.woff2",
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+    },
+    {
+      "path": "web/src/fonts/fraunces-vietnamese.woff2",
+      "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-400-cyrillic-ext.woff2",
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-400-cyrillic.woff2",
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-400-latin-ext.woff2",
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-400-latin.woff2",
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-400-vietnamese.woff2",
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-500-cyrillic-ext.woff2",
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-500-cyrillic.woff2",
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-500-latin-ext.woff2",
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-500-latin.woff2",
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-500-vietnamese.woff2",
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910"
+    },
+    {
+      "path": "web/src/fonts/inter-cyrillic-ext.woff2",
+      "sha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd"
+    },
+    {
+      "path": "web/src/fonts/inter-cyrillic.woff2",
+      "sha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075"
+    },
+    {
+      "path": "web/src/fonts/inter-greek-ext.woff2",
+      "sha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190"
+    },
+    {
+      "path": "web/src/fonts/inter-greek.woff2",
+      "sha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6"
+    },
+    {
+      "path": "web/src/fonts/inter-latin-ext.woff2",
+      "sha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956"
+    },
+    {
+      "path": "web/src/fonts/inter-latin.woff2",
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+    },
+    {
+      "path": "web/src/fonts/inter-vietnamese.woff2",
+      "sha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2"
+    },
+    {
+      "path": "web/src/main.ts",
+      "sha256": "747c92d18ca9aa073afe137f204ce088462bc80ee484db566f93e8c3841d15d2"
+    },
+    {
+      "path": "web/src/review.test.ts",
+      "sha256": "e3ab03a9d813067a1b02abba0c343cf926b2d3996b92507e01cc0bc90bde99bf"
+    },
+    {
+      "path": "web/src/review.ts",
+      "sha256": "2c80d5a9f2e9072e648d3314c9f116bc6e327b22b75613e35bdf7e8afe5256ca"
+    },
+    {
+      "path": "web/src/sessions.ts",
+      "sha256": "fda9112e43ab01588508cf27939659430064d4640f00466bcbba42d7319e6722"
+    },
+    {
+      "path": "web/src/style.css",
+      "sha256": "69a42abdf3f5a5b432dadc93525504ff2ee0c0d905bbf880830de2cff9763cae"
+    },
+    {
+      "path": "web/src/types.ts",
+      "sha256": "e5ae9a78d508239f27177e43b26618958bc1045738ef374d22ed9dcabcc87402"
+    },
+    {
+      "path": "web/src/validate.test.ts",
+      "sha256": "34401049d9f15fbe90b6b0dd42ea3e2aa31b311f7d6feb3a59a4393c8d92e86c"
+    },
+    {
+      "path": "web/src/validate.ts",
+      "sha256": "66acfe2eba047fcc2ba98bbd9e080c6c504075f02d965ff165ceac490afb08ca"
+    },
+    {
+      "path": "web/tsconfig.json",
+      "sha256": "68842b662b8cef4690263aa8e51d34fd2fd7c62cc14a903eab451ed2ba1bfead"
+    },
+    {
+      "path": "web/vite.config.ts",
+      "sha256": "d8498b78f1f9f37df9b6d30495c8bfdd7c380b141e7c831f0fc95e67484914ca"
+    }
+  ],
+  "packageFiles": [
+    {
+      "path": "fieldproof/__init__.py",
+      "sha256": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde"
+    },
+    {
+      "path": "fieldproof/cli.py",
+      "sha256": "6339be5c503941b1f64a79cd6918480e3d00a2e34a111e67cc97e5e85f1d254a"
+    },
+    {
+      "path": "fieldproof/document/__init__.py",
+      "sha256": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074"
+    },
+    {
+      "path": "fieldproof/document/limits.py",
+      "sha256": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71"
+    },
+    {
+      "path": "fieldproof/document/loader.py",
+      "sha256": "1c8e2b68dad7f3f3baf6e69d59fc1737e035b6e3871f01f8e18c29f075ed10e1"
+    },
+    {
+      "path": "fieldproof/document/model.py",
+      "sha256": "cd230415e6ccd8b664779a9d74210ef8c317b51a310504266694cec5454d6f23"
+    },
+    {
+      "path": "fieldproof/document/ocr.py",
+      "sha256": "5a260a5d29206df3dd00533c646e0b18b26996ba137219e610427abe98365f29"
+    },
+    {
+      "path": "fieldproof/document/render.py",
+      "sha256": "651c776a68820bb29002bc21ebede0891a1ddf281c4d71c5035fc5296f59f502"
+    },
+    {
+      "path": "fieldproof/document/worker.py",
+      "sha256": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142"
+    },
+    {
+      "path": "fieldproof/extract/__init__.py",
+      "sha256": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e"
+    },
+    {
+      "path": "fieldproof/extract/anthropic_provider.py",
+      "sha256": "d160541e1b1ea14e78a68b8e0113d4b5b6bf26d5ace9fd4c66866855b605f121"
+    },
+    {
+      "path": "fieldproof/extract/base.py",
+      "sha256": "caa64bba3320fba941b1d1105104c11ad09aeed44337eeb50c3e0e51668b0b85"
+    },
+    {
+      "path": "fieldproof/extract/fixture_provider.py",
+      "sha256": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49"
+    },
+    {
+      "path": "fieldproof/ground/__init__.py",
+      "sha256": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd"
+    },
+    {
+      "path": "fieldproof/ground/align.py",
+      "sha256": "519441050c619a0ef8e62bca94072fc200f467e49ebb2b4f12e41e5916577f4c"
+    },
+    {
+      "path": "fieldproof/ground/lines.py",
+      "sha256": "aa8715ff767e0dba4d90e5a87d902f74a07135099b20ad816a04e2e7f58b069c"
+    },
+    {
+      "path": "fieldproof/ground/normalize.py",
+      "sha256": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520"
+    },
+    {
+      "path": "fieldproof/ground/values.py",
+      "sha256": "1a876375896662382dde616fad06a08f54c750602a4f7063faf2f20ba168a340"
+    },
+    {
+      "path": "fieldproof/schemas/__init__.py",
+      "sha256": "21e84fd670cb5138e8371c61e2d4d46d5d8631783165a1445a7976368e1cb560"
+    },
+    {
+      "path": "fieldproof/schemas/base.py",
+      "sha256": "ee163ef0585b60ade9967f0d8d401a429898c16bec69743480e763fa60e82b68"
+    },
+    {
+      "path": "fieldproof/schemas/contract.py",
+      "sha256": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0"
+    },
+    {
+      "path": "fieldproof/schemas/invoice.py",
+      "sha256": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b"
+    },
+    {
+      "path": "fieldproof/schemas/receipt.py",
+      "sha256": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e"
+    },
+    {
+      "path": "fieldproof/server/__init__.py",
+      "sha256": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b"
+    },
+    {
+      "path": "fieldproof/server/app.py",
+      "sha256": "ea617ac88bef134d155fb4f8b11f2f4556f8a6f08c62a4edafb906a2a586b901"
+    },
+    {
+      "path": "fieldproof/server/body_limit.py",
+      "sha256": "643b1b15addbba19b418cd6941d4f712170592b74f5878a54fefcf49ac74cd7f"
+    },
+    {
+      "path": "fieldproof/server/pdf_work.py",
+      "sha256": "72b36ae66d90af38f034e99d4ece7f2c6621678d4ca998c900cd59803b813a48"
+    },
+    {
+      "path": "fieldproof/server/static/assets/fraunces-latin-DihXLNYH.woff2",
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+    },
+    {
+      "path": "fieldproof/server/static/assets/fraunces-latin-ext-CJcjJNj7.woff2",
+      "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e"
+    },
+    {
+      "path": "fieldproof/server/static/assets/fraunces-vietnamese-Czevyj-6.woff2",
+      "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910"
+    },
+    {
+      "path": "fieldproof/server/static/assets/index-Cc6zao9e.js",
+      "sha256": "447d74f331b715bd0d4627e96510bda6c536ba147e7e7bda3a28da33c293fae9"
+    },
+    {
+      "path": "fieldproof/server/static/assets/index-DiNKwaEo.css",
+      "sha256": "1f5ee42b05a2277f5de95ff6f789dde47f1635fa5ada2c38adcc15953d24db4a"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-cyrillic-DqGufNeO.woff2",
+      "sha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-cyrillic-ext-BOeWTOD4.woff2",
+      "sha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-greek-CkhJZR-_.woff2",
+      "sha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-greek-ext-DlzME5K_.woff2",
+      "sha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-latin-Dx4kXJAl.woff2",
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-latin-ext-DO1Apj_S.woff2",
+      "sha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-vietnamese-CBcvBZtf.woff2",
+      "sha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2"
+    },
+    {
+      "path": "fieldproof/server/static/index.html",
+      "sha256": "4be2193cc2c56f6ca5774b5f6df0799f14533522c0ff3bb7fbad393abcaaf401"
+    },
+    {
+      "path": "fieldproof/server/store.py",
+      "sha256": "b9b0c2089ef628163674539cdae0bd4d2f74f0fa207adc4da9501ebf9c0cee30"
+    },
+    {
+      "path": "fieldproof/verify/__init__.py",
+      "sha256": "de568754f13423483bef878de8d3b558262d2c06623b105ebc696fa59580bb56"
+    },
+    {
+      "path": "fieldproof/verify/cross_field.py",
+      "sha256": "ad1a7facac1c39cc4ebec47412db36dc258b76dd1d2b4b603007fadcf928b365"
+    },
+    {
+      "path": "fieldproof/verify/engine.py",
+      "sha256": "387edc16242f19644a162d43de53f72bf59b148ac2faaf421f60e40cfd7571fd"
+    },
+    {
+      "path": "fieldproof/verify/rows.py",
+      "sha256": "70ab98696ef27a23d171182581ae1a1f6ac5694db06fa898e2b8516fb1534005"
+    },
+    {
+      "path": "fieldproof/verify/value_checks.py",
+      "sha256": "7ba4980ae4c907f2fdea4f33bac0eb3546d24ce318df5ad25118e8d17acc17e1"
+    }
+  ]
+}

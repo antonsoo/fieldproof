@@ -1,0 +1,17 @@
+{
+  "pytesseractInstalled": false,
+  "commands": [
+    {
+      "case": "native",
+      "exitCode": 0,
+      "outputExists": true,
+      "stderr": ""
+    },
+    {
+      "case": "scan",
+      "exitCode": 1,
+      "outputExists": false,
+      "stderr": "error: could not OCR <repo>/studies/ocr-fallback/inputs/scanned-invoice.pdf: OCR is not available: install the 'ocr' extra (pytesseract, Pillow) and the Tesseract binary (e.g. `apt install tesseract-ocr`).\n"
+    }
+  ]
+}

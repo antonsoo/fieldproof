@@ -1,0 +1,660 @@
+{
+  "source": "scanned-receipt.pdf",
+  "pages": [
+    {
+      "number": 1,
+      "width": 230.5,
+      "height": 468.0,
+      "text": "Blue Heron Coffee Roasters 118 Alder St, Portland, OR 97204 (603) 555-0148 Transaction Date: 03/14/2026 09:41 AM Register 2 - Cashier: J.M. Large Pour-Over x1 $5.25 Almond Croissant x2 $4.50 Cold Brew 160z x1 $4.75 Bag of Beans - Ethiopia x1 $17.00 Subtotal $31.50 Tax $2.84 Total $34.34 Payment Method: Visa ending 4471 Thank you for stopping by!",
+      "words": [
+        {
+          "text": "Blue",
+          "bbox": {
+            "x0": 43.0,
+            "top": 17.0,
+            "x1": 65.5,
+            "bottom": 25.0
+          },
+          "start": 0,
+          "end": 4
+        },
+        {
+          "text": "Heron",
+          "bbox": {
+            "x0": 69.5,
+            "top": 17.0,
+            "x1": 100.0,
+            "bottom": 25.0
+          },
+          "start": 5,
+          "end": 10
+        },
+        {
+          "text": "Coffee",
+          "bbox": {
+            "x0": 104.5,
+            "top": 17.0,
+            "x1": 138.0,
+            "bottom": 25.5
+          },
+          "start": 11,
+          "end": 17
+        },
+        {
+          "text": "Roasters",
+          "bbox": {
+            "x0": 142.0,
+            "top": 17.0,
+            "x1": 188.0,
+            "bottom": 25.0
+          },
+          "start": 18,
+          "end": 26
+        },
+        {
+          "text": "118",
+          "bbox": {
+            "x0": 49.0,
+            "top": 33.0,
+            "x1": 63.0,
+            "bottom": 39.5
+          },
+          "start": 27,
+          "end": 30
+        },
+        {
+          "text": "Alder",
+          "bbox": {
+            "x0": 66.0,
+            "top": 33.0,
+            "x1": 86.5,
+            "bottom": 39.5
+          },
+          "start": 31,
+          "end": 36
+        },
+        {
+          "text": "St,",
+          "bbox": {
+            "x0": 89.5,
+            "top": 33.0,
+            "x1": 99.5,
+            "bottom": 40.5
+          },
+          "start": 37,
+          "end": 40
+        },
+        {
+          "text": "Portland,",
+          "bbox": {
+            "x0": 103.5,
+            "top": 33.0,
+            "x1": 138.0,
+            "bottom": 40.5
+          },
+          "start": 41,
+          "end": 50
+        },
+        {
+          "text": "OR",
+          "bbox": {
+            "x0": 141.5,
+            "top": 33.0,
+            "x1": 154.0,
+            "bottom": 39.5
+          },
+          "start": 51,
+          "end": 53
+        },
+        {
+          "text": "97204",
+          "bbox": {
+            "x0": 157.5,
+            "top": 33.0,
+            "x1": 182.0,
+            "bottom": 39.5
+          },
+          "start": 54,
+          "end": 59
+        },
+        {
+          "text": "(603)",
+          "bbox": {
+            "x0": 85.0,
+            "top": 44.0,
+            "x1": 105.0,
+            "bottom": 52.5
+          },
+          "start": 60,
+          "end": 65
+        },
+        {
+          "text": "555-0148",
+          "bbox": {
+            "x0": 108.0,
+            "top": 44.0,
+            "x1": 145.5,
+            "bottom": 50.5
+          },
+          "start": 66,
+          "end": 74
+        },
+        {
+          "text": "Transaction",
+          "bbox": {
+            "x0": 35.5,
+            "top": 81.5,
+            "x1": 82.0,
+            "bottom": 88.0
+          },
+          "start": 75,
+          "end": 86
+        },
+        {
+          "text": "Date:",
+          "bbox": {
+            "x0": 85.5,
+            "top": 81.5,
+            "x1": 105.5,
+            "bottom": 88.0
+          },
+          "start": 87,
+          "end": 92
+        },
+        {
+          "text": "03/14/2026",
+          "bbox": {
+            "x0": 109.0,
+            "top": 81.5,
+            "x1": 153.5,
+            "bottom": 88.0
+          },
+          "start": 93,
+          "end": 103
+        },
+        {
+          "text": "09:41",
+          "bbox": {
+            "x0": 157.0,
+            "top": 81.5,
+            "x1": 177.5,
+            "bottom": 88.0
+          },
+          "start": 104,
+          "end": 109
+        },
+        {
+          "text": "AM",
+          "bbox": {
+            "x0": 181.5,
+            "top": 81.5,
+            "x1": 194.5,
+            "bottom": 88.0
+          },
+          "start": 110,
+          "end": 112
+        },
+        {
+          "text": "Register",
+          "bbox": {
+            "x0": 62.5,
+            "top": 95.5,
+            "x1": 95.0,
+            "bottom": 104.0
+          },
+          "start": 113,
+          "end": 121
+        },
+        {
+          "text": "2",
+          "bbox": {
+            "x0": 98.0,
+            "top": 95.5,
+            "x1": 102.5,
+            "bottom": 102.0
+          },
+          "start": 122,
+          "end": 123
+        },
+        {
+          "text": "-",
+          "bbox": {
+            "x0": 108.0,
+            "top": 99.0,
+            "x1": 110.5,
+            "bottom": 100.0
+          },
+          "start": 124,
+          "end": 125
+        },
+        {
+          "text": "Cashier:",
+          "bbox": {
+            "x0": 116.0,
+            "top": 95.5,
+            "x1": 148.5,
+            "bottom": 102.0
+          },
+          "start": 126,
+          "end": 134
+        },
+        {
+          "text": "J.M.",
+          "bbox": {
+            "x0": 152.0,
+            "top": 95.5,
+            "x1": 168.0,
+            "bottom": 102.0
+          },
+          "start": 135,
+          "end": 139
+        },
+        {
+          "text": "Large",
+          "bbox": {
+            "x0": 11.0,
+            "top": 136.0,
+            "x1": 31.0,
+            "bottom": 144.0
+          },
+          "start": 140,
+          "end": 145
+        },
+        {
+          "text": "Pour-Over",
+          "bbox": {
+            "x0": 34.0,
+            "top": 136.0,
+            "x1": 70.5,
+            "bottom": 142.0
+          },
+          "start": 146,
+          "end": 155
+        },
+        {
+          "text": "x1",
+          "bbox": {
+            "x0": 72.5,
+            "top": 136.5,
+            "x1": 79.5,
+            "bottom": 142.0
+          },
+          "start": 156,
+          "end": 158
+        },
+        {
+          "text": "$5.25",
+          "bbox": {
+            "x0": 200.0,
+            "top": 136.0,
+            "x1": 219.5,
+            "bottom": 143.0
+          },
+          "start": 159,
+          "end": 164
+        },
+        {
+          "text": "Almond",
+          "bbox": {
+            "x0": 11.0,
+            "top": 149.0,
+            "x1": 37.5,
+            "bottom": 155.0
+          },
+          "start": 165,
+          "end": 171
+        },
+        {
+          "text": "Croissant",
+          "bbox": {
+            "x0": 40.5,
+            "top": 149.0,
+            "x1": 74.0,
+            "bottom": 155.0
+          },
+          "start": 172,
+          "end": 181
+        },
+        {
+          "text": "x2",
+          "bbox": {
+            "x0": 76.5,
+            "top": 149.5,
+            "x1": 84.5,
+            "bottom": 155.0
+          },
+          "start": 182,
+          "end": 184
+        },
+        {
+          "text": "$4.50",
+          "bbox": {
+            "x0": 200.0,
+            "top": 149.0,
+            "x1": 219.5,
+            "bottom": 156.0
+          },
+          "start": 185,
+          "end": 190
+        },
+        {
+          "text": "Cold",
+          "bbox": {
+            "x0": 11.0,
+            "top": 162.0,
+            "x1": 26.5,
+            "bottom": 168.0
+          },
+          "start": 191,
+          "end": 195
+        },
+        {
+          "text": "Brew",
+          "bbox": {
+            "x0": 30.0,
+            "top": 162.0,
+            "x1": 47.5,
+            "bottom": 168.0
+          },
+          "start": 196,
+          "end": 200
+        },
+        {
+          "text": "160z",
+          "bbox": {
+            "x0": 50.5,
+            "top": 162.5,
+            "x1": 67.0,
+            "bottom": 168.0
+          },
+          "start": 201,
+          "end": 205
+        },
+        {
+          "text": "x1",
+          "bbox": {
+            "x0": 69.5,
+            "top": 162.5,
+            "x1": 76.5,
+            "bottom": 168.0
+          },
+          "start": 206,
+          "end": 208
+        },
+        {
+          "text": "$4.75",
+          "bbox": {
+            "x0": 200.0,
+            "top": 162.0,
+            "x1": 219.5,
+            "bottom": 169.0
+          },
+          "start": 209,
+          "end": 214
+        },
+        {
+          "text": "Bag",
+          "bbox": {
+            "x0": 11.0,
+            "top": 174.5,
+            "x1": 24.5,
+            "bottom": 182.5
+          },
+          "start": 215,
+          "end": 218
+        },
+        {
+          "text": "of",
+          "bbox": {
+            "x0": 27.5,
+            "top": 174.5,
+            "x1": 34.0,
+            "bottom": 180.5
+          },
+          "start": 219,
+          "end": 221
+        },
+        {
+          "text": "Beans",
+          "bbox": {
+            "x0": 36.5,
+            "top": 174.5,
+            "x1": 58.5,
+            "bottom": 180.5
+          },
+          "start": 222,
+          "end": 227
+        },
+        {
+          "text": "-",
+          "bbox": {
+            "x0": 61.5,
+            "top": 178.0,
+            "x1": 63.5,
+            "bottom": 178.5
+          },
+          "start": 228,
+          "end": 229
+        },
+        {
+          "text": "Ethiopia",
+          "bbox": {
+            "x0": 66.5,
+            "top": 174.5,
+            "x1": 94.5,
+            "bottom": 182.0
+          },
+          "start": 230,
+          "end": 238
+        },
+        {
+          "text": "x1",
+          "bbox": {
+            "x0": 97.0,
+            "top": 175.0,
+            "x1": 104.0,
+            "bottom": 180.5
+          },
+          "start": 239,
+          "end": 241
+        },
+        {
+          "text": "$17.00",
+          "bbox": {
+            "x0": 195.5,
+            "top": 174.5,
+            "x1": 219.5,
+            "bottom": 181.5
+          },
+          "start": 242,
+          "end": 248
+        },
+        {
+          "text": "Subtotal",
+          "bbox": {
+            "x0": 11.0,
+            "top": 203.0,
+            "x1": 43.5,
+            "bottom": 220.5
+          },
+          "start": 249,
+          "end": 257
+        },
+        {
+          "text": "$31.50",
+          "bbox": {
+            "x0": 192.5,
+            "top": 208.5,
+            "x1": 219.5,
+            "bottom": 216.5
+          },
+          "start": 258,
+          "end": 264
+        },
+        {
+          "text": "Tax",
+          "bbox": {
+            "x0": 10.5,
+            "top": 221.5,
+            "x1": 25.5,
+            "bottom": 228.0
+          },
+          "start": 265,
+          "end": 268
+        },
+        {
+          "text": "$2.84",
+          "bbox": {
+            "x0": 197.5,
+            "top": 221.0,
+            "x1": 219.5,
+            "bottom": 229.0
+          },
+          "start": 269,
+          "end": 274
+        },
+        {
+          "text": "Total",
+          "bbox": {
+            "x0": 10.5,
+            "top": 230.0,
+            "x1": 34.0,
+            "bottom": 247.5
+          },
+          "start": 275,
+          "end": 280
+        },
+        {
+          "text": "$34.34",
+          "bbox": {
+            "x0": 189.5,
+            "top": 234.5,
+            "x1": 219.5,
+            "bottom": 243.5
+          },
+          "start": 281,
+          "end": 287
+        },
+        {
+          "text": "Payment",
+          "bbox": {
+            "x0": 52.5,
+            "top": 258.0,
+            "x1": 83.5,
+            "bottom": 265.5
+          },
+          "start": 288,
+          "end": 295
+        },
+        {
+          "text": "Method:",
+          "bbox": {
+            "x0": 86.0,
+            "top": 258.0,
+            "x1": 114.0,
+            "bottom": 264.0
+          },
+          "start": 296,
+          "end": 303
+        },
+        {
+          "text": "Visa",
+          "bbox": {
+            "x0": 117.0,
+            "top": 258.0,
+            "x1": 132.0,
+            "bottom": 264.0
+          },
+          "start": 304,
+          "end": 308
+        },
+        {
+          "text": "ending",
+          "bbox": {
+            "x0": 135.0,
+            "top": 258.5,
+            "x1": 158.0,
+            "bottom": 266.0
+          },
+          "start": 309,
+          "end": 315
+        },
+        {
+          "text": "4471",
+          "bbox": {
+            "x0": 161.0,
+            "top": 258.5,
+            "x1": 177.0,
+            "bottom": 264.0
+          },
+          "start": 316,
+          "end": 320
+        },
+        {
+          "text": "Thank",
+          "bbox": {
+            "x0": 68.0,
+            "top": 276.0,
+            "x1": 90.5,
+            "bottom": 282.0
+          },
+          "start": 321,
+          "end": 326
+        },
+        {
+          "text": "you",
+          "bbox": {
+            "x0": 92.5,
+            "top": 277.5,
+            "x1": 105.0,
+            "bottom": 283.5
+          },
+          "start": 327,
+          "end": 330
+        },
+        {
+          "text": "for",
+          "bbox": {
+            "x0": 108.0,
+            "top": 276.0,
+            "x1": 117.0,
+            "bottom": 282.0
+          },
+          "start": 331,
+          "end": 334
+        },
+        {
+          "text": "stopping",
+          "bbox": {
+            "x0": 119.5,
+            "top": 277.0,
+            "x1": 149.0,
+            "bottom": 284.0
+          },
+          "start": 335,
+          "end": 343
+        },
+        {
+          "text": "by!",
+          "bbox": {
+            "x0": 152.0,
+            "top": 276.0,
+            "x1": 161.5,
+            "bottom": 283.5
+          },
+          "start": 344,
+          "end": 347
+        }
+      ]
+    }
+  ],
+  "ocr": {
+    "engine": "tesseract",
+    "version": "5.3.4",
+    "language": "eng",
+    "render_dpi": 144,
+    "page_count": 1,
+    "empty_pages": [],
+    "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+  }
+}

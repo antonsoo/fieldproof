@@ -1,0 +1,77 @@
+Using Python 3.11.13 environment at: installed311
+Resolved 56 packages in 306ms
+Prepared 1 package in 12ms
+Installed 56 packages in 109ms
+ + annotated-doc==0.0.5
+ + annotated-types==0.8.0
+ + anthropic==0.77.0
+ + anyio==4.15.1
+ + certifi==2026.7.22
+ + cffi==2.1.1
+ + chardet==7.6.0
+ + charset-normalizer==3.5.2
+ + click==8.3.3
+ + coverage==7.16.2
+ + cryptography==50.0.2
+ + distro==1.9.0
+ + docstring-parser==0.18.0
+ + fastapi==0.133.0
+ + fieldproof==0.2.7 (from file://<temporary>/dist/fieldproof-0.2.7-py3-none-any.whl)
+ + h11==0.16.0
+ + httpcore==1.0.9
+ + httptools==0.9.0
+ + httpx==0.27.0
+ + idna==3.20
+ + iniconfig==2.3.1
+ + jiter==0.17.0
+ + markdown-it-py==4.2.0
+ + mdurl==0.1.2
+ + mypy==1.11.0
+ + mypy-extensions==1.1.0
+ + packaging==26.3
+ + pdfminer-six==20251230
+ + pdfplumber==0.11.9
+ + pillow==12.3.0
+ + pluggy==1.6.0
+ + pycparser==3.11
+ + pydantic==2.10.0
+ + pydantic-core==2.27.0
+ + pygments==2.21.0
+ + pypdfium2==4.30.0
+ + pytesseract==0.3.10
+ + pytest==9.0.3
+ + pytest-cov==5.0.0
+ + python-dotenv==1.2.4
+ + python-multipart==0.0.31
+ + pyyaml==6.0.3
+ + rapidfuzz==3.9.0
+ + reportlab==4.2.0
+ + rich==15.0.0
+ + ruff==0.6.0
+ + shellingham==1.5.4
+ + sniffio==1.3.1
+ + starlette==1.3.1
+ + typer==0.16.0
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.4
+ + uvicorn==0.30.0
+ + uvloop==0.23.0
+ + watchfiles==1.3.0
+ + websockets==17.2
+........................................................................ [ 16%]
+........................................................................ [ 33%]
+........................................................................ [ 50%]
+........................................................................ [ 67%]
+........................................................................ [ 84%]
+..................................................................       [100%]
+=============================== warnings summary ===============================
+installed311/lib/python3.11/site-packages/fastapi/testclient.py:1
+  <temporary>/installed311/lib/python3.11/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+installed311/lib/python3.11/site-packages/starlette/testclient.py:53
+  <temporary>/installed311/lib/python3.11/site-packages/starlette/testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+426 passed, 2 warnings in 32.93s

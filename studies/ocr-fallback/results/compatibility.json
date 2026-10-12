@@ -1,0 +1,21 @@
+{
+  "nativeOutputsByteIdentical": 8,
+  "installedPython311And314OutputsByteIdentical": [
+    "native-invoice-extract.json",
+    "native-invoice-verify.json",
+    "scanned-invoice-extract.json",
+    "scanned-invoice-verify.json",
+    "native-receipt-extract.json",
+    "native-receipt-verify.json",
+    "scanned-receipt-extract.json",
+    "scanned-receipt-verify.json",
+    "native-contract-extract.json",
+    "native-contract-verify.json",
+    "scanned-contract-extract.json",
+    "scanned-contract-verify.json",
+    "blank-first-page-extract.json",
+    "blank-first-page-verify.json",
+    "native-without-engine-extract.json",
+    "native-without-engine-verify.json"
+  ]
+}

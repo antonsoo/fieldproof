@@ -1,0 +1,264 @@
+{
+  "expected": "before",
+  "runtime": {
+    "python": "3.12.12",
+    "package": "0.2.7",
+    "pytesseract": "0.3.13",
+    "ocrAvailable": true,
+    "engine": "5.3.4"
+  },
+  "commands": [
+    {
+      "case": "native-invoice",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/before/native-invoice-extract.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "201b4323bd8a185a9533aa4cbc6bdd304d31d6ec06ccd70e93ae2ecdc94026e3"
+    },
+    {
+      "case": "native-invoice",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/before/native-invoice-verify.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "69b9d25b6d131de565e60c0265c8eecbe627d340ab853b3da6fa95b2c4631292"
+    },
+    {
+      "case": "scanned-invoice",
+      "command": "extract",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/scanned-invoice.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "scanned-invoice",
+      "command": "verify",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/scanned-invoice.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "native-receipt",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/before/native-receipt-extract.json - 17 verified, 1 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 17,
+        "needs_review": 1,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "19b3c0db2787bcf07f526c3fa9244a66e1356a26b55e5efb8f85f04f04042197"
+    },
+    {
+      "case": "native-receipt",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/before/native-receipt-verify.json - 17 verified, 1 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 17,
+        "needs_review": 1,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "82d6a72d77fd9b24359e59fb1bd2e80ea4d6f8b6bb82a7474d408d63bc9538e0"
+    },
+    {
+      "case": "scanned-receipt",
+      "command": "extract",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/scanned-receipt.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "scanned-receipt",
+      "command": "verify",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/scanned-receipt.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "native-contract",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/before/native-contract-extract.json - 10 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 10,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "dee3af0024eba5da5c42d0b0dda9bb7245dfc533413caea50c6e0194527e48fe"
+    },
+    {
+      "case": "native-contract",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/before/native-contract-verify.json - 10 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 10,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "1b82ef46a953855f57bc413a4fff468087dc3b4c90ce973d6670dd38c886441d"
+    },
+    {
+      "case": "scanned-contract",
+      "command": "extract",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/scanned-contract.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "scanned-contract",
+      "command": "verify",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/scanned-contract.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "blank-first-page",
+      "command": "extract",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/blank-then-invoice.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "blank-first-page",
+      "command": "verify",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/blank-then-invoice.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "blank",
+      "command": "extract",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/blank.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "blank",
+      "command": "verify",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/blank.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "missing-engine",
+      "command": "extract",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/scanned-invoice.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "missing-engine",
+      "command": "verify",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/scanned-invoice.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "missing-language-data",
+      "command": "extract",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/scanned-invoice.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "missing-language-data",
+      "command": "verify",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "error: '<repo>/studies/ocr-fallback/inputs/scanned-invoice.pdf' has no extractable text on any page - it may be a scanned image; see fieldproof.document.ocr\n",
+      "counts": null,
+      "outputPreservedOnFailure": true,
+      "outputSha256": null
+    },
+    {
+      "case": "native-without-engine",
+      "command": "extract",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/before/native-without-engine-extract.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "201b4323bd8a185a9533aa4cbc6bdd304d31d6ec06ccd70e93ae2ecdc94026e3"
+    },
+    {
+      "case": "native-without-engine",
+      "command": "verify",
+      "exitCode": 0,
+      "stdout": "wrote <repo>/studies/ocr-fallback/results/before/native-without-engine-verify.json - 21 verified, 3 needs review, 1 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "outputPreservedOnFailure": null,
+      "outputSha256": "69b9d25b6d131de565e60c0265c8eecbe627d340ab853b3da6fa95b2c4631292"
+    }
+  ]
+}

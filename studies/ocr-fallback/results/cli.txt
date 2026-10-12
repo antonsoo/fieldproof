@@ -1,0 +1,2 @@
+OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.
+wrote result.json - 14 verified, 4 needs review, 0 unsupported

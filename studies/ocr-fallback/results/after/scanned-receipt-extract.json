@@ -1,0 +1,853 @@
+{
+  "schema": "receipt",
+  "provider": "fixture",
+  "model": "synthetic-demo-fixture (planted errors, see README)",
+  "data": {
+    "merchant_name": {
+      "value": "Blue Heron Coffee Roasters",
+      "evidence": [
+        "Blue Heron Coffee Roasters"
+      ],
+      "page": 1
+    },
+    "transaction_date": {
+      "value": "2026-03-04",
+      "evidence": [
+        "Transaction Date: 03/14/2026 09:41 AM"
+      ],
+      "page": 1
+    },
+    "items": [
+      {
+        "description": {
+          "value": "Large Pour-Over",
+          "evidence": [
+            "Large Pour-Over"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 1.0,
+          "evidence": [
+            "Large Pour-Over x1 $5.25"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 5.25,
+          "evidence": [
+            "$5.25"
+          ],
+          "page": 1
+        }
+      },
+      {
+        "description": {
+          "value": "Almond Croissant",
+          "evidence": [
+            "Almond Croissant"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 2.0,
+          "evidence": [
+            "Almond Croissant x2 $4.50"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 4.5,
+          "evidence": [
+            "$4.50"
+          ],
+          "page": 1
+        }
+      },
+      {
+        "description": {
+          "value": "Cold Brew 16oz",
+          "evidence": [
+            "Cold Brew 16oz"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 1.0,
+          "evidence": [
+            "Cold Brew 16oz x1 $4.75"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 4.75,
+          "evidence": [
+            "$4.75"
+          ],
+          "page": 1
+        }
+      },
+      {
+        "description": {
+          "value": "Bag of Beans - Ethiopia",
+          "evidence": [
+            "Bag of Beans - Ethiopia"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 1.0,
+          "evidence": [
+            "Bag of Beans - Ethiopia x1 $17.00"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 17.0,
+          "evidence": [
+            "$17.00"
+          ],
+          "page": 1
+        }
+      }
+    ],
+    "subtotal": {
+      "value": 31.5,
+      "evidence": [
+        "Subtotal $31.50"
+      ],
+      "page": 1
+    },
+    "tax": {
+      "value": 2.84,
+      "evidence": [
+        "Tax $2.84"
+      ],
+      "page": 1
+    },
+    "total": {
+      "value": 34.34,
+      "evidence": [
+        "Total $34.34"
+      ],
+      "page": 1
+    },
+    "payment_method": {
+      "value": "Visa ending 4471",
+      "evidence": [
+        "Payment Method: Visa ending 4471"
+      ],
+      "page": 1
+    }
+  },
+  "report": {
+    "fields": [
+      {
+        "path": "merchant_name",
+        "value": "Blue Heron Coffee Roasters",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Blue Heron Coffee Roasters",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 43.0,
+            "top": 17.0,
+            "x1": 188.0,
+            "bottom": 25.5
+          }
+        ]
+      },
+      {
+        "path": "transaction_date",
+        "value": "2026-03-04",
+        "status": "needs_review",
+        "reasons": [
+          "value 2026-03-04 does not match 2026-03-14 parsed from the evidence"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Transaction Date: 03/14/2026 09:41 AM",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 35.5,
+            "top": 81.5,
+            "x1": 194.5,
+            "bottom": 88.0
+          }
+        ]
+      },
+      {
+        "path": "items[0].description",
+        "value": "Large Pour-Over",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Large Pour-Over",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 11.0,
+            "top": 136.0,
+            "x1": 70.5,
+            "bottom": 144.0
+          }
+        ]
+      },
+      {
+        "path": "items[0].quantity",
+        "value": 1.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Large Pour-Over x1 $5.25",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 11.0,
+            "top": 136.0,
+            "x1": 219.5,
+            "bottom": 144.0
+          }
+        ]
+      },
+      {
+        "path": "items[0].amount",
+        "value": 5.25,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "$5.25",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 200.0,
+            "top": 136.0,
+            "x1": 219.5,
+            "bottom": 143.0
+          }
+        ]
+      },
+      {
+        "path": "items[1].description",
+        "value": "Almond Croissant",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Almond Croissant",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 11.0,
+            "top": 149.0,
+            "x1": 74.0,
+            "bottom": 155.0
+          }
+        ]
+      },
+      {
+        "path": "items[1].quantity",
+        "value": 2.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Almond Croissant x2 $4.50",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 11.0,
+            "top": 149.0,
+            "x1": 219.5,
+            "bottom": 156.0
+          }
+        ]
+      },
+      {
+        "path": "items[1].amount",
+        "value": 4.5,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "$4.50",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 200.0,
+            "top": 149.0,
+            "x1": 219.5,
+            "bottom": 156.0
+          }
+        ]
+      },
+      {
+        "path": "items[2].description",
+        "value": "Cold Brew 16oz",
+        "status": "needs_review",
+        "reasons": [
+          "the quote is 93/100 like 'Cold Brew 160z' on the page but differs from it in letters or digits, or numeric signs/units",
+          "value 'Cold Brew 16oz' contains '16', which the evidence 'Cold Brew 160z' does not"
+        ],
+        "match_score": 92.85714285714286,
+        "matched_text": "Cold Brew 160z",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 11.0,
+            "top": 162.0,
+            "x1": 67.0,
+            "bottom": 168.0
+          }
+        ]
+      },
+      {
+        "path": "items[2].quantity",
+        "value": 1.0,
+        "status": "needs_review",
+        "reasons": [
+          "the quote is 96/100 like 'Cold Brew 160z x1 $4.75' on the page but differs from it in letters or digits, or numeric signs/units"
+        ],
+        "match_score": 95.65217391304348,
+        "matched_text": "Cold Brew 160z x1 $4.75",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 11.0,
+            "top": 162.0,
+            "x1": 219.5,
+            "bottom": 169.0
+          }
+        ]
+      },
+      {
+        "path": "items[2].amount",
+        "value": 4.75,
+        "status": "needs_review",
+        "reasons": [
+          "row association needs review: items[2].description has no independently supported, unedited source location; check the item assignment or a wrapped table layout"
+        ],
+        "match_score": 100.0,
+        "matched_text": "$4.75",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 200.0,
+            "top": 162.0,
+            "x1": 219.5,
+            "bottom": 169.0
+          }
+        ]
+      },
+      {
+        "path": "items[3].description",
+        "value": "Bag of Beans - Ethiopia",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Bag of Beans - Ethiopia",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 11.0,
+            "top": 174.5,
+            "x1": 94.5,
+            "bottom": 182.5
+          },
+          {
+            "x0": 61.5,
+            "top": 178.0,
+            "x1": 63.5,
+            "bottom": 178.5
+          }
+        ]
+      },
+      {
+        "path": "items[3].quantity",
+        "value": 1.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Bag of Beans - Ethiopia x1 $17.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 11.0,
+            "top": 174.5,
+            "x1": 219.5,
+            "bottom": 182.5
+          },
+          {
+            "x0": 61.5,
+            "top": 178.0,
+            "x1": 63.5,
+            "bottom": 178.5
+          }
+        ]
+      },
+      {
+        "path": "items[3].amount",
+        "value": 17.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "$17.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 195.5,
+            "top": 174.5,
+            "x1": 219.5,
+            "bottom": 181.5
+          }
+        ]
+      },
+      {
+        "path": "subtotal",
+        "value": 31.5,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Subtotal $31.50",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 11.0,
+            "top": 203.0,
+            "x1": 43.5,
+            "bottom": 220.5
+          },
+          {
+            "x0": 192.5,
+            "top": 208.5,
+            "x1": 219.5,
+            "bottom": 216.5
+          }
+        ]
+      },
+      {
+        "path": "tax",
+        "value": 2.84,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Tax $2.84",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 10.5,
+            "top": 221.0,
+            "x1": 219.5,
+            "bottom": 229.0
+          }
+        ]
+      },
+      {
+        "path": "total",
+        "value": 34.34,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Total $34.34",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 10.5,
+            "top": 230.0,
+            "x1": 34.0,
+            "bottom": 247.5
+          },
+          {
+            "x0": 189.5,
+            "top": 234.5,
+            "x1": 219.5,
+            "bottom": 243.5
+          }
+        ]
+      },
+      {
+        "path": "payment_method",
+        "value": "Visa ending 4471",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Payment Method: Visa ending 4471",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 52.5,
+            "top": 258.0,
+            "x1": 177.0,
+            "bottom": 266.0
+          }
+        ]
+      }
+    ],
+    "cross_field_issues": [],
+    "counts": {
+      "verified": 14,
+      "needs_review": 4,
+      "unsupported": 0
+    },
+    "cross_field_checks": [
+      {
+        "rule": "receipt.items_subtotal",
+        "fields": [
+          "items[0].amount",
+          "items[1].amount",
+          "items[2].amount",
+          "items[3].amount",
+          "subtotal"
+        ],
+        "status": "passed",
+        "message": "items sum = 31.5 matches subtotal 31.5 (difference 0; tolerance 0.02)",
+        "operands": {
+          "items[0].amount": "5.25",
+          "items[1].amount": "4.5",
+          "items[2].amount": "4.75",
+          "items[3].amount": "17.0",
+          "subtotal": "31.5"
+        },
+        "computed": "31.5",
+        "observed": "31.5",
+        "difference": "0",
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "receipt.subtotal_tax_total",
+        "fields": [
+          "subtotal",
+          "tax",
+          "total"
+        ],
+        "status": "passed",
+        "message": "subtotal + tax = 34.34 matches total 34.34 (difference 0; tolerance 0.02)",
+        "operands": {
+          "subtotal": "31.5",
+          "tax": "2.84",
+          "total": "34.34"
+        },
+        "computed": "34.34",
+        "observed": "34.34",
+        "difference": "0",
+        "tolerance": "0.02"
+      }
+    ],
+    "row_checks": [
+      {
+        "field": "items[0].quantity",
+        "anchor": "items[0].description",
+        "status": "same_line",
+        "reason": "items[0].quantity and items[0].description share a visual line on page 1; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 1,
+          "text": "Large Pour-Over x1 $5.25",
+          "start": 140,
+          "end": 164,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 136.0,
+              "x1": 219.5,
+              "bottom": 144.0
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 1,
+          "text": "Large Pour-Over",
+          "start": 140,
+          "end": 155,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 136.0,
+              "x1": 70.5,
+              "bottom": 144.0
+            }
+          ]
+        }
+      },
+      {
+        "field": "items[0].amount",
+        "anchor": "items[0].description",
+        "status": "same_line",
+        "reason": "items[0].amount and items[0].description share a visual line on page 1; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 1,
+          "text": "$5.25",
+          "start": 159,
+          "end": 164,
+          "rects": [
+            {
+              "x0": 200.0,
+              "top": 136.0,
+              "x1": 219.5,
+              "bottom": 143.0
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 1,
+          "text": "Large Pour-Over",
+          "start": 140,
+          "end": 155,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 136.0,
+              "x1": 70.5,
+              "bottom": 144.0
+            }
+          ]
+        }
+      },
+      {
+        "field": "items[1].quantity",
+        "anchor": "items[1].description",
+        "status": "same_line",
+        "reason": "items[1].quantity and items[1].description share a visual line on page 1; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 1,
+          "text": "Almond Croissant x2 $4.50",
+          "start": 165,
+          "end": 190,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 149.0,
+              "x1": 219.5,
+              "bottom": 156.0
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 1,
+          "text": "Almond Croissant",
+          "start": 165,
+          "end": 181,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 149.0,
+              "x1": 74.0,
+              "bottom": 155.0
+            }
+          ]
+        }
+      },
+      {
+        "field": "items[1].amount",
+        "anchor": "items[1].description",
+        "status": "same_line",
+        "reason": "items[1].amount and items[1].description share a visual line on page 1; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 1,
+          "text": "$4.50",
+          "start": 185,
+          "end": 190,
+          "rects": [
+            {
+              "x0": 200.0,
+              "top": 149.0,
+              "x1": 219.5,
+              "bottom": 156.0
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 1,
+          "text": "Almond Croissant",
+          "start": 165,
+          "end": 181,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 149.0,
+              "x1": 74.0,
+              "bottom": 155.0
+            }
+          ]
+        }
+      },
+      {
+        "field": "items[2].quantity",
+        "anchor": "items[2].description",
+        "status": "unavailable",
+        "reason": "items[2].description has no independently supported, unedited source location",
+        "field_source_status": "needs_review",
+        "anchor_source_status": "needs_review",
+        "field_location": {
+          "page": 1,
+          "text": "Cold Brew 160z x1 $4.75",
+          "start": 191,
+          "end": 214,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 162.0,
+              "x1": 219.5,
+              "bottom": 169.0
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 1,
+          "text": "Cold Brew 160z",
+          "start": 191,
+          "end": 205,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 162.0,
+              "x1": 67.0,
+              "bottom": 168.0
+            }
+          ]
+        }
+      },
+      {
+        "field": "items[2].amount",
+        "anchor": "items[2].description",
+        "status": "unavailable",
+        "reason": "items[2].description has no independently supported, unedited source location",
+        "field_source_status": "verified",
+        "anchor_source_status": "needs_review",
+        "field_location": {
+          "page": 1,
+          "text": "$4.75",
+          "start": 209,
+          "end": 214,
+          "rects": [
+            {
+              "x0": 200.0,
+              "top": 162.0,
+              "x1": 219.5,
+              "bottom": 169.0
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 1,
+          "text": "Cold Brew 160z",
+          "start": 191,
+          "end": 205,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 162.0,
+              "x1": 67.0,
+              "bottom": 168.0
+            }
+          ]
+        }
+      },
+      {
+        "field": "items[3].quantity",
+        "anchor": "items[3].description",
+        "status": "same_line",
+        "reason": "items[3].quantity and items[3].description share a visual line on page 1; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 1,
+          "text": "Bag of Beans - Ethiopia x1 $17.00",
+          "start": 215,
+          "end": 248,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 174.5,
+              "x1": 219.5,
+              "bottom": 182.5
+            },
+            {
+              "x0": 61.5,
+              "top": 178.0,
+              "x1": 63.5,
+              "bottom": 178.5
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 1,
+          "text": "Bag of Beans - Ethiopia",
+          "start": 215,
+          "end": 238,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 174.5,
+              "x1": 94.5,
+              "bottom": 182.5
+            },
+            {
+              "x0": 61.5,
+              "top": 178.0,
+              "x1": 63.5,
+              "bottom": 178.5
+            }
+          ]
+        }
+      },
+      {
+        "field": "items[3].amount",
+        "anchor": "items[3].description",
+        "status": "same_line",
+        "reason": "items[3].amount and items[3].description share a visual line on page 1; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 1,
+          "text": "$17.00",
+          "start": 242,
+          "end": 248,
+          "rects": [
+            {
+              "x0": 195.5,
+              "top": 174.5,
+              "x1": 219.5,
+              "bottom": 181.5
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 1,
+          "text": "Bag of Beans - Ethiopia",
+          "start": 215,
+          "end": 238,
+          "rects": [
+            {
+              "x0": 11.0,
+              "top": 174.5,
+              "x1": 94.5,
+              "bottom": 182.5
+            },
+            {
+              "x0": 61.5,
+              "top": 178.0,
+              "x1": 63.5,
+              "bottom": 178.5
+            }
+          ]
+        }
+      }
+    ],
+    "ocr": {
+      "engine": "tesseract",
+      "version": "5.3.4",
+      "language": "eng",
+      "render_dpi": 144,
+      "page_count": 1,
+      "empty_pages": [],
+      "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+    }
+  }
+}

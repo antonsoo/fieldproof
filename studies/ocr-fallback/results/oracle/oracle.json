@@ -1,0 +1,96 @@
+{
+  "python": "3.14.7",
+  "engine": "5.3.4",
+  "pytesseract": "0.3.13",
+  "inputs": [
+    {
+      "input": "scanned-invoice.pdf",
+      "pages": 1,
+      "words": 92,
+      "elapsedSeconds": 0.5140802440000698,
+      "allWordsAndBoxesMatchDirectTSV": true
+    },
+    {
+      "input": "scanned-receipt.pdf",
+      "pages": 1,
+      "words": 58,
+      "elapsedSeconds": 0.2737388960085809,
+      "allWordsAndBoxesMatchDirectTSV": true
+    },
+    {
+      "input": "scanned-contract.pdf",
+      "pages": 2,
+      "words": 183,
+      "elapsedSeconds": 0.8655517399893142,
+      "allWordsAndBoxesMatchDirectTSV": true
+    },
+    {
+      "input": "blank-then-invoice.pdf",
+      "pages": 2,
+      "words": 92,
+      "elapsedSeconds": 0.7000571039970964,
+      "allWordsAndBoxesMatchDirectTSV": true
+    }
+  ],
+  "actualTimeout": {
+    "error": "OCR failed on page 1: Tesseract process timeout",
+    "elapsedSeconds": 0.11280238901963457
+  },
+  "files": [
+    {
+      "path": "blank-then-invoice-document.json",
+      "bytes": 22316,
+      "sha256": "72f51160808ebda4c9eb7b173052516d33cea538019de6880faadb5f2fa6d745"
+    },
+    {
+      "path": "blank-then-invoice-page-1.tsv",
+      "bytes": 113,
+      "sha256": "0e35719be49f9866a059d5af5214c8bfcc3539daa95ee030d75e07366d94a9e0"
+    },
+    {
+      "path": "blank-then-invoice-page-2.tsv",
+      "bytes": 5491,
+      "sha256": "f835e7919b12aeea8405a7a55381d4268d51d1d3e21d3a42f423916aae87126f"
+    },
+    {
+      "path": "receipt-evidence.html",
+      "bytes": 81574,
+      "sha256": "92ace8d6d90603904d8150c5ce58b20b3224fa0e0e89dcfd7cb402e682be3e13"
+    },
+    {
+      "path": "scanned-contract-document.json",
+      "bytes": 43848,
+      "sha256": "81ac395f5133ad43fee96154b396e0e69907296320674f46e87876e5671253af"
+    },
+    {
+      "path": "scanned-contract-page-1.tsv",
+      "bytes": 7318,
+      "sha256": "248aadf23091db876061e62b1d94d34caaf6bab7c1785cfc953a2033d3db3e59"
+    },
+    {
+      "path": "scanned-contract-page-2.tsv",
+      "bytes": 2139,
+      "sha256": "5a23522c8390c99e959faf075a142765728db4a98fbd378ed8d86ad6171cad8e"
+    },
+    {
+      "path": "scanned-invoice-document.json",
+      "bytes": 22187,
+      "sha256": "2e3507789421f05569988f6fe90dbe7fbc5b2175759cf6dd0cab3269f1d871ce"
+    },
+    {
+      "path": "scanned-invoice-page-1.tsv",
+      "bytes": 5491,
+      "sha256": "f835e7919b12aeea8405a7a55381d4268d51d1d3e21d3a42f423916aae87126f"
+    },
+    {
+      "path": "scanned-receipt-document.json",
+      "bytes": 14040,
+      "sha256": "72b941061900b4761874ab4ea74ded731a4ec81dbabd01ffc2ee518aa0760685"
+    },
+    {
+      "path": "scanned-receipt-page-1.tsv",
+      "bytes": 3670,
+      "sha256": "7b54b36a60d4e48002f4fc94d0817dd1a35d03ce5f3eab9e85f5c51ba47642c1"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "source": "Ubuntu noble archive; extracted into a temporary directory without system installation",
+  "packages": [
+    {
+      "file": "liblept5_1.82.0-3build4_amd64.deb",
+      "bytes": 1099276,
+      "sha256": "c2bb81d58f032b09917c0d50994cce905287a1596304a4e99681a03601456ea8",
+      "control": "Package: liblept5\nVersion: 1.82.0-3build4\nArchitecture: amd64"
+    },
+    {
+      "file": "libtesseract5_5.3.4-1build5_amd64.deb",
+      "bytes": 1291308,
+      "sha256": "a38438115dc203b5abc1e6a6b24eb5273ba82161a11faa2f619bf5f7622efb14",
+      "control": "Package: libtesseract5\nVersion: 5.3.4-1build5\nArchitecture: amd64"
+    },
+    {
+      "file": "tesseract-ocr-eng_1%3a4.1.0-2_all.deb",
+      "bytes": 1818236,
+      "sha256": "b1996b3113c78663f4dd16cf18aa1f288b07e9624f8d4a0ddbd7d9b52a234ba7",
+      "control": "Package: tesseract-ocr-eng\nVersion: 1:4.1.0-2\nArchitecture: all"
+    },
+    {
+      "file": "tesseract-ocr-osd_1%3a4.1.0-2_all.deb",
+      "bytes": 3840642,
+      "sha256": "a266496b3268134493808c1595c9d16ac92c7e1c28e3e0bf46fdb322df95ca68",
+      "control": "Package: tesseract-ocr-osd\nVersion: 1:4.1.0-2\nArchitecture: all"
+    },
+    {
+      "file": "tesseract-ocr_5.3.4-1build5_amd64.deb",
+      "bytes": 327852,
+      "sha256": "2dfac382d77215aee0c3de4a2a2205505d5f2195e72e79b54ad32154fc08da77",
+      "control": "Package: tesseract-ocr\nVersion: 5.3.4-1build5\nArchitecture: amd64"
+    }
+  ]
+}

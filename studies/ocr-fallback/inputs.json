@@ -1,0 +1,30 @@
+[
+  {
+    "path": "scanned-invoice.pdf",
+    "sha256": "0528fa2649d5c9c98f171585643e945e7efd05460bccf9e0842c6b4a275122f0",
+    "source": "examples/invoice.pdf",
+    "sourceSha256": "32d026999bf2318034f8d03df2b655b2c5f210245b3153b4068f64f333147175"
+  },
+  {
+    "path": "scanned-receipt.pdf",
+    "sha256": "744967c8493dc50cba58e8aa69a05f38e9a8752479121b5639ba375e859a9c2d",
+    "source": "examples/receipt.pdf",
+    "sourceSha256": "7cef321b47e1272523a831148e2c2787d8805c4835c536aa3fb326421aabffee"
+  },
+  {
+    "path": "scanned-contract.pdf",
+    "sha256": "1fedced64f4136dd77e7ef78e05601c1c6a62de01574c35aeb4b29d3502523c8",
+    "source": "examples/contract.pdf",
+    "sourceSha256": "8b0dfce01c4758e673ab7423b51809caa3610c22a90091447999e9aa98562318"
+  },
+  {
+    "path": "blank-then-invoice.pdf",
+    "sha256": "cd2fbab0decd16423d0713d36f20a4fa8701acac328e5382ef65a8b21e547872",
+    "source": "constructed blank page; invoice raster from examples/invoice.pdf"
+  },
+  {
+    "path": "blank.pdf",
+    "sha256": "d90f5c0ad72a67341295f79c67274f934f38c68518de29fc6f62b39f541629cf",
+    "source": "constructed blank page; invoice raster from examples/invoice.pdf"
+  }
+]

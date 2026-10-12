@@ -1,0 +1,18 @@
+{
+  "screenshots": [
+    {
+      "path": "docs/assets/ocr-fallback/cli.png",
+      "bytes": 78438,
+      "sha256": "39b6b3aa9b987b1c3053cd2eced9a69c41bfd81a289dab3ccee2ce6699c6f8cc",
+      "inspected": true
+    },
+    {
+      "path": "docs/assets/ocr-fallback/receipt.png",
+      "bytes": 146636,
+      "sha256": "77bb3b527c181565e70f1a0f352f7c85b4c8b99670bcecea0e20e46dee30662e",
+      "inspected": true
+    }
+  ],
+  "receiptHtml": "results/oracle/receipt-evidence.html",
+  "cliTranscript": "results/cli.txt"
+}

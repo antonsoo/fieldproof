@@ -1,0 +1,26 @@
+
+added 133 packages, and audited 134 packages in 2s
+
+36 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice run fieldproof-web@0.2.7 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run fieldproof-web@0.2.7 lint
+npm notice run eslint src --max-warnings 0
+npm notice run fieldproof-web@0.2.7 format:check
+npm notice run prettier --check src
+Checking formatting...
+All matched files use Prettier code style!
+npm notice run fieldproof-web@0.2.7 test
+npm notice run vitest run
+
+ RUN  v5.0.1 <temporary>/clean/web
+
+
+ Test Files  2 passed (2)
+      Tests  50 passed (50)
+   Start at  04:27:40
+   Duration  180ms (transform 67%, import 16%, tests 12%, worker 5%)
+

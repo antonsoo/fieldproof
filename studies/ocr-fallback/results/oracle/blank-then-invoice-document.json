@@ -1,0 +1,1043 @@
+{
+  "source": "blank-then-invoice.pdf",
+  "pages": [
+    {
+      "number": 1,
+      "width": 612.0,
+      "height": 792.0,
+      "text": "",
+      "words": []
+    },
+    {
+      "number": 2,
+      "width": 612.0,
+      "height": 792.0,
+      "text": "Northwind Freight & Supply Co. 4821 Harbor Industrial Way, Oakland, CA 94607 billing @northwindfreight.example INVOICE Invoice Number: NW-20260214 Issue Date: February 14, 2026 Due Date: March 16, 2026 Bill To: Cascade Retail Group 1900 Pike Street, Seattle, WA 98101 Description Qty Unit Price Amount Pallet freight - Oakland to Seattle 12 145.00 1,740.00 Fuel surcharge 1 210.50 210.50 Liftgate delivery service 3 65.00 195.00 Warehouse handling fee 1 312.50 312.50 Subtotal $2,458.00 Tax (8.5%) $208.93 Total Due $2,666.93 Payment Terms: Net 30. Remit payment by wire or check to the address above.",
+      "words": [
+        {
+          "text": "Northwind",
+          "bbox": {
+            "x0": 55.5,
+            "top": 50.5,
+            "x1": 151.5,
+            "bottom": 65.5
+          },
+          "start": 0,
+          "end": 9
+        },
+        {
+          "text": "Freight",
+          "bbox": {
+            "x0": 160.0,
+            "top": 50.5,
+            "x1": 225.5,
+            "bottom": 69.5
+          },
+          "start": 10,
+          "end": 17
+        },
+        {
+          "text": "&",
+          "bbox": {
+            "x0": 232.5,
+            "top": 50.5,
+            "x1": 245.5,
+            "bottom": 65.5
+          },
+          "start": 18,
+          "end": 19
+        },
+        {
+          "text": "Supply",
+          "bbox": {
+            "x0": 252.5,
+            "top": 50.0,
+            "x1": 318.0,
+            "bottom": 69.5
+          },
+          "start": 20,
+          "end": 26
+        },
+        {
+          "text": "Co.",
+          "bbox": {
+            "x0": 325.0,
+            "top": 50.0,
+            "x1": 355.0,
+            "bottom": 65.5
+          },
+          "start": 27,
+          "end": 30
+        },
+        {
+          "text": "4821",
+          "bbox": {
+            "x0": 54.0,
+            "top": 72.5,
+            "x1": 72.5,
+            "bottom": 79.0
+          },
+          "start": 31,
+          "end": 35
+        },
+        {
+          "text": "Harbor",
+          "bbox": {
+            "x0": 77.0,
+            "top": 72.5,
+            "x1": 104.0,
+            "bottom": 79.0
+          },
+          "start": 36,
+          "end": 42
+        },
+        {
+          "text": "Industrial",
+          "bbox": {
+            "x0": 107.5,
+            "top": 72.5,
+            "x1": 142.5,
+            "bottom": 79.0
+          },
+          "start": 43,
+          "end": 53
+        },
+        {
+          "text": "Way,",
+          "bbox": {
+            "x0": 145.5,
+            "top": 72.5,
+            "x1": 165.5,
+            "bottom": 81.0
+          },
+          "start": 54,
+          "end": 58
+        },
+        {
+          "text": "Oakland,",
+          "bbox": {
+            "x0": 169.0,
+            "top": 72.5,
+            "x1": 204.0,
+            "bottom": 80.0
+          },
+          "start": 59,
+          "end": 67
+        },
+        {
+          "text": "CA",
+          "bbox": {
+            "x0": 207.5,
+            "top": 72.5,
+            "x1": 219.5,
+            "bottom": 79.0
+          },
+          "start": 68,
+          "end": 70
+        },
+        {
+          "text": "94607",
+          "bbox": {
+            "x0": 222.5,
+            "top": 72.5,
+            "x1": 247.0,
+            "bottom": 79.0
+          },
+          "start": 71,
+          "end": 76
+        },
+        {
+          "text": "billing",
+          "bbox": {
+            "x0": 54.5,
+            "top": 81.0,
+            "x1": 76.5,
+            "bottom": 94.5
+          },
+          "start": 77,
+          "end": 84
+        },
+        {
+          "text": "@northwindfreight.example",
+          "bbox": {
+            "x0": 78.0,
+            "top": 83.0,
+            "x1": 186.5,
+            "bottom": 92.0
+          },
+          "start": 85,
+          "end": 110
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 501.0,
+            "top": 54.5,
+            "x1": 557.5,
+            "bottom": 65.5
+          },
+          "start": 111,
+          "end": 118
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 418.5,
+            "top": 76.0,
+            "x1": 449.0,
+            "bottom": 83.0
+          },
+          "start": 119,
+          "end": 126
+        },
+        {
+          "text": "Number:",
+          "bbox": {
+            "x0": 453.0,
+            "top": 76.0,
+            "x1": 490.0,
+            "bottom": 83.0
+          },
+          "start": 127,
+          "end": 134
+        },
+        {
+          "text": "NW-20260214",
+          "bbox": {
+            "x0": 494.0,
+            "top": 76.0,
+            "x1": 557.5,
+            "bottom": 83.0
+          },
+          "start": 135,
+          "end": 146
+        },
+        {
+          "text": "Issue",
+          "bbox": {
+            "x0": 423.5,
+            "top": 88.0,
+            "x1": 446.5,
+            "bottom": 95.0
+          },
+          "start": 147,
+          "end": 152
+        },
+        {
+          "text": "Date:",
+          "bbox": {
+            "x0": 450.5,
+            "top": 88.0,
+            "x1": 472.5,
+            "bottom": 95.0
+          },
+          "start": 153,
+          "end": 158
+        },
+        {
+          "text": "February",
+          "bbox": {
+            "x0": 477.0,
+            "top": 88.0,
+            "x1": 516.0,
+            "bottom": 97.0
+          },
+          "start": 159,
+          "end": 167
+        },
+        {
+          "text": "14,",
+          "bbox": {
+            "x0": 520.0,
+            "top": 88.0,
+            "x1": 532.0,
+            "bottom": 96.5
+          },
+          "start": 168,
+          "end": 171
+        },
+        {
+          "text": "2026",
+          "bbox": {
+            "x0": 536.0,
+            "top": 88.0,
+            "x1": 557.5,
+            "bottom": 95.0
+          },
+          "start": 172,
+          "end": 176
+        },
+        {
+          "text": "Due",
+          "bbox": {
+            "x0": 441.5,
+            "top": 100.5,
+            "x1": 458.5,
+            "bottom": 107.5
+          },
+          "start": 177,
+          "end": 180
+        },
+        {
+          "text": "Date:",
+          "bbox": {
+            "x0": 462.5,
+            "top": 100.5,
+            "x1": 485.0,
+            "bottom": 107.5
+          },
+          "start": 181,
+          "end": 186
+        },
+        {
+          "text": "March",
+          "bbox": {
+            "x0": 489.0,
+            "top": 100.5,
+            "x1": 515.5,
+            "bottom": 107.5
+          },
+          "start": 187,
+          "end": 192
+        },
+        {
+          "text": "16,",
+          "bbox": {
+            "x0": 520.0,
+            "top": 100.5,
+            "x1": 532.0,
+            "bottom": 109.0
+          },
+          "start": 193,
+          "end": 196
+        },
+        {
+          "text": "2026",
+          "bbox": {
+            "x0": 536.0,
+            "top": 100.5,
+            "x1": 557.5,
+            "bottom": 107.5
+          },
+          "start": 197,
+          "end": 201
+        },
+        {
+          "text": "Bill",
+          "bbox": {
+            "x0": 54.5,
+            "top": 133.0,
+            "x1": 69.0,
+            "bottom": 140.5
+          },
+          "start": 202,
+          "end": 206
+        },
+        {
+          "text": "To:",
+          "bbox": {
+            "x0": 72.5,
+            "top": 133.5,
+            "x1": 87.0,
+            "bottom": 140.5
+          },
+          "start": 207,
+          "end": 210
+        },
+        {
+          "text": "Cascade",
+          "bbox": {
+            "x0": 54.5,
+            "top": 145.0,
+            "x1": 93.0,
+            "bottom": 152.5
+          },
+          "start": 211,
+          "end": 218
+        },
+        {
+          "text": "Retail",
+          "bbox": {
+            "x0": 97.0,
+            "top": 145.5,
+            "x1": 121.0,
+            "bottom": 152.5
+          },
+          "start": 219,
+          "end": 225
+        },
+        {
+          "text": "Group",
+          "bbox": {
+            "x0": 125.0,
+            "top": 145.0,
+            "x1": 152.0,
+            "bottom": 154.5
+          },
+          "start": 226,
+          "end": 231
+        },
+        {
+          "text": "1900",
+          "bbox": {
+            "x0": 55.0,
+            "top": 157.0,
+            "x1": 76.0,
+            "bottom": 164.0
+          },
+          "start": 232,
+          "end": 236
+        },
+        {
+          "text": "Pike",
+          "bbox": {
+            "x0": 80.0,
+            "top": 157.0,
+            "x1": 98.0,
+            "bottom": 164.0
+          },
+          "start": 237,
+          "end": 241
+        },
+        {
+          "text": "Street,",
+          "bbox": {
+            "x0": 101.5,
+            "top": 156.5,
+            "x1": 130.0,
+            "bottom": 165.5
+          },
+          "start": 242,
+          "end": 249
+        },
+        {
+          "text": "Seattle,",
+          "bbox": {
+            "x0": 134.0,
+            "top": 156.5,
+            "x1": 166.5,
+            "bottom": 165.5
+          },
+          "start": 250,
+          "end": 258
+        },
+        {
+          "text": "WA",
+          "bbox": {
+            "x0": 170.5,
+            "top": 157.0,
+            "x1": 186.0,
+            "bottom": 164.0
+          },
+          "start": 259,
+          "end": 261
+        },
+        {
+          "text": "98101",
+          "bbox": {
+            "x0": 189.5,
+            "top": 157.0,
+            "x1": 215.0,
+            "bottom": 164.0
+          },
+          "start": 262,
+          "end": 267
+        },
+        {
+          "text": "Description",
+          "bbox": {
+            "x0": 54.5,
+            "top": 185.0,
+            "x1": 108.5,
+            "bottom": 199.0
+          },
+          "start": 268,
+          "end": 279
+        },
+        {
+          "text": "Qty",
+          "bbox": {
+            "x0": 310.0,
+            "top": 187.0,
+            "x1": 326.0,
+            "bottom": 196.5
+          },
+          "start": 280,
+          "end": 283
+        },
+        {
+          "text": "Unit",
+          "bbox": {
+            "x0": 353.5,
+            "top": 187.0,
+            "x1": 372.0,
+            "bottom": 194.5
+          },
+          "start": 284,
+          "end": 288
+        },
+        {
+          "text": "Price",
+          "bbox": {
+            "x0": 375.5,
+            "top": 187.0,
+            "x1": 399.0,
+            "bottom": 194.5
+          },
+          "start": 289,
+          "end": 294
+        },
+        {
+          "text": "Amount",
+          "bbox": {
+            "x0": 520.5,
+            "top": 187.5,
+            "x1": 558.0,
+            "bottom": 194.5
+          },
+          "start": 295,
+          "end": 301
+        },
+        {
+          "text": "Pallet",
+          "bbox": {
+            "x0": 55.0,
+            "top": 209.0,
+            "x1": 79.0,
+            "bottom": 216.0
+          },
+          "start": 302,
+          "end": 308
+        },
+        {
+          "text": "freight",
+          "bbox": {
+            "x0": 81.5,
+            "top": 208.5,
+            "x1": 109.5,
+            "bottom": 218.0
+          },
+          "start": 309,
+          "end": 316
+        },
+        {
+          "text": "-",
+          "bbox": {
+            "x0": 112.5,
+            "top": 212.5,
+            "x1": 115.5,
+            "bottom": 213.5
+          },
+          "start": 317,
+          "end": 318
+        },
+        {
+          "text": "Oakland",
+          "bbox": {
+            "x0": 118.5,
+            "top": 208.5,
+            "x1": 155.0,
+            "bottom": 216.0
+          },
+          "start": 319,
+          "end": 326
+        },
+        {
+          "text": "to",
+          "bbox": {
+            "x0": 158.5,
+            "top": 209.5,
+            "x1": 166.5,
+            "bottom": 216.0
+          },
+          "start": 327,
+          "end": 329
+        },
+        {
+          "text": "Seattle",
+          "bbox": {
+            "x0": 170.0,
+            "top": 208.5,
+            "x1": 200.5,
+            "bottom": 216.0
+          },
+          "start": 330,
+          "end": 337
+        },
+        {
+          "text": "12",
+          "bbox": {
+            "x0": 310.5,
+            "top": 209.0,
+            "x1": 320.0,
+            "bottom": 216.0
+          },
+          "start": 338,
+          "end": 340
+        },
+        {
+          "text": "145.00",
+          "bbox": {
+            "x0": 353.5,
+            "top": 209.0,
+            "x1": 383.0,
+            "bottom": 216.0
+          },
+          "start": 341,
+          "end": 347
+        },
+        {
+          "text": "1,740.00",
+          "bbox": {
+            "x0": 520.0,
+            "top": 209.0,
+            "x1": 557.5,
+            "bottom": 217.5
+          },
+          "start": 348,
+          "end": 356
+        },
+        {
+          "text": "Fuel",
+          "bbox": {
+            "x0": 55.0,
+            "top": 225.0,
+            "x1": 73.0,
+            "bottom": 232.0
+          },
+          "start": 357,
+          "end": 361
+        },
+        {
+          "text": "surcharge",
+          "bbox": {
+            "x0": 76.5,
+            "top": 225.0,
+            "x1": 120.0,
+            "bottom": 234.0
+          },
+          "start": 362,
+          "end": 371
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 310.5,
+            "top": 225.0,
+            "x1": 313.0,
+            "bottom": 232.0
+          },
+          "start": 372,
+          "end": 373
+        },
+        {
+          "text": "210.50",
+          "bbox": {
+            "x0": 353.0,
+            "top": 225.0,
+            "x1": 383.0,
+            "bottom": 232.0
+          },
+          "start": 374,
+          "end": 380
+        },
+        {
+          "text": "210.50",
+          "bbox": {
+            "x0": 527.5,
+            "top": 225.0,
+            "x1": 557.5,
+            "bottom": 232.0
+          },
+          "start": 381,
+          "end": 387
+        },
+        {
+          "text": "Liftgate",
+          "bbox": {
+            "x0": 54.5,
+            "top": 240.0,
+            "x1": 86.5,
+            "bottom": 249.5
+          },
+          "start": 388,
+          "end": 396
+        },
+        {
+          "text": "delivery",
+          "bbox": {
+            "x0": 90.0,
+            "top": 240.5,
+            "x1": 124.0,
+            "bottom": 249.5
+          },
+          "start": 397,
+          "end": 405
+        },
+        {
+          "text": "service",
+          "bbox": {
+            "x0": 127.0,
+            "top": 240.5,
+            "x1": 158.0,
+            "bottom": 247.5
+          },
+          "start": 406,
+          "end": 413
+        },
+        {
+          "text": "3",
+          "bbox": {
+            "x0": 310.0,
+            "top": 240.5,
+            "x1": 314.5,
+            "bottom": 247.5
+          },
+          "start": 414,
+          "end": 415
+        },
+        {
+          "text": "65.00",
+          "bbox": {
+            "x0": 353.0,
+            "top": 240.5,
+            "x1": 377.5,
+            "bottom": 247.5
+          },
+          "start": 416,
+          "end": 421
+        },
+        {
+          "text": "195.00",
+          "bbox": {
+            "x0": 528.5,
+            "top": 240.5,
+            "x1": 557.5,
+            "bottom": 247.5
+          },
+          "start": 422,
+          "end": 428
+        },
+        {
+          "text": "Warehouse",
+          "bbox": {
+            "x0": 54.0,
+            "top": 256.5,
+            "x1": 104.5,
+            "bottom": 263.5
+          },
+          "start": 429,
+          "end": 438
+        },
+        {
+          "text": "handling",
+          "bbox": {
+            "x0": 108.5,
+            "top": 256.5,
+            "x1": 145.0,
+            "bottom": 265.5
+          },
+          "start": 439,
+          "end": 447
+        },
+        {
+          "text": "fee",
+          "bbox": {
+            "x0": 148.5,
+            "top": 256.0,
+            "x1": 162.0,
+            "bottom": 263.5
+          },
+          "start": 448,
+          "end": 451
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 310.5,
+            "top": 256.5,
+            "x1": 313.0,
+            "bottom": 263.5
+          },
+          "start": 452,
+          "end": 453
+        },
+        {
+          "text": "312.50",
+          "bbox": {
+            "x0": 353.0,
+            "top": 256.5,
+            "x1": 383.0,
+            "bottom": 263.5
+          },
+          "start": 454,
+          "end": 460
+        },
+        {
+          "text": "312.50",
+          "bbox": {
+            "x0": 527.5,
+            "top": 256.5,
+            "x1": 557.5,
+            "bottom": 263.5
+          },
+          "start": 461,
+          "end": 467
+        },
+        {
+          "text": "Subtotal",
+          "bbox": {
+            "x0": 274.0,
+            "top": 295.0,
+            "x1": 309.5,
+            "bottom": 309.0
+          },
+          "start": 468,
+          "end": 476
+        },
+        {
+          "text": "$2,458.00",
+          "bbox": {
+            "x0": 514.0,
+            "top": 297.0,
+            "x1": 557.5,
+            "bottom": 306.0
+          },
+          "start": 477,
+          "end": 486
+        },
+        {
+          "text": "Tax",
+          "bbox": {
+            "x0": 273.5,
+            "top": 313.5,
+            "x1": 290.0,
+            "bottom": 320.5
+          },
+          "start": 487,
+          "end": 490
+        },
+        {
+          "text": "(8.5%)",
+          "bbox": {
+            "x0": 293.5,
+            "top": 313.0,
+            "x1": 322.0,
+            "bottom": 322.5
+          },
+          "start": 491,
+          "end": 497
+        },
+        {
+          "text": "$208.93",
+          "bbox": {
+            "x0": 522.0,
+            "top": 313.0,
+            "x1": 557.5,
+            "bottom": 321.5
+          },
+          "start": 498,
+          "end": 505
+        },
+        {
+          "text": "Total",
+          "bbox": {
+            "x0": 273.5,
+            "top": 331.0,
+            "x1": 299.0,
+            "bottom": 339.0
+          },
+          "start": 506,
+          "end": 511
+        },
+        {
+          "text": "Due",
+          "bbox": {
+            "x0": 303.5,
+            "top": 331.0,
+            "x1": 323.5,
+            "bottom": 339.0
+          },
+          "start": 512,
+          "end": 515
+        },
+        {
+          "text": "$2,666.93",
+          "bbox": {
+            "x0": 509.5,
+            "top": 330.5,
+            "x1": 557.5,
+            "bottom": 341.0
+          },
+          "start": 516,
+          "end": 525
+        },
+        {
+          "text": "Payment",
+          "bbox": {
+            "x0": 54.5,
+            "top": 368.5,
+            "x1": 89.5,
+            "bottom": 377.0
+          },
+          "start": 526,
+          "end": 533
+        },
+        {
+          "text": "Terms:",
+          "bbox": {
+            "x0": 92.0,
+            "top": 368.5,
+            "x1": 119.5,
+            "bottom": 375.0
+          },
+          "start": 534,
+          "end": 540
+        },
+        {
+          "text": "Net",
+          "bbox": {
+            "x0": 123.0,
+            "top": 368.5,
+            "x1": 136.5,
+            "bottom": 375.0
+          },
+          "start": 541,
+          "end": 544
+        },
+        {
+          "text": "30.",
+          "bbox": {
+            "x0": 139.5,
+            "top": 368.5,
+            "x1": 151.0,
+            "bottom": 375.0
+          },
+          "start": 545,
+          "end": 548
+        },
+        {
+          "text": "Remit",
+          "bbox": {
+            "x0": 154.5,
+            "top": 368.5,
+            "x1": 177.5,
+            "bottom": 375.0
+          },
+          "start": 549,
+          "end": 554
+        },
+        {
+          "text": "payment",
+          "bbox": {
+            "x0": 180.5,
+            "top": 369.0,
+            "x1": 214.5,
+            "bottom": 377.0
+          },
+          "start": 555,
+          "end": 562
+        },
+        {
+          "text": "by",
+          "bbox": {
+            "x0": 217.5,
+            "top": 368.5,
+            "x1": 226.5,
+            "bottom": 377.0
+          },
+          "start": 563,
+          "end": 565
+        },
+        {
+          "text": "wire",
+          "bbox": {
+            "x0": 229.0,
+            "top": 368.5,
+            "x1": 245.0,
+            "bottom": 375.0
+          },
+          "start": 566,
+          "end": 570
+        },
+        {
+          "text": "or",
+          "bbox": {
+            "x0": 248.5,
+            "top": 370.0,
+            "x1": 256.0,
+            "bottom": 375.0
+          },
+          "start": 571,
+          "end": 573
+        },
+        {
+          "text": "check",
+          "bbox": {
+            "x0": 259.0,
+            "top": 368.5,
+            "x1": 282.0,
+            "bottom": 375.0
+          },
+          "start": 574,
+          "end": 579
+        },
+        {
+          "text": "to",
+          "bbox": {
+            "x0": 284.5,
+            "top": 369.0,
+            "x1": 291.5,
+            "bottom": 375.0
+          },
+          "start": 580,
+          "end": 582
+        },
+        {
+          "text": "the",
+          "bbox": {
+            "x0": 294.5,
+            "top": 368.5,
+            "x1": 306.5,
+            "bottom": 375.0
+          },
+          "start": 583,
+          "end": 586
+        },
+        {
+          "text": "address",
+          "bbox": {
+            "x0": 310.0,
+            "top": 368.5,
+            "x1": 341.0,
+            "bottom": 375.0
+          },
+          "start": 587,
+          "end": 594
+        },
+        {
+          "text": "above.",
+          "bbox": {
+            "x0": 344.5,
+            "top": 368.5,
+            "x1": 370.5,
+            "bottom": 375.0
+          },
+          "start": 595,
+          "end": 601
+        }
+      ]
+    }
+  ],
+  "ocr": {
+    "engine": "tesseract",
+    "version": "5.3.4",
+    "language": "eng",
+    "render_dpi": 144,
+    "page_count": 2,
+    "empty_pages": [
+      1
+    ],
+    "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+  }
+}

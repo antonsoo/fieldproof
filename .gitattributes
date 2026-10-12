@@ -1,0 +1,4 @@
+# Preserve direct Tesseract TSV, including empty fields at the ends of rows.
+studies/ocr-fallback/results/oracle/*.tsv -text -whitespace
+studies/ocr-fallback/inputs/*.pdf binary
+studies/ocr-fallback/results/*.txt -text -whitespace

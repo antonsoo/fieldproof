@@ -1,0 +1,1281 @@
+{
+  "schema": "invoice",
+  "provider": "fixture",
+  "model": "synthetic-demo-fixture (planted errors, see README)",
+  "data": {
+    "vendor_name": {
+      "value": "Northwind Freight & Supply Co.",
+      "evidence": [
+        "Northwind Freight & Supply Co."
+      ],
+      "page": 1
+    },
+    "invoice_number": {
+      "value": "NW-20260214",
+      "evidence": [
+        "Invoice Number: NW-20260214"
+      ],
+      "page": 1
+    },
+    "issue_date": {
+      "value": "2026-02-14",
+      "evidence": [
+        "Issue Date: February 14, 2026"
+      ],
+      "page": 1
+    },
+    "due_date": {
+      "value": "2026-03-16",
+      "evidence": [
+        "Due Date: March 16, 2026"
+      ],
+      "page": 1
+    },
+    "currency": null,
+    "po_number": {
+      "value": "PO-88214",
+      "evidence": [
+        "PO Number: PO-88214"
+      ],
+      "page": 1
+    },
+    "line_items": [
+      {
+        "description": {
+          "value": "Pallet freight - Oakland to Seattle",
+          "evidence": [
+            "Pallet freight - Oakland to Seattle"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 12.0,
+          "evidence": [
+            "Pallet freight - Oakland to Seattle 12 145.00 1,740.00"
+          ],
+          "page": 1
+        },
+        "unit_price": {
+          "value": 145.0,
+          "evidence": [
+            "Pallet freight - Oakland to Seattle 12 145.00 1,740.00"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 1740.0,
+          "evidence": [
+            "Pallet freight - Oakland to Seattle 12 145.00 1,740.00"
+          ],
+          "page": 1
+        }
+      },
+      {
+        "description": {
+          "value": "Fuel surcharge",
+          "evidence": [
+            "Fuel surcharge"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 1.0,
+          "evidence": [
+            "Fuel surcharge 1 210.50 210.50"
+          ],
+          "page": 1
+        },
+        "unit_price": {
+          "value": 210.5,
+          "evidence": [
+            "Fuel surcharge 1 210.50 210.50"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 210.5,
+          "evidence": [
+            "Fuel surcharge 1 210.50 210.50"
+          ],
+          "page": 1
+        }
+      },
+      {
+        "description": {
+          "value": "Liftgate delivery service",
+          "evidence": [
+            "Liftgate delivery service"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 3.0,
+          "evidence": [
+            "Liftgate delivery service 3 65.00 195.00"
+          ],
+          "page": 1
+        },
+        "unit_price": {
+          "value": 65.0,
+          "evidence": [
+            "Liftgate delivery service 3 65.00 195.00"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 195.0,
+          "evidence": [
+            "Liftgate delivery service 3 65.00 195.00"
+          ],
+          "page": 1
+        }
+      },
+      {
+        "description": {
+          "value": "Warehouse handling fee",
+          "evidence": [
+            "Warehouse handling fee"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 1.0,
+          "evidence": [
+            "Warehouse handling fee 1 312.50 312.50"
+          ],
+          "page": 1
+        },
+        "unit_price": {
+          "value": 312.5,
+          "evidence": [
+            "Warehouse handling fee 1 312.50 312.50"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 312.5,
+          "evidence": [
+            "Warehouse handling fee 1 312.50 312.50"
+          ],
+          "page": 1
+        }
+      }
+    ],
+    "subtotal": {
+      "value": 2458.0,
+      "evidence": [
+        "Subtotal $2,458.00"
+      ],
+      "page": 1
+    },
+    "tax": {
+      "value": 208.93,
+      "evidence": [
+        "Tax (8.5%) $208.93"
+      ],
+      "page": 1
+    },
+    "total": {
+      "value": 2600.0,
+      "evidence": [
+        "Total Due $2,666.93"
+      ],
+      "page": 1
+    },
+    "payment_terms": {
+      "value": "Net 30",
+      "evidence": [
+        "Payment Terms: Net 30."
+      ],
+      "page": 1
+    }
+  },
+  "report": {
+    "fields": [
+      {
+        "path": "vendor_name",
+        "value": "Northwind Freight & Supply Co.",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Northwind Freight & Supply Co.",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 55.5,
+            "top": 50.0,
+            "x1": 355.0,
+            "bottom": 69.5
+          }
+        ]
+      },
+      {
+        "path": "invoice_number",
+        "value": "NW-20260214",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Invoice Number: NW-20260214",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 418.5,
+            "top": 76.0,
+            "x1": 557.5,
+            "bottom": 83.0
+          }
+        ]
+      },
+      {
+        "path": "issue_date",
+        "value": "2026-02-14",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Issue Date: February 14, 2026",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 423.5,
+            "top": 88.0,
+            "x1": 557.5,
+            "bottom": 97.0
+          }
+        ]
+      },
+      {
+        "path": "due_date",
+        "value": "2026-03-16",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Due Date: March 16, 2026",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 441.5,
+            "top": 100.5,
+            "x1": 557.5,
+            "bottom": 109.0
+          }
+        ]
+      },
+      {
+        "path": "po_number",
+        "value": "PO-88214",
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('PO Number: PO-88214') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      },
+      {
+        "path": "line_items[0].description",
+        "value": "Pallet freight - Oakland to Seattle",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Pallet freight - Oakland to Seattle",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 55.0,
+            "top": 208.5,
+            "x1": 200.5,
+            "bottom": 218.0
+          },
+          {
+            "x0": 112.5,
+            "top": 212.5,
+            "x1": 115.5,
+            "bottom": 213.5
+          }
+        ]
+      },
+      {
+        "path": "line_items[0].quantity",
+        "value": 12.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 55.0,
+            "top": 208.5,
+            "x1": 557.5,
+            "bottom": 218.0
+          },
+          {
+            "x0": 112.5,
+            "top": 212.5,
+            "x1": 115.5,
+            "bottom": 213.5
+          }
+        ]
+      },
+      {
+        "path": "line_items[0].unit_price",
+        "value": 145.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 55.0,
+            "top": 208.5,
+            "x1": 557.5,
+            "bottom": 218.0
+          },
+          {
+            "x0": 112.5,
+            "top": 212.5,
+            "x1": 115.5,
+            "bottom": 213.5
+          }
+        ]
+      },
+      {
+        "path": "line_items[0].amount",
+        "value": 1740.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 55.0,
+            "top": 208.5,
+            "x1": 557.5,
+            "bottom": 218.0
+          },
+          {
+            "x0": 112.5,
+            "top": 212.5,
+            "x1": 115.5,
+            "bottom": 213.5
+          }
+        ]
+      },
+      {
+        "path": "line_items[1].description",
+        "value": "Fuel surcharge",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Fuel surcharge",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 55.0,
+            "top": 225.0,
+            "x1": 120.0,
+            "bottom": 234.0
+          }
+        ]
+      },
+      {
+        "path": "line_items[1].quantity",
+        "value": 1.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Fuel surcharge 1 210.50 210.50",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 55.0,
+            "top": 225.0,
+            "x1": 557.5,
+            "bottom": 234.0
+          }
+        ]
+      },
+      {
+        "path": "line_items[1].unit_price",
+        "value": 210.5,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Fuel surcharge 1 210.50 210.50",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 55.0,
+            "top": 225.0,
+            "x1": 557.5,
+            "bottom": 234.0
+          }
+        ]
+      },
+      {
+        "path": "line_items[1].amount",
+        "value": 210.5,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Fuel surcharge 1 210.50 210.50",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 55.0,
+            "top": 225.0,
+            "x1": 557.5,
+            "bottom": 234.0
+          }
+        ]
+      },
+      {
+        "path": "line_items[2].description",
+        "value": "Liftgate delivery service",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Liftgate delivery service",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 54.5,
+            "top": 240.0,
+            "x1": 158.0,
+            "bottom": 249.5
+          }
+        ]
+      },
+      {
+        "path": "line_items[2].quantity",
+        "value": 3.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Liftgate delivery service 3 65.00 195.00",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 54.5,
+            "top": 240.0,
+            "x1": 557.5,
+            "bottom": 249.5
+          }
+        ]
+      },
+      {
+        "path": "line_items[2].unit_price",
+        "value": 65.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Liftgate delivery service 3 65.00 195.00",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 54.5,
+            "top": 240.0,
+            "x1": 557.5,
+            "bottom": 249.5
+          }
+        ]
+      },
+      {
+        "path": "line_items[2].amount",
+        "value": 195.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Liftgate delivery service 3 65.00 195.00",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 54.5,
+            "top": 240.0,
+            "x1": 557.5,
+            "bottom": 249.5
+          }
+        ]
+      },
+      {
+        "path": "line_items[3].description",
+        "value": "Warehouse handling fee",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Warehouse handling fee",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 54.0,
+            "top": 256.0,
+            "x1": 162.0,
+            "bottom": 265.5
+          }
+        ]
+      },
+      {
+        "path": "line_items[3].quantity",
+        "value": 1.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Warehouse handling fee 1 312.50 312.50",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 54.0,
+            "top": 256.0,
+            "x1": 557.5,
+            "bottom": 265.5
+          }
+        ]
+      },
+      {
+        "path": "line_items[3].unit_price",
+        "value": 312.5,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Warehouse handling fee 1 312.50 312.50",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 54.0,
+            "top": 256.0,
+            "x1": 557.5,
+            "bottom": 265.5
+          }
+        ]
+      },
+      {
+        "path": "line_items[3].amount",
+        "value": 312.5,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Warehouse handling fee 1 312.50 312.50",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 54.0,
+            "top": 256.0,
+            "x1": 557.5,
+            "bottom": 265.5
+          }
+        ]
+      },
+      {
+        "path": "subtotal",
+        "value": 2458.0,
+        "status": "needs_review",
+        "reasons": [
+          "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Subtotal $2,458.00",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 274.0,
+            "top": 295.0,
+            "x1": 557.5,
+            "bottom": 309.0
+          }
+        ]
+      },
+      {
+        "path": "tax",
+        "value": 208.93,
+        "status": "needs_review",
+        "reasons": [
+          "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Tax (8.5%) $208.93",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 273.5,
+            "top": 313.0,
+            "x1": 557.5,
+            "bottom": 322.5
+          }
+        ]
+      },
+      {
+        "path": "total",
+        "value": 2600.0,
+        "status": "needs_review",
+        "reasons": [
+          "value 2600.0 does not match 2666.93 parsed from the evidence",
+          "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Total Due $2,666.93",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 273.5,
+            "top": 330.5,
+            "x1": 557.5,
+            "bottom": 341.0
+          }
+        ]
+      },
+      {
+        "path": "payment_terms",
+        "value": "Net 30",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Payment Terms: Net 30.",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 54.5,
+            "top": 368.5,
+            "x1": 151.0,
+            "bottom": 377.0
+          }
+        ]
+      }
+    ],
+    "cross_field_issues": [
+      {
+        "fields": [
+          "subtotal",
+          "tax",
+          "total"
+        ],
+        "message": "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
+      }
+    ],
+    "counts": {
+      "verified": 21,
+      "needs_review": 3,
+      "unsupported": 1
+    },
+    "cross_field_checks": [
+      {
+        "rule": "invoice.line_extension",
+        "fields": [
+          "line_items[0].quantity",
+          "line_items[0].unit_price",
+          "line_items[0].amount"
+        ],
+        "status": "passed",
+        "message": "line_items[0]: quantity x unit price = 1740 (before discounts or adjustments) matches amount 1740 (difference 0; tolerance 0.02)",
+        "operands": {
+          "line_items[0].quantity": "12.0",
+          "line_items[0].unit_price": "145.0",
+          "line_items[0].amount": "1740.0"
+        },
+        "computed": "1740",
+        "observed": "1740",
+        "difference": "0",
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.line_extension",
+        "fields": [
+          "line_items[1].quantity",
+          "line_items[1].unit_price",
+          "line_items[1].amount"
+        ],
+        "status": "passed",
+        "message": "line_items[1]: quantity x unit price = 210.5 (before discounts or adjustments) matches amount 210.5 (difference 0; tolerance 0.02)",
+        "operands": {
+          "line_items[1].quantity": "1.0",
+          "line_items[1].unit_price": "210.5",
+          "line_items[1].amount": "210.5"
+        },
+        "computed": "210.5",
+        "observed": "210.5",
+        "difference": "0",
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.line_extension",
+        "fields": [
+          "line_items[2].quantity",
+          "line_items[2].unit_price",
+          "line_items[2].amount"
+        ],
+        "status": "passed",
+        "message": "line_items[2]: quantity x unit price = 195 (before discounts or adjustments) matches amount 195 (difference 0; tolerance 0.02)",
+        "operands": {
+          "line_items[2].quantity": "3.0",
+          "line_items[2].unit_price": "65.0",
+          "line_items[2].amount": "195.0"
+        },
+        "computed": "195",
+        "observed": "195",
+        "difference": "0",
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.line_extension",
+        "fields": [
+          "line_items[3].quantity",
+          "line_items[3].unit_price",
+          "line_items[3].amount"
+        ],
+        "status": "passed",
+        "message": "line_items[3]: quantity x unit price = 312.5 (before discounts or adjustments) matches amount 312.5 (difference 0; tolerance 0.02)",
+        "operands": {
+          "line_items[3].quantity": "1.0",
+          "line_items[3].unit_price": "312.5",
+          "line_items[3].amount": "312.5"
+        },
+        "computed": "312.5",
+        "observed": "312.5",
+        "difference": "0",
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.items_subtotal",
+        "fields": [
+          "line_items[0].amount",
+          "line_items[1].amount",
+          "line_items[2].amount",
+          "line_items[3].amount",
+          "subtotal"
+        ],
+        "status": "passed",
+        "message": "line items sum = 2458 matches subtotal 2458 (difference 0; tolerance 0.02)",
+        "operands": {
+          "line_items[0].amount": "1740.0",
+          "line_items[1].amount": "210.5",
+          "line_items[2].amount": "195.0",
+          "line_items[3].amount": "312.5",
+          "subtotal": "2458.0"
+        },
+        "computed": "2458",
+        "observed": "2458",
+        "difference": "0",
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.subtotal_tax_total",
+        "fields": [
+          "subtotal",
+          "tax",
+          "total"
+        ],
+        "status": "failed",
+        "message": "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)",
+        "operands": {
+          "subtotal": "2458.0",
+          "tax": "208.93",
+          "total": "2600.0"
+        },
+        "computed": "2666.93",
+        "observed": "2600",
+        "difference": "-66.93",
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "passed",
+        "message": "due date 2026-03-16 is on or after issue date 2026-02-14",
+        "operands": {
+          "issue_date": "2026-02-14",
+          "due_date": "2026-03-16"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    ],
+    "row_checks": [
+      {
+        "field": "line_items[0].quantity",
+        "anchor": "line_items[0].description",
+        "status": "same_line",
+        "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+          "start": 302,
+          "end": 356,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 208.5,
+              "x1": 557.5,
+              "bottom": 218.0
+            },
+            {
+              "x0": 112.5,
+              "top": 212.5,
+              "x1": 115.5,
+              "bottom": 213.5
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Pallet freight - Oakland to Seattle",
+          "start": 302,
+          "end": 337,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 208.5,
+              "x1": 200.5,
+              "bottom": 218.0
+            },
+            {
+              "x0": 112.5,
+              "top": 212.5,
+              "x1": 115.5,
+              "bottom": 213.5
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[0].unit_price",
+        "anchor": "line_items[0].description",
+        "status": "same_line",
+        "reason": "line_items[0].unit_price and line_items[0].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+          "start": 302,
+          "end": 356,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 208.5,
+              "x1": 557.5,
+              "bottom": 218.0
+            },
+            {
+              "x0": 112.5,
+              "top": 212.5,
+              "x1": 115.5,
+              "bottom": 213.5
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Pallet freight - Oakland to Seattle",
+          "start": 302,
+          "end": 337,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 208.5,
+              "x1": 200.5,
+              "bottom": 218.0
+            },
+            {
+              "x0": 112.5,
+              "top": 212.5,
+              "x1": 115.5,
+              "bottom": 213.5
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[0].amount",
+        "anchor": "line_items[0].description",
+        "status": "same_line",
+        "reason": "line_items[0].amount and line_items[0].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+          "start": 302,
+          "end": 356,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 208.5,
+              "x1": 557.5,
+              "bottom": 218.0
+            },
+            {
+              "x0": 112.5,
+              "top": 212.5,
+              "x1": 115.5,
+              "bottom": 213.5
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Pallet freight - Oakland to Seattle",
+          "start": 302,
+          "end": 337,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 208.5,
+              "x1": 200.5,
+              "bottom": 218.0
+            },
+            {
+              "x0": 112.5,
+              "top": 212.5,
+              "x1": 115.5,
+              "bottom": 213.5
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[1].quantity",
+        "anchor": "line_items[1].description",
+        "status": "same_line",
+        "reason": "line_items[1].quantity and line_items[1].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Fuel surcharge 1 210.50 210.50",
+          "start": 357,
+          "end": 387,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 225.0,
+              "x1": 557.5,
+              "bottom": 234.0
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Fuel surcharge",
+          "start": 357,
+          "end": 371,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 225.0,
+              "x1": 120.0,
+              "bottom": 234.0
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[1].unit_price",
+        "anchor": "line_items[1].description",
+        "status": "same_line",
+        "reason": "line_items[1].unit_price and line_items[1].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Fuel surcharge 1 210.50 210.50",
+          "start": 357,
+          "end": 387,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 225.0,
+              "x1": 557.5,
+              "bottom": 234.0
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Fuel surcharge",
+          "start": 357,
+          "end": 371,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 225.0,
+              "x1": 120.0,
+              "bottom": 234.0
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[1].amount",
+        "anchor": "line_items[1].description",
+        "status": "same_line",
+        "reason": "line_items[1].amount and line_items[1].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Fuel surcharge 1 210.50 210.50",
+          "start": 357,
+          "end": 387,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 225.0,
+              "x1": 557.5,
+              "bottom": 234.0
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Fuel surcharge",
+          "start": 357,
+          "end": 371,
+          "rects": [
+            {
+              "x0": 55.0,
+              "top": 225.0,
+              "x1": 120.0,
+              "bottom": 234.0
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[2].quantity",
+        "anchor": "line_items[2].description",
+        "status": "same_line",
+        "reason": "line_items[2].quantity and line_items[2].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Liftgate delivery service 3 65.00 195.00",
+          "start": 388,
+          "end": 428,
+          "rects": [
+            {
+              "x0": 54.5,
+              "top": 240.0,
+              "x1": 557.5,
+              "bottom": 249.5
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Liftgate delivery service",
+          "start": 388,
+          "end": 413,
+          "rects": [
+            {
+              "x0": 54.5,
+              "top": 240.0,
+              "x1": 158.0,
+              "bottom": 249.5
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[2].unit_price",
+        "anchor": "line_items[2].description",
+        "status": "same_line",
+        "reason": "line_items[2].unit_price and line_items[2].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Liftgate delivery service 3 65.00 195.00",
+          "start": 388,
+          "end": 428,
+          "rects": [
+            {
+              "x0": 54.5,
+              "top": 240.0,
+              "x1": 557.5,
+              "bottom": 249.5
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Liftgate delivery service",
+          "start": 388,
+          "end": 413,
+          "rects": [
+            {
+              "x0": 54.5,
+              "top": 240.0,
+              "x1": 158.0,
+              "bottom": 249.5
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[2].amount",
+        "anchor": "line_items[2].description",
+        "status": "same_line",
+        "reason": "line_items[2].amount and line_items[2].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Liftgate delivery service 3 65.00 195.00",
+          "start": 388,
+          "end": 428,
+          "rects": [
+            {
+              "x0": 54.5,
+              "top": 240.0,
+              "x1": 557.5,
+              "bottom": 249.5
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Liftgate delivery service",
+          "start": 388,
+          "end": 413,
+          "rects": [
+            {
+              "x0": 54.5,
+              "top": 240.0,
+              "x1": 158.0,
+              "bottom": 249.5
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[3].quantity",
+        "anchor": "line_items[3].description",
+        "status": "same_line",
+        "reason": "line_items[3].quantity and line_items[3].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Warehouse handling fee 1 312.50 312.50",
+          "start": 429,
+          "end": 467,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 256.0,
+              "x1": 557.5,
+              "bottom": 265.5
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Warehouse handling fee",
+          "start": 429,
+          "end": 451,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 256.0,
+              "x1": 162.0,
+              "bottom": 265.5
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[3].unit_price",
+        "anchor": "line_items[3].description",
+        "status": "same_line",
+        "reason": "line_items[3].unit_price and line_items[3].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Warehouse handling fee 1 312.50 312.50",
+          "start": 429,
+          "end": 467,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 256.0,
+              "x1": 557.5,
+              "bottom": 265.5
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Warehouse handling fee",
+          "start": 429,
+          "end": 451,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 256.0,
+              "x1": 162.0,
+              "bottom": 265.5
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[3].amount",
+        "anchor": "line_items[3].description",
+        "status": "same_line",
+        "reason": "line_items[3].amount and line_items[3].description share a visual line on page 2; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 2,
+          "text": "Warehouse handling fee 1 312.50 312.50",
+          "start": 429,
+          "end": 467,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 256.0,
+              "x1": 557.5,
+              "bottom": 265.5
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 2,
+          "text": "Warehouse handling fee",
+          "start": 429,
+          "end": 451,
+          "rects": [
+            {
+              "x0": 54.0,
+              "top": 256.0,
+              "x1": 162.0,
+              "bottom": 265.5
+            }
+          ]
+        }
+      }
+    ],
+    "ocr": {
+      "engine": "tesseract",
+      "version": "5.3.4",
+      "language": "eng",
+      "render_dpi": 144,
+      "page_count": 2,
+      "empty_pages": [
+        1
+      ],
+      "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+    }
+  }
+}
