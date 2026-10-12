@@ -88,25 +88,35 @@ _DOT_THOUSANDS_TOKEN = re.compile(r"(?<![\d.,])\d{1,3}(?:\.\d{3}){2,}(?![\d.,])"
 _DOT_THOUSANDS_DECIMAL_TOKEN = re.compile(r"(?<![\d.,])\d{1,3}(?:\.\d{3})+,\d{1,2}(?![\d.,])")
 
 
+def number_styles(text: str) -> frozenset[NumberStyle]:
+    """The conventions established by complete supported numeric tokens.
+
+    Keep conflicting evidence distinct from absent evidence: a caller's fallback
+    can supply a missing convention, but cannot settle a document showing both.
+    """
+    styles: set[NumberStyle] = set()
+    for token in number_tokens(text):
+        if token.count or not token.readings():
+            continue
+        digits = token.digits.rstrip(".,")
+        if _COMMA_THOUSANDS_TOKEN.fullmatch(digits):
+            styles.add("decimal")
+        if _DOT_THOUSANDS_TOKEN.fullmatch(digits) or _DOT_THOUSANDS_DECIMAL_TOKEN.fullmatch(digits):
+            styles.add("thousands")
+    return frozenset(styles)
+
+
 def number_style(text: str) -> NumberStyle | None:
     """What a document's own numbers say about `.`: "decimal" if some number can only be
     read with `.` as the decimal point (1,234.50),
     "thousands" if some number can only be read with `.` as the thousands separator
     (1.591.600 or 1.234,50), None if the document shows neither or both. A bare "9.99"
     says nothing, since a receipt that prints "TOTAL 60.000" may also print "Qty 4.00",
-    and neither does "111,000": a receipt can print that beside "222.000"."""
-    decimal = thousands = False
-    for token in number_tokens(text):
-        if token.count or not token.readings():
-            continue
-        digits = token.digits.rstrip(".,")
-        decimal |= bool(_COMMA_THOUSANDS_TOKEN.fullmatch(digits))
-        thousands |= bool(
-            _DOT_THOUSANDS_TOKEN.fullmatch(digits) or _DOT_THOUSANDS_DECIMAL_TOKEN.fullmatch(digits)
-        )
-    if decimal == thousands:
-        return None
-    return "decimal" if decimal else "thousands"
+    and neither does "111,000": a receipt can print that beside "222.000".
+    Use `number_styles` when absent and conflicting evidence need different treatment.
+    """
+    styles = number_styles(text)
+    return next(iter(styles)) if len(styles) == 1 else None
 
 
 _CURRENCY = r"(?:US\$|S\$|R\$|USD|EUR|GBP|JPY|CNY|INR|CHF|CAD|AUD|NZD|SGD|HKD|Rp\.?|RM|\$)"
@@ -242,12 +252,8 @@ ISO_DATE = re.compile(r"(?<![\w.\-/])(\d{4})-(\d{2})-(\d{2})(?![\w/\-]|\.\w)")
 # Keep the same token boundaries for written months: neither the last two
 # digits of a longer day nor the first four of a longer year are evidence.
 WRITTEN_DATE = (
-    re.compile(
-        r"(?<![\w.\-/])[A-Za-z]{3,9}\.?\s+\d{1,2},?\s+\d{4}(?![\w/\-]|\.\w)"
-    ),
-    re.compile(
-        r"(?<![\w.\-/])\d{1,2}\s+[A-Za-z]{3,9}\.?\s+\d{4}(?![\w/\-]|\.\w)"
-    ),
+    re.compile(r"(?<![\w.\-/])[A-Za-z]{3,9}\.?\s+\d{1,2},?\s+\d{4}(?![\w/\-]|\.\w)"),
+    re.compile(r"(?<![\w.\-/])\d{1,2}\s+[A-Za-z]{3,9}\.?\s+\d{4}(?![\w/\-]|\.\w)"),
 )
 _WRITTEN_FORMATS = ("%B %d, %Y", "%b %d, %Y", "%d %B %Y", "%d %b %Y", "%B %d %Y", "%b %d %Y")
 

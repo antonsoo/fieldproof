@@ -160,6 +160,52 @@ test('an invalid date reference cannot settle an ambiguous issue date through re
   if (process.env.UPDATE_DATE_SCREENSHOTS) writeFileSync(`${directory}/${browserName}-observations.json`, JSON.stringify({ evidence, exported }, null, 2) + '\n');
 });
 
+test('conflicting document conventions stay explicit through review and export', async ({ page, request, browserName }) => {
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/mixed-conventions.pdf', import.meta.url)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('../../../examples/fixtures/mixed-conventions.json', import.meta.url)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  for (const path of ['issue_date', 'total']) {
+    const field = row(page, path);
+    await expect(field.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+    await expect(field.locator('.field-reasons')).toContainText('conflicting evidence');
+  }
+  await row(page, 'issue_date').getByRole('button', { name: 'Inspect issue_date', exact: true }).click();
+  await expect(page.locator('#page-frame img')).toBeVisible();
+  await expect(page.locator('.highlight-rect[data-path="issue_date"]')).toHaveAttribute('data-status', 'needs_review');
+  const url = (await page.locator('#page-frame img').getAttribute('src')).replace(/\/pages\/\d+\.png$/, '');
+  const before = await (await request.get(`${url}/report`)).json();
+  expect(before.report.counts).toEqual({ verified: 2, needs_review: 2, unsupported: 0 });
+  const directory = process.env.FIELDPROOF_MIXED_SCREENSHOTS;
+  if (directory) mkdirSync(directory, { recursive: true });
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 960 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await scan(page);
+    if (directory) await page.screenshot({ path: `${directory}/${browserName}-${width}.png`, fullPage: true });
+  }
+  await page.setViewportSize({ width: 1440, height: 960 });
+  // These are explicit human choices, not newly inferred document conventions.
+  for (const [path, value] of [['issue_date', '2026-03-04'], ['total', '60']]) {
+    const field = row(page, path);
+    await field.getByRole('button', { name: 'Edit', exact: true }).click();
+    await field.getByRole('textbox').fill(value);
+    await field.getByRole('button', { name: 'Save', exact: true }).click();
+    await expect(field.locator('.review-badge')).toHaveText('edited');
+  }
+  const exported = JSON.parse((await downloadText(page, 'JSON')).text);
+  expect(exported).toHaveLength(2);
+  expect(exported.find(field => field.field === 'issue_date')).toMatchObject({ value: '2026-03-04', original_value: '2026-04-03', value_source: 'correction', verification_status: 'needs_review' });
+  expect(exported.find(field => field.field === 'total')).toMatchObject({ value: 60, original_value: 60000, value_source: 'correction', verification_status: 'needs_review' });
+  expect((await (await request.get(`${url}/report`)).json()).report).toEqual(before.report);
+  await page.reload();
+  await page.getByRole('button', { name: 'Sessions', exact: true }).click();
+  await page.getByRole('dialog', { name: 'Document sessions' }).locator('li').filter({ hasText: 'mixed-conventions.pdf' }).getByRole('button', { name: 'Open', exact: true }).click();
+  expect(JSON.parse((await downloadText(page, 'JSON')).text)).toEqual(exported);
+  if (directory) writeFileSync(`${directory}/${browserName}-observations.json`, JSON.stringify({ report: before.report, exported }, null, 2) + '\n');
+});
+
 test('an omitted minus stays visible and readable in the real PDF review', async ({ page }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/signed-amount.pdf', import.meta.url)));

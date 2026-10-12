@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Conflicting document conventions
+
+- Distinguish missing number/date convention evidence from conflicting evidence.
+  Caller defaults now fill only missing evidence; they no longer silently verify
+  one reading of an ambiguous quote when the document shows both conventions.
+- Keep explicit amounts and unambiguous dates usable, retain the quoted text
+  and boxes, and explain the conflict in review reasons. Existing unique-convention
+  helper results remain compatible; plural helpers expose all observed conventions.
+- Retain controlled PDF and CLI captures in `studies/mixed-conventions`.
+
 ### Unicode evidence locations
 
 - Keep original character offsets through Unicode case folding. A dotted capital

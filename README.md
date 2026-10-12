@@ -210,8 +210,12 @@ fieldproof serve --port 8000            # API + review UI
 A number written `60.000` is sixty or sixty thousand, and `03/04/2026` is 4
 March or 3 April. When nothing else in the document settles which, the field
 is `needs_review`. `--number-style thousands` (or `decimal`) and `--date-order
-dmy` (or `mdy`) on either command say how your documents write them (source
-checkout, unreleased).
+dmy` (or `mdy`) on either command supply a fallback when no decisive convention
+is found (source checkout, unreleased). A unique convention inferred from the
+document takes precedence. If the document shows conflicting conventions,
+ambiguous values stay in review even with a supplied fallback. Explicit amounts
+and unambiguous dates remain usable. The [mixed-convention study](studies/mixed-conventions/README.md)
+retains actual PDF and CLI before/after reports and explains the heuristic limits.
 
 Only a complete, calendar-valid numeric date can settle the date order. An
 unrelated `99/01/2026`, a phone-number fragment or `ABC14/03/2026XYZ` cannot

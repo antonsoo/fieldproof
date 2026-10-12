@@ -1,0 +1,35 @@
+{
+  "schema": "Invoice",
+  "provider": "fixture",
+  "model": "synthetic ambiguous amount and date",
+  "data": {
+    "vendor_name": {
+      "value": "Example Workshop",
+      "evidence": [
+        "Example Workshop"
+      ],
+      "page": 1
+    },
+    "invoice_number": {
+      "value": "FP-MIXED",
+      "evidence": [
+        "Invoice Number: FP-MIXED"
+      ],
+      "page": 1
+    },
+    "issue_date": {
+      "value": "2026-04-03",
+      "evidence": [
+        "Issue Date: 03/04/2026"
+      ],
+      "page": 1
+    },
+    "total": {
+      "value": 60000.0,
+      "evidence": [
+        "60.000"
+      ],
+      "page": 1
+    }
+  }
+}

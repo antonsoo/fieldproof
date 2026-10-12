@@ -1,0 +1,174 @@
+{
+  "schema": "Invoice",
+  "provider": "fixture",
+  "model": "synthetic ambiguous amount and date",
+  "data": {
+    "vendor_name": {
+      "value": "Example Workshop",
+      "evidence": [
+        "Example Workshop"
+      ],
+      "page": 1
+    },
+    "invoice_number": {
+      "value": "FP-MIXED",
+      "evidence": [
+        "Invoice Number: FP-MIXED"
+      ],
+      "page": 1
+    },
+    "issue_date": {
+      "value": "2026-04-03",
+      "evidence": [
+        "Issue Date: 03/04/2026"
+      ],
+      "page": 1
+    },
+    "due_date": null,
+    "currency": null,
+    "po_number": null,
+    "line_items": [],
+    "subtotal": null,
+    "tax": null,
+    "total": {
+      "value": 60000.0,
+      "evidence": [
+        "60.000"
+      ],
+      "page": 1
+    },
+    "payment_terms": null
+  },
+  "report": {
+    "fields": [
+      {
+        "path": "vendor_name",
+        "value": "Example Workshop",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Example Workshop",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 81.38199999999995,
+            "x1": 289.28000000000003,
+            "bottom": 107.38199999999995
+          }
+        ]
+      },
+      {
+        "path": "invoice_number",
+        "value": "FP-MIXED",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Invoice Number: FP-MIXED",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 137.48400000000004,
+            "x1": 196.03199999999995,
+            "bottom": 149.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "issue_date",
+        "value": "2026-04-03",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Issue Date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 172.48400000000004,
+            "x1": 172.07999999999996,
+            "bottom": 184.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "total",
+        "value": 60000.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "60.000",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 508.956,
+            "top": 212.726,
+            "x1": 564.0000000000001,
+            "bottom": 230.726
+          }
+        ]
+      }
+    ],
+    "cross_field_issues": [],
+    "counts": {
+      "verified": 4,
+      "needs_review": 0,
+      "unsupported": 0
+    },
+    "cross_field_checks": [
+      {
+        "rule": "invoice.items_subtotal",
+        "fields": [
+          "subtotal"
+        ],
+        "status": "not_checked",
+        "message": "line items sum not checked: no item amounts were extracted",
+        "operands": {
+          "subtotal": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.subtotal_tax_total",
+        "fields": [
+          "subtotal",
+          "tax",
+          "total"
+        ],
+        "status": "not_checked",
+        "message": "subtotal + tax not checked: missing subtotal, tax",
+        "operands": {
+          "subtotal": null,
+          "tax": null,
+          "total": "60000.0"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-04-03",
+          "due_date": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    ],
+    "row_checks": []
+  }
+}

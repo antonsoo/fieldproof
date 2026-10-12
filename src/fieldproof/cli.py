@@ -106,13 +106,14 @@ def extract(
     number_style: str | None = typer.Option(
         None,
         "--number-style",
-        help='how to read "60.000" where the document does not settle it: '
-        "decimal (sixty) or thousands (sixty thousand)",
+        help='fallback for "60.000" when no number convention is observed: '
+        "decimal (sixty) or thousands (sixty thousand); conflicting conventions need review",
     ),
     date_order: str | None = typer.Option(
         None,
         "--date-order",
-        help='how to read "03/04/2026" where the document does not settle it: dmy or mdy',
+        help='fallback for "03/04/2026" when no date convention is observed: '
+        "dmy or mdy; conflicting conventions need review",
     ),
     out: Path = typer.Option(..., "--out", help="where to write the verified result JSON"),
 ) -> None:
@@ -168,13 +169,14 @@ def verify(
     number_style: str | None = typer.Option(
         None,
         "--number-style",
-        help='how to read "60.000" where the document does not settle it: '
-        "decimal (sixty) or thousands (sixty thousand)",
+        help='fallback for "60.000" when no number convention is observed: '
+        "decimal (sixty) or thousands (sixty thousand); conflicting conventions need review",
     ),
     date_order: str | None = typer.Option(
         None,
         "--date-order",
-        help='how to read "03/04/2026" where the document does not settle it: dmy or mdy',
+        help='fallback for "03/04/2026" when no date convention is observed: '
+        "dmy or mdy; conflicting conventions need review",
     ),
     out: Path | None = typer.Option(
         None, "--out", help="write the re-verified result here (default: overwrite RESULT)"

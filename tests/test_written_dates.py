@@ -15,11 +15,23 @@ from fieldproof.verify.engine import verify
 from fieldproof.verify.value_checks import check_date, parse_date
 
 
-@pytest.mark.parametrize("token", [
-    "May 1, 20260", "1 May 20260", "111 May 2026", "001 May 2026",
-    "May 1, 2026X", "May 1, 2026_ref", "XMay 1, 2026", "X1 May 2026",
-    "ref-May 1, 2026", "May 1, 2026-X", "May 1, 2026/99", "May 1, 2026.7",
-])
+@pytest.mark.parametrize(
+    "token",
+    [
+        "May 1, 20260",
+        "1 May 20260",
+        "111 May 2026",
+        "001 May 2026",
+        "May 1, 2026X",
+        "May 1, 2026_ref",
+        "XMay 1, 2026",
+        "X1 May 2026",
+        "ref-May 1, 2026",
+        "May 1, 2026-X",
+        "May 1, 2026/99",
+        "May 1, 2026.7",
+    ],
+)
 def test_date_fragments_are_rejected_by_grounding_and_value_checks(token: str) -> None:
     text = f"Effective date: {token}"
     assert dates_in(text) == []
@@ -27,9 +39,16 @@ def test_date_fragments_are_rejected_by_grounding_and_value_checks(token: str) -
     assert not check_date("2026-05-01", text).supported
 
 
-@pytest.mark.parametrize("spelling", [
-    "May 1, 2026", "May 1 2026", "MAY 1, 2026", "1 May 2026", "May. 1, 2026",
-])
+@pytest.mark.parametrize(
+    "spelling",
+    [
+        "May 1, 2026",
+        "May 1 2026",
+        "MAY 1, 2026",
+        "1 May 2026",
+        "May. 1, 2026",
+    ],
+)
 def test_supported_written_spellings_have_consistent_value_checks(spelling: str) -> None:
     expected = date(2026, 5, 1)
     assert whole_date(spelling) == {expected}

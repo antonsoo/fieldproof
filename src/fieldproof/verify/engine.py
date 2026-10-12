@@ -35,7 +35,7 @@ from fieldproof.ground.align import (
     unique_row_candidate,
 )
 from fieldproof.ground.lines import separate_lines
-from fieldproof.ground.values import NumberStyle, number_style
+from fieldproof.ground.values import NumberStyle, number_styles
 from fieldproof.schemas.base import iter_evidenced_fields
 from fieldproof.verify.cross_field import CrossFieldCheck, CrossFieldIssue, audit_cross_field
 from fieldproof.verify.rows import (
@@ -53,7 +53,7 @@ from fieldproof.verify.value_checks import (
     check_date,
     check_number,
     check_string,
-    numeric_date_order,
+    numeric_date_orders,
 )
 
 #: Matches the "row" a list-item field belongs to, e.g. "line_items[1]" out
@@ -144,7 +144,9 @@ def verify(
     `.` is the decimal point, "thousands": it separates thousands) and
     `default_date_order` ("dmy" or "mdy") say how to read them in that case, for a
     caller who knows where the documents come from. A document that settles the
-    question itself is read its own way whatever these say.
+    question itself is read its own way whatever these say. Conflicting observed
+    conventions leave ambiguous values in review even when a default is supplied;
+    defaults fill absent evidence, not contradictory evidence.
 
     By default a text value or quote that differs from the page in a letter or digit is
     `needs_review`, whatever the cause (a model's typo, or a model repairing an OCR error).
@@ -181,10 +183,14 @@ def verify(
         )
     if default_date_order not in (None, "dmy", "mdy"):
         raise ValueError(f'default_date_order must be "dmy" or "mdy", not {default_date_order!r}')
-    date_order = numeric_date_order(document.full_text()) or default_date_order
+    orders = numeric_date_orders(document.full_text())
+    date_order = (
+        next(iter(orders)) if len(orders) == 1 else default_date_order if not orders else None
+    )
     # Likewise whether it writes "60.000" as sixty or sixty thousand; see `check_number`.
     numeric_text = "\n".join(separate_lines(page.text, page.words) for page in document.pages)
-    style = number_style(numeric_text) or default_number_style
+    styles = number_styles(numeric_text)
+    style = next(iter(styles)) if len(styles) == 1 else default_number_style if not styles else None
 
     fields = dict(iter_evidenced_fields(data))
     rows = configured_rows(data, default_row_rules(data) if row_rules is None else tuple(row_rules))
@@ -201,6 +207,8 @@ def verify(
             hint_path=None,
             date_order=date_order,
             style=style,
+            conflicting_date_orders=len(orders) > 1,
+            conflicting_number_styles=len(styles) > 1,
             text_edit_tolerance=text_edit_tolerance,
         )
         anchor_results[anchor_path] = (anchor_result, anchor_match)
@@ -222,6 +230,8 @@ def verify(
             hint_path=hint[0] if hint else None,
             date_order=date_order,
             style=style,
+            conflicting_date_orders=len(orders) > 1,
+            conflicting_number_styles=len(styles) > 1,
             text_edit_tolerance=text_edit_tolerance,
         )
         results.append(result)
@@ -296,6 +306,8 @@ def _verify_field(
     hint_path: str | None,
     date_order: DateOrder | None = None,
     style: NumberStyle | None = None,
+    conflicting_date_orders: bool = False,
+    conflicting_number_styles: bool = False,
     text_edit_tolerance: int = 0,
 ) -> tuple[FieldVerification, GroundingMatch | None]:
     value = evidenced.value
@@ -402,6 +414,20 @@ def _verify_field(
     )
     if not check.supported:
         reasons.append(check.reason)
+        if (
+            conflicting_number_styles
+            and isinstance(value, int | float)
+            and not isinstance(value, bool)
+        ):
+            reasons.append(
+                "the document contains both decimal-point and dot-thousands conventions; "
+                "a document-wide number default cannot settle conflicting evidence"
+            )
+        elif conflicting_date_orders and isinstance(value, str) and "date" in path.lower():
+            reasons.append(
+                "the document contains both month-first and day-first date conventions; "
+                "a document-wide date default cannot settle conflicting evidence"
+            )
     elif check.reason:
         notes.append(check.reason)
 

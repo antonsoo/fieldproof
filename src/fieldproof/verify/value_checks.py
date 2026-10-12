@@ -225,19 +225,28 @@ def check_number(
 DateOrder = Literal["mdy", "dmy"]
 
 
-def numeric_date_order(text: str) -> DateOrder | None:
-    """The order established by complete, calendar-valid numeric dates.
+def numeric_date_orders(text: str) -> frozenset[DateOrder]:
+    """All orders established by complete, calendar-valid numeric dates.
 
     A token settles the convention only when exactly one order is a valid
     calendar date. Invalid days, months and leap dates cannot disambiguate
-    other fields or override a caller's default. None means no valid token
-    settles the order, or valid tokens establish conflicting conventions.
+    other fields or override a caller's default. An empty set is missing evidence;
+    two orders are conflicting evidence, which a default cannot resolve.
     """
     settled: set[DateOrder] = set()
     for match in NUMERIC_DATE.finditer(text):
         readings = numeric_date_readings(match)
         if len(readings) == 1:
             settled.update(readings)
+    return frozenset(settled)
+
+
+def numeric_date_order(text: str) -> DateOrder | None:
+    """The unique established order, or None for absent/conflicting evidence.
+
+    Use `numeric_date_orders` when those two unresolved states must be distinguished.
+    """
+    settled = numeric_date_orders(text)
     return next(iter(settled)) if len(settled) == 1 else None
 
 
