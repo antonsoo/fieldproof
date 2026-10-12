@@ -88,6 +88,7 @@ def rows_to_xlsx(rows: Sequence[Mapping[str, Any]]) -> bytes:
         ),
         "xl/workbook.xml": (
             f'<workbook xmlns="{_NS}" xmlns:r="{_REL}">'
+            '<bookViews><workbookView/></bookViews>'
             '<sheets><sheet name="Fields" sheetId="1" r:id="rId1"/></sheets></workbook>'
         ),
         "xl/_rels/workbook.xml.rels": (

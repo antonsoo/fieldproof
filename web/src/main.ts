@@ -360,9 +360,9 @@ function exportControlsHtml(): string {
         <option value="all" ${state.exportScope === "all" ? "selected" : ""}>All except rejected (${computeExportRows(state.extraction!, "all").length})</option>
       </select>
     </label>
-    <button class="btn" id="export-json" type="button" ${disabled ? "disabled" : ""}>Export JSON</button>
-    <button class="btn" id="export-csv" type="button" ${disabled ? "disabled" : ""}>Export CSV</button>
-    <button class="btn" id="export-xlsx" type="button" title="Spreadsheet: text stays literal, including leading zeros and = signs" ${disabled ? "disabled" : ""}>Export XLSX</button>
+    <button class="btn" id="export-json" type="button" aria-label="Export JSON" ${disabled ? "disabled" : ""}>JSON</button>
+    <button class="btn" id="export-csv" type="button" aria-label="Export CSV" ${disabled ? "disabled" : ""}>CSV</button>
+    <button class="btn" id="export-xlsx" type="button" aria-label="Export XLSX" title="Spreadsheet: text stays literal, including leading zeros and = signs" ${disabled ? "disabled" : ""}>XLSX</button>
   `;
 }
 

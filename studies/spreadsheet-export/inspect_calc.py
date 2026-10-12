@@ -1,4 +1,9 @@
-import json, pathlib, subprocess, time, sys
+import json
+import pathlib
+import subprocess
+import sys
+import time
+
 import uno
 from com.sun.star.beans import PropertyValue
 
@@ -82,7 +87,7 @@ try:
                         }
                     )
                 rows.append(cells)
-            results.append({"file": path.name, "mode": mode, "rows": rows})
+            results.append({"file": arg, "mode": mode, "rows": rows})
             doc.close(True)
     print(
         json.dumps(
