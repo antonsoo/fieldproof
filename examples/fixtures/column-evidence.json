@@ -1,0 +1,81 @@
+{
+  "schema": "invoice",
+  "provider": "fixture",
+  "model": "synthetic column evidence",
+  "data": {
+    "vendor_name": {
+      "value": "Example Dispatch",
+      "evidence": [
+        "Example Dispatch"
+      ],
+      "page": 1
+    },
+    "invoice_number": {
+      "value": "COL-12",
+      "evidence": [
+        "Invoice COL-12"
+      ],
+      "page": 1
+    },
+    "issue_date": {
+      "value": "2026-10-12",
+      "evidence": [
+        "Issue Date: October 12, 2026"
+      ],
+      "page": 1
+    },
+    "line_items": [
+      {
+        "description": {
+          "value": "Delivery",
+          "evidence": [
+            "Delivery"
+          ],
+          "page": 1
+        },
+        "quantity": {
+          "value": 12.5,
+          "evidence": [
+            "12.50"
+          ],
+          "page": 1
+        },
+        "unit_price": {
+          "value": 3.0,
+          "evidence": [
+            "3"
+          ],
+          "page": 1
+        },
+        "amount": {
+          "value": 37.5,
+          "evidence": [
+            "Delivery 3 12.50 37.50"
+          ],
+          "page": 1
+        }
+      }
+    ],
+    "subtotal": {
+      "value": 37.5,
+      "evidence": [
+        "Subtotal 37.50"
+      ],
+      "page": 1
+    },
+    "tax": {
+      "value": 0,
+      "evidence": [
+        "Tax 0.00"
+      ],
+      "page": 1
+    },
+    "total": {
+      "value": 37.5,
+      "evidence": [
+        "Total 37.50"
+      ],
+      "page": 1
+    }
+  }
+}

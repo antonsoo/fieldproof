@@ -37,6 +37,7 @@ from fieldproof.ground.align import (
 from fieldproof.ground.lines import separate_lines
 from fieldproof.ground.values import NumberStyle, number_styles
 from fieldproof.schemas.base import iter_evidenced_fields
+from fieldproof.verify.columns import ColumnEvidenceCheck, ColumnEvidenceIndex
 from fieldproof.verify.cross_field import CrossFieldCheck, CrossFieldIssue, audit_cross_field
 from fieldproof.verify.rows import (
     RowEvidenceCheck,
@@ -102,6 +103,7 @@ class VerificationReport:
     cross_field_checks: list[CrossFieldCheck] = field(default_factory=list)
     row_checks: list[RowEvidenceCheck] = field(default_factory=list)
     ocr: OcrProvenance | None = None
+    column_checks: list[ColumnEvidenceCheck] = field(default_factory=list)
 
     @property
     def counts(self) -> dict[str, int]:
@@ -119,6 +121,7 @@ class VerificationReport:
             "counts": self.counts,
             "cross_field_checks": [check.to_dict() for check in self.cross_field_checks],
             "row_checks": [check.to_dict() for check in self.row_checks],
+            "column_checks": [check.to_dict() for check in self.column_checks],
             **({"ocr": self.ocr.to_dict()} if self.ocr is not None else {}),
         }
 
@@ -173,6 +176,12 @@ def verify(
     sequence disables these checks. The report records same-line, separate,
     and unavailable evidence, preserving source locations for review. This
     spatial check does not establish table columns or semantic field roles.
+
+    Invoice defaults also observe explicit Description / Qty / Unit price /
+    Amount headers (and the declared label alternatives). Row rules may supply
+    `column_headers` for custom schemas. A supported numeric quote aligned with
+    another configured column requires review. Missing or ambiguous layouts
+    remain unavailable in `column_checks`, without changing field verdicts.
     """
     grounding = GroundingIndex(document)
     results: list[FieldVerification] = []
@@ -265,6 +274,20 @@ def verify(
         for name in rule.fields
     ]
     # Capture every source verdict before changing any final field verdict.
+    columns = ColumnEvidenceIndex(document)
+    column_checks = [
+        columns.check(
+            check,
+            rule,
+            by_path.get(check.field),
+            matches.get(check.field),
+            matches.get(check.anchor),
+            style,
+        )
+        for check in row_checks
+        if (prefix := _row_prefix(check.field)) is not None
+        and (rule := rows[prefix]).column_headers is not None
+    ]
     for check in row_checks:
         checked_result = by_path.get(check.field)
         if (
@@ -278,6 +301,13 @@ def verify(
                 "or a wrapped table layout"
             )
 
+    for column_check in column_checks:
+        checked_result = by_path.get(column_check.field)
+        if checked_result is not None and column_check.status == "contradictory":
+            if checked_result.status == FieldStatus.VERIFIED:
+                checked_result.status = FieldStatus.NEEDS_REVIEW
+            checked_result.reasons.append(f"column association needs review: {column_check.reason}")
+
     cross_field_checks = audit_cross_field(data)
     cross_field_issues = [issue for check in cross_field_checks if (issue := check.issue())]
     _apply_cross_field_issues(results, cross_field_issues)
@@ -287,6 +317,7 @@ def verify(
         cross_field_issues=cross_field_issues,
         cross_field_checks=cross_field_checks,
         row_checks=row_checks,
+        column_checks=column_checks,
         ocr=document.ocr,
     )
 

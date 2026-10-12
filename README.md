@@ -186,6 +186,11 @@ on your machine. From a source checkout, build the UI first (see
   share its description's visual line. `report.row_checks` keeps both source
   locations and distinguishes same-line, separate and unavailable evidence.
   Wrapped rows may need review; sharing a line does not prove a table column.
+- **Column contradictions (source checkout)** - complete, explicitly labelled
+  invoice tables can expose a quantity/unit-price swap even when multiplication
+  passes. `report.column_checks` records aligned, contradictory and unavailable
+  evidence with header and number locations. See the
+  [controlled layouts and coverage limits](studies/column-evidence/README.md).
 - **A review UI that shows the reasoning** - flagged fields sort to the top;
   click a field to jump to its evidence on the page; hover a highlight to
   see which field it supports; currency fields display formatted (`312.50`,
@@ -480,6 +485,11 @@ four hold:
    unavailable row evidence sends otherwise supported numbers to review;
    their located quotes remain visible. Custom schemas opt in using
    [`RowEvidenceRule`](studies/row-association/README.md#api-and-report-contract).
+   Its optional `column_headers` additionally checks numeric source locations
+   against complete header rows; built-in invoices declare Description, Qty,
+   Unit price and Amount (with documented alternatives). A contradictory
+   alignment requires review; unavailable column evidence leaves the source
+   verdict unchanged. This narrow check does not infer missing table structure.
    For invoices and receipts: line items must sum to
    the subtotal, subtotal + tax must equal the total (both within a $0.02
    tolerance), and the due date must not precede the issue date. A failed

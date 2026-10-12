@@ -19,6 +19,7 @@ from fieldproof.verify.value_checks import (
 )
 
 __all__ = [
+    "ColumnEvidenceCheck",
     "CrossFieldCheck",
     "CrossFieldIssue",
     "FieldStatus",
@@ -39,3 +40,4 @@ __all__ = [
     "parse_number",
     "verify",
 ]
+from fieldproof.verify.columns import ColumnEvidenceCheck

@@ -1,0 +1,85 @@
+{
+  "repository": "https://github.com/invoice-x/invoice2data",
+  "commit": "09378126e3ae86ddef5435ba166b4fc026e386a4",
+  "license": "MIT, Copyright (c) 2015 Manuel Riel; PDFs are not redistributed",
+  "scope": "Header coverage only, not claim verification or an accuracy measurement.",
+  "records": [
+    {
+      "file": "tests/compare/AmazonWebServices.pdf",
+      "bytes": 154526,
+      "sha256": "2e21d50f59a97b8c3778b238d14c9d7d15f74b8d021f819f1d2ede1f5412f81b",
+      "pages": 1,
+      "recognized_headers": []
+    },
+    {
+      "file": "tests/compare/AzureInterior.pdf",
+      "bytes": 40907,
+      "sha256": "0dc290329d39b3855d9893c1623074282d18aeb66fc30506f5f51c19cb2d7f2b",
+      "pages": 1,
+      "recognized_headers": []
+    },
+    {
+      "file": "tests/compare/FlipkartInvoice.pdf",
+      "bytes": 44791,
+      "sha256": "d57921532b83c0b622432324e98e8c8a566c44a6a3367b9f7862af10d7c97580",
+      "pages": 1,
+      "recognized_headers": []
+    },
+    {
+      "file": "tests/compare/NetpresseInvoice.pdf",
+      "bytes": 74468,
+      "sha256": "c7711ffe4f0c820d2bc3f1d15e0f5075b8cf3e9c831401beaa9cc36760ec11fc",
+      "pages": 1,
+      "recognized_headers": []
+    },
+    {
+      "file": "tests/compare/QualityHosting.pdf",
+      "bytes": 54391,
+      "sha256": "e33124038dfb87cc5a4d93320f8a482561a72a179413cae3c569c7513f0c3bed",
+      "pages": 2,
+      "recognized_headers": []
+    },
+    {
+      "file": "tests/compare/SammyMaystoneLinesTest.pdf",
+      "bytes": 15231,
+      "sha256": "f014ddfa83dd456ca89643fe8f3ca6579e32f68839970a408fd85fffe343afe8",
+      "pages": 1,
+      "recognized_headers": []
+    },
+    {
+      "file": "tests/compare/coolblue1.pdf",
+      "bytes": 53523,
+      "sha256": "3932539b71338f0c73d6ade499a2a00cd2f9056c60f5a87b1ef623af095e1607",
+      "pages": 1,
+      "recognized_headers": []
+    },
+    {
+      "file": "tests/compare/coolblue2.pdf",
+      "bytes": 61735,
+      "sha256": "ebf3e41e3bd322352099a81611a7d4d7a52fe9802b45eebe7df45674bbfb093c",
+      "pages": 1,
+      "recognized_headers": []
+    },
+    {
+      "file": "tests/compare/free_fiber.pdf",
+      "bytes": 120150,
+      "sha256": "a3701f395925c3797845d469365c2764a717453baee53c6df07a3cf20267bfa2",
+      "pages": 2,
+      "recognized_headers": []
+    },
+    {
+      "file": "tests/compare/oyo.pdf",
+      "bytes": 24447,
+      "sha256": "ca0ca71b47446882fecacabe4415d32e67849f9fd96f427d20252b99a388ae8a",
+      "pages": 1,
+      "recognized_headers": []
+    },
+    {
+      "file": "tests/compare/saeco.pdf",
+      "bytes": 49289,
+      "sha256": "67f89ff5db4bc45d35d7e747d864348cc702c3c3993359756df1bc78a939ca70",
+      "pages": 1,
+      "recognized_headers": []
+    }
+  ]
+}

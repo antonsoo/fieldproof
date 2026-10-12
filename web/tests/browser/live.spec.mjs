@@ -659,3 +659,54 @@ test('cropped PDF uses the visible canvas and highlights the actual evidence pos
   expect(Math.abs((box.x - frame.x) / frame.width - 50 / 400)).toBeLessThan(0.005);
   expect(Math.abs((box.y - frame.y) / frame.height - 90.484 / 500)).toBeLessThan(0.005);
 });
+
+test('explicit headers expose a quantity and price swap while preserving arithmetic evidence', async ({ page, request, browserName }) => {
+  const baseline = process.env.FIELDPROOF_COLUMN_BASELINE === '1';
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/column-evidence.pdf', import.meta.url)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('../../../examples/fixtures/column-evidence.json', import.meta.url)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  const quantity = row(page, 'line_items[0].quantity');
+  const price = row(page, 'line_items[0].unit_price');
+  for (const field of [quantity, price]) {
+    await expect(field.locator('.status-chip')).toHaveAttribute('data-status', baseline ? 'verified' : 'needs_review');
+    if (!baseline) await expect(field.locator('.field-reasons')).toContainText('column association needs review');
+  }
+  await expect(quantity.locator('.field-evidence')).toContainText('12.50');
+  await quantity.getByRole('button', { name: 'Inspect line_items[0].quantity', exact: true }).click();
+  await expect(page.locator('.highlight-rect[data-path="line_items[0].quantity"]')).toHaveCount(1);
+  await expect(page.locator('#page-frame img')).toBeVisible();
+  const url = (await page.locator('#page-frame img').getAttribute('src')).replace(/\/pages\/\d+\.png$/, '');
+  const original = await (await request.get(`${url}/report`)).json();
+  expect(original.report.counts).toEqual({ verified: baseline ? 10 : 8, needs_review: baseline ? 0 : 2, unsupported: 0 });
+  expect(original.report.cross_field_checks.find(check => check.rule === 'invoice.line_extension').status).toBe('passed');
+  if (baseline) expect(original.report.column_checks).toBeUndefined();
+  else {
+    expect(original.report.column_checks.map(check => check.status)).toEqual(['contradictory', 'contradictory', 'aligned']);
+    expect(original.report.column_checks[0]).toMatchObject({ observed_column: 'unit_price', headers: { quantity: { text: 'Qty' }, unit_price: { text: 'Unit price' } } });
+    expect(original.report.column_checks[0].value_locations[0].text).toBe('12.50');
+  }
+  const directory = fileURLToPath(new URL('../../../docs/assets/column-evidence', import.meta.url));
+  if (process.env.UPDATE_COLUMN_SCREENSHOTS) mkdirSync(directory, { recursive: true });
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 960 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await scan(page);
+    if (process.env.UPDATE_COLUMN_SCREENSHOTS && ((browserName === 'chromium' && width === 1440) || (browserName === 'firefox' && width === 375))) {
+      await page.screenshot({ path: `${directory}/${baseline ? 'before' : 'after'}-${browserName}-${width}.png`, fullPage: true });
+    }
+  }
+  await page.setViewportSize({ width: 1440, height: 960 });
+  for (const [field, value] of [[quantity, '3'], [price, '12.5']]) {
+    await field.getByRole('button', { name: 'Edit', exact: true }).click();
+    await field.getByRole('textbox').fill(value);
+    await field.getByRole('button', { name: 'Save', exact: true }).click();
+    await expect(field.locator('.review-badge')).toHaveText('edited');
+  }
+  const exported = JSON.parse((await downloadText(page, 'JSON')).text);
+  expect(exported.find(field => field.field === 'line_items[0].quantity')).toMatchObject({ value: 3, original_value: 12.5, value_source: 'correction' });
+  expect(exported.find(field => field.field === 'line_items[0].unit_price')).toMatchObject({ value: 12.5, original_value: 3, value_source: 'correction' });
+  expect((await (await request.get(`${url}/report`)).json()).report).toEqual(original.report);
+  if (process.env.UPDATE_COLUMN_SCREENSHOTS) writeFileSync(`${directory}/${baseline ? 'before' : 'after'}-${browserName}.json`, JSON.stringify({ report: original.report, exported }, null, 2) + '\n');
+});

@@ -4,6 +4,19 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Explicit table-column evidence
+
+- Flag supported numeric quotes aligned with a different declared table header,
+  including quantity/unit-price swaps that preserve multiplication. Retain the
+  original quote boxes and separate arithmetic verdicts.
+- Add `column_headers` to `RowEvidenceRule` and `report.column_checks`, including
+  the server worker's serialized report. Invoice defaults recognize complete
+  Description / Qty / Unit price / Amount headers and declared alternatives.
+- Keep missing headers, intervening non-table rows, header gaps, and ambiguous
+  supporting numbers explicitly unavailable. No semantic or completeness proof
+  is inferred. Controlled PDFs and external coverage observations are retained
+  in `studies/column-evidence`.
+
 ### Scanned-PDF CLI fallback
 
 - Connect `extract` and `verify` to the existing optional local Tesseract loader

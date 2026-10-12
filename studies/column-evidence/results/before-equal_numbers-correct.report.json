@@ -1,0 +1,364 @@
+{
+  "fields": [
+    {
+      "path": "vendor_name",
+      "value": "Example Dispatch",
+      "status": "verified",
+      "reasons": [],
+      "match_score": 100.0,
+      "matched_text": "Example Dispatch",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 32.48400000000004,
+          "x1": 144.696,
+          "bottom": 44.48400000000004
+        }
+      ]
+    },
+    {
+      "path": "invoice_number",
+      "value": "COL-12",
+      "status": "verified",
+      "reasons": [],
+      "match_score": 100.0,
+      "matched_text": "Invoice COL-12",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 57.48400000000004,
+          "x1": 131.364,
+          "bottom": 69.48400000000004
+        }
+      ]
+    },
+    {
+      "path": "issue_date",
+      "value": "2026-10-12",
+      "status": "verified",
+      "reasons": [],
+      "match_score": 100.0,
+      "matched_text": "Issue Date: October 12, 2026",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 82.48400000000004,
+          "x1": 204.75599999999997,
+          "bottom": 94.48400000000004
+        }
+      ]
+    },
+    {
+      "path": "line_items[0].description",
+      "value": "Delivery",
+      "status": "verified",
+      "reasons": [],
+      "match_score": 100.0,
+      "matched_text": "Delivery",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 90.0,
+          "top": 167.48400000000004,
+          "x1": 133.332,
+          "bottom": 179.48400000000004
+        }
+      ]
+    },
+    {
+      "path": "line_items[0].quantity",
+      "value": 3.0,
+      "status": "verified",
+      "reasons": [],
+      "match_score": 100.0,
+      "matched_text": "Delivery 3 3.00 9.00",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 90.0,
+          "top": 167.48400000000004,
+          "x1": 568.352,
+          "bottom": 179.48400000000004
+        }
+      ]
+    },
+    {
+      "path": "line_items[0].unit_price",
+      "value": 3.0,
+      "status": "verified",
+      "reasons": [],
+      "match_score": 100.0,
+      "matched_text": "Delivery 3 3.00 9.00",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 90.0,
+          "top": 167.48400000000004,
+          "x1": 568.352,
+          "bottom": 179.48400000000004
+        }
+      ]
+    },
+    {
+      "path": "line_items[0].amount",
+      "value": 9.0,
+      "status": "verified",
+      "reasons": [],
+      "match_score": 100.0,
+      "matched_text": "Delivery 3 3.00 9.00",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 90.0,
+          "top": 167.48400000000004,
+          "x1": 568.352,
+          "bottom": 179.48400000000004
+        }
+      ]
+    },
+    {
+      "path": "subtotal",
+      "value": 9.0,
+      "status": "verified",
+      "reasons": [],
+      "match_score": 100.0,
+      "matched_text": "Subtotal 9.00",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 222.48400000000004,
+          "x1": 118.716,
+          "bottom": 234.48400000000004
+        }
+      ]
+    },
+    {
+      "path": "tax",
+      "value": 0.0,
+      "status": "verified",
+      "reasons": [],
+      "match_score": 100.0,
+      "matched_text": "Tax 0.00",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 247.48400000000004,
+          "x1": 94.69200000000001,
+          "bottom": 259.48400000000004
+        }
+      ]
+    },
+    {
+      "path": "total",
+      "value": 9.0,
+      "status": "verified",
+      "reasons": [],
+      "match_score": 100.0,
+      "matched_text": "Total 9.00",
+      "page": 1,
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 272.48400000000004,
+          "x1": 101.364,
+          "bottom": 284.484
+        }
+      ]
+    }
+  ],
+  "cross_field_issues": [],
+  "counts": {
+    "verified": 10,
+    "needs_review": 0,
+    "unsupported": 0
+  },
+  "cross_field_checks": [
+    {
+      "rule": "invoice.line_extension",
+      "fields": [
+        "line_items[0].quantity",
+        "line_items[0].unit_price",
+        "line_items[0].amount"
+      ],
+      "status": "passed",
+      "message": "line_items[0]: quantity x unit price = 9 (before discounts or adjustments) matches amount 9 (difference 0; tolerance 0.02)",
+      "operands": {
+        "line_items[0].quantity": "3.0",
+        "line_items[0].unit_price": "3.0",
+        "line_items[0].amount": "9.0"
+      },
+      "computed": "9",
+      "observed": "9",
+      "difference": "0",
+      "tolerance": "0.02"
+    },
+    {
+      "rule": "invoice.items_subtotal",
+      "fields": [
+        "line_items[0].amount",
+        "subtotal"
+      ],
+      "status": "passed",
+      "message": "line items sum = 9 matches subtotal 9 (difference 0; tolerance 0.02)",
+      "operands": {
+        "line_items[0].amount": "9.0",
+        "subtotal": "9.0"
+      },
+      "computed": "9",
+      "observed": "9",
+      "difference": "0",
+      "tolerance": "0.02"
+    },
+    {
+      "rule": "invoice.subtotal_tax_total",
+      "fields": [
+        "subtotal",
+        "tax",
+        "total"
+      ],
+      "status": "passed",
+      "message": "subtotal + tax = 9 matches total 9 (difference 0; tolerance 0.02)",
+      "operands": {
+        "subtotal": "9.0",
+        "tax": "0.0",
+        "total": "9.0"
+      },
+      "computed": "9",
+      "observed": "9",
+      "difference": "0",
+      "tolerance": "0.02"
+    },
+    {
+      "rule": "invoice.due_date_order",
+      "fields": [
+        "issue_date",
+        "due_date"
+      ],
+      "status": "not_checked",
+      "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+      "operands": {
+        "issue_date": "2026-10-12",
+        "due_date": null
+      },
+      "computed": null,
+      "observed": null,
+      "difference": null,
+      "tolerance": null
+    }
+  ],
+  "row_checks": [
+    {
+      "field": "line_items[0].quantity",
+      "anchor": "line_items[0].description",
+      "status": "same_line",
+      "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+      "field_source_status": "verified",
+      "anchor_source_status": "verified",
+      "field_location": {
+        "page": 1,
+        "text": "Delivery 3 3.00 9.00",
+        "start": 95,
+        "end": 115,
+        "rects": [
+          {
+            "x0": 90.0,
+            "top": 167.48400000000004,
+            "x1": 568.352,
+            "bottom": 179.48400000000004
+          }
+        ]
+      },
+      "anchor_location": {
+        "page": 1,
+        "text": "Delivery",
+        "start": 95,
+        "end": 103,
+        "rects": [
+          {
+            "x0": 90.0,
+            "top": 167.48400000000004,
+            "x1": 133.332,
+            "bottom": 179.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "field": "line_items[0].unit_price",
+      "anchor": "line_items[0].description",
+      "status": "same_line",
+      "reason": "line_items[0].unit_price and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+      "field_source_status": "verified",
+      "anchor_source_status": "verified",
+      "field_location": {
+        "page": 1,
+        "text": "Delivery 3 3.00 9.00",
+        "start": 95,
+        "end": 115,
+        "rects": [
+          {
+            "x0": 90.0,
+            "top": 167.48400000000004,
+            "x1": 568.352,
+            "bottom": 179.48400000000004
+          }
+        ]
+      },
+      "anchor_location": {
+        "page": 1,
+        "text": "Delivery",
+        "start": 95,
+        "end": 103,
+        "rects": [
+          {
+            "x0": 90.0,
+            "top": 167.48400000000004,
+            "x1": 133.332,
+            "bottom": 179.48400000000004
+          }
+        ]
+      }
+    },
+    {
+      "field": "line_items[0].amount",
+      "anchor": "line_items[0].description",
+      "status": "same_line",
+      "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+      "field_source_status": "verified",
+      "anchor_source_status": "verified",
+      "field_location": {
+        "page": 1,
+        "text": "Delivery 3 3.00 9.00",
+        "start": 95,
+        "end": 115,
+        "rects": [
+          {
+            "x0": 90.0,
+            "top": 167.48400000000004,
+            "x1": 568.352,
+            "bottom": 179.48400000000004
+          }
+        ]
+      },
+      "anchor_location": {
+        "page": 1,
+        "text": "Delivery",
+        "start": 95,
+        "end": 103,
+        "rects": [
+          {
+            "x0": 90.0,
+            "top": 167.48400000000004,
+            "x1": 133.332,
+            "bottom": 179.48400000000004
+          }
+        ]
+      }
+    }
+  ]
+}

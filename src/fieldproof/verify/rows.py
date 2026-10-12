@@ -8,6 +8,7 @@ can require review even when all their claims are correct.
 from __future__ import annotations
 
 import re
+from collections.abc import Mapping
 from dataclasses import asdict, dataclass
 from typing import TYPE_CHECKING, Any, Literal
 
@@ -32,11 +33,18 @@ class RowEvidenceRule:
     "invoice.line_items". `anchor` and `fields` are direct Evidenced members
     of its items. Rules are explicit for custom schemas; a list alone does
     not assert that an object's fields are printed together.
+
+    Optional `column_headers` maps every named member, including the anchor,
+    to exact header-label alternatives (case and whitespace insensitive).
+    Only complete header rows and contiguous, fully aligned data rows qualify.
+    Unavailable column evidence does not change a source verdict; a numeric
+    quote aligned with a different configured header requires review.
     """
 
     collection: str
     anchor: str
     fields: tuple[str, ...]
+    column_headers: Mapping[str, tuple[str, ...]] | None = None
 
     def __post_init__(self) -> None:
         if not self.collection or any(not _NAME.fullmatch(p) for p in self.collection.split(".")):
@@ -52,6 +60,25 @@ class RowEvidenceRule:
         ):
             raise ValueError("row rule fields must be distinct direct fields, excluding the anchor")
         object.__setattr__(self, "fields", tuple(self.fields))
+        if self.column_headers is not None:
+            if not isinstance(self.column_headers, Mapping):
+                raise ValueError("column headers must map field names to header labels")
+            if set(self.column_headers) != {self.anchor, *self.fields}:
+                raise ValueError("column headers must name the anchor and every row field")
+            headers = {}
+            seen = set()
+            for name, labels in self.column_headers.items():
+                if isinstance(labels, str) or not labels:
+                    raise ValueError("each column needs a nonempty sequence of header labels")
+                for label in labels:
+                    if not isinstance(label, str) or not label.strip():
+                        raise ValueError("column header labels must be nonempty strings")
+                    normalized = " ".join(label.casefold().split())
+                    if normalized in seen:
+                        raise ValueError("column header labels must be distinct")
+                    seen.add(normalized)
+                headers[name] = tuple(labels)
+            object.__setattr__(self, "column_headers", headers)
 
 
 @dataclass(frozen=True)
@@ -72,7 +99,19 @@ class RowEvidenceCheck:
 
 def default_row_rules(data: BaseModel) -> tuple[RowEvidenceRule, ...]:
     if isinstance(data, Invoice):
-        return (RowEvidenceRule("line_items", "description", ("quantity", "unit_price", "amount")),)
+        return (
+            RowEvidenceRule(
+                "line_items",
+                "description",
+                ("quantity", "unit_price", "amount"),
+                column_headers={
+                    "description": ("Description", "Item description"),
+                    "quantity": ("Qty", "Quantity"),
+                    "unit_price": ("Unit price",),
+                    "amount": ("Amount", "Line total"),
+                },
+            ),
+        )
     if isinstance(data, Receipt):
         return (RowEvidenceRule("items", "description", ("quantity", "amount")),)
     return ()

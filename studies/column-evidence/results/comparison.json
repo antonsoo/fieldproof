@@ -1,0 +1,1183 @@
+{
+  "cases": 308,
+  "identical_pdf_and_input_pairs": 308,
+  "unchanged_arithmetic_ledgers": 308,
+  "unchanged_item_source_locations": 1232,
+  "column_checks": {
+    "aligned": 586,
+    "contradictory": 292,
+    "unavailable": 46
+  },
+  "changed_fields": 292,
+  "changes": [
+    {
+      "case": "0-1-2-3-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-2-3-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-1-2-3-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-2-3-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-1-2-3-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-2-3-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-1-2-3-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-2-3-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-1-2-3-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-2-3-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-1-2-3-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-2-3-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-1-3-2-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-3-2-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-1-3-2-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-3-2-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-1-3-2-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-3-2-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-1-3-2-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-3-2-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-1-3-2-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-3-2-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-1-3-2-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-1-3-2-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-1-3-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-1-3-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-1-3-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-1-3-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-1-3-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-1-3-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-1-3-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-1-3-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-1-3-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-1-3-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-1-3-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-1-3-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-3-1-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-3-1-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-3-1-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-3-1-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-3-1-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-3-1-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-3-1-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-3-1-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-3-1-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-3-1-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-2-3-1-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-2-3-1-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-1-2-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-1-2-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-1-2-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-1-2-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-1-2-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-1-2-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-1-2-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-1-2-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-1-2-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-1-2-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-1-2-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-1-2-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-2-1-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-2-1-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-2-1-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-2-1-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-2-1-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-2-1-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-2-1-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-2-1-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-2-1-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-2-1-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "0-3-2-1-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "0-3-2-1-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-2-3-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-2-3-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-2-3-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-2-3-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-2-3-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-2-3-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-2-3-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-2-3-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-2-3-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-2-3-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-2-3-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-2-3-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-3-2-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-3-2-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-3-2-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-3-2-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-3-2-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-3-2-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-3-2-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-3-2-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-3-2-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-3-2-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-0-3-2-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-0-3-2-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-0-3-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-0-3-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-0-3-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-0-3-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-0-3-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-0-3-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-0-3-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-0-3-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-0-3-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-0-3-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-0-3-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-0-3-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-3-0-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-3-0-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-3-0-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-3-0-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-3-0-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-3-0-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-3-0-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-3-0-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-3-0-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-3-0-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-2-3-0-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-2-3-0-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-0-2-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-0-2-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-0-2-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-0-2-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-0-2-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-0-2-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-0-2-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-0-2-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-0-2-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-0-2-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-0-2-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-0-2-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-2-0-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-2-0-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-2-0-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-2-0-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-2-0-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-2-0-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-2-0-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-2-0-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-2-0-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-2-0-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "1-3-2-0-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "1-3-2-0-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-1-3-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-1-3-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-1-3-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-1-3-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-1-3-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-1-3-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-1-3-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-1-3-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-1-3-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-1-3-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-1-3-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-1-3-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-3-1-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-3-1-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-3-1-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-3-1-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-3-1-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-3-1-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-3-1-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-3-1-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-3-1-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-3-1-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-0-3-1-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-0-3-1-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-0-3-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-0-3-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-0-3-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-0-3-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-0-3-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-0-3-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-0-3-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-0-3-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-0-3-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-0-3-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-0-3-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-0-3-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-3-0-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-3-0-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-3-0-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-3-0-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-3-0-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-3-0-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-3-0-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-3-0-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-3-0-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-3-0-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-1-3-0-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-1-3-0-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-0-1-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-0-1-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-0-1-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-0-1-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-0-1-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-0-1-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-0-1-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-0-1-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-0-1-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-0-1-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-0-1-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-0-1-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-1-0-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-1-0-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-1-0-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-1-0-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-1-0-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-1-0-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-1-0-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-1-0-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-1-0-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-1-0-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "2-3-1-0-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "2-3-1-0-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-1-2-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-1-2-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-1-2-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-1-2-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-1-2-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-1-2-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-1-2-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-1-2-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-1-2-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-1-2-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-1-2-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-1-2-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-2-1-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-2-1-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-2-1-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-2-1-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-2-1-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-2-1-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-2-1-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-2-1-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-2-1-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-2-1-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-0-2-1-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-0-2-1-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-0-2-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-0-2-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-0-2-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-0-2-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-0-2-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-0-2-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-0-2-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-0-2-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-0-2-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-0-2-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-0-2-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-0-2-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-2-0-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-2-0-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-2-0-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-2-0-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-2-0-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-2-0-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-2-0-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-2-0-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-2-0-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-2-0-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-1-2-0-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-1-2-0-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-0-1-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-0-1-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-0-1-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-0-1-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-0-1-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-0-1-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-0-1-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-0-1-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-0-1-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-0-1-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-0-1-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-0-1-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-1-0-left-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-1-0-left-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-1-0-left-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-1-0-left-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-1-0-center-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-1-0-center-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-1-0-center-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-1-0-center-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-1-0-right-swapped-token",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-1-0-right-swapped-token",
+      "field": "unit_price"
+    },
+    {
+      "case": "3-2-1-0-right-swapped-row",
+      "field": "quantity"
+    },
+    {
+      "case": "3-2-1-0-right-swapped-row",
+      "field": "unit_price"
+    },
+    {
+      "case": "aliases-swapped",
+      "field": "quantity"
+    },
+    {
+      "case": "aliases-swapped",
+      "field": "unit_price"
+    },
+    {
+      "case": "uppercase-swapped",
+      "field": "quantity"
+    },
+    {
+      "case": "uppercase-swapped",
+      "field": "unit_price"
+    }
+  ],
+  "scope": "Constructed PDFs and scripted claims; not an extraction accuracy estimate."
+}
