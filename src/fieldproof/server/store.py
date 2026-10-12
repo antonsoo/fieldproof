@@ -4,8 +4,8 @@ This is deliberately not a database: fieldproof's server is a local review
 tool (`fieldproof serve`), not a multi-user service, and every session's
 state - the uploaded PDF, extraction, and review decisions - lives only as
 long as the process does. Restarting the server starts over. If you need
-persistence across restarts, export the approved values (`/export.json`)
-before stopping it.
+persistence across restarts, save a review archive (`/archive`) before stopping
+it. Reopening an archive creates a new session and recomputes verification.
 """
 
 from __future__ import annotations
@@ -38,6 +38,7 @@ class DocumentSession:
     extraction: ExtractionResult | None = None
     report: VerificationReport | None = None
     review: dict[str, ReviewState] = field(default_factory=dict)
+    restored_from_archive: bool = False
     review_lock: Any = field(default_factory=threading.RLock, repr=False, compare=False)
 
 
@@ -102,6 +103,11 @@ class DocumentStore:
         document: Document,
         *,
         reservation: str | None = None,
+        schema_name: str | None = None,
+        extraction: ExtractionResult | None = None,
+        report: VerificationReport | None = None,
+        review: dict[str, ReviewState] | None = None,
+        restored_from_archive: bool = False,
     ) -> DocumentSession:
         with self._lock:
             self._check_capacity(len(pdf_bytes), reservation=reservation)
@@ -117,7 +123,15 @@ class DocumentStore:
                     "Open Sessions to export and remove a document before uploading another."
                 )
             session = DocumentSession(
-                id=uuid.uuid4().hex, filename=filename, pdf_bytes=pdf_bytes, document=document
+                id=uuid.uuid4().hex,
+                filename=filename,
+                pdf_bytes=pdf_bytes,
+                document=document,
+                schema_name=schema_name,
+                extraction=extraction,
+                report=report,
+                review=review if review is not None else {},
+                restored_from_archive=restored_from_archive,
             )
             self._sessions[session.id] = session
             if reservation is not None:

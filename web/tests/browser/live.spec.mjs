@@ -27,6 +27,75 @@ async function extract(page) {
   await expect(row(page, 'total')).toBeVisible();
 }
 
+test('review archives restore every decision after the original session is removed', async ({ page, request }) => {
+  await page.setViewportSize({ width: 375, height: 900 });
+  await extract(page);
+  const total = row(page, 'total');
+  await total.getByRole('button', { name: 'Edit', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Save archive', exact: true })).toBeDisabled();
+  await total.getByRole('textbox').fill('123.5');
+  await total.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect(total.locator('.review-badge')).toHaveText('edited');
+  await row(page, 'vendor_name').getByRole('button', { name: 'Approve', exact: true }).click();
+  await row(page, 'po_number').getByRole('button', { name: 'Reject', exact: true }).click();
+  await expect(row(page, 'po_number').locator('.review-badge')).toHaveText('rejected');
+  const listing = await (await request.get('/api/documents')).json();
+  const id = listing.documents[0].id;
+  const before = await (await request.get(`/api/documents/${id}/report`)).json();
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Save archive', exact: true }).click();
+  const download = await pending;
+  expect(download.suggestedFilename()).toBe('fieldproof-review.zip');
+  const path = await download.path();
+  expect((await request.delete(`/api/documents/${id}`)).status()).toBe(204);
+  await page.reload();
+  await page.getByLabel('Review archive', { exact: true }).setInputFiles(path);
+  await expect(row(page, 'total').locator('.field-value')).toHaveText('123.50');
+  await expect(page.getByText('Opened from a review archive.', { exact: false })).toBeVisible();
+  const restored = (await (await request.get('/api/documents')).json()).documents[0];
+  expect(restored.id).not.toBe(id);
+  expect(await (await request.get(`/api/documents/${restored.id}/report`)).json()).toEqual(before);
+  const exported = JSON.parse((await downloadText(page, 'JSON')).text);
+  expect(exported.map(entry => entry.field)).toEqual(['vendor_name', 'total']);
+  expect(exported.find(entry => entry.field === 'total')).toMatchObject({ value: 123.5, value_source: 'correction' });
+  await total.getByRole('button', { name: 'Inspect total', exact: true }).click();
+  await expect(page.locator('.highlight-rect[data-path="total"]').first()).toBeVisible();
+  await expect(page.locator('#page-frame img')).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await scan(page);
+});
+
+test('archive failures and cancellation keep existing reviews recoverable', async ({ page, request }) => {
+  await extract(page);
+  await row(page, 'total').getByRole('button', { name: 'Approve', exact: true }).click();
+  await expect(row(page, 'total').locator('.review-badge')).toHaveText('approved');
+  const id = (await (await request.get('/api/documents')).json()).documents[0].id;
+  const original = await (await request.get(`/api/documents/${id}/report`)).json();
+  let downloads = 0;
+  page.on('download', () => downloads++);
+  await page.route('**/archive', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{"detail":"Archive temporarily busy"}' }));
+  await page.getByRole('button', { name: 'Save archive', exact: true }).click();
+  await expect(page.getByRole('alert')).toHaveText('Archive temporarily busy');
+  await expect(row(page, 'total').locator('.review-badge')).toHaveText('approved');
+  await page.unroute('**/archive');
+  let release;
+  const held = new Promise(resolve => { release = resolve; });
+  await page.route('**/archive', async route => { await held; await route.abort(); });
+  await page.getByRole('button', { name: 'Retry', exact: true }).click();
+  await expect(page.getByText('Saving review archive…')).toBeVisible();
+  await page.locator('#cancel-operation').click();
+  release();
+  await expect(page.getByRole('button', { name: 'Save archive', exact: true })).toBeEnabled();
+  await page.getByRole('button', { name: 'New document', exact: true }).click();
+  await page.getByLabel('Review archive', { exact: true }).setInputFiles({ name: 'broken.zip', mimeType: 'application/zip', buffer: Buffer.from('broken') });
+  await expect(page.getByRole('alert')).toContainText('Could not restore review');
+  expect(await (await request.get(`/api/documents/${id}/report`)).json()).toEqual(original);
+  await page.getByRole('button', { name: 'Sessions', exact: true }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Open', exact: true }).click();
+  await expect(row(page, 'total').locator('.review-badge')).toHaveText('approved');
+  expect(downloads).toBe(0);
+});
+
 test('a negated extracted date remains reviewable with its original evidence and exports', async ({ page, request, browserName }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../studies/date-claims/date-claims.pdf', import.meta.url)));

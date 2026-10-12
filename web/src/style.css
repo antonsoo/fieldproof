@@ -122,7 +122,7 @@
     --color-verified-bg: rgba(73, 201, 179, 0.14);
     --color-review: #e3ab41;
     --color-review-bg: rgba(227, 171, 65, 0.14);
-    --color-unsupported: #e2685c;
+    --color-unsupported: #f07a6f;
     --color-unsupported-bg: rgba(226, 104, 92, 0.14);
     color-scheme: dark;
   }
@@ -145,7 +145,7 @@
   --color-verified-bg: rgba(73, 201, 179, 0.14);
   --color-review: #e3ab41;
   --color-review-bg: rgba(227, 171, 65, 0.14);
-  --color-unsupported: #e2685c;
+  --color-unsupported: #f07a6f;
   --color-unsupported-bg: rgba(226, 104, 92, 0.14);
   color-scheme: dark;
 }

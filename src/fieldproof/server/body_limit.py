@@ -10,6 +10,7 @@ from starlette.types import ASGIApp, Message, Receive, Scope, Send
 
 MAX_PDF_BYTES = 25 * 1024 * 1024
 MAX_FIXTURE_BYTES = 2 * 1024 * 1024
+MAX_ARCHIVE_BYTES = 30 * 1024 * 1024
 
 
 class BodyLimitMiddleware:
@@ -23,7 +24,9 @@ class BodyLimitMiddleware:
             await self.app(scope, receive, send)
             return
         maximum = (
-            MAX_PDF_BYTES + 1024 * 1024
+            MAX_ARCHIVE_BYTES + 1024 * 1024
+            if path == "/api/archives"
+            else MAX_PDF_BYTES + 1024 * 1024
             if path == "/api/documents"
             else MAX_FIXTURE_BYTES + 1024 * 1024
             if path.endswith("/extract")

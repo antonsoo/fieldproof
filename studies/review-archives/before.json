@@ -1,0 +1,38 @@
+{
+  "cases": [
+    {
+      "sample": "invoice",
+      "pdf_sha256": "32d026999bf2318034f8d03df2b655b2c5f210245b3153b4068f64f333147175",
+      "fields": 25,
+      "save_archive_status": 404,
+      "old_session_after_restart": 404,
+      "restore_status": 404
+    },
+    {
+      "sample": "receipt",
+      "pdf_sha256": "7cef321b47e1272523a831148e2c2787d8805c4835c536aa3fb326421aabffee",
+      "fields": 18,
+      "save_archive_status": 404,
+      "old_session_after_restart": 404,
+      "restore_status": 404
+    },
+    {
+      "sample": "contract",
+      "pdf_sha256": "8b0dfce01c4758e673ab7423b51809caa3610c22a90091447999e9aa98562318",
+      "fields": 10,
+      "save_archive_status": 404,
+      "old_session_after_restart": 404,
+      "restore_status": 404
+    },
+    {
+      "sample": "line-arithmetic",
+      "pdf_sha256": "f375a9e52a0508c40d21baf44d450fbe126506ea4982c46a2730fb4d8c009b48",
+      "fields": 10,
+      "save_archive_status": 404,
+      "old_session_after_restart": 404,
+      "restore_status": 404
+    }
+  ],
+  "model_calls": 0,
+  "inputs": "Four repository synthetic PDF/fixture pairs"
+}

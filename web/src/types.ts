@@ -65,6 +65,7 @@ export interface DocumentSummary {
   filename: string;
   page_count: number;
   pages: DocumentPage[];
+  restored_from_archive?: boolean;
 }
 
 export interface SessionSummary extends DocumentSummary {

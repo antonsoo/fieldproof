@@ -291,6 +291,7 @@ function renderTopbar(): void {
     <div class="topbar-controls">
       ${ds.kind === "live" ? '<button class="btn" id="sessions" type="button">Sessions</button>' : ""}
       ${ds.kind === "live" && state.document ? `<button class="btn" id="new-document" type="button" ${state.editingPath ? 'disabled title="Save or cancel the correction first"' : ""}>New document</button>` : ""}
+      ${ds.saveArchive && state.extraction ? `<button class="btn" id="save-archive" type="button" title="Save the PDF, extracted claims and every saved decision, including pending and rejected fields" ${state.busy || state.editingPath || pendingReviews.get(state.extraction)?.size ? "disabled" : ""}>Save archive</button>` : ""}
       ${state.extraction ? exportControlsHtml() : ""}
       <button class="btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">
         ${currentTheme() === "dark" ? "☀️ Light" : "☽ Dark"}
@@ -303,6 +304,7 @@ function renderTopbar(): void {
   bar.querySelector<HTMLButtonElement>("#export-csv")?.addEventListener("click", () => exportAs("csv"));
   bar.querySelector<HTMLButtonElement>("#export-xlsx")?.addEventListener("click", () => exportAs("xlsx"));
   bar.querySelector<HTMLButtonElement>("#new-document")?.addEventListener("click", resetToStart);
+  bar.querySelector<HTMLButtonElement>("#save-archive")?.addEventListener("click", () => void saveArchive());
   bar.querySelector<HTMLButtonElement>("#sessions")?.addEventListener("click", () => sessionsDialog?.show());
   bar.querySelector<HTMLSelectElement>("#export-scope")?.addEventListener("change", (event) => {
     state.exportScope = (event.target as HTMLSelectElement).value as AppState["exportScope"];
@@ -429,13 +431,28 @@ function renderStart(): void {
     <div class="start-state">
       <h1>Upload a document</h1>
       <p>PDF with a text layer, up to 25 MiB and 64 pages. Extraction runs against the fixture provider or Claude, then every field is grounded and verified against the page.</p>
-      <p>Saved documents can be reopened from Sessions while this server is running.</p>
+      <p>Sessions stay in this server until it restarts. Save a review archive to resume later.</p>
       <button class="dropzone" id="choose-file" type="button">Drop a PDF here, or choose a file</button>
       <input type="file" id="file-input" accept="application/pdf" class="visually-hidden" aria-label="PDF document" tabindex="-1" />
+      ${
+        ds.restoreArchive
+          ? `<button class="btn" id="choose-archive" type="button">Open review archive</button>
+      <input type="file" id="archive-input" accept=".zip,application/zip" class="visually-hidden" aria-label="Review archive" tabindex="-1" />
+      <p>Restore the PDF and all saved decisions from a Fieldproof ZIP (up to 30 MiB).
+        Automated checks are recomputed; no model is called.</p>`
+          : ""
+      }
     </div>
   `;
   const input = workbench.querySelector<HTMLInputElement>("#file-input")!;
   const zone = workbench.querySelector<HTMLElement>("#choose-file")!;
+  const archiveInput = workbench.querySelector<HTMLInputElement>("#archive-input");
+  workbench.querySelector("#choose-archive")?.addEventListener("click", () => archiveInput?.click());
+  archiveInput?.addEventListener("change", () => {
+    const file = archiveInput.files?.[0];
+    archiveInput.value = "";
+    if (file) void restoreArchive(file);
+  });
   zone.addEventListener("click", () => input.click());
   input.addEventListener("change", () => {
     const file = input.files?.[0];
@@ -544,6 +561,56 @@ async function openSession(id: string): Promise<void> {
     renderWorkbench();
   } catch (error) {
     finishOperation(owner, error instanceof Error ? error.message : "Could not open session.");
+  }
+}
+
+async function saveArchive(): Promise<void> {
+  if (
+    !ds.saveArchive ||
+    !state.document ||
+    !state.extraction ||
+    state.busy ||
+    state.editingPath ||
+    pendingReviews.get(state.extraction)?.size
+  )
+    return;
+  const id = state.document.id;
+  const owner = beginOperation("Saving review archive…", () => void saveArchive());
+  try {
+    const archive = await ds.saveArchive(id, owner.signal);
+    if (operation !== owner || owner.signal.aborted) return;
+    downloadBlob("fieldproof-review.zip", archive, "application/zip");
+    finishOperation(owner);
+    toast("Archive download started. It includes the PDF and all saved decisions.");
+  } catch (error) {
+    finishOperation(owner, error instanceof Error ? error.message : "Could not save archive.");
+  }
+}
+
+async function restoreArchive(file: File): Promise<void> {
+  if (
+    !ds.restoreArchive ||
+    state.editingPath ||
+    (state.extraction && pendingReviews.get(state.extraction)?.size)
+  )
+    return;
+  const owner = beginOperation("Restoring review and checking the PDF…", () => void restoreArchive(file));
+  try {
+    const loaded = await ds.restoreArchive(file, owner.signal);
+    if (operation !== owner || owner.signal.aborted) return;
+    state.document = loaded.document;
+    state.extraction = loaded.extraction;
+    state.fixtureFile = null;
+    resetView();
+    const fields = loaded.extraction?.report.fields ?? [];
+    const selected = fields.find((field) => field.status !== "verified") ?? fields[0];
+    state.selectedPath = selected?.path ?? null;
+    state.currentPage = selected?.page ?? 1;
+    finishOperation(owner);
+    renderWorkbench();
+    toast("Review restored. Automated checks were recomputed; no model was called.");
+  } catch (error) {
+    finishOperation(owner, error instanceof Error ? error.message : "Could not restore review.");
   }
 }
 
@@ -831,7 +898,9 @@ function renderFieldPaneHeader(): string {
       ${
         ds.kind === "demo"
           ? `<p class="demo-note">Synthetic fixture. ${ds.reviewPersistence === "session" ? "Tab only: export before reloading." : "Decisions saved in this browser."}</p>`
-          : ""
+          : state.document?.restored_from_archive
+            ? `<p class="demo-note">Opened from a review archive. Automated checks are recomputed from the original claims; saved decisions are user-supplied.</p>`
+            : ""
       }
     </div>
   `;

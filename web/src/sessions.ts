@@ -52,7 +52,7 @@ export class SessionsDialog {
         <button class="btn" id="close-sessions" type="button" ${this.pendingDelete ? "disabled" : ""}>Close</button>
       </div>
       <p>PDFs and saved decisions stay in this server until you remove them or restart it.
-      Export decisions you need to keep before removing a session.</p>
+      Save a review archive to resume later, or export the values you need before removing a session.</p>
       ${content}
     `;
     this.dialog.querySelector("#close-sessions")?.addEventListener("click", () => this.dialog.close());

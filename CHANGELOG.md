@@ -4,6 +4,15 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Portable review archives
+
+- Save a local review as an inspectable ZIP containing the PDF, original claims
+  and every saved human decision. Open it after restarting the server without
+  an API key or another extraction call.
+- Recompute automated verification on restore, keep corrections separate from
+  original claims, and create a new session only after validation succeeds.
+  Reject malformed, oversized and incompatible archives without evicting work.
+
 ### Literal spreadsheet export
 
 - Add XLSX downloads in the review UI and API. Identifiers and formula-like

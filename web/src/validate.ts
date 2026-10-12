@@ -53,6 +53,7 @@ export function validateDocument(value: unknown): DocumentSummary {
     typeof value.id !== "string" ||
     !value.id ||
     typeof value.filename !== "string" ||
+    (value.restored_from_archive !== undefined && typeof value.restored_from_archive !== "boolean") ||
     !Number.isSafeInteger(value.page_count) ||
     (value.page_count as number) < 1 ||
     !Array.isArray(value.pages) ||

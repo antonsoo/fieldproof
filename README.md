@@ -329,6 +329,20 @@ text, extraction and decisions; export anything you need first. Sessions
 remain in memory until removal or server restart. They are not a durable
 archive. An open correction must be saved or cancelled before navigating away.
 
+**Save archive** (source checkout, unreleased) downloads the PDF, original
+extracted claims and **all** saved decisions, including pending and rejected
+fields. After restarting `fieldproof serve`, choose **Open review archive**
+on the upload screen to continue. No model call or API key is needed.
+The archive is separate from the Reviewed/All value-export scope.
+
+Opening an archive creates a new session and reruns grounding and verification
+on the original claims. Human corrections stay separate. Automated verdicts
+can change with a different verifier version; the old report is not archived.
+This is an explicit save, not autosave: changes after downloading are not in
+that file. The ZIP includes the document's full contents, is unencrypted and
+editable, and does not authenticate who made its decisions. See the
+[format, limits and recovery instructions](docs/review-archives.md).
+
 The server refuses new work when a limit is reached and preserves the previous
 document and review. It never evicts a session to make room.
 
@@ -339,7 +353,8 @@ document and review. It never evicts a session to make room.
 | Extracted document text | 100,000 words and 2 million characters |
 | Retained sessions | 8 documents; 100 MiB of PDFs; 200,000 words total |
 | Fixture / review | 2 MiB fixture JSON; 2,000 fields; 1 MiB of saved corrections per session |
-| Pending work | 4 intake requests; 2 PDF uploads; 4 queued/running PDF or verification operations |
+| Review archive | 30 MiB ZIP; 25 MiB PDF; 2 MiB each for serialized claims and decisions; 8 KiB manifest |
+| Pending work | 4 intake requests; 2 PDF uploads or archive restores; 4 queued/running PDF or verification operations |
 
 PDF loading, page rendering and extraction verification run one at a time in disposable processes.
 Each operation has a 30-second execution timeout and a bounded queue wait.

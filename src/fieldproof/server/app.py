@@ -10,7 +10,6 @@ from __future__ import annotations
 import csv
 import io
 import json
-import math
 import os
 from pathlib import Path
 from typing import Annotated, Any, Literal
@@ -32,7 +31,13 @@ from fieldproof.extract.base import (
     validate_data,
 )
 from fieldproof.schemas import BUILTIN_SCHEMAS, iter_evidenced_fields
-from fieldproof.server.body_limit import MAX_FIXTURE_BYTES, MAX_PDF_BYTES, BodyLimitMiddleware
+from fieldproof.server.archive import decode_archive, encode_archive, valid_correction
+from fieldproof.server.body_limit import (
+    MAX_ARCHIVE_BYTES,
+    MAX_FIXTURE_BYTES,
+    MAX_PDF_BYTES,
+    BodyLimitMiddleware,
+)
 from fieldproof.server.pdf_work import (
     PdfWorkerBusyError,
     load_server_pdf,
@@ -122,6 +127,72 @@ async def upload_document(request: Request, file: Annotated[UploadFile, File()])
     return _document_summary(session)
 
 
+@app.post("/api/archives")
+async def restore_archive(request: Request, file: Annotated[UploadFile, File()]) -> dict[str, Any]:
+    if file.size is not None and file.size > MAX_ARCHIVE_BYTES:
+        raise HTTPException(status_code=413, detail="Review archive exceeds the 30 MiB limit")
+    try:
+        # Reserve a session/worker slot before decoding. The PDF byte budget is
+        # checked with its actual size at the atomic create below.
+        with store.reserve_upload(0) as token:
+            content = await file.read(MAX_ARCHIVE_BYTES + 1)
+            archived = await run_in_threadpool(decode_archive, content)
+            document = await run_in_threadpool(
+                load_server_pdf, archived.pdf_bytes, archived.filename
+            )
+            report = await run_in_threadpool(
+                verify_server_data, archived.schema_name, archived.extraction.data, document
+            )
+            if await request.is_disconnected():
+                raise HTTPException(status_code=499, detail="Restore cancelled before storing")
+            session = store.create(
+                archived.filename,
+                archived.pdf_bytes,
+                document,
+                reservation=token,
+                schema_name=archived.schema_name,
+                extraction=archived.extraction,
+                report=report,
+                review=archived.review,
+                restored_from_archive=True,
+            )
+    except StoreCapacityError as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+    except (SessionBusyError, PdfWorkerBusyError) as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    except DocumentLimitError as exc:
+        raise HTTPException(status_code=413, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=f"Could not restore review: {exc}") from exc
+    return {"document": _document_summary(session), "extraction": _result_payload(session)}
+
+
+@app.get("/api/documents/{document_id}/archive")
+def save_archive(document_id: str) -> Response:
+    session = _session_or_404(document_id)
+    try:
+        with session.review_lock:
+            if store.get(document_id) is not session:
+                raise HTTPException(status_code=404, detail="Document was removed")
+            if store.is_busy(document_id):
+                raise HTTPException(
+                    status_code=409, detail="Extraction is running; save the archive afterwards"
+                )
+            content = encode_archive(session)
+    except DocumentLimitError as exc:
+        raise HTTPException(status_code=413, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+    return Response(
+        content,
+        media_type="application/zip",
+        headers={
+            "Content-Disposition": 'attachment; filename="fieldproof-review.zip"',
+            "Cache-Control": "no-store",
+        },
+    )
+
+
 def _document_summary(session: DocumentSession) -> dict[str, Any]:
     with session.review_lock:
         return {
@@ -137,6 +208,7 @@ def _document_summary(session: DocumentSession) -> dict[str, Any]:
             "reviewed_count": sum(r.status != "pending" for r in session.review.values()),
             "field_count": len(session.review),
             "busy": store.is_busy(session.id),
+            "restored_from_archive": session.restored_from_archive,
         }
 
 
@@ -324,20 +396,7 @@ def review_field(document_id: str, req: ReviewRequest) -> dict[str, Any]:
             )
         elif req.action == "edit":
             original = next(f.value for f in session.report.fields if f.path == req.path)
-            if isinstance(original, bool):
-                valid = isinstance(req.value, bool)
-            elif isinstance(original, (int, float)):
-                try:
-                    valid = (
-                        isinstance(req.value, (int, float))
-                        and not isinstance(req.value, bool)
-                        and math.isfinite(req.value)
-                    )
-                except OverflowError:
-                    valid = False
-            else:
-                valid = isinstance(req.value, str)
-            if not valid:
+            if not valid_correction(original, req.value):
                 raise HTTPException(
                     status_code=422,
                     detail="correction must keep the field's scalar type and be finite",

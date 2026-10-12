@@ -29,6 +29,14 @@ export interface DataSource {
     signal?: AbortSignal,
   ): Promise<{ document: DocumentSummary; extraction: ExtractionResult | null }>;
   deleteSession?(id: string): Promise<void>;
+  saveArchive?(id: string, signal?: AbortSignal): Promise<Blob>;
+  restoreArchive?(
+    file: File,
+    signal?: AbortSignal,
+  ): Promise<{
+    document: DocumentSummary;
+    extraction: ExtractionResult | null;
+  }>;
   uploadDocument(file: File, signal?: AbortSignal): Promise<DocumentSummary>;
   pageImageUrl(documentId: string, pageNumber: number): string;
   extract(
@@ -58,6 +66,35 @@ async function asJson<T>(response: Response): Promise<T> {
  * vite.config.ts / README "Development" section). */
 export class ApiDataSource implements DataSource {
   readonly kind = "live" as const;
+
+  async saveArchive(id: string, signal?: AbortSignal): Promise<Blob> {
+    const response = await fetch(`/api/documents/${encodeURIComponent(id)}/archive`, {
+      signal: signal ?? null,
+    });
+    if (!response.ok) await asJson<unknown>(response);
+    return response.blob();
+  }
+
+  async restoreArchive(
+    file: File,
+    signal?: AbortSignal,
+  ): Promise<{
+    document: DocumentSummary;
+    extraction: ExtractionResult | null;
+  }> {
+    if (file.size > 30 * 1024 * 1024) throw new Error("Review archive exceeds the 30 MiB limit.");
+    const form = new FormData();
+    form.append("file", file);
+    const restored = await asJson<{ document: unknown; extraction: unknown }>(
+      await fetch("/api/archives", {
+        method: "POST",
+        body: form,
+        signal: signal ?? null,
+      }),
+    );
+    const document = validateDocument(restored?.document);
+    return { document, extraction: validateExtraction(restored?.extraction, document) };
+  }
 
   async listSessions(signal?: AbortSignal): Promise<SessionList> {
     return validateSessions(await asJson<unknown>(await fetch("/api/documents", { signal: signal ?? null })));
