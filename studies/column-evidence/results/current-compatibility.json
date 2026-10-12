@@ -1,0 +1,198 @@
+{
+  "scope": "Existing fixtures and constructed table cost; 5 verifications each, parsed PDF reused, fresh verification caches.",
+  "python": "3.12.12",
+  "fixtures": [
+    {
+      "fixture": "contract.json",
+      "pdf_sha256": "8b0dfce01c4758e673ab7423b51809caa3610c22a90091447999e9aa98562318",
+      "input_sha256": "8eb20f9b23484308383d436f382eef2f308c6a229d10fcb438b3e8acd00c171d",
+      "report_without_columns_sha256": "a36327a5511444c468e40ba48d9b72e0c8ab4341723de897afe1972b4c96516b",
+      "counts": {
+        "verified": 10,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "column_statuses": []
+    },
+    {
+      "fixture": "date-convention.json",
+      "pdf_sha256": "111cc13f04a27893f47caeaf74bd10da6161ab7f63267eb68f69ec678ec6e6f1",
+      "input_sha256": "e6cc7ea81e2ffe91aa4cc1c2690a65f506b048781699057660173784ddb43487",
+      "report_without_columns_sha256": "4d0dbc85b5d896fe31c656e725db8593e732fdbc863b2631120dd25095bb9a6e",
+      "counts": {
+        "verified": 3,
+        "needs_review": 1,
+        "unsupported": 0
+      },
+      "column_statuses": []
+    },
+    {
+      "fixture": "invoice.json",
+      "pdf_sha256": "32d026999bf2318034f8d03df2b655b2c5f210245b3153b4068f64f333147175",
+      "input_sha256": "9cfefa906c4bb323ac423aa94c96176c174f37114311286c9e98cf86c5f4bcdb",
+      "report_without_columns_sha256": "66cf55d5e8dcfba4c9518505b4c1dc476769470e6a8be6c9d86aa3f2dd515749",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "column_statuses": [
+        "aligned",
+        "aligned",
+        "aligned",
+        "aligned",
+        "unavailable",
+        "unavailable",
+        "aligned",
+        "aligned",
+        "aligned",
+        "aligned",
+        "unavailable",
+        "unavailable"
+      ]
+    },
+    {
+      "fixture": "line-arithmetic.json",
+      "pdf_sha256": "f375a9e52a0508c40d21baf44d450fbe126506ea4982c46a2730fb4d8c009b48",
+      "input_sha256": "418ce9859768823122908820569181e75dcc434a517ce8d0d69ea455bee4c594",
+      "report_without_columns_sha256": "c726b6731c90f4abee87af126cb2a65a5c140db36936f7d4fee7f31fcea4dfdf",
+      "counts": {
+        "verified": 7,
+        "needs_review": 3,
+        "unsupported": 0
+      },
+      "column_statuses": [
+        "aligned",
+        "aligned",
+        "aligned"
+      ]
+    },
+    {
+      "fixture": "mixed-conventions.json",
+      "pdf_sha256": "c9165c388477d885bfd2510c53e8332960a9f783e012ff31b94372b9b640693c",
+      "input_sha256": "3910a6bbe23c922c070725cb8eb9ce8e038f95137c468d654fa0ed3e4cf398a5",
+      "report_without_columns_sha256": "5f523d8f5b4636dccfdca9fc61b0dfc4befbc7c2d7d30a56f45350e04db0a309",
+      "counts": {
+        "verified": 2,
+        "needs_review": 2,
+        "unsupported": 0
+      },
+      "column_statuses": []
+    },
+    {
+      "fixture": "receipt.json",
+      "pdf_sha256": "7cef321b47e1272523a831148e2c2787d8805c4835c536aa3fb326421aabffee",
+      "input_sha256": "511e35d35ef24dba7c171bd8162b4ce867753db34999ad229366e4c8c5b2f487",
+      "report_without_columns_sha256": "d68018773aed1a3a34d81114ff26a81d5d62565ea84e7a72af6b217456ca698f",
+      "counts": {
+        "verified": 17,
+        "needs_review": 1,
+        "unsupported": 0
+      },
+      "column_statuses": []
+    },
+    {
+      "fixture": "row-association.json",
+      "pdf_sha256": "bd6221e2b1206843c306dc0dd4fe7c113c7d4526015d7242d729ecfcef173cc4",
+      "input_sha256": "c1dc0051dbe26df0995ecd8d4041883a42e5bb5e5275fbe783104dd70123fbcd",
+      "report_without_columns_sha256": "1c00d050161c0beeac972d950ef22cf3e2216c3260a2c873497e3bbb96b46f6e",
+      "counts": {
+        "verified": 14,
+        "needs_review": 1,
+        "unsupported": 0
+      },
+      "column_statuses": [
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable"
+      ]
+    },
+    {
+      "fixture": "row-locality.json",
+      "pdf_sha256": "fd3550678e0f284ba8efa4437bda8ef395ff48c86d0c7dbf7eeac32de3f75099",
+      "input_sha256": "e5de022096186edba0f0551521bfc173a51cded0a3df223bfd42e3737ecd317c",
+      "report_without_columns_sha256": "7c6d59fedcdf1d9b7f39d5c83f09de1c25bee9c525902b63e186b961c6f95a90",
+      "counts": {
+        "verified": 14,
+        "needs_review": 1,
+        "unsupported": 0
+      },
+      "column_statuses": [
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable",
+        "unavailable"
+      ]
+    },
+    {
+      "fixture": "signed-amount.json",
+      "pdf_sha256": "0468baade843452d04e8ef9b71cb55fae19b75bd434ab908d51060e23e8ddb14",
+      "input_sha256": "302e50e85e577ccfe69bedb45eb4e8e2b4e98631f718b82573d4c0edaea49add",
+      "report_without_columns_sha256": "b70cefede16a24b34ba4aa86ec049211386ce96c07e54fd04b458de088b5ee89",
+      "counts": {
+        "verified": 3,
+        "needs_review": 1,
+        "unsupported": 0
+      },
+      "column_statuses": []
+    }
+  ],
+  "cost": [
+    {
+      "rows": 10,
+      "pages": 1,
+      "times_ms": [
+        6.831687991507351,
+        11.136376997455955,
+        8.28827201621607,
+        9.226922004017979,
+        10.393492004368454
+      ],
+      "median_ms": 9.226922004017979,
+      "column_checks": 30,
+      "pdf_sha256": "9d0336f46c33bd76dc17659e5c1fa2dc0258db434b185914ac495218a0046522",
+      "report_without_columns_sha256": "26eb52e3dbe7f0469946e9c14b617a49fb5f33041b6e5600f4b13a87ffaaa0af"
+    },
+    {
+      "rows": 100,
+      "pages": 4,
+      "times_ms": [
+        111.17272500996478,
+        120.69137100479566,
+        117.56776299444027,
+        144.5575699908659,
+        118.36544601828791
+      ],
+      "median_ms": 118.36544601828791,
+      "column_checks": 300,
+      "pdf_sha256": "8e05457653c4cdc370b7790e95e80b4798da0ab896b656202fe38d70365c44da",
+      "report_without_columns_sha256": "b4175eec97d76406d93ce2a147792a6774bb0034463e1f8804528efa961b9966"
+    },
+    {
+      "rows": 300,
+      "pages": 10,
+      "times_ms": [
+        398.3376980177127,
+        359.7467039944604,
+        310.6317979982123,
+        344.1987990227062,
+        373.5794659878593
+      ],
+      "median_ms": 359.7467039944604,
+      "column_checks": 900,
+      "pdf_sha256": "f12302e42a25b1b6e8404c463af8f895a1e693e05a392978e29514b08294baef",
+      "report_without_columns_sha256": "5a3b8290b1ba35c8cd1af3dc2445c415c6b928ebd8a08b73dae83b1912c578f2"
+    }
+  ]
+}

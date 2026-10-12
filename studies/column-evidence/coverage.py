@@ -16,11 +16,12 @@ parser.add_argument("--src", required=True, type=Path)
 parser.add_argument("--corpus", required=True, type=Path)
 parser.add_argument("--out", required=True, type=Path)
 args = parser.parse_args()
+# Select the pinned source before importing the package under observation.
 sys.path.insert(0, str(args.src.resolve()))
-from fieldproof.document.loader import load_pdf
-from fieldproof.schemas import Invoice
-from fieldproof.verify.columns import _header, _lines
-from fieldproof.verify.rows import default_row_rules
+from fieldproof.document.loader import load_pdf  # noqa: E402
+from fieldproof.schemas import Invoice  # noqa: E402
+from fieldproof.verify.columns import _header, _lines  # noqa: E402
+from fieldproof.verify.rows import default_row_rules  # noqa: E402
 
 pin = "09378126e3ae86ddef5435ba166b4fc026e386a4"
 assert (

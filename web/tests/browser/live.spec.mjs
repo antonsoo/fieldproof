@@ -687,6 +687,7 @@ test('explicit headers expose a quantity and price swap while preserving arithme
     expect(original.report.column_checks[0]).toMatchObject({ observed_column: 'unit_price', headers: { quantity: { text: 'Qty' }, unit_price: { text: 'Unit price' } } });
     expect(original.report.column_checks[0].value_locations[0].text).toBe('12.50');
   }
+  await page.getByRole('searchbox', { name: 'Search fields', exact: true }).fill('line_items');
   const directory = fileURLToPath(new URL('../../../docs/assets/column-evidence', import.meta.url));
   if (process.env.UPDATE_COLUMN_SCREENSHOTS) mkdirSync(directory, { recursive: true });
   for (const width of [1440, 375]) {

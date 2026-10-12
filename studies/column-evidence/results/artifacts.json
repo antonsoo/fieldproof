@@ -1,0 +1,110 @@
+{
+  "baseline": "4cb9624f6a8342003bd81d7aea11e5e7cc1ddb25",
+  "production_commit": "6dfb2ee51953698522a91b4166efd1b2c402f1ef",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu_count": "14",
+  "runtime_versions": {
+    "311": "Python 3.11.13",
+    "314": "Python 3.14.7"
+  },
+  "clean_runtime": "Python 3.12.12",
+  "source_inputs_identical": 124,
+  "package_files_identical": 57,
+  "python_modules_identical": 34,
+  "package_comparison": "clean source, sdist, wheel, independent Python 3.11 and 3.14 installations",
+  "archives": [
+    {
+      "file": "fieldproof-0.2.7.tar.gz",
+      "bytes": 600091,
+      "sha256": "b7b784b9db014c95fdd5a947179b99ec95d72b64ec86254437c50c3afc3d6347"
+    },
+    {
+      "file": "fieldproof-0.2.7-py3-none-any.whl",
+      "bytes": 578247,
+      "sha256": "3245059c08bf3ecce0162b55a3fafec0b2bf415fc67c84720d963c1efd9a44ed"
+    }
+  ],
+  "served_assets_identical": 23,
+  "served_comparison": "baseline server and installed current server, all 23 built UI assets",
+  "installed_case_replays": {
+    "cases_per_interpreter": 308,
+    "files_per_interpreter": 9,
+    "byte_identical": true
+  },
+  "installed_cli": {
+    "workflows_per_interpreter": 20,
+    "json_files_per_interpreter": 20,
+    "byte_identical_between_interpreters": true
+  },
+  "browser": {
+    "full_scenarios": 76,
+    "paired_scenarios": 4,
+    "paired_viewports": 8,
+    "engines": [
+      "Chromium",
+      "Firefox"
+    ],
+    "widths": [
+      1440,
+      375
+    ],
+    "report_matches_cli": true,
+    "scope": "Local native-PDF UI; source push only; no hosted deployment"
+  },
+  "tests": {
+    "python_each": "437 passed, 1 skipped (real Tesseract unavailable)",
+    "web_unit": 50
+  },
+  "logs": [
+    {
+      "file": "clean-checks.log",
+      "bytes": 655,
+      "sha256": "cfdb742a675a55ac888ea2472220bfb1a0c751f69b9a71c90278d2ee3344cb0c"
+    },
+    {
+      "file": "clean-build.log",
+      "bytes": 3066,
+      "sha256": "37326b7d8e915ac99ed698dd5d2e6ecacf933d6101651712fc0fba483751be44"
+    },
+    {
+      "file": "clean-web-checks.log",
+      "bytes": 2549,
+      "sha256": "52a94bf2a16a251ccbc7c62c9364302c0054195c15bd4267959ce1034a642de6"
+    },
+    {
+      "file": "package-build.log",
+      "bytes": 181,
+      "sha256": "1196126e87b178936b859423e1a42b5bdf04b1430d7041e9a90a915a5272f24f"
+    },
+    {
+      "file": "installed311-tests.log",
+      "bytes": 592,
+      "sha256": "3a451552d4e5a26e74976a7ce2d7c1ee9698d41d7a69bf20ab6c5888518c3544"
+    },
+    {
+      "file": "installed314-tests.log",
+      "bytes": 592,
+      "sha256": "3ac92f92e648e23ec2e5c7932a310bc99fdddce07bdd77985e636117a71a15ca"
+    },
+    {
+      "file": "browser-before.log",
+      "bytes": 713,
+      "sha256": "ab6e2f83cb7b6dc3da36a5c7d7f88b0170f5f2c1492b31212f4e40859858ebaf"
+    },
+    {
+      "file": "browser-after.log",
+      "bytes": 713,
+      "sha256": "ce23c05c6e09ebf8901b54c2486e18bb73a52958a78f43e965cdd436d530fc18"
+    },
+    {
+      "file": "browser-full.log",
+      "bytes": 12500,
+      "sha256": "74d3766465e2ee929d9a5fa61d986e6639c3dce2a0d7fee970edeaec9c97bff3"
+    }
+  ],
+  "browser_harness": {
+    "archive_sha256": "9a1907b7b632a57e351c2e4b4080927006013c189401fc6b74fcac16f50a5f59",
+    "final_sha256": "c4ca3b10d486ad36fa216bb68b9f7baf3e3b48cc5f8e53d493dd2fc45b3f25f3",
+    "difference": "Final screenshot capture filters the visible list to line_items using its accessible searchbox; runtime source unchanged."
+  }
+}

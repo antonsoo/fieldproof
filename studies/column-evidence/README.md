@@ -151,3 +151,46 @@ runs the existing live/static-demo suite (demo defaults to port 4301).
 `UPDATE_COLUMN_SCREENSHOTS=1` saves the actual review screenshots and exported
 corrections. `FIELDPROOF_COLUMN_BASELINE=1` observes the old verdicts against the
 baseline server using the same new PDF/fixture.
+
+## Installed package, review workflow and cost
+
+The implementation commit is `6dfb2ee`. A clean archive builds the review UI,
+then an sdist and a wheel **from that sdist**. Separate Python 3.11 and 3.14
+installations run the same 308 cases and the documented fixture CLI flows.
+The [artifact receipt](results/artifacts.json) records byte comparisons and
+archive hashes; these are local package checks, not a registry release.
+
+Both browser engines inspect the original misplaced quotes, show the two
+contradiction reasons, edit quantity back to `3` and unit price to `12.5`, and
+export those corrections while preserving the original report. The same flow
+also runs against baseline source and the identical built UI. The field list
+is filtered to `line_items` for these real screenshots; no image annotations or
+synthetic UI are added.
+
+![Installed wheel: both misplaced fields require review while the original quotes remain visible](../../docs/assets/column-evidence/after-chromium-1440.png)
+
+[Baseline desktop](../../docs/assets/column-evidence/before-chromium-1440.png),
+[baseline phone](../../docs/assets/column-evidence/before-firefox-375.png),
+[current phone](../../docs/assets/column-evidence/after-firefox-375.png).
+All four final captures were visually inspected. The phone keeps both
+contradiction explanations readable; the document is available in its existing
+Document tab.
+
+[compatibility.py](compatibility.py) checks the nine existing PDF/fixture pairs.
+All 105 field verdicts and complete reports remain byte-equivalent after
+removing the additive column ledger. It also constructs 10-, 100- and 300-row
+multi-page invoices: every item's verdict and source evidence stays unchanged.
+Five fresh verifications reuse each parsed document; timings include report
+serialization. This is a local cost observation on 14-vCPU WSL2/Linux, Python
+3.12.12, not an isolated throughput benchmark or latency guarantee.
+
+| Constructed rows | Pages | Before median | Current median |
+| ---: | ---: | ---: | ---: |
+| 10 | 1 | 3.93 ms | 9.23 ms |
+| 100 | 4 | 44.94 ms | 118.37 ms |
+| 300 | 10 | 180.74 ms | 359.75 ms |
+
+The added observations have a real cost. Layout and contiguous-row checks are
+cached within a verification call, so repeated fields do not rescan all earlier
+rows. The source and installed-package checks do not establish OCR correctness,
+physical document quality, or production extraction accuracy.
