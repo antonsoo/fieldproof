@@ -54,8 +54,8 @@ not available for interactive verification.
 
 ## Reproduce
 
-Run from the repository root after `uv sync --locked --extra dev` and `npm ci
---prefix web`. The optional Docker image supplies the spreadsheet engine, not a
+Run from the repository root after `uv sync --locked --extra dev` and
+`npm ci --prefix web`. The optional Docker image supplies the spreadsheet engine, not a
 runtime dependency of Fieldproof:
 
 ```sh
@@ -76,3 +76,54 @@ docker run --rm --network none -v /tmp/fieldproof-xlsx:/work \
 
 The retained results record the exact engine, import settings and cell values.
 These cases exercise transport into a spreadsheet, not extraction accuracy.
+
+Microsoft's Open XML SDK validator is a second, independent structure check:
+
+```sh
+docker build -t fieldproof-openxml-check:local studies/spreadsheet-export/openxml
+docker run --rm --network none -v /tmp/fieldproof-xlsx:/work:ro \
+  fieldproof-openxml-check:local /work/api.xlsx /work/python-cases.xlsx /work/browser-cases.xlsx
+```
+
+The validator uses `DocumentFormat.OpenXml` 3.3.0. Passing it is not a claim that
+Microsoft Excel's interactive import was tested.
+
+## Retained verification
+
+The final implementation is `a0f04159d77f27ed911ed7bf169cd105a424e573`;
+the CSV baseline is `0e2b6825c9de53854b84e935c9cfb34a6e02c0e9`.
+A fresh archive passes lint/type checks, 505 Python checks (one real-Tesseract
+check skipped), 62 web unit checks and 82 browser workflows. The first complete
+browser run caught insufficient review space at 320 x 568 after adding a third
+export format. Compact visible format labels keep the existing accessible
+names and restore the usable field list; the final run passes in both engines.
+
+Fresh wheel installs on Python 3.11.13 and 3.14.7 run the documented fixture CLI
+and upload/extract/export API. Their JSON and CSV are byte-identical to the
+baseline. All 23 UI files match between the tested build, wheel and HTTP service.
+The added writer/compression code increases the live JavaScript bundle from
+12,456 to 18,253 gzip bytes. No Python runtime dependency was added.
+
+[Calc results](results/calc-summary.json) cover 15 actual workbooks: source API,
+both installed APIs, both writers' scalar cases, and reviewed/all downloads from
+Chromium and Firefox in both browser modes. All 299 rows match the expected
+scalar values, with the explicitly recorded CRLF normalization in eight cells
+across the four copies of the scalar workbook. None of the 1,649 text cells
+became a formula. [Open XML validation](results/openxml-validation.json) reports
+zero errors for every workbook. Byte-identical copies share one retained file.
+
+Representative files are directly inspectable:
+
+- [CSV baseline](results/baseline.csv) and [its JSON values](results/baseline.json).
+- [API workbook](results/api.xlsx), [reviewed browser download](results/browser-reviewed.xlsx)
+  and [all-fields browser download](results/browser-all.xlsx).
+- [Python scalar workbook](results/cases-python.xlsx) and
+  [browser scalar workbook](results/cases-browser.xlsx), from [the shared cases](cases.json).
+- [Desktop](../../docs/assets/spreadsheet-export/chromium-demo-1440.png) and
+  [phone](../../docs/assets/spreadsheet-export/firefox-live-375.png) screenshots.
+  All eight screenshots were viewed.
+- [Artifact receipt](verification.json), including source/archive, package,
+  served-file, container-image and retained-file hashes.
+
+This is source work with a locally built package. It does not publish a registry
+release or update the hosted demo.

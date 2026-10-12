@@ -1,0 +1,301 @@
+{
+  "engine": "LibreOffice 7.4.7.2 40(Build:2)",
+  "results": [
+    {
+      "file": "before.csv",
+      "mode": "standard-formulas",
+      "cells": {
+        "vendor_name": {
+          "text": "34",
+          "type": "VALUE",
+          "formula": "34",
+          "number": 34.0
+        },
+        "invoice_number": {
+          "text": "2",
+          "type": "FORMULA",
+          "formula": "=1+1",
+          "number": 2.0
+        },
+        "issue_date": {
+          "text": "2026-01-02",
+          "type": "VALUE",
+          "formula": "46024",
+          "number": 46024.0
+        },
+        "po_number": {
+          "text": "10000000000",
+          "type": "VALUE",
+          "formula": "10000000000",
+          "number": 10000000000.0
+        },
+        "line_items[0].description": {
+          "text": "1.23456789012346E+019",
+          "type": "VALUE",
+          "formula": "1.23456789012346E+019",
+          "number": 1.2345678901234567e+19
+        }
+      }
+    },
+    {
+      "file": "before.csv",
+      "mode": "standard-text-formulas",
+      "cells": {
+        "vendor_name": {
+          "text": "34",
+          "type": "VALUE",
+          "formula": "34",
+          "number": 34.0
+        },
+        "invoice_number": {
+          "text": "=1+1",
+          "type": "TEXT",
+          "formula": "=1+1",
+          "number": 0.0
+        },
+        "issue_date": {
+          "text": "2026-01-02",
+          "type": "VALUE",
+          "formula": "46024",
+          "number": 46024.0
+        },
+        "po_number": {
+          "text": "10000000000",
+          "type": "VALUE",
+          "formula": "10000000000",
+          "number": 10000000000.0
+        },
+        "line_items[0].description": {
+          "text": "1.23456789012346E+019",
+          "type": "VALUE",
+          "formula": "1.23456789012346E+019",
+          "number": 1.2345678901234567e+19
+        }
+      }
+    },
+    {
+      "file": "final-api/api.xlsx",
+      "bytes": 2867,
+      "sha256": "4b0a5517c6456b4b0240e1f770f95fd2ac15c03f56054095f9a78ddcbb3df196",
+      "rows": 25,
+      "text_cells": 127,
+      "numeric_or_boolean_cells": 54,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [],
+      "retained_workbook": "api.xlsx"
+    },
+    {
+      "file": "final-api/browser-cases.xlsx",
+      "bytes": 2863,
+      "sha256": "5ce59a630a246010c82d12263cee493e9901f651f1652b236f0941ce7051539f",
+      "rows": 27,
+      "text_cells": 159,
+      "numeric_or_boolean_cells": 35,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [
+        {
+          "cell": "B14",
+          "source": "a\r\nb",
+          "calc": "a\nb"
+        },
+        {
+          "cell": "C14",
+          "source": "a\r\nb",
+          "calc": "a\nb"
+        }
+      ],
+      "retained_workbook": "cases-browser.xlsx"
+    },
+    {
+      "file": "final-api/python-cases.xlsx",
+      "bytes": 2836,
+      "sha256": "d71d14bd513359c88680c7f90cb756a1cd21fde3ae1f82467b80a3556b56ff5f",
+      "rows": 27,
+      "text_cells": 159,
+      "numeric_or_boolean_cells": 35,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [
+        {
+          "cell": "B14",
+          "source": "a\r\nb",
+          "calc": "a\nb"
+        },
+        {
+          "cell": "C14",
+          "source": "a\r\nb",
+          "calc": "a\nb"
+        }
+      ],
+      "retained_workbook": "cases-python.xlsx"
+    },
+    {
+      "file": "final-browser/chromium-demo-all.xlsx",
+      "bytes": 2953,
+      "sha256": "ae764cc04b111edc3c172f3277c59af12fb761fababc4824a7ec1841911ed3a7",
+      "rows": 24,
+      "text_cells": 123,
+      "numeric_or_boolean_cells": 51,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [],
+      "retained_workbook": "browser-all.xlsx"
+    },
+    {
+      "file": "final-browser/chromium-demo-reviewed.xlsx",
+      "bytes": 2171,
+      "sha256": "1d442f0e352898da39891977448061d461bdb8c775d4e41fa8b0e96b1d00dc47",
+      "rows": 5,
+      "text_cells": 35,
+      "numeric_or_boolean_cells": 6,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [],
+      "retained_workbook": "browser-reviewed.xlsx"
+    },
+    {
+      "file": "final-browser/chromium-live-all.xlsx",
+      "bytes": 2953,
+      "sha256": "ae764cc04b111edc3c172f3277c59af12fb761fababc4824a7ec1841911ed3a7",
+      "rows": 24,
+      "text_cells": 123,
+      "numeric_or_boolean_cells": 51,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [],
+      "retained_workbook": "browser-all.xlsx"
+    },
+    {
+      "file": "final-browser/chromium-live-reviewed.xlsx",
+      "bytes": 2171,
+      "sha256": "1d442f0e352898da39891977448061d461bdb8c775d4e41fa8b0e96b1d00dc47",
+      "rows": 5,
+      "text_cells": 35,
+      "numeric_or_boolean_cells": 6,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [],
+      "retained_workbook": "browser-reviewed.xlsx"
+    },
+    {
+      "file": "final-browser/firefox-demo-all.xlsx",
+      "bytes": 2953,
+      "sha256": "ae764cc04b111edc3c172f3277c59af12fb761fababc4824a7ec1841911ed3a7",
+      "rows": 24,
+      "text_cells": 123,
+      "numeric_or_boolean_cells": 51,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [],
+      "retained_workbook": "browser-all.xlsx"
+    },
+    {
+      "file": "final-browser/firefox-demo-reviewed.xlsx",
+      "bytes": 2171,
+      "sha256": "1d442f0e352898da39891977448061d461bdb8c775d4e41fa8b0e96b1d00dc47",
+      "rows": 5,
+      "text_cells": 35,
+      "numeric_or_boolean_cells": 6,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [],
+      "retained_workbook": "browser-reviewed.xlsx"
+    },
+    {
+      "file": "final-browser/firefox-live-all.xlsx",
+      "bytes": 2953,
+      "sha256": "ae764cc04b111edc3c172f3277c59af12fb761fababc4824a7ec1841911ed3a7",
+      "rows": 24,
+      "text_cells": 123,
+      "numeric_or_boolean_cells": 51,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [],
+      "retained_workbook": "browser-all.xlsx"
+    },
+    {
+      "file": "final-browser/firefox-live-reviewed.xlsx",
+      "bytes": 2171,
+      "sha256": "1d442f0e352898da39891977448061d461bdb8c775d4e41fa8b0e96b1d00dc47",
+      "rows": 5,
+      "text_cells": 35,
+      "numeric_or_boolean_cells": 6,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [],
+      "retained_workbook": "browser-reviewed.xlsx"
+    },
+    {
+      "file": "final-installed-3.11-output/api.xlsx",
+      "bytes": 2867,
+      "sha256": "4b0a5517c6456b4b0240e1f770f95fd2ac15c03f56054095f9a78ddcbb3df196",
+      "rows": 25,
+      "text_cells": 127,
+      "numeric_or_boolean_cells": 54,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [],
+      "retained_workbook": "api.xlsx"
+    },
+    {
+      "file": "final-installed-3.11-output/python-cases.xlsx",
+      "bytes": 2836,
+      "sha256": "d71d14bd513359c88680c7f90cb756a1cd21fde3ae1f82467b80a3556b56ff5f",
+      "rows": 27,
+      "text_cells": 159,
+      "numeric_or_boolean_cells": 35,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [
+        {
+          "cell": "B14",
+          "source": "a\r\nb",
+          "calc": "a\nb"
+        },
+        {
+          "cell": "C14",
+          "source": "a\r\nb",
+          "calc": "a\nb"
+        }
+      ],
+      "retained_workbook": "cases-python.xlsx"
+    },
+    {
+      "file": "final-installed-3.14-output/api.xlsx",
+      "bytes": 2867,
+      "sha256": "4b0a5517c6456b4b0240e1f770f95fd2ac15c03f56054095f9a78ddcbb3df196",
+      "rows": 25,
+      "text_cells": 127,
+      "numeric_or_boolean_cells": 54,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [],
+      "retained_workbook": "api.xlsx"
+    },
+    {
+      "file": "final-installed-3.14-output/python-cases.xlsx",
+      "bytes": 2836,
+      "sha256": "d71d14bd513359c88680c7f90cb756a1cd21fde3ae1f82467b80a3556b56ff5f",
+      "rows": 27,
+      "text_cells": 159,
+      "numeric_or_boolean_cells": 35,
+      "text_cells_interpreted_as_formulas": 0,
+      "generated_formulas_or_hyperlinks": 0,
+      "newline_normalizations": [
+        {
+          "cell": "B14",
+          "source": "a\r\nb",
+          "calc": "a\nb"
+        },
+        {
+          "cell": "C14",
+          "source": "a\r\nb",
+          "calc": "a\nb"
+        }
+      ],
+      "retained_workbook": "cases-python.xlsx"
+    }
+  ]
+}

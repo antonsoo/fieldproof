@@ -1,0 +1,218 @@
+[
+  {
+    "field": "vendor_name",
+    "value": "=1+1",
+    "original_value": "Northwind Freight & Supply Co.",
+    "value_source": "correction",
+    "verification_status": "verified",
+    "review_status": "edited",
+    "page": 1
+  },
+  {
+    "field": "invoice_number",
+    "value": "00034",
+    "original_value": "NW-20260214",
+    "value_source": "correction",
+    "verification_status": "verified",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "issue_date",
+    "value": "2026-02-14",
+    "original_value": "2026-02-14",
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "due_date",
+    "value": "2026-03-16",
+    "original_value": "2026-03-16",
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "po_number",
+    "value": "1E10",
+    "original_value": "PO-88214",
+    "value_source": "correction",
+    "verification_status": "unsupported",
+    "review_status": "edited",
+    "page": null
+  },
+  {
+    "field": "line_items[0].description",
+    "value": "12345678901234567890",
+    "original_value": "Pallet freight - Oakland to Seattle",
+    "value_source": "correction",
+    "verification_status": "verified",
+    "review_status": "edited",
+    "page": 1
+  },
+  {
+    "field": "line_items[0].quantity",
+    "value": 12,
+    "original_value": 12,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[0].unit_price",
+    "value": 145,
+    "original_value": 145,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[0].amount",
+    "value": 1740,
+    "original_value": 1740,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[1].description",
+    "value": "Fuel surcharge",
+    "original_value": "Fuel surcharge",
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[1].quantity",
+    "value": 1,
+    "original_value": 1,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[1].unit_price",
+    "value": 210.5,
+    "original_value": 210.5,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[1].amount",
+    "value": 210.5,
+    "original_value": 210.5,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[2].description",
+    "value": "Liftgate delivery service",
+    "original_value": "Liftgate delivery service",
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[2].quantity",
+    "value": 3,
+    "original_value": 3,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[2].unit_price",
+    "value": 65,
+    "original_value": 65,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[2].amount",
+    "value": 195,
+    "original_value": 195,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[3].description",
+    "value": "Warehouse handling fee",
+    "original_value": "Warehouse handling fee",
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[3].quantity",
+    "value": 1,
+    "original_value": 1,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[3].unit_price",
+    "value": 312.5,
+    "original_value": 312.5,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "line_items[3].amount",
+    "value": 312.5,
+    "original_value": 312.5,
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "subtotal",
+    "value": 2458,
+    "original_value": 2458,
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "pending",
+    "page": 1
+  },
+  {
+    "field": "total",
+    "value": 123.45,
+    "original_value": 2600,
+    "value_source": "correction",
+    "verification_status": "needs_review",
+    "review_status": "edited",
+    "page": 1
+  },
+  {
+    "field": "payment_terms",
+    "value": "Net 30",
+    "original_value": "Net 30",
+    "value_source": "extraction",
+    "verification_status": "verified",
+    "review_status": "pending",
+    "page": 1
+  }
+]

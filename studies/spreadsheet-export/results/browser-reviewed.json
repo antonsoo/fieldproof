@@ -1,0 +1,47 @@
+[
+  {
+    "field": "vendor_name",
+    "value": "=1+1",
+    "original_value": "Northwind Freight & Supply Co.",
+    "value_source": "correction",
+    "verification_status": "verified",
+    "review_status": "edited",
+    "page": 1
+  },
+  {
+    "field": "invoice_number",
+    "value": "00034",
+    "original_value": "NW-20260214",
+    "value_source": "correction",
+    "verification_status": "verified",
+    "review_status": "approved",
+    "page": 1
+  },
+  {
+    "field": "po_number",
+    "value": "1E10",
+    "original_value": "PO-88214",
+    "value_source": "correction",
+    "verification_status": "unsupported",
+    "review_status": "edited",
+    "page": null
+  },
+  {
+    "field": "line_items[0].description",
+    "value": "12345678901234567890",
+    "original_value": "Pallet freight - Oakland to Seattle",
+    "value_source": "correction",
+    "verification_status": "verified",
+    "review_status": "edited",
+    "page": 1
+  },
+  {
+    "field": "total",
+    "value": 123.45,
+    "original_value": 2600,
+    "value_source": "correction",
+    "verification_status": "needs_review",
+    "review_status": "edited",
+    "page": 1
+  }
+]

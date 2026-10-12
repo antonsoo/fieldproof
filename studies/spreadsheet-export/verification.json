@@ -1,0 +1,266 @@
+{
+  "core_commit": "a0f04159d77f27ed911ed7bf169cd105a424e573",
+  "archive_files_checked": 588,
+  "wheel": {
+    "name": "fieldproof-0.2.7-py3-none-any.whl",
+    "bytes": 586640,
+    "sha256": "0eeae81063f881640ed964355f08f65efedb2c789361e9987fc22c0ccf51e713"
+  },
+  "build_wheel_served_files": [
+    {
+      "file": "index.html",
+      "bytes": 2885,
+      "sha256": "738028690adce65557794a20b3ecb4d78ae7988f6a444b566171cfcf0bb41c76"
+    },
+    {
+      "file": "assets/fraunces-latin-DihXLNYH.woff2",
+      "bytes": 67304,
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+    },
+    {
+      "file": "assets/fraunces-latin-ext-CJcjJNj7.woff2",
+      "bytes": 59388,
+      "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e"
+    },
+    {
+      "file": "assets/fraunces-vietnamese-Czevyj-6.woff2",
+      "bytes": 19700,
+      "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4"
+    },
+    {
+      "file": "assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "bytes": 8356,
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce"
+    },
+    {
+      "file": "assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "bytes": 6912,
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe"
+    },
+    {
+      "file": "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "file": "assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "bytes": 13348,
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb"
+    },
+    {
+      "file": "assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "bytes": 5868,
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9"
+    },
+    {
+      "file": "assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "bytes": 8460,
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc"
+    },
+    {
+      "file": "assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "bytes": 6972,
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a"
+    },
+    {
+      "file": "assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    {
+      "file": "assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "bytes": 13432,
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea"
+    },
+    {
+      "file": "assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "bytes": 6040,
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910"
+    },
+    {
+      "file": "assets/index-CnaJV5B4.js",
+      "bytes": 54038,
+      "sha256": "5bee6f20170f19e21f30b426f8f805830054127f8020603403401e44fc9a8f21"
+    },
+    {
+      "file": "assets/index-DiNKwaEo.css",
+      "bytes": 26277,
+      "sha256": "1f5ee42b05a2277f5de95ff6f789dde47f1635fa5ada2c38adcc15953d24db4a"
+    },
+    {
+      "file": "assets/inter-cyrillic-DqGufNeO.woff2",
+      "bytes": 18748,
+      "sha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075"
+    },
+    {
+      "file": "assets/inter-cyrillic-ext-BOeWTOD4.woff2",
+      "bytes": 25960,
+      "sha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd"
+    },
+    {
+      "file": "assets/inter-greek-CkhJZR-_.woff2",
+      "bytes": 18996,
+      "sha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6"
+    },
+    {
+      "file": "assets/inter-greek-ext-DlzME5K_.woff2",
+      "bytes": 11232,
+      "sha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190"
+    },
+    {
+      "file": "assets/inter-latin-Dx4kXJAl.woff2",
+      "bytes": 48256,
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+    },
+    {
+      "file": "assets/inter-latin-ext-DO1Apj_S.woff2",
+      "bytes": 85068,
+      "sha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956"
+    },
+    {
+      "file": "assets/inter-vietnamese-CBcvBZtf.woff2",
+      "bytes": 10252,
+      "sha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2"
+    }
+  ],
+  "installed_python": [
+    "3.11.13",
+    "3.14.7"
+  ],
+  "installed_csv_json_byte_identical_to_baseline": true,
+  "baseline_commit": "0e2b6825c9de53854b84e935c9cfb34a6e02c0e9",
+  "python_checks": {
+    "passed": 505,
+    "skipped": 1,
+    "skip_reason": "real Tesseract and OCR extra required"
+  },
+  "web_unit_checks": 62,
+  "browser_checks": 82,
+  "workbooks_opened_and_validated": 15,
+  "data_rows_checked": 299,
+  "text_cells_checked": 1649,
+  "crlf_cells_normalized_by_calc": 8,
+  "interactive_excel_tested": false,
+  "screenshots_viewed": 8,
+  "javascript_bundle": {
+    "baseline": {
+      "file": "index-Cc6zao9e.js",
+      "bytes": 41564,
+      "gzip_bytes": 12456
+    },
+    "final": {
+      "file": "index-CnaJV5B4.js",
+      "bytes": 54038,
+      "gzip_bytes": 18253
+    }
+  },
+  "engine_images": {
+    "fieldproof-spreadsheet-check:local": "sha256:fbf9d95cd6af3c918e0d3a12fa724c8361f480b0643e501fd62a3168f4ae2df8",
+    "fieldproof-openxml-check:local": "sha256:a96178e37a681ec76013417651365dfea6e87fdb94b4f0ced6233345205bb707"
+  },
+  "retained_files": [
+    {
+      "file": "docs/assets/spreadsheet-export/chromium-demo-1440.png",
+      "bytes": 125430,
+      "sha256": "b23219bcfe21f0c5aed71b94671e416f406e5a558f09a71e69b9bdb0607931ea"
+    },
+    {
+      "file": "docs/assets/spreadsheet-export/chromium-demo-375.png",
+      "bytes": 44077,
+      "sha256": "8a6ae03a9ecbde7f3b2610e8b25ed97b27c5f4ee99f2dc5acce8dd4c8881b307"
+    },
+    {
+      "file": "docs/assets/spreadsheet-export/chromium-live-1440.png",
+      "bytes": 120453,
+      "sha256": "ab7309b300157d40f631ce715e124bb3f9b83658b22e8acc229da29b72f45724"
+    },
+    {
+      "file": "docs/assets/spreadsheet-export/chromium-live-375.png",
+      "bytes": 40164,
+      "sha256": "33d4796b573cac65674b210c6c4b1450f2dc6f2ac501919f82b74ec6a056167b"
+    },
+    {
+      "file": "docs/assets/spreadsheet-export/firefox-demo-1440.png",
+      "bytes": 158504,
+      "sha256": "03b953e6f2848d98072acdd2f126765117764152ced652ea1b34f19342775f42"
+    },
+    {
+      "file": "docs/assets/spreadsheet-export/firefox-demo-375.png",
+      "bytes": 54636,
+      "sha256": "0835c52846285d533f0022320af9fdbe6af7c23cc540e37e050fcaf87c010472"
+    },
+    {
+      "file": "docs/assets/spreadsheet-export/firefox-live-1440.png",
+      "bytes": 152777,
+      "sha256": "c1b3429d08e33dfb1c63e3db2dc442c48ed5dbe8b61a1819fcb5e9d497cd6d97"
+    },
+    {
+      "file": "docs/assets/spreadsheet-export/firefox-live-375.png",
+      "bytes": 49896,
+      "sha256": "47d9d28044fc676629b1a60e1a5ca89708de3971af2fd6a441c0ed9d40bd0943"
+    },
+    {
+      "file": "studies/spreadsheet-export/results/api.xlsx",
+      "bytes": 2867,
+      "sha256": "4b0a5517c6456b4b0240e1f770f95fd2ac15c03f56054095f9a78ddcbb3df196"
+    },
+    {
+      "file": "studies/spreadsheet-export/results/baseline.csv",
+      "bytes": 1799,
+      "sha256": "453cda91feeaedc5853064be765fc752b9198a8657165be7dd9250e204c19f7e"
+    },
+    {
+      "file": "studies/spreadsheet-export/results/baseline.json",
+      "bytes": 4314,
+      "sha256": "5cbf7818c54080e5c002b1451ce71d0f19732e89f53b52f74fec7baab0768beb"
+    },
+    {
+      "file": "studies/spreadsheet-export/results/browser-all.json",
+      "bytes": 5294,
+      "sha256": "bfc35d7795a05ab6ccc898af0966822cbf2ea6b38acccfa462bec1bc07d8b1ec"
+    },
+    {
+      "file": "studies/spreadsheet-export/results/browser-all.xlsx",
+      "bytes": 2953,
+      "sha256": "ae764cc04b111edc3c172f3277c59af12fb761fababc4824a7ec1841911ed3a7"
+    },
+    {
+      "file": "studies/spreadsheet-export/results/browser-reviewed.json",
+      "bytes": 1136,
+      "sha256": "c315c02e3bdbeea8c71ad7872de5ec0d09b95951e1c016d9778a8430697fe8e0"
+    },
+    {
+      "file": "studies/spreadsheet-export/results/browser-reviewed.xlsx",
+      "bytes": 2171,
+      "sha256": "1d442f0e352898da39891977448061d461bdb8c775d4e41fa8b0e96b1d00dc47"
+    },
+    {
+      "file": "studies/spreadsheet-export/results/calc-summary.json",
+      "bytes": 9115,
+      "sha256": "f0869e8aa8058ba4a3f1fdacce468701a81eed3ce2c0229c01582b3abf44acfa"
+    },
+    {
+      "file": "studies/spreadsheet-export/results/cases-browser.xlsx",
+      "bytes": 2863,
+      "sha256": "5ce59a630a246010c82d12263cee493e9901f651f1652b236f0941ce7051539f"
+    },
+    {
+      "file": "studies/spreadsheet-export/results/cases-python.xlsx",
+      "bytes": 2836,
+      "sha256": "d71d14bd513359c88680c7f90cb756a1cd21fde3ae1f82467b80a3556b56ff5f"
+    },
+    {
+      "file": "studies/spreadsheet-export/results/openxml-validation.json",
+      "bytes": 1262,
+      "sha256": "09dcd2c79192923b2333b6f0633417face39843a83c324288831fce90586effb"
+    }
+  ],
+  "runtimes": {
+    "build_node": "24.21.0",
+    "python_checks": "3.12.12",
+    "chromium": "153.0.8010.12",
+    "firefox": "155.0",
+    "libreoffice": "7.4.7.2 40(Build:2)",
+    "openxml_sdk": "3.3.0"
+  }
+}

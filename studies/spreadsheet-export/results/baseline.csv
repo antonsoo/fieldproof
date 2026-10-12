@@ -1,0 +1,26 @@
+field,value,original_value,value_source,verification_status,review_status,page
+vendor_name,00034,00034,extraction,needs_review,pending,1
+invoice_number,=1+1,=1+1,extraction,needs_review,pending,1
+issue_date,2026-01-02,2026-01-02,extraction,needs_review,pending,1
+due_date,2026-03-16,2026-03-16,extraction,verified,pending,1
+po_number,1E10,1E10,extraction,unsupported,pending,
+line_items[0].description,12345678901234567890,12345678901234567890,extraction,needs_review,pending,1
+line_items[0].quantity,12.0,12.0,extraction,needs_review,pending,1
+line_items[0].unit_price,145.0,145.0,extraction,needs_review,pending,1
+line_items[0].amount,1740.0,1740.0,extraction,needs_review,pending,1
+line_items[1].description,Fuel surcharge,Fuel surcharge,extraction,verified,pending,1
+line_items[1].quantity,1.0,1.0,extraction,verified,pending,1
+line_items[1].unit_price,210.5,210.5,extraction,verified,pending,1
+line_items[1].amount,210.5,210.5,extraction,verified,pending,1
+line_items[2].description,Liftgate delivery service,Liftgate delivery service,extraction,verified,pending,1
+line_items[2].quantity,3.0,3.0,extraction,verified,pending,1
+line_items[2].unit_price,65.0,65.0,extraction,verified,pending,1
+line_items[2].amount,195.0,195.0,extraction,verified,pending,1
+line_items[3].description,Warehouse handling fee,Warehouse handling fee,extraction,verified,pending,1
+line_items[3].quantity,1.0,1.0,extraction,verified,pending,1
+line_items[3].unit_price,312.5,312.5,extraction,verified,pending,1
+line_items[3].amount,312.5,312.5,extraction,verified,pending,1
+subtotal,2458.0,2458.0,extraction,needs_review,pending,1
+tax,208.93,208.93,extraction,needs_review,pending,1
+total,2600.0,2600.0,extraction,needs_review,pending,1
+payment_terms,Net 30,Net 30,extraction,verified,pending,1
