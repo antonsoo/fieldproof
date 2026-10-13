@@ -1,0 +1,244 @@
+{
+  "implementation": "2a003984e97617cc47ccf1958246f6c3d6c69055",
+  "checks": [
+    {
+      "name": "install",
+      "exit": 0,
+      "seconds": 0.47
+    },
+    {
+      "name": "lint",
+      "exit": 0,
+      "seconds": 0.06
+    },
+    {
+      "name": "types",
+      "exit": 0,
+      "seconds": 8.74
+    },
+    {
+      "name": "unit",
+      "exit": 0,
+      "seconds": 42.13
+    },
+    {
+      "name": "bundle-ui",
+      "exit": 0,
+      "seconds": 4.18
+    },
+    {
+      "name": "web-lint",
+      "exit": 0,
+      "seconds": 1.87
+    },
+    {
+      "name": "web-typecheck",
+      "exit": 0,
+      "seconds": 1.12
+    },
+    {
+      "name": "web-format-check",
+      "exit": 0,
+      "seconds": 0.82
+    },
+    {
+      "name": "web-test",
+      "exit": 0,
+      "seconds": 0.57
+    },
+    {
+      "name": "web-demo",
+      "exit": 0,
+      "seconds": 1.57
+    },
+    {
+      "name": "browser",
+      "exit": 0,
+      "seconds": 181.13
+    },
+    {
+      "name": "build",
+      "exit": 0,
+      "seconds": 1.07
+    },
+    {
+      "name": "clean-replay",
+      "exit": 0,
+      "seconds": 21.52
+    },
+    {
+      "name": "minimum-venv",
+      "exit": 0,
+      "seconds": 0.02
+    },
+    {
+      "name": "minimum-install",
+      "exit": 0,
+      "seconds": 0.62
+    },
+    {
+      "name": "minimum-replay",
+      "exit": 0,
+      "seconds": 24.23
+    },
+    {
+      "name": "minimum-console-version",
+      "exit": 0,
+      "seconds": 1.22
+    },
+    {
+      "name": "minimum-console-extract",
+      "exit": 0,
+      "seconds": 0.57
+    },
+    {
+      "name": "minimum-long-name-ascii",
+      "exit": 0,
+      "seconds": 0.57
+    },
+    {
+      "name": "minimum-long-name-utf8",
+      "exit": 0,
+      "seconds": 0.57
+    },
+    {
+      "name": "current-venv",
+      "exit": 0,
+      "seconds": 0.02
+    },
+    {
+      "name": "current-install",
+      "exit": 0,
+      "seconds": 0.47
+    },
+    {
+      "name": "current-replay",
+      "exit": 0,
+      "seconds": 38.01
+    },
+    {
+      "name": "current-console-version",
+      "exit": 0,
+      "seconds": 2.17
+    },
+    {
+      "name": "current-console-extract",
+      "exit": 0,
+      "seconds": 0.97
+    },
+    {
+      "name": "current-long-name-ascii",
+      "exit": 0,
+      "seconds": 0.97
+    },
+    {
+      "name": "current-long-name-utf8",
+      "exit": 0,
+      "seconds": 0.97
+    }
+  ],
+  "installed": [
+    {
+      "python": "3.11.13",
+      "dependencies": {
+        "pydantic": "2.10.0",
+        "pdfplumber": "0.11.9",
+        "pypdfium2": "4.30.0",
+        "rapidfuzz": "3.9.0",
+        "fastapi": "0.133.0",
+        "starlette": "1.3.1",
+        "typer": "0.16.0",
+        "click": "8.3.3",
+        "anthropic": "0.77.0"
+      },
+      "environment": "minimum",
+      "identical_library_files": 37,
+      "identical_ui_files": 23,
+      "reproduced_cases": 19,
+      "normal_controls": 3,
+      "long_filename_reports": [
+        {
+          "encoding": "ascii",
+          "filename_bytes": 255,
+          "sha256": "d905cb2e37657e428f9b9a22fc933a2afd554d8c897f52f6557f04529133e6d5",
+          "mode": "0600"
+        },
+        {
+          "encoding": "utf8",
+          "filename_bytes": 255,
+          "sha256": "d905cb2e37657e428f9b9a22fc933a2afd554d8c897f52f6557f04529133e6d5",
+          "mode": "0600"
+        }
+      ],
+      "served_ui_files_identical": 23,
+      "dependency_check_exit": 0
+    },
+    {
+      "python": "3.12.12",
+      "dependencies": {
+        "pydantic": "2.14.1",
+        "pdfplumber": "0.11.10",
+        "pypdfium2": "5.14.0",
+        "rapidfuzz": "3.14.6",
+        "fastapi": "0.143.0",
+        "starlette": "1.7.0",
+        "typer": "0.27.3",
+        "click": "8.5.0",
+        "anthropic": "1.13.0"
+      },
+      "environment": "current",
+      "identical_library_files": 37,
+      "identical_ui_files": 23,
+      "reproduced_cases": 19,
+      "normal_controls": 3,
+      "long_filename_reports": [
+        {
+          "encoding": "ascii",
+          "filename_bytes": 255,
+          "sha256": "d905cb2e37657e428f9b9a22fc933a2afd554d8c897f52f6557f04529133e6d5",
+          "mode": "0600"
+        },
+        {
+          "encoding": "utf8",
+          "filename_bytes": 255,
+          "sha256": "d905cb2e37657e428f9b9a22fc933a2afd554d8c897f52f6557f04529133e6d5",
+          "mode": "0600"
+        }
+      ],
+      "served_ui_files_identical": 23,
+      "dependency_check_exit": 0
+    }
+  ],
+  "scope": "Source and installed wheels only; no hosted deployment, package release or live extraction-provider call.",
+  "unchanged_archive_files": 637,
+  "wheel": {
+    "filename": "fieldproof-0.2.7-py3-none-any.whl",
+    "bytes": 592741,
+    "sha256": "14c08ce6e25b14d80b44666896f77616cf432f6c1eb7d7329f4791e3d580be4f"
+  },
+  "python_tests": 550,
+  "browser_tests": 86,
+  "web_tests": 62,
+  "python_skipped": 1,
+  "skipped_reason": "Real Tesseract OCR integration: Tesseract executable unavailable; native-PDF replay remains covered.",
+  "terminal_screenshots_created_and_inspected": 1,
+  "replay_captures": [
+    {
+      "environment": "clean",
+      "matches_recorded_after": true,
+      "sha256": "9dba8c3b626149527b3a5e6c02e1f01d3440826268ce94adf2d25bec1731126d"
+    },
+    {
+      "environment": "minimum",
+      "matches_recorded_after": true,
+      "sha256": "9dba8c3b626149527b3a5e6c02e1f01d3440826268ce94adf2d25bec1731126d"
+    },
+    {
+      "environment": "current",
+      "matches_recorded_after": true,
+      "sha256": "9dba8c3b626149527b3a5e6c02e1f01d3440826268ce94adf2d25bec1731126d"
+    }
+  ],
+  "minimum_resolution": "Wheel plus every declared runtime and OCR dependency supplied explicitly to uv pip install --resolution lowest-direct.",
+  "host": "Linux/WSL2; POSIX child file-size limit and 0600 permissions."
+}
