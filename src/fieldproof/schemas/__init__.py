@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from fieldproof.schemas.base import Evidenced, iter_evidenced_fields
+from fieldproof.schemas.base import Evidenced, EvidencedDate, EvidencedText, iter_evidenced_fields
 from fieldproof.schemas.contract import ContractKeyTerms
 from fieldproof.schemas.invoice import Invoice, LineItem
 from fieldproof.schemas.receipt import Receipt, ReceiptItem
@@ -39,6 +39,8 @@ __all__ = [
     "BUILTIN_SCHEMAS",
     "ContractKeyTerms",
     "Evidenced",
+    "EvidencedDate",
+    "EvidencedText",
     "Invoice",
     "LineItem",
     "Receipt",

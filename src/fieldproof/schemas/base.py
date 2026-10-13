@@ -35,6 +35,18 @@ class Evidenced(BaseModel, Generic[T]):
     page: int | None = Field(default=None, description="1-indexed page the evidence was found on")
 
 
+class EvidencedDate(Evidenced[str]):
+    """A claimed calendar date in YYYY-MM-DD format, checked against its quote.
+
+    The original string is retained even when invalid: verification reports
+    the problem instead of normalizing or discarding the supplied claim.
+    """
+
+
+class EvidencedText(Evidenced[str]):
+    """Literal text, even when its field name contains a word such as date."""
+
+
 def iter_evidenced_fields(model: BaseModel, prefix: str = "") -> Iterator[tuple[str, Evidenced]]:
     """Yield `(path, Evidenced)` through models, ordered sequences and mappings.
 

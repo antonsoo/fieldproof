@@ -17,12 +17,13 @@ Every extracted field ends up in exactly one of three states:
 
 from __future__ import annotations
 
+import json
 import re
 from collections import defaultdict
 from collections.abc import Sequence
 from dataclasses import dataclass, field
 from enum import StrEnum
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel
 
@@ -36,7 +37,7 @@ from fieldproof.ground.align import (
 )
 from fieldproof.ground.lines import separate_lines
 from fieldproof.ground.values import NumberStyle, number_styles
-from fieldproof.schemas.base import iter_evidenced_fields
+from fieldproof.schemas.base import EvidencedDate, EvidencedText, iter_evidenced_fields
 from fieldproof.verify.columns import ColumnEvidenceCheck, ColumnEvidenceIndex
 from fieldproof.verify.cross_field import CrossFieldCheck, CrossFieldIssue, audit_cross_field
 from fieldproof.verify.rows import (
@@ -63,6 +64,24 @@ from fieldproof.verify.value_checks import (
 #: (see `verify`).
 _ROW_PREFIX_RE = re.compile(r"^(.*\[\d+\])\.")
 _QUOTED_MEMBER_RE = re.compile(r'\["(?:[^"\\]|\\.)*"\]')
+_PATH_MEMBER_RE = re.compile(
+    r'\[(?P<key>"(?:[^"\\]|\\.)*")\]|\[\d+\]|(?P<name>[^.\[\]]+)'
+)
+_CAMEL_BOUNDARY_RE = re.compile(r"(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])")
+
+
+def _date_name_hint(path: str) -> bool:
+    # Paths are emitted by iter_evidenced_fields. Numeric indices keep their
+    # collection's name; a new model member or quoted mapping key replaces it.
+    # Decode quoted members so punctuation/escapes cannot change the naming rule.
+    name = ""
+    for member in _PATH_MEMBER_RE.finditer(path):
+        if (key := member.group("key")) is not None:
+            name = json.loads(key)
+        elif (field_name := member.group("name")) is not None:
+            name = field_name
+    words = re.split(r"[\W_\d]+", _CAMEL_BOUNDARY_RE.sub("_", name).casefold())
+    return bool({"date", "dates", "birthdate", "birthdates"}.intersection(words))
 
 
 class FieldStatus(StrEnum):
@@ -82,6 +101,7 @@ class FieldVerification:
     matched_text: str | None = None
     page: int | None = None
     rects: list[dict[str, float]] = field(default_factory=list)
+    declared_kind: Literal["date", "text"] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -94,6 +114,7 @@ class FieldVerification:
             "matched_text": self.matched_text,
             "page": self.page,
             "rects": self.rects,
+            **({"declared_kind": self.declared_kind} if self.declared_kind is not None else {}),
         }
 
 
@@ -163,6 +184,13 @@ def verify(
     differ from the page by up to `n` letters in the quote and again in the value and stay
     `verified`, with what differed recorded in the field's `notes`. Numbers, dates and
     booleans are never given this tolerance.
+
+    `EvidencedDate` and `EvidencedText` declare string policy independently of
+    field names, and the report records `declared_kind`. For plain `Evidenced[str]`,
+    only the final named member supplies a hint: complete date/dates/birthdate(s)
+    words, including snake_case and camelCase forms. Ancestor names do not set
+    the kind; numeric positions retain their collection's name. Use an explicit
+    wrapper when the name does not express the intended kind.
 
     Fields are walked in schema-declaration order (`iter_evidenced_fields`),
     which for a list item means its fields come in the order they're
@@ -249,6 +277,10 @@ def verify(
             conflicting_number_styles=len(styles) > 1,
             text_edit_tolerance=text_edit_tolerance,
         )
+        if isinstance(evidenced, EvidencedDate):
+            result.declared_kind = "date"
+        elif isinstance(evidenced, EvidencedText):
+            result.declared_kind = "text"
         results.append(result)
         matches[path] = match
 
@@ -409,11 +441,15 @@ def _verify_field(
         )
         return result, None
 
+    date_value = isinstance(value, str) and (
+        isinstance(evidenced, EvidencedDate)
+        or (not isinstance(evidenced, EvidencedText) and _date_name_hint(path))
+    )
     tolerant = (
         text_edit_tolerance > 0
         and isinstance(value, str)
         and not isinstance(value, bool)
-        and "date" not in path.lower()
+        and not date_value
     )
     if not best_match.is_strong:
         distance = letter_distance(best_match.quote, best_match.matched_text)
@@ -443,12 +479,12 @@ def _verify_field(
     if isinstance(value, int | float) and not isinstance(value, bool):
         value_text = separate_lines(value_text, best_match.words, start=best_match.start)
     check = _check_value(
-        path,
         value,
         value_text,
         date_order,
         style,
         text_edit_tolerance if tolerant else 0,
+        date_value=date_value,
     )
     if not check.supported:
         reasons.append(check.reason)
@@ -461,7 +497,7 @@ def _verify_field(
                 "the document contains both decimal-point and dot-thousands conventions; "
                 "a document-wide number default cannot settle conflicting evidence"
             )
-        elif conflicting_date_orders and isinstance(value, str) and "date" in path.lower():
+        elif conflicting_date_orders and date_value:
             reasons.append(
                 "the document contains both month-first and day-first date conventions; "
                 "a document-wide date default cannot settle conflicting evidence"
@@ -488,19 +524,20 @@ def _verify_field(
 
 
 def _check_value(
-    path: str,
     value: str | float | bool,
     evidence_text: str,
     date_order: DateOrder | None = None,
     style: NumberStyle | None = None,
     max_edits: int = 0,
+    *,
+    date_value: bool = False,
 ) -> ValueCheckResult:
     if isinstance(value, bool):
         return check_bool(value, evidence_text)
     if isinstance(value, int | float):
         return check_number(value, evidence_text, number_style=style)
     if isinstance(value, str):
-        if "date" in path.lower():
+        if date_value:
             return check_date(value, evidence_text, date_order=date_order)
         return check_string(value, evidence_text, max_edits=max_edits)
     return ValueCheckResult(True)

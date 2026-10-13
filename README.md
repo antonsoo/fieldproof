@@ -421,6 +421,34 @@ mapping keys cannot create row-location hints by containing index-like text.
 Custom models are a Python-library integration; the CLI and server schema
 selector still offer the built-in invoice, receipt and contract models.
 
+For custom string fields, the unreleased source provides explicit kinds:
+
+```python
+from fieldproof.schemas import EvidencedDate, EvidencedText
+
+class Application(BaseModel):
+    candidate_name: EvidencedText
+    available_from: EvidencedDate
+    date_label: EvidencedText
+```
+
+Both retain the usual `{value, evidence, page}` JSON shape. `EvidencedDate`
+keeps the supplied string and asks verification to check one calendar-valid
+`YYYY-MM-DD` claim against its quote; invalid claims remain visible for review.
+`EvidencedText` checks literal text regardless of its name. Reports record the
+explicit `declared_kind`, separately from tolerance notes, so a correctly
+grounded text field can still supply a row-location hint.
+
+For generic `Evidenced[str]`, the final field name or mapping key supplies a
+naming hint: complete `date`, `dates`, `birthdate` or `birthdates` words,
+including snake_case/camelCase forms. Numeric indices retain the collection's
+name. Ancestors and incidental substrings in `candidate_name`, `updated_by`
+or `validate_status` no longer turn text into a date. Unseparated custom names
+such as `issuedate` should declare `EvidencedDate` explicitly; the convention
+cannot infer business meaning. The [real-PDF replay](studies/string-kinds/README.md)
+checks these distinctions, preserved calendar safeguards and explicit kinds
+through fixture extraction and JSON roundtrips.
+
 In the source checkout, Boolean leaves need one explicit `yes`/`no` or
 `true`/`false` answer, optionally labelled (`Approval: yes`, `Renewal = false`).
 Prose and checkbox choices need review: a real quote saying "approved, not

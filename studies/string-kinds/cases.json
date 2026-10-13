@@ -1,0 +1,427 @@
+{
+  "label": "All inputs are synthetic controls.",
+  "cases": [
+    {
+      "id": "ordinary-control",
+      "name": "name",
+      "shape": "leaf",
+      "kind": "inferred",
+      "value": "Example Works",
+      "quote": "Example Works",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "verified"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "candidate_name",
+      "name": "candidate_name",
+      "shape": "leaf",
+      "kind": "inferred",
+      "value": "Example Works",
+      "quote": "Example Works",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "candidateName",
+      "name": "candidateName",
+      "shape": "leaf",
+      "kind": "inferred",
+      "value": "Example Works",
+      "quote": "Example Works",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "updated_by",
+      "name": "updated_by",
+      "shape": "leaf",
+      "kind": "inferred",
+      "value": "Example Works",
+      "quote": "Example Works",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "validate_status",
+      "name": "validate_status",
+      "shape": "leaf",
+      "kind": "inferred",
+      "value": "Example Works",
+      "quote": "Example Works",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "consolidated_notes",
+      "name": "consolidated_notes",
+      "shape": "leaf",
+      "kind": "inferred",
+      "value": "Example Works",
+      "quote": "Example Works",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "ancestor-model",
+      "name": "name",
+      "shape": "nested",
+      "kind": "inferred",
+      "value": "Example Works",
+      "quote": "Example Works",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "mapping-key",
+      "name": "candidate_name",
+      "shape": "mapping",
+      "kind": "inferred",
+      "value": "Example Works",
+      "quote": "Example Works",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "mapping-ancestor",
+      "name": "name",
+      "shape": "mapped-model",
+      "kind": "inferred",
+      "value": "Example Works",
+      "quote": "Example Works",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "date-sequence-control",
+      "name": "dates",
+      "shape": "sequence",
+      "kind": "inferred",
+      "value": "2026-02-30",
+      "quote": "2026-02-30",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "needs_review"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "written-date-control",
+      "name": "issue_date",
+      "shape": "leaf",
+      "kind": "inferred",
+      "value": "2026-05-01",
+      "quote": "May 1, 2026",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "verified"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "camel-date-control",
+      "name": "dueDate",
+      "shape": "leaf",
+      "kind": "inferred",
+      "value": "2026-02-30",
+      "quote": "2026-02-30",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "needs_review"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "birthdate-control",
+      "name": "birthdate",
+      "shape": "leaf",
+      "kind": "inferred",
+      "value": "2026-02-30",
+      "quote": "2026-02-30",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "needs_review"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "text-tolerance",
+      "name": "candidate_name",
+      "shape": "leaf",
+      "kind": "inferred",
+      "value": "Internationxl Shipping",
+      "quote": "International Shipping",
+      "pdf": "plain",
+      "tolerance": 1,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "text-conflict-note",
+      "name": "candidate_name",
+      "shape": "leaf",
+      "kind": "inferred",
+      "value": "Example Workx",
+      "quote": "Example Works",
+      "pdf": "mixed",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "needs_review"
+      ],
+      "expectedConflict": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "explicit-written-date",
+      "name": "effective",
+      "shape": "leaf",
+      "kind": "date",
+      "value": "2026-05-01",
+      "quote": "May 1, 2026",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "explicit-invalid-date",
+      "name": "effective",
+      "shape": "leaf",
+      "kind": "date",
+      "value": "2026-02-30",
+      "quote": "2026-02-30",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "verified"
+      ],
+      "expectedAfter": [
+        "needs_review"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "explicit-text-label",
+      "name": "date_label",
+      "shape": "leaf",
+      "kind": "text",
+      "value": "YYYY-MM-DD",
+      "quote": "YYYY-MM-DD",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "explicit-date-no-tolerance",
+      "name": "effective",
+      "shape": "leaf",
+      "kind": "date",
+      "value": "Internationxl Shipping",
+      "quote": "International Shipping",
+      "pdf": "plain",
+      "tolerance": 1,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "verified"
+      ],
+      "expectedAfter": [
+        "needs_review"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "explicit-date-conflict",
+      "name": "effective",
+      "shape": "leaf",
+      "kind": "date",
+      "value": "2026-03-04",
+      "quote": "03/04/2026",
+      "pdf": "mixed",
+      "tolerance": 0,
+      "defaultDateOrder": "dmy",
+      "expectedBefore": [
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "needs_review"
+      ],
+      "expectedConflict": [
+        false,
+        true
+      ]
+    },
+    {
+      "id": "explicit-mapped-date",
+      "name": "slot-A",
+      "shape": "mapped-sequence",
+      "kind": "date",
+      "value": "2026-02-30",
+      "quote": "2026-02-30",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "verified"
+      ],
+      "expectedAfter": [
+        "needs_review"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "explicit-text-row-anchor",
+      "name": "date_label",
+      "shape": "row",
+      "kind": "text",
+      "value": "Alpha",
+      "quote": "Alpha",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "needs_review",
+        "needs_review"
+      ],
+      "expectedAfter": [
+        "verified",
+        "verified"
+      ],
+      "expectedConflict": null
+    },
+    {
+      "id": "explicit-unsupported",
+      "name": "effective",
+      "shape": "leaf",
+      "kind": "date",
+      "value": "2026-05-01",
+      "quote": "",
+      "pdf": "plain",
+      "tolerance": 0,
+      "defaultDateOrder": null,
+      "expectedBefore": [
+        "unsupported"
+      ],
+      "expectedAfter": [
+        "unsupported"
+      ],
+      "expectedConflict": null
+    }
+  ]
+}

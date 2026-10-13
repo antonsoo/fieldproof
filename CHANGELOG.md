@@ -4,6 +4,21 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Separate string intent from accidental date-name matches
+
+- Restrict generic string date hints to complete words in the final named
+  member. `candidate_name`, `updated_by`, `validate_status` and enclosing
+  date-related objects no longer cause unrelated text to fail date validation.
+- Add `EvidencedDate` and `EvidencedText` for explicit custom-schema intent,
+  including nested containers. Preserve the extraction JSON shape and record
+  explicit policy as `declared_kind` in verification reports.
+- Use one kind decision for value checking, letter-edit tolerance and date
+  conflict explanations. Calendar-invalid and ambiguous dates remain in review;
+  explicit date fields never receive text tolerance. Explicit text policy
+  does not itself disqualify a field from supplying a row-location hint.
+- Retain labelled synthetic PDF controls and real SDK streaming coverage.
+  Custom nonconventional date names should use `EvidencedDate` explicitly.
+
 ### Keep declared custom-schema containers in verification
 
 - Traverse tuples and string-keyed mappings as well as nested models and lists.

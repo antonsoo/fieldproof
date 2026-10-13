@@ -1,0 +1,38 @@
+[
+  {
+    "schema": "invoice",
+    "exit": 0,
+    "bytes": 59982,
+    "sha256": "d905cb2e37657e428f9b9a22fc933a2afd554d8c897f52f6557f04529133e6d5",
+    "counts": {
+      "verified": 21,
+      "needs_review": 3,
+      "unsupported": 1
+    },
+    "fields": 25
+  },
+  {
+    "schema": "receipt",
+    "exit": 0,
+    "bytes": 20225,
+    "sha256": "087a99e4c09003a3ff2456dd3f63a05b8ea3c8d98bf32fb82a2b867a5f1b6569",
+    "counts": {
+      "verified": 17,
+      "needs_review": 1,
+      "unsupported": 0
+    },
+    "fields": 18
+  },
+  {
+    "schema": "contract",
+    "exit": 0,
+    "bytes": 6939,
+    "sha256": "184376ec2c054c5f275a57d875b9c331669b82366c8756d0873b8c366c7fbde9",
+    "counts": {
+      "verified": 10,
+      "needs_review": 0,
+      "unsupported": 0
+    },
+    "fields": 10
+  }
+]

@@ -112,6 +112,37 @@ def _fixture(name: str) -> dict[str, Any]:
     return json.loads((EXAMPLES / "fixtures" / f"{name}.json").read_text())["data"]
 
 
+def test_explicit_string_kinds_survive_real_sdk_streaming_and_schema_validation() -> None:
+    from pydantic import BaseModel
+
+    from fieldproof.schemas import EvidencedDate, EvidencedText
+
+    class Form(BaseModel):
+        effective: EvidencedDate
+        date_label: EvidencedText
+
+    payload = {
+        "effective": {"value": "2026-02-30", "evidence": ["2026-02-30"], "page": 1},
+        "date_label": {"value": "YYYY-MM-DD", "evidence": ["YYYY-MM-DD"], "page": 1},
+    }
+    api = Api(json.dumps(payload))
+    result = AnthropicExtractor(client=api.client()).extract(
+        load_pdf(EXAMPLES / "invoice.pdf"), Form
+    )
+    assert isinstance(result.data.effective, EvidencedDate)
+    assert isinstance(result.data.date_label, EvidencedText)
+    assert result.data.model_dump(mode="json") == payload
+    (request,) = api.requests
+    sent = request["output_config"]["format"]["schema"]
+    assert sent["additionalProperties"] is False
+    for field_name, wrapper in [("effective", "EvidencedDate"), ("date_label", "EvidencedText")]:
+        assert sent["properties"][field_name]["$ref"] == f"#/$defs/{wrapper}"
+        definition = sent["$defs"][wrapper]
+        assert set(definition["properties"]) == {"value", "evidence", "page"}
+        assert definition["properties"]["value"]["type"] == "string"
+        assert definition["additionalProperties"] is False
+
+
 @pytest.mark.parametrize("name", sorted(BUILTIN_SCHEMAS))
 def test_each_built_in_schema_is_sent_as_a_json_schema_and_the_reply_parsed(name: str) -> None:
     schema = BUILTIN_SCHEMAS[name]
