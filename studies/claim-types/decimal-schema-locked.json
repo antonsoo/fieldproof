@@ -1,0 +1,55 @@
+{
+  "$defs": {
+    "Evidenced_Decimal_": {
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Value"
+        },
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "1-indexed page the evidence was found on",
+          "title": "Page"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "Evidenced[Decimal]",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "account": {
+      "$ref": "#/$defs/Evidenced_Decimal_"
+    }
+  },
+  "required": [
+    "account"
+  ],
+  "title": "Claim",
+  "type": "object"
+}

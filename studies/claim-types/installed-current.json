@@ -1,0 +1,757 @@
+{
+  "mode": "after",
+  "python": "3.14.7",
+  "pydantic": "2.14.1",
+  "package": "installed",
+  "documentSha256": "ee2e471e831d1660c3dfa1db1f8382b7097de60d4ccbbe5a69f089af28214675",
+  "cases": [
+    {
+      "case": "object",
+      "input": {
+        "account": {
+          "value": {
+            "account": "UNSUPPORTED"
+          },
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "3bcebf52a6807d36ddec756cb54f587613e4ba7511ea5ea9d0f7477abcf602bb",
+      "schemaSha256": "32b0213f885f9a324a57a6d75fa0af09eedb8f7b38b8d80e62e0607225104143",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type dict; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "array",
+      "input": {
+        "account": {
+          "value": [
+            "UNSUPPORTED"
+          ],
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "089c0758696f7f67d405d47d58b15796092d75d9988b5cc5dd4fac1f1fd8505d",
+      "schemaSha256": "e50a007105699f13520a51780c900a5c50e4065808f6b62147e008257bffc203",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type list; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "tuple",
+      "input": {
+        "account": {
+          "value": [
+            "UNSUPPORTED"
+          ],
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "089c0758696f7f67d405d47d58b15796092d75d9988b5cc5dd4fac1f1fd8505d",
+      "schemaSha256": "9d97f27a3f2a518540dcad38d862a9c62b904b2f6c4b4748b2a4332d74d35f00",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type tuple; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "null",
+      "input": {
+        "account": {
+          "value": null,
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "6e4b8c9f2eacb9a38f444825af78a801f3663e3c3d7c91ee61afab74d169be6c",
+      "schemaSha256": "c74e171c0593cd1c32ea3e58c76684b711459a18aa90cefb2d0b88a08ff415d8",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type NoneType; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "decimal",
+      "input": {
+        "account": {
+          "value": "999.99",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "b581312ad7b50e6a198105130dea06e4d61521fe97956dd355cb087e8edfe085",
+      "schemaSha256": "e024f9a91e731509e4ee7f5b5f1c31321a665f3866f207a63fd3eebca9eda43b",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type Decimal; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "python-date",
+      "input": {
+        "account": {
+          "value": "2026-05-01",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "ba6560f24fdd884a67cc98db5c7bef30e19dcb9595245d13e41b71840dbf0f29",
+      "schemaSha256": "959f304ec3d7c6ad90d986f17f73175726fb82016aec481946730238de2cb676",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type date; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "python-datetime",
+      "input": {
+        "account": {
+          "value": "2026-05-01T12:00:00",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "582b12eb053be74f4f37cac22d91113b1d76bae107a75cc3118a8cf5038e87de",
+      "schemaSha256": "8bbd2281310a2c2743e23ae7d34cae8e62ca7a28a55dc7bd3343a624f7e23ab0",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type datetime; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "bytes",
+      "input": {
+        "account": {
+          "value": "UNSUPPORTED",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "ef59c0b4db3215a9b7d011081ea89ad6865a32ec3e9cfef639d45b2c0076fb8e",
+      "schemaSha256": "ec7299a7bb7facac9b6f6f4895906e538afee111f64c27ec131e4e10bebf28b7",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type bytes; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "model",
+      "input": {
+        "account": {
+          "value": {
+            "account": "UNSUPPORTED"
+          },
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "3bcebf52a6807d36ddec756cb54f587613e4ba7511ea5ea9d0f7477abcf602bb",
+      "schemaSha256": "c872a340c4bce3d0728aea27a686e7ee008e5ed65efaa865d6dbedc85067603b",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type Details; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "enum",
+      "input": {
+        "account": {
+          "value": "UNSUPPORTED",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "ef59c0b4db3215a9b7d011081ea89ad6865a32ec3e9cfef639d45b2c0076fb8e",
+      "schemaSha256": "d70a4c55003e4592eabff6c2ef4f7dbb4b6e1c755003d8b128bd88652f3c5a87",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type Account; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "any-object",
+      "input": {
+        "account": {
+          "value": {
+            "account": "UNSUPPORTED"
+          },
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "3bcebf52a6807d36ddec756cb54f587613e4ba7511ea5ea9d0f7477abcf602bb",
+      "schemaSha256": "62c865678b4974bc4446ba01551c6e203c5d7adb33c3a61097caa66c57475872",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type dict; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "nested-object",
+      "input": {
+        "claims": {
+          "slot[0].amount": [
+            {
+              "value": {
+                "account": "UNSUPPORTED"
+              },
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            }
+          ]
+        }
+      },
+      "inputSha256": "20c055fd20dd773677c525bc86e29856e15f1c6ff2722cb03ae4a434d43575e8",
+      "schemaSha256": "73327e12f9ae94e1e5a105439211166f5a62a8a2e7730e3a7a51a61e66d6891a",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'claims[\"slot[0].amount\"][0]' has unsupported value type dict; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "object-without-quote",
+      "input": {
+        "account": {
+          "value": {
+            "account": "UNSUPPORTED"
+          },
+          "evidence": [],
+          "page": 1
+        }
+      },
+      "inputSha256": "c073e6be9e78a9d445568431825c03eeb7ca62e79820abb90ddf29e463218d87",
+      "schemaSha256": "32b0213f885f9a324a57a6d75fa0af09eedb8f7b38b8d80e62e0607225104143",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type dict; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "object-missing-quote",
+      "input": {
+        "account": {
+          "value": {
+            "account": "UNSUPPORTED"
+          },
+          "evidence": [
+            "Not on this page"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "4a60c402bdf3c06f49a125be1f8f004496909d53f09a86a38b810fdd7428b98f",
+      "schemaSha256": "32b0213f885f9a324a57a6d75fa0af09eedb8f7b38b8d80e62e0607225104143",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type dict; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "object-ambiguous-quote",
+      "input": {
+        "account": {
+          "value": {
+            "account": "UNSUPPORTED"
+          },
+          "evidence": [
+            "10.00"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "0a62be14ffdc6fe9cfbc707061fe59a2781d02b7bcc165388cc0c16c34ee1220",
+      "schemaSha256": "32b0213f885f9a324a57a6d75fa0af09eedb8f7b38b8d80e62e0607225104143",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' has unsupported value type dict; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "object-row-anchor",
+      "input": {
+        "rows": [
+          {
+            "description": {
+              "value": {
+                "account": "UNSUPPORTED"
+              },
+              "evidence": [
+                "Alpha"
+              ],
+              "page": 1
+            },
+            "amount": {
+              "value": 10.0,
+              "evidence": [
+                "10.00"
+              ],
+              "page": 1
+            }
+          }
+        ]
+      },
+      "inputSha256": "823824ede1da63bd154657385365598217f0f64f8ff307420e4412f60274fe1e",
+      "schemaSha256": "344878e2e2a0ec020f572bf89e47d43e37ce610b541a3a834d6ba0dd4de5022c",
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'rows[0].description' has unsupported value type dict; Evidenced values must be strings, integers, floats or booleans. Put containers outside Evidenced and represent an absent claim with an optional wrapper, not a null value"
+    },
+    {
+      "case": "text-control",
+      "input": {
+        "account": {
+          "value": "Example Works",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "d15dfb94058ee5d5883003279ba0b3c5da4e52d5ca16b848d2c62156df534f11",
+      "schemaSha256": "87e3f1d219c814f43c8886954313ddbe7fb6e194afe015212e937bf98dc764fd",
+      "report": {
+        "fields": [
+          {
+            "path": "account",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      },
+      "outcome": "verified"
+    },
+    {
+      "case": "integer-control",
+      "input": {
+        "account": {
+          "value": 13,
+          "evidence": [
+            "13"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "ed77d4153076bfd0b744244bd8cac708e35144c7976b0fa16a3973e89426f18c",
+      "schemaSha256": "15e426dbb8ab6c1c6291b9aa1f55d1176a98f990f1c77d582865db77183a4de3",
+      "report": {
+        "fields": [
+          {
+            "path": "account",
+            "value": 13,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "13",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 92.48400000000004,
+                "x1": 63.343999999999994,
+                "bottom": 104.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      },
+      "outcome": "verified"
+    },
+    {
+      "case": "float-control",
+      "input": {
+        "account": {
+          "value": 13.0,
+          "evidence": [
+            "13"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "1878b00b66316610564d01036d262690112213ad68a3cd3def748dd071752fd6",
+      "schemaSha256": "393e15c238d34f4920a5630d7405971e5541fec2bd1d85a8921123ddfd0eb56f",
+      "report": {
+        "fields": [
+          {
+            "path": "account",
+            "value": 13.0,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "13",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 92.48400000000004,
+                "x1": 63.343999999999994,
+                "bottom": 104.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      },
+      "outcome": "verified"
+    },
+    {
+      "case": "boolean-control",
+      "input": {
+        "account": {
+          "value": true,
+          "evidence": [
+            "Approval: yes"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "c36de9b31e98c9cf1d838c03c2da6d07bb030bce5ae8320e777bf2186e9f757e",
+      "schemaSha256": "adbcfcf4d7971d2fd0c00dfe07b8cac303565cc25f2369b9e2b5b05f00e7801a",
+      "report": {
+        "fields": [
+          {
+            "path": "account",
+            "value": true,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Approval: yes",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 122.48400000000004,
+                "x1": 122.696,
+                "bottom": 134.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      },
+      "outcome": "verified"
+    },
+    {
+      "case": "nullable-text-control",
+      "input": {
+        "account": {
+          "value": "Example Works",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "d15dfb94058ee5d5883003279ba0b3c5da4e52d5ca16b848d2c62156df534f11",
+      "schemaSha256": "c74e171c0593cd1c32ea3e58c76684b711459a18aa90cefb2d0b88a08ff415d8",
+      "report": {
+        "fields": [
+          {
+            "path": "account",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      },
+      "outcome": "verified"
+    },
+    {
+      "case": "any-text-control",
+      "input": {
+        "account": {
+          "value": "Example Works",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "d15dfb94058ee5d5883003279ba0b3c5da4e52d5ca16b848d2c62156df534f11",
+      "schemaSha256": "62c865678b4974bc4446ba01551c6e203c5d7adb33c3a61097caa66c57475872",
+      "report": {
+        "fields": [
+          {
+            "path": "account",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      },
+      "outcome": "verified"
+    },
+    {
+      "case": "mismatch-control",
+      "input": {
+        "account": {
+          "value": "UNSUPPORTED",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "inputSha256": "ef59c0b4db3215a9b7d011081ea89ad6865a32ec3e9cfef639d45b2c0076fb8e",
+      "schemaSha256": "87e3f1d219c814f43c8886954313ddbe7fb6e194afe015212e937bf98dc764fd",
+      "report": {
+        "fields": [
+          {
+            "path": "account",
+            "value": "UNSUPPORTED",
+            "status": "needs_review",
+            "reasons": [
+              "value 'UNSUPPORTED' is only 17% similar to evidence 'Example Works'"
+            ],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      },
+      "outcome": "needs_review"
+    },
+    {
+      "case": "missing-control",
+      "input": {
+        "account": {
+          "value": "UNSUPPORTED",
+          "evidence": [],
+          "page": 1
+        }
+      },
+      "inputSha256": "81ff86bdd2aa5d8dbeadbe367a15f86032fd01c761a6e70111156c18495af2c7",
+      "schemaSha256": "87e3f1d219c814f43c8886954313ddbe7fb6e194afe015212e937bf98dc764fd",
+      "report": {
+        "fields": [
+          {
+            "path": "account",
+            "value": "UNSUPPORTED",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 0,
+          "unsupported": 1
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      },
+      "outcome": "unsupported"
+    },
+    {
+      "case": "optional-absent-control",
+      "input": {
+        "account": null
+      },
+      "inputSha256": "5b6088ca6e0318333b22759498c127d3b2b529807b6d2e824cb890cd28d6f42b",
+      "schemaSha256": "dabc58ff8ffe0a98ef0958b9730f85cca49cb04256ccf9badcaa55c51e199f2e",
+      "report": {
+        "fields": [],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      },
+      "outcome": "empty"
+    },
+    {
+      "case": "outer-mapping-control",
+      "input": {
+        "accounts": {
+          "primary": {
+            "value": "UNSUPPORTED",
+            "evidence": [
+              "Example Works"
+            ],
+            "page": 1
+          }
+        }
+      },
+      "inputSha256": "ecf8f43a64d4113eefc3f7288c1006ed4c67bf7dcc4bbdb11f2aaaac7d606559",
+      "schemaSha256": "de2d9ac1330d9dd198e11839edafdddf1cdfce27048229f508f7753a9862f3fe",
+      "report": {
+        "fields": [
+          {
+            "path": "accounts[\"primary\"]",
+            "value": "UNSUPPORTED",
+            "status": "needs_review",
+            "reasons": [
+              "value 'UNSUPPORTED' is only 17% similar to evidence 'Example Works'"
+            ],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      },
+      "outcome": "needs_review"
+    },
+    {
+      "case": "mutated-EvidencedDate",
+      "route": "direct Python assignment",
+      "value": 13,
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' declares a string kind but has value type int; supply a string value"
+    },
+    {
+      "case": "mutated-EvidencedText",
+      "route": "direct Python assignment",
+      "value": 13,
+      "outcome": "error",
+      "errorType": "ValueError",
+      "error": "claim at 'account' declares a string kind but has value type int; supply a string value"
+    }
+  ],
+  "claimValuesUnmodified": true,
+  "liveModelCalled": false
+}

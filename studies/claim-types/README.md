@@ -83,3 +83,36 @@ run its Python interpreter on `replay.py` without `--source`. The checked-in
 PDF's SHA-256 is in each record. No live model or provider is called. These
 are custom Python schemas; the CLI/server still expose their three built-in
 schema selectors. No new web UI or model-side guarantee is claimed.
+
+## Clean builds and installed artifacts
+
+Implementation `30496c6dc3f5580490b9678a8f7fe428895159f5` was archived into a
+clean 717-file tree. The source, wheel, source distribution and fresh installs
+match all 37 Python files and 23 bundled UI assets. The UI assets are also
+byte-identical to the preceding string-kind repair; no new interface or
+custom-schema selector was introduced.
+
+The full Python suite passes 641 checks in each environment: locked Python
+3.12 / Pydantic 2.13.5 source, a Python 3.11 wheel installation using the lowest
+direct dependencies / Pydantic 2.12.0, and a Python 3.14 installation using
+current dependencies / Pydantic 2.14.1. Each skips the real OCR case because
+Tesseract is unavailable. All 28 replay cases agree across these environments;
+ten control reports and all three built-in CLI reports are byte-identical
+before/after. The earlier 23-case string-kind replay remains unchanged in the source check.
+
+The fixture and schema hashes match before/after within each environment.
+Across dependency versions, the only schema difference is Pydantic 2.14.1
+omitting the Decimal string pattern present in 2.13.5. The two
+`decimal-schema-*.json` files retain that difference. Inputs, verification
+outcomes, error text and reports still agree across all three environments.
+`installed-minimum.json` and `installed-current.json` retain the actual runs.
+
+Lint, types, web formatting, 62 web unit checks, both builds and all 86
+production browser checks pass. Browser coverage includes Chromium and Firefox
+on the production demo and local review server.
+
+The [verification receipt](verification.json) records artifact hashes,
+checks and publication boundaries. Local artifacts still carry version 0.2.7;
+they differ from the package previously published to PyPI. No live provider,
+package release or hosted deployment is part of this work. The final evidence
+and documentation commit changes no tested runtime files.
