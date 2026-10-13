@@ -34,8 +34,10 @@ def write_report(path: Path, text: str, protected: tuple[Path, ...]) -> None:
     check_report_destination(path, protected)
     temporary: Path | None = None
     try:
+        # A valid destination may already use the filesystem's full name length.
+        # Keep the temporary prefix independent of that name.
         with tempfile.NamedTemporaryFile(
-            mode="w", encoding="utf-8", dir=path.parent, prefix=f".{path.name}.", delete=False
+            mode="w", encoding="utf-8", dir=path.parent, prefix=".fieldproof-report-", delete=False
         ) as handle:
             temporary = Path(handle.name)
             handle.write(text)

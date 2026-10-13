@@ -134,3 +134,17 @@ def test_write_rechecks_an_alias_created_after_preflight(tmp_path: Path) -> None
     with pytest.raises(OSError, match="must be distinct"):
         write_report(destination, "replacement", (source,))
     assert source.read_bytes() == b"original PDF"
+
+
+@pytest.mark.parametrize("character", ["a", "é"])
+@pytest.mark.skipif(os.name != "posix", reason="POSIX filename-byte limit")
+def test_a_full_length_destination_still_accepts_an_atomic_report(
+    tmp_path: Path, character: str
+) -> None:
+    limit = os.pathconf(tmp_path, "PC_NAME_MAX")
+    name = character * ((limit - len(".json")) // len(character.encode())) + ".json"
+    destination = tmp_path / name
+    destination.write_text("previous report")
+    write_report(destination, '{"complete":true}', ())
+    assert destination.read_text() == '{"complete":true}'
+    assert list(tmp_path.iterdir()) == [destination]
