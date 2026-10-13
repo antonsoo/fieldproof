@@ -28,6 +28,12 @@ class Evidenced(BaseModel, Generic[T]):
     text, and verification (`fieldproof.verify`) checks they actually
     support `value`. An empty `evidence` list means the model supplied a
     value with no citation, which verification treats as `unsupported`.
+
+    Verification supports string, integer, float and boolean values. Put
+    containers outside the wrapper so each claim has its own evidence. An
+    absent optional claim is `Evidenced[T] | None`, not `Evidenced[T | None]`
+    holding a null value; present wrappers with unsupported values raise a
+    field-specific `ValueError` from `verify`.
     """
 
     value: T

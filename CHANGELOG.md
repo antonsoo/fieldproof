@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Refuse claim values without a verification rule
+
+- Validate every present wrapper's actual value before grounding. Objects,
+  containers, null, Python dates, Decimal and other unsupported types now raise
+  a field-specific `ValueError`; an unrelated quote can no longer verify them
+  or make them a row-location hint for another claim.
+- Require explicit date/text wrappers to retain string values, including after
+  caller mutation. Remove the successful fallback for unhandled value types.
+- Keep supported scalar verification and absent optional wrappers unchanged.
+  No input conversion or partial report is performed. Containers belong outside
+  `Evidenced`; optional absence belongs outside it too (`Evidenced[str] | None`).
+- Retain a labelled synthetic PDF and before/after replay through the real
+  fixture extractor and verifier under `studies/claim-types`.
+
 ### Separate string intent from accidental date-name matches
 
 - Restrict generic string date hints to complete words in the final named

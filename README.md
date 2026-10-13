@@ -410,6 +410,23 @@ class PurchaseOrder(BaseModel):
     amount: Evidenced[float]
 ```
 
+Each present `Evidenced` wrapper must hold a string, integer, float or boolean.
+The unreleased verifier checks actual values before grounding and raises a
+field-specific `ValueError` for other types, without changing the model or
+returning a partial report. Pydantic's generic type constraints alone do not
+enforce this boundary: an object or null value with an unrelated real quote
+previously passed verification. Explicit string kinds also require a string
+if the model was mutated after construction.
+
+Put containers outside the wrapper: `dict[str, Evidenced[str]]` gives each
+claim its own evidence; `Evidenced[dict[str, str]]` has no verification rule.
+For an absent optional claim, use `Evidenced[str] | None`; a present wrapper
+with `value=None` is an error. Python `date`, `Decimal`, bytes and arbitrary
+objects are not silently converted to supported scalar values. Represent
+calendar dates as ISO strings with `EvidencedDate`. The
+[claim-type PDF replay](studies/claim-types/README.md) retains before/after
+results, including an object that previously supplied a false row-location hint.
+
 The unreleased source also traverses nested models, lists, tuples and
 string-keyed mappings, such as `checks: dict[str, Evidenced[bool]]`. Mapping
 keys use JSON-quoted paths (`checks["loading-bay"]`); model members use dots

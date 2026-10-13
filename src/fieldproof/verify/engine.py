@@ -37,7 +37,7 @@ from fieldproof.ground.align import (
 )
 from fieldproof.ground.lines import separate_lines
 from fieldproof.ground.values import NumberStyle, number_styles
-from fieldproof.schemas.base import EvidencedDate, EvidencedText, iter_evidenced_fields
+from fieldproof.schemas.base import Evidenced, EvidencedDate, EvidencedText, iter_evidenced_fields
 from fieldproof.verify.columns import ColumnEvidenceCheck, ColumnEvidenceIndex
 from fieldproof.verify.cross_field import CrossFieldCheck, CrossFieldIssue, audit_cross_field
 from fieldproof.verify.rows import (
@@ -156,6 +156,25 @@ def _row_prefix(path: str) -> str | None:
     return path[:match.end(1)] if match else None
 
 
+def _validate_claim_value(path: str, evidenced: Evidenced) -> None:
+    # Pydantic permits generic arguments outside a TypeVar's constraints, and
+    # callers can mutate models after validation. Inspect the actual value
+    # before grounding: a real quote is not a verification rule for an object.
+    value = evidenced.value
+    if isinstance(evidenced, EvidencedDate | EvidencedText) and not isinstance(value, str):
+        raise ValueError(
+            f"claim at {path!r} declares a string kind but has value type "
+            f"{type(value).__name__}; supply a string value"
+        )
+    if not isinstance(value, str | int | float | bool):
+        raise ValueError(
+            f"claim at {path!r} has unsupported value type {type(value).__name__}; "
+            "Evidenced values must be strings, integers, floats or booleans. "
+            "Put containers outside Evidenced and represent an absent claim with "
+            "an optional wrapper, not a null value"
+        )
+
+
 def verify(
     data: BaseModel,
     document: Document,
@@ -192,6 +211,12 @@ def verify(
     the kind; numeric positions retain their collection's name. Use an explicit
     wrapper when the name does not express the intended kind.
 
+    Each present wrapper must hold a string, integer, float or boolean;
+    explicit string kinds must hold strings. Other values raise `ValueError`
+    with their field path before any grounding or report generation. Put
+    containers outside the wrapper (e.g. `dict[str, Evidenced[str]]`), and use
+    `Evidenced[str] | None` for an absent optional claim. No values are coerced.
+
     Fields are walked in schema-declaration order (`iter_evidenced_fields`),
     which for a list item means its fields come in the order they're
     declared on the model - e.g. `LineItem.description` before
@@ -215,7 +240,6 @@ def verify(
     another configured column requires review. Missing or ambiguous layouts
     remain unavailable in `column_checks`, without changing field verdicts.
     """
-    grounding = GroundingIndex(document)
     results: list[FieldVerification] = []
     row_anchors: dict[str, tuple[str, GroundingMatch]] = {}
     # Whether this document writes numeric dates month or day first, if any of
@@ -226,6 +250,10 @@ def verify(
         )
     if default_date_order not in (None, "dmy", "mdy"):
         raise ValueError(f'default_date_order must be "dmy" or "mdy", not {default_date_order!r}')
+    fields = dict(iter_evidenced_fields(data))
+    for path, evidenced in fields.items():
+        _validate_claim_value(path, evidenced)
+    grounding = GroundingIndex(document)
     orders = numeric_date_orders(document.full_text())
     date_order = (
         next(iter(orders)) if len(orders) == 1 else default_date_order if not orders else None
@@ -235,7 +263,6 @@ def verify(
     styles = number_styles(numeric_text)
     style = next(iter(styles)) if len(styles) == 1 else default_number_style if not styles else None
 
-    fields = dict(iter_evidenced_fields(data))
     rows = configured_rows(data, default_row_rules(data) if row_rules is None else tuple(row_rules))
     anchor_results: dict[str, tuple[FieldVerification, GroundingMatch | None]] = {}
     for row_prefix, rule in rows.items():
@@ -540,7 +567,7 @@ def _check_value(
         if date_value:
             return check_date(value, evidence_text, date_order=date_order)
         return check_string(value, evidence_text, max_edits=max_edits)
-    return ValueCheckResult(True)
+    raise TypeError(f"value type {type(value).__name__} has no verification rule")
 
 
 def _apply_cross_field_issues(
