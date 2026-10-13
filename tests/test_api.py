@@ -283,6 +283,43 @@ def test_oversized_fixture_preserves_extraction_and_saved_decision(
     assert not store.is_busy(extracted_document)
 
 
+@pytest.mark.parametrize("damage", ["duplicate", "unknown", "nonfinite", "surrogate"])
+def test_rejected_claims_keep_prior_extraction_and_human_correction(
+    client, extracted_document, fixture_bytes, damage
+):
+    client.post(
+        f"/api/documents/{extracted_document}/review",
+        json={"path": "total", "action": "edit", "value": 123.5},
+    )
+    before = client.get(f"/api/documents/{extracted_document}/report").json()
+    text = fixture_bytes.decode()
+    if damage == "duplicate":
+        text = text.replace('"total": {', '"total": {"value": 900, ')
+    elif damage == "unknown":
+        data = json.loads(text)
+        data["data"]["bank_account"] = {"value": "UNSUPPORTED", "evidence": []}
+        text = json.dumps(data)
+    elif damage == "nonfinite":
+        text = text.replace('"value": 110.0', '"value": 1e999')
+    else:
+        text = text.replace("Acme Corporation", "\\ud800")
+    response = client.post(
+        f"/api/documents/{extracted_document}/extract",
+        data={"schema": "invoice", "provider": "fixture"},
+        files={"fixture": ("claims.json", text.encode(), "application/json")},
+    )
+    assert response.status_code == 422
+    assert "claims.json" in response.json()["detail"]
+    assert client.get(f"/api/documents/{extracted_document}/report").json() == before
+    assert not store.is_busy(extracted_document)
+    retry = client.post(
+        f"/api/documents/{extracted_document}/extract",
+        data={"schema": "invoice", "provider": "fixture"},
+        files={"fixture": ("valid.json", fixture_bytes, "application/json")},
+    )
+    assert retry.status_code == 200
+
+
 def test_excessive_field_count_does_not_replace_prior_review(
     client,
     extracted_document,

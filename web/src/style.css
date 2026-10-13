@@ -833,6 +833,11 @@ a {
   display: none;
 }
 
+.operation-status .btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 .empty-filtered {
   padding: 40px 20px;
   text-align: center;

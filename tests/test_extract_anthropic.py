@@ -180,6 +180,29 @@ def test_a_reply_that_is_not_the_schema_names_what_does_not_fit() -> None:
         AnthropicExtractor(client=api.client()).extract(load_pdf(EXAMPLES / "invoice.pdf"), Invoice)
 
 
+@pytest.mark.parametrize("damage", ["duplicate", "unknown", "nested", "nonfinite"])
+def test_sdk_streamed_claims_cannot_disappear_before_verification(damage: str) -> None:
+    payload = _fixture("invoice")
+    if damage == "unknown":
+        payload["bank_account"] = {"value": "UNSUPPORTED", "evidence": []}
+        expected = "bank_account: Extra inputs are not permitted"
+    elif damage == "nested":
+        payload["line_items"][0]["discount"] = {"value": 900, "evidence": []}
+        expected = "line_items.0.discount: Extra inputs are not permitted"
+    elif damage == "nonfinite":
+        payload["total"]["value"] = float("inf")
+        expected = "non-finite JSON number at '/total/value'"
+    else:
+        expected = "duplicate JSON member at '/total/value'"
+    text = json.dumps(payload)
+    if damage == "duplicate":
+        text = text.replace('"total": {', '"total": {"value": 900, ')
+    api = Api(text)
+    with pytest.raises(ExtractionError, match=expected):
+        AnthropicExtractor(client=api.client()).extract(load_pdf(EXAMPLES / "invoice.pdf"), Invoice)
+    assert len(api.requests) == 1
+
+
 def test_an_api_error_is_an_extraction_error() -> None:
     api = Api(status=529)
     with pytest.raises(ExtractionError, match="the Anthropic API request failed: .*Overloaded"):

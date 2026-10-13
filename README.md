@@ -157,6 +157,15 @@ on your machine. From a source checkout, build the UI first (see
 
 ## Features
 
+- **Reject discarded claims (source checkout, unreleased)** - duplicate JSON
+  members and unknown fields cannot silently disappear from an extraction before
+  review. The CLI, uploaded fixtures and provider replies share the same checks;
+  errors name the input and member path. Non-finite JSON numbers and unpaired
+  Unicode surrogates are refused too. Failed imports retain the previous report
+  and human corrections. In the [controlled PDF replay](studies/claim-integrity/README.md),
+  a conflicting total and an extra unsupported claim previously both produced
+  `4 verified, 0 needs review, 0 unsupported`; each is now an explicit input error.
+
 - **Grounded extraction** - every field is `{value, evidence, page}`, not a
   bare value. Built-in Pydantic templates for invoices, receipts, and
   contract key terms; bring your own schema and it works the same way.
@@ -379,6 +388,13 @@ with `DELETE /api/documents/{id}`. Removal or concurrent extraction is
 refused while extraction owns that session.
 
 ### Bring your own schema
+
+Extraction validation requires Pydantic 2.12 or later and forbids unexpected
+members, including inside nested models and `Evidenced` wrappers. Declare an
+additional claim in the schema instead of depending on Pydantic's default
+extra-field omission. Declared aliases and optional defaults still work.
+These checks apply before Fieldproof creates a schema instance; they cannot
+recover fields a caller already discarded while constructing its own model.
 
 Any Pydantic model built from `Evidenced[T]` leaves works - `fieldproof.ground`
 and `fieldproof.verify` walk it generically (`iter_evidenced_fields`), they

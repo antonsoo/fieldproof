@@ -90,6 +90,95 @@ def test_result_without_data_is_an_extraction_error() -> None:
 
 
 @pytest.mark.parametrize(
+    ("text", "pointer"),
+    [
+        ('{"data":{"total":{"value":900,"value":100}}}', "/data/total/value"),
+        ('{"data":{"total":{"value":900,"val\\u0075e":100}}}', "/data/total/value"),
+        ('{"data":{"line_items":[{"amount":1,"amount":2}]}}', "/data/line_items/0/amount"),
+        ('{"data":{"a/b~c":1,"a/b~c":2}}', "/data/a~1b~0c"),
+        ('{"data":{"total":1},"data":{"total":2}}', "/data"),
+    ],
+)
+def test_duplicate_claims_are_not_replaced_by_the_last_member(text: str, pointer: str) -> None:
+    from fieldproof.extract.base import read_extraction_json
+
+    with pytest.raises(ExtractionError) as caught:
+        read_extraction_json(text, "claims.json")
+    assert "claims.json" in str(caught.value)
+    assert f"duplicate JSON member at {pointer!r}" in str(caught.value)
+
+
+@pytest.mark.parametrize("number", ["NaN", "Infinity", "-Infinity", "1e999"])
+def test_nonfinite_json_numbers_are_explicit_input_errors(number: str) -> None:
+    from fieldproof.extract.base import read_extraction_json
+
+    with pytest.raises(ExtractionError, match="non-finite JSON number at '/data/total/value'"):
+        read_extraction_json('{"data":{"total":{"value":' + number + "}}}", "claims.json")
+
+
+@pytest.mark.parametrize("text", ['{"data":{"value":"\\ud800"}}', '{"\\udfff":1}'])
+def test_escaped_lone_surrogates_cannot_reach_saved_or_http_reports(text: str) -> None:
+    from fieldproof.extract.base import read_extraction_json
+
+    with pytest.raises(ExtractionError, match="invalid Unicode"):
+        read_extraction_json(text, "claims.json")
+
+
+def test_valid_surrogate_pairs_and_repeated_names_in_separate_objects_are_allowed() -> None:
+    from fieldproof.extract.base import read_extraction_json
+
+    assert read_extraction_json(
+        '{"first":{"value":"\\ud83d\\ude00"},"second":{"value":"ok"}}', "claims.json"
+    ) == {"first": {"value": "😀"}, "second": {"value": "ok"}}
+
+
+@pytest.mark.parametrize("location", ["root", "row", "wrapper"])
+def test_schema_validation_cannot_discard_unrecognized_claims(location: str) -> None:
+    from fieldproof.extract.base import validate_data
+
+    data = _fixture_payload()["data"]
+    if location == "root":
+        data["bank_account"] = {"value": "UNSUPPORTED", "evidence": []}
+        path = "bank_account"
+    elif location == "row":
+        data["line_items"] = [{
+            "description": {"value": "Widget"}, "amount": {"value": 10},
+            "discount": {"value": 900, "evidence": []},
+        }]
+        path = "line_items.0.discount"
+    else:
+        data["total"]["original_value"] = 900
+        path = "total.original_value"
+    with pytest.raises(ExtractionError) as caught:
+        validate_data(data, Invoice, "claims.json")
+    assert f"{path}: Extra inputs are not permitted" in str(caught.value)
+
+
+def test_per_call_extra_policy_preserves_custom_aliases_defaults_and_model_configuration() -> None:
+    from pydantic import BaseModel, ConfigDict, Field
+
+    from fieldproof.extract.base import validate_data
+
+    class Person(BaseModel):
+        model_config = ConfigDict(extra="allow")
+        name: Evidenced[str] = Field(alias="printed_name")
+        country: Evidenced[str] | None = None
+
+    class Form(BaseModel):
+        people: list[Person]
+
+    clean = {"people": [{"printed_name": {"value": "Jane", "evidence": ["Jane"]}}]}
+    validated = validate_data(clean, Form, "form.json")
+    assert validated.people[0].name.value == "Jane"
+    assert validated.people[0].country is None
+    assert Person.model_config["extra"] == "allow"
+    damaged = {"people": [{**clean["people"][0], "approval": {"value": True}}]}
+    with pytest.raises(ExtractionError, match="people.0.approval: Extra inputs are not permitted"):
+        validate_data(damaged, Form, "form.json")
+    assert "approval" in Person.model_validate(damaged["people"][0]).model_extra
+
+
+@pytest.mark.parametrize(
     "encode",
     [
         lambda text: b"\xef\xbb\xbf" + text.encode("utf-8"),

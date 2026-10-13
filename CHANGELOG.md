@@ -4,6 +4,22 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Keep supplied claims visible at the extraction boundary
+
+- Reject duplicate JSON members with their decoded JSON Pointer, including
+  escaped duplicate names. Use the same decoder for fixture files, saved-result
+  verification, server uploads and collected Anthropic SDK replies.
+- Reject non-finite JSON numbers and unpaired Unicode surrogates before they can
+  create unreadable server reports. Preserve valid UTF-8/BOM and BOM-marked
+  UTF-16 inputs.
+- Forbid unexpected members throughout schema validation, so extra claims and
+  misspelled fields cannot be dropped before review. Preserve declared aliases
+  and optional defaults. Require Pydantic 2.12 for its per-call extra-field policy.
+- Failed reads and validations keep previous CLI files and server review decisions.
+  Retain synthetic PDF, real SDK-parser and browser evidence in
+  `studies/claim-integrity`; no model API, package release or hosted deployment.
+- Keep the Retry button readable beside long import errors on narrow screens.
+
 ### Preserve CLI inputs and reports
 
 - Refuse report destinations that identify the source PDF or consumed extraction

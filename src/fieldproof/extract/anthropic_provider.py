@@ -21,7 +21,6 @@ by the SDK's own code; no completion in those tests came from a model.
 
 from __future__ import annotations
 
-import json
 from dataclasses import dataclass
 from typing import Any, TypeVar
 
@@ -29,7 +28,12 @@ import anthropic
 from pydantic import BaseModel
 
 from fieldproof.document.model import Document
-from fieldproof.extract.base import ExtractionError, ExtractionResult, validate_data
+from fieldproof.extract.base import (
+    ExtractionError,
+    ExtractionResult,
+    read_extraction_json,
+    validate_data,
+)
 
 #: Claude Opus 5.5, the current Opus model. Override via the `model`
 #: constructor argument (or the CLI's `--model` flag), e.g. with
@@ -126,10 +130,11 @@ def _parse_reply(message: Any, schema: type[T], max_tokens: int) -> T:
         if getattr(block, "type", "") == "text"
     )
     try:
-        payload = json.loads(text)
-    except ValueError as exc:
+        payload = read_extraction_json(text, "Claude's reply")
+    except ExtractionError as exc:
         raise ExtractionError(
-            f"Claude did not return a {schema.__name__} as JSON (stop_reason={stop_reason!r})"
+            f"Claude did not return a {schema.__name__} as JSON "
+            f"(stop_reason={stop_reason!r}): {exc}"
         ) from exc
     return validate_data(payload, schema, "Claude's reply")
 

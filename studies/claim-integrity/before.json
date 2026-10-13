@@ -1,0 +1,3617 @@
+{
+  "mode": "before",
+  "python": "3.12.12",
+  "pydantic": "2.13.5",
+  "anthropic": "1.11.0",
+  "sourceImport": "source/src/fieldproof",
+  "documentSha256": "ba0d31a1354b11f99ab441211ee7e388e107d066409b312e44eaaeecec51fd4d",
+  "cases": [
+    {
+      "case": "valid",
+      "expectedAccepted": true,
+      "inputSha256": "3a59e17356eae5ae4e763007a46be5a49e97ecb33674938f2d44d60b9ff141ad",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/valid/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "71efa3920165cc6957dcf583853cbe6003e33148e29025e3b31688a224b7fccc"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/valid/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 4,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "13edf82d58467ee9e9fbd8fa4f399e37771e88c89f43f44d25bd04faa09656c1"
+      }
+    },
+    {
+      "case": "valid-defaults",
+      "expectedAccepted": true,
+      "inputSha256": "e076d674b775bf95709599e16d8cc155f4b3789dd939dd9027d0f1562d8edfab",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/valid-defaults/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "71efa3920165cc6957dcf583853cbe6003e33148e29025e3b31688a224b7fccc"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/valid-defaults/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 4,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "d88bd4e91d8427f028d9a5e33d0956f76281735018e9d4d73f2d553b45922144"
+      }
+    },
+    {
+      "case": "duplicate-value",
+      "expectedAccepted": false,
+      "inputSha256": "7fccde21755a9d78c9809dc1fb3e5a98331d88f2b6b92e7a9821f6c008027673",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/duplicate-value/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "71efa3920165cc6957dcf583853cbe6003e33148e29025e3b31688a224b7fccc"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/duplicate-value/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 4,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "44b1dcda6571bf4377ff35e46bc593c379c332139885535a4bd9f24c82788f43"
+      }
+    },
+    {
+      "case": "duplicate-escaped-value",
+      "expectedAccepted": false,
+      "inputSha256": "e29f84d093eb4c996a15275cb6c01a4bb2ef03b2b03ec1a0b2c7cea2d4d8b756",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/duplicate-escaped-value/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "71efa3920165cc6957dcf583853cbe6003e33148e29025e3b31688a224b7fccc"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/duplicate-escaped-value/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 4,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "f76f4e0e33d66e1ff072a24ba7906ddeff5366bca9be6c4d1425498073dbc1d7"
+      }
+    },
+    {
+      "case": "duplicate-evidence",
+      "expectedAccepted": false,
+      "inputSha256": "37bc4369a1fd1313adf7a808c8d8f7bdd917464d6c3652fb482080d22f93b001",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/duplicate-evidence/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "71efa3920165cc6957dcf583853cbe6003e33148e29025e3b31688a224b7fccc"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/duplicate-evidence/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 4,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "46113300b2818d0f8e193038b51104aba056c7ec3507014ec3953579a6879dbb"
+      }
+    },
+    {
+      "case": "duplicate-total",
+      "expectedAccepted": false,
+      "inputSha256": "ecff1db4392da2497aa590c6e20b76a690a063a516a13f4783d49c8dabe3213a",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/duplicate-total/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "71efa3920165cc6957dcf583853cbe6003e33148e29025e3b31688a224b7fccc"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/duplicate-total/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 4,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "7f48b0d8bbd9eba95004023e70b666a5f48052f87829745e9371ae0bd27fbfcb"
+      }
+    },
+    {
+      "case": "unknown-claim",
+      "expectedAccepted": false,
+      "inputSha256": "6a090002655718d020d862b1a600001e91f9fd449ce49e08f9f46b1f20b3835d",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/unknown-claim/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "71efa3920165cc6957dcf583853cbe6003e33148e29025e3b31688a224b7fccc"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/unknown-claim/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 4,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "ca0f40f0797440269d714a34cc048e79227d61b4596efcaa9558f7a37c2bb8f6"
+      }
+    },
+    {
+      "case": "unknown-wrapper",
+      "expectedAccepted": false,
+      "inputSha256": "a54920811772ab52c11a6c3e7416111179fd984efb76ff98468044a70fb2d95c",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/unknown-wrapper/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "71efa3920165cc6957dcf583853cbe6003e33148e29025e3b31688a224b7fccc"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/unknown-wrapper/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 4,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "afbf2523b75fc817d2a9809b03ebccf25c50e666259c7120a38e8d83647e19e8"
+      }
+    },
+    {
+      "case": "unknown-row",
+      "expectedAccepted": false,
+      "inputSha256": "7ba78be273887ebca5ee13441f4bc85d5e6b0d9eb760df92d0226c53fed7465d",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/unknown-row/report.json - 6 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 6,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "line_items[0].description",
+          "line_items[0].amount",
+          "total"
+        ],
+        "reportSha256": "177955b30b2991a49c7c851b7f9075fdb7091fff785184abf16e90a31a674e6d"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/unknown-row/saved-result.json - 6 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [
+              {
+                "description": {
+                  "value": "Widget",
+                  "evidence": [
+                    "Widget"
+                  ],
+                  "page": 1
+                },
+                "quantity": null,
+                "unit_price": null,
+                "amount": {
+                  "value": 100.0,
+                  "evidence": [
+                    "Widget 1 100.00 100.00"
+                  ],
+                  "page": 1
+                }
+              }
+            ],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "line_items[0].description",
+                "value": "Widget",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Widget",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 176.37380000000007,
+                    "x1": 77.34400000000001,
+                    "bottom": 188.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "line_items[0].amount",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Widget 1 100.00 100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 176.37380000000007,
+                    "x1": 167.41599999999997,
+                    "bottom": 188.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 6,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.line_extension",
+                "fields": [
+                  "line_items[0].quantity",
+                  "line_items[0].unit_price",
+                  "line_items[0].amount"
+                ],
+                "status": "not_checked",
+                "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].quantity, line_items[0].unit_price",
+                "operands": {
+                  "line_items[0].quantity": null,
+                  "line_items[0].unit_price": null,
+                  "line_items[0].amount": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "line_items[0].amount",
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: missing subtotal",
+                "operands": {
+                  "line_items[0].amount": "100.0",
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [
+              {
+                "field": "line_items[0].quantity",
+                "anchor": "line_items[0].description",
+                "status": "unavailable",
+                "reason": "line_items[0].quantity was not extracted",
+                "field_source_status": null,
+                "anchor_source_status": "verified",
+                "field_location": null,
+                "anchor_location": {
+                  "page": 1,
+                  "text": "Widget",
+                  "start": 94,
+                  "end": 100,
+                  "rects": [
+                    {
+                      "x0": 40.0,
+                      "top": 176.37380000000007,
+                      "x1": 77.34400000000001,
+                      "bottom": 188.37380000000007
+                    }
+                  ]
+                }
+              },
+              {
+                "field": "line_items[0].unit_price",
+                "anchor": "line_items[0].description",
+                "status": "unavailable",
+                "reason": "line_items[0].unit_price was not extracted",
+                "field_source_status": null,
+                "anchor_source_status": "verified",
+                "field_location": null,
+                "anchor_location": {
+                  "page": 1,
+                  "text": "Widget",
+                  "start": 94,
+                  "end": 100,
+                  "rects": [
+                    {
+                      "x0": 40.0,
+                      "top": 176.37380000000007,
+                      "x1": 77.34400000000001,
+                      "bottom": 188.37380000000007
+                    }
+                  ]
+                }
+              },
+              {
+                "field": "line_items[0].amount",
+                "anchor": "line_items[0].description",
+                "status": "same_line",
+                "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+                "field_source_status": "verified",
+                "anchor_source_status": "verified",
+                "field_location": {
+                  "page": 1,
+                  "text": "Widget 1 100.00 100.00",
+                  "start": 94,
+                  "end": 116,
+                  "rects": [
+                    {
+                      "x0": 40.0,
+                      "top": 176.37380000000007,
+                      "x1": 167.41599999999997,
+                      "bottom": 188.37380000000007
+                    }
+                  ]
+                },
+                "anchor_location": {
+                  "page": 1,
+                  "text": "Widget",
+                  "start": 94,
+                  "end": 100,
+                  "rects": [
+                    {
+                      "x0": 40.0,
+                      "top": 176.37380000000007,
+                      "x1": 77.34400000000001,
+                      "bottom": 188.37380000000007
+                    }
+                  ]
+                }
+              }
+            ],
+            "column_checks": [
+              {
+                "field": "line_items[0].quantity",
+                "status": "unavailable",
+                "reason": "column evidence requires strongly supported quotes on one item line",
+                "observed_column": null,
+                "headers": null,
+                "value_locations": []
+              },
+              {
+                "field": "line_items[0].unit_price",
+                "status": "unavailable",
+                "reason": "column evidence requires strongly supported quotes on one item line",
+                "observed_column": null,
+                "headers": null,
+                "value_locations": []
+              },
+              {
+                "field": "line_items[0].amount",
+                "status": "unavailable",
+                "reason": "no complete, unambiguous configured header row above this item",
+                "observed_column": null,
+                "headers": null,
+                "value_locations": []
+              }
+            ]
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "line_items[0].description": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "line_items[0].amount": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 6,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "line_items[0].description",
+          "line_items[0].amount",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "fcbb435793e043ba5acea1693a397a14c201ea65f427c222f6265895a5a12e1f"
+      }
+    },
+    {
+      "case": "nonfinite",
+      "expectedAccepted": false,
+      "inputSha256": "5c8b991232a78fd6e5e400807c2f355f7be2048a61405834f61dcf08052d8fb0",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/nonfinite/report.json - 3 verified, 1 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 3,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "f1d14cc42294d16f32d39e818a58778bdb2b8caa451471e8eedeae74cfeaa2ae"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/nonfinite/saved-result.json - 3 verified, 1 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": null,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": null,
+                "status": "needs_review",
+                "reasons": [
+                  "a non-finite value cannot be verified as an amount"
+                ],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 3,
+              "needs_review": 1,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "nan"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 3,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "e0aebde2eb412e10a6ddd2a342e036d33a22737a34c953ae208b665d7f58dc1a"
+      }
+    },
+    {
+      "case": "overflow",
+      "expectedAccepted": false,
+      "inputSha256": "c963093a5197212cdd79d95b308f5fac57ca6ead091916998f57c039d95b0ab6",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/overflow/report.json - 3 verified, 1 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 3,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "8f871891421a0118a3e1e08ac3554b237c108d6c38687aa8f4d300d8b6a29a23"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/overflow/saved-result.json - 3 verified, 1 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": null,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": null,
+                "status": "needs_review",
+                "reasons": [
+                  "a non-finite value cannot be verified as an amount"
+                ],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 3,
+              "needs_review": 1,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "inf"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 3,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "a55c2ca0b7677149ce7070c420a8c65780c707a8d60729424d08f5009e63e138"
+      }
+    },
+    {
+      "case": "unpaired-surrogate",
+      "expectedAccepted": false,
+      "inputSha256": "e09b2c7077101b6cb1f5e5797a320033e52c707025ce808705ec1fe2ca4df3d6",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/unpaired-surrogate/report.json - 3 verified, 0 needs review, 1 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 3,
+          "needs_review": 0,
+          "unsupported": 1
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "d70d5891d1be670ba24435ff459997659ac470b394a65f2f9b8ddb4e302e4b79"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/unpaired-surrogate/saved-result.json - 3 verified, 0 needs review, 1 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 500,
+        "previousReportAndCorrectionPreserved": false,
+        "body": "Internal Server Error",
+        "validRetryStatus": 200
+      },
+      "sdk": {
+        "accepted": true,
+        "counts": {
+          "verified": 3,
+          "needs_review": 0,
+          "unsupported": 1
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "requestCount": 1,
+        "replySha256": "0a0019d15b6a39564f7ddf00236f1deb2e98339cbf84adfbbc17f86eba39793e"
+      }
+    },
+    {
+      "case": "valid-utf8-bom",
+      "expectedAccepted": true,
+      "inputSha256": "c4b22ef91079a04325c5a44addbe6b01dcb1056def5f18077640f31f0962bca8",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/valid-utf8-bom/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "71efa3920165cc6957dcf583853cbe6003e33148e29025e3b31688a224b7fccc"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/valid-utf8-bom/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 4,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": null
+    },
+    {
+      "case": "valid-utf16le",
+      "expectedAccepted": true,
+      "inputSha256": "f282dff3acea474c746a601c8a3bb1fa2fc5b6dccce5e2c6c66c6328d5054e99",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/valid-utf16le/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "71efa3920165cc6957dcf583853cbe6003e33148e29025e3b31688a224b7fccc"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/valid-utf16le/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 4,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": null
+    },
+    {
+      "case": "valid-utf16be",
+      "expectedAccepted": true,
+      "inputSha256": "83fd6498969c7f4cb80b21cc2003a68189ae0ed34a6ff285e683100a9fd26b47",
+      "cli": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/valid-utf16be/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "previousReportPreserved": false,
+        "counts": {
+          "verified": 4,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "fields": [
+          "vendor_name",
+          "invoice_number",
+          "issue_date",
+          "total"
+        ],
+        "reportSha256": "71efa3920165cc6957dcf583853cbe6003e33148e29025e3b31688a224b7fccc"
+      },
+      "reverify": {
+        "exit": 0,
+        "stdout": "wrote OUTPUT/valid-utf16be/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stderr": "",
+        "originalClaimsPreserved": false
+      },
+      "api": {
+        "status": 200,
+        "previousReportAndCorrectionPreserved": false,
+        "body": {
+          "schema": "invoice",
+          "provider": "fixture",
+          "model": "synthetic-claims",
+          "data": {
+            "vendor_name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            },
+            "invoice_number": {
+              "value": "TEST-1",
+              "evidence": [
+                "Invoice TEST-1"
+              ],
+              "page": 1
+            },
+            "issue_date": {
+              "value": "2026-10-13",
+              "evidence": [
+                "Issued 2026-10-13"
+              ],
+              "page": 1
+            },
+            "due_date": null,
+            "currency": null,
+            "po_number": null,
+            "line_items": [],
+            "subtotal": null,
+            "tax": null,
+            "total": {
+              "value": 100.0,
+              "evidence": [
+                "Total $100.00"
+              ],
+              "page": 1
+            },
+            "payment_terms": null
+          },
+          "report": {
+            "fields": [
+              {
+                "path": "vendor_name",
+                "value": "Example Works",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Example Works",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 98.37380000000007,
+                    "x1": 124.012,
+                    "bottom": 110.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "invoice_number",
+                "value": "TEST-1",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Invoice TEST-1",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 124.37380000000007,
+                    "x1": 122.692,
+                    "bottom": 136.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "issue_date",
+                "value": "2026-10-13",
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Issued 2026-10-13",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 150.37380000000007,
+                    "x1": 140.05599999999995,
+                    "bottom": 162.37380000000007
+                  }
+                ]
+              },
+              {
+                "path": "total",
+                "value": 100.0,
+                "status": "verified",
+                "reasons": [],
+                "match_score": 100.0,
+                "matched_text": "Total $100.00",
+                "page": 1,
+                "rects": [
+                  {
+                    "x0": 40.0,
+                    "top": 202.37380000000007,
+                    "x1": 113.38,
+                    "bottom": 214.37380000000007
+                  }
+                ]
+              }
+            ],
+            "cross_field_issues": [],
+            "counts": {
+              "verified": 4,
+              "needs_review": 0,
+              "unsupported": 0
+            },
+            "cross_field_checks": [
+              {
+                "rule": "invoice.items_subtotal",
+                "fields": [
+                  "subtotal"
+                ],
+                "status": "not_checked",
+                "message": "line items sum not checked: no item amounts were extracted",
+                "operands": {
+                  "subtotal": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.subtotal_tax_total",
+                "fields": [
+                  "subtotal",
+                  "tax",
+                  "total"
+                ],
+                "status": "not_checked",
+                "message": "subtotal + tax not checked: missing subtotal, tax",
+                "operands": {
+                  "subtotal": null,
+                  "tax": null,
+                  "total": "100.0"
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": "0.02"
+              },
+              {
+                "rule": "invoice.due_date_order",
+                "fields": [
+                  "issue_date",
+                  "due_date"
+                ],
+                "status": "not_checked",
+                "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+                "operands": {
+                  "issue_date": "2026-10-13",
+                  "due_date": null
+                },
+                "computed": null,
+                "observed": null,
+                "difference": null,
+                "tolerance": null
+              }
+            ],
+            "row_checks": [],
+            "column_checks": []
+          },
+          "review": {
+            "vendor_name": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "invoice_number": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "issue_date": {
+              "status": "pending",
+              "edited_value": null
+            },
+            "total": {
+              "status": "pending",
+              "edited_value": null
+            }
+          }
+        },
+        "validRetryStatus": 200
+      },
+      "sdk": null
+    }
+  ],
+  "liveModelCalled": false
+}

@@ -1,0 +1,95 @@
+{
+  "label": "Synthetic malformed extraction controls; no provider API called",
+  "cases": [
+    {
+      "id": "valid",
+      "accepted": true,
+      "fixture": "valid.json",
+      "reply": "valid.reply.txt"
+    },
+    {
+      "id": "valid-defaults",
+      "accepted": true,
+      "fixture": "valid-defaults.json",
+      "reply": "valid-defaults.reply.txt"
+    },
+    {
+      "id": "duplicate-value",
+      "accepted": false,
+      "fixture": "duplicate-value.json",
+      "reply": "duplicate-value.reply.txt"
+    },
+    {
+      "id": "duplicate-escaped-value",
+      "accepted": false,
+      "fixture": "duplicate-escaped-value.json",
+      "reply": "duplicate-escaped-value.reply.txt"
+    },
+    {
+      "id": "duplicate-evidence",
+      "accepted": false,
+      "fixture": "duplicate-evidence.json",
+      "reply": "duplicate-evidence.reply.txt"
+    },
+    {
+      "id": "duplicate-total",
+      "accepted": false,
+      "fixture": "duplicate-total.json",
+      "reply": "duplicate-total.reply.txt"
+    },
+    {
+      "id": "unknown-claim",
+      "accepted": false,
+      "fixture": "unknown-claim.json",
+      "reply": "unknown-claim.reply.txt"
+    },
+    {
+      "id": "unknown-wrapper",
+      "accepted": false,
+      "fixture": "unknown-wrapper.json",
+      "reply": "unknown-wrapper.reply.txt"
+    },
+    {
+      "id": "unknown-row",
+      "accepted": false,
+      "fixture": "unknown-row.json",
+      "reply": "unknown-row.reply.txt"
+    },
+    {
+      "id": "nonfinite",
+      "accepted": false,
+      "fixture": "nonfinite.json",
+      "reply": "nonfinite.reply.txt"
+    },
+    {
+      "id": "overflow",
+      "accepted": false,
+      "fixture": "overflow.json",
+      "reply": "overflow.reply.txt"
+    },
+    {
+      "id": "unpaired-surrogate",
+      "accepted": false,
+      "fixture": "unpaired-surrogate.json",
+      "reply": "unpaired-surrogate.reply.txt"
+    },
+    {
+      "id": "valid-utf8-bom",
+      "accepted": true,
+      "fixture": "valid-utf8-bom.json",
+      "reply": null
+    },
+    {
+      "id": "valid-utf16le",
+      "accepted": true,
+      "fixture": "valid-utf16le.json",
+      "reply": null
+    },
+    {
+      "id": "valid-utf16be",
+      "accepted": true,
+      "fixture": "valid-utf16be.json",
+      "reply": null
+    }
+  ]
+}

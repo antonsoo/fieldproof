@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 from dataclasses import dataclass
 from typing import Any, Protocol, TypeVar
 
@@ -28,18 +29,49 @@ def _decode(content: bytes) -> str:
     return content.decode("utf-8-sig")
 
 
+class _ObjectPairs(list[tuple[str, Any]]):
+    """Keep duplicate names until their full JSON Pointer is available."""
+
+
+def _pointer(parts: tuple[str, ...]) -> str:
+    return "".join("/" + part.replace("~", "~0").replace("/", "~1") for part in parts)
+
+
+def _json_value(value: Any, parts: tuple[str, ...] = ()) -> Any:
+    if isinstance(value, _ObjectPairs):
+        result: dict[str, Any] = {}
+        for key, child in value:
+            key.encode("utf-8")  # escaped lone surrogates cannot reach reports or HTTP responses
+            path = (*parts, key)
+            if key in result:
+                raise ValueError(f"duplicate JSON member at {_pointer(path)!r}")
+            result[key] = _json_value(child, path)
+        return result
+    if isinstance(value, list):
+        return [_json_value(child, (*parts, str(index))) for index, child in enumerate(value)]
+    if isinstance(value, float) and not math.isfinite(value):
+        raise ValueError(f"non-finite JSON number at {_pointer(parts)!r}")
+    if isinstance(value, str):
+        value.encode("utf-8")
+    return value
+
+
 def read_extraction_json(content: str | bytes, source: str) -> dict[str, Any]:
     """Parse a stored extraction (a fixture, or another tool's `result.json`).
     `source` names the file in the error."""
     try:
         text = _decode(content) if isinstance(content, bytes) else content
-        raw = json.loads(text)
+        raw = _json_value(json.loads(text, object_pairs_hook=_ObjectPairs))
     except UnicodeDecodeError as exc:
         raise ExtractionError(f"{source} is not UTF-8 text") from exc
     except json.JSONDecodeError as exc:
         raise ExtractionError(
             f"{source} is not valid JSON (line {exc.lineno}, column {exc.colno}: {exc.msg})"
         ) from exc
+    except UnicodeEncodeError as exc:
+        raise ExtractionError(f"{source} contains invalid Unicode (an unpaired surrogate)") from exc
+    except (ValueError, RecursionError) as exc:
+        raise ExtractionError(f"{source} cannot be read without losing claims: {exc}") from exc
     if not isinstance(raw, dict):
         raise ExtractionError(f"{source} must hold a JSON object, not {type(raw).__name__}")
     return raw
@@ -49,7 +81,10 @@ def validate_data(payload: Any, schema: type[T], source: str) -> T:
     """`payload` as an instance of `schema`, or an `ExtractionError` that
     lists what doesn't fit, field by field, instead of pydantic's full report."""
     try:
-        return schema.model_validate(payload)
+        # An ignored member is an unreviewed claim, not a successfully validated
+        # extraction. This per-call option also covers nested user-defined models
+        # without mutating their configuration or losing aliases/defaults.
+        return schema.model_validate(payload, extra="forbid")
     except ValidationError as exc:
         problems = [
             f"{'.'.join(str(part) for part in error['loc']) or 'data'}: {error['msg']}"
