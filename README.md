@@ -396,9 +396,9 @@ extra-field omission. Declared aliases and optional defaults still work.
 These checks apply before Fieldproof creates a schema instance; they cannot
 recover fields a caller already discarded while constructing its own model.
 
-Any Pydantic model built from `Evidenced[T]` leaves works - `fieldproof.ground`
-and `fieldproof.verify` walk it generically (`iter_evidenced_fields`), they
-never reference `Invoice`/`Receipt`/`ContractKeyTerms` by name:
+Models built from `Evidenced[T]` leaves are walked generically by
+`iter_evidenced_fields`; source grounding and value checks do not need a
+schema-specific implementation:
 
 ```python
 from pydantic import BaseModel
@@ -409,6 +409,17 @@ class PurchaseOrder(BaseModel):
     approved: Evidenced[bool]
     amount: Evidenced[float]
 ```
+
+The unreleased source also traverses nested models, lists, tuples and
+string-keyed mappings, such as `checks: dict[str, Evidenced[bool]]`. Mapping
+keys use JSON-quoted paths (`checks["loading-bay"]`); model members use dots
+and positions use numeric brackets. A literal field named `a.b` is `["a.b"]`,
+distinct from a nested `a.b`. Non-string mapping keys raise an explicit error.
+The [custom-container PDF replay](studies/container-claims/README.md) shows
+previously omitted unsupported claims and a field-path collision. Literal
+mapping keys cannot create row-location hints by containing index-like text.
+Custom models are a Python-library integration; the CLI and server schema
+selector still offer the built-in invoice, receipt and contract models.
 
 In the source checkout, Boolean leaves need one explicit `yes`/`no` or
 `true`/`false` answer, optionally labelled (`Approval: yes`, `Renewal = false`).

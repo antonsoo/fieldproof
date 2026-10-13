@@ -4,6 +4,18 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Keep declared custom-schema containers in verification
+
+- Traverse tuples and string-keyed mappings as well as nested models and lists.
+  Previously, valid custom models could hold unsupported claims while their
+  verification report contained no fields.
+- Quote literal mapping keys and non-identifier model field names in paths,
+  preventing a field named `a.b` from overwriting nested field `a.b`.
+- Ignore quoted key text when finding positional row hints. A key containing
+  `items[0].amount` is not evidence that its claim belongs to a table row.
+- Reject non-string mapping keys explicitly. Retain real-PDF before/after
+  evidence under `studies/container-claims`; built-in schema selectors are unchanged.
+
 ### Keep supplied claims visible at the extraction boundary
 
 - Reject duplicate JSON members with their decoded JSON Pointer, including

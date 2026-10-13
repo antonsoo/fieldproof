@@ -62,6 +62,7 @@ from fieldproof.verify.value_checks import (
 #: object so one can act as a locality hint for disambiguating another
 #: (see `verify`).
 _ROW_PREFIX_RE = re.compile(r"^(.*\[\d+\])\.")
+_QUOTED_MEMBER_RE = re.compile(r'\["(?:[^"\\]|\\.)*"\]')
 
 
 class FieldStatus(StrEnum):
@@ -127,8 +128,11 @@ class VerificationReport:
 
 
 def _row_prefix(path: str) -> str | None:
-    match = _ROW_PREFIX_RE.match(path)
-    return match.group(1) if match else None
+    # A literal mapping key such as "items[0].amount" is not a row position.
+    # Mask quoted members without changing offsets before finding a real index.
+    masked = _QUOTED_MEMBER_RE.sub(lambda match: "x" * len(match.group()), path)
+    match = _ROW_PREFIX_RE.match(masked)
+    return path[:match.end(1)] if match else None
 
 
 def verify(

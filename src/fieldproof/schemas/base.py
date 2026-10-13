@@ -3,15 +3,16 @@
 fieldproof's trust story only works if grounding and verification can find
 *every* extracted value in *any* schema, including one a user brings
 themselves - so instead of hand-writing per-schema traversal, every leaf
-value is wrapped in `Evidenced[T]` and `iter_evidenced_fields` walks an
-arbitrary Pydantic model (nested models, lists of models) collecting them by
-dotted path. Grounding and verification are written once, against this
+value is wrapped in `Evidenced[T]` and `iter_evidenced_fields` walks nested
+models, lists, tuples and string-keyed mappings, collecting them by distinct
+paths. Grounding and verification are written once, against this
 walker, and never against Invoice/Receipt/Contract by name.
 """
 
 from __future__ import annotations
 
-from collections.abc import Iterator
+import json
+from collections.abc import Iterator, Mapping
 from typing import Generic, TypeVar
 
 from pydantic import BaseModel, Field
@@ -35,10 +36,17 @@ class Evidenced(BaseModel, Generic[T]):
 
 
 def iter_evidenced_fields(model: BaseModel, prefix: str = "") -> Iterator[tuple[str, Evidenced]]:
-    """Yield `(dotted_path, Evidenced)` for every `Evidenced` leaf under `model`,
-    recursing into nested `BaseModel`s and lists of them (e.g. line items)."""
+    """Yield `(path, Evidenced)` through models, ordered sequences and mappings.
+
+    Model identifiers use dots; sequence positions use numeric brackets.
+    Mapping keys and non-identifier model names use JSON-quoted brackets so
+    punctuation cannot collide with a nested field or sequence position.
+    """
     for name, value in model:
-        path = f"{prefix}.{name}" if prefix else name
+        if name.isidentifier():
+            path = f"{prefix}.{name}" if prefix else name
+        else:
+            path = f"{prefix}[{json.dumps(name)}]"
         yield from _walk_value(path, value)
 
 
@@ -47,6 +55,13 @@ def _walk_value(path: str, value: object) -> Iterator[tuple[str, Evidenced]]:
         yield path, value
     elif isinstance(value, BaseModel):
         yield from iter_evidenced_fields(value, path)
-    elif isinstance(value, list):
+    elif isinstance(value, list | tuple):
         for i, item in enumerate(value):
             yield from _walk_value(f"{path}[{i}]", item)
+    elif isinstance(value, Mapping):
+        for key, item in value.items():
+            if not isinstance(key, str):
+                raise ValueError(
+                    f"mapping at {path!r} must use string keys, not {type(key).__name__}"
+                )
+            yield from _walk_value(f"{path}[{json.dumps(key)}]", item)
