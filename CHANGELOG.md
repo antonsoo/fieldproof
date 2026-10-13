@@ -4,6 +4,18 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Preserve CLI inputs and reports
+
+- Refuse report destinations that identify the source PDF or consumed extraction
+  fixture, including normalized paths, parent-directory aliases and hard links.
+  Reject output symlinks before PDF or provider work and recheck before writing.
+- Replace reports only after a complete, flushed temporary write. A failed write
+  preserves the previous report, including `verify`'s intended in-place update,
+  removes the temporary file and returns a concise exit-2 error. Report files are
+  private (0600 on POSIX).
+- Retain actual CLI alias, short-write and unchanged-report checks in
+  `studies/report-files`; no hosted or package release is included.
+
 ### Portable review archives
 
 - Save a local review as an inspectable ZIP containing the PDF, original claims

@@ -1,0 +1,285 @@
+{
+  "phase": "before",
+  "scope": "Bundled synthetic invoice, actual CLI subprocesses, no remote provider.",
+  "inputs": {
+    "invoice.pdf": {
+      "bytes": 2388,
+      "sha256": "32d026999bf2318034f8d03df2b655b2c5f210245b3153b4068f64f333147175"
+    },
+    "fixture.json": {
+      "bytes": 3678,
+      "sha256": "9cfefa906c4bb323ac423aa94c96176c174f37114311286c9e98cf86c5f4bcdb"
+    }
+  },
+  "child_write_limit_bytes": 4096,
+  "cases": [
+    {
+      "case": "extract-invoice.pdf-direct",
+      "exit": 0,
+      "stdout": "wrote invoice.pdf - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": false,
+        "fixture.json": true,
+        "result.json": true
+      }
+    },
+    {
+      "case": "extract-invoice.pdf-normalized",
+      "exit": 0,
+      "stdout": "wrote sub/../invoice.pdf - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": false,
+        "fixture.json": true,
+        "result.json": true
+      }
+    },
+    {
+      "case": "extract-invoice.pdf-parent-link",
+      "exit": 0,
+      "stdout": "wrote alias/invoice.pdf - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": false,
+        "fixture.json": true,
+        "result.json": true
+      }
+    },
+    {
+      "case": "extract-invoice.pdf-symbolic",
+      "exit": 0,
+      "stdout": "wrote output.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": false,
+        "fixture.json": true,
+        "result.json": true
+      }
+    },
+    {
+      "case": "extract-invoice.pdf-hard",
+      "exit": 0,
+      "stdout": "wrote output.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": false,
+        "fixture.json": true,
+        "result.json": true
+      }
+    },
+    {
+      "case": "extract-fixture.json-direct",
+      "exit": 0,
+      "stdout": "wrote fixture.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": true,
+        "fixture.json": false,
+        "result.json": true
+      }
+    },
+    {
+      "case": "extract-fixture.json-normalized",
+      "exit": 0,
+      "stdout": "wrote sub/../fixture.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": true,
+        "fixture.json": false,
+        "result.json": true
+      }
+    },
+    {
+      "case": "extract-fixture.json-parent-link",
+      "exit": 0,
+      "stdout": "wrote alias/fixture.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": true,
+        "fixture.json": false,
+        "result.json": true
+      }
+    },
+    {
+      "case": "extract-fixture.json-symbolic",
+      "exit": 0,
+      "stdout": "wrote output.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": true,
+        "fixture.json": false,
+        "result.json": true
+      }
+    },
+    {
+      "case": "extract-fixture.json-hard",
+      "exit": 0,
+      "stdout": "wrote output.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": true,
+        "fixture.json": false,
+        "result.json": true
+      }
+    },
+    {
+      "case": "verify-invoice.pdf-direct",
+      "exit": 0,
+      "stdout": "wrote invoice.pdf - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": false,
+        "fixture.json": true,
+        "result.json": true
+      }
+    },
+    {
+      "case": "verify-invoice.pdf-normalized",
+      "exit": 0,
+      "stdout": "wrote sub/../invoice.pdf - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": false,
+        "fixture.json": true,
+        "result.json": true
+      }
+    },
+    {
+      "case": "verify-invoice.pdf-parent-link",
+      "exit": 0,
+      "stdout": "wrote alias/invoice.pdf - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": false,
+        "fixture.json": true,
+        "result.json": true
+      }
+    },
+    {
+      "case": "verify-invoice.pdf-symbolic",
+      "exit": 0,
+      "stdout": "wrote output.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": false,
+        "fixture.json": true,
+        "result.json": true
+      }
+    },
+    {
+      "case": "verify-invoice.pdf-hard",
+      "exit": 0,
+      "stdout": "wrote output.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "inputs_unchanged": {
+        "invoice.pdf": false,
+        "fixture.json": true,
+        "result.json": true
+      }
+    },
+    {
+      "case": "existing-output-link",
+      "exit": 0,
+      "stdout": "wrote output.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "link_preserved": true,
+      "target_preserved": false
+    },
+    {
+      "case": "dangling-output-link",
+      "exit": 0,
+      "stdout": "wrote output.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "link_preserved": true,
+      "target_preserved": false
+    },
+    {
+      "case": "extract-short-write",
+      "exit": 1,
+      "stdout": "",
+      "stderr_has_traceback": true,
+      "stderr_tail": [
+        "OSError: [Errno 27] File too large"
+      ],
+      "previous_report_preserved": false,
+      "previous_bytes": 59982,
+      "remaining_bytes": 4096,
+      "temporary_files_left": []
+    },
+    {
+      "case": "verify-short-write",
+      "exit": 1,
+      "stdout": "",
+      "stderr_has_traceback": true,
+      "stderr_tail": [
+        "OSError: [Errno 27] File too large"
+      ],
+      "previous_report_preserved": false,
+      "previous_bytes": 59982,
+      "remaining_bytes": 4096,
+      "temporary_files_left": []
+    }
+  ],
+  "controls": [
+    {
+      "case": "extract",
+      "exit": 0,
+      "stdout": "wrote result.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "mode": "0o644",
+      "report_sha256": "d905cb2e37657e428f9b9a22fc933a2afd554d8c897f52f6557f04529133e6d5"
+    },
+    {
+      "case": "verify-in-place",
+      "exit": 0,
+      "stdout": "wrote result.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "mode": "0o644",
+      "report_sha256": "d905cb2e37657e428f9b9a22fc933a2afd554d8c897f52f6557f04529133e6d5"
+    },
+    {
+      "case": "verify-copy",
+      "exit": 0,
+      "stdout": "wrote copy.json - 21 verified, 3 needs review, 1 unsupported",
+      "stderr_has_traceback": false,
+      "stderr_tail": [],
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "mode": "0o644",
+      "report_sha256": "d905cb2e37657e428f9b9a22fc933a2afd554d8c897f52f6557f04529133e6d5"
+    }
+  ]
+}

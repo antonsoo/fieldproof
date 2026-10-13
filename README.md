@@ -215,6 +215,14 @@ fieldproof verify result.json doc.pdf   # re-ground/re-verify an existing extrac
 fieldproof serve --port 8000            # API + review UI
 ```
 
+**Report protection (source checkout, unreleased).** CLI output cannot replace
+the source PDF or consumed fixture, including through path aliases. `verify`
+still updates its result in place, but a failed write preserves the previous
+report. Output symlinks are refused; successful reports are private (0600 on
+POSIX). The [actual CLI replay](studies/report-files/README.md) retains source
+overwrite and kernel-enforced short-write reproductions, plus unchanged normal
+report bytes.
+
 For image-only PDFs, install this source checkout with `pip install '.[ocr]'`
 and install Tesseract with its English language data through your system's
 package manager. The same `extract` and `verify` commands then use the fallback

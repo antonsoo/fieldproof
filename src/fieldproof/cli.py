@@ -11,6 +11,7 @@ import typer
 import uvicorn
 
 from fieldproof import __version__
+from fieldproof._reports import check_report_destination, write_report
 from fieldproof.document.loader import EmptyDocumentError, load_pdf
 from fieldproof.document.model import Document
 from fieldproof.extract.anthropic_provider import DEFAULT_MODEL, AnthropicExtractor
@@ -140,6 +141,14 @@ def extract(
     if provider == "fixture" and fixture is None:
         _fail("--provider fixture requires --fixture <path>", code=2)
 
+    protected = (
+        (document, fixture) if provider == "fixture" and fixture is not None else (document,)
+    )
+    try:
+        check_report_destination(out, protected)
+    except OSError as exc:
+        _fail(f"cannot write report: {exc}", code=2)
+
     doc = _load_document(document)
     try:
         if fixture is not None and provider == "fixture":
@@ -160,7 +169,10 @@ def extract(
     # own output resolves the schema without needing resolve_schema's
     # class-name fallback below.
     payload = {**result.to_dict(), "schema": schema, "report": report.to_dict()}
-    out.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    try:
+        write_report(out, json.dumps(payload, indent=2), protected)
+    except OSError as exc:
+        _fail(f"cannot write report: {exc}", code=2)
 
     counts = report.counts
     typer.echo(
@@ -198,6 +210,11 @@ def verify(
     like that schema, with `{value, evidence, page}` at every leaf.
     """
     _check_conventions(number_style, date_order)
+    destination = out or result
+    try:
+        check_report_destination(destination, (document,))
+    except OSError as exc:
+        _fail(f"cannot write report: {exc}", code=2)
     try:
         raw = read_extraction_json(result.read_bytes(), result.name)
         schema_name = raw.get("schema", "")
@@ -220,10 +237,14 @@ def verify(
         default_date_order=date_order,  # type: ignore[arg-type]
     )
 
-    destination = out or result
-    destination.write_text(
-        json.dumps({**extraction.to_dict(), "report": report.to_dict()}, indent=2), encoding="utf-8"
-    )
+    try:
+        write_report(
+            destination,
+            json.dumps({**extraction.to_dict(), "report": report.to_dict()}, indent=2),
+            (document,),
+        )
+    except OSError as exc:
+        _fail(f"cannot write report: {exc}", code=2)
 
     counts = report.counts
     typer.echo(
