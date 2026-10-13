@@ -1,0 +1,368 @@
+{
+  "records": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1440,
+      "attempts": [
+        {
+          "fixture": "duplicate-value",
+          "status": 422,
+          "diagnostic": "duplicate-value.json cannot be read without losing claims: duplicate JSON member at '/data/total/value'\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unknown-claim",
+          "status": 422,
+          "diagnostic": "unknown-claim.json does not match the Invoice schema: bank_account: Extra inputs are not permitted\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unknown-row",
+          "status": 422,
+          "diagnostic": "unknown-row.json does not match the Invoice schema: line_items.0.discount: Extra inputs are not permitted\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unpaired-surrogate",
+          "status": 422,
+          "diagnostic": "unpaired-surrogate.json contains invalid Unicode (an unpaired surrogate)\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "duplicate-value",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unknown-claim",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unknown-row",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unpaired-surrogate",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        }
+      ],
+      "export": {
+        "bytes": 198,
+        "sha256": "e014b4d4c6c711fa3960727704cf57c179847c5acd2263bb51ecaef83151ca9a"
+      },
+      "validRetry": true,
+      "pageErrors": [],
+      "externalRequests": [],
+      "cspViolations": [],
+      "axeViolations": 0,
+      "overflow": false,
+      "assets": {
+        "index.html": {
+          "bytes": 2885,
+          "sha256": "77e1ef750821bec87343b95a1e03dbedd32e5e7529ab75bed876202a22fc0d53"
+        },
+        "assets/index-DaGp7LJJ.css": {
+          "bytes": 26333,
+          "sha256": "9f0c24d44c0fd8a12aea6c8b5df5135bf65bef25442b6be65203731969801796"
+        },
+        "assets/index-CajleM-L.js": {
+          "bytes": 56835,
+          "sha256": "b0f0578f71f6e8f1eb8b38cb67489e7c4f95422e881d801f95ae5d9b85dd76f3"
+        },
+        "assets/fraunces-latin-DihXLNYH.woff2": {
+          "bytes": 67304,
+          "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+        },
+        "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        },
+        "assets/inter-latin-Dx4kXJAl.woff2": {
+          "bytes": 48256,
+          "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+        }
+      }
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "attempts": [
+        {
+          "fixture": "duplicate-value",
+          "status": 422,
+          "diagnostic": "duplicate-value.json cannot be read without losing claims: duplicate JSON member at '/data/total/value'\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unknown-claim",
+          "status": 422,
+          "diagnostic": "unknown-claim.json does not match the Invoice schema: bank_account: Extra inputs are not permitted\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unknown-row",
+          "status": 422,
+          "diagnostic": "unknown-row.json does not match the Invoice schema: line_items.0.discount: Extra inputs are not permitted\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unpaired-surrogate",
+          "status": 422,
+          "diagnostic": "unpaired-surrogate.json contains invalid Unicode (an unpaired surrogate)\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "duplicate-value",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unknown-claim",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unknown-row",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unpaired-surrogate",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        }
+      ],
+      "export": {
+        "bytes": 198,
+        "sha256": "e014b4d4c6c711fa3960727704cf57c179847c5acd2263bb51ecaef83151ca9a"
+      },
+      "validRetry": true,
+      "pageErrors": [],
+      "externalRequests": [],
+      "cspViolations": [],
+      "axeViolations": 0,
+      "overflow": false,
+      "assets": {
+        "index.html": {
+          "bytes": 2885,
+          "sha256": "77e1ef750821bec87343b95a1e03dbedd32e5e7529ab75bed876202a22fc0d53"
+        },
+        "assets/index-DaGp7LJJ.css": {
+          "bytes": 26333,
+          "sha256": "9f0c24d44c0fd8a12aea6c8b5df5135bf65bef25442b6be65203731969801796"
+        },
+        "assets/index-CajleM-L.js": {
+          "bytes": 56835,
+          "sha256": "b0f0578f71f6e8f1eb8b38cb67489e7c4f95422e881d801f95ae5d9b85dd76f3"
+        },
+        "assets/inter-latin-Dx4kXJAl.woff2": {
+          "bytes": 48256,
+          "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+        },
+        "assets/fraunces-latin-DihXLNYH.woff2": {
+          "bytes": 67304,
+          "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+        },
+        "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        }
+      }
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1440,
+      "attempts": [
+        {
+          "fixture": "duplicate-value",
+          "status": 422,
+          "diagnostic": "duplicate-value.json cannot be read without losing claims: duplicate JSON member at '/data/total/value'\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unknown-claim",
+          "status": 422,
+          "diagnostic": "unknown-claim.json does not match the Invoice schema: bank_account: Extra inputs are not permitted\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unknown-row",
+          "status": 422,
+          "diagnostic": "unknown-row.json does not match the Invoice schema: line_items.0.discount: Extra inputs are not permitted\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unpaired-surrogate",
+          "status": 422,
+          "diagnostic": "unpaired-surrogate.json contains invalid Unicode (an unpaired surrogate)\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "duplicate-value",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unknown-claim",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unknown-row",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unpaired-surrogate",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        }
+      ],
+      "export": {
+        "bytes": 198,
+        "sha256": "e014b4d4c6c711fa3960727704cf57c179847c5acd2263bb51ecaef83151ca9a"
+      },
+      "validRetry": true,
+      "pageErrors": [],
+      "externalRequests": [],
+      "cspViolations": [],
+      "axeViolations": 0,
+      "overflow": false,
+      "assets": {
+        "index.html": {
+          "bytes": 2885,
+          "sha256": "77e1ef750821bec87343b95a1e03dbedd32e5e7529ab75bed876202a22fc0d53"
+        },
+        "assets/index-CajleM-L.js": {
+          "bytes": 56835,
+          "sha256": "b0f0578f71f6e8f1eb8b38cb67489e7c4f95422e881d801f95ae5d9b85dd76f3"
+        },
+        "assets/index-DaGp7LJJ.css": {
+          "bytes": 26333,
+          "sha256": "9f0c24d44c0fd8a12aea6c8b5df5135bf65bef25442b6be65203731969801796"
+        },
+        "assets/fraunces-latin-DihXLNYH.woff2": {
+          "bytes": 67304,
+          "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+        },
+        "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        },
+        "assets/inter-latin-Dx4kXJAl.woff2": {
+          "bytes": 48256,
+          "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+        }
+      }
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "attempts": [
+        {
+          "fixture": "duplicate-value",
+          "status": 422,
+          "diagnostic": "duplicate-value.json cannot be read without losing claims: duplicate JSON member at '/data/total/value'\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unknown-claim",
+          "status": 422,
+          "diagnostic": "unknown-claim.json does not match the Invoice schema: bank_account: Extra inputs are not permitted\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unknown-row",
+          "status": 422,
+          "diagnostic": "unknown-row.json does not match the Invoice schema: line_items.0.discount: Extra inputs are not permitted\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "unpaired-surrogate",
+          "status": 422,
+          "diagnostic": "unpaired-surrogate.json contains invalid Unicode (an unpaired surrogate)\nRetry",
+          "via": "file picker before initial extraction"
+        },
+        {
+          "fixture": "duplicate-value",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unknown-claim",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unknown-row",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        },
+        {
+          "fixture": "unpaired-surrogate",
+          "via": "direct HTTP replacement after review",
+          "status": 422,
+          "priorReportUnchanged": true
+        }
+      ],
+      "export": {
+        "bytes": 198,
+        "sha256": "e014b4d4c6c711fa3960727704cf57c179847c5acd2263bb51ecaef83151ca9a"
+      },
+      "validRetry": true,
+      "pageErrors": [],
+      "externalRequests": [],
+      "cspViolations": [],
+      "axeViolations": 0,
+      "overflow": false,
+      "assets": {
+        "index.html": {
+          "bytes": 2885,
+          "sha256": "77e1ef750821bec87343b95a1e03dbedd32e5e7529ab75bed876202a22fc0d53"
+        },
+        "assets/index-CajleM-L.js": {
+          "bytes": 56835,
+          "sha256": "b0f0578f71f6e8f1eb8b38cb67489e7c4f95422e881d801f95ae5d9b85dd76f3"
+        },
+        "assets/index-DaGp7LJJ.css": {
+          "bytes": 26333,
+          "sha256": "9f0c24d44c0fd8a12aea6c8b5df5135bf65bef25442b6be65203731969801796"
+        },
+        "assets/fraunces-latin-DihXLNYH.woff2": {
+          "bytes": 67304,
+          "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+        },
+        "assets/inter-latin-Dx4kXJAl.woff2": {
+          "bytes": 48256,
+          "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+        },
+        "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        }
+      }
+    }
+  ]
+}

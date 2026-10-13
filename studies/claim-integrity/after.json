@@ -12,7 +12,7 @@
       "inputSha256": "3a59e17356eae5ae4e763007a46be5a49e97ecb33674938f2d44d60b9ff141ad",
       "cli": {
         "exit": 0,
-        "stdout": "wrote OUTPUT/valid/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stdout": "wrote ../replay-clean/valid/report.json - 4 verified, 0 needs review, 0 unsupported\n",
         "stderr": "",
         "previousReportPreserved": false,
         "counts": {
@@ -30,7 +30,7 @@
       },
       "reverify": {
         "exit": 0,
-        "stdout": "wrote OUTPUT/valid/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stdout": "wrote ../replay-clean/valid/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
         "stderr": "",
         "originalClaimsPreserved": false
       },
@@ -255,7 +255,7 @@
       "inputSha256": "e076d674b775bf95709599e16d8cc155f4b3789dd939dd9027d0f1562d8edfab",
       "cli": {
         "exit": 0,
-        "stdout": "wrote OUTPUT/valid-defaults/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stdout": "wrote ../replay-clean/valid-defaults/report.json - 4 verified, 0 needs review, 0 unsupported\n",
         "stderr": "",
         "previousReportPreserved": false,
         "counts": {
@@ -273,7 +273,7 @@
       },
       "reverify": {
         "exit": 0,
-        "stdout": "wrote OUTPUT/valid-defaults/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stdout": "wrote ../replay-clean/valid-defaults/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
         "stderr": "",
         "originalClaimsPreserved": false
       },
@@ -808,7 +808,7 @@
       "inputSha256": "c4b22ef91079a04325c5a44addbe6b01dcb1056def5f18077640f31f0962bca8",
       "cli": {
         "exit": 0,
-        "stdout": "wrote OUTPUT/valid-utf8-bom/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stdout": "wrote ../replay-clean/valid-utf8-bom/report.json - 4 verified, 0 needs review, 0 unsupported\n",
         "stderr": "",
         "previousReportPreserved": false,
         "counts": {
@@ -826,7 +826,7 @@
       },
       "reverify": {
         "exit": 0,
-        "stdout": "wrote OUTPUT/valid-utf8-bom/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stdout": "wrote ../replay-clean/valid-utf8-bom/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
         "stderr": "",
         "originalClaimsPreserved": false
       },
@@ -1036,7 +1036,7 @@
       "inputSha256": "f282dff3acea474c746a601c8a3bb1fa2fc5b6dccce5e2c6c66c6328d5054e99",
       "cli": {
         "exit": 0,
-        "stdout": "wrote OUTPUT/valid-utf16le/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stdout": "wrote ../replay-clean/valid-utf16le/report.json - 4 verified, 0 needs review, 0 unsupported\n",
         "stderr": "",
         "previousReportPreserved": false,
         "counts": {
@@ -1054,7 +1054,7 @@
       },
       "reverify": {
         "exit": 0,
-        "stdout": "wrote OUTPUT/valid-utf16le/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stdout": "wrote ../replay-clean/valid-utf16le/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
         "stderr": "",
         "originalClaimsPreserved": false
       },
@@ -1264,7 +1264,7 @@
       "inputSha256": "83fd6498969c7f4cb80b21cc2003a68189ae0ed34a6ff285e683100a9fd26b47",
       "cli": {
         "exit": 0,
-        "stdout": "wrote OUTPUT/valid-utf16be/report.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stdout": "wrote ../replay-clean/valid-utf16be/report.json - 4 verified, 0 needs review, 0 unsupported\n",
         "stderr": "",
         "previousReportPreserved": false,
         "counts": {
@@ -1282,7 +1282,7 @@
       },
       "reverify": {
         "exit": 0,
-        "stdout": "wrote OUTPUT/valid-utf16be/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
+        "stdout": "wrote ../replay-clean/valid-utf16be/saved-result.json - 4 verified, 0 needs review, 0 unsupported\n",
         "stderr": "",
         "originalClaimsPreserved": false
       },

@@ -44,6 +44,50 @@ is an API operation, not a control currently offered by the UI: the driver sends
 those requests explicitly over HTTP, verifies the unchanged report/correction,
 and downloads the reviewed JSON through the browser. It covers Chromium/Firefox
 at 1440px dark and 375px light and compares served assets with the chosen build.
+The phone screenshot exposed a Retry button wrapping into three lines beside
+the error. Its flex item now keeps its natural width.
+
+## Installed-artifact checks
+
+[verification.json](verification.json) records a fresh 674-file archive of
+implementation `89d7f21ee78ff1b2b8d65af42f409ca508b08ed9`, locked installation,
+lint/type/format checks, both web builds, packaging and file hashes. All archived
+tracked files remained unchanged. Each Python suite completed with 574 passes
+and one skip because the Tesseract executable is unavailable.
+
+| Environment | Pydantic | Anthropic SDK | Result |
+| --- | --- | --- | --- |
+| Source archive, Python 3.12.12, lockfile | 2.13.5 | 1.11.0 | Full suite and 15-case replay pass |
+| Installed wheel, Python 3.11.13, lowest direct dependencies | 2.12.0 | 0.77.0 | Full suite and 15-case replay pass |
+| Installed wheel, Python 3.11.13, current dependencies | 2.14.1 | 1.13.0 | Full suite and 15-case replay pass |
+| Installed wheel, Python 3.14.7, current dependencies | 2.14.1 | 1.13.0 | Full suite and 15-case replay pass |
+
+[installed-minimum.json](installed-minimum.json) and
+[installed-current.json](installed-current.json) retain the installed replay
+outcomes. All five valid report hashes match the baseline in every environment.
+The wheel and source distribution contain the same 37 Python files and 23
+bundled UI files as the checked build; all three installations match those files.
+Package compatibility checks pass. These local artifacts retain version 0.2.7;
+they are not the previously published PyPI artifact with that version.
+
+The clean web run completed 62 unit checks and 86 production-browser checks.
+The additional [installed-server browser replay](browser.json) passed all four
+profiles with no observed page errors, external requests, CSP violations,
+accessibility violations or horizontal overflow. It ran against a fresh
+Python 3.14 wheel installation, not the source imports. Its eight screenshots
+were inspected:
+
+| Browser and viewport | Rejected import | Preserved correction |
+| --- | --- | --- |
+| Chromium, 1440px dark | [Error](../../docs/assets/claim-integrity/chromium-1440-error.png) | [Review](../../docs/assets/claim-integrity/chromium-1440-review.png) |
+| Chromium, 375px light | [Error](../../docs/assets/claim-integrity/chromium-375-error.png) | [Review](../../docs/assets/claim-integrity/chromium-375-review.png) |
+| Firefox, 1440px dark | [Error](../../docs/assets/claim-integrity/firefox-1440-error.png) | [Review](../../docs/assets/claim-integrity/firefox-1440-review.png) |
+| Firefox, 375px light | [Error](../../docs/assets/claim-integrity/firefox-375-error.png) | [Review](../../docs/assets/claim-integrity/firefox-375-review.png) |
+
+This is a local client/server workflow: third-party requests are blocked, but
+the local API remains available. It is not an offline-server claim. Browser
+versions are Chromium 153.0.8010.12 and Firefox 155.0, using Node 24.21.0 on WSL2
+Linux. The final evidence commit does not modify tested runtime files.
 
 ## Validation boundary
 
@@ -89,6 +133,12 @@ For the baseline, archive the commit above to a separate checkout and use
 environment's Python and omit `--source`; its TestClient checks require the
 development HTTP client dependency. The browser driver accepts `--installed`
 and the installed package's static directory, and starts an actual local server.
+
+For minimum installed dependencies, supply the wheel and every declared
+runtime/dev/OCR requirement directly to `uv pip install --resolution
+lowest-direct`; supplying only the wheel treats its dependencies as transitive
+and does not exercise their declared floors. Finish installation before starting
+checks, and do not let a source `uv run` replace a virtual environment in use.
 
 The retained evidence covers source and local artifacts only. No PyPI release
 or hosted deployment accompanies this change.
