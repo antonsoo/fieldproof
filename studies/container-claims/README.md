@@ -66,6 +66,30 @@ Custom schemas are a Python-library integration. The CLI and server schema
 selector still offer invoice, receipt and contract templates. This work does
 not add a custom-schema UI, change those templates, or make a package release.
 
+## Clean archive and installed packages
+
+[verification.json](verification.json) records a fresh 693-file archive of
+implementation `b3e0f26ad28c92dd5274f778114ed4f751479616`. All archived tracked
+files remain unchanged after the checks. The wheel and source distribution
+contain the same 37 Python files and 23 UI assets as the build, and both fresh
+wheel installations match those files. Dependency compatibility checks pass.
+
+| Environment | Pydantic | Full Python suite | Container replay |
+| --- | --- | --- | --- |
+| Locked source, Python 3.12.12 | 2.13.5 | 584 passed, one OCR skip | Ten expected outcomes |
+| Installed wheel, Python 3.11.13, lowest direct dependencies | 2.12.0 | 584 passed, one OCR skip | [Ten expected outcomes](installed-minimum.json) |
+| Installed wheel, Python 3.14.7, current dependencies | 2.14.1 | 584 passed, one OCR skip | [Ten expected outcomes](installed-current.json) |
+
+Tesseract is unavailable, so the real-OCR case is skipped. Lint, Python and web
+types, web formatting, 62 web unit checks, both web builds and 86 production
+browser checks pass. The 23 bundled UI files are byte-identical to the prior
+claim-integrity build; this change adds no UI controls. The previous 15-case
+CLI/API/SDK import-boundary replay retains its outcomes and valid report hashes.
+
+These local wheel/source archives still carry version 0.2.7 and differ from the
+previously published package. The final evidence commit changes no tested
+runtime files. No PyPI release or hosted deployment accompanies this repair.
+
 ## Reproduce
 
 With the source development environment installed:

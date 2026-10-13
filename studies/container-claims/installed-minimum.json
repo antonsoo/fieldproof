@@ -1,0 +1,1259 @@
+{
+  "python": "3.11.13",
+  "pydantic": "2.12.0",
+  "documentSha256": "ee9ab7e3701299417508b7530d2f1c50f70c92271def82bc0cc4227e57ccfc31",
+  "inputKind": "labelled synthetic PDF and custom Pydantic models",
+  "package": "installed",
+  "expected": "after",
+  "cases": [
+    {
+      "case": "scalar-control",
+      "schema": {
+        "$defs": {
+          "Evidenced_Union_str__float__": {
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Value"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[Union[str, float]]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "vendor": {
+            "$ref": "#/$defs/Evidenced_Union_str__float__"
+          },
+          "bank_account": {
+            "$ref": "#/$defs/Evidenced_Union_str__float__"
+          }
+        },
+        "required": [
+          "vendor",
+          "bank_account"
+        ],
+        "title": "Scalar",
+        "type": "object"
+      },
+      "data": {
+        "vendor": {
+          "value": "Example Works",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": null
+        },
+        "bank_account": {
+          "value": "UNSUPPORTED BANK ACCOUNT",
+          "evidence": [],
+          "page": null
+        }
+      },
+      "paths": [
+        "vendor",
+        "bank_account"
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "vendor",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 172.48400000000004,
+                "x1": 134.012,
+                "bottom": 184.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "bank_account",
+            "value": "UNSUPPORTED BANK ACCOUNT",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 1
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "list-control",
+      "schema": {
+        "$defs": {
+          "Evidenced_Union_str__float__": {
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Value"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[Union[str, float]]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "claims": {
+            "items": {
+              "$ref": "#/$defs/Evidenced_Union_str__float__"
+            },
+            "title": "Claims",
+            "type": "array"
+          }
+        },
+        "required": [
+          "claims"
+        ],
+        "title": "Listed",
+        "type": "object"
+      },
+      "data": {
+        "claims": [
+          {
+            "value": "Example Works",
+            "evidence": [
+              "Example Works"
+            ],
+            "page": null
+          },
+          {
+            "value": "UNSUPPORTED BANK ACCOUNT",
+            "evidence": [],
+            "page": null
+          }
+        ]
+      },
+      "paths": [
+        "claims[0]",
+        "claims[1]"
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "claims[0]",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 172.48400000000004,
+                "x1": 134.012,
+                "bottom": 184.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "claims[1]",
+            "value": "UNSUPPORTED BANK ACCOUNT",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 1
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "mapping",
+      "schema": {
+        "$defs": {
+          "Evidenced_Union_str__float__": {
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Value"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[Union[str, float]]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "claims": {
+            "additionalProperties": {
+              "$ref": "#/$defs/Evidenced_Union_str__float__"
+            },
+            "title": "Claims",
+            "type": "object"
+          }
+        },
+        "required": [
+          "claims"
+        ],
+        "title": "Mapped",
+        "type": "object"
+      },
+      "data": {
+        "claims": {
+          "vendor": {
+            "value": "Example Works",
+            "evidence": [
+              "Example Works"
+            ],
+            "page": null
+          },
+          "bank_account": {
+            "value": "UNSUPPORTED BANK ACCOUNT",
+            "evidence": [],
+            "page": null
+          }
+        }
+      },
+      "paths": [
+        "claims[\"vendor\"]",
+        "claims[\"bank_account\"]"
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "claims[\"vendor\"]",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 172.48400000000004,
+                "x1": 134.012,
+                "bottom": 184.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "claims[\"bank_account\"]",
+            "value": "UNSUPPORTED BANK ACCOUNT",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 1
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "tuple",
+      "schema": {
+        "$defs": {
+          "Evidenced_Union_str__float__": {
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Value"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[Union[str, float]]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "claims": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "$ref": "#/$defs/Evidenced_Union_str__float__"
+              },
+              {
+                "$ref": "#/$defs/Evidenced_Union_str__float__"
+              }
+            ],
+            "title": "Claims",
+            "type": "array"
+          }
+        },
+        "required": [
+          "claims"
+        ],
+        "title": "Paired",
+        "type": "object"
+      },
+      "data": {
+        "claims": [
+          {
+            "value": "Example Works",
+            "evidence": [
+              "Example Works"
+            ],
+            "page": null
+          },
+          {
+            "value": "UNSUPPORTED BANK ACCOUNT",
+            "evidence": [],
+            "page": null
+          }
+        ]
+      },
+      "paths": [
+        "claims[0]",
+        "claims[1]"
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "claims[0]",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 172.48400000000004,
+                "x1": 134.012,
+                "bottom": 184.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "claims[1]",
+            "value": "UNSUPPORTED BANK ACCOUNT",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 1
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "nested",
+      "schema": {
+        "$defs": {
+          "Evidenced_Union_str__float__": {
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Value"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[Union[str, float]]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "claims": {
+            "additionalProperties": {
+              "items": {
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "$ref": "#/$defs/Evidenced_Union_str__float__"
+                  },
+                  {
+                    "$ref": "#/$defs/Evidenced_Union_str__float__"
+                  }
+                ],
+                "type": "array"
+              },
+              "type": "array"
+            },
+            "title": "Claims",
+            "type": "object"
+          }
+        },
+        "required": [
+          "claims"
+        ],
+        "title": "Nested",
+        "type": "object"
+      },
+      "data": {
+        "claims": {
+          "a.b[0]": [
+            [
+              {
+                "value": "Example Works",
+                "evidence": [
+                  "Example Works"
+                ],
+                "page": null
+              },
+              {
+                "value": "UNSUPPORTED BANK ACCOUNT",
+                "evidence": [],
+                "page": null
+              }
+            ]
+          ]
+        }
+      },
+      "paths": [
+        "claims[\"a.b[0]\"][0][0]",
+        "claims[\"a.b[0]\"][0][1]"
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "claims[\"a.b[0]\"][0][0]",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 172.48400000000004,
+                "x1": 134.012,
+                "bottom": 184.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "claims[\"a.b[0]\"][0][1]",
+            "value": "UNSUPPORTED BANK ACCOUNT",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 1
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "model-name-collision",
+      "schema": {
+        "$defs": {
+          "Child": {
+            "properties": {
+              "b": {
+                "$ref": "#/$defs/Evidenced_Union_str__float__"
+              }
+            },
+            "required": [
+              "b"
+            ],
+            "title": "Child",
+            "type": "object"
+          },
+          "Evidenced_Union_str__float__": {
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Value"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[Union[str, float]]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "a.b": {
+            "$ref": "#/$defs/Evidenced_Union_str__float__"
+          },
+          "a": {
+            "$ref": "#/$defs/Child"
+          }
+        },
+        "required": [
+          "a.b",
+          "a"
+        ],
+        "title": "Collision",
+        "type": "object"
+      },
+      "data": {
+        "a.b": {
+          "value": "UNSUPPORTED BANK ACCOUNT",
+          "evidence": [],
+          "page": null
+        },
+        "a": {
+          "b": {
+            "value": "Example Works",
+            "evidence": [
+              "Example Works"
+            ],
+            "page": null
+          }
+        }
+      },
+      "paths": [
+        "[\"a.b\"]",
+        "a.b"
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "[\"a.b\"]",
+            "value": "UNSUPPORTED BANK ACCOUNT",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          },
+          {
+            "path": "a.b",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 172.48400000000004,
+                "x1": 134.012,
+                "bottom": 184.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 1
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "mapping-row-lookalikes",
+      "schema": {
+        "$defs": {
+          "Evidenced_Union_str__float__": {
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Value"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[Union[str, float]]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "claims": {
+            "additionalProperties": {
+              "$ref": "#/$defs/Evidenced_Union_str__float__"
+            },
+            "title": "Claims",
+            "type": "object"
+          }
+        },
+        "required": [
+          "claims"
+        ],
+        "title": "Mapped",
+        "type": "object"
+      },
+      "data": {
+        "claims": {
+          "items[0].name": {
+            "value": "Alpha",
+            "evidence": [
+              "Alpha"
+            ],
+            "page": null
+          },
+          "items[0].amount": {
+            "value": 10.0,
+            "evidence": [
+              "10.00"
+            ],
+            "page": null
+          }
+        }
+      },
+      "paths": [
+        "claims[\"items[0].name\"]",
+        "claims[\"items[0].amount\"]"
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "claims[\"items[0].name\"]",
+            "value": "Alpha",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Alpha",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 102.48400000000004,
+                "x1": 80.684,
+                "bottom": 114.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "claims[\"items[0].amount\"]",
+            "value": 10.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '10.00' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "quoted-row-lookalikes",
+      "schema": {
+        "$defs": {
+          "Evidenced_Union_str__float__": {
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Value"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[Union[str, float]]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "claims": {
+            "additionalProperties": {
+              "$ref": "#/$defs/Evidenced_Union_str__float__"
+            },
+            "title": "Claims",
+            "type": "object"
+          }
+        },
+        "required": [
+          "claims"
+        ],
+        "title": "Mapped",
+        "type": "object"
+      },
+      "data": {
+        "claims": {
+          "x\"].items[0].name": {
+            "value": "Alpha",
+            "evidence": [
+              "Alpha"
+            ],
+            "page": null
+          },
+          "x\"].items[0].amount": {
+            "value": 10.0,
+            "evidence": [
+              "10.00"
+            ],
+            "page": null
+          }
+        }
+      },
+      "paths": [
+        "claims[\"x\\\"].items[0].name\"]",
+        "claims[\"x\\\"].items[0].amount\"]"
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "claims[\"x\\\"].items[0].name\"]",
+            "value": "Alpha",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Alpha",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 102.48400000000004,
+                "x1": 80.684,
+                "bottom": 114.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "claims[\"x\\\"].items[0].amount\"]",
+            "value": 10.0,
+            "status": "needs_review",
+            "reasons": [
+              "evidence '10.00' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": []
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "mapped-real-row",
+      "schema": {
+        "$defs": {
+          "Evidenced_Union_str__float__": {
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Value"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[Union[str, float]]",
+            "type": "object"
+          },
+          "Row": {
+            "properties": {
+              "name": {
+                "$ref": "#/$defs/Evidenced_Union_str__float__"
+              },
+              "amount": {
+                "$ref": "#/$defs/Evidenced_Union_str__float__"
+              }
+            },
+            "required": [
+              "name",
+              "amount"
+            ],
+            "title": "Row",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "groups": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/$defs/Row"
+              },
+              "type": "array"
+            },
+            "title": "Groups",
+            "type": "object"
+          }
+        },
+        "required": [
+          "groups"
+        ],
+        "title": "MappedRows",
+        "type": "object"
+      },
+      "data": {
+        "groups": {
+          "x\"].items[9]": [
+            {
+              "name": {
+                "value": "Alpha",
+                "evidence": [
+                  "Alpha"
+                ],
+                "page": null
+              },
+              "amount": {
+                "value": 10.0,
+                "evidence": [
+                  "10.00"
+                ],
+                "page": null
+              }
+            }
+          ]
+        }
+      },
+      "paths": [
+        "groups[\"x\\\"].items[9]\"][0].name",
+        "groups[\"x\\\"].items[9]\"][0].amount"
+      ],
+      "report": {
+        "fields": [
+          {
+            "path": "groups[\"x\\\"].items[9]\"][0].name",
+            "value": "Alpha",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Alpha",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 102.48400000000004,
+                "x1": 80.684,
+                "bottom": 114.48400000000004
+              }
+            ]
+          },
+          {
+            "path": "groups[\"x\\\"].items[9]\"][0].amount",
+            "value": 10.0,
+            "status": "verified",
+            "reasons": [],
+            "notes": [
+              "located one of 2 evidence occurrences on the same visual line as groups[\"x\\\"].items[9]\"][0].name (page 1); this does not establish the table column or field role"
+            ],
+            "match_score": 100.0,
+            "matched_text": "10.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 84.02000000000001,
+                "top": 102.48400000000004,
+                "x1": 114.044,
+                "bottom": 114.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "non-string-key",
+      "schema": {
+        "$defs": {
+          "Evidenced_Union_str__float__": {
+            "properties": {
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "title": "Value"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[Union[str, float]]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "claims": {
+            "additionalProperties": {
+              "$ref": "#/$defs/Evidenced_Union_str__float__"
+            },
+            "title": "Claims",
+            "type": "object"
+          }
+        },
+        "required": [
+          "claims"
+        ],
+        "title": "IntegerKeys",
+        "type": "object"
+      },
+      "data": {
+        "claims": {
+          "1": {
+            "value": "UNSUPPORTED BANK ACCOUNT",
+            "evidence": [],
+            "page": null
+          }
+        }
+      },
+      "error": "mapping at 'claims' must use string keys, not int"
+    }
+  ]
+}
