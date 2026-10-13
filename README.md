@@ -424,6 +424,7 @@ selector still offer the built-in invoice, receipt and contract models.
 For custom string fields, the unreleased source provides explicit kinds:
 
 ```python
+from pydantic import BaseModel
 from fieldproof.schemas import EvidencedDate, EvidencedText
 
 class Application(BaseModel):
@@ -445,7 +446,11 @@ including snake_case/camelCase forms. Numeric indices retain the collection's
 name. Ancestors and incidental substrings in `candidate_name`, `updated_by`
 or `validate_status` no longer turn text into a date. Unseparated custom names
 such as `issuedate` should declare `EvidencedDate` explicitly; the convention
-cannot infer business meaning. The [real-PDF replay](studies/string-kinds/README.md)
+cannot infer business meaning. For date-valued mappings, use
+`dict[str, EvidencedDate]`: arbitrary keys do not inherit a date kind from
+the mapping's name. This matters when migrating a custom schema that relied
+on the previous whole-path substring guess.
+The [real-PDF replay](studies/string-kinds/README.md)
 checks these distinctions, preserved calendar safeguards and explicit kinds
 through fixture extraction and JSON roundtrips.
 

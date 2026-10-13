@@ -1,0 +1,2394 @@
+{
+  "mode": "after",
+  "python": "3.14.7",
+  "pydantic": "2.14.1",
+  "package": "installed",
+  "fixtureInputsPreserved": true,
+  "jsonRoundtripReportsIdentical": true,
+  "builtinSchemaSha256": {
+    "invoice": "053b0136019fec43cef380c349bf41cd81bf659e33e8bb5c794c7c3c43a90b67",
+    "receipt": "ff63ac5f0937ec975c6e4f0455727b74fb8eef2d34a9f54825e3a412207cb641",
+    "contract": "80ad3bd598120c05454803374683856b8dd0e08fc99c6972f12aabcd2d364f8f"
+  },
+  "cases": [
+    {
+      "case": "ordinary-control",
+      "inputSha256": "e998932153c08af89741264bebc722e87be0d31981f4ed884277ec859bbb7612",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "name": {
+            "$ref": "#/$defs/Evidenced_str_"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "name": {
+          "value": "Example Works",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "name",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "candidate_name",
+      "inputSha256": "cfd4ecd5e5b3fb844cec6c9dc9ecbfdac26fcd336f03d9023d4f1084b929b73c",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "candidate_name": {
+            "$ref": "#/$defs/Evidenced_str_"
+          }
+        },
+        "required": [
+          "candidate_name"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "candidate_name": {
+          "value": "Example Works",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "candidate_name",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "candidateName",
+      "inputSha256": "5294f73779c0eb54f70f170310a5600edf3f653e93211a9a4fb860d4420bb911",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "candidateName": {
+            "$ref": "#/$defs/Evidenced_str_"
+          }
+        },
+        "required": [
+          "candidateName"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "candidateName": {
+          "value": "Example Works",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "candidateName",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "updated_by",
+      "inputSha256": "8cd38972c13cc938891a3657a61c6c9558730432a2cce1a9f5b16064fea333ff",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "updated_by": {
+            "$ref": "#/$defs/Evidenced_str_"
+          }
+        },
+        "required": [
+          "updated_by"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "updated_by": {
+          "value": "Example Works",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "updated_by",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "validate_status",
+      "inputSha256": "c12371878b85fc3aa3776dbaf5c2077cb6d0cc713b1b7e76a273a9ebeb4768f7",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "validate_status": {
+            "$ref": "#/$defs/Evidenced_str_"
+          }
+        },
+        "required": [
+          "validate_status"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "validate_status": {
+          "value": "Example Works",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "validate_status",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "consolidated_notes",
+      "inputSha256": "930b5209df2ac52ffa2a324d426bb383b2b6805456e9f56797640a49881cd935",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "consolidated_notes": {
+            "$ref": "#/$defs/Evidenced_str_"
+          }
+        },
+        "required": [
+          "consolidated_notes"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "consolidated_notes": {
+          "value": "Example Works",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "consolidated_notes",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "ancestor-model",
+      "inputSha256": "f2970ef0666aa6a117020fd1099c8710d5d4bbaba0b5b5e19d13ca0970d82b52",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          },
+          "Leaf": {
+            "properties": {
+              "name": {
+                "$ref": "#/$defs/Evidenced_str_"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "title": "Leaf",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "date_record": {
+            "$ref": "#/$defs/Leaf"
+          }
+        },
+        "required": [
+          "date_record"
+        ],
+        "title": "Envelope",
+        "type": "object"
+      },
+      "data": {
+        "date_record": {
+          "name": {
+            "value": "Example Works",
+            "evidence": [
+              "Example Works"
+            ],
+            "page": 1
+          }
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "date_record.name",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "mapping-key",
+      "inputSha256": "5809eb4ce263cd66ddcf91d0c0ba18832d676d5648a92467384fa50758a5eb91",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "claims": {
+            "additionalProperties": {
+              "$ref": "#/$defs/Evidenced_str_"
+            },
+            "title": "Claims",
+            "type": "object"
+          }
+        },
+        "required": [
+          "claims"
+        ],
+        "title": "Mapped",
+        "type": "object"
+      },
+      "data": {
+        "claims": {
+          "candidate_name": {
+            "value": "Example Works",
+            "evidence": [
+              "Example Works"
+            ],
+            "page": 1
+          }
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "claims[\"candidate_name\"]",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "mapping-ancestor",
+      "inputSha256": "5b57ca71a884f6bb34667d9add7d75ae21c9d18f5e8b049acafc6839caa45172",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          },
+          "Leaf": {
+            "properties": {
+              "name": {
+                "$ref": "#/$defs/Evidenced_str_"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "title": "Leaf",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "claims": {
+            "additionalProperties": {
+              "$ref": "#/$defs/Leaf"
+            },
+            "title": "Claims",
+            "type": "object"
+          }
+        },
+        "required": [
+          "claims"
+        ],
+        "title": "Mapped",
+        "type": "object"
+      },
+      "data": {
+        "claims": {
+          "x\"].issue_date": {
+            "name": {
+              "value": "Example Works",
+              "evidence": [
+                "Example Works"
+              ],
+              "page": 1
+            }
+          }
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "claims[\"x\\\"].issue_date\"].name",
+            "value": "Example Works",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "date-sequence-control",
+      "inputSha256": "63554e36832513d1c0c8bf2bb8943e1dcf62af8c227e5567704ef407b26d2eda",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "dates": {
+            "items": {
+              "$ref": "#/$defs/Evidenced_str_"
+            },
+            "title": "Dates",
+            "type": "array"
+          }
+        },
+        "required": [
+          "dates"
+        ],
+        "title": "Sequence",
+        "type": "object"
+      },
+      "data": {
+        "dates": [
+          {
+            "value": "2026-02-30",
+            "evidence": [
+              "2026-02-30"
+            ],
+            "page": 1
+          }
+        ]
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "dates[0]",
+            "value": "2026-02-30",
+            "status": "needs_review",
+            "reasons": [
+              "value '2026-02-30' must be one calendar-valid date in YYYY-MM-DD format"
+            ],
+            "match_score": 100.0,
+            "matched_text": "2026-02-30",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 152.48400000000004,
+                "x1": 111.36800000000001,
+                "bottom": 164.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "written-date-control",
+      "inputSha256": "8822c7cf26e783cbb46ae6f7e9adefec76833f99ad707ec231b8312dc52ec175",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "issue_date": {
+            "$ref": "#/$defs/Evidenced_str_"
+          }
+        },
+        "required": [
+          "issue_date"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "issue_date": {
+          "value": "2026-05-01",
+          "evidence": [
+            "May 1, 2026"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "issue_date",
+            "value": "2026-05-01",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "May 1, 2026",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 122.48400000000004,
+                "x1": 116.03599999999999,
+                "bottom": 134.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "camel-date-control",
+      "inputSha256": "bf255d42e20e1147ec29d75ab08145c420d35feb67cf5631b9de42521f3ba2cb",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "dueDate": {
+            "$ref": "#/$defs/Evidenced_str_"
+          }
+        },
+        "required": [
+          "dueDate"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "dueDate": {
+          "value": "2026-02-30",
+          "evidence": [
+            "2026-02-30"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "dueDate",
+            "value": "2026-02-30",
+            "status": "needs_review",
+            "reasons": [
+              "value '2026-02-30' must be one calendar-valid date in YYYY-MM-DD format"
+            ],
+            "match_score": 100.0,
+            "matched_text": "2026-02-30",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 152.48400000000004,
+                "x1": 111.36800000000001,
+                "bottom": 164.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "birthdate-control",
+      "inputSha256": "c447449230c4e9ce6aeb0abe6bdf599a513458f7f3ea4c618208e29b5f2542c1",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "birthdate": {
+            "$ref": "#/$defs/Evidenced_str_"
+          }
+        },
+        "required": [
+          "birthdate"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "birthdate": {
+          "value": "2026-02-30",
+          "evidence": [
+            "2026-02-30"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "birthdate",
+            "value": "2026-02-30",
+            "status": "needs_review",
+            "reasons": [
+              "value '2026-02-30' must be one calendar-valid date in YYYY-MM-DD format"
+            ],
+            "match_score": 100.0,
+            "matched_text": "2026-02-30",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 152.48400000000004,
+                "x1": 111.36800000000001,
+                "bottom": 164.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "text-tolerance",
+      "inputSha256": "eae47cd93c641770564482b10104f86feb4d78c005444238893082c00b032f83",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "candidate_name": {
+            "$ref": "#/$defs/Evidenced_str_"
+          }
+        },
+        "required": [
+          "candidate_name"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "candidate_name": {
+          "value": "Internationxl Shipping",
+          "evidence": [
+            "International Shipping"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 1,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "candidate_name",
+            "value": "Internationxl Shipping",
+            "status": "verified",
+            "reasons": [],
+            "notes": [
+              "value 'Internationxl Shipping' differs from the evidence 'International Shipping' by 1 letter (accepted: text_edit_tolerance=1)"
+            ],
+            "match_score": 100.0,
+            "matched_text": "International Shipping",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 92.48400000000004,
+                "x1": 166.064,
+                "bottom": 104.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "text-conflict-note",
+      "inputSha256": "d7ebade9e8773ed5f3ed0325fb087d1f80ad8085e927443b8d303dec402fef9b",
+      "documentSha256": "913a4f98da387e2b19f2133a998141076a5443b04205fa929011348de7279938",
+      "declaredKind": "inferred",
+      "schema": {
+        "$defs": {
+          "Evidenced_str_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[str]",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "candidate_name": {
+            "$ref": "#/$defs/Evidenced_str_"
+          }
+        },
+        "required": [
+          "candidate_name"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "candidate_name": {
+          "value": "Example Workx",
+          "evidence": [
+            "Example Works"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "candidate_name",
+            "value": "Example Workx",
+            "status": "needs_review",
+            "reasons": [
+              "value 'Example Workx' is 96% similar to evidence 'Example Works' but differs from it in letters or digits"
+            ],
+            "match_score": 100.0,
+            "matched_text": "Example Works",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 62.48400000000004,
+                "x1": 134.012,
+                "bottom": 74.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "explicit-written-date",
+      "inputSha256": "30f854e92c175220da238fdc9d9f2b77b0c158b39293d13a7ae055196fdc1ede",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "date",
+      "schema": {
+        "$defs": {
+          "EvidencedDate": {
+            "description": "A claimed calendar date in YYYY-MM-DD format, checked against its quote.\n\nThe original string is retained even when invalid: verification reports\nthe problem instead of normalizing or discarding the supplied claim.",
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "EvidencedDate",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "effective": {
+            "$ref": "#/$defs/EvidencedDate"
+          }
+        },
+        "required": [
+          "effective"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "effective": {
+          "value": "2026-05-01",
+          "evidence": [
+            "May 1, 2026"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "effective",
+            "value": "2026-05-01",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "May 1, 2026",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 122.48400000000004,
+                "x1": 116.03599999999999,
+                "bottom": 134.48400000000004
+              }
+            ],
+            "declared_kind": "date"
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "explicit-invalid-date",
+      "inputSha256": "cd3f028852cf631b13cc12a2a5c87932d1d91859b9995b4d8ea7aaf2bae96d4b",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "date",
+      "schema": {
+        "$defs": {
+          "EvidencedDate": {
+            "description": "A claimed calendar date in YYYY-MM-DD format, checked against its quote.\n\nThe original string is retained even when invalid: verification reports\nthe problem instead of normalizing or discarding the supplied claim.",
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "EvidencedDate",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "effective": {
+            "$ref": "#/$defs/EvidencedDate"
+          }
+        },
+        "required": [
+          "effective"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "effective": {
+          "value": "2026-02-30",
+          "evidence": [
+            "2026-02-30"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "effective",
+            "value": "2026-02-30",
+            "status": "needs_review",
+            "reasons": [
+              "value '2026-02-30' must be one calendar-valid date in YYYY-MM-DD format"
+            ],
+            "match_score": 100.0,
+            "matched_text": "2026-02-30",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 152.48400000000004,
+                "x1": 111.36800000000001,
+                "bottom": 164.48400000000004
+              }
+            ],
+            "declared_kind": "date"
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "explicit-text-label",
+      "inputSha256": "789a7f9694b0a308c621c558ce706745b200d886acd1645f9b4c60bc5bade9e5",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "text",
+      "schema": {
+        "$defs": {
+          "EvidencedText": {
+            "description": "Literal text, even when its field name contains a word such as date.",
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "EvidencedText",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "date_label": {
+            "$ref": "#/$defs/EvidencedText"
+          }
+        },
+        "required": [
+          "date_label"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "date_label": {
+          "value": "YYYY-MM-DD",
+          "evidence": [
+            "YYYY-MM-DD"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "date_label",
+            "value": "YYYY-MM-DD",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "YYYY-MM-DD",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 212.48400000000004,
+                "x1": 127.328,
+                "bottom": 224.48400000000004
+              }
+            ],
+            "declared_kind": "text"
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 1,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "explicit-date-no-tolerance",
+      "inputSha256": "05edb9a6c802adc1c58d981ade8db04129bbcd371a1c061ae1fb3131056a389a",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "date",
+      "schema": {
+        "$defs": {
+          "EvidencedDate": {
+            "description": "A claimed calendar date in YYYY-MM-DD format, checked against its quote.\n\nThe original string is retained even when invalid: verification reports\nthe problem instead of normalizing or discarding the supplied claim.",
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "EvidencedDate",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "effective": {
+            "$ref": "#/$defs/EvidencedDate"
+          }
+        },
+        "required": [
+          "effective"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "effective": {
+          "value": "Internationxl Shipping",
+          "evidence": [
+            "International Shipping"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 1,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "effective",
+            "value": "Internationxl Shipping",
+            "status": "needs_review",
+            "reasons": [
+              "value 'Internationxl Shipping' must be one calendar-valid date in YYYY-MM-DD format"
+            ],
+            "match_score": 100.0,
+            "matched_text": "International Shipping",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 92.48400000000004,
+                "x1": 166.064,
+                "bottom": 104.48400000000004
+              }
+            ],
+            "declared_kind": "date"
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "explicit-date-conflict",
+      "inputSha256": "1e9e62fc6089e80e63e18e624b543e033b12764c72c388275e1e0e5f44232830",
+      "documentSha256": "913a4f98da387e2b19f2133a998141076a5443b04205fa929011348de7279938",
+      "declaredKind": "date",
+      "schema": {
+        "$defs": {
+          "EvidencedDate": {
+            "description": "A claimed calendar date in YYYY-MM-DD format, checked against its quote.\n\nThe original string is retained even when invalid: verification reports\nthe problem instead of normalizing or discarding the supplied claim.",
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "EvidencedDate",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "effective": {
+            "$ref": "#/$defs/EvidencedDate"
+          }
+        },
+        "required": [
+          "effective"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "effective": {
+          "value": "2026-03-04",
+          "evidence": [
+            "03/04/2026"
+          ],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": "dmy"
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "effective",
+            "value": "2026-03-04",
+            "status": "needs_review",
+            "reasons": [
+              "the evidence date '03/04/2026' reads as 2026-03-04 (month first) or 2026-04-03 (day first), and no other date on the document settles which",
+              "the document contains both month-first and day-first date conventions; a document-wide date default cannot settle conflicting evidence"
+            ],
+            "match_score": 100.0,
+            "matched_text": "03/04/2026",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 182.48400000000004,
+                "x1": 110.04799999999999,
+                "bottom": 194.48400000000004
+              }
+            ],
+            "declared_kind": "date"
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "explicit-mapped-date",
+      "inputSha256": "daf131c4cd88c2203a4bd06a4b1055a5873aa64244723c6cbb928ff81d22acad",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "date",
+      "schema": {
+        "$defs": {
+          "EvidencedDate": {
+            "description": "A claimed calendar date in YYYY-MM-DD format, checked against its quote.\n\nThe original string is retained even when invalid: verification reports\nthe problem instead of normalizing or discarding the supplied claim.",
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "EvidencedDate",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "schedule": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/$defs/EvidencedDate"
+              },
+              "type": "array"
+            },
+            "title": "Schedule",
+            "type": "object"
+          }
+        },
+        "required": [
+          "schedule"
+        ],
+        "title": "Mapped",
+        "type": "object"
+      },
+      "data": {
+        "schedule": {
+          "slot-A": [
+            {
+              "value": "2026-02-30",
+              "evidence": [
+                "2026-02-30"
+              ],
+              "page": 1
+            }
+          ]
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "schedule[\"slot-A\"][0]",
+            "value": "2026-02-30",
+            "status": "needs_review",
+            "reasons": [
+              "value '2026-02-30' must be one calendar-valid date in YYYY-MM-DD format"
+            ],
+            "match_score": 100.0,
+            "matched_text": "2026-02-30",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 152.48400000000004,
+                "x1": 111.36800000000001,
+                "bottom": 164.48400000000004
+              }
+            ],
+            "declared_kind": "date"
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 1,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "explicit-text-row-anchor",
+      "inputSha256": "eeef759ebde5ed2590a7c5d3c77699a131a24cc041b7b09768d46c90ac35f88d",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "text",
+      "schema": {
+        "$defs": {
+          "EvidencedText": {
+            "description": "Literal text, even when its field name contains a word such as date.",
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "EvidencedText",
+            "type": "object"
+          },
+          "Evidenced_float_": {
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "number"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "Evidenced[float]",
+            "type": "object"
+          },
+          "Row": {
+            "properties": {
+              "date_label": {
+                "$ref": "#/$defs/EvidencedText"
+              },
+              "amount": {
+                "$ref": "#/$defs/Evidenced_float_"
+              }
+            },
+            "required": [
+              "date_label",
+              "amount"
+            ],
+            "title": "Row",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "rows": {
+            "items": {
+              "$ref": "#/$defs/Row"
+            },
+            "title": "Rows",
+            "type": "array"
+          }
+        },
+        "required": [
+          "rows"
+        ],
+        "title": "Rows",
+        "type": "object"
+      },
+      "data": {
+        "rows": [
+          {
+            "date_label": {
+              "value": "Alpha",
+              "evidence": [
+                "Alpha"
+              ],
+              "page": 1
+            },
+            "amount": {
+              "value": 10.0,
+              "evidence": [
+                "10.00"
+              ],
+              "page": 1
+            }
+          }
+        ]
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "rows[0].date_label",
+            "value": "Alpha",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100.0,
+            "matched_text": "Alpha",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 50.0,
+                "top": 242.48400000000004,
+                "x1": 80.684,
+                "bottom": 254.48400000000004
+              }
+            ],
+            "declared_kind": "text"
+          },
+          {
+            "path": "rows[0].amount",
+            "value": 10.0,
+            "status": "verified",
+            "reasons": [],
+            "notes": [
+              "located one of 2 evidence occurrences on the same visual line as rows[0].date_label (page 1); this does not establish the table column or field role"
+            ],
+            "match_score": 100.0,
+            "matched_text": "10.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 84.02000000000001,
+                "top": 242.48400000000004,
+                "x1": 114.044,
+                "bottom": 254.48400000000004
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 2,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    },
+    {
+      "case": "explicit-unsupported",
+      "inputSha256": "eb47f8164164dc8c04fd5cae1afb5d9b5c874c22fb5be96faede8a8b0411e2c7",
+      "documentSha256": "060fe4bc17f92f2489540cf3a7c056eb5bcaf7b8719a8419836c99994c6a1328",
+      "declaredKind": "date",
+      "schema": {
+        "$defs": {
+          "EvidencedDate": {
+            "description": "A claimed calendar date in YYYY-MM-DD format, checked against its quote.\n\nThe original string is retained even when invalid: verification reports\nthe problem instead of normalizing or discarding the supplied claim.",
+            "properties": {
+              "value": {
+                "title": "Value",
+                "type": "string"
+              },
+              "evidence": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence",
+                "type": "array"
+              },
+              "page": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "1-indexed page the evidence was found on",
+                "title": "Page"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "title": "EvidencedDate",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "effective": {
+            "$ref": "#/$defs/EvidencedDate"
+          }
+        },
+        "required": [
+          "effective"
+        ],
+        "title": "Leaf",
+        "type": "object"
+      },
+      "data": {
+        "effective": {
+          "value": "2026-05-01",
+          "evidence": [],
+          "page": 1
+        }
+      },
+      "options": {
+        "text_edit_tolerance": 0,
+        "default_date_order": null
+      },
+      "report": {
+        "fields": [
+          {
+            "path": "effective",
+            "value": "2026-05-01",
+            "status": "unsupported",
+            "reasons": [
+              "no evidence quote was provided for this value"
+            ],
+            "match_score": null,
+            "matched_text": null,
+            "page": null,
+            "rects": [],
+            "declared_kind": "date"
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 0,
+          "needs_review": 0,
+          "unsupported": 1
+        },
+        "cross_field_checks": [],
+        "row_checks": [],
+        "column_checks": []
+      }
+    }
+  ],
+  "liveModelCalled": false
+}

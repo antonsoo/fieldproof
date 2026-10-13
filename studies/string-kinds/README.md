@@ -34,6 +34,10 @@ splitting snake_case, camelCase, punctuation and numeric suffixes. Ancestors
 cannot impose a date kind on their descendants. This is a documented naming
 convention, not semantic inference: use `EvidencedDate` for an unseparated name
 such as `issuedate`, or `EvidencedText` for a literal label containing `date`.
+Likewise, declare `dict[str, EvidencedDate]` for date-valued mappings; their
+arbitrary keys do not inherit a date kind from the mapping's name. Custom
+schemas relying on whole-path substring matches must migrate those fields
+explicitly. The built-in schema declarations remain unchanged.
 
 One decision now governs value checking, text tolerance and conflict warnings.
 Real dates still require one calendar-valid ISO claim, supported evidence and
@@ -67,9 +71,53 @@ baseline uses `Evidenced[str]`, while the current run opts into the new wrapper.
 Their input JSON bytes remain identical. These rows demonstrate the new API,
 not a claim that an unavailable baseline type already carried that intent.
 
+[builtin_replay.py](builtin_replay.py) separately invokes the actual CLI for
+invoice, receipt and contract fixtures. All three reports match their baseline
+bytes; [builtin-controls.json](builtin-controls.json) retains hashes and counts.
+All three built-in JSON Schema hashes and five unchanged study-control reports
+match too.
+
 Custom schemas remain a Python-library integration. The built-in CLI/server
 schema selector is unchanged. No new UI controls, PyPI release or hosted
 deployment accompany this work.
+
+## Clean archive and installed artifacts
+
+[verification.json](verification.json) records a fresh 707-file archive of
+implementation `bd1aa39eb90141ad250bc73f65fe79c9b80c3f60`, locked installation,
+lint/type/format checks, both web builds and packaging. All archived tracked
+files remain unchanged after checking. The wheel, source distribution and
+both fresh installations match all 37 Python files and 23 bundled UI assets.
+Those UI assets are also byte-identical to the preceding container-claims build.
+
+| Environment | Pydantic | Python suite | PDF replay |
+| --- | --- | --- | --- |
+| Locked source, Python 3.12.12 | 2.13.5 | 612 passed, one OCR skip | 23 expected outcomes |
+| Installed wheel, Python 3.11.13, lowest direct dependencies | 2.12.0 | 612 passed, one OCR skip | [23 expected outcomes](installed-minimum.json) |
+| Installed wheel, Python 3.14.7, current dependencies | 2.14.1 | 612 passed, one OCR skip | [23 expected outcomes](installed-current.json) |
+
+The real-OCR case is skipped because Tesseract is unavailable. All five control
+reports and 23 input hashes match the baseline in every environment. Actual
+invoice, receipt and contract CLI reports are byte-identical before/after in
+each environment and across them. The three built-in JSON Schemas also match
+before/after under each tested Pydantic version.
+
+The Python suites exercise actual Anthropic SDK streaming and structured-schema
+requests on versions 0.77.0, 1.11.0 and 1.13.0. Their HTTP transports supply
+synthetic replies; invalid date strings remain available for verification, and
+JSON cannot override the schema's kind. This is parser/transport evidence,
+not a live service or model evaluation.
+
+The clean web run passes 62 unit checks and 86 production-browser checks.
+The previous 15-case import-boundary replay retains its outcomes and valid
+report hashes; all ten previous container records remain identical. No new
+screenshots are needed for this library change: the UI source and all 23 built
+assets are unchanged, and the existing live/demo browser workflows pass.
+
+Local artifacts retain version 0.2.7 and are distinct from the previously
+published package. The final evidence/documentation commit changes no tested
+runtime files. Migration notes describe the narrower naming convention and
+explicit date declarations for custom schemas.
 
 ## Reproduce
 

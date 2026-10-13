@@ -1,0 +1,459 @@
+{
+  "implementation": "bd1aa39eb90141ad250bc73f65fe79c9b80c3f60",
+  "cleanArchiveTrackedFilesUnchanged": 707,
+  "libraryFiles": 37,
+  "bundledUiFiles": 23,
+  "artifacts": [
+    {
+      "name": "fieldproof-0.2.7-py3-none-any.whl",
+      "bytes": 595756,
+      "sha256": "6571b2bf6b404e17474dbf94669bb3ae79afab65494b4ab5a0fa1640e784e02c"
+    },
+    {
+      "name": "fieldproof-0.2.7.tar.gz",
+      "bytes": 620232,
+      "sha256": "a1a00da89ebaa630ab413c487b046920a18ba0d5a19f9eccd86e31e477198d25"
+    }
+  ],
+  "packages": [
+    {
+      "environment": "python314-current",
+      "python": "3.14.7",
+      "pydantic": "2.14.1",
+      "anthropic": "1.13.0",
+      "installedFilesMatched": 60
+    },
+    {
+      "environment": "python311-lowest-direct",
+      "python": "3.11.13",
+      "pydantic": "2.12.0",
+      "anthropic": "0.77.0",
+      "installedFilesMatched": 60
+    }
+  ],
+  "files": [
+    {
+      "path": "fieldproof/__init__.py",
+      "bytes": 274,
+      "sha256": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde"
+    },
+    {
+      "path": "fieldproof/_reports.py",
+      "bytes": 1945,
+      "sha256": "44b543f2279b8a41f9433639b71bd8f82f6a5362019971ae785eda6fc9fcb71a"
+    },
+    {
+      "path": "fieldproof/cli.py",
+      "bytes": 10098,
+      "sha256": "f8271739e39c16a992a9016a4705383f936e3c34c9863bb7e122e03d8e14b803"
+    },
+    {
+      "path": "fieldproof/document/__init__.py",
+      "bytes": 360,
+      "sha256": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074"
+    },
+    {
+      "path": "fieldproof/document/limits.py",
+      "bytes": 1718,
+      "sha256": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71"
+    },
+    {
+      "path": "fieldproof/document/loader.py",
+      "bytes": 6935,
+      "sha256": "1c8e2b68dad7f3f3baf6e69d59fc1737e035b6e3871f01f8e18c29f075ed10e1"
+    },
+    {
+      "path": "fieldproof/document/model.py",
+      "bytes": 4275,
+      "sha256": "cd230415e6ccd8b664779a9d74210ef8c317b51a310504266694cec5454d6f23"
+    },
+    {
+      "path": "fieldproof/document/ocr.py",
+      "bytes": 6347,
+      "sha256": "5a260a5d29206df3dd00533c646e0b18b26996ba137219e610427abe98365f29"
+    },
+    {
+      "path": "fieldproof/document/render.py",
+      "bytes": 2163,
+      "sha256": "651c776a68820bb29002bc21ebede0891a1ddf281c4d71c5035fc5296f59f502"
+    },
+    {
+      "path": "fieldproof/document/worker.py",
+      "bytes": 2631,
+      "sha256": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142"
+    },
+    {
+      "path": "fieldproof/extract/__init__.py",
+      "bytes": 380,
+      "sha256": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e"
+    },
+    {
+      "path": "fieldproof/extract/anthropic_provider.py",
+      "bytes": 6556,
+      "sha256": "87aa3ac824ebd3b21ec1536b3ad45eb27ac16e559ea8133cd51173662aeb39d8"
+    },
+    {
+      "path": "fieldproof/extract/base.py",
+      "bytes": 5713,
+      "sha256": "ed4dddee401c935aa9021e1d3abb5aaed0cf0f2dc2a29f555a995ce9accc3811"
+    },
+    {
+      "path": "fieldproof/extract/fixture_provider.py",
+      "bytes": 1779,
+      "sha256": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49"
+    },
+    {
+      "path": "fieldproof/ground/__init__.py",
+      "bytes": 678,
+      "sha256": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd"
+    },
+    {
+      "path": "fieldproof/ground/align.py",
+      "bytes": 25986,
+      "sha256": "519441050c619a0ef8e62bca94072fc200f467e49ebb2b4f12e41e5916577f4c"
+    },
+    {
+      "path": "fieldproof/ground/lines.py",
+      "bytes": 1067,
+      "sha256": "aa8715ff767e0dba4d90e5a87d902f74a07135099b20ad816a04e2e7f58b069c"
+    },
+    {
+      "path": "fieldproof/ground/normalize.py",
+      "bytes": 2260,
+      "sha256": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520"
+    },
+    {
+      "path": "fieldproof/ground/values.py",
+      "bytes": 13657,
+      "sha256": "1a876375896662382dde616fad06a08f54c750602a4f7063faf2f20ba168a340"
+    },
+    {
+      "path": "fieldproof/schemas/__init__.py",
+      "bytes": 1661,
+      "sha256": "2846223c9fe650c6c471d68c97359b2f0bef71c3029bcb928d119ef47e04818c"
+    },
+    {
+      "path": "fieldproof/schemas/base.py",
+      "bytes": 3183,
+      "sha256": "e1bedf5eefca522d004393dadb59d1f84e06416df5d614f1d99a0f605202f78c"
+    },
+    {
+      "path": "fieldproof/schemas/contract.py",
+      "bytes": 1061,
+      "sha256": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0"
+    },
+    {
+      "path": "fieldproof/schemas/invoice.py",
+      "bytes": 1358,
+      "sha256": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b"
+    },
+    {
+      "path": "fieldproof/schemas/receipt.py",
+      "bytes": 755,
+      "sha256": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e"
+    },
+    {
+      "path": "fieldproof/server/__init__.py",
+      "bytes": 57,
+      "sha256": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b"
+    },
+    {
+      "path": "fieldproof/server/app.py",
+      "bytes": 21908,
+      "sha256": "cc5287e551ad6c180cca6e4f9166fc5828c4974d82cb798955254624bead03bd"
+    },
+    {
+      "path": "fieldproof/server/archive.py",
+      "bytes": 10697,
+      "sha256": "f164088bedbaa989245946d89a3f297ee5f236e1c9145b71fb19fe1b0236270a"
+    },
+    {
+      "path": "fieldproof/server/body_limit.py",
+      "bytes": 2600,
+      "sha256": "d6186c0a279c765ecd347cd68f7936915574fa1ab12ea2f65cd24f78fedfe1bb"
+    },
+    {
+      "path": "fieldproof/server/pdf_work.py",
+      "bytes": 5128,
+      "sha256": "c3fd361d0b5fe32c5016e0c3dfdaf297c184a5ab71d6e2835f01f85747ce941d"
+    },
+    {
+      "path": "fieldproof/server/spreadsheet.py",
+      "bytes": 5143,
+      "sha256": "2e2cc428ffec82b8e0ccea8844a6bb416b4386605711cfd063c107255db5781c"
+    },
+    {
+      "path": "fieldproof/server/static/assets/fraunces-latin-DihXLNYH.woff2",
+      "bytes": 67304,
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+    },
+    {
+      "path": "fieldproof/server/static/assets/fraunces-latin-ext-CJcjJNj7.woff2",
+      "bytes": 59388,
+      "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e"
+    },
+    {
+      "path": "fieldproof/server/static/assets/fraunces-vietnamese-Czevyj-6.woff2",
+      "bytes": 19700,
+      "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "bytes": 8356,
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "bytes": 6912,
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "bytes": 13348,
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "bytes": 5868,
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "bytes": 8460,
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "bytes": 6972,
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "bytes": 13432,
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea"
+    },
+    {
+      "path": "fieldproof/server/static/assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "bytes": 6040,
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910"
+    },
+    {
+      "path": "fieldproof/server/static/assets/index-CajleM-L.js",
+      "bytes": 56835,
+      "sha256": "b0f0578f71f6e8f1eb8b38cb67489e7c4f95422e881d801f95ae5d9b85dd76f3"
+    },
+    {
+      "path": "fieldproof/server/static/assets/index-DaGp7LJJ.css",
+      "bytes": 26333,
+      "sha256": "9f0c24d44c0fd8a12aea6c8b5df5135bf65bef25442b6be65203731969801796"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-cyrillic-DqGufNeO.woff2",
+      "bytes": 18748,
+      "sha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-cyrillic-ext-BOeWTOD4.woff2",
+      "bytes": 25960,
+      "sha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-greek-CkhJZR-_.woff2",
+      "bytes": 18996,
+      "sha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-greek-ext-DlzME5K_.woff2",
+      "bytes": 11232,
+      "sha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-latin-Dx4kXJAl.woff2",
+      "bytes": 48256,
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-latin-ext-DO1Apj_S.woff2",
+      "bytes": 85068,
+      "sha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956"
+    },
+    {
+      "path": "fieldproof/server/static/assets/inter-vietnamese-CBcvBZtf.woff2",
+      "bytes": 10252,
+      "sha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2"
+    },
+    {
+      "path": "fieldproof/server/static/index.html",
+      "bytes": 2885,
+      "sha256": "77e1ef750821bec87343b95a1e03dbedd32e5e7529ab75bed876202a22fc0d53"
+    },
+    {
+      "path": "fieldproof/server/store.py",
+      "bytes": 6841,
+      "sha256": "18c5c059b96b8a1b6436820ace7ee0155d176ca3b46b4fb12fb39d855d85c8eb"
+    },
+    {
+      "path": "fieldproof/verify/__init__.py",
+      "bytes": 1025,
+      "sha256": "740faaaab55c8f47f78091074d3e6d73174a23f2c0255d375b2ff8917ba0d933"
+    },
+    {
+      "path": "fieldproof/verify/columns.py",
+      "bytes": 10559,
+      "sha256": "55ec511208f495d3a4893a58864b2dc2faee35288c8d1d143c2a8dd734d4fd25"
+    },
+    {
+      "path": "fieldproof/verify/cross_field.py",
+      "bytes": 9641,
+      "sha256": "ad1a7facac1c39cc4ebec47412db36dc258b76dd1d2b4b603007fadcf928b365"
+    },
+    {
+      "path": "fieldproof/verify/engine.py",
+      "bytes": 22492,
+      "sha256": "43fa91960df233d3acb9ef039a5ba398e9f308f26df252204efdf6d01afa6397"
+    },
+    {
+      "path": "fieldproof/verify/rows.py",
+      "bytes": 8974,
+      "sha256": "410f8363ab9b4b89c7f0ed0185cff8b88fd4bbf63e68d92ffe3ef1a3fc397765"
+    },
+    {
+      "path": "fieldproof/verify/value_checks.py",
+      "bytes": 18996,
+      "sha256": "7ba4980ae4c907f2fdea4f33bac0eb3546d24ce318df5ad25118e8d17acc17e1"
+    }
+  ],
+  "date": "2026-10-13",
+  "sourceBaseline": "6ec047d33cd69fb7a02154e90bc3049f1e072f16",
+  "scope": "Source and locally built artifacts only; no package release, tag or hosted deployment.",
+  "environment": {
+    "host": "WSL2 Linux",
+    "node": "24.21.0",
+    "sourcePython": "3.12.12",
+    "sourcePydantic": "2.13.5"
+  },
+  "checks": {
+    "python": [
+      {
+        "environment": "locked-source-python312",
+        "passed": 612,
+        "skipped": 1,
+        "skippedReason": "Tesseract executable unavailable",
+        "logSha256": "7b452e3d0dd0c27a3fa1e6c8ab522336ce416c5795c7a314cf8e350a38206fde"
+      },
+      {
+        "environment": "installed-python311-lowest-direct",
+        "passed": 612,
+        "skipped": 1,
+        "skippedReason": "Tesseract executable unavailable",
+        "logSha256": "baa5d32360e6352fc8a079dedab9333126623f3a015b6295fbebca9debce209d"
+      },
+      {
+        "environment": "installed-python314-current",
+        "passed": 612,
+        "skipped": 1,
+        "skippedReason": "Tesseract executable unavailable",
+        "logSha256": "2a040b7fc7baa5f11e5e6eb3ed014c1c20a0658878ed45ffe79b57a4b023a23d"
+      }
+    ],
+    "ruff": "passed",
+    "mypy": "37 source files passed",
+    "webTypes": "passed",
+    "webLint": "passed",
+    "webFormat": "passed",
+    "webUnitTests": 62,
+    "productionBrowserTests": 86,
+    "dependencyCompatibility": "both fresh installed environments pass",
+    "buildCommands": [
+      "uv sync --locked --extra dev --extra ocr",
+      "ruff check src tests",
+      "mypy src",
+      "pytest -q",
+      "python scripts/bundle_ui.py",
+      "npm run typecheck",
+      "npm run lint",
+      "npm run format:check",
+      "npm test",
+      "npm run build:demo",
+      "uv build",
+      "npx playwright test"
+    ]
+  },
+  "replay": {
+    "cases": 23,
+    "environments": 3,
+    "allExpectedOutcomesMatched": true,
+    "inputBytesIdenticalToBaseline": true,
+    "unchangedControlReports": 5,
+    "jsonRoundtripReportsIdentical": true,
+    "sourceRectanglesRetained": true,
+    "liveModelCalled": false,
+    "explicitKindComparison": "Baseline uses generic Evidenced[str]; after explicitly declares EvidencedDate or EvidencedText. Input JSON stays unchanged; the schema gains intent."
+  },
+  "builtinControls": {
+    "cliSchemas": [
+      "invoice",
+      "receipt",
+      "contract"
+    ],
+    "reportsByteIdenticalBeforeAfterInAllThreeEnvironments": true,
+    "allThreeSchemasUnchanged": true,
+    "installedSchemaChecks": [
+      {
+        "environment": "wheel-floor",
+        "builtinSchemasUnchanged": true,
+        "sha256": {
+          "invoice": "053b0136019fec43cef380c349bf41cd81bf659e33e8bb5c794c7c3c43a90b67",
+          "receipt": "ff63ac5f0937ec975c6e4f0455727b74fb8eef2d34a9f54825e3a412207cb641",
+          "contract": "80ad3bd598120c05454803374683856b8dd0e08fc99c6972f12aabcd2d364f8f"
+        }
+      },
+      {
+        "environment": "wheel-current",
+        "builtinSchemasUnchanged": true,
+        "sha256": {
+          "invoice": "053b0136019fec43cef380c349bf41cd81bf659e33e8bb5c794c7c3c43a90b67",
+          "receipt": "ff63ac5f0937ec975c6e4f0455727b74fb8eef2d34a9f54825e3a412207cb641",
+          "contract": "80ad3bd598120c05454803374683856b8dd0e08fc99c6972f12aabcd2d364f8f"
+        }
+      }
+    ]
+  },
+  "priorRegressions": {
+    "boundaryCases": 15,
+    "boundaryOutcomesAndReportHashesUnchanged": true,
+    "containerCases": 10,
+    "containerRecordsUnchanged": true
+  },
+  "sdk": {
+    "fullSuiteContainsActualSdkStreamTransport": true,
+    "minimum": "0.77.0",
+    "locked": "1.11.0",
+    "current": "1.13.0",
+    "liveProviderCalled": false,
+    "coverage": "Structured schema emitted in an actual SDK request; synthetic streamed reply validated into explicit wrappers without changing claim data."
+  },
+  "ui": {
+    "bundledFiles": 23,
+    "allBytesUnchangedFromPriorContainerBuild": true,
+    "sourceChanged": false,
+    "customSchemaSelectorAdded": false
+  },
+  "migration": "Generic string hints use the final named member, not ancestors or incidental substrings. Nonconventional date names and date-valued mappings should declare EvidencedDate; use EvidencedText for literal date labels.",
+  "limitations": [
+    "Synthetic controls do not estimate real extraction accuracy.",
+    "No live provider acceptance check.",
+    "Tesseract unavailable; no real OCR execution.",
+    "Custom kinds are Python-library schema declarations, not new CLI or UI controls."
+  ]
+}
