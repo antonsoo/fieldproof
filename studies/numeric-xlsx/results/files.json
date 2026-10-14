@@ -1,0 +1,105 @@
+{
+  "nativeCalcInputs": {
+    "/work/before-native/writer-all.xlsx": {
+      "path": "workbooks/7c532057d41dad74b59213a7bd8acb9b449f2b48292d52a75895b12d890c500b.xlsx",
+      "bytes": 2770,
+      "sha256": "7c532057d41dad74b59213a7bd8acb9b449f2b48292d52a75895b12d890c500b"
+    },
+    "/work/clean-native/writer-all.xlsx": {
+      "path": "workbooks/ee444b6008a503cc20604d77985c5b4d7296d6a28dd698495ea64b6695bc430c.xlsx",
+      "bytes": 2826,
+      "sha256": "ee444b6008a503cc20604d77985c5b4d7296d6a28dd698495ea64b6695bc430c"
+    },
+    "/work/before-web-writer/writer-all.xlsx": {
+      "path": "workbooks/5651207c1c981386f022b4dc68969c5c47d379dab7f636f6429c6a5bcbee342f.xlsx",
+      "bytes": 2634,
+      "sha256": "5651207c1c981386f022b4dc68969c5c47d379dab7f636f6429c6a5bcbee342f"
+    },
+    "/work/after-web-writer/writer-all.xlsx": {
+      "path": "workbooks/06165d5a28bed52b8e02a99e9650941f31c6d6caedcf424a36d4f445694d2859.xlsx",
+      "bytes": 2636,
+      "sha256": "06165d5a28bed52b8e02a99e9650941f31c6d6caedcf424a36d4f445694d2859"
+    },
+    "/work/before-native/api-python-two-to-53-plus-one-reviewed.xlsx": {
+      "path": "workbooks/a5f3eff8bf4a79d3322d484f0802fb2cb1a5839fac555e9ef8dbd1518136729e.xlsx",
+      "bytes": 1887,
+      "sha256": "a5f3eff8bf4a79d3322d484f0802fb2cb1a5839fac555e9ef8dbd1518136729e"
+    },
+    "/work/before-native/api-python-two-to-53-plus-one-all.xlsx": {
+      "path": "workbooks/9f0cf51ae9640b63a1e40db07befb51a7550b368ae5ba6a97d8c370ba83aaa23.xlsx",
+      "bytes": 2941,
+      "sha256": "9f0cf51ae9640b63a1e40db07befb51a7550b368ae5ba6a97d8c370ba83aaa23"
+    },
+    "/work/before-native/api-python-seventeen-digit-integer-reviewed.xlsx": {
+      "path": "workbooks/b3c24a417ac3e9b2f6671b3bc125b46776376a493d1d3e6c92dfd0c9eda6d7e6.xlsx",
+      "bytes": 1883,
+      "sha256": "b3c24a417ac3e9b2f6671b3bc125b46776376a493d1d3e6c92dfd0c9eda6d7e6"
+    },
+    "/work/before-native/api-python-seventeen-digit-integer-all.xlsx": {
+      "path": "workbooks/1a8b231ea9912bf558086f54227bb2062e3e4796cf8504177371f808a7ca3be7.xlsx",
+      "bytes": 2939,
+      "sha256": "1a8b231ea9912bf558086f54227bb2062e3e4796cf8504177371f808a7ca3be7"
+    },
+    "/work/before-native/api-python-twenty-digit-integer-reviewed.xlsx": {
+      "path": "workbooks/0af6a654a5033c6e292f3e8c6b17d463275871930e6aa3e63087abec504280ba.xlsx",
+      "bytes": 1883,
+      "sha256": "0af6a654a5033c6e292f3e8c6b17d463275871930e6aa3e63087abec504280ba"
+    },
+    "/work/before-native/api-python-twenty-digit-integer-all.xlsx": {
+      "path": "workbooks/02d7a6e9c41025b8e3058b7a844b5d4049a0d6436cdbd69e95862222844a1c25.xlsx",
+      "bytes": 2939,
+      "sha256": "02d7a6e9c41025b8e3058b7a844b5d4049a0d6436cdbd69e95862222844a1c25"
+    },
+    "/work/before-native/api-python-thirty-one-digit-integer-reviewed.xlsx": {
+      "path": "workbooks/ca3a156a3776518d1b9d24d62fd604627f8172346d2f5f2aae4904c1dcb86991.xlsx",
+      "bytes": 1877,
+      "sha256": "ca3a156a3776518d1b9d24d62fd604627f8172346d2f5f2aae4904c1dcb86991"
+    },
+    "/work/before-native/api-python-thirty-one-digit-integer-all.xlsx": {
+      "path": "workbooks/4bf514d167125674781092259b45edba297930fa45005442ee531c06f06a8c29.xlsx",
+      "bytes": 2934,
+      "sha256": "4bf514d167125674781092259b45edba297930fa45005442ee531c06f06a8c29"
+    },
+    "/work/clean-native/api-python-two-to-53-plus-one-reviewed.xlsx": {
+      "path": "workbooks/27f25cbe39b3480d905f3160fb9b75d492ee12e8e89abdb918bbec9c5f4dd1a8.xlsx",
+      "bytes": 1885,
+      "sha256": "27f25cbe39b3480d905f3160fb9b75d492ee12e8e89abdb918bbec9c5f4dd1a8"
+    },
+    "/work/clean-native/api-python-two-to-53-plus-one-all.xlsx": {
+      "path": "workbooks/c8a58d4c3c179ca5e0f2c0570c1cff31dc7b9f86f2ff42e89b8d93eec2dd145c.xlsx",
+      "bytes": 2943,
+      "sha256": "c8a58d4c3c179ca5e0f2c0570c1cff31dc7b9f86f2ff42e89b8d93eec2dd145c"
+    },
+    "/work/clean-native/api-python-seventeen-digit-integer-reviewed.xlsx": {
+      "path": "workbooks/a10ddc7f95c2f8a23a994e667ab1664a4b2f6d62937b1d9e8ca62a45ea2659ca.xlsx",
+      "bytes": 1883,
+      "sha256": "a10ddc7f95c2f8a23a994e667ab1664a4b2f6d62937b1d9e8ca62a45ea2659ca"
+    },
+    "/work/clean-native/api-python-seventeen-digit-integer-all.xlsx": {
+      "path": "workbooks/f9de2ef96431f10c65b42fa340dfcf7c38038f718d6d740712c6b18c897c384c.xlsx",
+      "bytes": 2940,
+      "sha256": "f9de2ef96431f10c65b42fa340dfcf7c38038f718d6d740712c6b18c897c384c"
+    },
+    "/work/clean-native/api-python-twenty-digit-integer-reviewed.xlsx": {
+      "path": "workbooks/28ca6df98f4010001ebef1957e2b05edad0ca901533cae99682fd96ef791d831.xlsx",
+      "bytes": 1882,
+      "sha256": "28ca6df98f4010001ebef1957e2b05edad0ca901533cae99682fd96ef791d831"
+    },
+    "/work/clean-native/api-python-twenty-digit-integer-all.xlsx": {
+      "path": "workbooks/0fc47be8ecd5e72349655a61c760b7a31d022dfafc527d354f115d0e08fdedaa.xlsx",
+      "bytes": 2939,
+      "sha256": "0fc47be8ecd5e72349655a61c760b7a31d022dfafc527d354f115d0e08fdedaa"
+    },
+    "/work/clean-native/api-python-thirty-one-digit-integer-reviewed.xlsx": {
+      "path": "workbooks/2e0e841f55f107a232ce1b3595dab46dd3222576d485c7d24641802f28fe97ca.xlsx",
+      "bytes": 1876,
+      "sha256": "2e0e841f55f107a232ce1b3595dab46dd3222576d485c7d24641802f28fe97ca"
+    },
+    "/work/clean-native/api-python-thirty-one-digit-integer-all.xlsx": {
+      "path": "workbooks/0a8a6f0128087db94447b94f6fccbef064bf94af757d19b59866d32a34c1cf70.xlsx",
+      "bytes": 2934,
+      "sha256": "0a8a6f0128087db94447b94f6fccbef064bf94af757d19b59866d32a34c1cf70"
+    }
+  },
+  "uniqueRetainedWorkbooks": 34
+}

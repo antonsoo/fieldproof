@@ -1,0 +1,2945 @@
+{
+  "label": "d23be20-clean",
+  "python": "3.12.12",
+  "fixtureScope": "Constructed scalar cases and the bundled synthetic invoice; no model or external extraction service.",
+  "runtimeSha256": "89def3a96c29c583a80c01629067b919b1dd5336f882bce53682f81684d4bc2f",
+  "workflows": 58,
+  "disagreements": 0,
+  "oversizedApiCorrectionStillRejected": true,
+  "records": [
+    {
+      "case": "money",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "123.45",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "money",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "123.45"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "123.45"
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-money.xlsx",
+      "sha256": "bb0501ac11d4d2e3f3a37fec1755ea74518ef6146f73c0761d45c4ccea3d9319"
+    },
+    {
+      "case": "negative-money",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "-12.5",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "negative-money",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "-12.5"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "-12.5"
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-negative-money.xlsx",
+      "sha256": "8fbd94f1a293ef5281c5a73790571f4fc77ea64c3cf342f7f55f1965252a80af"
+    },
+    {
+      "case": "zero",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "0",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "zero",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "0"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-zero.xlsx",
+      "sha256": "f0fa719ce4086c2c53ce4428d8003a3c8d2fadcaf44fc67289b0f7bc748ffb73"
+    },
+    {
+      "case": "fifteen-digit-integer",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "999999999999999",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "fifteen-digit-integer",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "999999999999999"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "999999999999999"
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-fifteen-digit-integer.xlsx",
+      "sha256": "1a969c1ec527285372499943ab8663481f220cbdf70794bc863c0f8ccdd56d46"
+    },
+    {
+      "case": "negative-fifteen-digit-integer",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "-999999999999999",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "negative-fifteen-digit-integer",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "-999999999999999"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "-999999999999999"
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-negative-fifteen-digit-integer.xlsx",
+      "sha256": "e5ec9a58e3b5361cfb61312a93c265ab3284235d6682ef3abc49c4c269ac8cf9"
+    },
+    {
+      "case": "fifteen-digit-fraction",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "123.456789012345",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "fifteen-digit-fraction",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "123.456789012345"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "123.456789012345"
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-fifteen-digit-fraction.xlsx",
+      "sha256": "94f69939586227d5a9eeffbdf47ad31f684254269144f18c29dca56e847378a0"
+    },
+    {
+      "case": "small-normal",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "1e-307",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "small-normal",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1e-307"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1e-307"
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-small-normal.xlsx",
+      "sha256": "c6a1d8c5b016612ae065ef89d8323c4da711fd47ad1f6bb164a7d21852637563"
+    },
+    {
+      "case": "sixteen-digit-integer",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "1234567890123456",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "sixteen-digit-integer",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1234567890123456",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1234567890123456",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-sixteen-digit-integer.xlsx",
+      "sha256": "37c3bd50a6965a5d11cfae2259b0410711824612a9e2674738579653c135fd28"
+    },
+    {
+      "case": "javascript-safe-integer-limit",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "9007199254740991",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "javascript-safe-integer-limit",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "9007199254740991",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "9007199254740991",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-javascript-safe-integer-limit.xlsx",
+      "sha256": "24c2c7573330415fa414511ec7476b4066287b35113584ae066fce1489145888"
+    },
+    {
+      "case": "seventeen-digit-fraction",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "1.2345678901234567",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "seventeen-digit-fraction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1.2345678901234567",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1.2345678901234567",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-seventeen-digit-fraction.xlsx",
+      "sha256": "44f1140a0db287b814c5d7cadabe5dd9502fd8ecd80c8733365a93ff3041fc04"
+    },
+    {
+      "case": "roundoff-spelling",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "0.30000000000000004",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "roundoff-spelling",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "0.30000000000000004",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "0.30000000000000004",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-roundoff-spelling.xlsx",
+      "sha256": "eb824ab69b0ebee719d4e803615a85844add57a8b8033fcd2747ec8c8d57f974"
+    },
+    {
+      "case": "subnormal",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "1e-309",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "subnormal",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1e-309",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1e-309",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-subnormal.xlsx",
+      "sha256": "0e2058766467f79ba876b0a6ae5b3f9ffcddee1424ffb808758bd1125933bb2e"
+    },
+    {
+      "case": "minimum-normal",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "2.2250738585072014e-308",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "minimum-normal",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "2.2250738585072014e-308",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "2.2250738585072014e-308",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-minimum-normal.xlsx",
+      "sha256": "3a94811aed26962f19470f5e73408311012d3112fb37b604ca4a3059edbd4628"
+    },
+    {
+      "case": "maximum-float",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "1.7976931348623157e+308",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "maximum-float",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1.7976931348623157e+308",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1.7976931348623157e+308",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-maximum-float.xlsx",
+      "sha256": "34432b0a937539a31995584950ab1a3ed30a20a6af0903865bdb61b6fde6c7a5"
+    },
+    {
+      "case": "text-identifier",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "12345678901234567890",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "text-identifier",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "12345678901234567890",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "12345678901234567890",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-text-identifier.xlsx",
+      "sha256": "82d1aaf26c8a2f55f8a2e13275249d88a648b98cbca98cd7324045da46b70503"
+    },
+    {
+      "case": "boolean",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "True",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "boolean",
+          "number": null
+        },
+        {
+          "type": "b",
+          "text": null,
+          "number": "1"
+        },
+        {
+          "type": "b",
+          "text": null,
+          "number": "1"
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-boolean.xlsx",
+      "sha256": "1b932e6306ea8f99fa1ee342fa573e64dc47ff44fa2280acf383cd2cdb413664"
+    },
+    {
+      "case": "blank",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "None",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "blank",
+          "number": null
+        },
+        {
+          "type": "blank",
+          "text": null,
+          "number": null
+        },
+        {
+          "type": "blank",
+          "text": null,
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-blank.xlsx",
+      "sha256": "7ee4d701ed88f13fb0001e0278e46b79cb787dbd3b27cd19cfe6a33ab9c859c6"
+    },
+    {
+      "case": "python-two-to-53-plus-one",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "9007199254740993",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "python-two-to-53-plus-one",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "9007199254740993",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "9007199254740993",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-python-two-to-53-plus-one.xlsx",
+      "sha256": "3808007670161503c244912bd97d167321f2b9ec9b67ffc0e51272e6d619c791"
+    },
+    {
+      "case": "python-seventeen-digit-integer",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "12345678901234567",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "python-seventeen-digit-integer",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "12345678901234567",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "12345678901234567",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-python-seventeen-digit-integer.xlsx",
+      "sha256": "fee39c9e47bffe38cea6ad7882cf293989257b3909db0ba07bb38c7a5440c7e6"
+    },
+    {
+      "case": "python-twenty-digit-integer",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "12345678901234567890",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "python-twenty-digit-integer",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "12345678901234567890",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "12345678901234567890",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-python-twenty-digit-integer.xlsx",
+      "sha256": "541d114b7871d49bc0e7354c762b88c0adb284259fd5d234c6a98e1a6a033810"
+    },
+    {
+      "case": "python-thirty-one-digit-integer",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "1000000000000000000000000000001",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "python-thirty-one-digit-integer",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1000000000000000000000000000001",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1000000000000000000000000000001",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-python-thirty-one-digit-integer.xlsx",
+      "sha256": "3d76eb8de1ecfc67a128b9f1f47b3908e127fc8bad1b0c11ee5e916353ba557a"
+    },
+    {
+      "case": "python-four-hundred-one-digit-integer",
+      "kind": "writer",
+      "agrees": true,
+      "sourceSpelling": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "python-four-hundred-one-digit-integer",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "extracted",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "verified",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "approved",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "writer-python-four-hundred-one-digit-integer.xlsx",
+      "sha256": "f36ca34715dd42c4ed1631e204b53ae6435da27e4f8e6568dd21cd6f2d978415"
+    },
+    {
+      "case": "money",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "123.45",
+      "row": {
+        "field": "total",
+        "value": 123.45,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "123.45"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-money-reviewed.xlsx",
+      "sha256": "3f15ac9ac4b664a60bf2d71b975569efa60f6635c001f1ecd85e6c9cfcb239ed"
+    },
+    {
+      "case": "money",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "123.45",
+      "row": {
+        "field": "total",
+        "value": 123.45,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "123.45"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-money-all.xlsx",
+      "sha256": "40ccf02a0107725710a636d60c727dd523b38fe30819e734326b9a970bd2e27b"
+    },
+    {
+      "case": "negative-money",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "-12.5",
+      "row": {
+        "field": "total",
+        "value": -12.5,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "-12.5"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-negative-money-reviewed.xlsx",
+      "sha256": "b79106087f5f471b43e855c2b07e74346ef0acf660db022f60d0dfb4bc4c2fe6"
+    },
+    {
+      "case": "negative-money",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "-12.5",
+      "row": {
+        "field": "total",
+        "value": -12.5,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "-12.5"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-negative-money-all.xlsx",
+      "sha256": "9f4466a1f71046f405e4f7eb3d0d07d6759560ba7090cb3472c2bc2048daebd0"
+    },
+    {
+      "case": "zero",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "0",
+      "row": {
+        "field": "total",
+        "value": 0,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "0"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-zero-reviewed.xlsx",
+      "sha256": "98a1b9f349db7fa659c7dc5f306053a15e94ca72c64da93847d042225a4d1055"
+    },
+    {
+      "case": "zero",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "0",
+      "row": {
+        "field": "total",
+        "value": 0,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "0"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-zero-all.xlsx",
+      "sha256": "e275d9e94855282c034e15281d9f1d8c71705a05095ac56a1c56111ad99d9b1f"
+    },
+    {
+      "case": "fifteen-digit-integer",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "999999999999999",
+      "row": {
+        "field": "total",
+        "value": 999999999999999,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "999999999999999"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-fifteen-digit-integer-reviewed.xlsx",
+      "sha256": "25742486d8ed0514ef0a0f54b207abc2867a4647be9a879153614fd188f9b8d7"
+    },
+    {
+      "case": "fifteen-digit-integer",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "999999999999999",
+      "row": {
+        "field": "total",
+        "value": 999999999999999,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "999999999999999"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-fifteen-digit-integer-all.xlsx",
+      "sha256": "961bc3704dd9836cc0c3ed573416c29d6840b1e7207aef3ae72b4fc18437a572"
+    },
+    {
+      "case": "negative-fifteen-digit-integer",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "-999999999999999",
+      "row": {
+        "field": "total",
+        "value": -999999999999999,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "-999999999999999"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-negative-fifteen-digit-integer-reviewed.xlsx",
+      "sha256": "86f169efa1023c62524ff4d5cec6b5aef3551f1a8ad3cf1ba743e74e6609b551"
+    },
+    {
+      "case": "negative-fifteen-digit-integer",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "-999999999999999",
+      "row": {
+        "field": "total",
+        "value": -999999999999999,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "-999999999999999"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-negative-fifteen-digit-integer-all.xlsx",
+      "sha256": "d6168c5838201c0389ab8e71b0677bdc0eb07c7e26ed647586b6482f76ab1e89"
+    },
+    {
+      "case": "fifteen-digit-fraction",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "123.456789012345",
+      "row": {
+        "field": "total",
+        "value": 123.456789012345,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "123.456789012345"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-fifteen-digit-fraction-reviewed.xlsx",
+      "sha256": "490e5c0cb510772b592b06f842a4bb89724c5e644f069372b257479d34d940f5"
+    },
+    {
+      "case": "fifteen-digit-fraction",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "123.456789012345",
+      "row": {
+        "field": "total",
+        "value": 123.456789012345,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "123.456789012345"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-fifteen-digit-fraction-all.xlsx",
+      "sha256": "a2db40ba619137ea08d5217f1735728ca617cbd7585a77667a4fdbd0ba60af90"
+    },
+    {
+      "case": "small-normal",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "1e-307",
+      "row": {
+        "field": "total",
+        "value": 1e-307,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1e-307"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-small-normal-reviewed.xlsx",
+      "sha256": "4e1cfe54e422f4fde9329cbcff407f61de944b47fe71b72160c8c7c6471fe5a8"
+    },
+    {
+      "case": "small-normal",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "1e-307",
+      "row": {
+        "field": "total",
+        "value": 1e-307,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1e-307"
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-small-normal-all.xlsx",
+      "sha256": "503380d4d37cef655174f748fa0a42f59a37bee05b183ca0927a6883b0f268d6"
+    },
+    {
+      "case": "sixteen-digit-integer",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "1234567890123456",
+      "row": {
+        "field": "total",
+        "value": 1234567890123456,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1234567890123456",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-sixteen-digit-integer-reviewed.xlsx",
+      "sha256": "636931331ba2440a790cb826aedb33214ec2ff12fd0daad0eddf101d1a37c280"
+    },
+    {
+      "case": "sixteen-digit-integer",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "1234567890123456",
+      "row": {
+        "field": "total",
+        "value": 1234567890123456,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1234567890123456",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-sixteen-digit-integer-all.xlsx",
+      "sha256": "39dd9edb4f8389388851394c653befb390e7103221b531317a432349d89e5247"
+    },
+    {
+      "case": "javascript-safe-integer-limit",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "9007199254740991",
+      "row": {
+        "field": "total",
+        "value": 9007199254740991,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "9007199254740991",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-javascript-safe-integer-limit-reviewed.xlsx",
+      "sha256": "5583eb288dbb1c44026b2beb30a14ac924aa3574fe98a4049511f1ccd2906d12"
+    },
+    {
+      "case": "javascript-safe-integer-limit",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "9007199254740991",
+      "row": {
+        "field": "total",
+        "value": 9007199254740991,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "9007199254740991",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-javascript-safe-integer-limit-all.xlsx",
+      "sha256": "93e8378ae61174ec4e7f6aa20c1759c2ae49d4ff42feffcd5a3964119a5acd04"
+    },
+    {
+      "case": "seventeen-digit-fraction",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "1.2345678901234567",
+      "row": {
+        "field": "total",
+        "value": 1.2345678901234567,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1.2345678901234567",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-seventeen-digit-fraction-reviewed.xlsx",
+      "sha256": "6d9f19f4c22d568c4e36895eca03d012fe0d6775ceac884ace8a42fbc358b83c"
+    },
+    {
+      "case": "seventeen-digit-fraction",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "1.2345678901234567",
+      "row": {
+        "field": "total",
+        "value": 1.2345678901234567,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1.2345678901234567",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-seventeen-digit-fraction-all.xlsx",
+      "sha256": "a6c92f5fe39782edcb4e1773ddb8c97a2848492c2a8e51a4190cd0f1f9e41489"
+    },
+    {
+      "case": "roundoff-spelling",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "0.30000000000000004",
+      "row": {
+        "field": "total",
+        "value": 0.30000000000000004,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "0.30000000000000004",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-roundoff-spelling-reviewed.xlsx",
+      "sha256": "3810c89b818172837d84f5e5f6c68c419ef542df4deecf07d6380d671f73c29a"
+    },
+    {
+      "case": "roundoff-spelling",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "0.30000000000000004",
+      "row": {
+        "field": "total",
+        "value": 0.30000000000000004,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "0.30000000000000004",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-roundoff-spelling-all.xlsx",
+      "sha256": "444ec3357ddd10b54ca9ce6c13533979fa16aea7dc46cadb239e0d1f39148547"
+    },
+    {
+      "case": "subnormal",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "1e-309",
+      "row": {
+        "field": "total",
+        "value": 1e-309,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1e-309",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-subnormal-reviewed.xlsx",
+      "sha256": "0f213e74359a7e7f1978b7ec7fce9c79a8799a623848a23ca44596ec0314ce9b"
+    },
+    {
+      "case": "subnormal",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "1e-309",
+      "row": {
+        "field": "total",
+        "value": 1e-309,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1e-309",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-subnormal-all.xlsx",
+      "sha256": "5809a1c78afbe9df9457feb874905a1420bd3962d512385fd042933704c18968"
+    },
+    {
+      "case": "minimum-normal",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "2.2250738585072014e-308",
+      "row": {
+        "field": "total",
+        "value": 2.2250738585072014e-308,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "2.2250738585072014e-308",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-minimum-normal-reviewed.xlsx",
+      "sha256": "e50c48f176ef1bf4e5a2b3ee486828714ce5ffd37f09103582d2d2fb5472fd6c"
+    },
+    {
+      "case": "minimum-normal",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "2.2250738585072014e-308",
+      "row": {
+        "field": "total",
+        "value": 2.2250738585072014e-308,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "2.2250738585072014e-308",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-minimum-normal-all.xlsx",
+      "sha256": "a6e00b234608d54c067562b92f87a1470585d615afde567eabac286342ced873"
+    },
+    {
+      "case": "maximum-float",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "1.7976931348623157e+308",
+      "row": {
+        "field": "total",
+        "value": 1.7976931348623157e+308,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1.7976931348623157e+308",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-maximum-float-reviewed.xlsx",
+      "sha256": "f7424bd2e3bdbed50d46037bb333ad15606ce7353dd97c388077f08259890a44"
+    },
+    {
+      "case": "maximum-float",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "1.7976931348623157e+308",
+      "row": {
+        "field": "total",
+        "value": 1.7976931348623157e+308,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1.7976931348623157e+308",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-maximum-float-all.xlsx",
+      "sha256": "8647a01e2506c0bffd4e8957b240a2a2ba52fc345500a18df7b9c7cb7ca8d1d9"
+    },
+    {
+      "case": "python-two-to-53-plus-one",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "9007199254740993",
+      "row": {
+        "field": "total",
+        "value": 9007199254740993,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "9007199254740993",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-python-two-to-53-plus-one-reviewed.xlsx",
+      "sha256": "27f25cbe39b3480d905f3160fb9b75d492ee12e8e89abdb918bbec9c5f4dd1a8"
+    },
+    {
+      "case": "python-two-to-53-plus-one",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "9007199254740993",
+      "row": {
+        "field": "total",
+        "value": 9007199254740993,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "9007199254740993",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-python-two-to-53-plus-one-all.xlsx",
+      "sha256": "c8a58d4c3c179ca5e0f2c0570c1cff31dc7b9f86f2ff42e89b8d93eec2dd145c"
+    },
+    {
+      "case": "python-seventeen-digit-integer",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "12345678901234567",
+      "row": {
+        "field": "total",
+        "value": 12345678901234567,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "12345678901234567",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-python-seventeen-digit-integer-reviewed.xlsx",
+      "sha256": "a10ddc7f95c2f8a23a994e667ab1664a4b2f6d62937b1d9e8ca62a45ea2659ca"
+    },
+    {
+      "case": "python-seventeen-digit-integer",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "12345678901234567",
+      "row": {
+        "field": "total",
+        "value": 12345678901234567,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "12345678901234567",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-python-seventeen-digit-integer-all.xlsx",
+      "sha256": "f9de2ef96431f10c65b42fa340dfcf7c38038f718d6d740712c6b18c897c384c"
+    },
+    {
+      "case": "python-twenty-digit-integer",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "12345678901234567890",
+      "row": {
+        "field": "total",
+        "value": 12345678901234567890,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "12345678901234567890",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-python-twenty-digit-integer-reviewed.xlsx",
+      "sha256": "28ca6df98f4010001ebef1957e2b05edad0ca901533cae99682fd96ef791d831"
+    },
+    {
+      "case": "python-twenty-digit-integer",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "12345678901234567890",
+      "row": {
+        "field": "total",
+        "value": 12345678901234567890,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "12345678901234567890",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-python-twenty-digit-integer-all.xlsx",
+      "sha256": "0fc47be8ecd5e72349655a61c760b7a31d022dfafc527d354f115d0e08fdedaa"
+    },
+    {
+      "case": "python-thirty-one-digit-integer",
+      "kind": "api-reviewed",
+      "agrees": true,
+      "sourceSpelling": "1000000000000000000000000000001",
+      "row": {
+        "field": "total",
+        "value": 1000000000000000000000000000001,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1000000000000000000000000000001",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-python-thirty-one-digit-integer-reviewed.xlsx",
+      "sha256": "2e0e841f55f107a232ce1b3595dab46dd3222576d485c7d24641802f28fe97ca"
+    },
+    {
+      "case": "python-thirty-one-digit-integer",
+      "kind": "api-all",
+      "agrees": true,
+      "sourceSpelling": "1000000000000000000000000000001",
+      "row": {
+        "field": "total",
+        "value": 1000000000000000000000000000001,
+        "original_value": 2600.0,
+        "value_source": "correction",
+        "verification_status": "needs_review",
+        "review_status": "edited",
+        "page": 1
+      },
+      "cells": [
+        {
+          "type": "inlineStr",
+          "text": "total",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "1000000000000000000000000000001",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "2600.0"
+        },
+        {
+          "type": "inlineStr",
+          "text": "correction",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "needs_review",
+          "number": null
+        },
+        {
+          "type": "inlineStr",
+          "text": "edited",
+          "number": null
+        },
+        {
+          "type": "n",
+          "text": null,
+          "number": "1"
+        }
+      ],
+      "file": "api-python-thirty-one-digit-integer-all.xlsx",
+      "sha256": "0a8a6f0128087db94447b94f6fccbef064bf94af757d19b59866d32a34c1cf70"
+    }
+  ]
+}

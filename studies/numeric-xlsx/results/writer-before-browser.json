@@ -1,0 +1,161 @@
+{
+  "label": "before-91736cf",
+  "node": "v24.21.0",
+  "workflows": 17,
+  "disagreements": 7,
+  "records": [
+    {
+      "case": "money",
+      "agrees": true,
+      "sourceSpelling": "123.45",
+      "type": "n",
+      "text": null,
+      "file": "writer-money.xlsx",
+      "sha256": "e120357d7fccbe45e946ebd70450d2d3ad09cb4a69bf3ce51f518856cb319c79"
+    },
+    {
+      "case": "negative-money",
+      "agrees": true,
+      "sourceSpelling": "-12.5",
+      "type": "n",
+      "text": null,
+      "file": "writer-negative-money.xlsx",
+      "sha256": "1366da6a253b60ad29adc2fae0ac803f057d522f909857613a55e1bf21c27d16"
+    },
+    {
+      "case": "zero",
+      "agrees": true,
+      "sourceSpelling": "0",
+      "type": "n",
+      "text": null,
+      "file": "writer-zero.xlsx",
+      "sha256": "82b7f2db5862c2f11e35d67aa3647c0e65325b0573ae50895a923fdf7acfa871"
+    },
+    {
+      "case": "fifteen-digit-integer",
+      "agrees": true,
+      "sourceSpelling": "999999999999999",
+      "type": "n",
+      "text": null,
+      "file": "writer-fifteen-digit-integer.xlsx",
+      "sha256": "257bcd82127d5ffdb64ab86f2eea468651d6bf5672c9ea8230a1cebf2442c827"
+    },
+    {
+      "case": "negative-fifteen-digit-integer",
+      "agrees": true,
+      "sourceSpelling": "-999999999999999",
+      "type": "n",
+      "text": null,
+      "file": "writer-negative-fifteen-digit-integer.xlsx",
+      "sha256": "60939e7d96d1cf182fec9d164c5cbbf1811cd2e8b52b1207616d26909829bb58"
+    },
+    {
+      "case": "fifteen-digit-fraction",
+      "agrees": true,
+      "sourceSpelling": "123.456789012345",
+      "type": "n",
+      "text": null,
+      "file": "writer-fifteen-digit-fraction.xlsx",
+      "sha256": "0d24172068d3db0be7fc9ec0cbe9eee7bb01a37b87b401c511d5092167bc5492"
+    },
+    {
+      "case": "small-normal",
+      "agrees": true,
+      "sourceSpelling": "1e-307",
+      "type": "n",
+      "text": null,
+      "file": "writer-small-normal.xlsx",
+      "sha256": "abcf4a6c1458321cb23ecaf3ff444722b78071d5b13300513718cf19fd4faa64"
+    },
+    {
+      "case": "sixteen-digit-integer",
+      "agrees": false,
+      "sourceSpelling": "1234567890123456",
+      "type": "n",
+      "text": null,
+      "file": "writer-sixteen-digit-integer.xlsx",
+      "sha256": "3cdeeb929f835862db6a295304ead0d78498081100ea269b97e170b5d5c84362"
+    },
+    {
+      "case": "javascript-safe-integer-limit",
+      "agrees": false,
+      "sourceSpelling": "9007199254740991",
+      "type": "n",
+      "text": null,
+      "file": "writer-javascript-safe-integer-limit.xlsx",
+      "sha256": "aa38e84177ab4e7311530b3f0b2af6437b8ad21a058b6f9a39d3a6aa0417876f"
+    },
+    {
+      "case": "seventeen-digit-fraction",
+      "agrees": false,
+      "sourceSpelling": "1.2345678901234567",
+      "type": "n",
+      "text": null,
+      "file": "writer-seventeen-digit-fraction.xlsx",
+      "sha256": "b5c2aac63b48ce48955e333ad44f8e72374f505ad16846ce464310214a21c0c9"
+    },
+    {
+      "case": "roundoff-spelling",
+      "agrees": false,
+      "sourceSpelling": "0.30000000000000004",
+      "type": "n",
+      "text": null,
+      "file": "writer-roundoff-spelling.xlsx",
+      "sha256": "659a6e3896cc15af4446aa3e6d8f62024e518e0b788e7b7f5d49991970d16789"
+    },
+    {
+      "case": "subnormal",
+      "agrees": false,
+      "sourceSpelling": "1e-309",
+      "type": "n",
+      "text": null,
+      "file": "writer-subnormal.xlsx",
+      "sha256": "9387974b1b71ecac9cd4678224fa45ef278fdbc4dea50639cb12f12d2a2e8c2b"
+    },
+    {
+      "case": "minimum-normal",
+      "agrees": false,
+      "sourceSpelling": "2.2250738585072014e-308",
+      "type": "n",
+      "text": null,
+      "file": "writer-minimum-normal.xlsx",
+      "sha256": "604633c689af61c7e19c0d31eef247c42f422e8802d43de4127f190fef819827"
+    },
+    {
+      "case": "maximum-float",
+      "agrees": false,
+      "sourceSpelling": "1.7976931348623157e+308",
+      "type": "n",
+      "text": null,
+      "file": "writer-maximum-float.xlsx",
+      "sha256": "f46eb68f7d42e57f2f7630836fb9f12c432672abf62ae37af945dfd94e7fe6be"
+    },
+    {
+      "case": "text-identifier",
+      "agrees": true,
+      "sourceSpelling": "12345678901234567890",
+      "type": "inlineStr",
+      "text": "12345678901234567890",
+      "file": "writer-text-identifier.xlsx",
+      "sha256": "fef54c131c38e1565f1b16c18e6d6cae116479d3abe1d3c0e9d81f107e0461be"
+    },
+    {
+      "case": "boolean",
+      "agrees": true,
+      "sourceSpelling": "true",
+      "type": "b",
+      "text": null,
+      "file": "writer-boolean.xlsx",
+      "sha256": "53bbf7d02671691f7e791190235a9f84a24f45905245805b78fba8195ec479a9"
+    },
+    {
+      "case": "blank",
+      "agrees": true,
+      "sourceSpelling": "null",
+      "type": "blank",
+      "text": null,
+      "file": "writer-blank.xlsx",
+      "sha256": "2f688a4119cc90de34cd34ca10bb557698dd033fce1ab1d8f14cc7168ed4017b"
+    }
+  ]
+}

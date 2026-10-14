@@ -30,6 +30,12 @@ and work offline after loading. Text is explicitly stored as an
 Numeric and boolean values use their corresponding cell types. Null is blank.
 No formula, hyperlink, macro or external relationship is generated.
 
+The current source additionally stores numeric spellings outside its conservative
+spreadsheet precision range as literal text; see the
+[native numeric-cell study](../numeric-xlsx/README.md). The ordinary numeric
+controls in this earlier study fit that range. Its retained measurements describe
+the original text-export correction.
+
 The writer is deliberately limited to one worksheet: headers, frozen first row,
 column widths, and an autofilter. Python uses its standard ZIP library; the
 browser uses `fflate` for ZIP compression. There is no spreadsheet import engine
