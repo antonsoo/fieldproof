@@ -1,0 +1,8 @@
+Default native loader
+wrote result.json - 3 verified, 0 needs review, 3 unsupported
+
+Explicit page OCR
+wrote result.json - 6 verified, 0 needs review, 0 unsupported
+OCR: Mixed PDF: OCR processed pages 2; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.
+OCR pages: [2]
+

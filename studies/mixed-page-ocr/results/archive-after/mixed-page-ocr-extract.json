@@ -1,0 +1,233 @@
+{
+  "schema": "invoice",
+  "provider": "fixture",
+  "model": "/tmp/claude-1000/fieldproof-mixed-ocr/clean/studies/mixed-page-ocr/inputs/mixed.json",
+  "data": {
+    "vendor_name": {
+      "value": "Acme Laboratory",
+      "evidence": [
+        "Acme Laboratory"
+      ],
+      "page": 1
+    },
+    "invoice_number": {
+      "value": "MIXED-2026-07",
+      "evidence": [
+        "MIXED-2026-07"
+      ],
+      "page": 1
+    },
+    "issue_date": {
+      "value": "2026-07-01",
+      "evidence": [
+        "2026-07-01"
+      ],
+      "page": 1
+    },
+    "due_date": null,
+    "currency": null,
+    "po_number": null,
+    "line_items": [],
+    "subtotal": {
+      "value": 120.0,
+      "evidence": [
+        "Subtotal 120.00"
+      ],
+      "page": 2
+    },
+    "tax": {
+      "value": 3.45,
+      "evidence": [
+        "Tax 3.45"
+      ],
+      "page": 2
+    },
+    "total": {
+      "value": 123.45,
+      "evidence": [
+        "Total 123.45"
+      ],
+      "page": 2
+    },
+    "payment_terms": null
+  },
+  "report": {
+    "fields": [
+      {
+        "path": "vendor_name",
+        "value": "Acme Laboratory",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Acme Laboratory",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 72.0,
+            "top": 59.31200000000001,
+            "x1": 193.824,
+            "bottom": 75.31200000000001
+          }
+        ]
+      },
+      {
+        "path": "invoice_number",
+        "value": "MIXED-2026-07",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "MIXED-2026-07",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 127.136,
+            "top": 99.31200000000001,
+            "x1": 241.84000000000003,
+            "bottom": 115.31200000000001
+          }
+        ]
+      },
+      {
+        "path": "issue_date",
+        "value": "2026-07-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "2026-07-01",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 123.584,
+            "top": 139.312,
+            "x1": 205.40800000000002,
+            "bottom": 155.312
+          }
+        ]
+      },
+      {
+        "path": "subtotal",
+        "value": 120.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Subtotal 120.00",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 73.0,
+            "top": 60.0,
+            "x1": 183.5,
+            "bottom": 72.5
+          }
+        ]
+      },
+      {
+        "path": "tax",
+        "value": 3.45,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Tax 3.45",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 72.0,
+            "top": 100.5,
+            "x1": 133.5,
+            "bottom": 112.5
+          }
+        ]
+      },
+      {
+        "path": "total",
+        "value": 123.45,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Total 123.45",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 72.0,
+            "top": 140.5,
+            "x1": 160.5,
+            "bottom": 152.5
+          }
+        ]
+      }
+    ],
+    "cross_field_issues": [],
+    "counts": {
+      "verified": 6,
+      "needs_review": 0,
+      "unsupported": 0
+    },
+    "cross_field_checks": [
+      {
+        "rule": "invoice.items_subtotal",
+        "fields": [
+          "subtotal"
+        ],
+        "status": "not_checked",
+        "message": "line items sum not checked: no item amounts were extracted",
+        "operands": {
+          "subtotal": "120.0"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.subtotal_tax_total",
+        "fields": [
+          "subtotal",
+          "tax",
+          "total"
+        ],
+        "status": "passed",
+        "message": "subtotal + tax = 123.45 matches total 123.45 (difference 0; tolerance 0.02)",
+        "operands": {
+          "subtotal": "120.0",
+          "tax": "3.45",
+          "total": "123.45"
+        },
+        "computed": "123.45",
+        "observed": "123.45",
+        "difference": "0",
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-07-01",
+          "due_date": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    ],
+    "row_checks": [],
+    "column_checks": [],
+    "ocr": {
+      "engine": "tesseract",
+      "version": "5.3.4",
+      "language": "eng",
+      "render_dpi": 144,
+      "page_count": 2,
+      "empty_pages": [],
+      "note": "Mixed PDF: OCR processed pages 2; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.",
+      "processed_pages": [
+        2
+      ]
+    }
+  }
+}

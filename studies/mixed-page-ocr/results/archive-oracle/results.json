@@ -1,0 +1,92 @@
+{
+  "python": "3.12.12",
+  "tesseract": "5.3.4",
+  "pytesseract": "0.3.13",
+  "records": [
+    {
+      "input": "mixed.pdf",
+      "processedPages": [
+        2
+      ],
+      "pages": [
+        {
+          "page": 1,
+          "nativePageUnchanged": true,
+          "words": 6
+        },
+        {
+          "page": 2,
+          "ocrWords": 6,
+          "matchesDirectTsv": true
+        }
+      ]
+    },
+    {
+      "input": "scan-first.pdf",
+      "processedPages": [
+        1
+      ],
+      "pages": [
+        {
+          "page": 1,
+          "ocrWords": 6,
+          "matchesDirectTsv": true
+        },
+        {
+          "page": 2,
+          "nativePageUnchanged": true,
+          "words": 6
+        }
+      ]
+    },
+    {
+      "input": "blank-middle.pdf",
+      "processedPages": [
+        2,
+        3
+      ],
+      "pages": [
+        {
+          "page": 1,
+          "nativePageUnchanged": true,
+          "words": 6
+        },
+        {
+          "page": 2,
+          "ocrWords": 0,
+          "matchesDirectTsv": true
+        },
+        {
+          "page": 3,
+          "ocrWords": 6,
+          "matchesDirectTsv": true
+        }
+      ]
+    }
+  ],
+  "combinedBudgetFailures": [
+    {
+      "budget": {
+        "max_pages": 64,
+        "max_pixels": 16000000,
+        "max_words": 7,
+        "max_text_chars": 2000000
+      },
+      "rejectedCombinedText": true
+    },
+    {
+      "budget": {
+        "max_pages": 64,
+        "max_pixels": 16000000,
+        "max_words": 100000,
+        "max_text_chars": 55
+      },
+      "rejectedCombinedText": true
+    }
+  ],
+  "actualTimeout": {
+    "page": 2,
+    "actualRecognitionTimeoutRaised": true
+  },
+  "scope": "Actual same-recognizer TSV comparison checks retention and pixel-to-point conversion; it is not independent OCR accuracy evidence."
+}

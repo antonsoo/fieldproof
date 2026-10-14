@@ -1,0 +1,463 @@
+{
+  "runtime": {
+    "python": "3.14.7",
+    "sourceSha256": {
+      "fieldproof.cli": "dc3b269f25e278207da9869d09e02f25998a69f0592d9406f15fdf5160af157b",
+      "fieldproof.document.ocr": "d37c80e6e9503b6070e127c91d1149a974b624dbf2be8de3db981f8283850902",
+      "fieldproof.document.model": "567fddb039a0a4267a2fc6404f4f5a2f09afd2150ed31c3ddc27a5652c67c2e4"
+    }
+  },
+  "baseline": false,
+  "population": "Synthetic header/totals PDFs, actual subprocess CLI and local Tesseract; no scanner or live model",
+  "commands": 24,
+  "records": [
+    {
+      "case": "native",
+      "pageOcr": false,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/native-default-extract.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": null,
+      "output": "native-default-extract.json",
+      "outputSha256": "7b264bee984d92353cc4ff2571a673279dfa96ffc0660d70b3fed495b23c2550"
+    },
+    {
+      "case": "native",
+      "pageOcr": false,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/native-default-verify.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": null,
+      "output": "native-default-verify.json",
+      "outputSha256": "e85d5ba487e030f7892b0313381b34bb81e8ad1a0b7b607fd649a753d4c0e594"
+    },
+    {
+      "case": "native",
+      "pageOcr": true,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/native-page-ocr-extract.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": null,
+      "output": "native-page-ocr-extract.json",
+      "outputSha256": "7b264bee984d92353cc4ff2571a673279dfa96ffc0660d70b3fed495b23c2550"
+    },
+    {
+      "case": "native",
+      "pageOcr": true,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/native-page-ocr-verify.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": null,
+      "output": "native-page-ocr-verify.json",
+      "outputSha256": "e85d5ba487e030f7892b0313381b34bb81e8ad1a0b7b607fd649a753d4c0e594"
+    },
+    {
+      "case": "mixed",
+      "pageOcr": false,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/mixed-default-extract.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "mixed-default-extract.json",
+      "outputSha256": "3bca53154526dfeeafc5c06f41a57c53ea437ec7d76579d7c5c7c949958331a4"
+    },
+    {
+      "case": "mixed",
+      "pageOcr": false,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/mixed-default-verify.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "mixed-default-verify.json",
+      "outputSha256": "03daca6b126d7725a6ad31bdccc22391cd445422982cb4b044090b4134e91c90"
+    },
+    {
+      "case": "mixed",
+      "pageOcr": true,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/mixed-page-ocr-extract.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "OCR: Mixed PDF: OCR processed pages 2; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 2,
+        "empty_pages": [],
+        "note": "Mixed PDF: OCR processed pages 2; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.",
+        "processed_pages": [
+          2
+        ]
+      },
+      "output": "mixed-page-ocr-extract.json",
+      "outputSha256": "d9576fbfdbafa822053b4302c88102f4f070b2e54bf85ec78cf8e2c81a303c0e"
+    },
+    {
+      "case": "mixed",
+      "pageOcr": true,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/mixed-page-ocr-verify.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "OCR: Mixed PDF: OCR processed pages 2; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 2,
+        "empty_pages": [],
+        "note": "Mixed PDF: OCR processed pages 2; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.",
+        "processed_pages": [
+          2
+        ]
+      },
+      "output": "mixed-page-ocr-verify.json",
+      "outputSha256": "d4888f6b6261753a8468047d53e0c84129a95b383858be2d75456ac5c38d5d0b"
+    },
+    {
+      "case": "scan-first",
+      "pageOcr": false,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/scan-first-default-extract.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "scan-first-default-extract.json",
+      "outputSha256": "f1d4f4bc04a97a817f1b187e9f2d69cfb55944427914a69e9593c289dac31ab4"
+    },
+    {
+      "case": "scan-first",
+      "pageOcr": false,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/scan-first-default-verify.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "scan-first-default-verify.json",
+      "outputSha256": "4759aa12632fa8a07b79d33eac1784dfbd986e03995e7878881c906d231f951a"
+    },
+    {
+      "case": "scan-first",
+      "pageOcr": true,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/scan-first-page-ocr-extract.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "OCR: Mixed PDF: OCR processed pages 1; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 2,
+        "empty_pages": [],
+        "note": "Mixed PDF: OCR processed pages 1; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.",
+        "processed_pages": [
+          1
+        ]
+      },
+      "output": "scan-first-page-ocr-extract.json",
+      "outputSha256": "789e8184b2e3ebb9757f002aea561573523f902af7724b864f438ca0553821af"
+    },
+    {
+      "case": "scan-first",
+      "pageOcr": true,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/scan-first-page-ocr-verify.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "OCR: Mixed PDF: OCR processed pages 1; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 2,
+        "empty_pages": [],
+        "note": "Mixed PDF: OCR processed pages 1; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.",
+        "processed_pages": [
+          1
+        ]
+      },
+      "output": "scan-first-page-ocr-verify.json",
+      "outputSha256": "478ff7e4952914f7e77fc9140b03655f77a889935c7b190062facc871ed92387"
+    },
+    {
+      "case": "blank-middle",
+      "pageOcr": false,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/blank-middle-default-extract.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "blank-middle-default-extract.json",
+      "outputSha256": "ec21052b1b2f9dd45a8a3a40fe23bd0262020c6a8b437f48d9deee80ba573a56"
+    },
+    {
+      "case": "blank-middle",
+      "pageOcr": false,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/blank-middle-default-verify.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "blank-middle-default-verify.json",
+      "outputSha256": "c51af4e068ac853bcb63c9cd61fcbb93a873f5048293ab452c73d83713e5be56"
+    },
+    {
+      "case": "blank-middle",
+      "pageOcr": true,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/blank-middle-page-ocr-extract.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "OCR: Mixed PDF: OCR processed pages 2, 3; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 3,
+        "empty_pages": [
+          2
+        ],
+        "note": "Mixed PDF: OCR processed pages 2, 3; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.",
+        "processed_pages": [
+          2,
+          3
+        ]
+      },
+      "output": "blank-middle-page-ocr-extract.json",
+      "outputSha256": "3c2d8a47ae92c48f280a5222eeae337ba667a074ae1ea167ec8856db7dd679f5"
+    },
+    {
+      "case": "blank-middle",
+      "pageOcr": true,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/blank-middle-page-ocr-verify.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "OCR: Mixed PDF: OCR processed pages 2, 3; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 3,
+        "empty_pages": [
+          2
+        ],
+        "note": "Mixed PDF: OCR processed pages 2, 3; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.",
+        "processed_pages": [
+          2,
+          3
+        ]
+      },
+      "output": "blank-middle-page-ocr-verify.json",
+      "outputSha256": "7e260450d3cc68dd10d36cb15469801ebc656e3fb46d3e2289249e0601dcbd33"
+    },
+    {
+      "case": "all-scanned",
+      "pageOcr": false,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/all-scanned-default-extract.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 1,
+        "empty_pages": [],
+        "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+      },
+      "output": "all-scanned-default-extract.json",
+      "outputSha256": "ae6d0af91323c7e36eaa74f0be72ba0d56cf1c442da6d5c7df16902c68e5875a"
+    },
+    {
+      "case": "all-scanned",
+      "pageOcr": false,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/all-scanned-default-verify.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 1,
+        "empty_pages": [],
+        "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+      },
+      "output": "all-scanned-default-verify.json",
+      "outputSha256": "52c256a574b2d6ed31a83f6fded0f6f58aebe8db9d4a1b3cf0114ec00680e916"
+    },
+    {
+      "case": "all-scanned",
+      "pageOcr": true,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/all-scanned-page-ocr-extract.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 1,
+        "empty_pages": [],
+        "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+      },
+      "output": "all-scanned-page-ocr-extract.json",
+      "outputSha256": "ae6d0af91323c7e36eaa74f0be72ba0d56cf1c442da6d5c7df16902c68e5875a"
+    },
+    {
+      "case": "all-scanned",
+      "pageOcr": true,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/installed-current/all-scanned-page-ocr-verify.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 1,
+        "empty_pages": [],
+        "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+      },
+      "output": "all-scanned-page-ocr-verify.json",
+      "outputSha256": "52c256a574b2d6ed31a83f6fded0f6f58aebe8db9d4a1b3cf0114ec00680e916"
+    },
+    {
+      "case": "missing-engine-extract",
+      "exit": 1,
+      "stderr": "error: could not load <repo>/studies/mixed-page-ocr/inputs/mixed.pdf with page OCR: OCR is not available: install the 'ocr' extra (pytesseract, Pillow) and the Tesseract binary (e.g. `apt install tesseract-ocr`).\n",
+      "previousOutputPreserved": true
+    },
+    {
+      "case": "missing-engine-verify",
+      "exit": 1,
+      "stderr": "error: could not load <repo>/studies/mixed-page-ocr/inputs/mixed.pdf with page OCR: OCR is not available: install the 'ocr' extra (pytesseract, Pillow) and the Tesseract binary (e.g. `apt install tesseract-ocr`).\n",
+      "previousOutputPreserved": true
+    },
+    {
+      "case": "missing-language-data-extract",
+      "exit": 1,
+      "stderr": "error: could not load <repo>/studies/mixed-page-ocr/inputs/mixed.pdf with page OCR: OCR failed on page 2: (1, 'Error opening data file <repo>/studies/mixed-page-ocr/results/installed-current/eng.traineddata Please make sure the TESSDATA_PREFIX environment variable is set to your \"tessdata\" directory. Failed loading language \\'eng\\' Tesseract couldn\\'t load any languages! Could not initialize tesseract.')\n",
+      "previousOutputPreserved": true
+    },
+    {
+      "case": "missing-language-data-verify",
+      "exit": 1,
+      "stderr": "error: could not load <repo>/studies/mixed-page-ocr/inputs/mixed.pdf with page OCR: OCR failed on page 2: (1, 'Error opening data file <repo>/studies/mixed-page-ocr/results/installed-current/eng.traineddata Please make sure the TESSDATA_PREFIX environment variable is set to your \"tessdata\" directory. Failed loading language \\'eng\\' Tesseract couldn\\'t load any languages! Could not initialize tesseract.')\n",
+      "previousOutputPreserved": true
+    }
+  ]
+}

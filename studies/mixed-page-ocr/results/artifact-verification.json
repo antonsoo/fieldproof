@@ -1,0 +1,96 @@
+{
+  "codeCommit": "c30ab153bb47f3f061a5d97014e38e15d6140095",
+  "baselineCommit": "d2ed381946c956d153d5150b5fd61c95317953bf",
+  "trackedRuntimeFiles": 37,
+  "runtimeSourceSha256": {
+    "src/fieldproof/__init__.py": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde",
+    "src/fieldproof/_reports.py": "44b543f2279b8a41f9433639b71bd8f82f6a5362019971ae785eda6fc9fcb71a",
+    "src/fieldproof/cli.py": "dc3b269f25e278207da9869d09e02f25998a69f0592d9406f15fdf5160af157b",
+    "src/fieldproof/document/__init__.py": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074",
+    "src/fieldproof/document/limits.py": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71",
+    "src/fieldproof/document/loader.py": "1c8e2b68dad7f3f3baf6e69d59fc1737e035b6e3871f01f8e18c29f075ed10e1",
+    "src/fieldproof/document/model.py": "567fddb039a0a4267a2fc6404f4f5a2f09afd2150ed31c3ddc27a5652c67c2e4",
+    "src/fieldproof/document/ocr.py": "d37c80e6e9503b6070e127c91d1149a974b624dbf2be8de3db981f8283850902",
+    "src/fieldproof/document/render.py": "651c776a68820bb29002bc21ebede0891a1ddf281c4d71c5035fc5296f59f502",
+    "src/fieldproof/document/worker.py": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142",
+    "src/fieldproof/extract/__init__.py": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e",
+    "src/fieldproof/extract/anthropic_provider.py": "87aa3ac824ebd3b21ec1536b3ad45eb27ac16e559ea8133cd51173662aeb39d8",
+    "src/fieldproof/extract/base.py": "ed4dddee401c935aa9021e1d3abb5aaed0cf0f2dc2a29f555a995ce9accc3811",
+    "src/fieldproof/extract/fixture_provider.py": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49",
+    "src/fieldproof/ground/__init__.py": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd",
+    "src/fieldproof/ground/align.py": "519441050c619a0ef8e62bca94072fc200f467e49ebb2b4f12e41e5916577f4c",
+    "src/fieldproof/ground/lines.py": "aa8715ff767e0dba4d90e5a87d902f74a07135099b20ad816a04e2e7f58b069c",
+    "src/fieldproof/ground/normalize.py": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520",
+    "src/fieldproof/ground/values.py": "1a876375896662382dde616fad06a08f54c750602a4f7063faf2f20ba168a340",
+    "src/fieldproof/schemas/__init__.py": "2846223c9fe650c6c471d68c97359b2f0bef71c3029bcb928d119ef47e04818c",
+    "src/fieldproof/schemas/base.py": "7f2bfa1c4b71d57064f9f06b7a904e34f7d646cd78d80086f921c83bcd3837de",
+    "src/fieldproof/schemas/contract.py": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0",
+    "src/fieldproof/schemas/invoice.py": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b",
+    "src/fieldproof/schemas/receipt.py": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e",
+    "src/fieldproof/server/__init__.py": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b",
+    "src/fieldproof/server/app.py": "cc5287e551ad6c180cca6e4f9166fc5828c4974d82cb798955254624bead03bd",
+    "src/fieldproof/server/archive.py": "f164088bedbaa989245946d89a3f297ee5f236e1c9145b71fb19fe1b0236270a",
+    "src/fieldproof/server/body_limit.py": "d6186c0a279c765ecd347cd68f7936915574fa1ab12ea2f65cd24f78fedfe1bb",
+    "src/fieldproof/server/pdf_work.py": "c3fd361d0b5fe32c5016e0c3dfdaf297c184a5ab71d6e2835f01f85747ce941d",
+    "src/fieldproof/server/spreadsheet.py": "2e2cc428ffec82b8e0ccea8844a6bb416b4386605711cfd063c107255db5781c",
+    "src/fieldproof/server/store.py": "18c5c059b96b8a1b6436820ace7ee0155d176ca3b46b4fb12fb39d855d85c8eb",
+    "src/fieldproof/verify/__init__.py": "740faaaab55c8f47f78091074d3e6d73174a23f2c0255d375b2ff8917ba0d933",
+    "src/fieldproof/verify/columns.py": "55ec511208f495d3a4893a58864b2dc2faee35288c8d1d143c2a8dd734d4fd25",
+    "src/fieldproof/verify/cross_field.py": "ad1a7facac1c39cc4ebec47412db36dc258b76dd1d2b4b603007fadcf928b365",
+    "src/fieldproof/verify/engine.py": "ab1775386c12d5688f796e0471dec33c66202ffd3cfb8eafdbd8030679b36bae",
+    "src/fieldproof/verify/rows.py": "410f8363ab9b4b89c7f0ed0185cff8b88fd4bbf63e68d92ffe3ef1a3fc397765",
+    "src/fieldproof/verify/value_checks.py": "7ba4980ae4c907f2fdea4f33bac0eb3546d24ce318df5ad25118e8d17acc17e1"
+  },
+  "runtimeSourceMatches": [
+    "working source",
+    "clean archive",
+    "sdist",
+    "wheel from sdist",
+    "three installations"
+  ],
+  "bundledUiFiles": 23,
+  "bundledUiMatchesSourceDistributionWheelAndInstalls": true,
+  "testedNode26BuildMatchesNode24Bundle": true,
+  "liveBuildFilesCompared": 34,
+  "unchangedDefaultJsonResults": 10,
+  "allTwentySuccessfulJsonResultsMatchAcrossInstalledEnvironments": true,
+  "installedRuntimes": {
+    "current": {
+      "python": "3.14.7",
+      "sourceSha256": {
+        "fieldproof.cli": "dc3b269f25e278207da9869d09e02f25998a69f0592d9406f15fdf5160af157b",
+        "fieldproof.document.ocr": "d37c80e6e9503b6070e127c91d1149a974b624dbf2be8de3db981f8283850902",
+        "fieldproof.document.model": "567fddb039a0a4267a2fc6404f4f5a2f09afd2150ed31c3ddc27a5652c67c2e4"
+      }
+    },
+    "floor": {
+      "python": "3.11.13",
+      "sourceSha256": {
+        "fieldproof.cli": "dc3b269f25e278207da9869d09e02f25998a69f0592d9406f15fdf5160af157b",
+        "fieldproof.document.ocr": "d37c80e6e9503b6070e127c91d1149a974b624dbf2be8de3db981f8283850902",
+        "fieldproof.document.model": "567fddb039a0a4267a2fc6404f4f5a2f09afd2150ed31c3ddc27a5652c67c2e4"
+      }
+    }
+  },
+  "artifacts": [
+    {
+      "file": "fieldproof-0.2.7-py3-none-any.whl",
+      "kind": "from-sdist-wheel",
+      "bytes": 598060,
+      "sha256": "58e809dfc6eb584346b198b2e5fbf602f1dcc6dc6dbaf0fa1e8a228dbc4659d9"
+    },
+    {
+      "file": "fieldproof-0.2.7.tar.gz",
+      "kind": "archive-build",
+      "bytes": 624704,
+      "sha256": "d49732588a9f9845ec26438b91b36d4873b34eb1da05d55da2503f298626c802"
+    },
+    {
+      "file": "fieldproof-0.2.7-py3-none-any.whl",
+      "kind": "archive-build",
+      "bytes": 598060,
+      "sha256": "58e809dfc6eb584346b198b2e5fbf602f1dcc6dc6dbaf0fa1e8a228dbc4659d9"
+    }
+  ],
+  "scope": "Source and independently installed local artifacts; no package publication, hosted deployment or OCR accuracy benchmark."
+}

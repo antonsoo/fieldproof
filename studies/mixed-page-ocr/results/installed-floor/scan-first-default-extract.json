@@ -1,0 +1,206 @@
+{
+  "schema": "invoice",
+  "provider": "fixture",
+  "model": "/home/antonsoloviev/work/projects/showcases/fieldproof/studies/mixed-page-ocr/inputs/scan-first.json",
+  "data": {
+    "vendor_name": {
+      "value": "Acme Laboratory",
+      "evidence": [
+        "Acme Laboratory"
+      ],
+      "page": 2
+    },
+    "invoice_number": {
+      "value": "MIXED-2026-07",
+      "evidence": [
+        "MIXED-2026-07"
+      ],
+      "page": 2
+    },
+    "issue_date": {
+      "value": "2026-07-01",
+      "evidence": [
+        "2026-07-01"
+      ],
+      "page": 2
+    },
+    "due_date": null,
+    "currency": null,
+    "po_number": null,
+    "line_items": [],
+    "subtotal": {
+      "value": 120.0,
+      "evidence": [
+        "Subtotal 120.00"
+      ],
+      "page": 1
+    },
+    "tax": {
+      "value": 3.45,
+      "evidence": [
+        "Tax 3.45"
+      ],
+      "page": 1
+    },
+    "total": {
+      "value": 123.45,
+      "evidence": [
+        "Total 123.45"
+      ],
+      "page": 1
+    },
+    "payment_terms": null
+  },
+  "report": {
+    "fields": [
+      {
+        "path": "vendor_name",
+        "value": "Acme Laboratory",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Acme Laboratory",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 72.0,
+            "top": 59.31200000000001,
+            "x1": 193.824,
+            "bottom": 75.31200000000001
+          }
+        ]
+      },
+      {
+        "path": "invoice_number",
+        "value": "MIXED-2026-07",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "MIXED-2026-07",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 127.136,
+            "top": 99.31200000000001,
+            "x1": 241.84000000000003,
+            "bottom": 115.31200000000001
+          }
+        ]
+      },
+      {
+        "path": "issue_date",
+        "value": "2026-07-01",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "2026-07-01",
+        "page": 2,
+        "rects": [
+          {
+            "x0": 123.584,
+            "top": 139.312,
+            "x1": 205.40800000000002,
+            "bottom": 155.312
+          }
+        ]
+      },
+      {
+        "path": "subtotal",
+        "value": 120.0,
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('Subtotal 120.00') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      },
+      {
+        "path": "tax",
+        "value": 3.45,
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('Tax 3.45') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      },
+      {
+        "path": "total",
+        "value": 123.45,
+        "status": "unsupported",
+        "reasons": [
+          "none of the evidence quotes ('Total 123.45') could be located in the document"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    ],
+    "cross_field_issues": [],
+    "counts": {
+      "verified": 3,
+      "needs_review": 0,
+      "unsupported": 3
+    },
+    "cross_field_checks": [
+      {
+        "rule": "invoice.items_subtotal",
+        "fields": [
+          "subtotal"
+        ],
+        "status": "not_checked",
+        "message": "line items sum not checked: no item amounts were extracted",
+        "operands": {
+          "subtotal": "120.0"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.subtotal_tax_total",
+        "fields": [
+          "subtotal",
+          "tax",
+          "total"
+        ],
+        "status": "passed",
+        "message": "subtotal + tax = 123.45 matches total 123.45 (difference 0; tolerance 0.02)",
+        "operands": {
+          "subtotal": "120.0",
+          "tax": "3.45",
+          "total": "123.45"
+        },
+        "computed": "123.45",
+        "observed": "123.45",
+        "difference": "0",
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-07-01",
+          "due_date": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    ],
+    "row_checks": [],
+    "column_checks": []
+  }
+}

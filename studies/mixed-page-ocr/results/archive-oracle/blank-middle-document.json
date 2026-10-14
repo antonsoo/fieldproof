@@ -1,0 +1,175 @@
+{
+  "source": "blank-middle.pdf",
+  "pages": [
+    {
+      "number": 1,
+      "width": 612.0,
+      "height": 792.0,
+      "text": "Acme Laboratory Invoice MIXED-2026-07 Issued 2026-07-01",
+      "words": [
+        {
+          "text": "Acme",
+          "bbox": {
+            "x0": 72.0,
+            "top": 59.31200000000001,
+            "x1": 112.896,
+            "bottom": 75.31200000000001
+          },
+          "start": 0,
+          "end": 4
+        },
+        {
+          "text": "Laboratory",
+          "bbox": {
+            "x0": 117.344,
+            "top": 59.31200000000001,
+            "x1": 193.824,
+            "bottom": 75.31200000000001
+          },
+          "start": 5,
+          "end": 15
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 72.0,
+            "top": 99.31200000000001,
+            "x1": 122.688,
+            "bottom": 115.31200000000001
+          },
+          "start": 16,
+          "end": 23
+        },
+        {
+          "text": "MIXED-2026-07",
+          "bbox": {
+            "x0": 127.136,
+            "top": 99.31200000000001,
+            "x1": 241.84000000000003,
+            "bottom": 115.31200000000001
+          },
+          "start": 24,
+          "end": 37
+        },
+        {
+          "text": "Issued",
+          "bbox": {
+            "x0": 72.0,
+            "top": 139.312,
+            "x1": 119.13600000000001,
+            "bottom": 155.312
+          },
+          "start": 38,
+          "end": 44
+        },
+        {
+          "text": "2026-07-01",
+          "bbox": {
+            "x0": 123.584,
+            "top": 139.312,
+            "x1": 205.40800000000002,
+            "bottom": 155.312
+          },
+          "start": 45,
+          "end": 55
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "width": 612.0,
+      "height": 792.0,
+      "text": "",
+      "words": []
+    },
+    {
+      "number": 3,
+      "width": 612.0,
+      "height": 792.0,
+      "text": "Subtotal 120.00 Tax 3.45 Total 123.45",
+      "words": [
+        {
+          "text": "Subtotal",
+          "bbox": {
+            "x0": 73.0,
+            "top": 60.0,
+            "x1": 129.5,
+            "bottom": 72.5
+          },
+          "start": 0,
+          "end": 8
+        },
+        {
+          "text": "120.00",
+          "bbox": {
+            "x0": 136.5,
+            "top": 60.5,
+            "x1": 183.5,
+            "bottom": 72.5
+          },
+          "start": 9,
+          "end": 15
+        },
+        {
+          "text": "Tax",
+          "bbox": {
+            "x0": 72.0,
+            "top": 100.5,
+            "x1": 98.5,
+            "bottom": 112.5
+          },
+          "start": 16,
+          "end": 19
+        },
+        {
+          "text": "3.45",
+          "bbox": {
+            "x0": 103.5,
+            "top": 100.5,
+            "x1": 133.5,
+            "bottom": 112.5
+          },
+          "start": 20,
+          "end": 24
+        },
+        {
+          "text": "Total",
+          "bbox": {
+            "x0": 72.0,
+            "top": 140.5,
+            "x1": 106.5,
+            "bottom": 152.5
+          },
+          "start": 25,
+          "end": 30
+        },
+        {
+          "text": "123.45",
+          "bbox": {
+            "x0": 113.5,
+            "top": 140.5,
+            "x1": 160.5,
+            "bottom": 152.5
+          },
+          "start": 31,
+          "end": 37
+        }
+      ]
+    }
+  ],
+  "ocr": {
+    "engine": "tesseract",
+    "version": "5.3.4",
+    "language": "eng",
+    "render_dpi": 144,
+    "page_count": 3,
+    "empty_pages": [
+      2
+    ],
+    "note": "Mixed PDF: OCR processed pages 2, 3; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.",
+    "processed_pages": [
+      2,
+      3
+    ]
+  }
+}

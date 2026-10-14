@@ -1,0 +1,8 @@
+{
+  "python": "3.11.13",
+  "pytesseractInstalled": false,
+  "nativePages": 2,
+  "nativeOcrProvenance": null,
+  "mixedInputExplainsMissingExtra": true,
+  "previousOutputPreserved": true
+}
