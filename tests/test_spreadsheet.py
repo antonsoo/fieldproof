@@ -60,6 +60,19 @@ def test_workbook_preserves_text_scalars_and_provenance():
     assert workbook_rows(rows_to_xlsx(CASES)) == [list(COLUMNS), *[list(r.values()) for r in CASES]]
 
 
+@pytest.mark.parametrize(
+    "value", [9007199254740993, 10**400 + 1, 1.2345678901234567, 1e-309, 1e308]
+)
+def test_numeric_evidence_outside_spreadsheet_precision_is_literal_text(value):
+    row = {**CASES[0], "value": value, "original_value": value}
+    assert workbook_rows(rows_to_xlsx([row]))[1][1:3] == [str(value), str(value)]
+
+
+@pytest.mark.parametrize("value", [999999999999999, -999999999999999, 123.456789012345, 1e-307])
+def test_ordinary_numeric_boundary_keeps_its_scalar_type(value):
+    assert workbook_rows(rows_to_xlsx([{**CASES[0], "value": value}]))[1][1] == value
+
+
 @pytest.mark.parametrize("column", COLUMNS)
 @pytest.mark.parametrize(
     "value",

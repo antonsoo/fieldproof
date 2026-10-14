@@ -29,6 +29,27 @@ _REL = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 _PACKAGE_REL = "http://schemas.openxmlformats.org/package/2006/relationships"
 _BAD_TEXT = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\ud800-\udfff\ufffe\uffff]")
 _ESCAPED_TEXT = re.compile(r"_x[0-9a-fA-F]{4}_")
+_MIN_NORMAL = 2.2250738585072014e-308
+
+
+def _spreadsheet_number(value: int | float) -> bool:
+    """Use numeric cells only within a conservative 15-digit spreadsheet range.
+
+    Integers are finite without conversion to float. Their full decimal spelling
+    must survive; converting a large Python int can round it or overflow first.
+    Floats already have caller-side rounding, which text cannot undo.
+    """
+    if isinstance(value, int):
+        return abs(value) < 10**15
+    if not math.isfinite(value):
+        return False
+    magnitude = abs(value)
+    digits = str(value).split("e", 1)[0].replace("-", "").replace(".", "")
+    return (
+        magnitude < 1e15
+        and (value == 0 or magnitude >= _MIN_NORMAL)
+        and len(digits.lstrip("0").rstrip("0")) <= 15
+    )
 
 
 def _cell(value: Any, address: str) -> str:
@@ -37,8 +58,10 @@ def _cell(value: Any, address: str) -> str:
         return f'<c r="{address}"/>'
     if isinstance(value, bool):
         return f'<c r="{address}" t="b"><v>{int(value)}</v></c>'
-    if isinstance(value, (int, float)) and math.isfinite(value):
-        return f'<c r="{address}" t="n"><v>{value}</v></c>'
+    if isinstance(value, int) or isinstance(value, float) and math.isfinite(value):
+        if _spreadsheet_number(value):
+            return f'<c r="{address}" t="n"><v>{value}</v></c>'
+        value = str(value)
     if not isinstance(value, str):
         problem = "is not a finite scalar"
     elif _BAD_TEXT.search(value):

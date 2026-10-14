@@ -334,12 +334,18 @@ clicked. The local server's `/api/documents/{id}/export.json`, `.csv` and `.xlsx
 accept `?scope=reviewed`; their default remains `all` for existing API clients.
 
 **XLSX is the spreadsheet option:** text identifiers such as `00034`, `1E10`
-and `=1+1` are stored as text cells; numbers and booleans retain their types.
+and `=1+1` are stored as text cells. Ordinary numbers and booleans retain their
+types. In the source checkout, numbers outside a conservative spreadsheet
+precision range are also stored as literal text: integers with 16 or more
+digits, longer fractional spellings and subnormal floats cannot silently
+change through numeric-cell rounding. JSON retains the original scalar type.
 No formulas or hyperlinks are generated. CSV remains a raw data export: a
 spreadsheet importer can reinterpret its text as numbers, dates or formulas.
 XLSX refuses oversized or unsupported text with a JSON fallback instead of
 truncating it. Spreadsheet programs still have their own numeric precision
-and newline behavior; see the [spreadsheet export study](studies/spreadsheet-export/README.md).
+and newline behavior; see the [spreadsheet export study](studies/spreadsheet-export/README.md)
+and [numeric-cell reproduction](studies/numeric-xlsx/README.md). Text cannot
+recover rounding that already occurred in a caller's float or JSON conversion.
 
 All three formats include these columns, with `original_value` and `value_source`
 added in the current unreleased work:

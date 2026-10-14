@@ -4,6 +4,18 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Preserve numbers beyond spreadsheet precision
+
+- Store numeric spellings outside a conservative 15-digit, normal-float
+  spreadsheet range as literal XLSX text in both Python and browser exports.
+  Keep ordinary numeric/boolean/blank types, original values and correction
+  provenance. JSON and CSV retain their existing serialization.
+- Avoid converting arbitrary Python integers to float during XLSX export;
+  large integers no longer round or raise `OverflowError` in the writer.
+- Retain constructed native spreadsheet, real API and browser evidence under
+  `studies/numeric-xlsx`. Existing review bounds remain; text does not recover
+  earlier float/JSON rounding. This is unreleased source work.
+
 ### OCR missing-text pages in mixed PDFs
 
 - Add opt-in `--ocr-missing-pages` to `extract` and `verify`, and the library's

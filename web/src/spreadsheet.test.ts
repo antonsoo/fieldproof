@@ -26,6 +26,20 @@ describe("literal spreadsheet export", () => {
     expect(xml).toContain(">a_x000D_\nb</t>");
     expect(xml).toContain('>&amp;&lt;&gt;"</t>');
   });
+  it.each([9007199254740991, 1.2345678901234567, 1e-309, 1e308])(
+    "preserves the current numeric spelling outside spreadsheet precision (%s)",
+    (value) => {
+      const xml = sheet([{ ...rows[0]!, value, original_value: value }]);
+      for (const column of ["B", "C"])
+        expect(xml).toContain(
+          `<c r="${column}2" t="inlineStr"><is><t xml:space="preserve">${value}</t></is></c>`,
+        );
+    },
+  );
+  it.each([999999999999999, -999999999999999, 123.456789012345, 1e-307])(
+    "keeps ordinary numeric cells through the supported boundary (%s)",
+    (value) => expect(sheet([{ ...rows[0]!, value }])).toContain(`<c r="B2" t="n"><v>${value}</v></c>`),
+  );
   it.each(["\0", "\v", "\ud800", "\udfff", "\ufffe", "a".repeat(32768), "😀".repeat(16384), Infinity, {}])(
     "rejects unrepresentable cells without a partial download (%#)",
     (value) => {

@@ -14,12 +14,25 @@ const columns = [
 const ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
 const rel = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
 const packageRel = "http://schemas.openxmlformats.org/package/2006/relationships";
+const minNormal = 2.2250738585072014e-308;
+
+/** Keep the current scalar spelling when spreadsheet numeric precision is insufficient. */
+function spreadsheetNumber(value: number): boolean {
+  const magnitude = Math.abs(value);
+  const digits = String(value)
+    .split("e", 1)[0]!
+    .replace(/[-.]/g, "")
+    .replace(/^0+|0+$/g, "");
+  return magnitude < 1e15 && (value === 0 || magnitude >= minNormal) && digits.length <= 15;
+}
 
 function cell(value: unknown, address: string): string {
   if (value === null) return `<c r="${address}"/>`;
   if (typeof value === "boolean") return `<c r="${address}" t="b"><v>${value ? 1 : 0}</v></c>`;
-  if (typeof value === "number" && Number.isFinite(value))
-    return `<c r="${address}" t="n"><v>${value}</v></c>`;
+  if (typeof value === "number" && Number.isFinite(value)) {
+    if (spreadsheetNumber(value)) return `<c r="${address}" t="n"><v>${value}</v></c>`;
+    value = String(value);
+  }
   let problem: string | undefined;
   if (typeof value !== "string") problem = "is not a finite scalar";
   // The Unicode flag recognizes valid surrogate pairs as a single code point.
