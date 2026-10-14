@@ -213,6 +213,11 @@ on your machine. From a source checkout, build the UI first (see
   the engine, language, rendering resolution and blank recognized pages in
   `report.ocr`; verification checks recognized text, with an explicit warning.
   [Actual OCR runs and limits](studies/ocr-fallback/README.md).
+  The source checkout also offers explicit per-page OCR for mixed native/scanned
+  PDFs: `--ocr-missing-pages` keeps native pages and recognizes only pages with
+  no native words. Reports identify exactly which pages were processed, and
+  limits count native plus recognized text together.
+  [Actual mixed-page workflows and scope](studies/mixed-page-ocr/README.md).
 
 ## Usage
 
@@ -239,8 +244,20 @@ automatically; no remote OCR service is called. The CLI uses English at 144 DPI,
 with a 30-second Tesseract timeout per page and the document limits described in
 the [OCR study](studies/ocr-fallback/README.md). The library's `load_scanned_pdf`
 also accepts `language`, `timeout` and `limits`. PDFs containing some native text
-still use the native loader; this does not add OCR for individual image-only pages
-inside a mixed document. The review server still requires a text layer.
+still use the native loader by default. In the source checkout, opt in for a
+mixed document with:
+
+```bash
+fieldproof extract mixed.pdf --schema invoice --fixture extraction.json --ocr-missing-pages --out result.json
+fieldproof verify result.json mixed.pdf --ocr-missing-pages
+```
+
+The library equivalent is `fieldproof.document.ocr.load_pdf_with_ocr`, with the
+same language, timeout and combined document budgets. `report.ocr.processed_pages`
+names attempted OCR pages, including blank results; other pages retain native
+text and boxes. Pages with any native words are not re-recognized, so this does
+not repair a sparse or incorrect text layer. The review server still uses its
+native-text path; the new option is for the CLI and library.
 
 A number written `60.000` is sixty or sixty thousand, and `03/04/2026` is 4
 March or 3 April. When nothing else in the document settles which, the field

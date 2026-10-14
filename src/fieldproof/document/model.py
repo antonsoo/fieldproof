@@ -87,9 +87,15 @@ class OcrProvenance:
         "Grounding checks the text recognized by OCR, not the printed original. "
         "Review the scanned page, especially numbers, dates and word boxes."
     )
+    # None retains the legacy meaning: OCR processed the whole document.
+    # Mixed documents name every attempted OCR page, including empty results.
+    processed_pages: list[int] | None = None
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        result = asdict(self)
+        if self.processed_pages is None:
+            result.pop("processed_pages")
+        return result
 
 
 @dataclass(slots=True)

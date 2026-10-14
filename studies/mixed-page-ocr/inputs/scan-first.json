@@ -1,0 +1,47 @@
+{
+  "schema": "invoice",
+  "data": {
+    "vendor_name": {
+      "value": "Acme Laboratory",
+      "evidence": [
+        "Acme Laboratory"
+      ],
+      "page": 2
+    },
+    "invoice_number": {
+      "value": "MIXED-2026-07",
+      "evidence": [
+        "MIXED-2026-07"
+      ],
+      "page": 2
+    },
+    "issue_date": {
+      "value": "2026-07-01",
+      "evidence": [
+        "2026-07-01"
+      ],
+      "page": 2
+    },
+    "subtotal": {
+      "value": 120.0,
+      "evidence": [
+        "Subtotal 120.00"
+      ],
+      "page": 1
+    },
+    "tax": {
+      "value": 3.45,
+      "evidence": [
+        "Tax 3.45"
+      ],
+      "page": 1
+    },
+    "total": {
+      "value": 123.45,
+      "evidence": [
+        "Total 123.45"
+      ],
+      "page": 1
+    }
+  }
+}

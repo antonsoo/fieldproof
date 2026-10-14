@@ -4,6 +4,19 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### OCR missing-text pages in mixed PDFs
+
+- Add opt-in `--ocr-missing-pages` to `extract` and `verify`, and the library's
+  `load_pdf_with_ocr`. Preserve native pages and their word boxes; recognize
+  pages without native words, including blanks, with the existing local engine.
+- Record attempted page numbers in mixed-document OCR provenance and apply
+  word/text budgets to native and recognized text together. Recognition failures
+  preserve prior outputs, including in-place verification.
+- Keep default loading and all-scanned provenance unchanged. The review server
+  retains its native path. Controlled PDFs and actual engine/CLI evidence are
+  retained under `studies/mixed-page-ocr`; no recognition-accuracy benchmark,
+  package release or deployment is included.
+
 ### Refuse claim values without a verification rule
 
 - Validate every present wrapper's actual value before grounding. Objects,

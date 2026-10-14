@@ -1,0 +1,50 @@
+{
+  "population": "Synthetic native text and PDFium-rasterized totals at 144 DPI; no camera, scanner or live model",
+  "cases": [
+    {
+      "file": "native.pdf",
+      "pages": [
+        "header",
+        "native-totals"
+      ],
+      "bytes": 1885,
+      "sha256": "91e7a79e4c701581f1b1988ee9d9c6bbabb470e5310f6b50a339d32a97f85b85"
+    },
+    {
+      "file": "mixed.pdf",
+      "pages": [
+        "header",
+        "scan"
+      ],
+      "bytes": 18096,
+      "sha256": "d7c9fac542dc0cda6dd7ce0b168f96c2b5c7155170939b192ca8364e6b8be960"
+    },
+    {
+      "file": "scan-first.pdf",
+      "pages": [
+        "scan",
+        "header"
+      ],
+      "bytes": 18096,
+      "sha256": "ee26a2973b4aa38cd4bb4e487b60be3e782525144b7092643dec40860a3a3096"
+    },
+    {
+      "file": "blank-middle.pdf",
+      "pages": [
+        "header",
+        "blank",
+        "scan"
+      ],
+      "bytes": 18487,
+      "sha256": "94b30a979dcf31b7462d5573d27ddeebd7369b1bc46bcb0352dcceeb3c7bbda1"
+    },
+    {
+      "file": "all-scanned.pdf",
+      "pages": [
+        "scan"
+      ],
+      "bytes": 17592,
+      "sha256": "811d0c2fe0150a282c0469a61d3c95e756c943984b9a0a91ed2f49315b4b99d1"
+    }
+  ]
+}

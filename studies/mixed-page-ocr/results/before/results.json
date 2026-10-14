@@ -1,0 +1,191 @@
+{
+  "runtime": {
+    "python": "3.12.12",
+    "sourceSha256": {
+      "fieldproof.cli": "f8271739e39c16a992a9016a4705383f936e3c34c9863bb7e122e03d8e14b803",
+      "fieldproof.document.ocr": "5a260a5d29206df3dd00533c646e0b18b26996ba137219e610427abe98365f29",
+      "fieldproof.document.model": "cd230415e6ccd8b664779a9d74210ef8c317b51a310504266694cec5454d6f23"
+    }
+  },
+  "baseline": true,
+  "population": "Synthetic header/totals PDFs, actual subprocess CLI and local Tesseract; no scanner or live model",
+  "commands": 10,
+  "records": [
+    {
+      "case": "native",
+      "pageOcr": false,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/before/native-default-extract.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": null,
+      "output": "native-default-extract.json",
+      "outputSha256": "7b264bee984d92353cc4ff2571a673279dfa96ffc0660d70b3fed495b23c2550"
+    },
+    {
+      "case": "native",
+      "pageOcr": false,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/before/native-default-verify.json - 6 verified, 0 needs review, 0 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 6,
+        "needs_review": 0,
+        "unsupported": 0
+      },
+      "ocr": null,
+      "output": "native-default-verify.json",
+      "outputSha256": "e85d5ba487e030f7892b0313381b34bb81e8ad1a0b7b607fd649a753d4c0e594"
+    },
+    {
+      "case": "mixed",
+      "pageOcr": false,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/before/mixed-default-extract.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "mixed-default-extract.json",
+      "outputSha256": "3bca53154526dfeeafc5c06f41a57c53ea437ec7d76579d7c5c7c949958331a4"
+    },
+    {
+      "case": "mixed",
+      "pageOcr": false,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/before/mixed-default-verify.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "mixed-default-verify.json",
+      "outputSha256": "03daca6b126d7725a6ad31bdccc22391cd445422982cb4b044090b4134e91c90"
+    },
+    {
+      "case": "scan-first",
+      "pageOcr": false,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/before/scan-first-default-extract.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "scan-first-default-extract.json",
+      "outputSha256": "f1d4f4bc04a97a817f1b187e9f2d69cfb55944427914a69e9593c289dac31ab4"
+    },
+    {
+      "case": "scan-first",
+      "pageOcr": false,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/before/scan-first-default-verify.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "scan-first-default-verify.json",
+      "outputSha256": "4759aa12632fa8a07b79d33eac1784dfbd986e03995e7878881c906d231f951a"
+    },
+    {
+      "case": "blank-middle",
+      "pageOcr": false,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/before/blank-middle-default-extract.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "blank-middle-default-extract.json",
+      "outputSha256": "ec21052b1b2f9dd45a8a3a40fe23bd0262020c6a8b437f48d9deee80ba573a56"
+    },
+    {
+      "case": "blank-middle",
+      "pageOcr": false,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/before/blank-middle-default-verify.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": null,
+      "output": "blank-middle-default-verify.json",
+      "outputSha256": "c51af4e068ac853bcb63c9cd61fcbb93a873f5048293ab452c73d83713e5be56"
+    },
+    {
+      "case": "all-scanned",
+      "pageOcr": false,
+      "operation": "extract",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/before/all-scanned-default-extract.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 1,
+        "empty_pages": [],
+        "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+      },
+      "output": "all-scanned-default-extract.json",
+      "outputSha256": "ae6d0af91323c7e36eaa74f0be72ba0d56cf1c442da6d5c7df16902c68e5875a"
+    },
+    {
+      "case": "all-scanned",
+      "pageOcr": false,
+      "operation": "verify",
+      "exit": 0,
+      "stdout": "wrote <repo>/studies/mixed-page-ocr/results/before/all-scanned-default-verify.json - 3 verified, 0 needs review, 3 unsupported\n",
+      "stderr": "OCR: Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.\n",
+      "counts": {
+        "verified": 3,
+        "needs_review": 0,
+        "unsupported": 3
+      },
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 1,
+        "empty_pages": [],
+        "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+      },
+      "output": "all-scanned-default-verify.json",
+      "outputSha256": "52c256a574b2d6ed31a83f6fded0f6f58aebe8db9d4a1b3cf0114ec00680e916"
+    }
+  ]
+}
