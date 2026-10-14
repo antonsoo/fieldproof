@@ -18,7 +18,7 @@ and library functionality. No package publication or hosted update is included.
 | Combined word/character limits | Actual native plus OCR population exceeds each controlled budget and rejects |
 | Recognition timeout | Actual one-microsecond limit raises a page-2 timeout |
 | Plain Python 3.11 installation, pytesseract absent | Native-only opt-in use succeeds; mixed input explains missing extra and preserves prior output |
-| Fresh web | Clean install, lint/types/format, 50 unit checks, live/demo builds and 86 production Chromium/Firefox workflows pass |
+| Fresh web | Clean install, lint/types/format, 62 unit checks, live/demo builds and 86 production Chromium/Firefox workflows pass |
 | Runtime artifact identity | All 37 tracked runtime files match source, archive, sdist, wheel and three installations |
 | UI artifact identity | All 23 bundled files match the sdist, wheel and three installations; all 34 live build files match the Node 26 tested and Node 24 bundled builds |
 | Actual installed server | All 23 served UI files match installed bytes; native and mixed API controls retain the existing native-only server path |
