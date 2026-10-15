@@ -1,0 +1,72 @@
+[
+  {
+    "file": "column-evidence.pdf",
+    "sha256": "2fc2b5be11dfb49eacc82b72bc1833c64d9109c6e9db373126f2995fef3f88ef",
+    "pages": 1,
+    "words": 31,
+    "text_and_geometry_sha256": "077c9cbc433bfbb6d961812ca757c37c0f7436db2ca0dfb3fb5ec6b8b0980359"
+  },
+  {
+    "file": "contract.pdf",
+    "sha256": "8b0dfce01c4758e673ab7423b51809caa3610c22a90091447999e9aa98562318",
+    "pages": 2,
+    "words": 184,
+    "text_and_geometry_sha256": "42369ee66db8b3aaf1139d102e399ad924989a6b868d4b44a7e33140118b52e3"
+  },
+  {
+    "file": "date-convention.pdf",
+    "sha256": "111cc13f04a27893f47caeaf74bd10da6161ab7f63267eb68f69ec678ec6e6f1",
+    "pages": 1,
+    "words": 45,
+    "text_and_geometry_sha256": "8c796985666766c3e6093d2d23090274624aa5e9117ba365135d7166e9caebdb"
+  },
+  {
+    "file": "invoice.pdf",
+    "sha256": "32d026999bf2318034f8d03df2b655b2c5f210245b3153b4068f64f333147175",
+    "pages": 1,
+    "words": 91,
+    "text_and_geometry_sha256": "05ed3c20955b0395eef24f5286f70fe602d44f6f1a045a1b7dfd120bc39108a6"
+  },
+  {
+    "file": "line-arithmetic.pdf",
+    "sha256": "f375a9e52a0508c40d21baf44d450fbe126506ea4982c46a2730fb4d8c009b48",
+    "pages": 1,
+    "words": 70,
+    "text_and_geometry_sha256": "d5384c2926f1cd0f449fa80984b1c2603077228c38654a92c1d154a5204a1c87"
+  },
+  {
+    "file": "mixed-conventions.pdf",
+    "sha256": "c9165c388477d885bfd2510c53e8332960a9f783e012ff31b94372b9b640693c",
+    "pages": 1,
+    "words": 54,
+    "text_and_geometry_sha256": "e1616b9f463c0ddef55b419277bb4d2807e246e16056ab66e54f82c6b735d4ae"
+  },
+  {
+    "file": "receipt.pdf",
+    "sha256": "7cef321b47e1272523a831148e2c2787d8805c4835c536aa3fb326421aabffee",
+    "pages": 1,
+    "words": 58,
+    "text_and_geometry_sha256": "9a821c9cddf2e11060dbafa77f250dc13b6d31698a7fcd926481307133787867"
+  },
+  {
+    "file": "row-association.pdf",
+    "sha256": "bd6221e2b1206843c306dc0dd4fe7c113c7d4526015d7242d729ecfcef173cc4",
+    "pages": 1,
+    "words": 66,
+    "text_and_geometry_sha256": "4f70c4a638ea966adc4b2f4b30a7014d3e522bb531fce00949305cf0ca738a6d"
+  },
+  {
+    "file": "row-locality.pdf",
+    "sha256": "fd3550678e0f284ba8efa4437bda8ef395ff48c86d0c7dbf7eeac32de3f75099",
+    "pages": 1,
+    "words": 64,
+    "text_and_geometry_sha256": "d35a91f53ef07d436b0f67722d6d1e04edf100f2a9a8002b47487a633adb6e5f"
+  },
+  {
+    "file": "signed-amount.pdf",
+    "sha256": "0468baade843452d04e8ef9b71cb55fae19b75bd434ab908d51060e23e8ddb14",
+    "pages": 1,
+    "words": 54,
+    "text_and_geometry_sha256": "28f9ffdc14e5364354ff0582488dcd96cd2f6f1fa3ba3c36638f065abb454bbf"
+  }
+]

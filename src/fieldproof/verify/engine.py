@@ -481,7 +481,7 @@ def _verify_field(
 
     unpainted_modes = sorted({
         word.render_mode for word in best_match.words
-        if word.render_mode is not None and word.unpainted
+        if word.render_mode in (3, 7)
     })
     if unpainted_modes:
         modes = ", ".join(str(mode) for mode in unpainted_modes)
@@ -489,6 +489,12 @@ def _verify_field(
             f"evidence includes unpainted PDF text (rendering mode {modes}: invisible or "
             "clipping only); matching this text layer does not establish what is visible "
             "on the page; review the rendered document"
+        )
+    if any(word.zero_opacity for word in best_match.words):
+        reasons.append(
+            "evidence includes PDF text with zero opacity; matching this transparent "
+            "text layer does not establish what is visible on the page; review the "
+            "rendered document"
         )
 
     date_value = isinstance(value, str) and (

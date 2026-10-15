@@ -4,6 +4,19 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Transparent PDF evidence
+
+- Retain zero-opacity native text through fill/stroke alpha changes, saved
+  graphics state, nested Form XObjects and transparency-group composition.
+  Inherited text rendering modes also survive Form invocation. Split words
+  at opacity changes and preserve the flag across worker JSON transport.
+- Require review for quoted zero-opacity words and exclude them from convention
+  inference, row anchors and column headers. A fill-and-stroke glyph with one
+  remaining nonzero paint channel keeps the existing verification policy.
+- Retain 42 authored PDFs, 84 paired claim checks and independent PDFium/Poppler
+  pixel controls under `studies/zero-opacity`. This detects explicit zero alpha,
+  not general pixel visibility or the accuracy of extraction.
+
 ### Unpainted PDF evidence
 
 - Retain each native word's PDF text rendering mode, including inside Form

@@ -58,10 +58,13 @@ class Word:
     # None for OCR or caller-supplied words. Modes 3 and 7 do not paint glyphs;
     # other modes alone do not prove visibility (e.g. overpainting or white ink).
     render_mode: int | None = None
+    # True only when native paint state explicitly suppresses all glyph paint.
+    # False is not proof of pixel visibility (clipping/overpainting may hide it).
+    zero_opacity: bool = False
 
     @property
     def unpainted(self) -> bool:
-        return self.render_mode in (3, 7)
+        return self.render_mode in (3, 7) or self.zero_opacity
 
 
 @dataclass(frozen=True, slots=True)
@@ -151,6 +154,7 @@ def document_from_dict(raw: dict[str, Any]) -> Document:
                         start=word["start"],
                         end=word["end"],
                         render_mode=word.get("render_mode"),
+                        zero_opacity=word.get("zero_opacity", False),
                     )
                     for word in page["words"]
                 ],

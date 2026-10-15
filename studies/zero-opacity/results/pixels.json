@@ -1,0 +1,594 @@
+{
+  "checks": 84,
+  "mismatches": 0,
+  "observations": [
+    {
+      "case": "mode-0-fill-0-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "mode-0-fill-0-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "mode-0-fill-1-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1e23b4c92769955c191a58e909c7efa93440536cece8269029ddd0ca99a84a4e"
+    },
+    {
+      "case": "mode-0-fill-1-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "8bd40612e7022997afb85ce3710a05328e4113b42c9d406b7ef48e7b4a79f92a"
+    },
+    {
+      "case": "mode-0-fill-0-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "mode-0-fill-0-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "mode-0-fill-1-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1e23b4c92769955c191a58e909c7efa93440536cece8269029ddd0ca99a84a4e"
+    },
+    {
+      "case": "mode-0-fill-1-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "8bd40612e7022997afb85ce3710a05328e4113b42c9d406b7ef48e7b4a79f92a"
+    },
+    {
+      "case": "mode-0-fill-0.5-stroke-0.5",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "8f2696c09df073869252e577699a63d3d71ff85f6c024bb32d7593a3e613f491"
+    },
+    {
+      "case": "mode-0-fill-0.5-stroke-0.5",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "22bc77972e8163b25d472236a8e63cbf6032d1db4bcb249bccef95ade61bbe72"
+    },
+    {
+      "case": "mode-1-fill-0-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "7201125ee2862986424c2a700fe4f106de68cc61f3c718f80fda838297d99edb"
+    },
+    {
+      "case": "mode-1-fill-0-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1415424dfd3cb3858007c6e3f30990c9549c2e6ab2829205c3ecda10ca41e67b"
+    },
+    {
+      "case": "mode-1-fill-1-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "mode-1-fill-1-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "mode-1-fill-0-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "mode-1-fill-0-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "mode-1-fill-1-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "7201125ee2862986424c2a700fe4f106de68cc61f3c718f80fda838297d99edb"
+    },
+    {
+      "case": "mode-1-fill-1-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1415424dfd3cb3858007c6e3f30990c9549c2e6ab2829205c3ecda10ca41e67b"
+    },
+    {
+      "case": "mode-1-fill-0.5-stroke-0.5",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "b93fd4442d9692e466b4c387d13e638a746681aa41516c605d55c6906e0bd00c"
+    },
+    {
+      "case": "mode-1-fill-0.5-stroke-0.5",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "15dcadc31ee511bdaa798afa7bebdec8b60d20fcd67b90bee18a788a985cd7d1"
+    },
+    {
+      "case": "mode-2-fill-0-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "7201125ee2862986424c2a700fe4f106de68cc61f3c718f80fda838297d99edb"
+    },
+    {
+      "case": "mode-2-fill-0-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1415424dfd3cb3858007c6e3f30990c9549c2e6ab2829205c3ecda10ca41e67b"
+    },
+    {
+      "case": "mode-2-fill-1-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1d5540aabf1b2e4a51242887fcd44e5c91f72bfb7a1fbc060d5b351e564cf9cd"
+    },
+    {
+      "case": "mode-2-fill-1-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "a2658b3d5adfcb6daf1b36e1b826829668e1f486198ee3e928f83ec7a11998e8"
+    },
+    {
+      "case": "mode-2-fill-0-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "mode-2-fill-0-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "mode-2-fill-1-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "0cedebd2bce83191defc10dec00d2bcf4532cfbc7f098392d2d07c494b9013f6"
+    },
+    {
+      "case": "mode-2-fill-1-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "c1c2c979c678a1f85eaf929822072b02c50aa047f3772cc0b2641d0ad0c70ff3"
+    },
+    {
+      "case": "mode-2-fill-0.5-stroke-0.5",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "9fe0ce8e93f9f1a9a9f813e11bfbae34da94058482eb446c463fb7c5a98b2f3a"
+    },
+    {
+      "case": "mode-2-fill-0.5-stroke-0.5",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "74d518542af11c3aca4363978d9846a5405853708e10df3552fd5fb07574528f"
+    },
+    {
+      "case": "mode-4-fill-0-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "mode-4-fill-0-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "mode-4-fill-1-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1e23b4c92769955c191a58e909c7efa93440536cece8269029ddd0ca99a84a4e"
+    },
+    {
+      "case": "mode-4-fill-1-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "8bd40612e7022997afb85ce3710a05328e4113b42c9d406b7ef48e7b4a79f92a"
+    },
+    {
+      "case": "mode-4-fill-0-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "mode-4-fill-0-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "mode-4-fill-1-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1e23b4c92769955c191a58e909c7efa93440536cece8269029ddd0ca99a84a4e"
+    },
+    {
+      "case": "mode-4-fill-1-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "8bd40612e7022997afb85ce3710a05328e4113b42c9d406b7ef48e7b4a79f92a"
+    },
+    {
+      "case": "mode-4-fill-0.5-stroke-0.5",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "8f2696c09df073869252e577699a63d3d71ff85f6c024bb32d7593a3e613f491"
+    },
+    {
+      "case": "mode-4-fill-0.5-stroke-0.5",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "22bc77972e8163b25d472236a8e63cbf6032d1db4bcb249bccef95ade61bbe72"
+    },
+    {
+      "case": "mode-5-fill-0-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "7201125ee2862986424c2a700fe4f106de68cc61f3c718f80fda838297d99edb"
+    },
+    {
+      "case": "mode-5-fill-0-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1415424dfd3cb3858007c6e3f30990c9549c2e6ab2829205c3ecda10ca41e67b"
+    },
+    {
+      "case": "mode-5-fill-1-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "mode-5-fill-1-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "mode-5-fill-0-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "mode-5-fill-0-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "mode-5-fill-1-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "7201125ee2862986424c2a700fe4f106de68cc61f3c718f80fda838297d99edb"
+    },
+    {
+      "case": "mode-5-fill-1-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1415424dfd3cb3858007c6e3f30990c9549c2e6ab2829205c3ecda10ca41e67b"
+    },
+    {
+      "case": "mode-5-fill-0.5-stroke-0.5",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "b93fd4442d9692e466b4c387d13e638a746681aa41516c605d55c6906e0bd00c"
+    },
+    {
+      "case": "mode-5-fill-0.5-stroke-0.5",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "15dcadc31ee511bdaa798afa7bebdec8b60d20fcd67b90bee18a788a985cd7d1"
+    },
+    {
+      "case": "mode-6-fill-0-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "7201125ee2862986424c2a700fe4f106de68cc61f3c718f80fda838297d99edb"
+    },
+    {
+      "case": "mode-6-fill-0-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1415424dfd3cb3858007c6e3f30990c9549c2e6ab2829205c3ecda10ca41e67b"
+    },
+    {
+      "case": "mode-6-fill-1-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1d5540aabf1b2e4a51242887fcd44e5c91f72bfb7a1fbc060d5b351e564cf9cd"
+    },
+    {
+      "case": "mode-6-fill-1-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "a2658b3d5adfcb6daf1b36e1b826829668e1f486198ee3e928f83ec7a11998e8"
+    },
+    {
+      "case": "mode-6-fill-0-stroke-0",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "mode-6-fill-0-stroke-0",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "mode-6-fill-1-stroke-1",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "0cedebd2bce83191defc10dec00d2bcf4532cfbc7f098392d2d07c494b9013f6"
+    },
+    {
+      "case": "mode-6-fill-1-stroke-1",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "c1c2c979c678a1f85eaf929822072b02c50aa047f3772cc0b2641d0ad0c70ff3"
+    },
+    {
+      "case": "mode-6-fill-0.5-stroke-0.5",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "9fe0ce8e93f9f1a9a9f813e11bfbae34da94058482eb446c463fb7c5a98b2f3a"
+    },
+    {
+      "case": "mode-6-fill-0.5-stroke-0.5",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "74d518542af11c3aca4363978d9846a5405853708e10df3552fd5fb07574528f"
+    },
+    {
+      "case": "form-inherited",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "form-inherited",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "form-internal",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "form-internal",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "form-override",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "ff56f6a7801bc6989abd366ab8c69f270e57a74ba1461a1c5f5851213cc0890e"
+    },
+    {
+      "case": "form-override",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "8bd40612e7022997afb85ce3710a05328e4113b42c9d406b7ef48e7b4a79f92a"
+    },
+    {
+      "case": "nested",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "nested",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "restore",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1e23b4c92769955c191a58e909c7efa93440536cece8269029ddd0ca99a84a4e"
+    },
+    {
+      "case": "restore",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "8bd40612e7022997afb85ce3710a05328e4113b42c9d406b7ef48e7b4a79f92a"
+    },
+    {
+      "case": "group-inherited",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "group-inherited",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "group-reset",
+      "engine": "pdfium",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "7201125ee2862986424c2a700fe4f106de68cc61f3c718f80fda838297d99edb"
+    },
+    {
+      "case": "group-reset",
+      "engine": "poppler",
+      "expected_hidden": false,
+      "equal_to_omitted_text": false,
+      "sha256_rgb": "1415424dfd3cb3858007c6e3f30990c9549c2e6ab2829205c3ecda10ca41e67b"
+    },
+    {
+      "case": "group-override",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "group-override",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "inherited-mode",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "e5cbbf733a669fd015c683dcda3d253458969c671a146fcf6255e48a98acac2d"
+    },
+    {
+      "case": "inherited-mode",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "775a632186a2adde14ae16af7d152b73a2deedbc4450b0f20649a84ee014ec89"
+    },
+    {
+      "case": "rotated-90",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "046e79677f9251a556222959b82d967706c96e0daa3f105ae70ade40c5c7f4ce"
+    },
+    {
+      "case": "rotated-90",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "2e0792bc92b35a096ba80e8a417c03475bfbfb2bb8a50ec1b64d55ce2e9f3b4e"
+    },
+    {
+      "case": "rotated-180",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "732608922cf6bcb7dcad0b550a624c1fd270eb7703e3f68e3b3c76b5a3a95c8e"
+    },
+    {
+      "case": "rotated-180",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "146c8b32de125b68b574730c2aeac8653f48dc8f608be3afcbce2458db2ec2e3"
+    },
+    {
+      "case": "rotated-270",
+      "engine": "pdfium",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "464fb93d8eaaa1659a402e36152ec5e651283631eea6334b4d590348917bb74d"
+    },
+    {
+      "case": "rotated-270",
+      "engine": "poppler",
+      "expected_hidden": true,
+      "equal_to_omitted_text": true,
+      "sha256_rgb": "c3db7c49f66f8401faabde2bce8eae017f90df991b5eec1fe2fccd80194bd87a"
+    }
+  ]
+}

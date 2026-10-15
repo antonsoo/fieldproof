@@ -16,7 +16,8 @@ for path in sorted((root / "examples").glob("*.pdf")):
         {
             "number": page.number, "width": page.width, "height": page.height, "text": page.text,
             "words": [
-                {key: value for key, value in asdict(word).items() if key != "render_mode"}
+                {key: value for key, value in asdict(word).items()
+                 if key not in {"render_mode", "zero_opacity"}}
                 for word in page.words
             ],
         }

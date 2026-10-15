@@ -1,0 +1,1944 @@
+{
+  "synthetic": true,
+  "pdfs": 42,
+  "claims": 84,
+  "mismatches": 0,
+  "unexpected_verified": 0,
+  "seconds": 0.1206,
+  "observations": [
+    {
+      "case": "mode-0-fill-0-stroke-1",
+      "sha256": "fbf1bbd39b0bec934709f0ebe4ee71ba2e8b3ceff9451ba474e26b9d5d0f2759",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-0-fill-0-stroke-1",
+      "sha256": "fbf1bbd39b0bec934709f0ebe4ee71ba2e8b3ceff9451ba474e26b9d5d0f2759",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-0-fill-1-stroke-0",
+      "sha256": "689ed44bdb6b96a349dd9d3ec4c9da6935a14d7fc77fbbb1c26c296d169b83f9",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-0-fill-1-stroke-0",
+      "sha256": "689ed44bdb6b96a349dd9d3ec4c9da6935a14d7fc77fbbb1c26c296d169b83f9",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-0-fill-0-stroke-0",
+      "sha256": "5d3f48c267ae7b826174bae18aca0c3686de4a301e8cc51023eeadf1e25fd6bf",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-0-fill-0-stroke-0",
+      "sha256": "5d3f48c267ae7b826174bae18aca0c3686de4a301e8cc51023eeadf1e25fd6bf",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-0-fill-1-stroke-1",
+      "sha256": "48e5a9993acfb7d22451581214e8df9b57a7cc95162a064203a4cefe1989a62e",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-0-fill-1-stroke-1",
+      "sha256": "48e5a9993acfb7d22451581214e8df9b57a7cc95162a064203a4cefe1989a62e",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-0-fill-0.5-stroke-0.5",
+      "sha256": "78ebfdd9dd76d0d5d2fe2bd6f9d4b2e80808033be1cc4f4585f7612b2690aad3",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-0-fill-0.5-stroke-0.5",
+      "sha256": "78ebfdd9dd76d0d5d2fe2bd6f9d4b2e80808033be1cc4f4585f7612b2690aad3",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1-fill-0-stroke-1",
+      "sha256": "5ca968882e2519a0b754df7efb8cbe89cf4a042e1b8e57ead0f3925b9e430e09",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1-fill-0-stroke-1",
+      "sha256": "5ca968882e2519a0b754df7efb8cbe89cf4a042e1b8e57ead0f3925b9e430e09",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1-fill-1-stroke-0",
+      "sha256": "e018c82ba8b2c240ae54a73c08f3795d38642f34004df80aeee0a7301b02a659",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1-fill-1-stroke-0",
+      "sha256": "e018c82ba8b2c240ae54a73c08f3795d38642f34004df80aeee0a7301b02a659",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1-fill-0-stroke-0",
+      "sha256": "c204b32bbbe3d9084807a47cb65d4a72868616635059915776b1ce2d431d4b68",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1-fill-0-stroke-0",
+      "sha256": "c204b32bbbe3d9084807a47cb65d4a72868616635059915776b1ce2d431d4b68",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1-fill-1-stroke-1",
+      "sha256": "733bc6ca9882ba8bdc95d2ea2b636eeed5fc368595fec11860e34d44664d0884",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1-fill-1-stroke-1",
+      "sha256": "733bc6ca9882ba8bdc95d2ea2b636eeed5fc368595fec11860e34d44664d0884",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1-fill-0.5-stroke-0.5",
+      "sha256": "5dd020fd70911db2a5c2e62fcd6c6061cba3eef3c6b31fead1236e90a79b9c8c",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1-fill-0.5-stroke-0.5",
+      "sha256": "5dd020fd70911db2a5c2e62fcd6c6061cba3eef3c6b31fead1236e90a79b9c8c",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2-fill-0-stroke-1",
+      "sha256": "3d6804aa770266e6713eca7a1f977098d6a1e6ec4d982f2a949dd7582db1bef1",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2-fill-0-stroke-1",
+      "sha256": "3d6804aa770266e6713eca7a1f977098d6a1e6ec4d982f2a949dd7582db1bef1",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2-fill-1-stroke-0",
+      "sha256": "a436a7ff3d8ab93476763af93281e00a2e5a2225b727d0eec80e44d71f2e8d3e",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2-fill-1-stroke-0",
+      "sha256": "a436a7ff3d8ab93476763af93281e00a2e5a2225b727d0eec80e44d71f2e8d3e",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2-fill-0-stroke-0",
+      "sha256": "96a50bdba9f369d84fb0d3b1972a974a45860ace865a99209a93070752556d39",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2-fill-0-stroke-0",
+      "sha256": "96a50bdba9f369d84fb0d3b1972a974a45860ace865a99209a93070752556d39",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2-fill-1-stroke-1",
+      "sha256": "91f3cce9cce5c687dd948737c281c1b9ddfca52614282dff6e48c2fa2ce1f490",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2-fill-1-stroke-1",
+      "sha256": "91f3cce9cce5c687dd948737c281c1b9ddfca52614282dff6e48c2fa2ce1f490",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2-fill-0.5-stroke-0.5",
+      "sha256": "f90af0eac9ea8237044cf8d3d2299aec33745e5d676f5de1218909a4bb8c9811",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2-fill-0.5-stroke-0.5",
+      "sha256": "f90af0eac9ea8237044cf8d3d2299aec33745e5d676f5de1218909a4bb8c9811",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4-fill-0-stroke-1",
+      "sha256": "9f2da2c7c588a47e6a7e5ed048090fb09fbaacc262301bc3af3ae2eecff3a218",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4-fill-0-stroke-1",
+      "sha256": "9f2da2c7c588a47e6a7e5ed048090fb09fbaacc262301bc3af3ae2eecff3a218",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4-fill-1-stroke-0",
+      "sha256": "e45eb78c8375eba6585f99814ee47251ec2eb6e245ff6c864cadb02125d81778",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4-fill-1-stroke-0",
+      "sha256": "e45eb78c8375eba6585f99814ee47251ec2eb6e245ff6c864cadb02125d81778",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4-fill-0-stroke-0",
+      "sha256": "d7d64ec56ae2b3bd1b8ceaaa1d982bdd49dd7898f7b044b08fd070c2bb7391ca",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4-fill-0-stroke-0",
+      "sha256": "d7d64ec56ae2b3bd1b8ceaaa1d982bdd49dd7898f7b044b08fd070c2bb7391ca",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4-fill-1-stroke-1",
+      "sha256": "ffaffb34cba9eb2ce2c34d22093fb1f7c637c6047aacbf14753aa780b2570155",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4-fill-1-stroke-1",
+      "sha256": "ffaffb34cba9eb2ce2c34d22093fb1f7c637c6047aacbf14753aa780b2570155",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4-fill-0.5-stroke-0.5",
+      "sha256": "6e24531da1acf61b8b466df06000a436e398bf54a14ef24af704d4defc68c8ec",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4-fill-0.5-stroke-0.5",
+      "sha256": "6e24531da1acf61b8b466df06000a436e398bf54a14ef24af704d4defc68c8ec",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5-fill-0-stroke-1",
+      "sha256": "63dc252b2af92cdece700a3eb21c1019c80ed36b0cec47e0d9e0c77d2cf89446",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5-fill-0-stroke-1",
+      "sha256": "63dc252b2af92cdece700a3eb21c1019c80ed36b0cec47e0d9e0c77d2cf89446",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5-fill-1-stroke-0",
+      "sha256": "96f04e27d2584259d73096b80d70566c45259134ee3eeff364f2894aa279a7e2",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5-fill-1-stroke-0",
+      "sha256": "96f04e27d2584259d73096b80d70566c45259134ee3eeff364f2894aa279a7e2",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5-fill-0-stroke-0",
+      "sha256": "f0a51dbc1f8b37cd745cbbf569c165e5fea149949c32195440f4156cb94d40d8",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5-fill-0-stroke-0",
+      "sha256": "f0a51dbc1f8b37cd745cbbf569c165e5fea149949c32195440f4156cb94d40d8",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5-fill-1-stroke-1",
+      "sha256": "e03863d47d975bfd66ff08f9b0562b572841c56233a5b19b71a1b5dd495ffab6",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5-fill-1-stroke-1",
+      "sha256": "e03863d47d975bfd66ff08f9b0562b572841c56233a5b19b71a1b5dd495ffab6",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5-fill-0.5-stroke-0.5",
+      "sha256": "1789baca35422eaf8f6f31ebfe803c7c02bebe45af3e1cd330d22178418e7843",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5-fill-0.5-stroke-0.5",
+      "sha256": "1789baca35422eaf8f6f31ebfe803c7c02bebe45af3e1cd330d22178418e7843",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6-fill-0-stroke-1",
+      "sha256": "ba4698078becf0559da9b4fc0d98ce4bf0e36bca0fe7667239f544198e5efcd3",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6-fill-0-stroke-1",
+      "sha256": "ba4698078becf0559da9b4fc0d98ce4bf0e36bca0fe7667239f544198e5efcd3",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6-fill-1-stroke-0",
+      "sha256": "b6fc5927de1b3e1ce625bba3c1be0ab6b5073ef6a0eda35bb9a78ea84f6f9ab9",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6-fill-1-stroke-0",
+      "sha256": "b6fc5927de1b3e1ce625bba3c1be0ab6b5073ef6a0eda35bb9a78ea84f6f9ab9",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6-fill-0-stroke-0",
+      "sha256": "4169adfb1018487e62c0e54bd8da0d28bdb749d92ffda020a1bbda2eae8e7317",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6-fill-0-stroke-0",
+      "sha256": "4169adfb1018487e62c0e54bd8da0d28bdb749d92ffda020a1bbda2eae8e7317",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6-fill-1-stroke-1",
+      "sha256": "3235bf993fec8acb62df5633c937f58374edb904d08b0242d1adbc3f4dc74176",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6-fill-1-stroke-1",
+      "sha256": "3235bf993fec8acb62df5633c937f58374edb904d08b0242d1adbc3f4dc74176",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6-fill-0.5-stroke-0.5",
+      "sha256": "b6fdd05494f60ff07dc7f62d24284880e2ffe372144781d92a11ed5cfeedf35f",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6-fill-0.5-stroke-0.5",
+      "sha256": "b6fdd05494f60ff07dc7f62d24284880e2ffe372144781d92a11ed5cfeedf35f",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-inherited",
+      "sha256": "a79fa2b95ba4b6e415bdddc10dd87bd8b06c0ba9271b641b8d2a8f2db10771c1",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-inherited",
+      "sha256": "a79fa2b95ba4b6e415bdddc10dd87bd8b06c0ba9271b641b8d2a8f2db10771c1",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-internal",
+      "sha256": "ea518f0045ec726491e7c97cf1515a265322b73fc550e2aa8fd119f23f11f1a2",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-internal",
+      "sha256": "ea518f0045ec726491e7c97cf1515a265322b73fc550e2aa8fd119f23f11f1a2",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-override",
+      "sha256": "e43f5739e255791124aca1bf8abca228749a32ff346e7128c0f3cbd559133339",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-override",
+      "sha256": "e43f5739e255791124aca1bf8abca228749a32ff346e7128c0f3cbd559133339",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "nested",
+      "sha256": "2eeb4d13360feeba64503b161dc8d54c879317e8994878cc643c0b34c7818f9f",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "nested",
+      "sha256": "2eeb4d13360feeba64503b161dc8d54c879317e8994878cc643c0b34c7818f9f",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "restore",
+      "sha256": "3e732821a6687dee66aab927147e202e41aa5f1b8ec44e7a2998be8127630ca6",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "restore",
+      "sha256": "3e732821a6687dee66aab927147e202e41aa5f1b8ec44e7a2998be8127630ca6",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "group-inherited",
+      "sha256": "dd0307446de5dfb67bbbd24ce1407ae19aa96866d76ee37d4dce3b2c1cc3dc17",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "group-inherited",
+      "sha256": "dd0307446de5dfb67bbbd24ce1407ae19aa96866d76ee37d4dce3b2c1cc3dc17",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "group-reset",
+      "sha256": "2af38b4f5be2aee9648c67aa20b1937dd456a897b5906bf8b2987ac8303d1d41",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "group-reset",
+      "sha256": "2af38b4f5be2aee9648c67aa20b1937dd456a897b5906bf8b2987ac8303d1d41",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "group-override",
+      "sha256": "bdf4bf46a2258214cc382c54342a538a1622ff34d358d444c2c6ac89e3379ae0",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "group-override",
+      "sha256": "bdf4bf46a2258214cc382c54342a538a1622ff34d358d444c2c6ac89e3379ae0",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "inherited-mode",
+      "sha256": "b8e5c0833add672bce542aea0c929b4bbe45eab8712e62889a3c2b44ba54d606",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 3: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "inherited-mode",
+      "sha256": "b8e5c0833add672bce542aea0c929b4bbe45eab8712e62889a3c2b44ba54d606",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 99.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 115.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-90",
+      "sha256": "811643345f9728add13ffe1831cb75ac20dfc2bd6a3ecdedc076e0efcdc89fad",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 596.688,
+            "top": 40.0,
+            "x1": 612.688,
+            "bottom": 116.48000000000002
+          },
+          {
+            "x0": 596.688,
+            "top": 120.928,
+            "x1": 612.688,
+            "bottom": 155.61599999999999
+          },
+          {
+            "x0": 596.688,
+            "top": 160.06400000000002,
+            "x1": 612.688,
+            "bottom": 217.8880000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-90",
+      "sha256": "811643345f9728add13ffe1831cb75ac20dfc2bd6a3ecdedc076e0efcdc89fad",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 676.688,
+            "top": 40.0,
+            "x1": 692.688,
+            "bottom": 87.12
+          },
+          {
+            "x0": 676.688,
+            "top": 91.56799999999998,
+            "x1": 692.688,
+            "bottom": 126.25599999999997
+          },
+          {
+            "x0": 676.688,
+            "top": 130.70400000000006,
+            "x1": 692.688,
+            "bottom": 179.63200000000006
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-180",
+      "sha256": "0d2e6cb35af406cfee49b90b0d0c2e615c79c28ad19dd3d306ec29a0a5d79191",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 394.1119999999999,
+            "top": 596.688,
+            "x1": 572.0,
+            "bottom": 612.688
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-180",
+      "sha256": "0d2e6cb35af406cfee49b90b0d0c2e615c79c28ad19dd3d306ec29a0a5d79191",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 432.36799999999994,
+            "top": 676.688,
+            "x1": 572.0,
+            "bottom": 692.688
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-270",
+      "sha256": "e715d7203c092a295ef5ced8b442bd2dd440e13b29e4f1e057f70159ecb56ee4",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text with zero opacity; matching this transparent text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 179.312,
+            "top": 394.1119999999999,
+            "x1": 195.312,
+            "bottom": 451.936
+          },
+          {
+            "x0": 179.312,
+            "top": 456.384,
+            "x1": 195.312,
+            "bottom": 491.072
+          },
+          {
+            "x0": 179.312,
+            "top": 495.52,
+            "x1": 195.312,
+            "bottom": 572.0
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-270",
+      "sha256": "e715d7203c092a295ef5ced8b442bd2dd440e13b29e4f1e057f70159ecb56ee4",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 99.312,
+            "top": 432.36799999999994,
+            "x1": 115.312,
+            "bottom": 481.29599999999994
+          },
+          {
+            "x0": 99.312,
+            "top": 485.74399999999997,
+            "x1": 115.312,
+            "bottom": 520.432
+          },
+          {
+            "x0": 99.312,
+            "top": 524.88,
+            "x1": 115.312,
+            "bottom": 572.0
+          }
+        ]
+      }
+    }
+  ]
+}

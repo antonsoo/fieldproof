@@ -128,8 +128,10 @@ against those servers. Screenshots show real local output, not generated UI art.
 
 ## Limits and cost
 
-This check identifies explicit nonpainting text modes. It does **not** establish
-pixel visibility for other text: white-on-white ink, zero alpha, later
+This original study identifies explicit nonpainting text modes. The subsequent
+[zero-opacity extension](../zero-opacity/README.md) also detects zero alpha and
+inherited Form rendering state. Neither establishes general pixel visibility:
+white-on-white ink, soft masks, later
 overpainting, arbitrary clipping, optional layers and incorrect font/Unicode
 mappings remain outside its scope. A clipping-only object may support later
 painted artwork; the verifier still requires visual review.
