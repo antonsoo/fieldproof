@@ -1,0 +1,38 @@
+{
+  "clean-venv": {
+    "python": "3.14.7",
+    "dependencies": {
+      "fieldproof": "0.2.7",
+      "pydantic": "2.13.5",
+      "pdfminer.six": "20260107",
+      "pdfplumber": "0.11.10",
+      "pypdfium2": "5.13.0",
+      "rapidfuzz": "3.14.6",
+      "reportlab": "5.0.1"
+    }
+  },
+  "installed": {
+    "python": "3.14.7",
+    "dependencies": {
+      "fieldproof": "0.2.7",
+      "pydantic": "2.14.1",
+      "pdfminer.six": "20260107",
+      "pdfplumber": "0.11.10",
+      "pypdfium2": "5.14.0",
+      "rapidfuzz": "3.14.6",
+      "reportlab": "5.0.1"
+    }
+  },
+  "minimums": {
+    "python": "3.11.13",
+    "dependencies": {
+      "fieldproof": "0.2.7",
+      "pydantic": "2.12.0",
+      "pdfminer.six": "20251230",
+      "pdfplumber": "0.11.9",
+      "pypdfium2": "4.30.0",
+      "rapidfuzz": "3.9.0",
+      "reportlab": "4.2.0"
+    }
+  }
+}

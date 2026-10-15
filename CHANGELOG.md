@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Unpainted PDF evidence
+
+- Retain each native word's PDF text rendering mode, including inside Form
+  XObjects and across the review server's worker boundary. Quotes touching
+  invisible (3) or clipping-only (7) text require review with their evidence
+  and location preserved; letter-edit tolerance cannot override this.
+- Exclude unpainted words from number/date convention inference, row anchors
+  and column headers. Painted words elsewhere on the page keep their existing
+  verification policy. Existing OCR/caller-supplied words remain compatible.
+- Retain 23 authored PDFs and 46 before/after claim checks, independent
+  PDFium/Poppler pixel comparisons, installed CLI results and browser
+  correction/archive evidence in `studies/unpainted-text`. This does not detect
+  every way a PDF can hide text, measure extraction accuracy or release a package.
+
 ### Preserve numbers beyond spreadsheet precision
 
 - Store numeric spellings outside a conservative 15-digit, normal-float

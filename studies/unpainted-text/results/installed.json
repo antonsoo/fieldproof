@@ -1,0 +1,1149 @@
+{
+  "python_module": "fieldproof",
+  "synthetic": true,
+  "pdfs": 23,
+  "claims": 46,
+  "mismatches": 0,
+  "unexpected_verified": 0,
+  "seconds": 0.1465,
+  "observations": [
+    {
+      "case": "mode-0",
+      "sha256": "b960fa6c3817dc46f1b4d1188286e6b0afba8a7acf71f54c7eb2a8527d3bb449",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 180.89800000000002,
+            "x1": 195.652,
+            "bottom": 194.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-0",
+      "sha256": "b960fa6c3817dc46f1b4d1188286e6b0afba8a7acf71f54c7eb2a8527d3bb449",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 173.86800000000002,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1",
+      "sha256": "246471e59ca59d0a3d3cf541923847bd38eda2a7b47abce3b919b4348a48b93e",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 180.89800000000002,
+            "x1": 195.652,
+            "bottom": 194.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-1",
+      "sha256": "246471e59ca59d0a3d3cf541923847bd38eda2a7b47abce3b919b4348a48b93e",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 173.86800000000002,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2",
+      "sha256": "7959d7fcf47d4d9a843df327689f7ec1708f40c3b64d1ec6731cd3d712496b66",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 180.89800000000002,
+            "x1": 195.652,
+            "bottom": 194.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-2",
+      "sha256": "7959d7fcf47d4d9a843df327689f7ec1708f40c3b64d1ec6731cd3d712496b66",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 173.86800000000002,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-3",
+      "sha256": "2e953b73fa40bf8fa920adb023edf7305eb8cc088dd2f292706ada8f693eefdf",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 3: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 180.89800000000002,
+            "x1": 195.652,
+            "bottom": 194.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-3",
+      "sha256": "2e953b73fa40bf8fa920adb023edf7305eb8cc088dd2f292706ada8f693eefdf",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 173.86800000000002,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4",
+      "sha256": "8d9062d46670f5e822e8daefce8aadbbed0bc4d35d58bea829cf68f1a3558c30",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 180.89800000000002,
+            "x1": 195.652,
+            "bottom": 194.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-4",
+      "sha256": "8d9062d46670f5e822e8daefce8aadbbed0bc4d35d58bea829cf68f1a3558c30",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 173.86800000000002,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5",
+      "sha256": "a8d1ff00c1b1268090a439fe92fc5bc97903947a924d06231c42f3ee1b86c997",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 180.89800000000002,
+            "x1": 195.652,
+            "bottom": 194.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-5",
+      "sha256": "a8d1ff00c1b1268090a439fe92fc5bc97903947a924d06231c42f3ee1b86c997",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 173.86800000000002,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6",
+      "sha256": "ab462d08b78fd1e24459a0b171ed81db6387c668e23e0653cf085c6112bfc697",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 180.89800000000002,
+            "x1": 195.652,
+            "bottom": 194.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-6",
+      "sha256": "ab462d08b78fd1e24459a0b171ed81db6387c668e23e0653cf085c6112bfc697",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 173.86800000000002,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-7",
+      "sha256": "8b8c5afac49f20069359c6a8ffd07108b7a9c67a7173d7fbff88ba7154688e47",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 7: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 180.89800000000002,
+            "x1": 195.652,
+            "bottom": 194.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "mode-7",
+      "sha256": "8b8c5afac49f20069359c6a8ffd07108b7a9c67a7173d7fbff88ba7154688e47",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 173.86800000000002,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-0",
+      "sha256": "b95ac8c6dfb0525d5a8968fdf96cbb46a091292ba2d7b150606470c8474ed4c8",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 180.89800000000002,
+            "x1": 195.652,
+            "bottom": 194.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-0",
+      "sha256": "b95ac8c6dfb0525d5a8968fdf96cbb46a091292ba2d7b150606470c8474ed4c8",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 173.86800000000002,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-3",
+      "sha256": "7b937b106af35888a46e5b506d9e9868af5ad483dfb602667ba9259698ea9bb8",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 3: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 180.89800000000002,
+            "x1": 195.652,
+            "bottom": 194.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-3",
+      "sha256": "7b937b106af35888a46e5b506d9e9868af5ad483dfb602667ba9259698ea9bb8",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 173.86800000000002,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-7",
+      "sha256": "4ffcb951a01bb4eca1370b273a8a4bc8193709fdf7b919aaa6eac21bc514321e",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 7: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 180.89800000000002,
+            "x1": 195.652,
+            "bottom": 194.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-7",
+      "sha256": "4ffcb951a01bb4eca1370b273a8a4bc8193709fdf7b919aaa6eac21bc514321e",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 173.86800000000002,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-90-mode-3",
+      "sha256": "5669c8dcf1c201522936e5092e97539e534bcfc18eb6a4a34f30a6869ae3f909",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 3: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 597.102,
+            "top": 40.0,
+            "x1": 611.102,
+            "bottom": 106.91999999999996
+          },
+          {
+            "x0": 597.102,
+            "top": 110.81200000000001,
+            "x1": 611.102,
+            "bottom": 141.164
+          },
+          {
+            "x0": 597.102,
+            "top": 145.05599999999998,
+            "x1": 611.102,
+            "bottom": 195.652
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-90-mode-3",
+      "sha256": "5669c8dcf1c201522936e5092e97539e534bcfc18eb6a4a34f30a6869ae3f909",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 677.102,
+            "top": 40.0,
+            "x1": 691.102,
+            "bottom": 88.24400000000003
+          },
+          {
+            "x0": 677.102,
+            "top": 92.13599999999997,
+            "x1": 691.102,
+            "bottom": 119.38
+          },
+          {
+            "x0": 677.102,
+            "top": 123.27199999999999,
+            "x1": 691.102,
+            "bottom": 173.86800000000005
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-90-mode-7",
+      "sha256": "30ab7aeacb1ed1e8e09bc9e45089a975ca872ac703d05818abe6a17b6528a057",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 7: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 597.102,
+            "top": 40.0,
+            "x1": 611.102,
+            "bottom": 106.91999999999996
+          },
+          {
+            "x0": 597.102,
+            "top": 110.81200000000001,
+            "x1": 611.102,
+            "bottom": 141.164
+          },
+          {
+            "x0": 597.102,
+            "top": 145.05599999999998,
+            "x1": 611.102,
+            "bottom": 195.652
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-90-mode-7",
+      "sha256": "30ab7aeacb1ed1e8e09bc9e45089a975ca872ac703d05818abe6a17b6528a057",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 677.102,
+            "top": 40.0,
+            "x1": 691.102,
+            "bottom": 88.24400000000003
+          },
+          {
+            "x0": 677.102,
+            "top": 92.13599999999997,
+            "x1": 691.102,
+            "bottom": 119.38
+          },
+          {
+            "x0": 677.102,
+            "top": 123.27199999999999,
+            "x1": 691.102,
+            "bottom": 173.86800000000005
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-180-mode-3",
+      "sha256": "007508063539fb5b6527cb09ba06f89a2dde541080e7e0f0a49dd38871f66d3f",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 3: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 416.348,
+            "top": 597.102,
+            "x1": 572.0,
+            "bottom": 611.102
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-180-mode-3",
+      "sha256": "007508063539fb5b6527cb09ba06f89a2dde541080e7e0f0a49dd38871f66d3f",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 438.13199999999995,
+            "top": 677.102,
+            "x1": 572.0,
+            "bottom": 691.102
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-180-mode-7",
+      "sha256": "0f075aa09a8c0f20f1513699880d1fd36f070199073962a861f1d836f6848786",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 7: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 416.348,
+            "top": 597.102,
+            "x1": 572.0,
+            "bottom": 611.102
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-180-mode-7",
+      "sha256": "0f075aa09a8c0f20f1513699880d1fd36f070199073962a861f1d836f6848786",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 438.13199999999995,
+            "top": 677.102,
+            "x1": 572.0,
+            "bottom": 691.102
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-270-mode-3",
+      "sha256": "2c4ca6a830721170336d4e8a16c81393a31e737024c3c4107131fdf1f819a34d",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 3: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 180.898,
+            "top": 416.348,
+            "x1": 194.898,
+            "bottom": 466.944
+          },
+          {
+            "x0": 180.898,
+            "top": 470.836,
+            "x1": 194.898,
+            "bottom": 501.188
+          },
+          {
+            "x0": 180.898,
+            "top": 505.08,
+            "x1": 194.898,
+            "bottom": 572.0
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-270-mode-3",
+      "sha256": "2c4ca6a830721170336d4e8a16c81393a31e737024c3c4107131fdf1f819a34d",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 100.898,
+            "top": 438.13199999999995,
+            "x1": 114.898,
+            "bottom": 488.728
+          },
+          {
+            "x0": 100.898,
+            "top": 492.62,
+            "x1": 114.898,
+            "bottom": 519.864
+          },
+          {
+            "x0": 100.898,
+            "top": 523.756,
+            "x1": 114.898,
+            "bottom": 572.0
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-270-mode-7",
+      "sha256": "5601bea1c4effd1ea6b578ff88f8035dac1cf02326a17845fe66728d44ff000e",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 7: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 180.898,
+            "top": 416.348,
+            "x1": 194.898,
+            "bottom": 466.944
+          },
+          {
+            "x0": 180.898,
+            "top": 470.836,
+            "x1": 194.898,
+            "bottom": 501.188
+          },
+          {
+            "x0": 180.898,
+            "top": 505.08,
+            "x1": 194.898,
+            "bottom": 572.0
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-270-mode-7",
+      "sha256": "5601bea1c4effd1ea6b578ff88f8035dac1cf02326a17845fe66728d44ff000e",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 100,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Amount due: $100.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 100.898,
+            "top": 438.13199999999995,
+            "x1": 114.898,
+            "bottom": 488.728
+          },
+          {
+            "x0": 100.898,
+            "top": 492.62,
+            "x1": 114.898,
+            "bottom": 519.864
+          },
+          {
+            "x0": 100.898,
+            "top": 523.756,
+            "x1": 114.898,
+            "bottom": 572.0
+          }
+        ]
+      }
+    },
+    {
+      "case": "number-convention-3",
+      "sha256": "e0710b7e5707a764b3a9a392c2563a7d3410897fbd2b15cce579249078f30eb6",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 60,
+        "status": "needs_review",
+        "reasons": [
+          "the evidence number '60.000' reads as 60 (a decimal point) or 60000 (a thousands separator), and no other number on the document settles which"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Amount due: 60.000",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 166.084,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "number-convention-3",
+      "sha256": "e0710b7e5707a764b3a9a392c2563a7d3410897fbd2b15cce579249078f30eb6",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 60000,
+        "status": "needs_review",
+        "reasons": [
+          "the evidence number '60.000' reads as 60 (a decimal point) or 60000 (a thousands separator), and no other number on the document settles which"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Amount due: 60.000",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 166.084,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "date-convention-3",
+      "sha256": "a32ff799f946d76fcafd6cf16048773a67d8c4d3f57c68d2efb2ce94e23bea95",
+      "expected": "needs_review",
+      "field": {
+        "path": "issue_date",
+        "value": "2026-03-04",
+        "status": "needs_review",
+        "reasons": [
+          "the evidence date '03/04/2026' reads as 2026-03-04 (month first) or 2026-04-03 (day first), and no other date on the document settles which"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Issue date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 182.436,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "date-convention-3",
+      "sha256": "a32ff799f946d76fcafd6cf16048773a67d8c4d3f57c68d2efb2ce94e23bea95",
+      "expected": "needs_review",
+      "field": {
+        "path": "issue_date",
+        "value": "2026-04-03",
+        "status": "needs_review",
+        "reasons": [
+          "the evidence date '03/04/2026' reads as 2026-03-04 (month first) or 2026-04-03 (day first), and no other date on the document settles which"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Issue date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 182.436,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "row-anchor-3",
+      "sha256": "5eec42c984ac3758771ff33e822d24a2f48103d524d45f2a2ed2383e262a1151",
+      "expected": "needs_review",
+      "field": {
+        "path": "items[0].description",
+        "value": "Delivery",
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 3: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Delivery",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 90.554,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "row-anchor-3",
+      "sha256": "5eec42c984ac3758771ff33e822d24a2f48103d524d45f2a2ed2383e262a1151",
+      "expected": "needs_review",
+      "field": {
+        "path": "items[0].quantity",
+        "value": 2.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence '2' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    },
+    {
+      "case": "number-convention-7",
+      "sha256": "3e69a5bdf1f07e38b8873736d1cc18dd4ae5502bd3579136da504a79696db43b",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 60,
+        "status": "needs_review",
+        "reasons": [
+          "the evidence number '60.000' reads as 60 (a decimal point) or 60000 (a thousands separator), and no other number on the document settles which"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Amount due: 60.000",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 166.084,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "number-convention-7",
+      "sha256": "3e69a5bdf1f07e38b8873736d1cc18dd4ae5502bd3579136da504a79696db43b",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 60000,
+        "status": "needs_review",
+        "reasons": [
+          "the evidence number '60.000' reads as 60 (a decimal point) or 60000 (a thousands separator), and no other number on the document settles which"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Amount due: 60.000",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 166.084,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "date-convention-7",
+      "sha256": "477dea315b432b36dcee4e688a9caefaa1433d6c9b85d8e4c8c2ad71dbf4cca0",
+      "expected": "needs_review",
+      "field": {
+        "path": "issue_date",
+        "value": "2026-03-04",
+        "status": "needs_review",
+        "reasons": [
+          "the evidence date '03/04/2026' reads as 2026-03-04 (month first) or 2026-04-03 (day first), and no other date on the document settles which"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Issue date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 182.436,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "date-convention-7",
+      "sha256": "477dea315b432b36dcee4e688a9caefaa1433d6c9b85d8e4c8c2ad71dbf4cca0",
+      "expected": "needs_review",
+      "field": {
+        "path": "issue_date",
+        "value": "2026-04-03",
+        "status": "needs_review",
+        "reasons": [
+          "the evidence date '03/04/2026' reads as 2026-03-04 (month first) or 2026-04-03 (day first), and no other date on the document settles which"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Issue date: 03/04/2026",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 182.436,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "row-anchor-7",
+      "sha256": "4abdd3f49363f54a0268c4b8df0ffed21f557189bf5cddcd77354b1c9d72526d",
+      "expected": "needs_review",
+      "field": {
+        "path": "items[0].description",
+        "value": "Delivery",
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes unpainted PDF text (rendering mode 7: invisible or clipping only); matching this text layer does not establish what is visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Delivery",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 100.89800000000002,
+            "x1": 90.554,
+            "bottom": 114.89800000000002
+          }
+        ]
+      }
+    },
+    {
+      "case": "row-anchor-7",
+      "sha256": "4abdd3f49363f54a0268c4b8df0ffed21f557189bf5cddcd77354b1c9d72526d",
+      "expected": "needs_review",
+      "field": {
+        "path": "items[0].quantity",
+        "value": 2.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence '2' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      }
+    }
+  ]
+}

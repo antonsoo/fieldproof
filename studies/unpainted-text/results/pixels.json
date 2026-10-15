@@ -1,0 +1,204 @@
+{
+  "checks": [
+    {
+      "case": "mode-3",
+      "engine": "pdfium",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "1f0d351baae89e18382ae34e0593bda140cca976df19555f9209e51bf377694d",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "mode-7",
+      "engine": "pdfium",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "1f0d351baae89e18382ae34e0593bda140cca976df19555f9209e51bf377694d",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "form-3",
+      "engine": "pdfium",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "1f0d351baae89e18382ae34e0593bda140cca976df19555f9209e51bf377694d",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "form-7",
+      "engine": "pdfium",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "1f0d351baae89e18382ae34e0593bda140cca976df19555f9209e51bf377694d",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "mode-3",
+      "engine": "poppler",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "ec04af81b380f7469253ee094607fdbeaf5227908db75066a043cbaece80a35f",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "mode-7",
+      "engine": "poppler",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "ec04af81b380f7469253ee094607fdbeaf5227908db75066a043cbaece80a35f",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "form-3",
+      "engine": "poppler",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "ec04af81b380f7469253ee094607fdbeaf5227908db75066a043cbaece80a35f",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "form-7",
+      "engine": "poppler",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "ec04af81b380f7469253ee094607fdbeaf5227908db75066a043cbaece80a35f",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-90-mode-3",
+      "engine": "pdfium",
+      "size": [
+        792,
+        612
+      ],
+      "sha256_rgb": "c01b601f277f5e67959db38cee291f7dd5a38476343abd0c704a52628f01c4ac",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-90-mode-7",
+      "engine": "pdfium",
+      "size": [
+        792,
+        612
+      ],
+      "sha256_rgb": "c01b601f277f5e67959db38cee291f7dd5a38476343abd0c704a52628f01c4ac",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-90-mode-3",
+      "engine": "poppler",
+      "size": [
+        792,
+        612
+      ],
+      "sha256_rgb": "9c13bc6f863df70c0207f5b3483c5b1871f36e293b5dfa6f732bad11a325d1f0",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-90-mode-7",
+      "engine": "poppler",
+      "size": [
+        792,
+        612
+      ],
+      "sha256_rgb": "9c13bc6f863df70c0207f5b3483c5b1871f36e293b5dfa6f732bad11a325d1f0",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-180-mode-3",
+      "engine": "pdfium",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "d82eb3e8d448365d94d043f536136436776c0f28550043f4f3dc0854c17e2aa7",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-180-mode-7",
+      "engine": "pdfium",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "d82eb3e8d448365d94d043f536136436776c0f28550043f4f3dc0854c17e2aa7",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-180-mode-3",
+      "engine": "poppler",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "f6702f92a6cd5e2ddef2c010b416abde213d5f45adf36454feb3e8af2fbddbd2",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-180-mode-7",
+      "engine": "poppler",
+      "size": [
+        612,
+        792
+      ],
+      "sha256_rgb": "f6702f92a6cd5e2ddef2c010b416abde213d5f45adf36454feb3e8af2fbddbd2",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-270-mode-3",
+      "engine": "pdfium",
+      "size": [
+        792,
+        612
+      ],
+      "sha256_rgb": "0c33cbeb83acfc8316df3e9d46bc761eab5fa657bb12da380591134658487722",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-270-mode-7",
+      "engine": "pdfium",
+      "size": [
+        792,
+        612
+      ],
+      "sha256_rgb": "0c33cbeb83acfc8316df3e9d46bc761eab5fa657bb12da380591134658487722",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-270-mode-3",
+      "engine": "poppler",
+      "size": [
+        792,
+        612
+      ],
+      "sha256_rgb": "9087b577a39c9d36eb2bdd851524bd5c654d1e290ed6e43a3a663896dee52c66",
+      "equal_to_pdf_without_alternate_text": true
+    },
+    {
+      "case": "rotated-270-mode-7",
+      "engine": "poppler",
+      "size": [
+        792,
+        612
+      ],
+      "sha256_rgb": "9087b577a39c9d36eb2bdd851524bd5c654d1e290ed6e43a3a663896dee52c66",
+      "equal_to_pdf_without_alternate_text": true
+    }
+  ]
+}

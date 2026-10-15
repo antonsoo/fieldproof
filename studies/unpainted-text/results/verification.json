@@ -1,0 +1,136 @@
+{
+  "recorded_utc": "2026-10-15T18:57:58.289122+00:00",
+  "baseline_revision": "9f14325fb674471131297dd0e1718a45369a5cba",
+  "fix_revision": "e465acebeae77f7c540e5b2ca4a4d13f4d2fc9bc",
+  "synthetic_controls": {
+    "pdfs": 23,
+    "claims": 46,
+    "unexpected_verified_before": 18,
+    "unexpected_verified_after": 0,
+    "painted_control_claims_verified_before_and_after": 24
+  },
+  "host": {
+    "system": "Linux",
+    "release": "6.18.54.1-microsoft-standard-WSL2",
+    "logical_cpus": 14
+  },
+  "checks": [
+    {
+      "command": "uv sync --locked --extra dev --extra ocr --python 3.14",
+      "result": "pass",
+      "environment": "fresh checkout-index snapshot; fresh environment"
+    },
+    {
+      "command": "ruff check src tests; mypy src",
+      "result": "pass",
+      "source_files": 38
+    },
+    {
+      "command": "pytest -q",
+      "environment": "clean Python 3.14.7 with locked dependencies",
+      "passed": 666,
+      "skipped": 5,
+      "skip_reason": "real Tesseract engine unavailable"
+    },
+    {
+      "command": "python -m pytest -q tests/test_unpainted_text.py tests/test_document.py tests/test_page_geometry.py tests/test_column_evidence.py tests/test_row_association.py tests/test_mixed_conventions.py",
+      "environment": "installed wheel, Python 3.11.13, oldest declared direct dependencies",
+      "passed": 76
+    },
+    {
+      "command": "python scripts/bundle_ui.py; uv build",
+      "result": "pass",
+      "artifacts": "wheel built from sdist with 23 bundled review UI files"
+    },
+    {
+      "command": "npm run typecheck; npm run lint; npm run format:check; npm test; npm run build:demo",
+      "result": "pass",
+      "ui_tests_passed": 70,
+      "environment": "fresh npm ci in clean snapshot"
+    },
+    {
+      "command": "FIELDPROOF_BROWSER_FULL=1 UPDATE_UNPAINTED_SCREENSHOTS=1 npx playwright test --config ../studies/unpainted-text/browser.config.mjs",
+      "environment": "clean snapshot browser tests against separately installed wheel and locally served production demo",
+      "passed": 88,
+      "engines": [
+        "Chromium",
+        "Firefox"
+      ],
+      "viewports": [
+        1440,
+        375
+      ],
+      "includes": [
+        "unpainted text review",
+        "correction and export",
+        "archive save and restore",
+        "offline spreadsheet exports",
+        "mobile layouts",
+        "accessibility and CSP assertions"
+      ]
+    },
+    {
+      "command": "fieldproof extract examples/invoice.pdf --schema invoice --provider fixture --fixture examples/fixtures/invoice.json --out result.json",
+      "result": "pass",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      }
+    },
+    {
+      "command": "fieldproof verify studies/unpainted-text/extraction.json studies/unpainted-text/fixtures/mode-3.pdf --out result.json",
+      "result": "pass",
+      "counts": {
+        "verified": 0,
+        "needs_review": 1,
+        "unsupported": 3
+      }
+    },
+    {
+      "command": "python studies/unpainted-text/pixels.py",
+      "result": "pass",
+      "pixel_identical_comparisons": 20,
+      "engines": [
+        "PDFium",
+        "Poppler"
+      ]
+    },
+    {
+      "command": "python studies/unpainted-text/compatibility.py",
+      "result": "pass",
+      "unchanged_native_example_pdfs": 10
+    },
+    {
+      "result": "pass",
+      "local_served_files_matching_clean_build": 56,
+      "receipt": "served-bytes.json"
+    },
+    {
+      "result": "pass",
+      "wheel_and_sdist_python_files_matching_workspace": 38,
+      "receipt": "artifacts.json"
+    }
+  ],
+  "environments_receipt": "environments.json",
+  "screenshots": [
+    "docs/assets/unpainted-text/chromium-1440.png",
+    "docs/assets/unpainted-text/chromium-375.png",
+    "docs/assets/unpainted-text/firefox-1440.png",
+    "docs/assets/unpainted-text/firefox-375.png"
+  ],
+  "publication": {
+    "local_source_commits_only": true,
+    "pushed": false,
+    "deployed": false,
+    "registry_release": false,
+    "tag_created": false
+  },
+  "limits": [
+    "Explicit PDF modes 3 and 7 only; no visibility attestation for other text.",
+    "Constructed cases; no extraction accuracy or prevalence estimate.",
+    "Correct searchable invisible OCR layers also require review.",
+    "Five real Tesseract cases skipped; engine unavailable."
+  ],
+  "paths_relative_to_repository_root": true
+}

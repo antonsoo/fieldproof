@@ -157,6 +157,13 @@ on your machine. From a source checkout, build the UI first (see
 
 ## Features
 
+- **Unpainted PDF text (source checkout, unreleased)** - a matching text layer
+  cannot verify a claim when its quoted words use invisible or clipping-only
+  text rendering. Such claims retain their locations and go to review. Hidden
+  words also cannot establish row anchors or settle number/date conventions.
+  The [23-PDF study](studies/unpainted-text/README.md) reproduces a verified
+  `$900` claim over blank pixels while the page displays `$100`, and records
+  installed CLI, browser correction and archive-restore evidence.
 - **Reject discarded claims (source checkout, unreleased)** - duplicate JSON
   members and unknown fields cannot silently disappear from an extraction before
   review. The CLI, uploaded fixtures and provider replies share the same checks;
@@ -667,6 +674,14 @@ See the [inputs, reproduction and compatibility checks](studies/grounding-reuse/
 
 ## Accuracy and limitations
 
+- **A text layer is not proof of visible ink.** The source checkout retains
+  native rendering modes and requires review for quotes touching mode 3
+  (invisible) or mode 7 (clipping only). This also affects correctly aligned
+  searchable OCR layers: they remain extractable but require visual review.
+  This check does not detect white-on-white text, transparency, overpainting,
+  arbitrary clipping or incorrect character mappings. Other rendering modes
+  and caller-supplied words do not establish pixel visibility. See the
+  [scope and remaining limits](studies/unpainted-text/README.md).
 - **OCR is a degraded mode, not equivalent to a text layer.** Scanned PDFs
   are supported only if the optional `ocr` extra (`pytesseract` + a system
   Tesseract install) is present; grounding still fuzzy-matches against
