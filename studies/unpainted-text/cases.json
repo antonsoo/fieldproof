@@ -1,0 +1,393 @@
+[
+  {
+    "id": "mode-0",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "verified"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "mode-1",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "verified"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "mode-2",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "verified"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "mode-3",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "mode-4",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "verified"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "mode-5",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "verified"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "mode-6",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "verified"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "mode-7",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "form-0",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "verified"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "form-3",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "form-7",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "rotated-90-mode-3",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "rotated-90-mode-7",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "rotated-180-mode-3",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "rotated-180-mode-7",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "rotated-270-mode-3",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "rotated-270-mode-7",
+    "checks": [
+      {
+        "path": "total",
+        "value": 900,
+        "quote": "Authorized total: $900.00",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 100,
+        "quote": "Amount due: $100.00",
+        "expected": "verified"
+      }
+    ]
+  },
+  {
+    "id": "number-convention-3",
+    "checks": [
+      {
+        "path": "total",
+        "value": 60,
+        "quote": "Amount due: 60.000",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 60000,
+        "quote": "Amount due: 60.000",
+        "expected": "needs_review"
+      }
+    ]
+  },
+  {
+    "id": "date-convention-3",
+    "checks": [
+      {
+        "path": "issue_date",
+        "value": "2026-03-04",
+        "quote": "Issue date: 03/04/2026",
+        "expected": "needs_review"
+      },
+      {
+        "path": "issue_date",
+        "value": "2026-04-03",
+        "quote": "Issue date: 03/04/2026",
+        "expected": "needs_review"
+      }
+    ]
+  },
+  {
+    "id": "row-anchor-3",
+    "checks": [
+      {
+        "path": "items[0].description",
+        "value": "Delivery",
+        "quote": "Delivery",
+        "expected": "needs_review"
+      },
+      {
+        "path": "items[0].quantity",
+        "value": 2,
+        "quote": "2",
+        "expected": "needs_review"
+      }
+    ]
+  },
+  {
+    "id": "number-convention-7",
+    "checks": [
+      {
+        "path": "total",
+        "value": 60,
+        "quote": "Amount due: 60.000",
+        "expected": "needs_review"
+      },
+      {
+        "path": "total",
+        "value": 60000,
+        "quote": "Amount due: 60.000",
+        "expected": "needs_review"
+      }
+    ]
+  },
+  {
+    "id": "date-convention-7",
+    "checks": [
+      {
+        "path": "issue_date",
+        "value": "2026-03-04",
+        "quote": "Issue date: 03/04/2026",
+        "expected": "needs_review"
+      },
+      {
+        "path": "issue_date",
+        "value": "2026-04-03",
+        "quote": "Issue date: 03/04/2026",
+        "expected": "needs_review"
+      }
+    ]
+  },
+  {
+    "id": "row-anchor-7",
+    "checks": [
+      {
+        "path": "items[0].description",
+        "value": "Delivery",
+        "quote": "Delivery",
+        "expected": "needs_review"
+      },
+      {
+        "path": "items[0].quantity",
+        "value": 2,
+        "quote": "2",
+        "expected": "needs_review"
+      }
+    ]
+  }
+]

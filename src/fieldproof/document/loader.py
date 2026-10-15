@@ -19,6 +19,7 @@ import pypdfium2 as pdfium
 
 from fieldproof.document.limits import DocumentLimitError, DocumentLimits, check_pdf_geometry
 from fieldproof.document.model import BBox, Document, Page, Word
+from fieldproof.document.text_modes import ModePage
 
 
 class EmptyDocumentError(ValueError):
@@ -50,7 +51,10 @@ def load_pdf(
     word_count = text_chars = 0
     views = _visible_page_boxes(source)
     with pdfplumber.open(stream) as pdf:
-        for page_number, (page, view_box) in enumerate(zip(pdf.pages, views, strict=True), start=1):
+        for page_number, (original, view_box) in enumerate(
+            zip(pdf.pages, views, strict=True), start=1
+        ):
+            page = ModePage(pdf, original.page_obj, original.page_number, original.initial_doctop)
             left, top, width, height = view_box
             origin_x, origin_top = page.mediabox[0] + left, page.mediabox[1] + top
             # PDFium displays the CropBox/MediaBox intersection after rotation.
@@ -65,6 +69,7 @@ def load_pdf(
             finally:
                 visible.close()
                 page.close()  # Release pdfplumber's cached character/layout objects per page.
+                original.close()
             word_count += len(loaded.words)
             text_chars += len(loaded.text)
             if limits is not None:
@@ -132,7 +137,7 @@ def _visible_words(page: pdfplumber.page.Page) -> list[dict[str, Any]]:
                 chars,
                 keep_blank_chars=False,
                 use_text_flow=False,
-                extra_attrs=["size"],
+                extra_attrs=["size", "render_mode"],
                 char_dir=direction if horizontal else "ltr",
                 line_dir="ttb" if direction != "rtl" else "btt",
                 char_dir_rotated=direction if not horizontal else "ttb",
@@ -170,6 +175,7 @@ def _load_page(page: pdfplumber.page.Page, page_number: int) -> Page:
                 ),
                 start=start,
                 end=cursor,
+                render_mode=raw["render_mode"],
             )
         )
 

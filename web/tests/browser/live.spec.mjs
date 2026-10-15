@@ -27,6 +27,60 @@ async function extract(page) {
   await expect(row(page, 'total')).toBeVisible();
 }
 
+test('unpainted PDF evidence stays in review through correction and archive restore', async ({ page, request, browserName }) => {
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  const study = new URL('../../../studies/unpainted-text/', import.meta.url);
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('fixtures/mode-3.pdf', study)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('fixture.json', study)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  const total = row(page, 'total');
+  await expect(total.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+  await expect(total.locator('.field-reasons')).toContainText('unpainted PDF text');
+  await total.getByRole('button', { name: 'Inspect total', exact: true }).click();
+  await expect(page.locator('#page-frame img')).toBeVisible();
+  await expect(page.locator('.highlight-rect[data-path="total"]').first()).toHaveAttribute('data-status', 'needs_review');
+  const session = (await (await request.get('/api/documents')).json()).documents[0];
+  const original = await (await request.get(`/api/documents/${session.id}/report`)).json();
+  const evidence = original.report.fields.find(field => field.path === 'total');
+  expect(evidence).toMatchObject({ status: 'needs_review', value: 900, page: 1, matched_text: 'Authorized total: $900.00' });
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 960 });
+    if (width === 375) await page.getByRole('button', { name: 'Fields', exact: true }).click();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await scan(page);
+    if (process.env.UPDATE_UNPAINTED_SCREENSHOTS) {
+      const destination = fileURLToPath(new URL('../../../docs/assets/unpainted-text/', import.meta.url));
+      mkdirSync(destination, { recursive: true });
+      await page.screenshot({ path: `${destination}/${browserName}-${width}.png`, fullPage: true });
+    }
+  }
+  await page.setViewportSize({ width: 1440, height: 960 });
+  await total.getByRole('button', { name: 'Edit', exact: true }).click();
+  await total.getByRole('textbox').fill('100');
+  await total.getByRole('button', { name: 'Save', exact: true }).click();
+  const exported = JSON.parse((await downloadText(page, 'JSON')).text);
+  expect(exported).toEqual([expect.objectContaining({
+    field: 'total', value: 100, original_value: 900, value_source: 'correction', verification_status: 'needs_review',
+  })]);
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Save archive', exact: true }).click();
+  const archive = await (await pending).path();
+  expect((await request.delete(`/api/documents/${session.id}`)).status()).toBe(204);
+  await page.reload();
+  await page.getByLabel('Review archive', { exact: true }).setInputFiles(archive);
+  await expect(row(page, 'total').locator('.field-value')).toHaveText('100.00');
+  await expect(row(page, 'total').locator('.field-reasons')).toContainText('unpainted PDF text');
+  const restored = (await (await request.get('/api/documents')).json()).documents[0];
+  const after = await (await request.get(`/api/documents/${restored.id}/report`)).json();
+  expect(after.report).toEqual(original.report);
+  if (process.env.UPDATE_UNPAINTED_SCREENSHOTS) {
+    const directory = fileURLToPath(new URL('results/', study));
+    mkdirSync(directory, { recursive: true });
+    writeFileSync(`${directory}/${browserName}-browser.json`, JSON.stringify({ evidence, exported, restored_report: after.report }, null, 2) + '\n');
+  }
+});
+
 test('review archives restore every decision after the original session is removed', async ({ page, request }) => {
   await page.setViewportSize({ width: 375, height: 900 });
   await extract(page);

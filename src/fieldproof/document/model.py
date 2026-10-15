@@ -55,6 +55,13 @@ class Word:
     bbox: BBox
     start: int
     end: int
+    # None for OCR or caller-supplied words. Modes 3 and 7 do not paint glyphs;
+    # other modes alone do not prove visibility (e.g. overpainting or white ink).
+    render_mode: int | None = None
+
+    @property
+    def unpainted(self) -> bool:
+        return self.render_mode in (3, 7)
 
 
 @dataclass(frozen=True, slots=True)
@@ -143,6 +150,7 @@ def document_from_dict(raw: dict[str, Any]) -> Document:
                         bbox=BBox(**word["bbox"]),
                         start=word["start"],
                         end=word["end"],
+                        render_mode=word.get("render_mode"),
                     )
                     for word in page["words"]
                 ],

@@ -27,7 +27,7 @@ from typing import Any, Literal
 
 from pydantic import BaseModel
 
-from fieldproof.document.model import Document, OcrProvenance
+from fieldproof.document.model import Document, OcrProvenance, Page
 from fieldproof.ground.align import (
     GroundingIndex,
     GroundingMatch,
@@ -175,6 +175,16 @@ def _validate_claim_value(path: str, evidenced: Evidenced) -> None:
         )
 
 
+def _convention_text(page: Page) -> str:
+    # Preserve offsets and separators: removing hidden text could join fragments
+    # into a new number/date. Unpainted text cannot settle another field's policy.
+    text = list(page.text)
+    for word in page.words:
+        if word.unpainted:
+            text[word.start : word.end] = " " * (word.end - word.start)
+    return "".join(text)
+
+
 def verify(
     data: BaseModel,
     document: Document,
@@ -254,12 +264,13 @@ def verify(
     for path, evidenced in fields.items():
         _validate_claim_value(path, evidenced)
     grounding = GroundingIndex(document)
-    orders = numeric_date_orders(document.full_text())
+    convention_pages = [(page, _convention_text(page)) for page in document.pages]
+    orders = numeric_date_orders("\n".join(text for _, text in convention_pages))
     date_order = (
         next(iter(orders)) if len(orders) == 1 else default_date_order if not orders else None
     )
     # Likewise whether it writes "60.000" as sixty or sixty thousand; see `check_number`.
-    numeric_text = "\n".join(separate_lines(page.text, page.words) for page in document.pages)
+    numeric_text = "\n".join(separate_lines(text, page.words) for page, text in convention_pages)
     styles = number_styles(numeric_text)
     style = next(iter(styles)) if len(styles) == 1 else default_number_style if not styles else None
 
@@ -467,6 +478,18 @@ def _verify_field(
             path=path, value=value, status=FieldStatus.NEEDS_REVIEW, reasons=reasons
         )
         return result, None
+
+    unpainted_modes = sorted({
+        word.render_mode for word in best_match.words
+        if word.render_mode is not None and word.unpainted
+    })
+    if unpainted_modes:
+        modes = ", ".join(str(mode) for mode in unpainted_modes)
+        reasons.append(
+            f"evidence includes unpainted PDF text (rendering mode {modes}: invisible or "
+            "clipping only); matching this text layer does not establish what is visible "
+            "on the page; review the rendered document"
+        )
 
     date_value = isinstance(value, str) and (
         isinstance(evidenced, EvidencedDate)

@@ -1,0 +1,2 @@
+# Preserve generated PDF offsets and line endings; these are binary fixtures.
+fixtures/*.pdf binary
