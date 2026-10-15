@@ -1,0 +1,376 @@
+{
+  "verified_utc": "2026-10-15T19:01:27.264848+00:00",
+  "repository": "https://github.com/antonsoo/fieldproof",
+  "revision": "32889a8edee1bbe518be31da1015643ba3371ff7",
+  "remote_HEAD_and_main_equal_local": true,
+  "working_tree_clean_at_start": true,
+  "checked_files": [
+    {
+      "file": "CHANGELOG.md",
+      "bytes": 32306,
+      "sha256": "8c55b94113b08d2e3b3a43050998f2c11500823608b8a20a68b949c9badcc9b8",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/CHANGELOG.md"
+    },
+    {
+      "file": "README.md",
+      "bytes": 46735,
+      "sha256": "364a2f7265e394e9106fc79e46891b54eeaa42610a667fb69da72a42583d6888",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/README.md"
+    },
+    {
+      "file": "docs/assets/unpainted-text/chromium-1440.png",
+      "bytes": 85786,
+      "sha256": "e500d2a98187614447cada80f0ef237febc21145c7f15f752ade5dae7978091a",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/docs/assets/unpainted-text/chromium-1440.png"
+    },
+    {
+      "file": "docs/assets/unpainted-text/chromium-375.png",
+      "bytes": 61152,
+      "sha256": "584c646590e89e63c68b2d083eae7ccd38a6d7d2d45f747260688c9e5c72077b",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/docs/assets/unpainted-text/chromium-375.png"
+    },
+    {
+      "file": "docs/assets/unpainted-text/firefox-1440.png",
+      "bytes": 114515,
+      "sha256": "f5e25c55e6477ef5371e9bff4b9548af54a7afef790c2d4ddc095681c2ba796a",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/docs/assets/unpainted-text/firefox-1440.png"
+    },
+    {
+      "file": "docs/assets/unpainted-text/firefox-375.png",
+      "bytes": 80786,
+      "sha256": "ec6361803c2076f71e41354fc38614a5d7191d32506781fdd9f55c0caf517a82",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/docs/assets/unpainted-text/firefox-375.png"
+    },
+    {
+      "file": "src/fieldproof/document/loader.py",
+      "bytes": 7208,
+      "sha256": "c1c699db262ddea6832c1a15ed8fe1f8529eb0e45af310a74d1f9a2d4e0c0973",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/src/fieldproof/document/loader.py"
+    },
+    {
+      "file": "src/fieldproof/document/model.py",
+      "bytes": 4926,
+      "sha256": "ae647b58deeb6dd2c51d30d5d8b942c3a5975d8f80ad2e70426c4d4692aa21fc",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/src/fieldproof/document/model.py"
+    },
+    {
+      "file": "src/fieldproof/document/text_modes.py",
+      "bytes": 2264,
+      "sha256": "5b0536fb679250a17850e9389ad049dc7468e1807a7519e01399b51820a1a781",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/src/fieldproof/document/text_modes.py"
+    },
+    {
+      "file": "src/fieldproof/verify/columns.py",
+      "bytes": 10693,
+      "sha256": "ee13f64901884c446ebf7861f1d96706d8896c368e2322f361638ff633b04dc5",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/src/fieldproof/verify/columns.py"
+    },
+    {
+      "file": "src/fieldproof/verify/engine.py",
+      "bytes": 25029,
+      "sha256": "c5ab49f4e63a329e8069f1755aeb4e729ab2063aa1dbcb52e6e89285c15e4a9d",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/src/fieldproof/verify/engine.py"
+    },
+    {
+      "file": "studies/unpainted-text/.gitattributes",
+      "bytes": 100,
+      "sha256": "c24a6c05d6521f67b8540dbb8942f455f66895b54526a12b7452b6514d466ff2",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/.gitattributes"
+    },
+    {
+      "file": "studies/unpainted-text/README.md",
+      "bytes": 7640,
+      "sha256": "d365ca2a3bb3b7a933afbd7f5d3abce110a617c7ca3f3a333a34847c8ab18689",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/README.md"
+    },
+    {
+      "file": "studies/unpainted-text/browser.config.mjs",
+      "bytes": 240,
+      "sha256": "0c56e21adb391050a3c82601f6d169d9ccea2e49ec924506b7cbae820d95900a",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/browser.config.mjs"
+    },
+    {
+      "file": "studies/unpainted-text/cases.json",
+      "bytes": 7755,
+      "sha256": "b4d404db136f9d48eabbb1dbf2ae1fc64fdf19eb09868623e766b08e3564148f",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/cases.json"
+    },
+    {
+      "file": "studies/unpainted-text/compatibility.py",
+      "bytes": 1201,
+      "sha256": "3f7da1042a42b1c5d6d2618bc224be1b2adf007cd38c40e0df9f354c3f8af87d",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/compatibility.py"
+    },
+    {
+      "file": "studies/unpainted-text/extraction.json",
+      "bytes": 394,
+      "sha256": "eb9ea1dc64ba761e4e4109b30f8894f67c0f15085a2b177bf6e537aecf8bc9b3",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/extraction.json"
+    },
+    {
+      "file": "studies/unpainted-text/fixture.json",
+      "bytes": 317,
+      "sha256": "b1d4434f475b0c530c4556766d55313f9165938b0203c1b63d05e49b927dea3c",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixture.json"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/date-convention-3.pdf",
+      "bytes": 1446,
+      "sha256": "a32ff799f946d76fcafd6cf16048773a67d8c4d3f57c68d2efb2ce94e23bea95",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/date-convention-3.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/date-convention-7.pdf",
+      "bytes": 1451,
+      "sha256": "477dea315b432b36dcee4e688a9caefaa1433d6c9b85d8e4c8c2ad71dbf4cca0",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/date-convention-7.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/form-0.pdf",
+      "bytes": 1890,
+      "sha256": "b95ac8c6dfb0525d5a8968fdf96cbb46a091292ba2d7b150606470c8474ed4c8",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/form-0.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/form-3.pdf",
+      "bytes": 1896,
+      "sha256": "7b937b106af35888a46e5b506d9e9868af5ad483dfb602667ba9259698ea9bb8",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/form-3.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/form-7.pdf",
+      "bytes": 1902,
+      "sha256": "4ffcb951a01bb4eca1370b273a8a4bc8193709fdf7b919aaa6eac21bc514321e",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/form-7.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/mode-0.pdf",
+      "bytes": 1440,
+      "sha256": "b960fa6c3817dc46f1b4d1188286e6b0afba8a7acf71f54c7eb2a8527d3bb449",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/mode-0.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/mode-1.pdf",
+      "bytes": 1443,
+      "sha256": "246471e59ca59d0a3d3cf541923847bd38eda2a7b47abce3b919b4348a48b93e",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/mode-1.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/mode-2.pdf",
+      "bytes": 1446,
+      "sha256": "7959d7fcf47d4d9a843df327689f7ec1708f40c3b64d1ec6731cd3d712496b66",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/mode-2.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/mode-3.pdf",
+      "bytes": 1445,
+      "sha256": "2e953b73fa40bf8fa920adb023edf7305eb8cc088dd2f292706ada8f693eefdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/mode-3.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/mode-4.pdf",
+      "bytes": 1450,
+      "sha256": "8d9062d46670f5e822e8daefce8aadbbed0bc4d35d58bea829cf68f1a3558c30",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/mode-4.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/mode-5.pdf",
+      "bytes": 1450,
+      "sha256": "a8d1ff00c1b1268090a439fe92fc5bc97903947a924d06231c42f3ee1b86c997",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/mode-5.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/mode-6.pdf",
+      "bytes": 1452,
+      "sha256": "ab462d08b78fd1e24459a0b171ed81db6387c668e23e0653cf085c6112bfc697",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/mode-6.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/mode-7.pdf",
+      "bytes": 1450,
+      "sha256": "8b8c5afac49f20069359c6a8ffd07108b7a9c67a7173d7fbff88ba7154688e47",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/mode-7.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/number-convention-3.pdf",
+      "bytes": 1442,
+      "sha256": "e0710b7e5707a764b3a9a392c2563a7d3410897fbd2b15cce579249078f30eb6",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/number-convention-3.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/number-convention-7.pdf",
+      "bytes": 1447,
+      "sha256": "3e69a5bdf1f07e38b8873736d1cc18dd4ae5502bd3579136da504a79696db43b",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/number-convention-7.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/rotated-180-mode-3.pdf",
+      "bytes": 1291,
+      "sha256": "007508063539fb5b6527cb09ba06f89a2dde541080e7e0f0a49dd38871f66d3f",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/rotated-180-mode-3.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/rotated-180-mode-7.pdf",
+      "bytes": 1296,
+      "sha256": "0f075aa09a8c0f20f1513699880d1fd36f070199073962a861f1d836f6848786",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/rotated-180-mode-7.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/rotated-270-mode-3.pdf",
+      "bytes": 1291,
+      "sha256": "2c4ca6a830721170336d4e8a16c81393a31e737024c3c4107131fdf1f819a34d",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/rotated-270-mode-3.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/rotated-270-mode-7.pdf",
+      "bytes": 1296,
+      "sha256": "5601bea1c4effd1ea6b578ff88f8035dac1cf02326a17845fe66728d44ff000e",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/rotated-270-mode-7.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/rotated-90-mode-3.pdf",
+      "bytes": 1290,
+      "sha256": "5669c8dcf1c201522936e5092e97539e534bcfc18eb6a4a34f30a6869ae3f909",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/rotated-90-mode-3.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/rotated-90-mode-7.pdf",
+      "bytes": 1295,
+      "sha256": "30ab7aeacb1ed1e8e09bc9e45089a975ca872ac703d05818abe6a17b6528a057",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/rotated-90-mode-7.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/row-anchor-3.pdf",
+      "bytes": 1436,
+      "sha256": "5eec42c984ac3758771ff33e822d24a2f48103d524d45f2a2ed2383e262a1151",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/row-anchor-3.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/fixtures/row-anchor-7.pdf",
+      "bytes": 1442,
+      "sha256": "4abdd3f49363f54a0268c4b8df0ffed21f557189bf5cddcd77354b1c9d72526d",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/fixtures/row-anchor-7.pdf"
+    },
+    {
+      "file": "studies/unpainted-text/generate.py",
+      "bytes": 4218,
+      "sha256": "58bb93bc54adc8a53e977335ac49af1a38581a41b0355d0bcac16583d4b5e1c7",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/generate.py"
+    },
+    {
+      "file": "studies/unpainted-text/pixels.py",
+      "bytes": 3014,
+      "sha256": "4b7d5fce390b5715e86f5190f8255c858e0584b21f39bcd59a218cb1f7a619fe",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/pixels.py"
+    },
+    {
+      "file": "studies/unpainted-text/replay.py",
+      "bytes": 3075,
+      "sha256": "919796bf6188756dabb33f5acfd4b236aaff58b04f89be60cbf06ef22fd1d325",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/replay.py"
+    },
+    {
+      "file": "studies/unpainted-text/results/after.json",
+      "bytes": 32385,
+      "sha256": "b12fa0d601fb90c33b1b311b7adb808162f9cbaecc4e216db49df056562fe951",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/after.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/artifacts.json",
+      "bytes": 5810,
+      "sha256": "0a5d0cea7c7ce26ae082d5cbeea98846fa5e2ebf51f6a9c8819553b5bdb618cb",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/artifacts.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/before-cli.json",
+      "bytes": 3552,
+      "sha256": "efa8819a4ac6a2cc287ec6652998c601afbb251213a07aab242537ad8fb70e03",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/before-cli.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/before.json",
+      "bytes": 29338,
+      "sha256": "a8d6060dfcdc197c7a7b32248599a3dc1e2412b546fca3822bd53f5a7aa566d2",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/before.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/chromium-browser.json",
+      "bytes": 3901,
+      "sha256": "3723ddb9ac2eb2d9f4ac8c15ac19614d71bbf98ccc61ef175d17a423cd1e139b",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/chromium-browser.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/compatibility-after.json",
+      "bytes": 2558,
+      "sha256": "051a14d364d919d4d8776c2e91461165fc07ed8f31c8eec3f8fa4ff92833f791",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/compatibility-after.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/compatibility-before.json",
+      "bytes": 2558,
+      "sha256": "051a14d364d919d4d8776c2e91461165fc07ed8f31c8eec3f8fa4ff92833f791",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/compatibility-before.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/environments.json",
+      "bytes": 845,
+      "sha256": "fe932bb82ca0c699c6ed18acdb2ab7f776022c2bb9f60ee8cc5d623c68f3f2d5",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/environments.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/firefox-browser.json",
+      "bytes": 3901,
+      "sha256": "3723ddb9ac2eb2d9f4ac8c15ac19614d71bbf98ccc61ef175d17a423cd1e139b",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/firefox-browser.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/installed-cli.json",
+      "bytes": 3764,
+      "sha256": "4d96f815a9e04e3eeb622b4cd7976b66f8bbaaaf27c66f52fe2b5605fbec2ffe",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/installed-cli.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/installed.json",
+      "bytes": 32386,
+      "sha256": "7b68b8aac7608660594cf9319e7c161ef86f862642189063b31a05faaf027932",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/installed.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/minimums.json",
+      "bytes": 32386,
+      "sha256": "950f8a66e7617ffee59c8317f06df5cc620f5f0048637934adb65948818d32f3",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/minimums.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/pixels.json",
+      "bytes": 5191,
+      "sha256": "d105a22bf17f35a5c5497402eb1246c5bc7fc4b1b4cc69583596eb6dbe7904e4",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/pixels.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/served-bytes.json",
+      "bytes": 11218,
+      "sha256": "dcafb8fa2c133f5414d1688cc89744c681f18dc632ee82b0ebdb9f65efa8067c",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/served-bytes.json"
+    },
+    {
+      "file": "studies/unpainted-text/results/verification.json",
+      "bytes": 4384,
+      "sha256": "0ced83d45fcf50bdc5840f0daf50a3fb6e5e2fa08773640af3d5200a6fd40295",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/studies/unpainted-text/results/verification.json"
+    },
+    {
+      "file": "tests/test_unpainted_text.py",
+      "bytes": 3491,
+      "sha256": "0e62b10c14693812e193b6dc2494f44efa6c34585ccfe4b79bf10703d013dbe6",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/tests/test_unpainted_text.py"
+    },
+    {
+      "file": "web/tests/browser/live.spec.mjs",
+      "bytes": 57442,
+      "sha256": "455ebd0583ece0e0a3f3946b6fa67409115c8d9229b91654b7cb8f113be8f166",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/32889a8edee1bbe518be31da1015643ba3371ff7/web/tests/browser/live.spec.mjs"
+    }
+  ],
+  "publication_scope": "Git source only; no package release or manual deployment"
+}

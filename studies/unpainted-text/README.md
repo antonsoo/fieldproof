@@ -84,7 +84,12 @@ selected only one of them. They are retained to check both possible claims.
 The [verification receipt](results/verification.json) records clean installation,
 package hashes, dependency versions and complete check results. All
 [56 served files](results/served-bytes.json) matched the clean-built review UI
-and demo bytes. These are local checks; nothing was pushed, deployed or released.
+and demo bytes. That initial verification was local. Source revision
+`32889a8edee1bbe518be31da1015643ba3371ff7` was subsequently pushed and checked
+against GitHub's branch head and all 61 changed files at pinned raw URLs;
+the [publication receipt](results/publication.json) retains their sizes and hashes.
+These source commits do not constitute a registry release or establish a hosted
+demo deployment.
 
 ## Reproduce
 
