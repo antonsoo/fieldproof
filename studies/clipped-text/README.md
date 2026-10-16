@@ -143,5 +143,8 @@ the default does not establish visibility. Native parsing still depends on
 pdfminer/pdfplumber internals, so dependency updates need the actual PDF controls.
 The check adds no dependency, rasterization or model call to PDF intake.
 
-This work is local source verification. It has not been pushed, deployed or
-published to a package registry.
+Source revision `8983abef4da86561a29d7edaf133e74559a512f5` was subsequently
+pushed and verified against GitHub's branch head and the pinned raw bytes of
+all 89 changed files. The [publication receipt](results/publication.json)
+retains their sizes and SHA-256 hashes. This source publication does not
+constitute a package release or establish a hosted-demo deployment.

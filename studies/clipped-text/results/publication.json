@@ -1,0 +1,455 @@
+{
+  "source_revision": "8983abef4da86561a29d7edaf133e74559a512f5",
+  "remote_main": "8983abef4da86561a29d7edaf133e74559a512f5",
+  "baseline_revision": "0669eefded67e09be47b53855a2ffa76dd4b6512",
+  "files": 89,
+  "mismatches": 0,
+  "observations": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 33860,
+      "sha256": "7198f0fbbec7ad8474ab7839c91aaa808515f56ed4d05f583e911b0252b577c4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 47566,
+      "sha256": "6f1d1756c58a324d6b8e6dc56721c3cfbdb0b2e0ab683ed16879f863106481b0"
+    },
+    {
+      "path": "docs/assets/clipped-text/before-chromium-1440.png",
+      "bytes": 76195,
+      "sha256": "85ef68b716bf1f75ecbd6b132dbf6dd3b2d0cc513e0d98695e51a540f7b7382f"
+    },
+    {
+      "path": "docs/assets/clipped-text/before-firefox-375.png",
+      "bytes": 68442,
+      "sha256": "e9a71dd2848a5d2291ee9e29ddc1d3f0fb21f142502f8102f3e6da0432c5d19a"
+    },
+    {
+      "path": "docs/assets/clipped-text/chromium-1440.png",
+      "bytes": 83540,
+      "sha256": "53ecb7d4914223cb6e28357eb9623cb1afa78707e7c549576a2aa37b1f3f7a01"
+    },
+    {
+      "path": "docs/assets/clipped-text/chromium-375.png",
+      "bytes": 59670,
+      "sha256": "fc41d2058a52d1701a68141df6bb1f481adb038f58a54ccfaac102cd2386d420"
+    },
+    {
+      "path": "docs/assets/clipped-text/firefox-1440.png",
+      "bytes": 109294,
+      "sha256": "c6adce4f46e98bfc926b552fb444daf5bb812c3bc2fa832e7db4df59633dfb38"
+    },
+    {
+      "path": "docs/assets/clipped-text/firefox-375.png",
+      "bytes": 78346,
+      "sha256": "989ddee9120e71d02eb76cd218573dd1bf44efd408bf9eec6bea54c2ebe2113d"
+    },
+    {
+      "path": "src/fieldproof/document/clip_bounds.py",
+      "bytes": 3172,
+      "sha256": "7bba15e37d58ef0c6c041f4f7431acc4023736e91b668a0136a273f21e562d8c"
+    },
+    {
+      "path": "src/fieldproof/document/loader.py",
+      "bytes": 7331,
+      "sha256": "a2ddb6f1335f2999a076694af0f3475402cc27b3ea6e7b29dad369a0aae1979e"
+    },
+    {
+      "path": "src/fieldproof/document/model.py",
+      "bytes": 5563,
+      "sha256": "6160bce713695fe51f456232551fd374c5632357b040f2491a14466ac0d3be5a"
+    },
+    {
+      "path": "src/fieldproof/document/text_modes.py",
+      "bytes": 9123,
+      "sha256": "bf3c16cc7da1cb04545e86aece1352f3993d83ae2094bd4360d5d1589ec2e9c5"
+    },
+    {
+      "path": "src/fieldproof/verify/columns.py",
+      "bytes": 10705,
+      "sha256": "50f8d5f3362a508e2dba6bc3fc955b9a6d639bd1500d42172555efd2a87f00c1"
+    },
+    {
+      "path": "src/fieldproof/verify/engine.py",
+      "bytes": 25585,
+      "sha256": "32974b61038f16d2416040f4c047cbf9214b423deb98367b50f3dcbe47455663"
+    },
+    {
+      "path": "studies/clipped-text/README.md",
+      "bytes": 7623,
+      "sha256": "7e651b9844031d8d7c9cadb01a6c93c8a13abcd5047eef3d3bbc0eb5d9469973"
+    },
+    {
+      "path": "studies/clipped-text/browser.config.mjs",
+      "bytes": 275,
+      "sha256": "fe3b628f9c0c82b5e4986134cc28c738b1d99692b78bc50bb2d29c668a3c4046"
+    },
+    {
+      "path": "studies/clipped-text/capture-baseline.mjs",
+      "bytes": 2631,
+      "sha256": "7cc3b508f72b732b3ea7cdf0761fbeaa2b0474ae23844748e761e714cda8224a"
+    },
+    {
+      "path": "studies/clipped-text/cases.json",
+      "bytes": 6295,
+      "sha256": "07cc0f764b152990d0e1da90f5b77364036407826bc4fdad86a648939c74588e"
+    },
+    {
+      "path": "studies/clipped-text/compatibility.py",
+      "bytes": 1848,
+      "sha256": "274873c18c49ea4e456ca7c4d4c413e294921d78306a1f0186b14a0385645f51"
+    },
+    {
+      "path": "studies/clipped-text/extraction.json",
+      "bytes": 394,
+      "sha256": "8c041a0596141b879fe80776484982faa84cb0d5542d76c0b81669ba003ef6ad"
+    },
+    {
+      "path": "studies/clipped-text/fixture.json",
+      "bytes": 317,
+      "sha256": "20070ba0373ad1d3bcb69125685e1af31ed4269427c905c4a3e68a3a51487d22"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/compound-inside.pdf",
+      "bytes": 1443,
+      "sha256": "6b24db11108df0489e4b1fc8d9af010a51749ad6cf2721a537897488e25d39f8"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/content-rotation-inside.pdf",
+      "bytes": 1452,
+      "sha256": "1d9ef2592b558bcc90c1fad62ff80ca027b4732adf247a9f956986cc374f5555"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/content-rotation.pdf",
+      "bytes": 1450,
+      "sha256": "f0ae154508b59a960903d90e5d6b341414dcec1a560b25a97e005944f21f5a0a"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/cubic.pdf",
+      "bytes": 1446,
+      "sha256": "40d40bbcb8cd4f0623a19c4a2a4a0f94ed83c7bf658a7cdc8ebc524ac5bb8a93"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/curve-v.pdf",
+      "bytes": 1445,
+      "sha256": "e74fc71c2ee1ad7857651540bc6a57401f4a1ff00538583704eb5a8a190b3f69"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/curve-y.pdf",
+      "bytes": 1445,
+      "sha256": "f9c48d59dd98f2afa511598bfc5efac6fed5fcfd7a1da0d51efe7982df0c4506"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/degenerate.pdf",
+      "bytes": 1436,
+      "sha256": "4a727596a313db7378cb2ea604fd52fade7455ec9609d43787a8eb95311a9566"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/end-B-star.pdf",
+      "bytes": 1437,
+      "sha256": "145ca16f43fc111bc116ed99b148ba1371522b8d07e2f6deffd1e1a87ab9f20e"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/end-B.pdf",
+      "bytes": 1436,
+      "sha256": "152e718d94215297f4886b45b39089f6c0a4f6c43233c614e4aa38a908f3b86d"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/end-F.pdf",
+      "bytes": 1435,
+      "sha256": "dfffb3d00a78a3b1f9389acf7c378d690a04347c9d96fb4be815ffed4226cb6f"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/end-S.pdf",
+      "bytes": 1436,
+      "sha256": "ab9dffee5feedba565ebec9d55d507e9418a85d7fb6ef6381f3663c0b2bdf28c"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/end-b-star.pdf",
+      "bytes": 1437,
+      "sha256": "d9dc45568d7f78053191a920d3d4e1555f29dcdb6734e4655ba90a638fbc64b2"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/end-b.pdf",
+      "bytes": 1436,
+      "sha256": "e4785def0cc5fcbd1986e27f6401a3d5ad2d28afb0e47221b9bf1c1c94d1977d"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/end-f-star.pdf",
+      "bytes": 1437,
+      "sha256": "4d1cca51b3ad3829c9965777b0d7e823fc378e228896d854e23d81ffe3af1dbb"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/end-f.pdf",
+      "bytes": 1436,
+      "sha256": "b6a4dc740f04caf6c5b0b09ce2e5c01aa896e792d2765319d9c497c398d13ef8"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/end-n.pdf",
+      "bytes": 1436,
+      "sha256": "6b14d0482619b7ec5c220f70fbf8371d70fde5c66affbf1cd42867cf1f3bb3ea"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/end-s.pdf",
+      "bytes": 1436,
+      "sha256": "82d29ae080363ca4ad38867399a20c207193099c41adaff88b1bbeb96dcb6a65"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/even-odd.pdf",
+      "bytes": 1437,
+      "sha256": "01f72ab7cb74286486abdcef8860d6ff369005f1f10687d1f96072765367ba0e"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/form-bbox.pdf",
+      "bytes": 1867,
+      "sha256": "929b79c89553b3d794b48dff054c215489edbf790b0efa98e48d975ceac5495b"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/form-dictionary-matrix-inside.pdf",
+      "bytes": 1873,
+      "sha256": "01960234b3bfcdafb19099797f928aab2a3216bfd033a7d14b257090df962f08"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/form-dictionary-matrix.pdf",
+      "bytes": 1873,
+      "sha256": "4840f0421ec816d3d0ec6f80749908a8ca122cb57f2eec0c0e89aaf729a44d29"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/form-dictionary-rotation-inside.pdf",
+      "bytes": 1874,
+      "sha256": "63bc28bb40a88354b688974f77357fccd43f1636a59ffe6914e4573773954d7d"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/form-dictionary-rotation.pdf",
+      "bytes": 1874,
+      "sha256": "5e61ba3a66c35550d8a5e686bbe98afe8d6c6ff76199d6f2f16866708181908f"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/form-inherited.pdf",
+      "bytes": 1878,
+      "sha256": "adc51a4575faa0ea39a9eb56ea7e344f5886100d643a80b1e843580c3bf16e46"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/form-inside.pdf",
+      "bytes": 1867,
+      "sha256": "764826e411b7a52c00c7d5b76c76ff715d8c444749f9d1e306e88b06c0b8f1cc"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/form-matrix-inside.pdf",
+      "bytes": 1879,
+      "sha256": "33472bb34070530dabf69494f9e4fedf01a866b2e1d7d2ead7f99f4c6484b0b7"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/form-matrix.pdf",
+      "bytes": 1879,
+      "sha256": "706a30ff0417760df3ca3ad0a3036156dc2e251fe8306197e4c1e1e0a26dcb99"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/form-nested.pdf",
+      "bytes": 2259,
+      "sha256": "6aca319392588cb170018d3e15eceac8ffb26cf2415dccd64ebb5d386c3c4ddc"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/inside.pdf",
+      "bytes": 1437,
+      "sha256": "11221e81a4e64dcf222843e87f718852023f769b9fbbcbbf6fac6c8de50ac090"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/intersection-empty.pdf",
+      "bytes": 1446,
+      "sha256": "5ea94a064a34d61ff89184cc0e75fb6979d7cbab52afc925fd625c766cc51ca7"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/intersection-inside.pdf",
+      "bytes": 1451,
+      "sha256": "0496de9c6910f8bbc64ecbfeb4ad8def0113495e030ea31c492a4f0eb9a94aed"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/negative-size.pdf",
+      "bytes": 1438,
+      "sha256": "a5fd23de7a8ab498b6c11c264e56f6b3789ed0a26e227ab375c2b7bb35ff8fcc"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/no-current-path.pdf",
+      "bytes": 1426,
+      "sha256": "68d0be696ff2fe8e704fa8a4ccb38b21f9d1f6e029ccde90f740a8094c5b3b92"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/ordinary.pdf",
+      "bytes": 1421,
+      "sha256": "b7fdbae2b1450b5ffab8e9a23eb4da96c1733e3668b5e321343b80ba325c98b7"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/paint-only.pdf",
+      "bytes": 1433,
+      "sha256": "2069c1fd085fb458f52f9c399c036cc0aa3590841140e2617043ed5b29cf3be3"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/paint-path-reset.pdf",
+      "bytes": 1445,
+      "sha256": "29aba3e64c904aee143f60b273c52d40590e8e1297dd6f4ee1cb741030876753"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/partial.pdf",
+      "bytes": 1440,
+      "sha256": "54f5a3414a86e1bd7410769683b7f2acd0b46ff6e26d96953cc73039f647cc7b"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/post-transform-hidden.pdf",
+      "bytes": 1445,
+      "sha256": "6101660b1416d0bdbda56624c0a5dbbf0bd9992e03ed7c83f4ac2d7ef71a7ad6"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/post-transform-inside.pdf",
+      "bytes": 1446,
+      "sha256": "971dbc49323305442ade969a33fa746adb4cd920ae8898efdcb3c4fcb0a40bc1"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/restore.pdf",
+      "bytes": 1437,
+      "sha256": "2e4938e065829a81b017c40791e00ac40b70ae1cf9f291a577ddcefc879a19ae"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/rotated-180.pdf",
+      "bytes": 1282,
+      "sha256": "385e7d756ca9d95278883655431f7deb42797c3114814d5a3a7c33f6d5b59f18"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/rotated-270.pdf",
+      "bytes": 1282,
+      "sha256": "38243ffb08a46cf0fb526b21114ab7a799922868f61c99435bd929f9431001cc"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/rotated-90.pdf",
+      "bytes": 1281,
+      "sha256": "e7f94bedc46a41b1465089e21edeb33598caca97ff848219d31a038bdbaa7eb2"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/transformed-hidden.pdf",
+      "bytes": 1448,
+      "sha256": "fd5b37342ecc8a3e0351e3813e4b4330dae4410c1e51256cdc0b807e928ae889"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/transformed-inside.pdf",
+      "bytes": 1450,
+      "sha256": "8b95c44a671f2fd79977799fd0b6e62ae7b64bf7234b17449d126b1a6e82751c"
+    },
+    {
+      "path": "studies/clipped-text/fixtures/triangle.pdf",
+      "bytes": 1442,
+      "sha256": "b7d79bf165cd293036bbc54f76887143c922628d9dc065871bde090eb893a3da"
+    },
+    {
+      "path": "studies/clipped-text/generate.py",
+      "bytes": 7376,
+      "sha256": "bc324ee2626927ab67756c6bfcf4e7262b08f30cd0fc116fb617bdd6db27a6f2"
+    },
+    {
+      "path": "studies/clipped-text/pixels.py",
+      "bytes": 2875,
+      "sha256": "d25aada3ebb5df975a1c6636c93dde325c10ab73ade6a85f85e90eda97c964a0"
+    },
+    {
+      "path": "studies/clipped-text/replay.py",
+      "bytes": 2406,
+      "sha256": "0602c5dc448f1c88f1aa1b95f1c362ac3b191e1391010723cb001ad724c7d9fa"
+    },
+    {
+      "path": "studies/clipped-text/results/after.json",
+      "bytes": 86259,
+      "sha256": "ce5b13b7b173a78a48944dbfc55d06176ab716cb2602815b6930574db0afaa9b"
+    },
+    {
+      "path": "studies/clipped-text/results/artifacts.json",
+      "bytes": 22603,
+      "sha256": "419dad30766536eae665fcd22c58cba1a57bd6344133f2932ce70af8de98e23a"
+    },
+    {
+      "path": "studies/clipped-text/results/before-browser.json",
+      "bytes": 6381,
+      "sha256": "4efeb85d9259a915046c9fd63974c3f77d34d60559aeee316269f50f7c52f0e9"
+    },
+    {
+      "path": "studies/clipped-text/results/before-cli.json",
+      "bytes": 3540,
+      "sha256": "03507da3aec0b0ec3a85689ae2cd7ca4fd898ad7dc214ff6942a211c6492cfa7"
+    },
+    {
+      "path": "studies/clipped-text/results/before.json",
+      "bytes": 80773,
+      "sha256": "2b771b4f91f491ea0dccac57f4357db151cde973e45f212f1ecb982700da2fc9"
+    },
+    {
+      "path": "studies/clipped-text/results/chromium-browser.json",
+      "bytes": 3796,
+      "sha256": "10067809ee14814480365e686db1c96e40f5cccf905cd018611d61c7067c4d65"
+    },
+    {
+      "path": "studies/clipped-text/results/compatibility-after.json",
+      "bytes": 4316,
+      "sha256": "e9ff354f1adc8385f74d7f68304f688e494572ac3474f7f7bb38bf423637846a"
+    },
+    {
+      "path": "studies/clipped-text/results/compatibility-before.json",
+      "bytes": 4316,
+      "sha256": "bbffa8cd8d930bc3f7846995611460b11ac4b10998a791ebf21bd22aeec7d6f7"
+    },
+    {
+      "path": "studies/clipped-text/results/firefox-browser.json",
+      "bytes": 3796,
+      "sha256": "10067809ee14814480365e686db1c96e40f5cccf905cd018611d61c7067c4d65"
+    },
+    {
+      "path": "studies/clipped-text/results/installed-cli.json",
+      "bytes": 3712,
+      "sha256": "e482701c67767965fff8e5873bd9b3a038aff1849a5fda27e444623894a189b9"
+    },
+    {
+      "path": "studies/clipped-text/results/installed.json",
+      "bytes": 86259,
+      "sha256": "8e7a2601684cc5b8699aa2ded545a419fd107de28df5a2d0068d53c1e6ea56a1"
+    },
+    {
+      "path": "studies/clipped-text/results/minimums.json",
+      "bytes": 86259,
+      "sha256": "d3b7d30d12a92d954651d76e803ce94b3d02b1f9449e6f54ffa3a98aacf88f14"
+    },
+    {
+      "path": "studies/clipped-text/results/pixels.json",
+      "bytes": 20908,
+      "sha256": "6fffc007c1c59353919ba7fa372c1ca7bc3c170db8a550779c7a7cc643edd1fe"
+    },
+    {
+      "path": "studies/clipped-text/results/served-bytes.json",
+      "bytes": 11245,
+      "sha256": "8826fc549ee6161680ff44bbe52795f9a755477767b47cf6250cdcab5cd40ad6"
+    },
+    {
+      "path": "studies/clipped-text/results/verification.json",
+      "bytes": 2732,
+      "sha256": "3163d8ddaa0f5f5c0e9ce10ced5c470e5699d77f1d3d2e88babd51d77ef0b8ac"
+    },
+    {
+      "path": "studies/unpainted-text/README.md",
+      "bytes": 8253,
+      "sha256": "ebc7d313e4adc0dcc100b2360a558d9212fc647874ae4d1a97d593d502dfaebf"
+    },
+    {
+      "path": "studies/zero-opacity/README.md",
+      "bytes": 6967,
+      "sha256": "040003b9cbea8621b99c0d4c41e40aa5eedac9e3ab5ad034b8bc37b00d3c5553"
+    },
+    {
+      "path": "tests/test_clipped_text.py",
+      "bytes": 5276,
+      "sha256": "4c1f6e45dad0df3406981e019d3e8a4311ee0b5fac5b80db0488cccff1038eea"
+    },
+    {
+      "path": "web/tests/browser/live.spec.mjs",
+      "bytes": 58081,
+      "sha256": "e3c43ccde6699a32fca30beb760b051c7e652734aff8efcd0e5c6edcf4fc37fb"
+    }
+  ],
+  "scope": "Public source bytes only; no registry release or hosted deployment verified."
+}
