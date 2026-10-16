@@ -91,7 +91,15 @@ All ten pre-existing example PDFs keep their text, geometry and report hashes:
 [before](results/examples-before.json), [after](results/examples-after.json).
 The new eleventh example deliberately has a reviewable hidden claim. The static
 demo data is regenerated from current verification reports, including existing
-column-check details; no product UI component was changed for this sample.
+column-check details. The sample chooser now wraps as samples are added, keeping
+all five choices available at phone widths without horizontal page overflow.
+
+The [installed worker observation](results/worker.json) loads a 64-page,
+29,056-word ledger in 6.9 seconds and renders its first page in 0.27 seconds,
+within the existing 30-second wall, 20-second CPU and 768-MiB address-space
+limits. Every loaded word has a positive contribution observation. The largest
+child process's observed peak RSS is 144.4 MiB. These are one local run's
+observations, not guarantees for arbitrary 64-page PDFs.
 
 ## Reproduce
 

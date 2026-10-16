@@ -5,6 +5,7 @@ from __future__ import annotations
 import importlib.util
 import io
 import json
+from contextlib import closing
 from dataclasses import asdict
 from pathlib import Path
 
@@ -207,7 +208,10 @@ def test_nested_reused_form_text_is_observed_without_editing_the_original(covere
     expected = "no_contribution" if covered else "contributes"
     assert document.pages[0].words
     assert {w.raster_state for w in document.pages[0].words} == {expected}
-    with pdfium.PdfDocument(content) as original, pdfium.PdfDocument(content) as reference:
+    with (
+        closing(pdfium.PdfDocument(content)) as original,
+        closing(pdfium.PdfDocument(content)) as reference,
+    ):
         page, disposable = original[0], reference[0]
         try:
             with _render_rgb(page, 16_000_000) as before:
@@ -242,7 +246,10 @@ def test_suppression_preserves_text_clipping_and_has_a_traversal_budget(monkeypa
     content = stream.getvalue()
     # The blue fill is retained in both renders: removing text paint must not
     # remove its clip and mistake subsequent path paint for native text paint.
-    with pdfium.PdfDocument(content) as original, pdfium.PdfDocument(content) as reference:
+    with (
+        closing(pdfium.PdfDocument(content)) as original,
+        closing(pdfium.PdfDocument(content)) as reference,
+    ):
         page, disposable = original[0], reference[0]
         try:
             with _render_rgb(page, 16_000_000) as before:

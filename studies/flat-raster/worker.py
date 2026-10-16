@@ -1,0 +1,65 @@
+"""One bounded native 64-page load and page render through actual server workers."""
+
+import argparse
+import hashlib
+import io
+import json
+import platform
+import resource
+from collections import Counter
+from pathlib import Path
+from time import perf_counter
+
+from reportlab.pdfgen.canvas import Canvas
+
+from fieldproof.server.pdf_work import load_server_pdf, render_server_page
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("output", type=Path)
+args = parser.parse_args()
+stream = io.BytesIO()
+pdf = Canvas(stream, pagesize=(612, 792), invariant=True)
+for page in range(64):
+    pdf.setFont("Helvetica", 14)
+    pdf.drawString(40, 750, f"Synthetic ledger page {page + 1}")
+    pdf.setFont("Helvetica", 10)
+    for row in range(45):
+        number = page * 45 + row + 1
+        pdf.drawString(
+            40, 700 - row * 14, f"Line {number:04d} Widget Alpha quantity 2 unit 12.50 amount 25.00"
+        )
+    pdf.showPage()
+pdf.save()
+content = stream.getvalue()
+started = perf_counter()
+document = load_server_pdf(content, "synthetic-64-pages.pdf")
+load_seconds = perf_counter() - started
+states = Counter(w.raster_state for p in document.pages for w in p.words)
+assert document.page_count == 64
+assert states == {"contributes": 64 * 454}, states
+started = perf_counter()
+png = render_server_page(content, 1)
+render_seconds = perf_counter() - started
+assert png.startswith(b"\x89PNG\r\n\x1a\n")
+report = {
+    "scope": __doc__,
+    "python": platform.python_version(),
+    "sourceSha256": hashlib.sha256(content).hexdigest(),
+    "sourceBytes": len(content),
+    "pages": document.page_count,
+    "words": sum(states.values()),
+    "rasterStates": dict(states),
+    "loadSeconds": load_seconds,
+    "renderSeconds": render_seconds,
+    "pngBytes": len(png),
+    "pngSha256": hashlib.sha256(png).hexdigest(),
+    "largestChildPeakRssBytes": resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss * 1024,
+    "limits": {
+        "wallSecondsPerOperation": 30,
+        "cpuSecondsPerWorker": 20,
+        "addressSpaceBytes": 768 * 1024 * 1024,
+    },
+    "limitScope": "Existing server worker limits; one local observation, not a latency or memory guarantee.",
+}
+args.output.write_text(json.dumps(report, indent=2) + "\n")
+print(json.dumps(report, indent=2))

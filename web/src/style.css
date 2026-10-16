@@ -257,6 +257,7 @@ a {
 
 .sample-switch {
   display: flex;
+  flex-wrap: wrap;
   gap: 2px;
   padding: 2px;
   border: 1px solid var(--color-border);
