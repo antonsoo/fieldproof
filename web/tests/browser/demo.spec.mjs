@@ -16,8 +16,8 @@ test('the hidden-text sample keeps an invisible amount in review and exports off
   await context.setOffline(true);
   const requests = [];
   page.on('request', request => { if (/^https?:/.test(request.url())) requests.push(request.url()); });
-  for (const width of [1440, 375, 320]) {
-    await page.setViewportSize({ width, height: 960 });
+  for (const [width, height] of [[1440, 960], [375, 812], [320, 568]]) {
+    await page.setViewportSize({ width, height });
     if (width <= 375) await page.getByRole('button', { name: 'Fields', exact: true }).click();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await scan(page);
