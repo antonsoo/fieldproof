@@ -13,6 +13,13 @@ test('the hidden-text sample keeps an invisible amount in review and exports off
   await expect(total.locator('.field-reasons')).toContainText('native-text paint contribution');
   await total.getByRole('button', { name: 'Inspect total', exact: true }).click();
   await expect.poll(() => page.locator('#page-frame img').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+  // Axe's font measurements can fetch an unused face in Firefox. Audit while
+  // online, then assert the actual user workflow makes no offline requests.
+  for (const [width, height] of [[1440, 960], [375, 812], [320, 568]]) {
+    await page.setViewportSize({ width, height });
+    if (width <= 375) await page.getByRole('button', { name: 'Fields', exact: true }).click();
+    await scan(page);
+  }
   await page.evaluate(() => document.fonts.ready);
   await context.setOffline(true);
   const requests = [];
@@ -21,7 +28,6 @@ test('the hidden-text sample keeps an invisible amount in review and exports off
     await page.setViewportSize({ width, height });
     if (width <= 375) await page.getByRole('button', { name: 'Fields', exact: true }).click();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await scan(page);
     if (process.env.UPDATE_RASTER_SCREENSHOTS) {
       await page.screenshot({ path: fileURLToPath(new URL(`../../../docs/assets/flat-raster/demo-${browserName}-${width}.png`, import.meta.url)), fullPage: true });
     }
