@@ -1,10 +1,10 @@
 """Load PDFs with a text layer into the `Document` model.
 
 Uses pdfplumber for word-level extraction (text + bounding boxes) because its
-`extract_words` gives us exactly the granularity grounding needs: individual
-words with boxes, in reading order. pypdfium2 is used separately for page
-rendering (see `render.py`) since pdfplumber's rendering path is slower and
-we only need pixels there, not text.
+`extract_words` gives us individual words with boxes, in reading order.
+PDFium compares the original page with a separate reference whose native text
+paint is suppressed. Regional contribution is not proof of glyph identity or
+readability; see raster_paint.
 """
 
 from __future__ import annotations
@@ -18,7 +18,8 @@ import pdfplumber
 import pypdfium2 as pdfium
 
 from fieldproof.document.limits import DocumentLimitError, DocumentLimits, check_pdf_geometry
-from fieldproof.document.model import BBox, Document, Page, Word
+from fieldproof.document.model import BBox, Document, Page, RasterState, Word
+from fieldproof.document.raster_paint import RasterProbe, page_raster
 from fieldproof.document.text_modes import ModePage
 
 
@@ -50,7 +51,7 @@ def load_pdf(
     pages: list[Page] = []
     word_count = text_chars = 0
     views = _visible_page_boxes(source)
-    with pdfplumber.open(stream) as pdf:
+    with closing(pdfium.PdfDocument(source)) as raster_pdf, pdfplumber.open(stream) as pdf:
         for page_number, (original, view_box) in enumerate(
             zip(pdf.pages, views, strict=True), start=1
         ):
@@ -64,9 +65,24 @@ def load_pdf(
                 (origin_x, origin_top, origin_x + width, origin_top + height),
                 strict=False,
             )
+            raster_page = None
             try:
-                loaded = _load_page(visible, page_number)
+                raster_page = raster_pdf[page_number - 1]
+                with page_raster(
+                    raster_page,
+                    width,
+                    height,
+                    source=source,
+                    page_index=page_number - 1,
+                    max_pixels=limits.max_pixels
+                    if limits is not None
+                    else DocumentLimits().max_pixels,
+                    needed=any(_needs_raster(char) for char in visible.chars),
+                ) as probe:
+                    loaded = _load_page(visible, page_number, probe)
             finally:
+                if raster_page is not None:
+                    raster_page.close()
                 visible.close()
                 page.close()  # Release pdfplumber's cached character/layout objects per page.
                 original.close()
@@ -116,9 +132,29 @@ def _visible_page_boxes(source: str | Path | bytes) -> list[tuple[float, float, 
     return boxes
 
 
-def _visible_words(page: pdfplumber.page.Page) -> list[dict[str, Any]]:
+def _needs_raster(char: dict[str, Any]) -> bool:
+    return (
+        bool(char["text"])
+        and not char["text"].isspace()
+        and char["render_mode"] not in (3, 7)
+        and not char["zero_opacity"]
+        and not char["clip_risk"]
+    )
+
+
+def _word_raster(chars: list[dict[str, Any]]) -> RasterState | None:
+    states = {char["raster_state"] for char in chars}
+    if "unavailable" in states:
+        return "unavailable"
+    if "no_contribution" in states:
+        return "no_contribution"
+    return "contributes" if states == {"contributes"} else None
+
+
+def _visible_words(page: pdfplumber.page.Page, probe: RasterProbe) -> list[dict[str, Any]]:
     """Word segmentation follows each glyph's transformed baseline direction."""
     groups: dict[str, list[dict[str, Any]]] = {}
+    origin_x, origin_top = page.bbox[:2]
     for char in page.chars:
         a, b = char.get("matrix", (1, 0))[:2]
         horizontal_direction = "ltr" if a >= 0 else "rtl"
@@ -128,27 +164,50 @@ def _visible_words(page: pdfplumber.page.Page) -> list[dict[str, Any]]:
         # pdfminer calls a vertical glyph's advance its "size", which varies
         # by letter and would split a rotated word into single characters.
         size = char["size"] if horizontal else char["width"]
-        groups.setdefault(direction, []).append({**char, "upright": horizontal, "size": size})
+        raster_state = (
+            probe.check(
+                BBox(
+                    char["x0"] - origin_x,
+                    char["top"] - origin_top,
+                    char["x1"] - origin_x,
+                    char["bottom"] - origin_top,
+                )
+            )
+            if _needs_raster(char)
+            else None
+        )
+        groups.setdefault(direction, []).append(
+            {
+                **char,
+                "upright": horizontal,
+                "size": size,
+                "raster_state": raster_state,
+            }
+        )
     words = []
     for direction, chars in groups.items():
         horizontal = direction in {"ltr", "rtl"}
-        words.extend(
-            pdfplumber.utils.extract_words(
-                chars,
-                keep_blank_chars=False,
-                use_text_flow=False,
-                extra_attrs=["size", "render_mode", "zero_opacity", "clip_risk"],
-                char_dir=direction if horizontal else "ltr",
-                line_dir="ttb" if direction != "rtl" else "btt",
-                char_dir_rotated=direction if not horizontal else "ttb",
-                line_dir_rotated="rtl" if direction == "ttb" else "ltr",
-            )
+        segmented = pdfplumber.utils.extract_words(
+            chars,
+            return_chars=True,
+            keep_blank_chars=False,
+            use_text_flow=False,
+            extra_attrs=["size", "render_mode", "zero_opacity", "clip_risk"],
+            char_dir=direction if horizontal else "ltr",
+            line_dir="ttb" if direction != "rtl" else "btt",
+            char_dir_rotated=direction if not horizontal else "ttb",
+            line_dir_rotated="rtl" if direction == "ttb" else "ltr",
         )
+        for word in segmented:
+            # Keep existing segmentation: a hidden digit must mark the whole
+            # original word, not insert artificial spaces into its text.
+            word["raster_state"] = _word_raster(word.pop("chars"))
+        words.extend(segmented)
     return words
 
 
-def _load_page(page: pdfplumber.page.Page, page_number: int) -> Page:
-    raw_words = _visible_words(page)
+def _load_page(page: pdfplumber.page.Page, page_number: int, probe: RasterProbe) -> Page:
+    raw_words = _visible_words(page, probe)
 
     text_parts: list[str] = []
     words: list[Word] = []
@@ -178,6 +237,7 @@ def _load_page(page: pdfplumber.page.Page, page_number: int) -> Page:
                 render_mode=raw["render_mode"],
                 zero_opacity=raw["zero_opacity"],
                 clip_risk=raw["clip_risk"],
+                raster_state=raw["raster_state"],
             )
         )
 

@@ -274,7 +274,8 @@
         "unsupported": 0
       },
       "cross_field_checks": [],
-      "row_checks": []
+      "row_checks": [],
+      "column_checks": []
     },
     "review": {
       "party_a": {

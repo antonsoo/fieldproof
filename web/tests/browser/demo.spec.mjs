@@ -4,6 +4,39 @@ import { fileURLToPath } from 'node:url';
 import { row, downloadText, scan, installAudit } from './helpers.mjs';
 installAudit(test);
 
+test('the hidden-text sample keeps an invisible amount in review and exports offline', async ({ page, context, browserName }) => {
+  await page.goto('./#hidden-text', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.sample-switch .is-active')).toHaveText('Hidden text');
+  const total = row(page, 'total');
+  await expect(total.locator('.field-value')).toHaveText('900.00');
+  await expect(total.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+  await expect(total.locator('.field-reasons')).toContainText('native-text paint contribution');
+  await total.getByRole('button', { name: 'Inspect total', exact: true }).click();
+  await expect.poll(() => page.locator('#page-frame img').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+  await context.setOffline(true);
+  const requests = [];
+  page.on('request', request => { if (/^https?:/.test(request.url())) requests.push(request.url()); });
+  for (const width of [1440, 375, 320]) {
+    await page.setViewportSize({ width, height: 960 });
+    if (width <= 375) await page.getByRole('button', { name: 'Fields', exact: true }).click();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await scan(page);
+    if (process.env.UPDATE_RASTER_SCREENSHOTS) {
+      await page.screenshot({ path: fileURLToPath(new URL(`../../../docs/assets/flat-raster/demo-${browserName}-${width}.png`, import.meta.url)), fullPage: true });
+    }
+  }
+  await total.getByRole('button', { name: 'Edit', exact: true }).click();
+  await total.getByRole('textbox').fill('90');
+  await total.getByRole('button', { name: 'Save', exact: true }).click();
+  const exported = JSON.parse((await downloadText(page, 'JSON')).text);
+  expect(exported).toEqual([expect.objectContaining({ field: 'total', value: 90, original_value: 900, value_source: 'correction', verification_status: 'needs_review' })]);
+  expect(requests).toEqual([]);
+  await context.setOffline(false);
+  await page.reload();
+  await expect(row(page, 'total').locator('.field-value')).toHaveText('90.00');
+  await expect(row(page, 'total').locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+});
+
 test('the line arithmetic sample exposes the original calculation and exports a correction', async ({ page }) => {
   await page.goto('./#line-arithmetic', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('.sample-switch .is-active')).toHaveText('Arithmetic');

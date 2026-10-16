@@ -501,6 +501,21 @@ def _verify_field(
             "evidence includes PDF text whose bounds cross a clipping boundary; "
             "the complete quote may not be visible on the page; review the rendered document"
         )
+    if any(word.raster_state == "no_contribution" for word in best_match.words):
+        reasons.append(
+            "some quoted PDF characters have no observed native-text paint contribution "
+            "inside their bounds; the text layer alone does not establish what is readable "
+            "there; review the page"
+        )
+    if any(
+        word.paint_requires_review
+        and not (word.unpainted or word.clip_risk or word.raster_state == "no_contribution")
+        for word in best_match.words
+    ):
+        reasons.append(
+            "evidence includes native PDF text without a completed rendering contribution check; "
+            "visibility is unverified; review the source or reload the PDF"
+        )
 
     date_value = isinstance(value, str) and (
         isinstance(evidenced, EvidencedDate)

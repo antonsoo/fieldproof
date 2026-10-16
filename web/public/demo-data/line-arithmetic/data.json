@@ -352,7 +352,7 @@
             "due_date"
           ],
           "status": "not_checked",
-          "message": "date order not checked: both extracted dates must be present and parseable",
+          "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
           "operands": {
             "issue_date": "2026-10-09",
             "due_date": null
@@ -471,6 +471,248 @@
               }
             ]
           }
+        }
+      ],
+      "column_checks": [
+        {
+          "field": "line_items[0].quantity",
+          "status": "aligned",
+          "reason": "the supported number aligns with header 'QTY' on page 1; alignment alone does not establish semantic correctness",
+          "observed_column": "quantity",
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "DESCRIPTION",
+              "start": 106,
+              "end": 117,
+              "rects": [
+                {
+                  "x0": 48.0,
+                  "top": 217.07000000000005,
+                  "x1": 116.34,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "QTY",
+              "start": 118,
+              "end": 121,
+              "rects": [
+                {
+                  "x0": 319.0,
+                  "top": 217.07000000000005,
+                  "x1": 339.56,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "UNIT PRICE",
+              "start": 122,
+              "end": 132,
+              "rects": [
+                {
+                  "x0": 388.0,
+                  "top": 217.07000000000005,
+                  "x1": 444.67,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "AMOUNT",
+              "start": 133,
+              "end": 139,
+              "rects": [
+                {
+                  "x0": 513.0,
+                  "top": 217.07000000000005,
+                  "x1": 556.88,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "3",
+              "start": 156,
+              "end": 157,
+              "rects": [
+                {
+                  "x0": 325.0,
+                  "top": 250.48400000000004,
+                  "x1": 331.672,
+                  "bottom": 262.48400000000004
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[0].unit_price",
+          "status": "aligned",
+          "reason": "the supported number aligns with header 'UNIT PRICE' on page 1; alignment alone does not establish semantic correctness",
+          "observed_column": "unit_price",
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "DESCRIPTION",
+              "start": 106,
+              "end": 117,
+              "rects": [
+                {
+                  "x0": 48.0,
+                  "top": 217.07000000000005,
+                  "x1": 116.34,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "QTY",
+              "start": 118,
+              "end": 121,
+              "rects": [
+                {
+                  "x0": 319.0,
+                  "top": 217.07000000000005,
+                  "x1": 339.56,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "UNIT PRICE",
+              "start": 122,
+              "end": 132,
+              "rects": [
+                {
+                  "x0": 388.0,
+                  "top": 217.07000000000005,
+                  "x1": 444.67,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "AMOUNT",
+              "start": 133,
+              "end": 139,
+              "rects": [
+                {
+                  "x0": 513.0,
+                  "top": 217.07000000000005,
+                  "x1": 556.88,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "19.95",
+              "start": 158,
+              "end": 163,
+              "rects": [
+                {
+                  "x0": 409.0,
+                  "top": 250.48400000000004,
+                  "x1": 439.024,
+                  "bottom": 262.48400000000004
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[0].amount",
+          "status": "aligned",
+          "reason": "the supported number aligns with header 'AMOUNT' on page 1; alignment alone does not establish semantic correctness",
+          "observed_column": "amount",
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "DESCRIPTION",
+              "start": 106,
+              "end": 117,
+              "rects": [
+                {
+                  "x0": 48.0,
+                  "top": 217.07000000000005,
+                  "x1": 116.34,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "QTY",
+              "start": 118,
+              "end": 121,
+              "rects": [
+                {
+                  "x0": 319.0,
+                  "top": 217.07000000000005,
+                  "x1": 339.56,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "UNIT PRICE",
+              "start": 122,
+              "end": 132,
+              "rects": [
+                {
+                  "x0": 388.0,
+                  "top": 217.07000000000005,
+                  "x1": 444.67,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "AMOUNT",
+              "start": 133,
+              "end": 139,
+              "rects": [
+                {
+                  "x0": 513.0,
+                  "top": 217.07000000000005,
+                  "x1": 556.88,
+                  "bottom": 227.07000000000005
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "39.90",
+              "start": 164,
+              "end": 169,
+              "rects": [
+                {
+                  "x0": 529.0,
+                  "top": 250.48400000000004,
+                  "x1": 559.024,
+                  "bottom": 262.48400000000004
+                }
+              ]
+            }
+          ]
         }
       ]
     },

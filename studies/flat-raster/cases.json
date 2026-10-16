@@ -1,0 +1,317 @@
+[
+  {
+    "id": "black-on-white",
+    "hidden": false
+  },
+  {
+    "id": "a4-visible",
+    "page_size": [
+      595.2756,
+      841.8898
+    ],
+    "hidden": false
+  },
+  {
+    "id": "a4-white-on-white",
+    "page_size": [
+      595.2756,
+      841.8898
+    ],
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": true
+  },
+  {
+    "id": "white-on-white",
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": true
+  },
+  {
+    "id": "black-on-black",
+    "background": [
+      0,
+      0,
+      0
+    ],
+    "hidden": true
+  },
+  {
+    "id": "gray-on-gray",
+    "background": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "foreground": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "hidden": true
+  },
+  {
+    "id": "white-on-black",
+    "background": [
+      0,
+      0,
+      0
+    ],
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": false
+  },
+  {
+    "id": "black-on-yellow",
+    "background": [
+      1,
+      1,
+      0.7
+    ],
+    "hidden": false
+  },
+  {
+    "id": "white-on-blue",
+    "background": [
+      0.1,
+      0.2,
+      0.5
+    ],
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": false
+  },
+  {
+    "id": "overpaint-white",
+    "kind": "overpaint",
+    "hidden": true
+  },
+  {
+    "id": "overpaint-gray",
+    "kind": "overpaint",
+    "background": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "hidden": true
+  },
+  {
+    "id": "flat-image-cover",
+    "kind": "image",
+    "hidden": true
+  },
+  {
+    "id": "image-prints-ninety",
+    "kind": "image-text",
+    "hidden": true
+  },
+  {
+    "id": "pattern-covers-text",
+    "kind": "pattern",
+    "hidden": true
+  },
+  {
+    "id": "text-over-pattern",
+    "kind": "pattern-background",
+    "hidden": false
+  },
+  {
+    "id": "even-odd-hole",
+    "kind": "hole",
+    "hidden": true
+  },
+  {
+    "id": "leading-nine-hidden",
+    "kind": "leading-digit",
+    "hidden": true
+  },
+  {
+    "id": "mixed-ink-visible",
+    "kind": "mixed-visible",
+    "hidden": false
+  },
+  {
+    "id": "white-on-white-8pt",
+    "font_size": 8,
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": true
+  },
+  {
+    "id": "visible-8pt",
+    "font_size": 8,
+    "hidden": false
+  },
+  {
+    "id": "leading-nine-hidden-8pt",
+    "kind": "leading-digit",
+    "font_size": 8,
+    "hidden": true
+  },
+  {
+    "id": "white-on-white-24pt",
+    "font_size": 24,
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": true
+  },
+  {
+    "id": "visible-24pt",
+    "font_size": 24,
+    "hidden": false
+  },
+  {
+    "id": "leading-nine-hidden-24pt",
+    "kind": "leading-digit",
+    "font_size": 24,
+    "hidden": true
+  },
+  {
+    "id": "white-on-white-rot90",
+    "rotation": 90,
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": true
+  },
+  {
+    "id": "white-on-black-rot90",
+    "rotation": 90,
+    "background": [
+      0,
+      0,
+      0
+    ],
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": false
+  },
+  {
+    "id": "white-on-white-rot180",
+    "rotation": 180,
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": true
+  },
+  {
+    "id": "white-on-black-rot180",
+    "rotation": 180,
+    "background": [
+      0,
+      0,
+      0
+    ],
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": false
+  },
+  {
+    "id": "white-on-white-rot270",
+    "rotation": 270,
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": true
+  },
+  {
+    "id": "white-on-black-rot270",
+    "rotation": 270,
+    "background": [
+      0,
+      0,
+      0
+    ],
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": false
+  },
+  {
+    "id": "white-crop-rot0",
+    "crop": [
+      20,
+      20,
+      500,
+      760
+    ],
+    "rotation": 0,
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": true
+  },
+  {
+    "id": "visible-crop-rot0",
+    "crop": [
+      20,
+      20,
+      500,
+      760
+    ],
+    "rotation": 0,
+    "hidden": false
+  },
+  {
+    "id": "white-crop-rot90",
+    "crop": [
+      20,
+      20,
+      500,
+      760
+    ],
+    "rotation": 90,
+    "foreground": [
+      1,
+      1,
+      1
+    ],
+    "hidden": true
+  },
+  {
+    "id": "visible-crop-rot90",
+    "crop": [
+      20,
+      20,
+      500,
+      760
+    ],
+    "rotation": 90,
+    "hidden": false
+  }
+]

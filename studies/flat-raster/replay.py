@@ -1,0 +1,98 @@
+"""Retained native PDFs through the public loader, worker JSON and verifier."""
+
+import argparse
+import hashlib
+import json
+import sys
+from dataclasses import asdict
+from importlib.metadata import version
+from pathlib import Path
+from time import perf_counter
+
+from pydantic import BaseModel
+
+import fieldproof
+from fieldproof.document.loader import load_pdf
+from fieldproof.document.model import document_from_dict
+from fieldproof.schemas import Evidenced
+from fieldproof.verify import verify
+
+HERE = Path(__file__).resolve().parent
+
+
+class Claim(BaseModel):
+    total: Evidenced[float]
+    visible: Evidenced[float]
+    footer: Evidenced[str]
+
+
+def replay() -> dict:
+    observations = []
+    started = perf_counter()
+    for case in json.loads((HERE / "cases.json").read_text()):
+        content = (HERE / "fixtures" / f"{case['id']}.pdf").read_bytes()
+        document = document_from_dict(json.loads(json.dumps(asdict(load_pdf(content)))))
+        data = Claim(
+            total=Evidenced(value=900, evidence=["Authorized total: $900.00"]),
+            visible=Evidenced(value=90, evidence=["Visible total: $90.00"]),
+            footer=Evidenced(value="Footer control", evidence=["Footer control"]),
+        )
+        for result in verify(data, document).fields:
+            expected = "needs_review" if case["hidden"] and result.path == "total" else "verified"
+            observations.append(
+                {
+                    "case": case["id"],
+                    "sha256": hashlib.sha256(content).hexdigest(),
+                    "expected": expected,
+                    "wordStates": [
+                        {
+                            "text": w.text,
+                            "bbox": w.bbox.to_dict(),
+                            "render_mode": w.render_mode,
+                            "zero_opacity": w.zero_opacity,
+                            "clip_risk": w.clip_risk,
+                            "raster_state": getattr(w, "raster_state", None),
+                        }
+                        for p in document.pages
+                        for w in p.words
+                    ],
+                    "field": result.to_dict(),
+                }
+            )
+    root = Path(fieldproof.__file__).parent
+    return {
+        "synthetic": True,
+        "python": sys.version.split()[0],
+        "versions": {
+            name: version(name) for name in ("pdfplumber", "pdfminer.six", "pypdfium2", "Pillow")
+        },
+        "runtimeFiles": {
+            str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(root.rglob("*"))
+            if p.is_file() and (p.suffix == ".py" or p.name == "py.typed")
+        },
+        "pdfs": len(observations) // 3,
+        "claims": len(observations),
+        "mismatches": sum(o["expected"] != o["field"]["status"] for o in observations),
+        "unexpected_verified": sum(
+            o["expected"] == "needs_review" and o["field"]["status"] == "verified"
+            for o in observations
+        ),
+        "seconds": round(perf_counter() - started, 4),
+        "observations": observations,
+    }
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("output", type=Path)
+    parser.add_argument("--check", action="store_true")
+    args = parser.parse_args()
+    result = replay()
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(result, indent=2) + "\n")
+    print(
+        {key: value for key, value in result.items() if key not in {"observations", "runtimeFiles"}}
+    )
+    if args.check:
+        assert result["mismatches"] == 0

@@ -171,6 +171,11 @@ on your machine. From a source checkout, build the UI first (see
   when a quote's native glyph bounds cross an outer clipping boundary, including
   a Form's bounding box. It preserves partially clipped words and keeps them
   from establishing conventions, row anchors or column headers.
+  The [native-paint check](studies/flat-raster/README.md) also catches white-on-white
+  and covered text: 20 hidden amounts falsely verified in the published baseline
+  now require review across 34 authored PDFs. The demo's **Hidden text** sample
+  displays `$90.00` as an image over native `$900.00`; inspect and correct the
+  original claim without replacing its automated verdict.
 - **Reject discarded claims (source checkout, unreleased)** - duplicate JSON
   members and unknown fields cannot silently disappear from an extraction before
   review. The CLI, uploaded fixtures and provider replies share the same checks;
@@ -687,13 +692,13 @@ See the [inputs, reproduction and compatibility checks](studies/grounding-reuse/
   glyph bounds crossing a known outer clipping boundary.
   This also affects correctly aligned
   searchable OCR layers: they remain extractable but require visual review.
-  This check does not detect white-on-white text, general soft-mask transparency, overpainting,
-  holes and curved boundaries inside a clipping path's outer bounds, text clipping
-  masks or incorrect character mappings. Glyph layout boxes can also cross a
-  boundary while the remaining ink is readable; the flag requires review rather
-  than declaring the text invisible. Other rendering modes
-  and caller-supplied words do not establish pixel visibility. See the
-  [scope and remaining limits](studies/clipped-text/README.md).
+  A bounded 144-DPI comparison also checks each native character's regional
+  paint contribution against an independent copy with text paint suppressed.
+  Missing contributions and incomplete checks require review. A positive
+  difference does not prove readability, correct font-to-Unicode mapping, or
+  ownership of overlapping native ink. Small or partly clipped readable glyphs
+  may require review too. Caller-supplied and recognized OCR words do not have
+  this native-text audit. See the [method, cost and remaining limits](studies/flat-raster/README.md).
 - **OCR is a degraded mode, not equivalent to a text layer.** Scanned PDFs
   are supported only if the optional `ocr` extra (`pytesseract` + a system
   Tesseract install) is present; grounding still fuzzy-matches against

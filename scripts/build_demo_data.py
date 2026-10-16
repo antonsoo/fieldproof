@@ -31,6 +31,7 @@ SAMPLES = [
     ("receipt", "Receipt", "receipt"),
     ("contract", "Contract", "contract"),
     ("line-arithmetic", "Arithmetic", "invoice"),
+    ("hidden-text", "Hidden text", "invoice"),
 ]
 
 

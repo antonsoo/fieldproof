@@ -1,0 +1,116 @@
+{
+  "documents": 10,
+  "seconds": 0.5844,
+  "observations": [
+    {
+      "pdf": "column-evidence.pdf",
+      "sha256": "2fc2b5be11dfb49eacc82b72bc1833c64d9109c6e9db373126f2995fef3f88ef",
+      "text_and_geometry_sha256": "a30c6b71638bf179a2e36a2ff8c6c996aa3076a59f3769d8990f82941bd12776",
+      "report_sha256": "dba3f1c14ba40fa3b14ea322afe71091cb033b3ac9027c3b347cc71cdfd8811a",
+      "counts": {
+        "verified": 8,
+        "needs_review": 2,
+        "unsupported": 0
+      }
+    },
+    {
+      "pdf": "contract.pdf",
+      "sha256": "8b0dfce01c4758e673ab7423b51809caa3610c22a90091447999e9aa98562318",
+      "text_and_geometry_sha256": "495eeabbc74f1c760069de8d122454507fdeea0bec52e90f2afc9463a897e0f0",
+      "report_sha256": "88f1944660f51057e90c2656b0dfd5f6626192a648f752178bf70fa1fe5b3738",
+      "counts": {
+        "verified": 10,
+        "needs_review": 0,
+        "unsupported": 0
+      }
+    },
+    {
+      "pdf": "date-convention.pdf",
+      "sha256": "111cc13f04a27893f47caeaf74bd10da6161ab7f63267eb68f69ec678ec6e6f1",
+      "text_and_geometry_sha256": "78a97ebfc3ffa57b33694665173bdee858c69569a904f00e3eb03c9d5a959ca6",
+      "report_sha256": "1e02c6b853615c0f41bee1764fcc6422d18ba0f6a6261d8a2f2ab25ac038ed28",
+      "counts": {
+        "verified": 3,
+        "needs_review": 1,
+        "unsupported": 0
+      }
+    },
+    {
+      "pdf": "invoice.pdf",
+      "sha256": "32d026999bf2318034f8d03df2b655b2c5f210245b3153b4068f64f333147175",
+      "text_and_geometry_sha256": "8e5fad9e66579945f3e42d41a098cd1509d381ad665e7f0ad7879819ec427d90",
+      "report_sha256": "d63ec4b6a42f2a4a81043cddb6722b1f6b4bc398e80324672e050b6854267263",
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      }
+    },
+    {
+      "pdf": "line-arithmetic.pdf",
+      "sha256": "f375a9e52a0508c40d21baf44d450fbe126506ea4982c46a2730fb4d8c009b48",
+      "text_and_geometry_sha256": "697841704e6ec83f02b58d14b325ca28070f8e66cbc46bbe30f9f78f38aa8650",
+      "report_sha256": "2f92f4c8a676f75d00c13c2eee79cf72f055d115a130a05f662362ed47818552",
+      "counts": {
+        "verified": 7,
+        "needs_review": 3,
+        "unsupported": 0
+      }
+    },
+    {
+      "pdf": "mixed-conventions.pdf",
+      "sha256": "c9165c388477d885bfd2510c53e8332960a9f783e012ff31b94372b9b640693c",
+      "text_and_geometry_sha256": "7639da7c9b4d15101670776ef56906e254da751cb4755869024b3033cdb97774",
+      "report_sha256": "fb49a355b7af40e4f9c8ca110478fe7b5c313407b462d4947083218eb0f553f3",
+      "counts": {
+        "verified": 2,
+        "needs_review": 2,
+        "unsupported": 0
+      }
+    },
+    {
+      "pdf": "receipt.pdf",
+      "sha256": "7cef321b47e1272523a831148e2c2787d8805c4835c536aa3fb326421aabffee",
+      "text_and_geometry_sha256": "6a1e4722d248287fba948a275c14b6f2087ef5cd092e171ed47c6892ba378851",
+      "report_sha256": "1bb0c9c42526d4c99e3e37daf2c0c5f894d4626369722c05a7617fe1a5b49b26",
+      "counts": {
+        "verified": 17,
+        "needs_review": 1,
+        "unsupported": 0
+      }
+    },
+    {
+      "pdf": "row-association.pdf",
+      "sha256": "bd6221e2b1206843c306dc0dd4fe7c113c7d4526015d7242d729ecfcef173cc4",
+      "text_and_geometry_sha256": "56d1cd4e14294210f247d40d284f175d960dfc4536aca8232e4df0b63d1b8f1d",
+      "report_sha256": "000faba447b010b5315bc3ac93ec5a59e3c37087b53c39d863a0ff2481d53fb9",
+      "counts": {
+        "verified": 14,
+        "needs_review": 1,
+        "unsupported": 0
+      }
+    },
+    {
+      "pdf": "row-locality.pdf",
+      "sha256": "fd3550678e0f284ba8efa4437bda8ef395ff48c86d0c7dbf7eeac32de3f75099",
+      "text_and_geometry_sha256": "3dc44e91f1e85518522cdd5f3bda70789d7e6cf851403d193abf496cb1e9669e",
+      "report_sha256": "34df93b96ab04a0491fd2359f545a7e90356aa4f1982e35e065e824607cd6266",
+      "counts": {
+        "verified": 14,
+        "needs_review": 1,
+        "unsupported": 0
+      }
+    },
+    {
+      "pdf": "signed-amount.pdf",
+      "sha256": "0468baade843452d04e8ef9b71cb55fae19b75bd434ab908d51060e23e8ddb14",
+      "text_and_geometry_sha256": "c37e9a00d5d57780d05030dd4c412fc796f60c73a408d8f0251c7b22b363e595",
+      "report_sha256": "9301c78d369816ed2a3b3ee574d7cc823e8dbf5ef1a70da9ebab78e3261a06d7",
+      "counts": {
+        "verified": 3,
+        "needs_review": 1,
+        "unsupported": 0
+      }
+    }
+  ]
+}

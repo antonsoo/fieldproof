@@ -4,6 +4,22 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Native PDF paint contribution
+
+- Compare each native character's inward-rounded layout region at 144 DPI
+  against a disposable reference with native text paint suppressed. Preserve
+  text clipping, verify the untouched reference render first, and never edit
+  the original document. Missing contribution or incomplete checks require
+  review and cannot provide conventions, row anchors or column headings.
+- Keep source text, geometry, word segmentation, worker transport and correction
+  provenance. Native records without an audit remain unchecked; manually
+  supplied and recognized OCR words retain their existing behavior.
+- Add a concrete Hidden text demo sample: a printed image says $90.00 over a
+  native $900.00 claim. Retain 34 authored PDFs, 102 claims, independent renderer
+  checks and measured processing costs under `studies/flat-raster`. Regional
+  contribution is not proof of readability, character identity or the ownership
+  of overlapping native ink. This is unreleased source work.
+
 ### Clipped PDF evidence
 
 - Require review when native glyph bounds cross a conservative outer clipping

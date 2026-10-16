@@ -803,7 +803,8 @@
             ]
           }
         }
-      ]
+      ],
+      "column_checks": []
     },
     "review": {
       "merchant_name": {

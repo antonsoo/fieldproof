@@ -9,7 +9,9 @@ provider calls, no rendering, just what was actually on the page.
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
-from typing import Any
+from typing import Any, Literal
+
+RasterState = Literal["contributes", "no_contribution", "unavailable"]
 
 
 @dataclass(frozen=True, slots=True)
@@ -64,6 +66,13 @@ class Word:
     # The glyph's layout bounds cross a conservative outer clipping bound.
     # This identifies a review risk, not which pixels (if any) remain visible.
     clip_risk: bool = False
+    # Per-glyph observations of the original versus paint-suppressed 144-DPI
+    # raster, aggregated to the word: unavailable if any glyph is unchecked,
+    # no_contribution if any sampled interior has no native paint effect,
+    # otherwise contributes. None means no observation (including OCR/caller
+    # words and already unpainted text). Contribution does not establish glyph
+    # identity or readability, and overlapping native text can lend pixels.
+    raster_state: RasterState | None = None
 
     @property
     def unpainted(self) -> bool:
@@ -71,7 +80,12 @@ class Word:
 
     @property
     def paint_requires_review(self) -> bool:
-        return self.unpainted or self.clip_risk
+        return (
+            self.unpainted
+            or self.clip_risk
+            or self.raster_state not in (None, "contributes")
+            or (self.render_mode is not None and self.raster_state is None)
+        )
 
 
 @dataclass(frozen=True, slots=True)
@@ -163,6 +177,7 @@ def document_from_dict(raw: dict[str, Any]) -> Document:
                         render_mode=word.get("render_mode"),
                         zero_opacity=word.get("zero_opacity", False),
                         clip_risk=word.get("clip_risk", False),
+                        raster_state=word.get("raster_state"),
                     )
                     for word in page["words"]
                 ],

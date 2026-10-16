@@ -14,5 +14,9 @@
   {
     "id": "line-arithmetic",
     "label": "Arithmetic"
+  },
+  {
+    "id": "hidden-text",
+    "label": "Hidden text"
   }
 ]

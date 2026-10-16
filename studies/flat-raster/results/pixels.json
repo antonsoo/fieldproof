@@ -1,0 +1,824 @@
+{
+  "scope": "Independent final-pixel checks: each renderer against an omitted-ink reference.",
+  "dpi": 144,
+  "checks": 68,
+  "mismatches": 0,
+  "rows": [
+    {
+      "case": "black-on-white",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "504592ae946bd50a4fa0934bc0a7702238e8aead8d573125b553a10cd2e2565d",
+      "controlRgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582"
+    },
+    {
+      "case": "black-on-white",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "826f38e2b911f3e342b49ce50cf62f2bf47ffac39224e718e0b72278065d4db6",
+      "controlRgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f"
+    },
+    {
+      "case": "a4-visible",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1191,
+        1684
+      ],
+      "rgbSha256": "b5d8a71eb3a68234ac085b7711528204634d565067df9eb7829c9907dff4587d",
+      "controlRgbSha256": "9c4c53269dd89c056154ea4b2f7926877c42bfdfaa3d3e54a11e54e63065c8e5"
+    },
+    {
+      "case": "a4-visible",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1191,
+        1684
+      ],
+      "rgbSha256": "01bfbd1156620583b29452506bfd26926bd87070b0045ec9ad2f530aa5e32e30",
+      "controlRgbSha256": "06fe47d2c0b0ac5f965e6e2d327e9367888cac8cb10e1b17bd7fad40d73a41e9"
+    },
+    {
+      "case": "a4-white-on-white",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1191,
+        1684
+      ],
+      "rgbSha256": "9c4c53269dd89c056154ea4b2f7926877c42bfdfaa3d3e54a11e54e63065c8e5",
+      "controlRgbSha256": "9c4c53269dd89c056154ea4b2f7926877c42bfdfaa3d3e54a11e54e63065c8e5"
+    },
+    {
+      "case": "a4-white-on-white",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1191,
+        1684
+      ],
+      "rgbSha256": "06fe47d2c0b0ac5f965e6e2d327e9367888cac8cb10e1b17bd7fad40d73a41e9",
+      "controlRgbSha256": "06fe47d2c0b0ac5f965e6e2d327e9367888cac8cb10e1b17bd7fad40d73a41e9"
+    },
+    {
+      "case": "white-on-white",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582",
+      "controlRgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582"
+    },
+    {
+      "case": "white-on-white",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f",
+      "controlRgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f"
+    },
+    {
+      "case": "black-on-black",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5e0663eef07529194cf2c100d124a37d3df894eaeae682b6ab3f9233038605c9",
+      "controlRgbSha256": "5e0663eef07529194cf2c100d124a37d3df894eaeae682b6ab3f9233038605c9"
+    },
+    {
+      "case": "black-on-black",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "4588b1126d848d39fd529db4c223bc59a12dc8f8ab9b54dc8422239bfed62436",
+      "controlRgbSha256": "4588b1126d848d39fd529db4c223bc59a12dc8f8ab9b54dc8422239bfed62436"
+    },
+    {
+      "case": "gray-on-gray",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "83c417325115eab732b00e3341b287e9e0e6a92fffe2655907d99e16c6a3a4dc",
+      "controlRgbSha256": "83c417325115eab732b00e3341b287e9e0e6a92fffe2655907d99e16c6a3a4dc"
+    },
+    {
+      "case": "gray-on-gray",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "4f3ae5a975330e47407ea837ab68c22ef336f7b59f9de1f61b3ace0fed373823",
+      "controlRgbSha256": "4f3ae5a975330e47407ea837ab68c22ef336f7b59f9de1f61b3ace0fed373823"
+    },
+    {
+      "case": "white-on-black",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "fe8b3ee17c94b3ecf365f5a6b7e3c7d41e1a03ee4b864867f7b495aec8c0f8d5",
+      "controlRgbSha256": "5e0663eef07529194cf2c100d124a37d3df894eaeae682b6ab3f9233038605c9"
+    },
+    {
+      "case": "white-on-black",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "0395fb4181d29ed7248772b24c9eb6ac17c5525167e946241baeb3548cc1a57a",
+      "controlRgbSha256": "4588b1126d848d39fd529db4c223bc59a12dc8f8ab9b54dc8422239bfed62436"
+    },
+    {
+      "case": "black-on-yellow",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "8aa7a980e21ebbdd68139bdf2d35e83c8a06d904585194fd2c84fac69e1a4261",
+      "controlRgbSha256": "7fc58cb9d0b86ec311293c75713725f27f8eb558475896e4f9397f1d97a58ce9"
+    },
+    {
+      "case": "black-on-yellow",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "80dd7c699ef11b28d552974adc0d478c506f9fd91316b3bcf365b1452dcee5e8",
+      "controlRgbSha256": "8803ce4e9ba3eca1a2f1b075173ce191135b3d79c6932d6b37f051ee90917bbb"
+    },
+    {
+      "case": "white-on-blue",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "45458f803e49b21d1e82fa4d2a04570d6f0fe075fe18395d42bffdbb78a7517f",
+      "controlRgbSha256": "8c150835a9d8bd958ab2ac1bc9245abe4a415d25dfea7d624536032928cf8c4d"
+    },
+    {
+      "case": "white-on-blue",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "a66b2bca3f01208010a4adfc9c8d6c35088e1ca127787b34a28f8e4212ff0a33",
+      "controlRgbSha256": "2284d6c1db54fa160099dbaf407b5bb5ef3b8ae9abc58c7f41f8668e12cb4b32"
+    },
+    {
+      "case": "overpaint-white",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582",
+      "controlRgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582"
+    },
+    {
+      "case": "overpaint-white",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f",
+      "controlRgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f"
+    },
+    {
+      "case": "overpaint-gray",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "83c417325115eab732b00e3341b287e9e0e6a92fffe2655907d99e16c6a3a4dc",
+      "controlRgbSha256": "83c417325115eab732b00e3341b287e9e0e6a92fffe2655907d99e16c6a3a4dc"
+    },
+    {
+      "case": "overpaint-gray",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "4f3ae5a975330e47407ea837ab68c22ef336f7b59f9de1f61b3ace0fed373823",
+      "controlRgbSha256": "4f3ae5a975330e47407ea837ab68c22ef336f7b59f9de1f61b3ace0fed373823"
+    },
+    {
+      "case": "flat-image-cover",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582",
+      "controlRgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582"
+    },
+    {
+      "case": "flat-image-cover",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f",
+      "controlRgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f"
+    },
+    {
+      "case": "image-prints-ninety",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "45a09907cfda29726f3b78b3b29a816be1309a05b9e2aa558ad9930264459fb3",
+      "controlRgbSha256": "45a09907cfda29726f3b78b3b29a816be1309a05b9e2aa558ad9930264459fb3"
+    },
+    {
+      "case": "image-prints-ninety",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "7359b14c980671a40bbc23d6ebb6049638741277b6dad8c2df716e196fdd1b5a",
+      "controlRgbSha256": "7359b14c980671a40bbc23d6ebb6049638741277b6dad8c2df716e196fdd1b5a"
+    },
+    {
+      "case": "pattern-covers-text",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "541ec99ddd87b6e4ee3e5a2c789cee40882bc77ecc9bd467a13bb8fcb7508925",
+      "controlRgbSha256": "541ec99ddd87b6e4ee3e5a2c789cee40882bc77ecc9bd467a13bb8fcb7508925"
+    },
+    {
+      "case": "pattern-covers-text",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "87be58537a6dee548344174a332aeea973c8320b24bbc2519a69e0a801dba9ca",
+      "controlRgbSha256": "87be58537a6dee548344174a332aeea973c8320b24bbc2519a69e0a801dba9ca"
+    },
+    {
+      "case": "text-over-pattern",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "2eb859e675515d98fb6c1e8781de58b4fce664d41043626bc90e4eff3fa4df56",
+      "controlRgbSha256": "fdf65c3fd4fbc9d635e8252eb8b2ae91bdb2b953b29deadca5a2f6070a28ad0d"
+    },
+    {
+      "case": "text-over-pattern",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "0c95e50d5eb97ce8c2377e4caa6358edc870f53d4b7117b2fcf02a0ded68e925",
+      "controlRgbSha256": "ac5a8f6040176fd473940011faf0f65b9ebeca9c00ff2f40802a21db3681b1b6"
+    },
+    {
+      "case": "even-odd-hole",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582",
+      "controlRgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582"
+    },
+    {
+      "case": "even-odd-hole",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f",
+      "controlRgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f"
+    },
+    {
+      "case": "leading-nine-hidden",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "20d3af94bd225acb449524ce9be6bb168b779b0af71043612afc4eb6043cf41b",
+      "controlRgbSha256": "20d3af94bd225acb449524ce9be6bb168b779b0af71043612afc4eb6043cf41b"
+    },
+    {
+      "case": "leading-nine-hidden",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "bb652bb2c54201854fdfe2f2a2b8e459e8682e2735d90bdd0a69eb4e89791c68",
+      "controlRgbSha256": "bb652bb2c54201854fdfe2f2a2b8e459e8682e2735d90bdd0a69eb4e89791c68"
+    },
+    {
+      "case": "mixed-ink-visible",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "c896713bd66f590df7f39f07047be0febcbce3637edc241f59de19fd194c24be",
+      "controlRgbSha256": "20d3af94bd225acb449524ce9be6bb168b779b0af71043612afc4eb6043cf41b"
+    },
+    {
+      "case": "mixed-ink-visible",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "7d10f0132ca2b5d13ce2db3e36d12b2c240a745f1e8bc94100a89b0c8409a3dc",
+      "controlRgbSha256": "bb652bb2c54201854fdfe2f2a2b8e459e8682e2735d90bdd0a69eb4e89791c68"
+    },
+    {
+      "case": "white-on-white-8pt",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582",
+      "controlRgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582"
+    },
+    {
+      "case": "white-on-white-8pt",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f",
+      "controlRgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f"
+    },
+    {
+      "case": "visible-8pt",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "658e506f29ee33da55f67272e07f4050f77ca7be5aa0844718c3c8da60e84380",
+      "controlRgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582"
+    },
+    {
+      "case": "visible-8pt",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "6703de399e8f9fb2ce9837bfc461650c477ef75f07d8122d8779a4c577db1966",
+      "controlRgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f"
+    },
+    {
+      "case": "leading-nine-hidden-8pt",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "298dfde0e2a122c60b8b234fb99319ff7a88eb5eb2fc08da984e85c70b13972d",
+      "controlRgbSha256": "298dfde0e2a122c60b8b234fb99319ff7a88eb5eb2fc08da984e85c70b13972d"
+    },
+    {
+      "case": "leading-nine-hidden-8pt",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "c7cfa29fdac21ca7bf6fc5736324f11941ebe7a32da2b59fc48b287c033d13df",
+      "controlRgbSha256": "c7cfa29fdac21ca7bf6fc5736324f11941ebe7a32da2b59fc48b287c033d13df"
+    },
+    {
+      "case": "white-on-white-24pt",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582",
+      "controlRgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582"
+    },
+    {
+      "case": "white-on-white-24pt",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f",
+      "controlRgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f"
+    },
+    {
+      "case": "visible-24pt",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "ae855979705f73e24aa39a26b98a30082a497907757211ca9c1bc86cb86e5800",
+      "controlRgbSha256": "6a39b024db59defb9c20de47a3d9de0e7b2585190df812a754d81ee578f7d582"
+    },
+    {
+      "case": "visible-24pt",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5e4b839aee980a8b351f7f5946f3e6f91f5dde984eac5cb2fe5b3007a98844a6",
+      "controlRgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f"
+    },
+    {
+      "case": "leading-nine-hidden-24pt",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "9231bf8b1ac3cf3eb86ff14561e0811160f4747152e717b7c0884d6cbf3680b3",
+      "controlRgbSha256": "9231bf8b1ac3cf3eb86ff14561e0811160f4747152e717b7c0884d6cbf3680b3"
+    },
+    {
+      "case": "leading-nine-hidden-24pt",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "7b6b0836e0c63449b36612cf66839f22b8f17038dca8c2869bd84a6c30d2daae",
+      "controlRgbSha256": "7b6b0836e0c63449b36612cf66839f22b8f17038dca8c2869bd84a6c30d2daae"
+    },
+    {
+      "case": "white-on-white-rot90",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1584,
+        1224
+      ],
+      "rgbSha256": "be14ce6523ebb854b940eb23e10ac1322a9c121a927604ab77d8182ae38b64b1",
+      "controlRgbSha256": "be14ce6523ebb854b940eb23e10ac1322a9c121a927604ab77d8182ae38b64b1"
+    },
+    {
+      "case": "white-on-white-rot90",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1584,
+        1224
+      ],
+      "rgbSha256": "cb963d7b7959fb6c343c0c96130f3ea149bd37b151a88454d0220aa312702942",
+      "controlRgbSha256": "cb963d7b7959fb6c343c0c96130f3ea149bd37b151a88454d0220aa312702942"
+    },
+    {
+      "case": "white-on-black-rot90",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1584,
+        1224
+      ],
+      "rgbSha256": "dfd3e73ea64170664de92428b9056273ca965b165972482991cfebdfa9b1e03f",
+      "controlRgbSha256": "feab2bc3800845d89025e0583ee47ef82a5c870b865d7cf530e99600349da42b"
+    },
+    {
+      "case": "white-on-black-rot90",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1584,
+        1224
+      ],
+      "rgbSha256": "5a5a8c94f02cf2df76e26ecf453c02b652fc8e49a9a18eddf9b8d0699a566524",
+      "controlRgbSha256": "c6a2de7fb41f64e5fa44f8523287eabb70228ce4007cced15eb979127e42ce05"
+    },
+    {
+      "case": "white-on-white-rot180",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "6ab4aa7820fd92f091d3eb388a22f16e72db5f03410ac8ac84f7c8bb0d627618",
+      "controlRgbSha256": "6ab4aa7820fd92f091d3eb388a22f16e72db5f03410ac8ac84f7c8bb0d627618"
+    },
+    {
+      "case": "white-on-white-rot180",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "55efa0275479057811e39804a30ba4800d29342dc69204c1a1811838d4071ce1",
+      "controlRgbSha256": "55efa0275479057811e39804a30ba4800d29342dc69204c1a1811838d4071ce1"
+    },
+    {
+      "case": "white-on-black-rot180",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "45d4e7424b99420fb96632ec73e2a239e16ec8e3e5873e52077ffd1244e0d37d",
+      "controlRgbSha256": "c19de12a3ac9f469b390df6d1244670c8ccb495bc491e1e33b099580b30d2bd0"
+    },
+    {
+      "case": "white-on-black-rot180",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "fb8b85cdd39c2d02370bb223b669e5f1b6eb696de8e11d6ced2d7aff55d5686b",
+      "controlRgbSha256": "16692872dc03a8a5b1b0608e2bae553d57e889cc1385170c47d20ec69c2af1a5"
+    },
+    {
+      "case": "white-on-white-rot270",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1584,
+        1224
+      ],
+      "rgbSha256": "59d50046b1fddff619f024cb7c8522edcca03e7045491c0263acc841daa7bca3",
+      "controlRgbSha256": "59d50046b1fddff619f024cb7c8522edcca03e7045491c0263acc841daa7bca3"
+    },
+    {
+      "case": "white-on-white-rot270",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1584,
+        1224
+      ],
+      "rgbSha256": "3da7fa56cb1300e10b0f0602512bcdd9eeafb065c2523cd32d3bb230bfdd88cd",
+      "controlRgbSha256": "3da7fa56cb1300e10b0f0602512bcdd9eeafb065c2523cd32d3bb230bfdd88cd"
+    },
+    {
+      "case": "white-on-black-rot270",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1584,
+        1224
+      ],
+      "rgbSha256": "1c2214742a0d9e07d87a418f7327e89700b3060f54758b1e02db16ebc54b5a79",
+      "controlRgbSha256": "f82f81ae2260737eaa1e598e018fe99bbeb6346e90360e20598424b62add8fef"
+    },
+    {
+      "case": "white-on-black-rot270",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1584,
+        1224
+      ],
+      "rgbSha256": "010f0d6d2897f1fc49ab80791a13bb61f2dc9fd32423c74de217359d34e65eec",
+      "controlRgbSha256": "183318600d50c4d3cfae11a880693edd0242113b2a03e7a7839af6673a761fc6"
+    },
+    {
+      "case": "white-crop-rot0",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        960,
+        1480
+      ],
+      "rgbSha256": "fe658027efb2b1dfc55f4fc4629e59eb9aada3e9926005e589e5a2989f7761f4",
+      "controlRgbSha256": "fe658027efb2b1dfc55f4fc4629e59eb9aada3e9926005e589e5a2989f7761f4"
+    },
+    {
+      "case": "white-crop-rot0",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f",
+      "controlRgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f"
+    },
+    {
+      "case": "visible-crop-rot0",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        960,
+        1480
+      ],
+      "rgbSha256": "6cd3fa15ca16a4e241a2eebf4602d0b883fdd196aa736a0661ed6d26df23c6d7",
+      "controlRgbSha256": "fe658027efb2b1dfc55f4fc4629e59eb9aada3e9926005e589e5a2989f7761f4"
+    },
+    {
+      "case": "visible-crop-rot0",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "826f38e2b911f3e342b49ce50cf62f2bf47ffac39224e718e0b72278065d4db6",
+      "controlRgbSha256": "5ee3e7b169496622ee5b46e796acbf15ab51ddd7f7e97c41ba0e5e76fc0bce6f"
+    },
+    {
+      "case": "white-crop-rot90",
+      "engine": "pdfium",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1480,
+        960
+      ],
+      "rgbSha256": "e7760365eecf8c5ef71de4ad819979d412a9aa3514615fc243e5e7510b3ce6b6",
+      "controlRgbSha256": "e7760365eecf8c5ef71de4ad819979d412a9aa3514615fc243e5e7510b3ce6b6"
+    },
+    {
+      "case": "white-crop-rot90",
+      "engine": "poppler",
+      "expectedHidden": true,
+      "equalToOmittedInk": true,
+      "size": [
+        1584,
+        1224
+      ],
+      "rgbSha256": "cb963d7b7959fb6c343c0c96130f3ea149bd37b151a88454d0220aa312702942",
+      "controlRgbSha256": "cb963d7b7959fb6c343c0c96130f3ea149bd37b151a88454d0220aa312702942"
+    },
+    {
+      "case": "visible-crop-rot90",
+      "engine": "pdfium",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1480,
+        960
+      ],
+      "rgbSha256": "694f548a0065601e04d08e90b7e9ea7597e989a2d92d497966790db99c6f45d5",
+      "controlRgbSha256": "e7760365eecf8c5ef71de4ad819979d412a9aa3514615fc243e5e7510b3ce6b6"
+    },
+    {
+      "case": "visible-crop-rot90",
+      "engine": "poppler",
+      "expectedHidden": false,
+      "equalToOmittedInk": false,
+      "size": [
+        1584,
+        1224
+      ],
+      "rgbSha256": "372da30ef7330207a7ceb93ed56c8d84b87b376ecba329d42cb73a80b6bda4a1",
+      "controlRgbSha256": "cb963d7b7959fb6c343c0c96130f3ea149bd37b151a88454d0220aa312702942"
+    }
+  ]
+}
