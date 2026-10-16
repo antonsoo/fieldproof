@@ -30,6 +30,7 @@ async function extract(page) {
 for (const control of [
   { directory: 'unpainted-text', pdf: 'mode-3', reason: 'unpainted PDF text', correction: 100, capture: 'UPDATE_UNPAINTED_SCREENSHOTS' },
   { directory: 'zero-opacity', pdf: 'mode-0-fill-0-stroke-1', reason: 'zero opacity', correction: 90, capture: 'UPDATE_OPACITY_SCREENSHOTS' },
+  { directory: 'clipped-text', pdf: 'end-n', reason: 'clipping boundary', correction: 90, capture: 'UPDATE_CLIPPING_SCREENSHOTS' },
 ]) {
 test(`unpainted PDF evidence (${control.directory}) stays in review through correction and archive restore`, async ({ page, request, browserName }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });

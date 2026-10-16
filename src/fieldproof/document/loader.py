@@ -137,7 +137,7 @@ def _visible_words(page: pdfplumber.page.Page) -> list[dict[str, Any]]:
                 chars,
                 keep_blank_chars=False,
                 use_text_flow=False,
-                extra_attrs=["size", "render_mode", "zero_opacity"],
+                extra_attrs=["size", "render_mode", "zero_opacity", "clip_risk"],
                 char_dir=direction if horizontal else "ltr",
                 line_dir="ttb" if direction != "rtl" else "btt",
                 char_dir_rotated=direction if not horizontal else "ttb",
@@ -177,6 +177,7 @@ def _load_page(page: pdfplumber.page.Page, page_number: int) -> Page:
                 end=cursor,
                 render_mode=raw["render_mode"],
                 zero_opacity=raw["zero_opacity"],
+                clip_risk=raw["clip_risk"],
             )
         )
 

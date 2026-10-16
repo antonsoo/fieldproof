@@ -167,6 +167,10 @@ on your machine. From a source checkout, build the UI first (see
   installed CLI, browser correction and archive-restore evidence. The
   [zero-opacity extension](studies/zero-opacity/README.md) covers fill/stroke
   alpha, saved graphics state, nested forms and transparency groups.
+  The [clipping-bound check](studies/clipped-text/README.md) also requires review
+  when a quote's native glyph bounds cross an outer clipping boundary, including
+  a Form's bounding box. It preserves partially clipped words and keeps them
+  from establishing conventions, row anchors or column headers.
 - **Reject discarded claims (source checkout, unreleased)** - duplicate JSON
   members and unknown fields cannot silently disappear from an extraction before
   review. The CLI, uploaded fixtures and provider replies share the same checks;
@@ -679,13 +683,17 @@ See the [inputs, reproduction and compatibility checks](studies/grounding-reuse/
 
 - **A text layer is not proof of visible ink.** The source checkout retains
   native rendering modes and requires review for quotes touching mode 3
-  (invisible), mode 7 (clipping only), or explicitly zero-opacity painting.
+  (invisible), mode 7 (clipping only), explicitly zero-opacity painting, or
+  glyph bounds crossing a known outer clipping boundary.
   This also affects correctly aligned
   searchable OCR layers: they remain extractable but require visual review.
   This check does not detect white-on-white text, general soft-mask transparency, overpainting,
-  arbitrary clipping or incorrect character mappings. Other rendering modes
+  holes and curved boundaries inside a clipping path's outer bounds, text clipping
+  masks or incorrect character mappings. Glyph layout boxes can also cross a
+  boundary while the remaining ink is readable; the flag requires review rather
+  than declaring the text invisible. Other rendering modes
   and caller-supplied words do not establish pixel visibility. See the
-  [scope and remaining limits](studies/zero-opacity/README.md).
+  [scope and remaining limits](studies/clipped-text/README.md).
 - **OCR is a degraded mode, not equivalent to a text layer.** Scanned PDFs
   are supported only if the optional `ocr` extra (`pytesseract` + a system
   Tesseract install) is present; grounding still fuzzy-matches against

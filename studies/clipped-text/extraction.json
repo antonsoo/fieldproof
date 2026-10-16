@@ -1,0 +1,24 @@
+{
+  "schema": "invoice",
+  "data": {
+    "vendor_name": {
+      "value": "Example",
+      "evidence": []
+    },
+    "invoice_number": {
+      "value": "CLIP-0",
+      "evidence": []
+    },
+    "issue_date": {
+      "value": "2026-10-15",
+      "evidence": []
+    },
+    "total": {
+      "value": 900,
+      "evidence": [
+        "Authorized total: $900.00"
+      ],
+      "page": 1
+    }
+  }
+}

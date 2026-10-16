@@ -180,7 +180,7 @@ def _convention_text(page: Page) -> str:
     # into a new number/date. Unpainted text cannot settle another field's policy.
     text = list(page.text)
     for word in page.words:
-        if word.unpainted:
+        if word.paint_requires_review:
             text[word.start : word.end] = " " * (word.end - word.start)
     return "".join(text)
 
@@ -495,6 +495,11 @@ def _verify_field(
             "evidence includes PDF text with zero opacity; matching this transparent "
             "text layer does not establish what is visible on the page; review the "
             "rendered document"
+        )
+    if any(word.clip_risk for word in best_match.words):
+        reasons.append(
+            "evidence includes PDF text whose bounds cross a clipping boundary; "
+            "the complete quote may not be visible on the page; review the rendered document"
         )
 
     date_value = isinstance(value, str) and (

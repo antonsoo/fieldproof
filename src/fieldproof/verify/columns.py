@@ -53,7 +53,7 @@ def _location(page: int, words: tuple[Word, ...]) -> dict[str, Any]:
 
 def _lines(words: list[Word]) -> list[tuple[Word, ...]]:
     # An unpainted header cannot establish a table's visible column roles.
-    words = [word for word in words if not word.unpainted]
+    words = [word for word in words if not word.paint_requires_review]
     # A malformed box makes this page's layout unavailable, rather than silently
     # removing words that could have disambiguated a header or interrupted a table.
     if any(

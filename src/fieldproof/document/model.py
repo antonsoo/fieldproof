@@ -61,10 +61,17 @@ class Word:
     # True only when native paint state explicitly suppresses all glyph paint.
     # False is not proof of pixel visibility (clipping/overpainting may hide it).
     zero_opacity: bool = False
+    # The glyph's layout bounds cross a conservative outer clipping bound.
+    # This identifies a review risk, not which pixels (if any) remain visible.
+    clip_risk: bool = False
 
     @property
     def unpainted(self) -> bool:
         return self.render_mode in (3, 7) or self.zero_opacity
+
+    @property
+    def paint_requires_review(self) -> bool:
+        return self.unpainted or self.clip_risk
 
 
 @dataclass(frozen=True, slots=True)
@@ -155,6 +162,7 @@ def document_from_dict(raw: dict[str, Any]) -> Document:
                         end=word["end"],
                         render_mode=word.get("render_mode"),
                         zero_opacity=word.get("zero_opacity", False),
+                        clip_risk=word.get("clip_risk", False),
                     )
                     for word in page["words"]
                 ],

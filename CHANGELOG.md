@@ -4,6 +4,19 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Clipped PDF evidence
+
+- Require review when native glyph bounds cross a conservative outer clipping
+  bound. Track paths, saved graphics state, transforms, intersections and
+  nested Form bounding boxes without discarding the source text or locations.
+- Preserve the flag across worker JSON transport and word assembly. Affected
+  words cannot establish number/date conventions, row anchors or column roles;
+  edit tolerance cannot remove their clipping reason.
+- Retain authored PDFs and before/after claims under `studies/clipped-text`.
+  This checks outer bounds, not arbitrary pixel visibility: path holes,
+  interior curved boundaries, text clipping masks and overpainting remain
+  outside its scope. Partly clipped but readable ink can still require review.
+
 ### Transparent PDF evidence
 
 - Retain zero-opacity native text through fill/stroke alpha changes, saved

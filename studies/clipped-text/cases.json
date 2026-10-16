@@ -1,0 +1,398 @@
+[
+  {
+    "id": "ordinary",
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "end-n",
+    "path": "0 0 300 300 re",
+    "end": "n",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "end-S",
+    "path": "0 0 300 300 re",
+    "end": "S",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "end-s",
+    "path": "0 0 300 300 re",
+    "end": "s",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "end-f",
+    "path": "0 0 300 300 re",
+    "end": "f",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "end-F",
+    "path": "0 0 300 300 re",
+    "end": "F",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "end-f-star",
+    "path": "0 0 300 300 re",
+    "end": "f*",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "end-B",
+    "path": "0 0 300 300 re",
+    "end": "B",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "end-B-star",
+    "path": "0 0 300 300 re",
+    "end": "B*",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "end-b",
+    "path": "0 0 300 300 re",
+    "end": "b",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "end-b-star",
+    "path": "0 0 300 300 re",
+    "end": "b*",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "even-odd",
+    "path": "0 0 300 300 re",
+    "clip": "W*",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "no-current-path",
+    "path": "",
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "degenerate",
+    "path": "40 600 0 0 re",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "negative-size",
+    "path": "300 300 -300 -300 re",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "inside",
+    "path": "0 500 500 200 re",
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "restore",
+    "path": "0 0 300 300 re",
+    "restore": true,
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "intersection-empty",
+    "prior": "0 0 300 300 re",
+    "path": "0 500 500 200 re",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "intersection-inside",
+    "prior": "0 400 600 392 re",
+    "path": "0 500 500 200 re",
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "triangle",
+    "path": "0 0 m 300 0 l 0 300 l h",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "cubic",
+    "path": "0 0 m 100 200 200 100 300 0 c h",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "curve-v",
+    "path": "0 0 m 200 200 300 0 v h",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "curve-y",
+    "path": "0 0 m 200 200 300 0 y h",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "compound-inside",
+    "path": "0 500 500 200 re 0 0 300 300 re",
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "partial",
+    "path": "0 500 205 200 re",
+    "hidden": false,
+    "review": true
+  },
+  {
+    "id": "transformed-hidden",
+    "path": "0 0 300 300 re",
+    "matrix": [
+      0.75,
+      0,
+      0,
+      0.75,
+      50,
+      30
+    ],
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "transformed-inside",
+    "path": "0 500 500 200 re",
+    "matrix": [
+      0.75,
+      0,
+      0,
+      0.75,
+      50,
+      30
+    ],
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "form-bbox",
+    "kind": "form",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "form-inside",
+    "kind": "form",
+    "inside": true,
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "form-inherited",
+    "kind": "form",
+    "inside": true,
+    "inherited": true,
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "form-nested",
+    "kind": "form",
+    "nested": true,
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "form-matrix",
+    "kind": "form",
+    "matrix": [
+      0.75,
+      0,
+      0,
+      0.75,
+      50,
+      30
+    ],
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "form-matrix-inside",
+    "kind": "form",
+    "inside": true,
+    "matrix": [
+      0.75,
+      0,
+      0,
+      0.75,
+      50,
+      30
+    ],
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "form-dictionary-matrix",
+    "kind": "form",
+    "form_matrix": [
+      0.75,
+      0,
+      0,
+      0.75,
+      50,
+      30
+    ],
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "form-dictionary-matrix-inside",
+    "kind": "form",
+    "inside": true,
+    "form_matrix": [
+      0.75,
+      0,
+      0,
+      0.75,
+      50,
+      30
+    ],
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "content-rotation",
+    "path": "0 0 300 300 re",
+    "matrix": [
+      0,
+      0.7,
+      -0.7,
+      0,
+      480,
+      60
+    ],
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "content-rotation-inside",
+    "path": "0 500 500 200 re",
+    "matrix": [
+      0,
+      0.7,
+      -0.7,
+      0,
+      480,
+      60
+    ],
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "post-transform-hidden",
+    "path": "0 500 500 200 re",
+    "post_matrix": [
+      0.5,
+      0,
+      0,
+      0.5,
+      0,
+      0
+    ],
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "post-transform-inside",
+    "path": "0 0 300 300 re",
+    "post_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      -400
+    ],
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "paint-only",
+    "paint_only": true,
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "paint-path-reset",
+    "paint_only": true,
+    "path": "0 500 500 200 re",
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "form-dictionary-rotation",
+    "kind": "form",
+    "form_matrix": [
+      0,
+      0.7,
+      -0.7,
+      0,
+      480,
+      60
+    ],
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "form-dictionary-rotation-inside",
+    "kind": "form",
+    "inside": true,
+    "form_matrix": [
+      0,
+      0.7,
+      -0.7,
+      0,
+      480,
+      60
+    ],
+    "hidden": false,
+    "review": false
+  },
+  {
+    "id": "rotated-90",
+    "rotation": 90,
+    "path": "0 0 300 300 re",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "rotated-180",
+    "rotation": 180,
+    "path": "0 0 300 300 re",
+    "hidden": true,
+    "review": true
+  },
+  {
+    "id": "rotated-270",
+    "rotation": 270,
+    "path": "0 0 300 300 re",
+    "hidden": true,
+    "review": true
+  }
+]
