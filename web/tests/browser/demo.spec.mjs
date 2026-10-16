@@ -13,6 +13,7 @@ test('the hidden-text sample keeps an invisible amount in review and exports off
   await expect(total.locator('.field-reasons')).toContainText('native-text paint contribution');
   await total.getByRole('button', { name: 'Inspect total', exact: true }).click();
   await expect.poll(() => page.locator('#page-frame img').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+  await page.evaluate(() => document.fonts.ready);
   await context.setOffline(true);
   const requests = [];
   page.on('request', request => { if (/^https?:/.test(request.url())) requests.push(request.url()); });
