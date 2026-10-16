@@ -1,0 +1,106 @@
+{
+  "baseURL": "https://antonsoo.github.io/fieldproof/",
+  "scope": "Actual deployed static demo, not an in-browser native PDF audit.",
+  "observations": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "originalValue": 900,
+      "correctedValue": 90,
+      "exported": [
+        {
+          "field": "total",
+          "value": 90,
+          "original_value": 900,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "downloadSha256": "0180be9a2b37567cc4a56c08371dbba6bc2fe61f6fbde8ef27cc06798ffd7554",
+      "offlineRequests": 0,
+      "noOverflow": true,
+      "correctionSurvivesReload": true,
+      "automatedVerdict": "needs_review",
+      "pageErrors": [],
+      "cspViolations": []
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1440,
+      "originalValue": 900,
+      "correctedValue": 90,
+      "exported": [
+        {
+          "field": "total",
+          "value": 90,
+          "original_value": 900,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "downloadSha256": "0180be9a2b37567cc4a56c08371dbba6bc2fe61f6fbde8ef27cc06798ffd7554",
+      "offlineRequests": 0,
+      "noOverflow": true,
+      "correctionSurvivesReload": true,
+      "automatedVerdict": "needs_review",
+      "pageErrors": [],
+      "cspViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "originalValue": 900,
+      "correctedValue": 90,
+      "exported": [
+        {
+          "field": "total",
+          "value": 90,
+          "original_value": 900,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "downloadSha256": "0180be9a2b37567cc4a56c08371dbba6bc2fe61f6fbde8ef27cc06798ffd7554",
+      "offlineRequests": 0,
+      "noOverflow": true,
+      "correctionSurvivesReload": true,
+      "automatedVerdict": "needs_review",
+      "pageErrors": [],
+      "cspViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1440,
+      "originalValue": 900,
+      "correctedValue": 90,
+      "exported": [
+        {
+          "field": "total",
+          "value": 90,
+          "original_value": 900,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "downloadSha256": "0180be9a2b37567cc4a56c08371dbba6bc2fe61f6fbde8ef27cc06798ffd7554",
+      "offlineRequests": 0,
+      "noOverflow": true,
+      "correctionSurvivesReload": true,
+      "automatedVerdict": "needs_review",
+      "pageErrors": [],
+      "cspViolations": []
+    }
+  ]
+}

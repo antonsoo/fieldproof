@@ -105,21 +105,22 @@ sample. The study, its numbers and what it does not show:
 
 ## Live demo
 
-**[antonsoo.github.io/fieldproof](https://antonsoo.github.io/fieldproof/)** - three
-synthetic sample documents (invoice, receipt, contract), grounded and
+**[antonsoo.github.io/fieldproof](https://antonsoo.github.io/fieldproof/)** - five
+synthetic sample documents (invoice, receipt, contract, arithmetic, hidden text), grounded and
 verified ahead of time by the real Python pipeline. It opens on the invoice
 with its first flagged field selected; switch documents from the top bar, or
-link straight to one (`#receipt`, `#contract`). The candidate extractions
+link straight to one (`#receipt`, `#contract`, `#line-arithmetic`, `#hidden-text`). The candidate extractions
 are hand-written fixtures in the shape an LLM returns, with deliberately
 planted errors - a hallucinated PO number, a total
 that doesn't match its line items, and a misread date - so you can see exactly
 what the verifier catches. No backend: the demo runs entirely on precomputed
 JSON and static page images.
 
-The locally built, unreleased demo adds a fourth **Arithmetic** sample
-(`#line-arithmetic` after the demo's base path). It uses the same verification
-pipeline and supports correction, reload and export. The published site has
-not been updated by this change.
+**Arithmetic** exposes a quantity/price/amount disagreement. **Hidden text**
+shows an image printing `$90.00` over native text claiming `$900.00`. Both use
+the actual verification pipeline and support correction, reload and export.
+The [2026-10-16 hosted receipt](studies/flat-raster/README.md#hosted-verification)
+checks all served files and actual offline workflows in both browser engines.
 
 Review decisions persist in browser storage for the synthetic samples. If that
 storage is unavailable, they remain in the current tab and the UI says so;
@@ -134,6 +135,19 @@ any correction draft. Filters expand on demand.
 ```bash
 pip install fieldproof
 ```
+
+The native PDF corrections below are unreleased. For the tested CLI/library
+source (requires Git), use:
+
+```bash
+python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@49d6802e3fd97cada0f8304317af9a1d46236029"
+```
+
+This replaces an existing 0.2.7 installation even though the source still
+declares that version. A direct Git install has **no bundled review UI**; build
+it from the checkout using [Development](#development) when needed. The
+[actual registry-to-source receipt](studies/flat-raster/README.md#installing-the-tested-source)
+records the corrected CLI behavior and all 40 runtime file comparisons.
 
 The sample documents used below live in the repo (`examples/`), so clone it
 to try them:
@@ -670,11 +684,14 @@ and field. A synthetic 100-row invoice (two pages, 404 evidenced fields)
 exhausted the review server's 20-second CPU budget. Preparing page indexes once
 per verification and reusing bounded candidate lists fixes that failure:
 
-| Measurement | Before | Current source |
+| Measurement | Before | 2026-10-11 source |
 |---|---:|---:|
 | Grounding + verification, 100 rows | 59.109 s | 0.076 s |
 | Local API extraction, 100 rows | HTTP 413, 20.031 s | HTTP 200, 0.332 s |
 | Local API extraction, 400 rows | HTTP 413, 20.047 s | HTTP 200, 0.666 s |
+
+These API timings predate the native paint audit. Its additional rendering cost
+is measured separately in the [current loader study](studies/flat-raster/README.md#processing-cost-and-compatibility).
 
 Python 3.12.12 on a shared 14-vCPU, 48-GB WSL2 Linux machine, 2026-10-11.
 Library times are medians of three runs excluding PDF load; API times are

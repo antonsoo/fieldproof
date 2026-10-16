@@ -51,5 +51,20 @@
   "scope": "Local checks; installed artifact identities and final browser/hosted receipts are recorded separately.",
   "pythonCheckRevision": "dbf599a",
   "identicalPythonRuntimeSince": "97779f4",
-  "artifactUIRevision": "b5a47d9"
+  "artifactUIRevision": "b5a47d9",
+  "productionBrowserSuite": {
+    "sourceRevision": "c38458a",
+    "passed": 96,
+    "failed": 0,
+    "retries": 0,
+    "engines": [
+      "chromium",
+      "firefox"
+    ],
+    "liveRuntime": "Separately installed Python 3.14 wheel, actual workers",
+    "demoRuntime": "Production build with generated verification data",
+    "viewports": "Live 1440/375; demo 1440x960, 375x812, 320x568; additional existing suite viewports",
+    "checked": "Inspection, corrections, actual downloads, archive deletion/restoration, offline workflows, accessibility, CSP/errors and overflow",
+    "screenshotsInspected": 12
+  }
 }

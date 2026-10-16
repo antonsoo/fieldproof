@@ -166,3 +166,36 @@ chooser overflow and insufficient field-list space; the final chooser wraps
 and the short-screen header leaves space for scrolling fields.
 
 ![Printed 90, native 900, retained review reason](../../docs/assets/flat-raster/demo-chromium-1440.png)
+
+## Installing the tested source
+
+The current PyPI package is still 0.2.7. A fresh Python 3.12 environment
+installed that artifact and actually verified the image-covered 900. It then
+ran the pinned command now shown in the main quickstart:
+
+```sh
+python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@49d6802e3fd97cada0f8304317af9a1d46236029"
+```
+
+The installed version remains 0.2.7, while `direct_url.json` records the immutable
+Git revision. The same CLI input now requires review. All 40 runtime files match
+source; all 102 native study claims pass. [Receipt](results/source-install.json).
+This source installation supplies the CLI/library and has **zero bundled UI
+files**. Build the UI using `scripts/bundle_ui.py` before packaging a review
+wheel. The separately verified local wheel above includes all 23 UI files.
+
+## Hosted verification
+
+The tested static demo was pushed to its existing `gh-pages` branch as
+`b84960d`, preserving branch history. All [36 public files](results/hosted-bytes.json)
+match the tested build byte for byte, including both new samples, reports,
+images, JavaScript, CSS and fonts. The native loader still runs server/build
+side; the static demo consumes its generated report.
+
+[Actual hosted workflows](results/hosted-browser.json) in Chromium and Firefox
+at 375 and 1440 pixels inspect the hidden-text sample, disconnect, correct 900
+to 90, download the real JSON, and reconnect/reload. Original 900 and automated
+`needs_review` remain in the downloaded provenance; the correction persists.
+All four contexts have zero requests while offline, no page errors or CSP
+violations, and no horizontal overflow. `node studies/flat-raster/hosted.mjs`
+repeats this check. No registry release was performed.

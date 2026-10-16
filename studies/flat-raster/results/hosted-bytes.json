@@ -1,0 +1,261 @@
+{
+  "baseURL": "https://antonsoo.github.io/fieldproof/",
+  "buildProductRevision": "b5a47d9",
+  "browserSuiteRevision": "c38458a",
+  "deploymentRevision": "b84960d",
+  "checkedAtUtc": "2026-10-16T09:10:08Z",
+  "files": [
+    {
+      "file": "index.html",
+      "bytes": 2907,
+      "sha256": "f97689563f1d74a5b76fb6e94f65e6e8fe92b43467e0a3f1429d66d320fa5c97",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/fraunces-latin-DihXLNYH.woff2",
+      "bytes": 67304,
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/fraunces-vietnamese-Czevyj-6.woff2",
+      "bytes": 19700,
+      "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "bytes": 8460,
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/inter-vietnamese-CBcvBZtf.woff2",
+      "bytes": 10252,
+      "sha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "bytes": 6040,
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/index-D9gNU8DO.css",
+      "bytes": 26832,
+      "sha256": "961faec8a0633dc8c650e78efe66d0fb4a0c63f00f6213e5c206115c7fecd358",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/inter-greek-CkhJZR-_.woff2",
+      "bytes": 18996,
+      "sha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/inter-cyrillic-ext-BOeWTOD4.woff2",
+      "bytes": 25960,
+      "sha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/inter-latin-Dx4kXJAl.woff2",
+      "bytes": 48256,
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/inter-greek-ext-DlzME5K_.woff2",
+      "bytes": 11232,
+      "sha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/inter-cyrillic-DqGufNeO.woff2",
+      "bytes": 18748,
+      "sha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "bytes": 13348,
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "bytes": 13432,
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/fraunces-latin-ext-CJcjJNj7.woff2",
+      "bytes": 59388,
+      "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "bytes": 5868,
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/index-CnGHBWtx.js",
+      "bytes": 56811,
+      "sha256": "da2be0f9c26926b61fcf843933dd099ac0018da3446e1630b86354d54e8cfd4c",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "bytes": 6912,
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/index-CnGHBWtx.js.map",
+      "bytes": 250817,
+      "sha256": "4026bde98199fbdee96e119f771f0b22ddcc2ad7c8d9f6bd6e80e306540ff8de",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/inter-latin-ext-DO1Apj_S.woff2",
+      "bytes": 85068,
+      "sha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "bytes": 6972,
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "bytes": 8356,
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/index.json",
+      "bytes": 288,
+      "sha256": "c189149b56683df37ae0c699d1b4c9ac47505ca7f1a8c22e9a2a98328fd85190",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/receipt/data.json",
+      "bytes": 23759,
+      "sha256": "ca2a636edded8ee37149a13e3de404dcdcd85cd5a6a92b0d2e66ab0a119303ed",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/receipt/page-1.png",
+      "bytes": 59942,
+      "sha256": "d6a675f70a723c2e16bf431aa2d78a1099ea5d4abc21c9dc95cdd42efd628031",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/hidden-text/data.json",
+      "bytes": 5270,
+      "sha256": "52099f172f412a65ac59b241dce001a2d83ec8ee61accb19ac9dec4e4d7c838a",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/hidden-text/page-1.png",
+      "bytes": 85484,
+      "sha256": "6ba73b515f26540577bb8d588949935711b82aa0ef4cec07897ab584f3188696",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/contract/data.json",
+      "bytes": 8740,
+      "sha256": "a4a79b4216a03d8ce2699dfcd811e97ad2ac86b1c32f5b7ddf0f867b5ccd3d19",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/contract/page-2.png",
+      "bytes": 34972,
+      "sha256": "ad6eb8360bda4d8b2bd3df53b6ff20fd1ea5adf861a4823dbe2d9b4d620fc8ec",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/contract/page-1.png",
+      "bytes": 102343,
+      "sha256": "b92e2abc0392fc3ee2f72e93b22ae91c3c35b0f73619c67b4f1d0b219c5c5c5d",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/invoice/data.json",
+      "bytes": 67098,
+      "sha256": "1294cabae859b6869f449d3f2c002f5f6c40e3b49e2392677a408b993b8f70d4",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/invoice/page-1.png",
+      "bytes": 125063,
+      "sha256": "74b8cb7356f9bd537c75ace4cc4778d9711fa6f6549e43e769ad169891c68544",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/line-arithmetic/data.json",
+      "bytes": 21030,
+      "sha256": "8d35844f0091588a692b5b77cd735a305c1bbab0401e58049f08839d30aa554f",
+      "matches": true,
+      "status": 200
+    },
+    {
+      "file": "demo-data/line-arithmetic/page-1.png",
+      "bytes": 104345,
+      "sha256": "8c75cc3e1ef7bbca491d0a4c57b80d0d67cd4747318306573e4617d29f08cb35",
+      "matches": true,
+      "status": 200
+    }
+  ]
+}
