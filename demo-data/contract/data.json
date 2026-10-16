@@ -272,7 +272,10 @@
         "verified": 10,
         "needs_review": 0,
         "unsupported": 0
-      }
+      },
+      "cross_field_checks": [],
+      "row_checks": [],
+      "column_checks": []
     },
     "review": {
       "party_a": {

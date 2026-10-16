@@ -562,7 +562,7 @@
           "value": 2458.0,
           "status": "needs_review",
           "reasons": [
-            "subtotal + tax = 2666.93 but total is 2600.00"
+            "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
           ],
           "match_score": 100.0,
           "matched_text": "Subtotal $2,458.00",
@@ -581,7 +581,7 @@
           "value": 208.93,
           "status": "needs_review",
           "reasons": [
-            "subtotal + tax = 2666.93 but total is 2600.00"
+            "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
           ],
           "match_score": 100.0,
           "matched_text": "Tax (8.5%) $208.93",
@@ -600,8 +600,8 @@
           "value": 2600.0,
           "status": "needs_review",
           "reasons": [
-            "value 2600 does not match 2666.93 parsed from the evidence",
-            "subtotal + tax = 2666.93 but total is 2600.00"
+            "value 2600.0 does not match 2666.93 parsed from the evidence",
+            "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
           ],
           "match_score": 100.0,
           "matched_text": "Total Due $2,666.93",
@@ -640,14 +640,1603 @@
             "tax",
             "total"
           ],
-          "message": "subtotal + tax = 2666.93 but total is 2600.00"
+          "message": "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
         }
       ],
       "counts": {
         "verified": 21,
         "needs_review": 3,
         "unsupported": 1
-      }
+      },
+      "cross_field_checks": [
+        {
+          "rule": "invoice.line_extension",
+          "fields": [
+            "line_items[0].quantity",
+            "line_items[0].unit_price",
+            "line_items[0].amount"
+          ],
+          "status": "passed",
+          "message": "line_items[0]: quantity x unit price = 1740 (before discounts or adjustments) matches amount 1740 (difference 0; tolerance 0.02)",
+          "operands": {
+            "line_items[0].quantity": "12.0",
+            "line_items[0].unit_price": "145.0",
+            "line_items[0].amount": "1740.0"
+          },
+          "computed": "1740",
+          "observed": "1740",
+          "difference": "0",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.line_extension",
+          "fields": [
+            "line_items[1].quantity",
+            "line_items[1].unit_price",
+            "line_items[1].amount"
+          ],
+          "status": "passed",
+          "message": "line_items[1]: quantity x unit price = 210.5 (before discounts or adjustments) matches amount 210.5 (difference 0; tolerance 0.02)",
+          "operands": {
+            "line_items[1].quantity": "1.0",
+            "line_items[1].unit_price": "210.5",
+            "line_items[1].amount": "210.5"
+          },
+          "computed": "210.5",
+          "observed": "210.5",
+          "difference": "0",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.line_extension",
+          "fields": [
+            "line_items[2].quantity",
+            "line_items[2].unit_price",
+            "line_items[2].amount"
+          ],
+          "status": "passed",
+          "message": "line_items[2]: quantity x unit price = 195 (before discounts or adjustments) matches amount 195 (difference 0; tolerance 0.02)",
+          "operands": {
+            "line_items[2].quantity": "3.0",
+            "line_items[2].unit_price": "65.0",
+            "line_items[2].amount": "195.0"
+          },
+          "computed": "195",
+          "observed": "195",
+          "difference": "0",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.line_extension",
+          "fields": [
+            "line_items[3].quantity",
+            "line_items[3].unit_price",
+            "line_items[3].amount"
+          ],
+          "status": "passed",
+          "message": "line_items[3]: quantity x unit price = 312.5 (before discounts or adjustments) matches amount 312.5 (difference 0; tolerance 0.02)",
+          "operands": {
+            "line_items[3].quantity": "1.0",
+            "line_items[3].unit_price": "312.5",
+            "line_items[3].amount": "312.5"
+          },
+          "computed": "312.5",
+          "observed": "312.5",
+          "difference": "0",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.items_subtotal",
+          "fields": [
+            "line_items[0].amount",
+            "line_items[1].amount",
+            "line_items[2].amount",
+            "line_items[3].amount",
+            "subtotal"
+          ],
+          "status": "passed",
+          "message": "line items sum = 2458 matches subtotal 2458 (difference 0; tolerance 0.02)",
+          "operands": {
+            "line_items[0].amount": "1740.0",
+            "line_items[1].amount": "210.5",
+            "line_items[2].amount": "195.0",
+            "line_items[3].amount": "312.5",
+            "subtotal": "2458.0"
+          },
+          "computed": "2458",
+          "observed": "2458",
+          "difference": "0",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.subtotal_tax_total",
+          "fields": [
+            "subtotal",
+            "tax",
+            "total"
+          ],
+          "status": "failed",
+          "message": "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)",
+          "operands": {
+            "subtotal": "2458.0",
+            "tax": "208.93",
+            "total": "2600.0"
+          },
+          "computed": "2666.93",
+          "observed": "2600",
+          "difference": "-66.93",
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "invoice.due_date_order",
+          "fields": [
+            "issue_date",
+            "due_date"
+          ],
+          "status": "passed",
+          "message": "due date 2026-03-16 is on or after issue date 2026-02-14",
+          "operands": {
+            "issue_date": "2026-02-14",
+            "due_date": "2026-03-16"
+          },
+          "computed": null,
+          "observed": null,
+          "difference": null,
+          "tolerance": null
+        }
+      ],
+      "row_checks": [
+        {
+          "field": "line_items[0].quantity",
+          "anchor": "line_items[0].description",
+          "status": "same_line",
+          "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+            "start": 301,
+            "end": 355,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 208.07000000000005,
+                "x1": 558.0,
+                "bottom": 218.07000000000005
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Pallet freight - Oakland to Seattle",
+            "start": 301,
+            "end": 336,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 208.07000000000005,
+                "x1": 200.74000000000004,
+                "bottom": 218.07000000000005
+              }
+            ]
+          }
+        },
+        {
+          "field": "line_items[0].unit_price",
+          "anchor": "line_items[0].description",
+          "status": "same_line",
+          "reason": "line_items[0].unit_price and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+            "start": 301,
+            "end": 355,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 208.07000000000005,
+                "x1": 558.0,
+                "bottom": 218.07000000000005
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Pallet freight - Oakland to Seattle",
+            "start": 301,
+            "end": 336,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 208.07000000000005,
+                "x1": 200.74000000000004,
+                "bottom": 218.07000000000005
+              }
+            ]
+          }
+        },
+        {
+          "field": "line_items[0].amount",
+          "anchor": "line_items[0].description",
+          "status": "same_line",
+          "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Pallet freight - Oakland to Seattle 12 145.00 1,740.00",
+            "start": 301,
+            "end": 355,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 208.07000000000005,
+                "x1": 558.0,
+                "bottom": 218.07000000000005
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Pallet freight - Oakland to Seattle",
+            "start": 301,
+            "end": 336,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 208.07000000000005,
+                "x1": 200.74000000000004,
+                "bottom": 218.07000000000005
+              }
+            ]
+          }
+        },
+        {
+          "field": "line_items[1].quantity",
+          "anchor": "line_items[1].description",
+          "status": "same_line",
+          "reason": "line_items[1].quantity and line_items[1].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Fuel surcharge 1 210.50 210.50",
+            "start": 356,
+            "end": 386,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 223.91000000000008,
+                "x1": 557.9999999999999,
+                "bottom": 233.91000000000008
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Fuel surcharge",
+            "start": 356,
+            "end": 370,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 223.91000000000008,
+                "x1": 120.69,
+                "bottom": 233.91000000000008
+              }
+            ]
+          }
+        },
+        {
+          "field": "line_items[1].unit_price",
+          "anchor": "line_items[1].description",
+          "status": "same_line",
+          "reason": "line_items[1].unit_price and line_items[1].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Fuel surcharge 1 210.50 210.50",
+            "start": 356,
+            "end": 386,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 223.91000000000008,
+                "x1": 557.9999999999999,
+                "bottom": 233.91000000000008
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Fuel surcharge",
+            "start": 356,
+            "end": 370,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 223.91000000000008,
+                "x1": 120.69,
+                "bottom": 233.91000000000008
+              }
+            ]
+          }
+        },
+        {
+          "field": "line_items[1].amount",
+          "anchor": "line_items[1].description",
+          "status": "same_line",
+          "reason": "line_items[1].amount and line_items[1].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Fuel surcharge 1 210.50 210.50",
+            "start": 356,
+            "end": 386,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 223.91000000000008,
+                "x1": 557.9999999999999,
+                "bottom": 233.91000000000008
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Fuel surcharge",
+            "start": 356,
+            "end": 370,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 223.91000000000008,
+                "x1": 120.69,
+                "bottom": 233.91000000000008
+              }
+            ]
+          }
+        },
+        {
+          "field": "line_items[2].quantity",
+          "anchor": "line_items[2].description",
+          "status": "same_line",
+          "reason": "line_items[2].quantity and line_items[2].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Liftgate delivery service 3 65.00 195.00",
+            "start": 387,
+            "end": 427,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 239.75,
+                "x1": 557.9999999999999,
+                "bottom": 249.75
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Liftgate delivery service",
+            "start": 387,
+            "end": 412,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 239.75,
+                "x1": 158.48000000000002,
+                "bottom": 249.75
+              }
+            ]
+          }
+        },
+        {
+          "field": "line_items[2].unit_price",
+          "anchor": "line_items[2].description",
+          "status": "same_line",
+          "reason": "line_items[2].unit_price and line_items[2].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Liftgate delivery service 3 65.00 195.00",
+            "start": 387,
+            "end": 427,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 239.75,
+                "x1": 557.9999999999999,
+                "bottom": 249.75
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Liftgate delivery service",
+            "start": 387,
+            "end": 412,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 239.75,
+                "x1": 158.48000000000002,
+                "bottom": 249.75
+              }
+            ]
+          }
+        },
+        {
+          "field": "line_items[2].amount",
+          "anchor": "line_items[2].description",
+          "status": "same_line",
+          "reason": "line_items[2].amount and line_items[2].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Liftgate delivery service 3 65.00 195.00",
+            "start": 387,
+            "end": 427,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 239.75,
+                "x1": 557.9999999999999,
+                "bottom": 249.75
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Liftgate delivery service",
+            "start": 387,
+            "end": 412,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 239.75,
+                "x1": 158.48000000000002,
+                "bottom": 249.75
+              }
+            ]
+          }
+        },
+        {
+          "field": "line_items[3].quantity",
+          "anchor": "line_items[3].description",
+          "status": "same_line",
+          "reason": "line_items[3].quantity and line_items[3].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Warehouse handling fee 1 312.50 312.50",
+            "start": 428,
+            "end": 466,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 255.59000000000003,
+                "x1": 557.9999999999999,
+                "bottom": 265.59000000000003
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Warehouse handling fee",
+            "start": 428,
+            "end": 450,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 255.59000000000003,
+                "x1": 162.39000000000004,
+                "bottom": 265.59000000000003
+              }
+            ]
+          }
+        },
+        {
+          "field": "line_items[3].unit_price",
+          "anchor": "line_items[3].description",
+          "status": "same_line",
+          "reason": "line_items[3].unit_price and line_items[3].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Warehouse handling fee 1 312.50 312.50",
+            "start": 428,
+            "end": 466,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 255.59000000000003,
+                "x1": 557.9999999999999,
+                "bottom": 265.59000000000003
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Warehouse handling fee",
+            "start": 428,
+            "end": 450,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 255.59000000000003,
+                "x1": 162.39000000000004,
+                "bottom": 265.59000000000003
+              }
+            ]
+          }
+        },
+        {
+          "field": "line_items[3].amount",
+          "anchor": "line_items[3].description",
+          "status": "same_line",
+          "reason": "line_items[3].amount and line_items[3].description share a visual line on page 1; this does not establish the column or field role",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "Warehouse handling fee 1 312.50 312.50",
+            "start": 428,
+            "end": 466,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 255.59000000000003,
+                "x1": 557.9999999999999,
+                "bottom": 265.59000000000003
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "Warehouse handling fee",
+            "start": 428,
+            "end": 450,
+            "rects": [
+              {
+                "x0": 54.0,
+                "top": 255.59000000000003,
+                "x1": 162.39000000000004,
+                "bottom": 265.59000000000003
+              }
+            ]
+          }
+        }
+      ],
+      "column_checks": [
+        {
+          "field": "line_items[0].quantity",
+          "status": "aligned",
+          "reason": "the supported number aligns with header 'Qty' on page 1; alignment alone does not establish semantic correctness",
+          "observed_column": "quantity",
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "12",
+              "start": 337,
+              "end": 339,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 208.07000000000005,
+                  "x1": 320.72,
+                  "bottom": 218.07000000000005
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[0].unit_price",
+          "status": "aligned",
+          "reason": "the supported number aligns with header 'Unit Price' on page 1; alignment alone does not establish semantic correctness",
+          "observed_column": "unit_price",
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "145.00",
+              "start": 340,
+              "end": 346,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 208.07000000000005,
+                  "x1": 383.38,
+                  "bottom": 218.07000000000005
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[0].amount",
+          "status": "aligned",
+          "reason": "the supported number aligns with header 'Amount' on page 1; alignment alone does not establish semantic correctness",
+          "observed_column": "amount",
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "1,740.00",
+              "start": 347,
+              "end": 355,
+              "rects": [
+                {
+                  "x0": 519.08,
+                  "top": 208.07000000000005,
+                  "x1": 558.0,
+                  "bottom": 218.07000000000005
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[1].quantity",
+          "status": "aligned",
+          "reason": "the supported number aligns with header 'Qty' on page 1; alignment alone does not establish semantic correctness",
+          "observed_column": "quantity",
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "1",
+              "start": 371,
+              "end": 372,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 223.91000000000008,
+                  "x1": 315.16,
+                  "bottom": 233.91000000000008
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[1].unit_price",
+          "status": "unavailable",
+          "reason": "supporting numeric tokens do not align with exactly one configured column",
+          "observed_column": null,
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "210.50",
+              "start": 373,
+              "end": 379,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 223.91000000000008,
+                  "x1": 383.38,
+                  "bottom": 233.91000000000008
+                }
+              ]
+            },
+            {
+              "page": 1,
+              "text": "210.50",
+              "start": 380,
+              "end": 386,
+              "rects": [
+                {
+                  "x0": 527.42,
+                  "top": 223.91000000000008,
+                  "x1": 557.9999999999999,
+                  "bottom": 233.91000000000008
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[1].amount",
+          "status": "unavailable",
+          "reason": "supporting numeric tokens do not align with exactly one configured column",
+          "observed_column": null,
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "210.50",
+              "start": 373,
+              "end": 379,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 223.91000000000008,
+                  "x1": 383.38,
+                  "bottom": 233.91000000000008
+                }
+              ]
+            },
+            {
+              "page": 1,
+              "text": "210.50",
+              "start": 380,
+              "end": 386,
+              "rects": [
+                {
+                  "x0": 527.42,
+                  "top": 223.91000000000008,
+                  "x1": 557.9999999999999,
+                  "bottom": 233.91000000000008
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[2].quantity",
+          "status": "aligned",
+          "reason": "the supported number aligns with header 'Qty' on page 1; alignment alone does not establish semantic correctness",
+          "observed_column": "quantity",
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "3",
+              "start": 413,
+              "end": 414,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 239.75,
+                  "x1": 315.16,
+                  "bottom": 249.75
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[2].unit_price",
+          "status": "aligned",
+          "reason": "the supported number aligns with header 'Unit Price' on page 1; alignment alone does not establish semantic correctness",
+          "observed_column": "unit_price",
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "65.00",
+              "start": 415,
+              "end": 420,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 239.75,
+                  "x1": 377.82,
+                  "bottom": 249.75
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[2].amount",
+          "status": "aligned",
+          "reason": "the supported number aligns with header 'Amount' on page 1; alignment alone does not establish semantic correctness",
+          "observed_column": "amount",
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "195.00",
+              "start": 421,
+              "end": 427,
+              "rects": [
+                {
+                  "x0": 527.42,
+                  "top": 239.75,
+                  "x1": 557.9999999999999,
+                  "bottom": 249.75
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[3].quantity",
+          "status": "aligned",
+          "reason": "the supported number aligns with header 'Qty' on page 1; alignment alone does not establish semantic correctness",
+          "observed_column": "quantity",
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "1",
+              "start": 451,
+              "end": 452,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 255.59000000000003,
+                  "x1": 315.16,
+                  "bottom": 265.59000000000003
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[3].unit_price",
+          "status": "unavailable",
+          "reason": "supporting numeric tokens do not align with exactly one configured column",
+          "observed_column": null,
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "312.50",
+              "start": 453,
+              "end": 459,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 255.59000000000003,
+                  "x1": 383.38,
+                  "bottom": 265.59000000000003
+                }
+              ]
+            },
+            {
+              "page": 1,
+              "text": "312.50",
+              "start": 460,
+              "end": 466,
+              "rects": [
+                {
+                  "x0": 527.42,
+                  "top": 255.59000000000003,
+                  "x1": 557.9999999999999,
+                  "bottom": 265.59000000000003
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "field": "line_items[3].amount",
+          "status": "unavailable",
+          "reason": "supporting numeric tokens do not align with exactly one configured column",
+          "observed_column": null,
+          "headers": {
+            "description": {
+              "page": 1,
+              "text": "Description",
+              "start": 267,
+              "end": 278,
+              "rects": [
+                {
+                  "x0": 54.0,
+                  "top": 186.47000000000003,
+                  "x1": 109.01,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "quantity": {
+              "page": 1,
+              "text": "Qty",
+              "start": 279,
+              "end": 282,
+              "rects": [
+                {
+                  "x0": 309.6,
+                  "top": 186.47000000000003,
+                  "x1": 326.27000000000004,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "unit_price": {
+              "page": 1,
+              "text": "Unit Price",
+              "start": 283,
+              "end": 293,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 186.47000000000003,
+                  "x1": 399.48,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            },
+            "amount": {
+              "page": 1,
+              "text": "Amount",
+              "start": 294,
+              "end": 300,
+              "rects": [
+                {
+                  "x0": 520.23,
+                  "top": 186.47000000000003,
+                  "x1": 558.0000000000001,
+                  "bottom": 196.47000000000003
+                }
+              ]
+            }
+          },
+          "value_locations": [
+            {
+              "page": 1,
+              "text": "312.50",
+              "start": 453,
+              "end": 459,
+              "rects": [
+                {
+                  "x0": 352.8,
+                  "top": 255.59000000000003,
+                  "x1": 383.38,
+                  "bottom": 265.59000000000003
+                }
+              ]
+            },
+            {
+              "page": 1,
+              "text": "312.50",
+              "start": 460,
+              "end": 466,
+              "rects": [
+                {
+                  "x0": 527.42,
+                  "top": 255.59000000000003,
+                  "x1": 557.9999999999999,
+                  "bottom": 265.59000000000003
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "review": {
       "vendor_name": {
