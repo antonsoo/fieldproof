@@ -1,0 +1,55 @@
+{
+  "sourceRevision": "c38458a",
+  "pythonChecks": {
+    "lockedPython314": {
+      "passed": 693,
+      "skipped": 5,
+      "seconds": 60.79
+    },
+    "installedPython314": {
+      "passed": 693,
+      "skipped": 5,
+      "seconds": 60.84
+    },
+    "installedPython311Current": {
+      "passed": 693,
+      "skipped": 5,
+      "seconds": 62.39
+    },
+    "installedPython311DirectFloors": {
+      "passed": 693,
+      "skipped": 5,
+      "seconds": 59.29
+    }
+  },
+  "skipReason": "Five existing real-Tesseract checks require an unavailable engine.",
+  "warning": "The oldest Starlette emits an AnyIO BlockingPortal deprecation warning.",
+  "webChecks": {
+    "unitTests": 70,
+    "typecheck": true,
+    "lint": true,
+    "format": true,
+    "liveBuild": true,
+    "demoBuild": true
+  },
+  "initialIssues": {
+    "unwrappedChooser": {
+      "browserPassed": 90,
+      "browserFailed": 6,
+      "reason": "Five sample buttons overflowed at phone widths."
+    },
+    "wrappedShortScreen": {
+      "reason": "Wrapped chooser left too little field-list space at 320x568; header now capped to 40 percent."
+    },
+    "floorHarness": {
+      "reason": "PDFium 4.30 does not implement the newer document context manager; tests now close documents explicitly."
+    },
+    "auditFontRequest": {
+      "reason": "Firefox accessibility measurements request an unused font face. Actual resizing/edit/export without audit made zero offline requests in both engines; accessibility now runs before disconnection and the actual workflow retains its zero-request assertion."
+    }
+  },
+  "scope": "Local checks; installed artifact identities and final browser/hosted receipts are recorded separately.",
+  "pythonCheckRevision": "dbf599a",
+  "identicalPythonRuntimeSince": "97779f4",
+  "artifactUIRevision": "b5a47d9"
+}

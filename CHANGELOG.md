@@ -12,8 +12,8 @@ All notable changes to this project are documented in this file.
   the original document. Missing contribution or incomplete checks require
   review and cannot provide conventions, row anchors or column headings.
 - Keep source text, geometry, word segmentation, worker transport and correction
-  provenance. Native records without an audit remain unchecked; manually
-  supplied and recognized OCR words retain their existing behavior.
+  provenance. Native records with rendering-mode metadata but no audit remain
+  unchecked; supplied and recognized OCR words retain their existing behavior.
 - Add a concrete Hidden text demo sample: a printed image says $90.00 over a
   native $900.00 claim. Retain 34 authored PDFs, 102 claims, independent renderer
   checks and measured processing costs under `studies/flat-raster`. Regional

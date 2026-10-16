@@ -54,7 +54,9 @@ A page is bounded to 16 million pixels per frame by default (or the supplied
 intake limit), 50,000 visited objects and Form depth 32. Unsupported objects,
 failed mode changes, inconsistent reference renders, exceeded budgets and
 subpixel/no-area character regions remain **unavailable**, never clean. Native
-records serialized before this audit remain unchecked and require review.
+records with rendering-mode metadata but no raster audit remain unchecked and
+require review. Older records without native-mode metadata cannot be distinguished
+from caller/OCR words; reload the PDF to run the native audit.
 Explicit invisible/zero-opacity/clipping risks keep their existing reasons.
 Affected words cannot establish number/date conventions, row anchors or table
 column roles, and edit tolerance cannot waive the observation. Recognized OCR
@@ -129,3 +131,38 @@ run Playwright with `--config ../studies/flat-raster/browser.config.mjs` from
 `web/`. Live checks exercise actual worker extraction, correction, export and
 archive restoration. The static demo consumes generated reports; it does not
 run the native PDF loader in the browser.
+
+## Installed and browser verification
+
+The final [verification receipt](results/verification.json) records 693 passing
+Python checks on the clean locked Python 3.14 checkout and separately installed
+current Python 3.14/Python 3.11 wheels. The exact oldest direct dependency
+versions also pass all 693 checks on Python 3.11, including PDFium 4.30,
+pdfplumber 0.11.9 and pdfminer 20251230. Five existing real-Tesseract cases skip
+because a working engine is unavailable; oldest Starlette emits an AnyIO
+deprecation warning. All 102 claims have identical verdicts, reasons and geometry
+in the installed replays. The actual installed CLI leaves the covered 900 in
+review too, without a model or OCR engine.
+
+[Artifact identities](results/artifacts.json) compare all **40 runtime and 23
+bundled UI files** with the wheel and sdist. These are local built artifacts,
+not a new registry release. The last product CSS change is `b5a47d9`; subsequent
+browser-harness changes leave Python and product UI bytes identical.
+
+All **96 production browser checks** pass without retries against the installed
+wheel and generated static demo. Chromium and Firefox exercise the actual PDF
+worker, quote/highlight inspection, a 900-to-90 correction, JSON export and
+archive save/delete/restore. [Chromium](results/chromium-browser.json) and
+[Firefox](results/firefox-browser.json) retain the original automated report and
+corrected export. The static sample separately exports offline and keeps the
+correction after reload. Accessibility runs before disconnecting: Firefox's
+Axe font measurements request an unused font face, while an isolated actual
+user workflow produces no offline requests. The final offline assertion covers
+resizing, inspection, editing and export without that injected audit.
+
+The ten repaired live/demo screenshots and two baseline screenshots were
+inspected, including short 320x568 phones. The fifth sample initially exposed
+chooser overflow and insufficient field-list space; the final chooser wraps
+and the short-screen header leaves space for scrolling fields.
+
+![Printed 90, native 900, retained review reason](../../docs/assets/flat-raster/demo-chromium-1440.png)
