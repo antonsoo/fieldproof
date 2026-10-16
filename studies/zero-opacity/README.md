@@ -83,6 +83,12 @@ All four screenshots were inspected; the complete reason fits the
 overflow. [All 57 served files](results/served-bytes.json) match the tested
 installed review UI and clean-built local demo.
 
+Source and evidence commit `e2ada18851631d0870743df83253fc956745819b` was
+pushed to GitHub. A clean-tree, remote-head check and pinned raw-file comparisons
+matched all 87 changed files; the [publication receipt](results/publication.json)
+records their sizes and SHA-256 hashes. This establishes public source, not a
+registry release or a deployed review server.
+
 ## Reproduce
 
 ```sh

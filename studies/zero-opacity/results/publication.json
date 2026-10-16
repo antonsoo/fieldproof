@@ -1,0 +1,444 @@
+{
+  "source_commit": "e2ada18851631d0870743df83253fc956745819b",
+  "remote_main": "e2ada18851631d0870743df83253fc956745819b",
+  "clean_tree_at_verification": true,
+  "pinned_public_files_matched": 87,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 351,
+      "sha256": "9bfa65dc02b8075988c3a61516a4dc09747f6fe378800b38ca314775f5998457"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 33091,
+      "sha256": "5018ce16b7fb81394aa5b6a2ea43abdac5b09422567fb7b71d1b8ce06fee3b1c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 46982,
+      "sha256": "2ea491e2447c148e2970e5f0f9a9406377645b4cd46d9cd825fab46e4b9ca211"
+    },
+    {
+      "path": "docs/assets/zero-opacity/chromium-1440.png",
+      "bytes": 83653,
+      "sha256": "044b388aa308a3aa4cdc2746300d8eb897bfb1cc5f3b8ae0c32e40a75310c566"
+    },
+    {
+      "path": "docs/assets/zero-opacity/chromium-375.png",
+      "bytes": 60315,
+      "sha256": "187f13f08b4b6ed4a1cac5cdd36966c3c4d1e2964725f67c719184e466ca7d5d"
+    },
+    {
+      "path": "docs/assets/zero-opacity/firefox-1440.png",
+      "bytes": 109911,
+      "sha256": "611d04f21793bf49c4caee3e2d6305361c6ac962e2324b8c49c93f269bb81be6"
+    },
+    {
+      "path": "docs/assets/zero-opacity/firefox-375.png",
+      "bytes": 79112,
+      "sha256": "72f95a74ae5a8e7d7b2b36c2f5f5015a2c02e92dcd9f1c5f92369e5d080c6f55"
+    },
+    {
+      "path": "src/fieldproof/document/loader.py",
+      "bytes": 7274,
+      "sha256": "ffd070fa64db6358b35a4b44a43a04afb2eac0e2db638e1c0980ebf336a61612"
+    },
+    {
+      "path": "src/fieldproof/document/model.py",
+      "bytes": 5209,
+      "sha256": "0b71d08752b87db6c54439249a61f653227e8a6fc3f0a70895b35900efd4c70f"
+    },
+    {
+      "path": "src/fieldproof/document/text_modes.py",
+      "bytes": 5495,
+      "sha256": "62bf2fb380ebb6a00f520f48bce58dc610d75fd833d3fc524fb293be52cf2c82"
+    },
+    {
+      "path": "src/fieldproof/verify/engine.py",
+      "bytes": 25306,
+      "sha256": "82b287e4172fca3fcffb221319e8dfec202e1bf407c45c116e08cacae58ed81c"
+    },
+    {
+      "path": "studies/unpainted-text/README.md",
+      "bytes": 8084,
+      "sha256": "0ff93bd7d6932dd437ae1f52ff307d96711db6cb3475244456d2d95933ae3b4a"
+    },
+    {
+      "path": "studies/unpainted-text/compatibility.py",
+      "bytes": 1240,
+      "sha256": "4ef29a41772be1b6035d36bcc03e28fbac9360f66eeee28720bfad841bec4e01"
+    },
+    {
+      "path": "studies/zero-opacity/README.md",
+      "bytes": 6389,
+      "sha256": "e5ed0295f6a7d8b545a3da6498b6c7a8854e1d97a648cd150b8978a70a79e14c"
+    },
+    {
+      "path": "studies/zero-opacity/browser.config.mjs",
+      "bytes": 257,
+      "sha256": "0eb1cd31a6a65255656e2c95d177b8a61790c71af2bf21c35c13a9f6a317953d"
+    },
+    {
+      "path": "studies/zero-opacity/cases.json",
+      "bytes": 4546,
+      "sha256": "557d91f322cc16446b871bd97eff810a8517204386f11536a0b7eaa634e517dd"
+    },
+    {
+      "path": "studies/zero-opacity/extraction.json",
+      "bytes": 395,
+      "sha256": "3c4a49d95c0cae193077e87be5010d2423303cf3ef746a2fa2e19739c7483467"
+    },
+    {
+      "path": "studies/zero-opacity/fixture.json",
+      "bytes": 318,
+      "sha256": "38bf8c6431dffa477f725f4167414f27e79095d2c2620831e49dc4284021693d"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/form-inherited.pdf",
+      "bytes": 1908,
+      "sha256": "a79fa2b95ba4b6e415bdddc10dd87bd8b06c0ba9271b641b8d2a8f2db10771c1"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/form-internal.pdf",
+      "bytes": 1917,
+      "sha256": "ea518f0045ec726491e7c97cf1515a265322b73fc550e2aa8fd119f23f11f1a2"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/form-override.pdf",
+      "bytes": 2009,
+      "sha256": "e43f5739e255791124aca1bf8abca228749a32ff346e7128c0f3cbd559133339"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/group-inherited.pdf",
+      "bytes": 1952,
+      "sha256": "dd0307446de5dfb67bbbd24ce1407ae19aa96866d76ee37d4dce3b2c1cc3dc17"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/group-override.pdf",
+      "bytes": 2047,
+      "sha256": "bdf4bf46a2258214cc382c54342a538a1622ff34d358d444c2c6ac89e3379ae0"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/group-reset.pdf",
+      "bytes": 1952,
+      "sha256": "2af38b4f5be2aee9648c67aa20b1937dd456a897b5906bf8b2987ac8303d1d41"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/inherited-mode.pdf",
+      "bytes": 1866,
+      "sha256": "b8e5c0833add672bce542aea0c929b4bbe45eab8712e62889a3c2b44ba54d606"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-0-fill-0-stroke-0.pdf",
+      "bytes": 1492,
+      "sha256": "5d3f48c267ae7b826174bae18aca0c3686de4a301e8cc51023eeadf1e25fd6bf"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-0-fill-0-stroke-1.pdf",
+      "bytes": 1467,
+      "sha256": "fbf1bbd39b0bec934709f0ebe4ee71ba2e8b3ceff9451ba474e26b9d5d0f2759"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-0-fill-0.5-stroke-0.5.pdf",
+      "bytes": 1494,
+      "sha256": "78ebfdd9dd76d0d5d2fe2bd6f9d4b2e80808033be1cc4f4585f7612b2690aad3"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-0-fill-1-stroke-0.pdf",
+      "bytes": 1467,
+      "sha256": "689ed44bdb6b96a349dd9d3ec4c9da6935a14d7fc77fbbb1c26c296d169b83f9"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-0-fill-1-stroke-1.pdf",
+      "bytes": 1422,
+      "sha256": "48e5a9993acfb7d22451581214e8df9b57a7cc95162a064203a4cefe1989a62e"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-1-fill-0-stroke-0.pdf",
+      "bytes": 1497,
+      "sha256": "c204b32bbbe3d9084807a47cb65d4a72868616635059915776b1ce2d431d4b68"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-1-fill-0-stroke-1.pdf",
+      "bytes": 1472,
+      "sha256": "5ca968882e2519a0b754df7efb8cbe89cf4a042e1b8e57ead0f3925b9e430e09"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-1-fill-0.5-stroke-0.5.pdf",
+      "bytes": 1499,
+      "sha256": "5dd020fd70911db2a5c2e62fcd6c6061cba3eef3c6b31fead1236e90a79b9c8c"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-1-fill-1-stroke-0.pdf",
+      "bytes": 1472,
+      "sha256": "e018c82ba8b2c240ae54a73c08f3795d38642f34004df80aeee0a7301b02a659"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-1-fill-1-stroke-1.pdf",
+      "bytes": 1427,
+      "sha256": "733bc6ca9882ba8bdc95d2ea2b636eeed5fc368595fec11860e34d44664d0884"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-2-fill-0-stroke-0.pdf",
+      "bytes": 1497,
+      "sha256": "96a50bdba9f369d84fb0d3b1972a974a45860ace865a99209a93070752556d39"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-2-fill-0-stroke-1.pdf",
+      "bytes": 1472,
+      "sha256": "3d6804aa770266e6713eca7a1f977098d6a1e6ec4d982f2a949dd7582db1bef1"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-2-fill-0.5-stroke-0.5.pdf",
+      "bytes": 1499,
+      "sha256": "f90af0eac9ea8237044cf8d3d2299aec33745e5d676f5de1218909a4bb8c9811"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-2-fill-1-stroke-0.pdf",
+      "bytes": 1472,
+      "sha256": "a436a7ff3d8ab93476763af93281e00a2e5a2225b727d0eec80e44d71f2e8d3e"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-2-fill-1-stroke-1.pdf",
+      "bytes": 1427,
+      "sha256": "91f3cce9cce5c687dd948737c281c1b9ddfca52614282dff6e48c2fa2ce1f490"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-4-fill-0-stroke-0.pdf",
+      "bytes": 1503,
+      "sha256": "d7d64ec56ae2b3bd1b8ceaaa1d982bdd49dd7898f7b044b08fd070c2bb7391ca"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-4-fill-0-stroke-1.pdf",
+      "bytes": 1479,
+      "sha256": "9f2da2c7c588a47e6a7e5ed048090fb09fbaacc262301bc3af3ae2eecff3a218"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-4-fill-0.5-stroke-0.5.pdf",
+      "bytes": 1505,
+      "sha256": "6e24531da1acf61b8b466df06000a436e398bf54a14ef24af704d4defc68c8ec"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-4-fill-1-stroke-0.pdf",
+      "bytes": 1479,
+      "sha256": "e45eb78c8375eba6585f99814ee47251ec2eb6e245ff6c864cadb02125d81778"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-4-fill-1-stroke-1.pdf",
+      "bytes": 1433,
+      "sha256": "ffaffb34cba9eb2ce2c34d22093fb1f7c637c6047aacbf14753aa780b2570155"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-5-fill-0-stroke-0.pdf",
+      "bytes": 1503,
+      "sha256": "f0a51dbc1f8b37cd745cbbf569c165e5fea149949c32195440f4156cb94d40d8"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-5-fill-0-stroke-1.pdf",
+      "bytes": 1478,
+      "sha256": "63dc252b2af92cdece700a3eb21c1019c80ed36b0cec47e0d9e0c77d2cf89446"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-5-fill-0.5-stroke-0.5.pdf",
+      "bytes": 1505,
+      "sha256": "1789baca35422eaf8f6f31ebfe803c7c02bebe45af3e1cd330d22178418e7843"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-5-fill-1-stroke-0.pdf",
+      "bytes": 1478,
+      "sha256": "96f04e27d2584259d73096b80d70566c45259134ee3eeff364f2894aa279a7e2"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-5-fill-1-stroke-1.pdf",
+      "bytes": 1433,
+      "sha256": "e03863d47d975bfd66ff08f9b0562b572841c56233a5b19b71a1b5dd495ffab6"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-6-fill-0-stroke-0.pdf",
+      "bytes": 1502,
+      "sha256": "4169adfb1018487e62c0e54bd8da0d28bdb749d92ffda020a1bbda2eae8e7317"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-6-fill-0-stroke-1.pdf",
+      "bytes": 1478,
+      "sha256": "ba4698078becf0559da9b4fc0d98ce4bf0e36bca0fe7667239f544198e5efcd3"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-6-fill-0.5-stroke-0.5.pdf",
+      "bytes": 1504,
+      "sha256": "b6fdd05494f60ff07dc7f62d24284880e2ffe372144781d92a11ed5cfeedf35f"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-6-fill-1-stroke-0.pdf",
+      "bytes": 1478,
+      "sha256": "b6fc5927de1b3e1ce625bba3c1be0ab6b5073ef6a0eda35bb9a78ea84f6f9ab9"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/mode-6-fill-1-stroke-1.pdf",
+      "bytes": 1432,
+      "sha256": "3235bf993fec8acb62df5633c937f58374edb904d08b0242d1adbc3f4dc74176"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/nested.pdf",
+      "bytes": 2300,
+      "sha256": "2eeb4d13360feeba64503b161dc8d54c879317e8994878cc643c0b34c7818f9f"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/restore.pdf",
+      "bytes": 1496,
+      "sha256": "3e732821a6687dee66aab927147e202e41aa5f1b8ec44e7a2998be8127630ca6"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/rotated-180.pdf",
+      "bytes": 1306,
+      "sha256": "0d2e6cb35af406cfee49b90b0d0c2e615c79c28ad19dd3d306ec29a0a5d79191"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/rotated-270.pdf",
+      "bytes": 1306,
+      "sha256": "e715d7203c092a295ef5ced8b442bd2dd440e13b29e4f1e057f70159ecb56ee4"
+    },
+    {
+      "path": "studies/zero-opacity/fixtures/rotated-90.pdf",
+      "bytes": 1305,
+      "sha256": "811643345f9728add13ffe1831cb75ac20dfc2bd6a3ecdedc076e0efcdc89fad"
+    },
+    {
+      "path": "studies/zero-opacity/generate.py",
+      "bytes": 5883,
+      "sha256": "d3b0f7a2ab17be24d7d44aa8e6e502d535a99ea24f2155f74b35727dccb3b103"
+    },
+    {
+      "path": "studies/zero-opacity/pixels.py",
+      "bytes": 2430,
+      "sha256": "9179e57321dc63f14e84513a739270f2802269ef0cd403c9f4f5fca614719dc2"
+    },
+    {
+      "path": "studies/zero-opacity/replay.py",
+      "bytes": 2281,
+      "sha256": "3ff05c87f5aa5b5f707e66e557ad04be63df9f00bfd2f3635c5799679cc983b8"
+    },
+    {
+      "path": "studies/zero-opacity/results/after.json",
+      "bytes": 53189,
+      "sha256": "219bb818435eb316c5527c7e0d71831b875d0b623e4d9182e746728ff01457c7"
+    },
+    {
+      "path": "studies/zero-opacity/results/before-cli.json",
+      "bytes": 3542,
+      "sha256": "d7540de4c5d7cecc2c5762baab60d2947ae0d09e07b9181dbf9fb6afb3563e49"
+    },
+    {
+      "path": "studies/zero-opacity/results/before.json",
+      "bytes": 49649,
+      "sha256": "513eeea91a9c64a35c027e749b2a989a622fafa18af4070c05646de01031b790"
+    },
+    {
+      "path": "studies/zero-opacity/results/chromium-browser.json",
+      "bytes": 3823,
+      "sha256": "cf7e5c82dad8ce16780ae80ca3d70019ed093516533b308c1d9d416f9ebc4b53"
+    },
+    {
+      "path": "studies/zero-opacity/results/clean-browser.log",
+      "bytes": 14419,
+      "sha256": "0ff3c1e9761b4cf514db30c75bdc9a508a365b33416b3c2e3b2d6f522424d84b"
+    },
+    {
+      "path": "studies/zero-opacity/results/clean-build.log",
+      "bytes": 3247,
+      "sha256": "a511f08ee273b6632f6b8d9a17da1484f651ec45939691665bec1991fa895acc"
+    },
+    {
+      "path": "studies/zero-opacity/results/clean-install.log",
+      "bytes": 1525,
+      "sha256": "b98283d6d7743d98eb5b6d377cc0f9a54dacdcfaa9806f189db4e17b40ef89ec"
+    },
+    {
+      "path": "studies/zero-opacity/results/clean-mypy.log",
+      "bytes": 44,
+      "sha256": "5b8ce7baba93409ab8ce52693c77459567344e2c2f77fe3cf14b888e34f7e451"
+    },
+    {
+      "path": "studies/zero-opacity/results/clean-pytest.log",
+      "bytes": 832,
+      "sha256": "3bfbc6042710412a4cd8310f15379a0fbd111b41ba8714c9735b9b0879c6e2f4"
+    },
+    {
+      "path": "studies/zero-opacity/results/clean-ruff.log",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "path": "studies/zero-opacity/results/clean-web.log",
+      "bytes": 2607,
+      "sha256": "04185874a376b39441608790eeb31e7b5263b3552d534660f8858c4d96c082d5"
+    },
+    {
+      "path": "studies/zero-opacity/results/compatibility-after.json",
+      "bytes": 2558,
+      "sha256": "051a14d364d919d4d8776c2e91461165fc07ed8f31c8eec3f8fa4ff92833f791"
+    },
+    {
+      "path": "studies/zero-opacity/results/compatibility-before.json",
+      "bytes": 2558,
+      "sha256": "051a14d364d919d4d8776c2e91461165fc07ed8f31c8eec3f8fa4ff92833f791"
+    },
+    {
+      "path": "studies/zero-opacity/results/firefox-browser.json",
+      "bytes": 3823,
+      "sha256": "cf7e5c82dad8ce16780ae80ca3d70019ed093516533b308c1d9d416f9ebc4b53"
+    },
+    {
+      "path": "studies/zero-opacity/results/installed-cli.json",
+      "bytes": 3727,
+      "sha256": "78a3264ce1ca8517760b7e602e627e49ad28a100154851f16e783377b8e03d22"
+    },
+    {
+      "path": "studies/zero-opacity/results/installed.json",
+      "bytes": 53187,
+      "sha256": "bd85e7e057914f63d8b12267a750647ce5cdc63f56b076db02fc1bbca2dc5d65"
+    },
+    {
+      "path": "studies/zero-opacity/results/minimums.json",
+      "bytes": 53188,
+      "sha256": "4ddbe0cbe6f27512a34c86a5e61ecb369e8e38ba6899f6b0a1f2c40401d19371"
+    },
+    {
+      "path": "studies/zero-opacity/results/pixels.json",
+      "bytes": 19650,
+      "sha256": "d8edb029cb32b05f315837818e7d3eedf61c0e759ad440e2fa004c703f706a9b"
+    },
+    {
+      "path": "studies/zero-opacity/results/served-bytes.json",
+      "bytes": 11724,
+      "sha256": "69d89303bfc4074a95dcaf53cb577e08166462ca9c419566e821aa2bc9f639ac"
+    },
+    {
+      "path": "studies/zero-opacity/results/verification.json",
+      "bytes": 13101,
+      "sha256": "7e099599d185e9e69111dd23c6dcd348ada463eb6a122eea3c47ab592b59956b"
+    },
+    {
+      "path": "studies/zero-opacity/results/wheel-current-install.log",
+      "bytes": 1362,
+      "sha256": "79c011f646773179c330d7300ef1415d20ab1c6ebef1985d29488db96f6b8364"
+    },
+    {
+      "path": "studies/zero-opacity/results/wheel-floor-install.log",
+      "bytes": 1258,
+      "sha256": "c507fe0ba26cdd63568af4a0a8a6109eaa410623ff7bae156e84aa42a88a5d8c"
+    },
+    {
+      "path": "tests/test_zero_opacity.py",
+      "bytes": 5298,
+      "sha256": "45c62fa3755c91540380090de3a166f42098e095d3be3a20edf06dac9a0b5582"
+    },
+    {
+      "path": "web/tests/browser/live.spec.mjs",
+      "bytes": 57818,
+      "sha256": "6c7de6eab4f81f2f4f4702933618cff675d4390552ee8a9879b0675bc614d521"
+    }
+  ],
+  "scope": "GitHub source only. No package release or hosted backend deployment."
+}
