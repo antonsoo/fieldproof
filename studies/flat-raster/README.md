@@ -199,3 +199,17 @@ to 90, download the real JSON, and reconnect/reload. Original 900 and automated
 All four contexts have zero requests while offline, no page errors or CSP
 violations, and no horizontal overflow. `node studies/flat-raster/hosted.mjs`
 repeats this check. No registry release was performed.
+
+[Local HTTP byte checks](results/served-bytes.json) also compare all 23 installed
+UI files and all 36 static-demo files with the tested clean build. Both temporary
+services were stopped after verification.
+
+## Public source
+
+The [pinned public-source receipt](results/public-source.json) verifies all 95
+changed implementation, example and evidence files at
+`d75c83813a7355229a16a0d14f6f894ac12daf2d`. Every downloaded raw GitHub file
+matches local bytes, size and SHA-256; the clean local head matches remote
+`main` before and after collection. This establishes source publication. The
+hosted and installed observations above are separate receipts; no registry
+release or tag was created.

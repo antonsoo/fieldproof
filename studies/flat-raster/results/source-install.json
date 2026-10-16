@@ -324,5 +324,6 @@
     "mismatches": 0,
     "unexpected_verified": 0
   },
-  "nativeObservationsSha256": "d955ed0b70392d9472b451ca5580c6e00ab74dfadb3627f33ad0c30453a80ec1"
+  "nativeObservationsSha256": "d955ed0b70392d9472b451ca5580c6e00ab74dfadb3627f33ad0c30453a80ec1",
+  "allVerdictsReasonsGeometryMatch": true
 }

@@ -1,0 +1,580 @@
+{
+  "scope": "Pinned public source bytes only; no registry release or hosted deployment established.",
+  "repository": "https://github.com/antonsoo/fieldproof",
+  "baseRevision": "2fb1cdb5b381f0b6c95b94c131431a60be3b6156",
+  "sourceRevision": "d75c83813a7355229a16a0d14f6f894ac12daf2d",
+  "cleanTree": true,
+  "remoteMainMatchesBeforeAndAfter": true,
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/CHANGELOG.md",
+      "bytes": 34887,
+      "sha256": "e11b02fb28a877a532530bb80cd7c6c71ae6d453ca663bad738f0f3061e5315a"
+    },
+    {
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/README.md",
+      "bytes": 49036,
+      "sha256": "06f586825100255d544aca78c53a3a484967a666c46111f9d0a5f7247c7c19ea"
+    },
+    {
+      "file": "docs/assets/flat-raster/before-chromium-1440.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/before-chromium-1440.png",
+      "bytes": 81880,
+      "sha256": "9a49ee9837ce8eecb3801d2c9850c64a679e26374a6e21cced9b673b1a849f7c"
+    },
+    {
+      "file": "docs/assets/flat-raster/before-firefox-375.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/before-firefox-375.png",
+      "bytes": 69078,
+      "sha256": "94d0564bd8b1ebc164b13fef443dee6f71cfe89659ba56007bcd5e5a520a5907"
+    },
+    {
+      "file": "docs/assets/flat-raster/chromium-1440.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/chromium-1440.png",
+      "bytes": 89006,
+      "sha256": "529861489f23d36e1475512e268f78dff37e33613f09674f290f5d598111c54b"
+    },
+    {
+      "file": "docs/assets/flat-raster/chromium-375.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/chromium-375.png",
+      "bytes": 60198,
+      "sha256": "f5844844496095272f5a8bf5b3317fcec7a3bbb76719caa17423a77833bb444c"
+    },
+    {
+      "file": "docs/assets/flat-raster/demo-chromium-1440.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/demo-chromium-1440.png",
+      "bytes": 122924,
+      "sha256": "afb876367b7d780775be1bf2e1c192d9ee436cf419806468f86163b5e1738d95"
+    },
+    {
+      "file": "docs/assets/flat-raster/demo-chromium-320.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/demo-chromium-320.png",
+      "bytes": 34823,
+      "sha256": "beb967cbcabeb9ba2ae2737aa3aea7c25de5b8b7a7306bb83ff687d82337483e"
+    },
+    {
+      "file": "docs/assets/flat-raster/demo-chromium-375.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/demo-chromium-375.png",
+      "bytes": 51410,
+      "sha256": "fe60d824c5d1f1cc7217e20796ef33090021426e6d369b203dc470c6ac98a3f3"
+    },
+    {
+      "file": "docs/assets/flat-raster/demo-firefox-1440.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/demo-firefox-1440.png",
+      "bytes": 156840,
+      "sha256": "b41e57ccf9cebf18ba4d2ff84d5cf575722998397490462c311a260885b7a2ea"
+    },
+    {
+      "file": "docs/assets/flat-raster/demo-firefox-320.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/demo-firefox-320.png",
+      "bytes": 45566,
+      "sha256": "df583f5099715f44a34e4d8ec55966e41b4d3332c4136c20bac6a1a5ebe9d86b"
+    },
+    {
+      "file": "docs/assets/flat-raster/demo-firefox-375.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/demo-firefox-375.png",
+      "bytes": 65135,
+      "sha256": "8210e61de22afc6bbe0a7b569baee1c682eb2c7a6ef754799f2a142d810acc81"
+    },
+    {
+      "file": "docs/assets/flat-raster/firefox-1440.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/firefox-1440.png",
+      "bytes": 116258,
+      "sha256": "4ec1b6ffe1ba24d90ba743e35061bc6fc7e4f99d8d54a44c1772bebd779980aa"
+    },
+    {
+      "file": "docs/assets/flat-raster/firefox-375.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/docs/assets/flat-raster/firefox-375.png",
+      "bytes": 79203,
+      "sha256": "a2a5d6746b2405a06b50321a7efd09eaf55ea20f7f4a00fdb4c99d747d546b2d"
+    },
+    {
+      "file": "examples/fixtures/hidden-text.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/examples/fixtures/hidden-text.json",
+      "bytes": 494,
+      "sha256": "78be1aa4422206bb5210f70b8e47858aecdf7330b5c9cddd9d68c3db7a0fd973"
+    },
+    {
+      "file": "examples/hidden-text.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/examples/hidden-text.pdf",
+      "bytes": 11114,
+      "sha256": "dab5f04a56da679afa1531dc8369f0b4ac7e2e14e98fdc73093e5c94f5c9438a"
+    },
+    {
+      "file": "scripts/build_demo_data.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/scripts/build_demo_data.py",
+      "bytes": 3009,
+      "sha256": "8ab179584336a60de3b85672a8d6d9cedf89cdc9d4d9b0b6a1485983af9a6a77"
+    },
+    {
+      "file": "src/fieldproof/document/loader.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/src/fieldproof/document/loader.py",
+      "bytes": 9544,
+      "sha256": "4964ab2c09682894d7a5bf918a3564aa4412fe5204cb065ed86cec79bfe46b57"
+    },
+    {
+      "file": "src/fieldproof/document/model.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/src/fieldproof/document/model.py",
+      "bytes": 6385,
+      "sha256": "15cddb09c83b227289d88d04c879ce00797f0eed9f840f09c11243b060049eb1"
+    },
+    {
+      "file": "src/fieldproof/document/raster_paint.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/src/fieldproof/document/raster_paint.py",
+      "bytes": 6753,
+      "sha256": "0d7d4189a35848d855c5ab9a615e4b57b6d7a3c4683c5404b06bc6beced2fbf1"
+    },
+    {
+      "file": "src/fieldproof/verify/engine.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/src/fieldproof/verify/engine.py",
+      "bytes": 26313,
+      "sha256": "9d7a82e84a92ff61ae79419298082852fa1642509ab27c338573d97c8999da87"
+    },
+    {
+      "file": "studies/flat-raster/README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/README.md",
+      "bytes": 11470,
+      "sha256": "6ce2c44dbfa9794010219679ae763fa093055163411fd621a7fa97cbd9e4c2b6"
+    },
+    {
+      "file": "studies/flat-raster/browser.config.mjs",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/browser.config.mjs",
+      "bytes": 243,
+      "sha256": "a803ceb0d4a99287a1aa6b4ec163c23cf445e172525de0e7da28d092ff89887a"
+    },
+    {
+      "file": "studies/flat-raster/capture-baseline.mjs",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/capture-baseline.mjs",
+      "bytes": 2644,
+      "sha256": "10c3e18fe3aed409967618b6e8585fcdb3a81f85e360964396622caaf8d2796c"
+    },
+    {
+      "file": "studies/flat-raster/cases.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/cases.json",
+      "bytes": 4289,
+      "sha256": "efed5b57d32ac4c82d118f6d6dd58504fd9da12784ce8dd45df2739a818b74c7"
+    },
+    {
+      "file": "studies/flat-raster/extraction.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/extraction.json",
+      "bytes": 396,
+      "sha256": "40c6c5188adbe33a4097511bc2df51e2457c407a4d8371e2e28eaea6306a5a5f"
+    },
+    {
+      "file": "studies/flat-raster/fixture.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixture.json",
+      "bytes": 319,
+      "sha256": "23ebac6f7dedb713e09393289c89a0adea0ff704cf2572e2ad905796cb4d2153"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/a4-visible.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/a4-visible.pdf",
+      "bytes": 1465,
+      "sha256": "11aaf0ffcc69b5a569d0cf8b9f95340791f261876eaefd4dc32273fc18780e03"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/a4-white-on-white.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/a4-white-on-white.pdf",
+      "bytes": 1465,
+      "sha256": "db56b87ed11256d9e273508fe5622c01b32aa9ea0a3ec32e571d5dea6ae7e766"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/black-on-black.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/black-on-black.pdf",
+      "bytes": 1451,
+      "sha256": "c02a91caa10151b2c2624bc8a3b0addec6fe8afcd9efc67a3eebe357393b6f79"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/black-on-white.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/black-on-white.pdf",
+      "bytes": 1455,
+      "sha256": "b7c29b4433607f49efdf62edfebfb8f5288970d5a1e79c896fe51f21c88eb17c"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/black-on-yellow.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/black-on-yellow.pdf",
+      "bytes": 1456,
+      "sha256": "21ba5a1c75ded3f845db3ee74eaa330d006b96d1c8448e687e6421fb2fdca730"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/even-odd-hole.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/even-odd-hole.pdf",
+      "bytes": 1476,
+      "sha256": "d07604d68695102fb49fcbe8a5c680797cfe375fca07b3214a522f8484683782"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/flat-image-cover.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/flat-image-cover.pdf",
+      "bytes": 1797,
+      "sha256": "a08cbdf620dd78114721e53f24607f005fa3a2b1dc4fde434f4665d1eb3f4236"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/gray-on-gray.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/gray-on-gray.pdf",
+      "bytes": 1457,
+      "sha256": "72a2356b645ffb94023cef89e5d0ba831c8f1b1a67a43e0ec8b7e36ad9b3c90b"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/image-prints-ninety.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/image-prints-ninety.pdf",
+      "bytes": 10669,
+      "sha256": "9561de1d7848d5fb3b53f3296d6130f9936cee46b66d8062f572335ccb45c8f7"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/leading-nine-hidden-24pt.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/leading-nine-hidden-24pt.pdf",
+      "bytes": 1682,
+      "sha256": "1b9b2675f9fb2d7aa31f9702a1939a3eb029263c1d02bccf75a2bd565bb3d6db"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/leading-nine-hidden-8pt.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/leading-nine-hidden-8pt.pdf",
+      "bytes": 1673,
+      "sha256": "87e3d4fdf33a1ff2e866a0b811c88a961ed544a13adbfb069410824be443e7be"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/leading-nine-hidden.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/leading-nine-hidden.pdf",
+      "bytes": 1672,
+      "sha256": "e70410ba09af320557d6d0ec42f26f52fb558c130d9689898cd20de5b14e7ab0"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/mixed-ink-visible.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/mixed-ink-visible.pdf",
+      "bytes": 1671,
+      "sha256": "67eeae7611fba66d7e991edec088ac61942096ae8507a4f1aa2365ddd4210541"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/overpaint-gray.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/overpaint-gray.pdf",
+      "bytes": 1457,
+      "sha256": "6567e55130d9a41bccb8da5df11ed7417b88ec80f79189aabd8b53e5228ab208"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/overpaint-white.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/overpaint-white.pdf",
+      "bytes": 1457,
+      "sha256": "87d7b402ac8fef18537f599a56111a2853b1e1da2f06181831496b2cae60353b"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/pattern-covers-text.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/pattern-covers-text.pdf",
+      "bytes": 1871,
+      "sha256": "2640c1a7d2bb6b99af7e9e370d43b1f286d6b559ee40d46a54b3f094a866dbe6"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/text-over-pattern.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/text-over-pattern.pdf",
+      "bytes": 1880,
+      "sha256": "bca763992c0f684cd31eae913484dc25f225d1c19f3e17b16daeaf1d71b44f0e"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/visible-24pt.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/visible-24pt.pdf",
+      "bytes": 1466,
+      "sha256": "95a54733e7c753d59ff1d6cfefa69a07b20903ee0e8149fe3c753b537debc3b6"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/visible-8pt.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/visible-8pt.pdf",
+      "bytes": 1465,
+      "sha256": "5979fc40cf298eb94f1f7f0754efad8fe31e66dbbdc3c77796e3fa48d71f8877"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/visible-crop-rot0.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/visible-crop-rot0.pdf",
+      "bytes": 1324,
+      "sha256": "13515a066d4acd4d260747a5733928ff8a4f87c70c830310cbf3a64bb8b80a02"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/visible-crop-rot90.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/visible-crop-rot90.pdf",
+      "bytes": 1325,
+      "sha256": "43558906462e8bac5796f2e0a239b45832a1191d0fd6ae3a16708b248e97e4cc"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-crop-rot0.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-crop-rot0.pdf",
+      "bytes": 1324,
+      "sha256": "9509e59aca02c02e59d6709157ae8ef84fcb200c1390490fc50cbfb292677629"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-crop-rot90.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-crop-rot90.pdf",
+      "bytes": 1325,
+      "sha256": "20c5e547bc840e9215af011c587ae67c19eca73653913621141b6de5f9962841"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-on-black-rot180.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-on-black-rot180.pdf",
+      "bytes": 1304,
+      "sha256": "5da0cbce8daf416bf26b7559c33d3fcee93e5d5daf2d1dd43d0678da4d6284bb"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-on-black-rot270.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-on-black-rot270.pdf",
+      "bytes": 1304,
+      "sha256": "973a27e7d873baa976e45ea1a9befb8fd3bb2122f4060a006f3ceb731fec5fec"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-on-black-rot90.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-on-black-rot90.pdf",
+      "bytes": 1303,
+      "sha256": "576e2d5e248e75e69c0d57814adf07fbf627d756c6617baba825bb9e63e22e9e"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-on-black.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-on-black.pdf",
+      "bytes": 1458,
+      "sha256": "6e7901f3dee1ee44f0cc12be028230c36983045788a8507137e8be5da17fb994"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-on-blue.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-on-blue.pdf",
+      "bytes": 1461,
+      "sha256": "3141af6cff055bb345cb678f2f74f498ac339feaae9f4c1f55da77529a603a68"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-on-white-24pt.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-on-white-24pt.pdf",
+      "bytes": 1467,
+      "sha256": "e6bc559958281d4c7515892f0cab18f11018965277e834e9c8ddfc9ab03cc025"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-on-white-8pt.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-on-white-8pt.pdf",
+      "bytes": 1465,
+      "sha256": "c350760d07c1cfea0686c6b4cc62e830197c7cc10dd7cb5cb87a9cac77d5dae0"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-on-white-rot180.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-on-white-rot180.pdf",
+      "bytes": 1301,
+      "sha256": "feb936f5ee94e52534b0dda4c1f5808c38f2f0fc61f34b00bcd9eebfeef35869"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-on-white-rot270.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-on-white-rot270.pdf",
+      "bytes": 1301,
+      "sha256": "b8acf6f995c026fc679cbfa669aed4bf33b2c09987729ae0f2d3c20e733b0995"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-on-white-rot90.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-on-white-rot90.pdf",
+      "bytes": 1300,
+      "sha256": "afcc717c44af0e6f10c80b2fe02afe6b2c7729156dd1670b8e02744a817aa341"
+    },
+    {
+      "file": "studies/flat-raster/fixtures/white-on-white.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/fixtures/white-on-white.pdf",
+      "bytes": 1455,
+      "sha256": "e1e6d9af3aa4e04973d0491540cb36568b870ca754f09f51855c4f70f2b32401"
+    },
+    {
+      "file": "studies/flat-raster/generate.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/generate.py",
+      "bytes": 11002,
+      "sha256": "6efff536a7e686e579134080f737ce52f60eb720aa6b4f0fc0d2c1b12b91d6da"
+    },
+    {
+      "file": "studies/flat-raster/hosted.mjs",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/hosted.mjs",
+      "bytes": 4320,
+      "sha256": "79e426bab9b85070bd0ba403ff85ecfb19f09a6bc2a2366b89829e0ad8abf90e"
+    },
+    {
+      "file": "studies/flat-raster/pixels.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/pixels.py",
+      "bytes": 3246,
+      "sha256": "0e5c8397871b45e2d12af10df3c35447e0ac4bab52989ec4cdc970382418bf46"
+    },
+    {
+      "file": "studies/flat-raster/replay.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/replay.py",
+      "bytes": 3660,
+      "sha256": "b0512079b142edcd63be86d194ebd7a013ee4145592b5325aa65e2abca7a516b"
+    },
+    {
+      "file": "studies/flat-raster/results/after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/after.json",
+      "bytes": 355019,
+      "sha256": "e44220b8cca0423de8163c8aa8bb65c9f6d9ce3c29966ad5e9390dabec8e91bb"
+    },
+    {
+      "file": "studies/flat-raster/results/artifacts.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/artifacts.json",
+      "bytes": 8422,
+      "sha256": "375f411ab7296cae4a5458c9671ed783775048807245f07f605223fc812f09c9"
+    },
+    {
+      "file": "studies/flat-raster/results/before-browser.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/before-browser.json",
+      "bytes": 6385,
+      "sha256": "c35e42eec343a3ed9cc990b891ee340c1ee407dd16c5676878be5e4b25c3b0b9"
+    },
+    {
+      "file": "studies/flat-raster/results/before.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/before.json",
+      "bytes": 342909,
+      "sha256": "e19a8f515af023afd5996a23ceba24ec5cd9d206a8bf847ffb1355fa632a1b07"
+    },
+    {
+      "file": "studies/flat-raster/results/chromium-browser.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/chromium-browser.json",
+      "bytes": 3856,
+      "sha256": "789b1c87856cd51bea56e2234b0fe28aae6c846089b7a89617c3c2c72afaca01"
+    },
+    {
+      "file": "studies/flat-raster/results/examples-after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/examples-after.json",
+      "bytes": 4316,
+      "sha256": "b5ce6109ac36bc8a2d17d85bd02ed9916e023845a752ef47e3576bd900e713d4"
+    },
+    {
+      "file": "studies/flat-raster/results/examples-before.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/examples-before.json",
+      "bytes": 4316,
+      "sha256": "05bb08d7e046d065d3aa0c1940a23c68b9f8a9dab3c0822e21f368e5c6eef5e3"
+    },
+    {
+      "file": "studies/flat-raster/results/firefox-browser.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/firefox-browser.json",
+      "bytes": 3856,
+      "sha256": "789b1c87856cd51bea56e2234b0fe28aae6c846089b7a89617c3c2c72afaca01"
+    },
+    {
+      "file": "studies/flat-raster/results/hosted-browser.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/hosted-browser.json",
+      "bytes": 2977,
+      "sha256": "230a3f8c0a292b6f78cbd2541eeefd4e9e20406b9b30d1c23978e29924405907"
+    },
+    {
+      "file": "studies/flat-raster/results/hosted-bytes.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/hosted-bytes.json",
+      "bytes": 7995,
+      "sha256": "68bec96935eed561bcd6e00c5f9df2ea94f0b165550dd3e0484b4a31f137ef92"
+    },
+    {
+      "file": "studies/flat-raster/results/pixels.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/pixels.json",
+      "bytes": 25322,
+      "sha256": "704409626af97db7493d805b94b02295950ba2a463508fe169de0df6800c1d7f"
+    },
+    {
+      "file": "studies/flat-raster/results/scaling-after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/scaling-after.json",
+      "bytes": 1868,
+      "sha256": "01db14b9567fd0484d5c0a715faf44f6a80752c8f3fa374bc293238dd84c9f6f"
+    },
+    {
+      "file": "studies/flat-raster/results/scaling-before.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/scaling-before.json",
+      "bytes": 1883,
+      "sha256": "87b9083ae1c78fbe4ac2485b3fe108dc1f2aca2f66e93b23ae960265e3cfdab2"
+    },
+    {
+      "file": "studies/flat-raster/results/source-install.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/source-install.json",
+      "bytes": 11279,
+      "sha256": "f1666c4fa30d546ae594101555b8d227d92c348d8098b1f1811958e33af81bba"
+    },
+    {
+      "file": "studies/flat-raster/results/verification.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/verification.json",
+      "bytes": 2418,
+      "sha256": "2bad607930c1b4a03133ce605eb5b57b331606d40f86ad8a5e0bb0963f904486"
+    },
+    {
+      "file": "studies/flat-raster/results/worker.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/results/worker.json",
+      "bytes": 760,
+      "sha256": "dda379d296ef7c8de855e4005107f7653dffd60c0498ba5068a40bb313f291c1"
+    },
+    {
+      "file": "studies/flat-raster/scaling.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/scaling.py",
+      "bytes": 3596,
+      "sha256": "4cf633d7ada11de30fb07c5e89ad3c7b1b0926b897241a18b8803b271f012260"
+    },
+    {
+      "file": "studies/flat-raster/verify-artifacts.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/verify-artifacts.py",
+      "bytes": 3557,
+      "sha256": "6f24bb0007ffb74bada3a92ef0ab935bed00aa74693f2c23fef49a6f3cad8a52"
+    },
+    {
+      "file": "studies/flat-raster/worker.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/studies/flat-raster/worker.py",
+      "bytes": 2285,
+      "sha256": "2a8038db785da87b4c24e5c063ceee5bcc396c8a8200c92cf38bd8c60a8b0a1b"
+    },
+    {
+      "file": "tests/test_raster_paint.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/tests/test_raster_paint.py",
+      "bytes": 10398,
+      "sha256": "7e2d45a69a0f4dbf42cc0e92f88fda66a7151c53305e9ccf9c13316d11402ca1"
+    },
+    {
+      "file": "web/public/demo-data/contract/data.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/web/public/demo-data/contract/data.json",
+      "bytes": 8740,
+      "sha256": "a4a79b4216a03d8ce2699dfcd811e97ad2ac86b1c32f5b7ddf0f867b5ccd3d19"
+    },
+    {
+      "file": "web/public/demo-data/hidden-text/data.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/web/public/demo-data/hidden-text/data.json",
+      "bytes": 5270,
+      "sha256": "52099f172f412a65ac59b241dce001a2d83ec8ee61accb19ac9dec4e4d7c838a"
+    },
+    {
+      "file": "web/public/demo-data/hidden-text/page-1.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/web/public/demo-data/hidden-text/page-1.png",
+      "bytes": 85484,
+      "sha256": "6ba73b515f26540577bb8d588949935711b82aa0ef4cec07897ab584f3188696"
+    },
+    {
+      "file": "web/public/demo-data/index.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/web/public/demo-data/index.json",
+      "bytes": 288,
+      "sha256": "c189149b56683df37ae0c699d1b4c9ac47505ca7f1a8c22e9a2a98328fd85190"
+    },
+    {
+      "file": "web/public/demo-data/invoice/data.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/web/public/demo-data/invoice/data.json",
+      "bytes": 67098,
+      "sha256": "1294cabae859b6869f449d3f2c002f5f6c40e3b49e2392677a408b993b8f70d4"
+    },
+    {
+      "file": "web/public/demo-data/line-arithmetic/data.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/web/public/demo-data/line-arithmetic/data.json",
+      "bytes": 21030,
+      "sha256": "8d35844f0091588a692b5b77cd735a305c1bbab0401e58049f08839d30aa554f"
+    },
+    {
+      "file": "web/public/demo-data/receipt/data.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/web/public/demo-data/receipt/data.json",
+      "bytes": 23759,
+      "sha256": "ca2a636edded8ee37149a13e3de404dcdcd85cd5a6a92b0d2e66ab0a119303ed"
+    },
+    {
+      "file": "web/src/style.css",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/web/src/style.css",
+      "bytes": 18722,
+      "sha256": "09e3ed43d207288c2fd135fda07d68f6619a61f5cd5740a106b3a2d7808dd641"
+    },
+    {
+      "file": "web/tests/browser/demo.spec.mjs",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/web/tests/browser/demo.spec.mjs",
+      "bytes": 21583,
+      "sha256": "95a5099ad8d3ed8422a88b8becd41a17d726a213bcab6caabe16d4b4781a2a64"
+    },
+    {
+      "file": "web/tests/browser/live.spec.mjs",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/d75c83813a7355229a16a0d14f6f894ac12daf2d/web/tests/browser/live.spec.mjs",
+      "bytes": 58237,
+      "sha256": "abb1fb0632340002e96fac325edfb0ebbc3ef7822f525ff1f546a5c779c8ee0e"
+    }
+  ]
+}
