@@ -13,6 +13,10 @@ specific verification policy, not extraction accuracy or real-world prevalence.
 
 ## Policy and implementation
 
+The subsequent [clipping-bound check](../clipped-text/README.md) also covers
+native glyph boxes crossing an outer path/Form clipping bound. It is separate
+from the zero-alpha policy and the retained results below.
+
 The native parser retains `Word.zero_opacity`. Quotes touching those words
 require review with the original text and location preserved. The same words
 cannot establish document number/date conventions, row anchors or table headers.

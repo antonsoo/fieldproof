@@ -135,6 +135,8 @@ white-on-white ink, soft masks, later
 overpainting, arbitrary clipping, optional layers and incorrect font/Unicode
 mappings remain outside its scope. A clipping-only object may support later
 painted artwork; the verifier still requires visual review.
+The later [clipping-bound check](../clipped-text/README.md) covers native glyph
+boxes crossing outer path/Form bounds; it does not establish arbitrary pixel visibility.
 
 Searchable scanned PDFs commonly use invisible OCR text. Even a correct hidden
 OCR layer now needs review when used as native evidence; its correspondence to

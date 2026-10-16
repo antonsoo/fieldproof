@@ -1,0 +1,84 @@
+{
+  "source_commit": "4626ba635b87c7b2f60cea9a4f5020f561eeb930",
+  "baseline_commit": "0669eefded67e09be47b53855a2ffa76dd4b6512",
+  "study": {
+    "synthetic": true,
+    "pdfs": 46,
+    "claims": 138,
+    "incorrectly_verified_before": 31,
+    "incorrectly_verified_after": 0,
+    "visible_controls_verified": 107,
+    "independent_pixel_comparisons": 92,
+    "unchanged_existing_examples": 10
+  },
+  "checks": {
+    "clean_archive_install": {
+      "command": "uv sync --locked --extra dev --extra ocr",
+      "exit_code": 0
+    },
+    "python": {
+      "ruff": "All checks passed",
+      "mypy": "39 source files checked",
+      "pytest": "680 passed, 5 skipped",
+      "python": "3.12.12",
+      "skipped_reason": "Real Tesseract is unavailable"
+    },
+    "wheel": {
+      "python": "3.14.7",
+      "pytest": "680 passed, 5 skipped",
+      "replay": "138 / 138 expected verdicts; reasons and geometry equal to source"
+    },
+    "minimums": {
+      "python": "3.11.13",
+      "native_regressions": "37 passed",
+      "selection": [
+        "test_clipped_text.py",
+        "test_zero_opacity.py",
+        "test_page_geometry.py"
+      ],
+      "replay": "138 / 138 expected verdicts; reasons and geometry equal to source"
+    },
+    "web": {
+      "typecheck": 0,
+      "lint": 0,
+      "format": 0,
+      "unit_tests": "70 passed",
+      "live_build": 0,
+      "demo_build": 0
+    },
+    "browser": {
+      "command": "FIELDPROOF_BROWSER_FULL=1 UPDATE_CLIPPING_SCREENSHOTS=1 npx playwright test --config ../studies/clipped-text/browser.config.mjs",
+      "exit_code": 0,
+      "result": "92 passed (3.6m)",
+      "engines": [
+        "Chromium",
+        "Firefox"
+      ],
+      "scope": "Installed wheel and clean-built static demo; desktop and phone flows; offline demo exports",
+      "earlier_attempts": "An interrupted targeted run left a stale session, and a terminated static test server required restarting a full attempt. The final run with fresh isolated services passed without retries."
+    },
+    "build": {
+      "commands": [
+        "uv run --no-sync python scripts/bundle_ui.py",
+        "uv build --out-dir <temporary-artifacts-directory>"
+      ],
+      "ui_outputs": [
+        "web/dist",
+        "web/dist-demo"
+      ],
+      "artifacts": [
+        "fieldproof-0.2.7-py3-none-any.whl",
+        "fieldproof-0.2.7.tar.gz"
+      ],
+      "note": "Built in a clean archive; artifact files retained outside the checkout."
+    }
+  },
+  "browser_test_sha256": "e3c43ccde6699a32fca30beb760b051c7e652734aff8efcd0e5c6edcf4fc37fb",
+  "artifact_receipt": "artifacts.json",
+  "served_file_receipt": "served-bytes.json",
+  "publication": {
+    "pushed": false,
+    "deployed": false,
+    "registry_release": false
+  }
+}

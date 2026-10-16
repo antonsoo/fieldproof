@@ -1,0 +1,3217 @@
+{
+  "synthetic": true,
+  "pdfs": 46,
+  "claims": 138,
+  "mismatches": 0,
+  "unexpected_verified": 0,
+  "seconds": 0.3103,
+  "observations": [
+    {
+      "case": "ordinary",
+      "sha256": "b7fdbae2b1450b5ffab8e9a23eb4da96c1733e3668b5e321343b80ba325c98b7",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "ordinary",
+      "sha256": "b7fdbae2b1450b5ffab8e9a23eb4da96c1733e3668b5e321343b80ba325c98b7",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "ordinary",
+      "sha256": "b7fdbae2b1450b5ffab8e9a23eb4da96c1733e3668b5e321343b80ba325c98b7",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-n",
+      "sha256": "6b14d0482619b7ec5c220f70fbf8371d70fde5c66affbf1cd42867cf1f3bb3ea",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-n",
+      "sha256": "6b14d0482619b7ec5c220f70fbf8371d70fde5c66affbf1cd42867cf1f3bb3ea",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-n",
+      "sha256": "6b14d0482619b7ec5c220f70fbf8371d70fde5c66affbf1cd42867cf1f3bb3ea",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-S",
+      "sha256": "ab9dffee5feedba565ebec9d55d507e9418a85d7fb6ef6381f3663c0b2bdf28c",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-S",
+      "sha256": "ab9dffee5feedba565ebec9d55d507e9418a85d7fb6ef6381f3663c0b2bdf28c",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-S",
+      "sha256": "ab9dffee5feedba565ebec9d55d507e9418a85d7fb6ef6381f3663c0b2bdf28c",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-s",
+      "sha256": "82d29ae080363ca4ad38867399a20c207193099c41adaff88b1bbeb96dcb6a65",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-s",
+      "sha256": "82d29ae080363ca4ad38867399a20c207193099c41adaff88b1bbeb96dcb6a65",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-s",
+      "sha256": "82d29ae080363ca4ad38867399a20c207193099c41adaff88b1bbeb96dcb6a65",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-f",
+      "sha256": "b6a4dc740f04caf6c5b0b09ce2e5c01aa896e792d2765319d9c497c398d13ef8",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-f",
+      "sha256": "b6a4dc740f04caf6c5b0b09ce2e5c01aa896e792d2765319d9c497c398d13ef8",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-f",
+      "sha256": "b6a4dc740f04caf6c5b0b09ce2e5c01aa896e792d2765319d9c497c398d13ef8",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-F",
+      "sha256": "dfffb3d00a78a3b1f9389acf7c378d690a04347c9d96fb4be815ffed4226cb6f",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-F",
+      "sha256": "dfffb3d00a78a3b1f9389acf7c378d690a04347c9d96fb4be815ffed4226cb6f",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-F",
+      "sha256": "dfffb3d00a78a3b1f9389acf7c378d690a04347c9d96fb4be815ffed4226cb6f",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-f-star",
+      "sha256": "4d1cca51b3ad3829c9965777b0d7e823fc378e228896d854e23d81ffe3af1dbb",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-f-star",
+      "sha256": "4d1cca51b3ad3829c9965777b0d7e823fc378e228896d854e23d81ffe3af1dbb",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-f-star",
+      "sha256": "4d1cca51b3ad3829c9965777b0d7e823fc378e228896d854e23d81ffe3af1dbb",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-B",
+      "sha256": "152e718d94215297f4886b45b39089f6c0a4f6c43233c614e4aa38a908f3b86d",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-B",
+      "sha256": "152e718d94215297f4886b45b39089f6c0a4f6c43233c614e4aa38a908f3b86d",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-B",
+      "sha256": "152e718d94215297f4886b45b39089f6c0a4f6c43233c614e4aa38a908f3b86d",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-B-star",
+      "sha256": "145ca16f43fc111bc116ed99b148ba1371522b8d07e2f6deffd1e1a87ab9f20e",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-B-star",
+      "sha256": "145ca16f43fc111bc116ed99b148ba1371522b8d07e2f6deffd1e1a87ab9f20e",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-B-star",
+      "sha256": "145ca16f43fc111bc116ed99b148ba1371522b8d07e2f6deffd1e1a87ab9f20e",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-b",
+      "sha256": "e4785def0cc5fcbd1986e27f6401a3d5ad2d28afb0e47221b9bf1c1c94d1977d",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-b",
+      "sha256": "e4785def0cc5fcbd1986e27f6401a3d5ad2d28afb0e47221b9bf1c1c94d1977d",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-b",
+      "sha256": "e4785def0cc5fcbd1986e27f6401a3d5ad2d28afb0e47221b9bf1c1c94d1977d",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-b-star",
+      "sha256": "d9dc45568d7f78053191a920d3d4e1555f29dcdb6734e4655ba90a638fbc64b2",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-b-star",
+      "sha256": "d9dc45568d7f78053191a920d3d4e1555f29dcdb6734e4655ba90a638fbc64b2",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "end-b-star",
+      "sha256": "d9dc45568d7f78053191a920d3d4e1555f29dcdb6734e4655ba90a638fbc64b2",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "even-odd",
+      "sha256": "01f72ab7cb74286486abdcef8860d6ff369005f1f10687d1f96072765367ba0e",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "even-odd",
+      "sha256": "01f72ab7cb74286486abdcef8860d6ff369005f1f10687d1f96072765367ba0e",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "even-odd",
+      "sha256": "01f72ab7cb74286486abdcef8860d6ff369005f1f10687d1f96072765367ba0e",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "no-current-path",
+      "sha256": "68d0be696ff2fe8e704fa8a4ccb38b21f9d1f6e029ccde90f740a8094c5b3b92",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "no-current-path",
+      "sha256": "68d0be696ff2fe8e704fa8a4ccb38b21f9d1f6e029ccde90f740a8094c5b3b92",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "no-current-path",
+      "sha256": "68d0be696ff2fe8e704fa8a4ccb38b21f9d1f6e029ccde90f740a8094c5b3b92",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "degenerate",
+      "sha256": "4a727596a313db7378cb2ea604fd52fade7455ec9609d43787a8eb95311a9566",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "degenerate",
+      "sha256": "4a727596a313db7378cb2ea604fd52fade7455ec9609d43787a8eb95311a9566",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "degenerate",
+      "sha256": "4a727596a313db7378cb2ea604fd52fade7455ec9609d43787a8eb95311a9566",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "negative-size",
+      "sha256": "a5fd23de7a8ab498b6c11c264e56f6b3789ed0a26e227ab375c2b7bb35ff8fcc",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "negative-size",
+      "sha256": "a5fd23de7a8ab498b6c11c264e56f6b3789ed0a26e227ab375c2b7bb35ff8fcc",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "negative-size",
+      "sha256": "a5fd23de7a8ab498b6c11c264e56f6b3789ed0a26e227ab375c2b7bb35ff8fcc",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "inside",
+      "sha256": "11221e81a4e64dcf222843e87f718852023f769b9fbbcbbf6fac6c8de50ac090",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "inside",
+      "sha256": "11221e81a4e64dcf222843e87f718852023f769b9fbbcbbf6fac6c8de50ac090",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "inside",
+      "sha256": "11221e81a4e64dcf222843e87f718852023f769b9fbbcbbf6fac6c8de50ac090",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "restore",
+      "sha256": "2e4938e065829a81b017c40791e00ac40b70ae1cf9f291a577ddcefc879a19ae",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "restore",
+      "sha256": "2e4938e065829a81b017c40791e00ac40b70ae1cf9f291a577ddcefc879a19ae",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "restore",
+      "sha256": "2e4938e065829a81b017c40791e00ac40b70ae1cf9f291a577ddcefc879a19ae",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "intersection-empty",
+      "sha256": "5ea94a064a34d61ff89184cc0e75fb6979d7cbab52afc925fd625c766cc51ca7",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "intersection-empty",
+      "sha256": "5ea94a064a34d61ff89184cc0e75fb6979d7cbab52afc925fd625c766cc51ca7",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "intersection-empty",
+      "sha256": "5ea94a064a34d61ff89184cc0e75fb6979d7cbab52afc925fd625c766cc51ca7",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "intersection-inside",
+      "sha256": "0496de9c6910f8bbc64ecbfeb4ad8def0113495e030ea31c492a4f0eb9a94aed",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "intersection-inside",
+      "sha256": "0496de9c6910f8bbc64ecbfeb4ad8def0113495e030ea31c492a4f0eb9a94aed",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "intersection-inside",
+      "sha256": "0496de9c6910f8bbc64ecbfeb4ad8def0113495e030ea31c492a4f0eb9a94aed",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "triangle",
+      "sha256": "b7d79bf165cd293036bbc54f76887143c922628d9dc065871bde090eb893a3da",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "triangle",
+      "sha256": "b7d79bf165cd293036bbc54f76887143c922628d9dc065871bde090eb893a3da",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "triangle",
+      "sha256": "b7d79bf165cd293036bbc54f76887143c922628d9dc065871bde090eb893a3da",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "cubic",
+      "sha256": "40d40bbcb8cd4f0623a19c4a2a4a0f94ed83c7bf658a7cdc8ebc524ac5bb8a93",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "cubic",
+      "sha256": "40d40bbcb8cd4f0623a19c4a2a4a0f94ed83c7bf658a7cdc8ebc524ac5bb8a93",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "cubic",
+      "sha256": "40d40bbcb8cd4f0623a19c4a2a4a0f94ed83c7bf658a7cdc8ebc524ac5bb8a93",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "curve-v",
+      "sha256": "e74fc71c2ee1ad7857651540bc6a57401f4a1ff00538583704eb5a8a190b3f69",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "curve-v",
+      "sha256": "e74fc71c2ee1ad7857651540bc6a57401f4a1ff00538583704eb5a8a190b3f69",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "curve-v",
+      "sha256": "e74fc71c2ee1ad7857651540bc6a57401f4a1ff00538583704eb5a8a190b3f69",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "curve-y",
+      "sha256": "f9c48d59dd98f2afa511598bfc5efac6fed5fcfd7a1da0d51efe7982df0c4506",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "curve-y",
+      "sha256": "f9c48d59dd98f2afa511598bfc5efac6fed5fcfd7a1da0d51efe7982df0c4506",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "curve-y",
+      "sha256": "f9c48d59dd98f2afa511598bfc5efac6fed5fcfd7a1da0d51efe7982df0c4506",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "compound-inside",
+      "sha256": "6b24db11108df0489e4b1fc8d9af010a51749ad6cf2721a537897488e25d39f8",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "compound-inside",
+      "sha256": "6b24db11108df0489e4b1fc8d9af010a51749ad6cf2721a537897488e25d39f8",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "compound-inside",
+      "sha256": "6b24db11108df0489e4b1fc8d9af010a51749ad6cf2721a537897488e25d39f8",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "partial",
+      "sha256": "54f5a3414a86e1bd7410769683b7f2acd0b46ff6e26d96953cc73039f647cc7b",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document",
+          "the quote is 98/100 like 'Authorized total: $900. 00' on the page but differs from it in letters or digits, or numeric signs/units"
+        ],
+        "match_score": 98.0392156862745,
+        "matched_text": "Authorized total: $900. 00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "partial",
+      "sha256": "54f5a3414a86e1bd7410769683b7f2acd0b46ff6e26d96953cc73039f647cc7b",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "partial",
+      "sha256": "54f5a3414a86e1bd7410769683b7f2acd0b46ff6e26d96953cc73039f647cc7b",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "transformed-hidden",
+      "sha256": "fd5b37342ecc8a3e0351e3813e4b4330dae4410c1e51256cdc0b807e928ae889",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 80.0,
+            "top": 302.484,
+            "x1": 213.41600000000005,
+            "bottom": 314.484
+          }
+        ]
+      }
+    },
+    {
+      "case": "transformed-hidden",
+      "sha256": "fd5b37342ecc8a3e0351e3813e4b4330dae4410c1e51256cdc0b807e928ae889",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "transformed-hidden",
+      "sha256": "fd5b37342ecc8a3e0351e3813e4b4330dae4410c1e51256cdc0b807e928ae889",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "transformed-inside",
+      "sha256": "8b95c44a671f2fd79977799fd0b6e62ae7b64bf7234b17449d126b1a6e82751c",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 80.0,
+            "top": 302.484,
+            "x1": 213.41600000000005,
+            "bottom": 314.484
+          }
+        ]
+      }
+    },
+    {
+      "case": "transformed-inside",
+      "sha256": "8b95c44a671f2fd79977799fd0b6e62ae7b64bf7234b17449d126b1a6e82751c",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "transformed-inside",
+      "sha256": "8b95c44a671f2fd79977799fd0b6e62ae7b64bf7234b17449d126b1a6e82751c",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-bbox",
+      "sha256": "929b79c89553b3d794b48dff054c215489edbf790b0efa98e48d975ceac5495b",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-bbox",
+      "sha256": "929b79c89553b3d794b48dff054c215489edbf790b0efa98e48d975ceac5495b",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-bbox",
+      "sha256": "929b79c89553b3d794b48dff054c215489edbf790b0efa98e48d975ceac5495b",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-inside",
+      "sha256": "764826e411b7a52c00c7d5b76c76ff715d8c444749f9d1e306e88b06c0b8f1cc",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-inside",
+      "sha256": "764826e411b7a52c00c7d5b76c76ff715d8c444749f9d1e306e88b06c0b8f1cc",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-inside",
+      "sha256": "764826e411b7a52c00c7d5b76c76ff715d8c444749f9d1e306e88b06c0b8f1cc",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-inherited",
+      "sha256": "adc51a4575faa0ea39a9eb56ea7e344f5886100d643a80b1e843580c3bf16e46",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-inherited",
+      "sha256": "adc51a4575faa0ea39a9eb56ea7e344f5886100d643a80b1e843580c3bf16e46",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-inherited",
+      "sha256": "adc51a4575faa0ea39a9eb56ea7e344f5886100d643a80b1e843580c3bf16e46",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-nested",
+      "sha256": "6aca319392588cb170018d3e15eceac8ffb26cf2415dccd64ebb5d386c3c4ddc",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-nested",
+      "sha256": "6aca319392588cb170018d3e15eceac8ffb26cf2415dccd64ebb5d386c3c4ddc",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-nested",
+      "sha256": "6aca319392588cb170018d3e15eceac8ffb26cf2415dccd64ebb5d386c3c4ddc",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-matrix",
+      "sha256": "706a30ff0417760df3ca3ad0a3036156dc2e251fe8306197e4c1e1e0a26dcb99",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 80.0,
+            "top": 302.484,
+            "x1": 213.41600000000005,
+            "bottom": 314.484
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-matrix",
+      "sha256": "706a30ff0417760df3ca3ad0a3036156dc2e251fe8306197e4c1e1e0a26dcb99",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-matrix",
+      "sha256": "706a30ff0417760df3ca3ad0a3036156dc2e251fe8306197e4c1e1e0a26dcb99",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-matrix-inside",
+      "sha256": "33472bb34070530dabf69494f9e4fedf01a866b2e1d7d2ead7f99f4c6484b0b7",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 80.0,
+            "top": 302.484,
+            "x1": 213.41600000000005,
+            "bottom": 314.484
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-matrix-inside",
+      "sha256": "33472bb34070530dabf69494f9e4fedf01a866b2e1d7d2ead7f99f4c6484b0b7",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-matrix-inside",
+      "sha256": "33472bb34070530dabf69494f9e4fedf01a866b2e1d7d2ead7f99f4c6484b0b7",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-matrix",
+      "sha256": "4840f0421ec816d3d0ec6f80749908a8ca122cb57f2eec0c0e89aaf729a44d29",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 80.0,
+            "top": 302.484,
+            "x1": 213.41600000000005,
+            "bottom": 314.484
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-matrix",
+      "sha256": "4840f0421ec816d3d0ec6f80749908a8ca122cb57f2eec0c0e89aaf729a44d29",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-matrix",
+      "sha256": "4840f0421ec816d3d0ec6f80749908a8ca122cb57f2eec0c0e89aaf729a44d29",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-matrix-inside",
+      "sha256": "01960234b3bfcdafb19099797f928aab2a3216bfd033a7d14b257090df962f08",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 80.0,
+            "top": 302.484,
+            "x1": 213.41600000000005,
+            "bottom": 314.484
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-matrix-inside",
+      "sha256": "01960234b3bfcdafb19099797f928aab2a3216bfd033a7d14b257090df962f08",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-matrix-inside",
+      "sha256": "01960234b3bfcdafb19099797f928aab2a3216bfd033a7d14b257090df962f08",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "content-rotation",
+      "sha256": "f0ae154508b59a960903d90e5d6b341414dcec1a560b25a97e005944f21f5a0a",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 51.1184,
+            "top": 579.4784,
+            "x1": 62.3184,
+            "bottom": 619.9552
+          },
+          {
+            "x0": 51.1184,
+            "top": 623.0688,
+            "x1": 62.3184,
+            "bottom": 647.3504
+          },
+          {
+            "x0": 51.1184,
+            "top": 650.4639999999999,
+            "x1": 62.3184,
+            "bottom": 704.0
+          }
+        ]
+      }
+    },
+    {
+      "case": "content-rotation",
+      "sha256": "f0ae154508b59a960903d90e5d6b341414dcec1a560b25a97e005944f21f5a0a",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "content-rotation",
+      "sha256": "f0ae154508b59a960903d90e5d6b341414dcec1a560b25a97e005944f21f5a0a",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "content-rotation-inside",
+      "sha256": "1d9ef2592b558bcc90c1fad62ff80ca027b4732adf247a9f956986cc374f5555",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 51.1184,
+            "top": 579.4784,
+            "x1": 62.3184,
+            "bottom": 619.9552
+          },
+          {
+            "x0": 51.1184,
+            "top": 623.0688,
+            "x1": 62.3184,
+            "bottom": 647.3504
+          },
+          {
+            "x0": 51.1184,
+            "top": 650.4639999999999,
+            "x1": 62.3184,
+            "bottom": 704.0
+          }
+        ]
+      }
+    },
+    {
+      "case": "content-rotation-inside",
+      "sha256": "1d9ef2592b558bcc90c1fad62ff80ca027b4732adf247a9f956986cc374f5555",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "content-rotation-inside",
+      "sha256": "1d9ef2592b558bcc90c1fad62ff80ca027b4732adf247a9f956986cc374f5555",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "post-transform-hidden",
+      "sha256": "6101660b1416d0bdbda56624c0a5dbbf0bd9992e03ed7c83f4ac2d7ef71a7ad6",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 20.0,
+            "top": 485.656,
+            "x1": 108.94400000000005,
+            "bottom": 493.656
+          }
+        ]
+      }
+    },
+    {
+      "case": "post-transform-hidden",
+      "sha256": "6101660b1416d0bdbda56624c0a5dbbf0bd9992e03ed7c83f4ac2d7ef71a7ad6",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "post-transform-hidden",
+      "sha256": "6101660b1416d0bdbda56624c0a5dbbf0bd9992e03ed7c83f4ac2d7ef71a7ad6",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "post-transform-inside",
+      "sha256": "971dbc49323305442ade969a33fa746adb4cd920ae8898efdcb3c4fcb0a40bc1",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 579.312,
+            "x1": 217.8880000000001,
+            "bottom": 595.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "post-transform-inside",
+      "sha256": "971dbc49323305442ade969a33fa746adb4cd920ae8898efdcb3c4fcb0a40bc1",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "post-transform-inside",
+      "sha256": "971dbc49323305442ade969a33fa746adb4cd920ae8898efdcb3c4fcb0a40bc1",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "paint-only",
+      "sha256": "2069c1fd085fb458f52f9c399c036cc0aa3590841140e2617043ed5b29cf3be3",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "paint-only",
+      "sha256": "2069c1fd085fb458f52f9c399c036cc0aa3590841140e2617043ed5b29cf3be3",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "paint-only",
+      "sha256": "2069c1fd085fb458f52f9c399c036cc0aa3590841140e2617043ed5b29cf3be3",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "paint-path-reset",
+      "sha256": "29aba3e64c904aee143f60b273c52d40590e8e1297dd6f4ee1cb741030876753",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "paint-path-reset",
+      "sha256": "29aba3e64c904aee143f60b273c52d40590e8e1297dd6f4ee1cb741030876753",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "paint-path-reset",
+      "sha256": "29aba3e64c904aee143f60b273c52d40590e8e1297dd6f4ee1cb741030876753",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-rotation",
+      "sha256": "5e61ba3a66c35550d8a5e686bbe98afe8d6c6ff76199d6f2f16866708181908f",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 51.1184,
+            "top": 579.4784,
+            "x1": 62.3184,
+            "bottom": 619.9552
+          },
+          {
+            "x0": 51.1184,
+            "top": 623.0688,
+            "x1": 62.3184,
+            "bottom": 647.3504
+          },
+          {
+            "x0": 51.1184,
+            "top": 650.4639999999999,
+            "x1": 62.3184,
+            "bottom": 704.0
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-rotation",
+      "sha256": "5e61ba3a66c35550d8a5e686bbe98afe8d6c6ff76199d6f2f16866708181908f",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-rotation",
+      "sha256": "5e61ba3a66c35550d8a5e686bbe98afe8d6c6ff76199d6f2f16866708181908f",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-rotation-inside",
+      "sha256": "63bc28bb40a88354b688974f77357fccd43f1636a59ffe6914e4573773954d7d",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 51.1184,
+            "top": 579.4784,
+            "x1": 62.3184,
+            "bottom": 619.9552
+          },
+          {
+            "x0": 51.1184,
+            "top": 623.0688,
+            "x1": 62.3184,
+            "bottom": 647.3504
+          },
+          {
+            "x0": 51.1184,
+            "top": 650.4639999999999,
+            "x1": 62.3184,
+            "bottom": 704.0
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-rotation-inside",
+      "sha256": "63bc28bb40a88354b688974f77357fccd43f1636a59ffe6914e4573773954d7d",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 79.31200000000001,
+            "x1": 179.63200000000006,
+            "bottom": 95.31200000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "form-dictionary-rotation-inside",
+      "sha256": "63bc28bb40a88354b688974f77357fccd43f1636a59ffe6914e4573773954d7d",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 329.312,
+            "x1": 138.70399999999998,
+            "bottom": 345.312
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-90",
+      "sha256": "e7f94bedc46a41b1465089e21edeb33598caca97ff848219d31a038bdbaa7eb2",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 596.688,
+            "top": 40.0,
+            "x1": 612.688,
+            "bottom": 116.48000000000002
+          },
+          {
+            "x0": 596.688,
+            "top": 120.928,
+            "x1": 612.688,
+            "bottom": 155.61599999999999
+          },
+          {
+            "x0": 596.688,
+            "top": 160.06400000000002,
+            "x1": 612.688,
+            "bottom": 217.8880000000001
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-90",
+      "sha256": "e7f94bedc46a41b1465089e21edeb33598caca97ff848219d31a038bdbaa7eb2",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 696.688,
+            "top": 40.0,
+            "x1": 712.688,
+            "bottom": 87.12
+          },
+          {
+            "x0": 696.688,
+            "top": 91.56799999999998,
+            "x1": 712.688,
+            "bottom": 126.25599999999997
+          },
+          {
+            "x0": 696.688,
+            "top": 130.70400000000006,
+            "x1": 712.688,
+            "bottom": 179.63200000000006
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-90",
+      "sha256": "e7f94bedc46a41b1465089e21edeb33598caca97ff848219d31a038bdbaa7eb2",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 446.688,
+            "top": 40.0,
+            "x1": 462.688,
+            "bottom": 86.24000000000001
+          },
+          {
+            "x0": 446.688,
+            "top": 90.68799999999999,
+            "x1": 462.688,
+            "bottom": 138.704
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-180",
+      "sha256": "385e7d756ca9d95278883655431f7deb42797c3114814d5a3a7c33f6d5b59f18",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 394.1119999999999,
+            "top": 596.688,
+            "x1": 572.0,
+            "bottom": 612.688
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-180",
+      "sha256": "385e7d756ca9d95278883655431f7deb42797c3114814d5a3a7c33f6d5b59f18",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 432.36799999999994,
+            "top": 696.688,
+            "x1": 572.0,
+            "bottom": 712.688
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-180",
+      "sha256": "385e7d756ca9d95278883655431f7deb42797c3114814d5a3a7c33f6d5b59f18",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 473.296,
+            "top": 446.688,
+            "x1": 572.0,
+            "bottom": 462.688
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-270",
+      "sha256": "38243ffb08a46cf0fb526b21114ab7a799922868f61c99435bd929f9431001cc",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 179.312,
+            "top": 394.1119999999999,
+            "x1": 195.312,
+            "bottom": 451.936
+          },
+          {
+            "x0": 179.312,
+            "top": 456.384,
+            "x1": 195.312,
+            "bottom": 491.072
+          },
+          {
+            "x0": 179.312,
+            "top": 495.52,
+            "x1": 195.312,
+            "bottom": 572.0
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-270",
+      "sha256": "38243ffb08a46cf0fb526b21114ab7a799922868f61c99435bd929f9431001cc",
+      "expected": "verified",
+      "field": {
+        "path": "visible",
+        "value": 90.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Visible total: $90.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 79.312,
+            "top": 432.36799999999994,
+            "x1": 95.312,
+            "bottom": 481.29599999999994
+          },
+          {
+            "x0": 79.312,
+            "top": 485.74399999999997,
+            "x1": 95.312,
+            "bottom": 520.432
+          },
+          {
+            "x0": 79.312,
+            "top": 524.88,
+            "x1": 95.312,
+            "bottom": 572.0
+          }
+        ]
+      }
+    },
+    {
+      "case": "rotated-270",
+      "sha256": "38243ffb08a46cf0fb526b21114ab7a799922868f61c99435bd929f9431001cc",
+      "expected": "verified",
+      "field": {
+        "path": "footer",
+        "value": "Footer control",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Footer control",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 329.312,
+            "top": 473.29600000000005,
+            "x1": 345.312,
+            "bottom": 521.312
+          },
+          {
+            "x0": 329.312,
+            "top": 525.76,
+            "x1": 345.312,
+            "bottom": 572.0
+          }
+        ]
+      }
+    }
+  ]
+}

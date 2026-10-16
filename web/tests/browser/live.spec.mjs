@@ -44,6 +44,7 @@ test(`unpainted PDF evidence (${control.directory}) stays in review through corr
   await expect(total.locator('.field-reasons')).toContainText(control.reason);
   await total.getByRole('button', { name: 'Inspect total', exact: true }).click();
   await expect(page.locator('#page-frame img')).toBeVisible();
+  await expect.poll(() => page.locator('#page-frame img').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
   await expect(page.locator('.highlight-rect[data-path="total"]').first()).toHaveAttribute('data-status', 'needs_review');
   const session = (await (await request.get('/api/documents')).json()).documents[0];
   const original = await (await request.get(`/api/documents/${session.id}/report`)).json();

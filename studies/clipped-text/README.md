@@ -9,6 +9,8 @@ explicit clipping operator.
 These are deliberately authored PDFs and fixture extractions. The study checks
 a bounded verification policy, not model accuracy or real-world prevalence.
 
+![Installed review: the page displays 90 and the clipped 900 claim requires review](../../docs/assets/clipped-text/chromium-1440.png)
+
 ## Behavior
 
 Native words now retain `clip_risk` when a glyph's layout box crosses a known
@@ -55,6 +57,38 @@ verification report hashes:
 [before](results/compatibility-before.json), [after](results/compatibility-after.json).
 Those checks are compatibility evidence for the included examples, not a
 representative corpus of arbitrary PDFs.
+
+The [verification receipt](results/verification.json) records the clean archive
+installation, Python and web checks, and **92 passing production browser
+checks**. The source and separately installed Python 3.14 wheel each pass 680
+Python tests; five real-Tesseract tests are skipped because the engine is
+unavailable. The Python 3.11 installation with the oldest declared direct
+dependencies passes all 138 study claims and 37 clipping/opacity/geometry
+regressions. Both installations reproduce every source verdict, reason and
+rectangle exactly.
+
+[Artifact hashes and module comparisons](results/artifacts.json) identify the
+wheel and sdist. All 39 Python modules match the clean source in both wheel
+installations, and all 62 source/bundled-UI files in the sdist match the clean
+build. All [56 served live/demo files](results/served-bytes.json) match the
+tested builds byte for byte.
+
+Chromium and Firefox exercise upload, fixture extraction through actual worker
+processes, inspection at 1440 px and 375 px, correction from 900 to the displayed
+90, export, archive save, session deletion and restoration. The export retains
+original 900 and automated `needs_review`; restoration recomputes the original
+report. Observations: [Chromium](results/chromium-browser.json),
+[Firefox](results/firefox-browser.json). All four screenshots were inspected;
+the [phone view](../../docs/assets/clipped-text/firefox-375.png) keeps the reason
+readable without horizontal overflow. The full suite separately checks offline
+exports in the static demo; live intake and restoration require the local server.
+
+The baseline browser capture is also retained:
+[report](results/before-browser.json),
+[desktop](../../docs/assets/clipped-text/before-chromium-1440.png).
+An interrupted browser attempt left a stale test session, and a static test
+server was terminated during an early full attempt. The final run used fresh
+isolated services with redirected logs and passed all 92 checks without retries.
 
 ## Reproduce
 

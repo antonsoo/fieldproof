@@ -1,0 +1,156 @@
+{
+  "schema": "invoice",
+  "provider": "unknown",
+  "model": null,
+  "data": {
+    "vendor_name": {
+      "value": "Example",
+      "evidence": [],
+      "page": null
+    },
+    "invoice_number": {
+      "value": "CLIP-0",
+      "evidence": [],
+      "page": null
+    },
+    "issue_date": {
+      "value": "2026-10-15",
+      "evidence": [],
+      "page": null
+    },
+    "due_date": null,
+    "currency": null,
+    "po_number": null,
+    "line_items": [],
+    "subtotal": null,
+    "tax": null,
+    "total": {
+      "value": 900.0,
+      "evidence": [
+        "Authorized total: $900.00"
+      ],
+      "page": 1
+    },
+    "payment_terms": null
+  },
+  "report": {
+    "fields": [
+      {
+        "path": "vendor_name",
+        "value": "Example",
+        "status": "unsupported",
+        "reasons": [
+          "no evidence quote was provided for this value"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      },
+      {
+        "path": "invoice_number",
+        "value": "CLIP-0",
+        "status": "unsupported",
+        "reasons": [
+          "no evidence quote was provided for this value"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      },
+      {
+        "path": "issue_date",
+        "value": "2026-10-15",
+        "status": "unsupported",
+        "reasons": [
+          "no evidence quote was provided for this value"
+        ],
+        "match_score": null,
+        "matched_text": null,
+        "page": null,
+        "rects": []
+      },
+      {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes PDF text whose bounds cross a clipping boundary; the complete quote may not be visible on the page; review the rendered document"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 179.312,
+            "x1": 217.8880000000001,
+            "bottom": 195.312
+          }
+        ]
+      }
+    ],
+    "cross_field_issues": [],
+    "counts": {
+      "verified": 0,
+      "needs_review": 1,
+      "unsupported": 3
+    },
+    "cross_field_checks": [
+      {
+        "rule": "invoice.items_subtotal",
+        "fields": [
+          "subtotal"
+        ],
+        "status": "not_checked",
+        "message": "line items sum not checked: no item amounts were extracted",
+        "operands": {
+          "subtotal": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.subtotal_tax_total",
+        "fields": [
+          "subtotal",
+          "tax",
+          "total"
+        ],
+        "status": "not_checked",
+        "message": "subtotal + tax not checked: missing subtotal, tax",
+        "operands": {
+          "subtotal": null,
+          "tax": null,
+          "total": "900.0"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-10-15",
+          "due_date": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    ],
+    "row_checks": [],
+    "column_checks": []
+  }
+}
