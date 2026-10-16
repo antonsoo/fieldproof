@@ -9,6 +9,8 @@ reproduced an invisible rendering mode lost when inherited by a Form XObject.
 These are authored, synthetic PDFs and fixture extractions. They measure a
 specific verification policy, not extraction accuracy or real-world prevalence.
 
+![Installed review: the page displays 90; the transparent 900 claim requires review](../../docs/assets/zero-opacity/chromium-1440.png)
+
 ## Policy and implementation
 
 The native parser retains `Word.zero_opacity`. Quotes touching those words
@@ -63,6 +65,23 @@ own reference; their antialiasing is not assumed identical.
 Additional native-PDF regressions cover opacity changes inside a word, hidden
 number/date convention hints, row anchors, column headers and legacy transport.
 Text-edit tolerance cannot remove the zero-opacity review reason.
+
+The [verification receipt](results/verification.json) records a clean archive
+installation, lint, typecheck, 673 passing Python tests (five OCR tests skipped),
+70 web unit tests and 90 production browser checks. The wheel was installed
+separately on Python 3.14 with current dependencies and Python 3.11 with the
+oldest declared direct dependencies; both passed all 84 claims. Every Python
+module in both installations matches the clean source.
+
+Chromium and Firefox exercised actual worker processes at desktop and 375 px:
+upload, inspect the blank highlight, correct 900 to the displayed 90, export,
+save an archive, delete the session and restore it. Export and restoration
+retain the original 900 and automated review verdict. Observations:
+[Chromium](results/chromium-browser.json), [Firefox](results/firefox-browser.json).
+All four screenshots were inspected; the complete reason fits the
+[375px view](../../docs/assets/zero-opacity/firefox-375.png) without horizontal
+overflow. [All 57 served files](results/served-bytes.json) match the tested
+installed review UI and clean-built local demo.
 
 ## Reproduce
 

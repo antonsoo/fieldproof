@@ -1,0 +1,371 @@
+{
+  "source_commit": "0e7a1d9ba57846c318d8dc6860af3fd2de051b59",
+  "synthetic_study": {
+    "pdfs": 42,
+    "claims": 84,
+    "incorrectly_verified_before": 19,
+    "incorrectly_verified_after": 0,
+    "painted_controls_verified": 65,
+    "pixel_comparisons": 84
+  },
+  "clean_checks": {
+    "ruff": "All checks passed!",
+    "mypy": "Success: no issues found in 38 source files",
+    "pytest": "673 passed, 5 skipped (real OCR unavailable)",
+    "browser": "90 passed; Chromium and Firefox live/demo, desktop and 375px",
+    "web_unit_tests": "Tests  70 passed (70)"
+  },
+  "artifacts": [
+    {
+      "file": ".gitignore",
+      "bytes": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+    },
+    {
+      "file": "fieldproof-0.2.7-py3-none-any.whl",
+      "bytes": 601962,
+      "sha256": "6e73c8901b61b57d69922947ea3da30e06fdb4a5f9ed4e53fe64412fbb928a12"
+    },
+    {
+      "file": "fieldproof-0.2.7.tar.gz",
+      "bytes": 630959,
+      "sha256": "2666aab0a859c17fa2c2f457f7d0b7f2ddb2b6366e2ffd4bbf94890db4fe8870"
+    }
+  ],
+  "installations": [
+    {
+      "python": "3.14.7",
+      "versions": {
+        "fieldproof": "0.2.7",
+        "pdfminer.six": "20260107",
+        "pdfplumber": "0.11.10",
+        "pypdfium2": "5.14.0",
+        "pydantic": "2.14.1"
+      },
+      "environment": "installed",
+      "matching_python_sources": 38,
+      "sources": [
+        {
+          "path": "__init__.py",
+          "sha256": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde"
+        },
+        {
+          "path": "_reports.py",
+          "sha256": "44b543f2279b8a41f9433639b71bd8f82f6a5362019971ae785eda6fc9fcb71a"
+        },
+        {
+          "path": "cli.py",
+          "sha256": "dc3b269f25e278207da9869d09e02f25998a69f0592d9406f15fdf5160af157b"
+        },
+        {
+          "path": "document/__init__.py",
+          "sha256": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074"
+        },
+        {
+          "path": "document/limits.py",
+          "sha256": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71"
+        },
+        {
+          "path": "document/loader.py",
+          "sha256": "ffd070fa64db6358b35a4b44a43a04afb2eac0e2db638e1c0980ebf336a61612"
+        },
+        {
+          "path": "document/model.py",
+          "sha256": "0b71d08752b87db6c54439249a61f653227e8a6fc3f0a70895b35900efd4c70f"
+        },
+        {
+          "path": "document/ocr.py",
+          "sha256": "d37c80e6e9503b6070e127c91d1149a974b624dbf2be8de3db981f8283850902"
+        },
+        {
+          "path": "document/render.py",
+          "sha256": "651c776a68820bb29002bc21ebede0891a1ddf281c4d71c5035fc5296f59f502"
+        },
+        {
+          "path": "document/text_modes.py",
+          "sha256": "62bf2fb380ebb6a00f520f48bce58dc610d75fd833d3fc524fb293be52cf2c82"
+        },
+        {
+          "path": "document/worker.py",
+          "sha256": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142"
+        },
+        {
+          "path": "extract/__init__.py",
+          "sha256": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e"
+        },
+        {
+          "path": "extract/anthropic_provider.py",
+          "sha256": "87aa3ac824ebd3b21ec1536b3ad45eb27ac16e559ea8133cd51173662aeb39d8"
+        },
+        {
+          "path": "extract/base.py",
+          "sha256": "ed4dddee401c935aa9021e1d3abb5aaed0cf0f2dc2a29f555a995ce9accc3811"
+        },
+        {
+          "path": "extract/fixture_provider.py",
+          "sha256": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49"
+        },
+        {
+          "path": "ground/__init__.py",
+          "sha256": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd"
+        },
+        {
+          "path": "ground/align.py",
+          "sha256": "519441050c619a0ef8e62bca94072fc200f467e49ebb2b4f12e41e5916577f4c"
+        },
+        {
+          "path": "ground/lines.py",
+          "sha256": "aa8715ff767e0dba4d90e5a87d902f74a07135099b20ad816a04e2e7f58b069c"
+        },
+        {
+          "path": "ground/normalize.py",
+          "sha256": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520"
+        },
+        {
+          "path": "ground/values.py",
+          "sha256": "1a876375896662382dde616fad06a08f54c750602a4f7063faf2f20ba168a340"
+        },
+        {
+          "path": "schemas/__init__.py",
+          "sha256": "2846223c9fe650c6c471d68c97359b2f0bef71c3029bcb928d119ef47e04818c"
+        },
+        {
+          "path": "schemas/base.py",
+          "sha256": "7f2bfa1c4b71d57064f9f06b7a904e34f7d646cd78d80086f921c83bcd3837de"
+        },
+        {
+          "path": "schemas/contract.py",
+          "sha256": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0"
+        },
+        {
+          "path": "schemas/invoice.py",
+          "sha256": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b"
+        },
+        {
+          "path": "schemas/receipt.py",
+          "sha256": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e"
+        },
+        {
+          "path": "server/__init__.py",
+          "sha256": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b"
+        },
+        {
+          "path": "server/app.py",
+          "sha256": "cc5287e551ad6c180cca6e4f9166fc5828c4974d82cb798955254624bead03bd"
+        },
+        {
+          "path": "server/archive.py",
+          "sha256": "f164088bedbaa989245946d89a3f297ee5f236e1c9145b71fb19fe1b0236270a"
+        },
+        {
+          "path": "server/body_limit.py",
+          "sha256": "d6186c0a279c765ecd347cd68f7936915574fa1ab12ea2f65cd24f78fedfe1bb"
+        },
+        {
+          "path": "server/pdf_work.py",
+          "sha256": "c3fd361d0b5fe32c5016e0c3dfdaf297c184a5ab71d6e2835f01f85747ce941d"
+        },
+        {
+          "path": "server/spreadsheet.py",
+          "sha256": "89def3a96c29c583a80c01629067b919b1dd5336f882bce53682f81684d4bc2f"
+        },
+        {
+          "path": "server/store.py",
+          "sha256": "18c5c059b96b8a1b6436820ace7ee0155d176ca3b46b4fb12fb39d855d85c8eb"
+        },
+        {
+          "path": "verify/__init__.py",
+          "sha256": "740faaaab55c8f47f78091074d3e6d73174a23f2c0255d375b2ff8917ba0d933"
+        },
+        {
+          "path": "verify/columns.py",
+          "sha256": "ee13f64901884c446ebf7861f1d96706d8896c368e2322f361638ff633b04dc5"
+        },
+        {
+          "path": "verify/cross_field.py",
+          "sha256": "ad1a7facac1c39cc4ebec47412db36dc258b76dd1d2b4b603007fadcf928b365"
+        },
+        {
+          "path": "verify/engine.py",
+          "sha256": "82b287e4172fca3fcffb221319e8dfec202e1bf407c45c116e08cacae58ed81c"
+        },
+        {
+          "path": "verify/rows.py",
+          "sha256": "410f8363ab9b4b89c7f0ed0185cff8b88fd4bbf63e68d92ffe3ef1a3fc397765"
+        },
+        {
+          "path": "verify/value_checks.py",
+          "sha256": "7ba4980ae4c907f2fdea4f33bac0eb3546d24ce318df5ad25118e8d17acc17e1"
+        }
+      ]
+    },
+    {
+      "python": "3.11.13",
+      "versions": {
+        "fieldproof": "0.2.7",
+        "pdfminer.six": "20251230",
+        "pdfplumber": "0.11.9",
+        "pypdfium2": "4.30.0",
+        "pydantic": "2.12.0"
+      },
+      "environment": "minimums",
+      "matching_python_sources": 38,
+      "sources": [
+        {
+          "path": "__init__.py",
+          "sha256": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde"
+        },
+        {
+          "path": "_reports.py",
+          "sha256": "44b543f2279b8a41f9433639b71bd8f82f6a5362019971ae785eda6fc9fcb71a"
+        },
+        {
+          "path": "cli.py",
+          "sha256": "dc3b269f25e278207da9869d09e02f25998a69f0592d9406f15fdf5160af157b"
+        },
+        {
+          "path": "document/__init__.py",
+          "sha256": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074"
+        },
+        {
+          "path": "document/limits.py",
+          "sha256": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71"
+        },
+        {
+          "path": "document/loader.py",
+          "sha256": "ffd070fa64db6358b35a4b44a43a04afb2eac0e2db638e1c0980ebf336a61612"
+        },
+        {
+          "path": "document/model.py",
+          "sha256": "0b71d08752b87db6c54439249a61f653227e8a6fc3f0a70895b35900efd4c70f"
+        },
+        {
+          "path": "document/ocr.py",
+          "sha256": "d37c80e6e9503b6070e127c91d1149a974b624dbf2be8de3db981f8283850902"
+        },
+        {
+          "path": "document/render.py",
+          "sha256": "651c776a68820bb29002bc21ebede0891a1ddf281c4d71c5035fc5296f59f502"
+        },
+        {
+          "path": "document/text_modes.py",
+          "sha256": "62bf2fb380ebb6a00f520f48bce58dc610d75fd833d3fc524fb293be52cf2c82"
+        },
+        {
+          "path": "document/worker.py",
+          "sha256": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142"
+        },
+        {
+          "path": "extract/__init__.py",
+          "sha256": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e"
+        },
+        {
+          "path": "extract/anthropic_provider.py",
+          "sha256": "87aa3ac824ebd3b21ec1536b3ad45eb27ac16e559ea8133cd51173662aeb39d8"
+        },
+        {
+          "path": "extract/base.py",
+          "sha256": "ed4dddee401c935aa9021e1d3abb5aaed0cf0f2dc2a29f555a995ce9accc3811"
+        },
+        {
+          "path": "extract/fixture_provider.py",
+          "sha256": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49"
+        },
+        {
+          "path": "ground/__init__.py",
+          "sha256": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd"
+        },
+        {
+          "path": "ground/align.py",
+          "sha256": "519441050c619a0ef8e62bca94072fc200f467e49ebb2b4f12e41e5916577f4c"
+        },
+        {
+          "path": "ground/lines.py",
+          "sha256": "aa8715ff767e0dba4d90e5a87d902f74a07135099b20ad816a04e2e7f58b069c"
+        },
+        {
+          "path": "ground/normalize.py",
+          "sha256": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520"
+        },
+        {
+          "path": "ground/values.py",
+          "sha256": "1a876375896662382dde616fad06a08f54c750602a4f7063faf2f20ba168a340"
+        },
+        {
+          "path": "schemas/__init__.py",
+          "sha256": "2846223c9fe650c6c471d68c97359b2f0bef71c3029bcb928d119ef47e04818c"
+        },
+        {
+          "path": "schemas/base.py",
+          "sha256": "7f2bfa1c4b71d57064f9f06b7a904e34f7d646cd78d80086f921c83bcd3837de"
+        },
+        {
+          "path": "schemas/contract.py",
+          "sha256": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0"
+        },
+        {
+          "path": "schemas/invoice.py",
+          "sha256": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b"
+        },
+        {
+          "path": "schemas/receipt.py",
+          "sha256": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e"
+        },
+        {
+          "path": "server/__init__.py",
+          "sha256": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b"
+        },
+        {
+          "path": "server/app.py",
+          "sha256": "cc5287e551ad6c180cca6e4f9166fc5828c4974d82cb798955254624bead03bd"
+        },
+        {
+          "path": "server/archive.py",
+          "sha256": "f164088bedbaa989245946d89a3f297ee5f236e1c9145b71fb19fe1b0236270a"
+        },
+        {
+          "path": "server/body_limit.py",
+          "sha256": "d6186c0a279c765ecd347cd68f7936915574fa1ab12ea2f65cd24f78fedfe1bb"
+        },
+        {
+          "path": "server/pdf_work.py",
+          "sha256": "c3fd361d0b5fe32c5016e0c3dfdaf297c184a5ab71d6e2835f01f85747ce941d"
+        },
+        {
+          "path": "server/spreadsheet.py",
+          "sha256": "89def3a96c29c583a80c01629067b919b1dd5336f882bce53682f81684d4bc2f"
+        },
+        {
+          "path": "server/store.py",
+          "sha256": "18c5c059b96b8a1b6436820ace7ee0155d176ca3b46b4fb12fb39d855d85c8eb"
+        },
+        {
+          "path": "verify/__init__.py",
+          "sha256": "740faaaab55c8f47f78091074d3e6d73174a23f2c0255d375b2ff8917ba0d933"
+        },
+        {
+          "path": "verify/columns.py",
+          "sha256": "ee13f64901884c446ebf7861f1d96706d8896c368e2322f361638ff633b04dc5"
+        },
+        {
+          "path": "verify/cross_field.py",
+          "sha256": "ad1a7facac1c39cc4ebec47412db36dc258b76dd1d2b4b603007fadcf928b365"
+        },
+        {
+          "path": "verify/engine.py",
+          "sha256": "82b287e4172fca3fcffb221319e8dfec202e1bf407c45c116e08cacae58ed81c"
+        },
+        {
+          "path": "verify/rows.py",
+          "sha256": "410f8363ab9b4b89c7f0ed0185cff8b88fd4bbf63e68d92ffe3ef1a3fc397765"
+        },
+        {
+          "path": "verify/value_checks.py",
+          "sha256": "7ba4980ae4c907f2fdea4f33bac0eb3546d24ce318df5ad25118e8d17acc17e1"
+        }
+      ]
+    }
+  ],
+  "served_files_matched": 57,
+  "publication": "Local validation only; source push recorded separately. No registry release or hosted deployment."
+}
