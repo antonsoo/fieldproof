@@ -13,6 +13,7 @@ from reportlab.pdfgen.canvas import Canvas
 
 from fieldproof.document.loader import load_pdf
 from fieldproof.document.model import BBox, Document
+from fieldproof.ground.align import find_candidates
 from fieldproof.ground.lines import separate_numeric_regions
 from fieldproof.ground.values import number_style, number_tokens
 from fieldproof.schemas import Evidenced
@@ -156,6 +157,19 @@ def test_a_date_or_clock_boundary_does_not_discard_an_earlier_uncertain_group():
     assert parse_all_numbers("1 2018-02-14") == [1]
     assert not check_number(234.56, "Total 1 234,56 13:45").supported
     assert not check_number(1234.56, "Total 1 234,56 2018-02-14").supported
+
+
+@pytest.mark.parametrize("quote", ["3,000.00", "3000.00", "3000"])
+def test_rejecting_grouped_value_does_not_make_an_unrelated_location_unique(quote):
+    stream = BytesIO()
+    canvas = Canvas(stream, invariant=True)
+    canvas.drawString(40, 700, "First item 1 3,000 Other 3,000")
+    canvas.save()
+    document = load_pdf(stream.getvalue())
+    matches = find_candidates(quote, document.pages[0])
+    assert [(m.matched_text, m.is_strong) for m in matches] == [("1 3,000", False), ("3,000", True)]
+    (field,) = verify(Amount(total={"value": 3000, "evidence": [quote]}), document).fields
+    assert field.status.value == "needs_review" and "ambiguous" in field.reasons[0]
 
 
 @pytest.mark.parametrize("text", ["DATE 14-02-2018 13:45", "At 13:45 100.00", "Ref ID-1 234"])

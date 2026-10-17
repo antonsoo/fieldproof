@@ -45,12 +45,21 @@ elsewhere in a document.
 | Supported ungrouped values and clear cells approved | 7 / 7 | 7 / 7 |
 | Whole space-grouped values retained for review | 15 / 15 | 15 / 15 |
 
-The 131 claims use 22 byte-identical PDF pages. Full ledgers are
+The 134 claims use 23 byte-identical authored PDF pages. Full ledgers are
 [before](results/before.json) and [after](results/after.json). The baseline is an
 independently installed wheel with the numeric sources from `760a1d7` (also the
 sources in `d94f2f4`). This correction is source work; no registry release or
 hosted deployment is implied. Installed/API/browser and receipt compatibility
 evidence will be recorded separately after verification.
+
+The separate [`ambiguity.pdf`](fixtures/ambiguity.pdf) checks three normalized
+quotes against a spaced occurrence and another occurrence of 3000. An
+intermediate correction deleted the spaced value match and approved the other
+location; [that capture](results/normalized-before.json) is retained. Normalized
+value matching now keeps the unresolved location weak, preserving ambiguity.
+The baseline and final source both send these three claims to review. The
+receipt audit independently exposed three new wrong-location approvals before
+this guard was added.
 
 Replay from a checkout with locked development dependencies:
 

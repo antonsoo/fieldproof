@@ -38,6 +38,10 @@ def main() -> None:
     package = Path(fieldproof.__file__).resolve().parent
     if args.src:
         assert package.is_relative_to(args.src.resolve())
+    else:
+        assert package.is_relative_to(Path(sys.prefix).resolve()), (
+            "Omit --src only for a non-editable installation"
+        )
     pdf = HERE / "fixtures/numbers.pdf"
     document = load_pdf(pdf)
     cases = json.loads((HERE / "cases.json").read_text())
@@ -89,6 +93,26 @@ def main() -> None:
                     "rects": result.rects,
                 }
             )
+    ambiguity_pdf = HERE / "fixtures/ambiguity.pdf"
+    ambiguous_document = load_pdf(ambiguity_pdf)
+    for quote in ["3,000.00", "3000.00", "3000"]:
+        (result,) = verify(
+            Amount(total={"value": 3000, "evidence": [quote]}), ambiguous_document
+        ).fields
+        rows.append(
+            {
+                "id": "normalized-ambiguity",
+                "kind": "normalized",
+                "page": 1,
+                "value": 3000,
+                "quote": quote,
+                "expected": "needs_review",
+                "status": result.status.value,
+                "matched_text": result.matched_text,
+                "reasons": result.reasons,
+                "rects": result.rects,
+            }
+        )
     failures = [f"{r['id']}:{r['kind']}:{r['value']}" for r in rows if r["status"] != r["expected"]]
     ledger = json.dumps(rows, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     output = {
@@ -101,6 +125,7 @@ def main() -> None:
             name: version(name) for name in ["fieldproof", "pdfplumber", "pypdfium2", "pydantic"]
         },
         "pdf_sha256": hashlib.sha256(pdf.read_bytes()).hexdigest(),
+        "ambiguity_pdf_sha256": hashlib.sha256(ambiguity_pdf.read_bytes()).hexdigest(),
         "cases_sha256": hashlib.sha256((HERE / "cases.json").read_bytes()).hexdigest(),
         "source_sha256": {
             str(p.relative_to(package)): hashlib.sha256(p.read_bytes()).hexdigest()
@@ -115,7 +140,7 @@ def main() -> None:
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n")
     print(
-        f"{len(rows)} claims / {len(cases)} PDF pages: "
+        f"{len(rows)} claims / {len(cases) + 1} PDF pages: "
         f"{len(failures)} unexpected verdicts; {output['verdicts']}"
     )
     if failures and not args.observe_only:

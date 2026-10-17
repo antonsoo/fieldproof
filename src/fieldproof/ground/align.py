@@ -386,18 +386,30 @@ def _value_occurrences(quote: str, index: _PageIndex) -> list[GroundingMatch]:
     matches: list[GroundingMatch] = []
     for start, end in found:
         words = index.words_overlapping(start, end)
-        if not words or not _covers_whole_words(index, start, end, words):
+        if not words:
             continue
+        whole = _covers_whole_words(index, start, end, words)
+        if not whole:
+            # A normalized quote can match a component's value while omitting
+            # its unresolved grouping context. Keep that location weak, just
+            # as an exact clipped quote is kept: deleting it could make an
+            # unrelated amount falsely unique elsewhere on the page.
+            start, end = _whole_numeric_span(index, start, end)
+            words = index.words_overlapping(start, end)
+        start, end = words[0].start, words[-1].end
+        matched_text = page.text[start:end]
         matches.append(
             GroundingMatch(
                 quote=quote,
                 page_number=page.number,
                 start=words[0].start,
                 end=words[-1].end,
-                score=100.0,
-                matched_text=page.text[words[0].start : words[-1].end],
+                score=100.0
+                if whole
+                else fuzz.ratio(normalize(quote).casefold(), normalize(matched_text).casefold()),
+                matched_text=matched_text,
                 words=tuple(words),
-                letters_agree=True,
+                letters_agree=whole,
                 by_value=True,
             )
         )

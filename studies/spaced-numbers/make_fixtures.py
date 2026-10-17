@@ -50,6 +50,11 @@ def main() -> None:
             {"id": identifier, "text": "Fuel surcharge 1 210.50 210.50", "layout": identifier}
         )
     canvas.save()
+    ambiguity = Canvas(str(output / "ambiguity.pdf"), pagesize=(612, 792), invariant=True)
+    ambiguity.setTitle("Normalized quotes must retain unresolved occurrences")
+    ambiguity.setAuthor("Anton Soloviev")
+    ambiguity.drawString(40, 700, "First item 1 3,000 Other 3,000")
+    ambiguity.save()
     (HERE / "cases.json").write_text(json.dumps(cases, ensure_ascii=False, indent=2) + "\n")
     review = Canvas(str(output / "review.pdf"), pagesize=(612, 792), invariant=True)
     review.setTitle("Controlled spaced total")

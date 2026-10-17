@@ -12,10 +12,13 @@ All notable changes to this project are documented in this file.
 - Retain line boundaries and clear gaps between numeric cells from page geometry,
   preserving quantity/price rows without joining columns. Tight/invalid geometry
   stays unresolved. Signs remain attached across same-row gaps.
-- Retain native French/Russian/Swedish formatter output and 131 claims through
-  22 authored PDF pages, including paired layouts with identical flattened text.
+- Retain native French/Russian/Swedish formatter output and 134 claims through
+  23 authored PDF pages, including paired layouts with identical flattened text.
   The current source changes the older tight-row quantity expectation to review;
   historical numeric study receipts are retained unchanged.
+- Keep unresolved normalized value matches weak instead of dropping them: a
+  rejected spaced occurrence must not make another location falsely unique.
+  Date/time syntax remains distinct from space-separated amount groups.
 
 ### Arabic numeric evidence
 

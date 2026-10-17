@@ -8,6 +8,7 @@
     "pydantic": "2.14.1"
   },
   "pdf_sha256": "7aaadddc64f815dcfd5f2c1bc2687b9d580a396129f028c38ec19e2038ac6c28",
+  "ambiguity_pdf_sha256": "aac7950f321e02b8531b64c7dd54e19a20ead7184233ab7619d3301108fa57da",
   "cases_sha256": "40fd10124e2ec1fa491a55bb5a786c8db51fe89d94fa1ac583da99d32038e7a1",
   "source_sha256": {
     "__init__.py": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde",
@@ -52,10 +53,10 @@
     "verify/rows.py": "410f8363ab9b4b89c7f0ed0185cff8b88fd4bbf63e68d92ffe3ef1a3fc397765",
     "verify/value_checks.py": "7ba4980ae4c907f2fdea4f33bac0eb3546d24ce318df5ad25118e8d17acc17e1"
   },
-  "claim_count": 131,
-  "claims_sha256": "d4c4e0f6386022b95476b13d078bb4540e4c638570a55725138c3c51013af7b1",
+  "claim_count": 134,
+  "claims_sha256": "839b2e42bad37e9039305a18f2868d1f784a4c6c269532398f18e2603347a0b2",
   "verdicts": {
-    "needs_review": 85,
+    "needs_review": 88,
     "verified": 46
   },
   "mismatches": [
@@ -2759,6 +2760,48 @@
           "bottom": 124.48400000000004
         }
       ]
+    },
+    {
+      "id": "normalized-ambiguity",
+      "kind": "normalized",
+      "page": 1,
+      "value": 3000,
+      "quote": "3,000.00",
+      "expected": "needs_review",
+      "status": "needs_review",
+      "matched_text": null,
+      "reasons": [
+        "evidence '3,000.00' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+      ],
+      "rects": []
+    },
+    {
+      "id": "normalized-ambiguity",
+      "kind": "normalized",
+      "page": 1,
+      "value": 3000,
+      "quote": "3000.00",
+      "expected": "needs_review",
+      "status": "needs_review",
+      "matched_text": null,
+      "reasons": [
+        "evidence '3000.00' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+      ],
+      "rects": []
+    },
+    {
+      "id": "normalized-ambiguity",
+      "kind": "normalized",
+      "page": 1,
+      "value": 3000,
+      "quote": "3000",
+      "expected": "needs_review",
+      "status": "needs_review",
+      "matched_text": null,
+      "reasons": [
+        "evidence '3000' is ambiguous (appears 2 times); no strongly grounded, value-supported sibling establishes a row; quote more context"
+      ],
+      "rects": []
     }
   ]
 }
