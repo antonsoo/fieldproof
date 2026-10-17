@@ -10,6 +10,15 @@ native ledgers were compared with those Git revisions. Package versions remain
 hashes. These are source, installed-artifact and loopback-browser checks. They
 do not establish a registry release or public hosted deployment.
 
+After the source push, [public-source.json](results/public-source.json) checked
+GitHub's unauthenticated `main` ref and byte-compared nine pinned Python/test/PDF
+files. The README's exact Git install command then ran in a new Python 3.12
+environment. Its [provenance receipt](results/public-install-provenance.json),
+[native replay](results/public-install.json) and [API replay](results/public-api.json)
+confirm the same 41 modules and full 134-claim ledger. The direct Git install has
+no bundled UI, as documented; the separately built wheel/browser checks below
+cover that UI. These are source-publication checks, not a registry release.
+
 ## What the correction changes
 
 The actual loader, grounding and verification pipeline processes 134 claims on

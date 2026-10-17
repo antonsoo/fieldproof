@@ -1,0 +1,25 @@
+{
+  "scope": "Exact README pip command in a seeded Python 3.12 environment; Git source provides the CLI/library without bundled UI.",
+  "direct_url": {
+    "url": "https://github.com/antonsoo/fieldproof.git",
+    "vcs_info": {
+      "commit_id": "b283e1beea9e1b748370b16ab419ed974c312be0",
+      "requested_revision": "b283e1beea9e1b748370b16ab419ed974c312be0",
+      "vcs": "git"
+    }
+  },
+  "python": "3.12.12",
+  "packages": {
+    "fieldproof": "0.2.7",
+    "pdfplumber": "0.11.10",
+    "pypdfium2": "5.14.0",
+    "pydantic": "2.14.1"
+  },
+  "all_41_python_sources_match_native_source": true,
+  "full_134_claim_ledger_matches": true,
+  "api_actual": [
+    "needs_review",
+    "needs_review"
+  ],
+  "bundled_ui_present": false
+}

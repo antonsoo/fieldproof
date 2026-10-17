@@ -1,0 +1,72 @@
+{
+  "checked_at": "2026-10-17T19:25:22.639069+00:00",
+  "scope": "Unauthenticated public GitHub source and pinned raw files; no registry or hosted-app claim.",
+  "source_pin": "b283e1beea9e1b748370b16ab419ed974c312be0",
+  "main_ref": "1013800d3a981592c1f36cc7c3d3f44bbac17484",
+  "main_ref_url": "https://api.github.com/repos/antonsoo/fieldproof/git/ref/heads/main",
+  "files": [
+    {
+      "file": "src/fieldproof/ground/values.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/b283e1beea9e1b748370b16ab419ed974c312be0/src/fieldproof/ground/values.py",
+      "status": 200,
+      "bytes": 17325,
+      "sha256": "79b3c591ebd7b3933d77dad72f2c9e75b2aca847fcbdbb2ab79df8fd80ce657a"
+    },
+    {
+      "file": "src/fieldproof/ground/lines.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/b283e1beea9e1b748370b16ab419ed974c312be0/src/fieldproof/ground/lines.py",
+      "status": 200,
+      "bytes": 1889,
+      "sha256": "8d133490578b887f4c05deb237cab26dcdb861056d1d535490bcf33e7103aa5e"
+    },
+    {
+      "file": "src/fieldproof/ground/align.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/b283e1beea9e1b748370b16ab419ed974c312be0/src/fieldproof/ground/align.py",
+      "status": 200,
+      "bytes": 26645,
+      "sha256": "a755b920a9f7b223ef2cfe6e1ac2f422a203832a329963bc795395a18666a0f6"
+    },
+    {
+      "file": "src/fieldproof/verify/value_checks.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/b283e1beea9e1b748370b16ab419ed974c312be0/src/fieldproof/verify/value_checks.py",
+      "status": 200,
+      "bytes": 19759,
+      "sha256": "7228906f337d8a424f20be7392009bb867031e0dc9f4d19da015e888047478e3"
+    },
+    {
+      "file": "src/fieldproof/verify/columns.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/b283e1beea9e1b748370b16ab419ed974c312be0/src/fieldproof/verify/columns.py",
+      "status": 200,
+      "bytes": 10860,
+      "sha256": "b319f5e9a84f20e3880c309f9768bddb874b17f756e2167e6261018efafc4fbe"
+    },
+    {
+      "file": "src/fieldproof/verify/engine.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/b283e1beea9e1b748370b16ab419ed974c312be0/src/fieldproof/verify/engine.py",
+      "status": 200,
+      "bytes": 26757,
+      "sha256": "90b37ac5f97741028c85a8e68f89e5b20dd0bc5094aeecd949df4b40ee8119bb"
+    },
+    {
+      "file": "tests/test_spaced_numbers.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/b283e1beea9e1b748370b16ab419ed974c312be0/tests/test_spaced_numbers.py",
+      "status": 200,
+      "bytes": 7863,
+      "sha256": "3d18af71e4718121d2b6746dc9efb6072eb0f6768414676999bfd36a6a06818c"
+    },
+    {
+      "file": "studies/spaced-numbers/fixtures/numbers.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/b283e1beea9e1b748370b16ab419ed974c312be0/studies/spaced-numbers/fixtures/numbers.pdf",
+      "status": 200,
+      "bytes": 33381,
+      "sha256": "7aaadddc64f815dcfd5f2c1bc2687b9d580a396129f028c38ec19e2038ac6c28"
+    },
+    {
+      "file": "studies/spaced-numbers/fixtures/ambiguity.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/b283e1beea9e1b748370b16ab419ed974c312be0/studies/spaced-numbers/fixtures/ambiguity.pdf",
+      "status": 200,
+      "bytes": 1409,
+      "sha256": "aac7950f321e02b8531b64c7dd54e19a20ead7184233ab7619d3301108fa57da"
+    }
+  ]
+}
