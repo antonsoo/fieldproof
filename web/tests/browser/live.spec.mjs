@@ -32,6 +32,7 @@ for (const control of [
   { directory: 'zero-opacity', pdf: 'mode-0-fill-0-stroke-1', reason: 'zero opacity', correction: 90, capture: 'UPDATE_OPACITY_SCREENSHOTS' },
   { directory: 'clipped-text', pdf: 'end-n', reason: 'clipping boundary', correction: 90, capture: 'UPDATE_CLIPPING_SCREENSHOTS' },
   { directory: 'flat-raster', pdf: 'image-prints-ninety', reason: 'native-text paint contribution', correction: 90, capture: 'UPDATE_RASTER_SCREENSHOTS' },
+  { directory: 'overlapping-text', pdf: 'replacement-15', reason: 'overlapping native text', correction: 100, capture: 'UPDATE_OVERLAP_SCREENSHOTS' },
 ]) {
 test(`unpainted PDF evidence (${control.directory}) stays in review through correction and archive restore`, async ({ page, request, browserName }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });

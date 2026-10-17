@@ -1,0 +1,22 @@
+{
+  "scope": "One bounded native 64-page load and page render through actual server workers.",
+  "python": "3.12.12",
+  "sourceSha256": "e7479dd8749e3ca07d08c2136149e726d26df1cc76c3e0cb95e5535e44d9843b",
+  "sourceBytes": 54981,
+  "pages": 64,
+  "words": 29056,
+  "rasterStates": {
+    "contributes": 29056
+  },
+  "loadSeconds": 17.05935881996993,
+  "renderSeconds": 0.318329494970385,
+  "pngBytes": 423002,
+  "pngSha256": "c25cfb002ed62dead000bb2ca737fc24af7a85d418d4836af3acf9c61041ec0a",
+  "largestChildPeakRssBytes": 130621440,
+  "limits": {
+    "wallSecondsPerOperation": 30,
+    "cpuSecondsPerWorker": 20,
+    "addressSpaceBytes": 805306368
+  },
+  "limitScope": "Existing server worker limits; one local observation, not a latency or memory guarantee."
+}

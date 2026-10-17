@@ -1,0 +1,66 @@
+{
+  "scope": "Observed loader cost on authored 1/10/50-page ledgers; not a latency guarantee.",
+  "python": "3.12.12",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "logicalCpus": 14,
+  "loadAverage": [
+    11.43359375,
+    11.86328125,
+    6.9794921875
+  ],
+  "warmups": 1,
+  "repeats": 3,
+  "rows": [
+    {
+      "pages": 1,
+      "bytes": 1743,
+      "sourceSha256": "fad5b7bc9df1fa9c2415b6d6f042a4847283eb7c659dff6d3f1541f4dfd11599",
+      "words": 454,
+      "geometrySha256": "0a194578e6fcef1cf25912ffcfa7bad466b2a62cc07e64a2606f6ce9ff305421",
+      "rasterStates": {
+        "contributes": 454
+      },
+      "medianSeconds": 0.16545462200883776,
+      "seconds": [
+        0.16545462200883776,
+        0.1611965550109744,
+        0.18101541098440066
+      ],
+      "processPeakRssBytes": 97239040
+    },
+    {
+      "pages": 10,
+      "bytes": 9357,
+      "sourceSha256": "3cf08741fd1f9c19ef43f8c86bb792af5bceffdbd9a1c8cbbd279442d4e89dce",
+      "words": 4540,
+      "geometrySha256": "41502ffbb4d0c0b5bb4843064dbee96f9a814bb58e69f6a1db9038a01f827de6",
+      "rasterStates": {
+        "contributes": 4540
+      },
+      "medianSeconds": 2.306275612965692,
+      "seconds": [
+        2.306275612965692,
+        2.886334210052155,
+        2.266681133012753
+      ],
+      "processPeakRssBytes": 99516416
+    },
+    {
+      "pages": 50,
+      "bytes": 43111,
+      "sourceSha256": "399d9cb9f6e2f71c1449037af1a8176b64eac9636ea06d47aea7cd2fcec92692",
+      "words": 22700,
+      "geometrySha256": "c084876ddc4a49c74f4a1c83cd1143bb5f44fbb273ffa792ef803a87672f3e8e",
+      "rasterStates": {
+        "contributes": 22700
+      },
+      "medianSeconds": 14.318661059020087,
+      "seconds": [
+        16.259488636045717,
+        14.318661059020087,
+        12.985601001011673
+      ],
+      "processPeakRssBytes": 110993408
+    }
+  ]
+}

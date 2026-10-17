@@ -4,3 +4,4 @@ studies/ocr-fallback/inputs/*.pdf binary
 studies/ocr-fallback/results/*.txt -text -whitespace
 # Native PDF fixtures carry cross-reference offsets and producer whitespace.
 studies/zero-opacity/fixtures/*.pdf binary
+studies/overlapping-text/fixtures/*.pdf binary

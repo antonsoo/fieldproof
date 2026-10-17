@@ -104,7 +104,6 @@ def main() -> None:
         "total": {"value": 900, "evidence": [QUOTE]},
     }
     (HERE / "fixture.json").write_text(json.dumps({"schema": "invoice", "data": data}, indent=2) + "\n")
-    (HERE / "extraction.json").write_text(json.dumps(data, indent=2) + "\n")
 
 
 if __name__ == "__main__":

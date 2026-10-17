@@ -190,6 +190,9 @@ on your machine. From a source checkout, build the UI first (see
   now require review across 34 authored PDFs. The demo's **Hidden text** sample
   displays `$90.00` as an image over native `$900.00`; inspect and correct the
   original claim without replacing its automated verdict.
+  The [overlapping-text correction](studies/overlapping-text/README.md) also
+  prevents a covered digit from borrowing a replacement glyph's ink: a page
+  visibly showing `$100.00` previously verified the underlying `$900.00`.
 - **Reject discarded claims (source checkout, unreleased)** - duplicate JSON
   members and unknown fields cannot silently disappear from an extraction before
   review. The CLI, uploaded fixtures and provider replies share the same checks;
@@ -711,7 +714,8 @@ See the [inputs, reproduction and compatibility checks](studies/grounding-reuse/
   searchable OCR layers: they remain extractable but require visual review.
   A bounded 144-DPI comparison also checks each native character's regional
   paint contribution against an independent copy with text paint suppressed.
-  Missing contributions and incomplete checks require review. A positive
+  Missing contributions, paint confined to overlapping native glyph bounds,
+  and incomplete checks require review. A positive
   difference does not prove readability, correct font-to-Unicode mapping, or
   ownership of overlapping native ink. Small or partly clipped readable glyphs
   may require review too. Caller-supplied and recognized OCR words do not have

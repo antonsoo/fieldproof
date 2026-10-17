@@ -1,0 +1,343 @@
+{
+  "dpi": 144,
+  "checks": 28,
+  "mismatches": 0,
+  "rows": [
+    {
+      "case": "replacement-10",
+      "engine": "pdfium",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "3fb3850bdb607b1ff59d316cb5290b8a96440e626938c64e2213c5c1b41095d0",
+      "omittedRgbSha256": "3fb3850bdb607b1ff59d316cb5290b8a96440e626938c64e2213c5c1b41095d0"
+    },
+    {
+      "case": "replacement-10",
+      "engine": "poppler",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "91548ea87aa63f2e46b53a572adc67ed0a484e32d2de3b2dd98bd449ea5c8c3b",
+      "omittedRgbSha256": "91548ea87aa63f2e46b53a572adc67ed0a484e32d2de3b2dd98bd449ea5c8c3b"
+    },
+    {
+      "case": "replacement-15",
+      "engine": "pdfium",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "d352fd3a553129997b5358abd6ce3201ca035fcff9f3f783915895dd838b3159",
+      "omittedRgbSha256": "d352fd3a553129997b5358abd6ce3201ca035fcff9f3f783915895dd838b3159"
+    },
+    {
+      "case": "replacement-15",
+      "engine": "poppler",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "802cee66b45e9285dd086ed1cbffe2e687294d6355adb68f04678390e30483c3",
+      "omittedRgbSha256": "802cee66b45e9285dd086ed1cbffe2e687294d6355adb68f04678390e30483c3"
+    },
+    {
+      "case": "replacement-17",
+      "engine": "pdfium",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "4c1e6d2e9d5edf1f40f80f0e8b3053fbb4216ad620418b4858cbbe27511940b6",
+      "omittedRgbSha256": "4c1e6d2e9d5edf1f40f80f0e8b3053fbb4216ad620418b4858cbbe27511940b6"
+    },
+    {
+      "case": "replacement-17",
+      "engine": "poppler",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "f795ca2d4f33d41eaf1f2dfe4f6c8720af43bd74b41438349b533e41c057cd5d",
+      "omittedRgbSha256": "f795ca2d4f33d41eaf1f2dfe4f6c8720af43bd74b41438349b533e41c057cd5d"
+    },
+    {
+      "case": "replacement-20",
+      "engine": "pdfium",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "101125beb79d7923c37a78b31cfbb6a00a9873d2e753e753dd60e89ea159ca60",
+      "omittedRgbSha256": "101125beb79d7923c37a78b31cfbb6a00a9873d2e753e753dd60e89ea159ca60"
+    },
+    {
+      "case": "replacement-20",
+      "engine": "poppler",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "4e0760cf2d7edca6bd239a47e233e244ebef577f706744ff8fc15a6780edb9ca",
+      "omittedRgbSha256": "4e0760cf2d7edca6bd239a47e233e244ebef577f706744ff8fc15a6780edb9ca"
+    },
+    {
+      "case": "rotation-90",
+      "engine": "pdfium",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "e072307d4d07931e58bb4a4a8b9a577ca96a9159b4d3dc54f30faa24d3128091",
+      "omittedRgbSha256": "e072307d4d07931e58bb4a4a8b9a577ca96a9159b4d3dc54f30faa24d3128091"
+    },
+    {
+      "case": "rotation-90",
+      "engine": "poppler",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "e95aac4380399f6d758aa9b189419958f6c5ffd1780b5874927a08b8d44e67e6",
+      "omittedRgbSha256": "e95aac4380399f6d758aa9b189419958f6c5ffd1780b5874927a08b8d44e67e6"
+    },
+    {
+      "case": "rotation-180",
+      "engine": "pdfium",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "be0766ff3a47aaa179f349996a1028bf9f2e4008a7a1536dc2c1c77c75e461eb",
+      "omittedRgbSha256": "be0766ff3a47aaa179f349996a1028bf9f2e4008a7a1536dc2c1c77c75e461eb"
+    },
+    {
+      "case": "rotation-180",
+      "engine": "poppler",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "8bc84fe1a41a2e4d98a8d223b1ac669c7c3776a6788f37d325ce5309f12321d1",
+      "omittedRgbSha256": "8bc84fe1a41a2e4d98a8d223b1ac669c7c3776a6788f37d325ce5309f12321d1"
+    },
+    {
+      "case": "rotation-270",
+      "engine": "pdfium",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "8312e4ea57f1821d600033e158c05450baa025e4f056d576322079a18acd04dc",
+      "omittedRgbSha256": "8312e4ea57f1821d600033e158c05450baa025e4f056d576322079a18acd04dc"
+    },
+    {
+      "case": "rotation-270",
+      "engine": "poppler",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "a904e97b4088a5ae62f4e666d3d5e06da0c7d373c078d2aa27e063b726825db6",
+      "omittedRgbSha256": "a904e97b4088a5ae62f4e666d3d5e06da0c7d373c078d2aa27e063b726825db6"
+    },
+    {
+      "case": "cropped-lender",
+      "engine": "pdfium",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1128
+      ],
+      "rgbSha256": "08bd3735357fc87b672f022f8555b5f402308407aeea01e183c65364b2e5d71b",
+      "omittedRgbSha256": "08bd3735357fc87b672f022f8555b5f402308407aeea01e183c65364b2e5d71b"
+    },
+    {
+      "case": "cropped-lender",
+      "engine": "poppler",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1128
+      ],
+      "rgbSha256": "d0f3eca8002347478ca16f95fdf3d99ae91869096ffd20792d3211484b9d82ae",
+      "omittedRgbSha256": "d0f3eca8002347478ca16f95fdf3d99ae91869096ffd20792d3211484b9d82ae"
+    },
+    {
+      "case": "nested-form",
+      "engine": "pdfium",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "d352fd3a553129997b5358abd6ce3201ca035fcff9f3f783915895dd838b3159",
+      "omittedRgbSha256": "d352fd3a553129997b5358abd6ce3201ca035fcff9f3f783915895dd838b3159"
+    },
+    {
+      "case": "nested-form",
+      "engine": "poppler",
+      "expectedEqual": true,
+      "equal": true,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "802cee66b45e9285dd086ed1cbffe2e687294d6355adb68f04678390e30483c3",
+      "omittedRgbSha256": "802cee66b45e9285dd086ed1cbffe2e687294d6355adb68f04678390e30483c3"
+    },
+    {
+      "case": "visible-original",
+      "engine": "pdfium",
+      "expectedEqual": false,
+      "equal": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5b7f818ec4fc95345ed5b88bbe96e46fa996b52913c3b51b6f30a3d1e6245d4c",
+      "omittedRgbSha256": "62c16c3ce81eb388ad61c3485905cd32422316102e3b8d7f06a0dbc0d4d0e508"
+    },
+    {
+      "case": "visible-original",
+      "engine": "poppler",
+      "expectedEqual": false,
+      "equal": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5b3deee66cbe9181f8fa76f1e630bb7ca3a2338b953dd1a798b39d5c12b5e6e4",
+      "omittedRgbSha256": "874d75a02915cf3ea46ea0b6e40032bb4e630ad7a6e84397873bda6c01c7ce5e"
+    },
+    {
+      "case": "invisible-lender",
+      "engine": "pdfium",
+      "expectedEqual": false,
+      "equal": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5b7f818ec4fc95345ed5b88bbe96e46fa996b52913c3b51b6f30a3d1e6245d4c",
+      "omittedRgbSha256": "62c16c3ce81eb388ad61c3485905cd32422316102e3b8d7f06a0dbc0d4d0e508"
+    },
+    {
+      "case": "invisible-lender",
+      "engine": "poppler",
+      "expectedEqual": false,
+      "equal": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5b3deee66cbe9181f8fa76f1e630bb7ca3a2338b953dd1a798b39d5c12b5e6e4",
+      "omittedRgbSha256": "874d75a02915cf3ea46ea0b6e40032bb4e630ad7a6e84397873bda6c01c7ce5e"
+    },
+    {
+      "case": "transparent-lender",
+      "engine": "pdfium",
+      "expectedEqual": false,
+      "equal": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5b7f818ec4fc95345ed5b88bbe96e46fa996b52913c3b51b6f30a3d1e6245d4c",
+      "omittedRgbSha256": "62c16c3ce81eb388ad61c3485905cd32422316102e3b8d7f06a0dbc0d4d0e508"
+    },
+    {
+      "case": "transparent-lender",
+      "engine": "poppler",
+      "expectedEqual": false,
+      "equal": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "5b3deee66cbe9181f8fa76f1e630bb7ca3a2338b953dd1a798b39d5c12b5e6e4",
+      "omittedRgbSha256": "874d75a02915cf3ea46ea0b6e40032bb4e630ad7a6e84397873bda6c01c7ce5e"
+    },
+    {
+      "case": "nearby-lender",
+      "engine": "pdfium",
+      "expectedEqual": false,
+      "equal": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "fdca849277e89d5da86fdf36a178b56e6cddbcf71f56ee7308088f168e8b5af2",
+      "omittedRgbSha256": "5575e374bdb6bba9123ec33fbac8c15e6db2dec3e17294be2e9f30b0ce06cf10"
+    },
+    {
+      "case": "nearby-lender",
+      "engine": "poppler",
+      "expectedEqual": false,
+      "equal": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "8fc8b61eaf929df788ae77cf6518c484202cee59f0acd5cabd1dcd18f457a160",
+      "omittedRgbSha256": "b54c1592d69af91699e4a04f93153d82217c030604ed3a005ef04da027a4222e"
+    },
+    {
+      "case": "visible-kerning",
+      "engine": "pdfium",
+      "expectedEqual": false,
+      "equal": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "26e10f03d298411155e51290780fcedc3e3257f03887f02ff2c170cd270f310e",
+      "omittedRgbSha256": "986c6bb947d1135725f72e0a90dc72d197bab0366174c23cdef513a2968c5e89"
+    },
+    {
+      "case": "visible-kerning",
+      "engine": "poppler",
+      "expectedEqual": false,
+      "equal": false,
+      "size": [
+        1224,
+        1584
+      ],
+      "rgbSha256": "97d108aae1b3bbbe2e5107bf7b555a76b3f3078cc516d8fafc386605e9fe6d1b",
+      "omittedRgbSha256": "4ddb271afc9ff5ad1a4e489d50248f0100aa65253d58f117474dc89c8cbe8d73"
+    }
+  ]
+}

@@ -1,0 +1,3986 @@
+{
+  "python": "3.12.12",
+  "versions": {
+    "pdfplumber": "0.11.10",
+    "pdfminer.six": "20260107",
+    "pypdfium2": "5.13.0",
+    "Pillow": "12.3.0"
+  },
+  "cases": 14,
+  "mismatches": 9,
+  "seconds": 0.6172,
+  "observations": [
+    {
+      "case": "replacement-10",
+      "sourceSha256": "c5d287a1f199902976e3f3f4140fdcce81ad8903c61ded2e135828cdcc62c51a",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "geometrySha256": "85e9cd895c9eaf0b32bdbc1d4c71bfa70946a4844da3297a818d828ca8c8766d",
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERLAP-001 Issued: 2026-10-17 Authored visibility counterexample; no real transaction. Authorized total: $900.00 1",
+      "words": [
+        {
+          "text": "SYNTHETIC",
+          "bbox": {
+            "x0": 48.0,
+            "top": 52.139999999999986,
+            "x1": 161.34,
+            "bottom": 72.13999999999999
+          },
+          "start": 0,
+          "end": 9,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 166.9,
+            "top": 52.139999999999986,
+            "x1": 249.14000000000001,
+            "bottom": 72.13999999999999
+          },
+          "start": 10,
+          "end": 17,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Example",
+          "bbox": {
+            "x0": 48.0,
+            "top": 102.48400000000004,
+            "x1": 94.68,
+            "bottom": 114.48400000000004
+          },
+          "start": 18,
+          "end": 25,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Tools",
+          "bbox": {
+            "x0": 98.016,
+            "top": 102.48400000000004,
+            "x1": 127.35600000000001,
+            "bottom": 114.48400000000004
+          },
+          "start": 26,
+          "end": 31,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Ltd.",
+          "bbox": {
+            "x0": 130.692,
+            "top": 102.48400000000004,
+            "x1": 150.70800000000003,
+            "bottom": 114.48400000000004
+          },
+          "start": 32,
+          "end": 36,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 48.0,
+            "top": 126.48400000000004,
+            "x1": 86.016,
+            "bottom": 138.48400000000004
+          },
+          "start": 37,
+          "end": 44,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "OVERLAP-001",
+          "bbox": {
+            "x0": 89.352,
+            "top": 126.48400000000004,
+            "x1": 170.052,
+            "bottom": 138.48400000000004
+          },
+          "start": 45,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Issued:",
+          "bbox": {
+            "x0": 48.0,
+            "top": 150.48400000000004,
+            "x1": 86.688,
+            "bottom": 162.48400000000004
+          },
+          "start": 57,
+          "end": 64,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "2026-10-17",
+          "bbox": {
+            "x0": 90.024,
+            "top": 150.48400000000004,
+            "x1": 151.39199999999997,
+            "bottom": 162.48400000000004
+          },
+          "start": 65,
+          "end": 75,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 48.0,
+            "top": 302.484,
+            "x1": 96.696,
+            "bottom": 314.484
+          },
+          "start": 76,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 100.032,
+            "top": 302.484,
+            "x1": 141.36,
+            "bottom": 314.484
+          },
+          "start": 85,
+          "end": 95,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 144.696,
+            "top": 302.484,
+            "x1": 233.4,
+            "bottom": 314.484
+          },
+          "start": 96,
+          "end": 111,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 236.73600000000002,
+            "top": 302.484,
+            "x1": 250.08,
+            "bottom": 314.484
+          },
+          "start": 112,
+          "end": 114,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 253.41600000000003,
+            "top": 302.484,
+            "x1": 273.42,
+            "bottom": 314.484
+          },
+          "start": 115,
+          "end": 119,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 276.75600000000003,
+            "top": 302.484,
+            "x1": 338.7840000000001,
+            "bottom": 314.484
+          },
+          "start": 120,
+          "end": 132,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 124.48,
+            "bottom": 245.312
+          },
+          "start": 133,
+          "end": 143,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 128.928,
+            "top": 229.312,
+            "x1": 163.616,
+            "bottom": 245.312
+          },
+          "start": 144,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 151,
+          "end": 158,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 176.96,
+            "top": 234.07000000000005,
+            "x1": 182.52,
+            "bottom": 244.07000000000005
+          },
+          "start": 159,
+          "end": 160,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "replacement-15",
+      "sourceSha256": "7ce4433715220b05fa45a9534bcce8e5a9e2de8fb72e1748bd8c4d3e4cd1be6b",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "geometrySha256": "7ba9381da637d49dfe7fcaac893b5d8c37385a546b7bcfabfb6e5f6b174976f0",
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERLAP-001 Issued: 2026-10-17 Authored visibility counterexample; no real transaction. Authorized total: $900.00 1",
+      "words": [
+        {
+          "text": "SYNTHETIC",
+          "bbox": {
+            "x0": 48.0,
+            "top": 52.139999999999986,
+            "x1": 161.34,
+            "bottom": 72.13999999999999
+          },
+          "start": 0,
+          "end": 9,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 166.9,
+            "top": 52.139999999999986,
+            "x1": 249.14000000000001,
+            "bottom": 72.13999999999999
+          },
+          "start": 10,
+          "end": 17,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Example",
+          "bbox": {
+            "x0": 48.0,
+            "top": 102.48400000000004,
+            "x1": 94.68,
+            "bottom": 114.48400000000004
+          },
+          "start": 18,
+          "end": 25,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Tools",
+          "bbox": {
+            "x0": 98.016,
+            "top": 102.48400000000004,
+            "x1": 127.35600000000001,
+            "bottom": 114.48400000000004
+          },
+          "start": 26,
+          "end": 31,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Ltd.",
+          "bbox": {
+            "x0": 130.692,
+            "top": 102.48400000000004,
+            "x1": 150.70800000000003,
+            "bottom": 114.48400000000004
+          },
+          "start": 32,
+          "end": 36,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 48.0,
+            "top": 126.48400000000004,
+            "x1": 86.016,
+            "bottom": 138.48400000000004
+          },
+          "start": 37,
+          "end": 44,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "OVERLAP-001",
+          "bbox": {
+            "x0": 89.352,
+            "top": 126.48400000000004,
+            "x1": 170.052,
+            "bottom": 138.48400000000004
+          },
+          "start": 45,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Issued:",
+          "bbox": {
+            "x0": 48.0,
+            "top": 150.48400000000004,
+            "x1": 86.688,
+            "bottom": 162.48400000000004
+          },
+          "start": 57,
+          "end": 64,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "2026-10-17",
+          "bbox": {
+            "x0": 90.024,
+            "top": 150.48400000000004,
+            "x1": 151.39199999999997,
+            "bottom": 162.48400000000004
+          },
+          "start": 65,
+          "end": 75,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 48.0,
+            "top": 302.484,
+            "x1": 96.696,
+            "bottom": 314.484
+          },
+          "start": 76,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 100.032,
+            "top": 302.484,
+            "x1": 141.36,
+            "bottom": 314.484
+          },
+          "start": 85,
+          "end": 95,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 144.696,
+            "top": 302.484,
+            "x1": 233.4,
+            "bottom": 314.484
+          },
+          "start": 96,
+          "end": 111,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 236.73600000000002,
+            "top": 302.484,
+            "x1": 250.08,
+            "bottom": 314.484
+          },
+          "start": 112,
+          "end": 114,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 253.41600000000003,
+            "top": 302.484,
+            "x1": 273.42,
+            "bottom": 314.484
+          },
+          "start": 115,
+          "end": 119,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 276.75600000000003,
+            "top": 302.484,
+            "x1": 338.7840000000001,
+            "bottom": 314.484
+          },
+          "start": 120,
+          "end": 132,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 124.48,
+            "bottom": 245.312
+          },
+          "start": 133,
+          "end": 143,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 128.928,
+            "top": 229.312,
+            "x1": 163.616,
+            "bottom": 245.312
+          },
+          "start": 144,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 151,
+          "end": 158,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 176.96,
+            "top": 230.10500000000002,
+            "x1": 185.3,
+            "bottom": 245.10500000000002
+          },
+          "start": 159,
+          "end": 160,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "replacement-17",
+      "sourceSha256": "2a8ebc7e357388363ef47558d7c2519e6be9aa9d2ca0736977e7b143698a3900",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "geometrySha256": "b28aeb06555a8c89fab546096f6676758ed1c837be51fce7c48a3f360c4ffe1f",
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERLAP-001 Issued: 2026-10-17 Authored visibility counterexample; no real transaction. Authorized total: $900.00 1",
+      "words": [
+        {
+          "text": "SYNTHETIC",
+          "bbox": {
+            "x0": 48.0,
+            "top": 52.139999999999986,
+            "x1": 161.34,
+            "bottom": 72.13999999999999
+          },
+          "start": 0,
+          "end": 9,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 166.9,
+            "top": 52.139999999999986,
+            "x1": 249.14000000000001,
+            "bottom": 72.13999999999999
+          },
+          "start": 10,
+          "end": 17,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Example",
+          "bbox": {
+            "x0": 48.0,
+            "top": 102.48400000000004,
+            "x1": 94.68,
+            "bottom": 114.48400000000004
+          },
+          "start": 18,
+          "end": 25,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Tools",
+          "bbox": {
+            "x0": 98.016,
+            "top": 102.48400000000004,
+            "x1": 127.35600000000001,
+            "bottom": 114.48400000000004
+          },
+          "start": 26,
+          "end": 31,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Ltd.",
+          "bbox": {
+            "x0": 130.692,
+            "top": 102.48400000000004,
+            "x1": 150.70800000000003,
+            "bottom": 114.48400000000004
+          },
+          "start": 32,
+          "end": 36,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 48.0,
+            "top": 126.48400000000004,
+            "x1": 86.016,
+            "bottom": 138.48400000000004
+          },
+          "start": 37,
+          "end": 44,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "OVERLAP-001",
+          "bbox": {
+            "x0": 89.352,
+            "top": 126.48400000000004,
+            "x1": 170.052,
+            "bottom": 138.48400000000004
+          },
+          "start": 45,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Issued:",
+          "bbox": {
+            "x0": 48.0,
+            "top": 150.48400000000004,
+            "x1": 86.688,
+            "bottom": 162.48400000000004
+          },
+          "start": 57,
+          "end": 64,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "2026-10-17",
+          "bbox": {
+            "x0": 90.024,
+            "top": 150.48400000000004,
+            "x1": 151.39199999999997,
+            "bottom": 162.48400000000004
+          },
+          "start": 65,
+          "end": 75,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 48.0,
+            "top": 302.484,
+            "x1": 96.696,
+            "bottom": 314.484
+          },
+          "start": 76,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 100.032,
+            "top": 302.484,
+            "x1": 141.36,
+            "bottom": 314.484
+          },
+          "start": 85,
+          "end": 95,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 144.696,
+            "top": 302.484,
+            "x1": 233.4,
+            "bottom": 314.484
+          },
+          "start": 96,
+          "end": 111,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 236.73600000000002,
+            "top": 302.484,
+            "x1": 250.08,
+            "bottom": 314.484
+          },
+          "start": 112,
+          "end": 114,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 253.41600000000003,
+            "top": 302.484,
+            "x1": 273.42,
+            "bottom": 314.484
+          },
+          "start": 115,
+          "end": 119,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 276.75600000000003,
+            "top": 302.484,
+            "x1": 338.7840000000001,
+            "bottom": 314.484
+          },
+          "start": 120,
+          "end": 132,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 124.48,
+            "bottom": 245.312
+          },
+          "start": 133,
+          "end": 143,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 128.928,
+            "top": 229.312,
+            "x1": 163.616,
+            "bottom": 245.312
+          },
+          "start": 144,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 151,
+          "end": 158,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 176.96,
+            "top": 228.519,
+            "x1": 186.412,
+            "bottom": 245.519
+          },
+          "start": 159,
+          "end": 160,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "replacement-20",
+      "sourceSha256": "374ad21c8a86b756d20ae8290ab4c8eefe91aa9d3b87780604244d177c4c92d6",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "geometrySha256": "d8d9ba654bf277c97aeec53f3a57ef5acad0f4978d8aad8efc1bd07b5af85c4f",
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERLAP-001 Issued: 2026-10-17 Authored visibility counterexample; no real transaction. Authorized total: $900.00 1",
+      "words": [
+        {
+          "text": "SYNTHETIC",
+          "bbox": {
+            "x0": 48.0,
+            "top": 52.139999999999986,
+            "x1": 161.34,
+            "bottom": 72.13999999999999
+          },
+          "start": 0,
+          "end": 9,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 166.9,
+            "top": 52.139999999999986,
+            "x1": 249.14000000000001,
+            "bottom": 72.13999999999999
+          },
+          "start": 10,
+          "end": 17,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Example",
+          "bbox": {
+            "x0": 48.0,
+            "top": 102.48400000000004,
+            "x1": 94.68,
+            "bottom": 114.48400000000004
+          },
+          "start": 18,
+          "end": 25,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Tools",
+          "bbox": {
+            "x0": 98.016,
+            "top": 102.48400000000004,
+            "x1": 127.35600000000001,
+            "bottom": 114.48400000000004
+          },
+          "start": 26,
+          "end": 31,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Ltd.",
+          "bbox": {
+            "x0": 130.692,
+            "top": 102.48400000000004,
+            "x1": 150.70800000000003,
+            "bottom": 114.48400000000004
+          },
+          "start": 32,
+          "end": 36,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 48.0,
+            "top": 126.48400000000004,
+            "x1": 86.016,
+            "bottom": 138.48400000000004
+          },
+          "start": 37,
+          "end": 44,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "OVERLAP-001",
+          "bbox": {
+            "x0": 89.352,
+            "top": 126.48400000000004,
+            "x1": 170.052,
+            "bottom": 138.48400000000004
+          },
+          "start": 45,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Issued:",
+          "bbox": {
+            "x0": 48.0,
+            "top": 150.48400000000004,
+            "x1": 86.688,
+            "bottom": 162.48400000000004
+          },
+          "start": 57,
+          "end": 64,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "2026-10-17",
+          "bbox": {
+            "x0": 90.024,
+            "top": 150.48400000000004,
+            "x1": 151.39199999999997,
+            "bottom": 162.48400000000004
+          },
+          "start": 65,
+          "end": 75,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 48.0,
+            "top": 302.484,
+            "x1": 96.696,
+            "bottom": 314.484
+          },
+          "start": 76,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 100.032,
+            "top": 302.484,
+            "x1": 141.36,
+            "bottom": 314.484
+          },
+          "start": 85,
+          "end": 95,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 144.696,
+            "top": 302.484,
+            "x1": 233.4,
+            "bottom": 314.484
+          },
+          "start": 96,
+          "end": 111,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 236.73600000000002,
+            "top": 302.484,
+            "x1": 250.08,
+            "bottom": 314.484
+          },
+          "start": 112,
+          "end": 114,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 253.41600000000003,
+            "top": 302.484,
+            "x1": 273.42,
+            "bottom": 314.484
+          },
+          "start": 115,
+          "end": 119,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 276.75600000000003,
+            "top": 302.484,
+            "x1": 338.7840000000001,
+            "bottom": 314.484
+          },
+          "start": 120,
+          "end": 132,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 124.48,
+            "bottom": 245.312
+          },
+          "start": 133,
+          "end": 143,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 128.928,
+            "top": 229.312,
+            "x1": 163.616,
+            "bottom": 245.312
+          },
+          "start": 144,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 151,
+          "end": 158,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 176.96,
+            "top": 226.14,
+            "x1": 188.08,
+            "bottom": 246.14
+          },
+          "start": 159,
+          "end": 160,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "rotation-90",
+      "sourceSha256": "b2dd2dbd4027a794a3470a8bf7c91099a939985ccd67a471f50ab898cfa89864",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 546.688,
+            "top": 48.0,
+            "x1": 562.688,
+            "bottom": 124.48000000000002
+          },
+          {
+            "x0": 546.688,
+            "top": 128.928,
+            "x1": 562.688,
+            "bottom": 163.61599999999999
+          },
+          {
+            "x0": 546.688,
+            "top": 168.06400000000008,
+            "x1": 562.688,
+            "bottom": 225.88800000000003
+          }
+        ]
+      },
+      "geometrySha256": "8f89b867c7336d6af304eb6cad7b2335cca05ea8d1a3ce044347a313e3707aad",
+      "text": "Authored visibility counterexample; no real transaction. Authorized total: $900.00 1",
+      "words": [
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 477.516,
+            "top": 48.0,
+            "x1": 489.516,
+            "bottom": 96.69600000000003
+          },
+          "start": 0,
+          "end": 8,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 477.516,
+            "top": 100.03200000000004,
+            "x1": 489.516,
+            "bottom": 141.36
+          },
+          "start": 9,
+          "end": 19,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 477.516,
+            "top": 144.69600000000003,
+            "x1": 489.516,
+            "bottom": 233.39999999999998
+          },
+          "start": 20,
+          "end": 35,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 477.516,
+            "top": 236.736,
+            "x1": 489.516,
+            "bottom": 250.08000000000004
+          },
+          "start": 36,
+          "end": 38,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 477.516,
+            "top": 253.41600000000005,
+            "x1": 489.516,
+            "bottom": 273.4200000000001
+          },
+          "start": 39,
+          "end": 43,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 477.516,
+            "top": 276.7560000000001,
+            "x1": 489.516,
+            "bottom": 338.7840000000001
+          },
+          "start": 44,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 546.688,
+            "top": 48.0,
+            "x1": 562.688,
+            "bottom": 124.48000000000002
+          },
+          "start": 57,
+          "end": 67,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 546.688,
+            "top": 128.928,
+            "x1": 562.688,
+            "bottom": 163.61599999999999
+          },
+          "start": 68,
+          "end": 74,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 546.688,
+            "top": 168.06400000000008,
+            "x1": 562.688,
+            "bottom": 225.88800000000003
+          },
+          "start": 75,
+          "end": 82,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 546.895,
+            "top": 176.96000000000004,
+            "x1": 561.895,
+            "bottom": 185.30000000000007
+          },
+          "start": 83,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "rotation-180",
+      "sourceSha256": "570959f47617f160b160eabb425e292b594f26161e7ec7c00daad172a14c63d2",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 386.1119999999999,
+            "top": 546.688,
+            "x1": 564.0,
+            "bottom": 562.688
+          }
+        ]
+      },
+      "geometrySha256": "71a92f3768832c8008bf976e78d6867c96be841c647faf0e10fdcc147fefb8f3",
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERLAP-001 Issued: 2026-10-17 Authored visibility counterexample; no real transaction. Authorized total: $900.00 1",
+      "words": [
+        {
+          "text": "SYNTHETIC",
+          "bbox": {
+            "x0": 450.66,
+            "top": 719.86,
+            "x1": 564.0,
+            "bottom": 739.86
+          },
+          "start": 0,
+          "end": 9,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 362.86,
+            "top": 719.86,
+            "x1": 445.1,
+            "bottom": 739.86
+          },
+          "start": 10,
+          "end": 17,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Example",
+          "bbox": {
+            "x0": 517.3199999999999,
+            "top": 677.516,
+            "x1": 564.0,
+            "bottom": 689.516
+          },
+          "start": 18,
+          "end": 25,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Tools",
+          "bbox": {
+            "x0": 484.644,
+            "top": 677.516,
+            "x1": 513.984,
+            "bottom": 689.516
+          },
+          "start": 26,
+          "end": 31,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Ltd.",
+          "bbox": {
+            "x0": 461.292,
+            "top": 677.516,
+            "x1": 481.308,
+            "bottom": 689.516
+          },
+          "start": 32,
+          "end": 36,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 525.9839999999999,
+            "top": 653.516,
+            "x1": 564.0,
+            "bottom": 665.516
+          },
+          "start": 37,
+          "end": 44,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "OVERLAP-001",
+          "bbox": {
+            "x0": 441.948,
+            "top": 653.516,
+            "x1": 522.648,
+            "bottom": 665.516
+          },
+          "start": 45,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Issued:",
+          "bbox": {
+            "x0": 525.312,
+            "top": 629.516,
+            "x1": 564.0,
+            "bottom": 641.516
+          },
+          "start": 57,
+          "end": 64,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "2026-10-17",
+          "bbox": {
+            "x0": 460.608,
+            "top": 629.516,
+            "x1": 521.976,
+            "bottom": 641.516
+          },
+          "start": 65,
+          "end": 75,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 515.304,
+            "top": 477.516,
+            "x1": 564.0,
+            "bottom": 489.516
+          },
+          "start": 76,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 470.64,
+            "top": 477.516,
+            "x1": 511.968,
+            "bottom": 489.516
+          },
+          "start": 85,
+          "end": 95,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 378.6,
+            "top": 477.516,
+            "x1": 467.304,
+            "bottom": 489.516
+          },
+          "start": 96,
+          "end": 111,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 361.91999999999996,
+            "top": 477.516,
+            "x1": 375.264,
+            "bottom": 489.516
+          },
+          "start": 112,
+          "end": 114,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 338.58,
+            "top": 477.516,
+            "x1": 358.58399999999995,
+            "bottom": 489.516
+          },
+          "start": 115,
+          "end": 119,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 273.2159999999999,
+            "top": 477.516,
+            "x1": 335.24399999999997,
+            "bottom": 489.516
+          },
+          "start": 120,
+          "end": 132,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 487.52,
+            "top": 546.688,
+            "x1": 564.0,
+            "bottom": 562.688
+          },
+          "start": 133,
+          "end": 143,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 448.384,
+            "top": 546.688,
+            "x1": 483.072,
+            "bottom": 562.688
+          },
+          "start": 144,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 386.1119999999999,
+            "top": 546.688,
+            "x1": 443.936,
+            "bottom": 562.688
+          },
+          "start": 151,
+          "end": 158,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 426.7,
+            "top": 546.895,
+            "x1": 435.03999999999996,
+            "bottom": 561.895
+          },
+          "start": 159,
+          "end": 160,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "rotation-270",
+      "sourceSha256": "511d2fbbbbb0b7ac6a1faceeb25445f388e10b355c52601189eb02307d424efd",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 49.312,
+            "top": 566.1119999999999,
+            "x1": 65.312,
+            "bottom": 623.9359999999999
+          },
+          {
+            "x0": 49.312,
+            "top": 628.384,
+            "x1": 65.312,
+            "bottom": 663.072
+          },
+          {
+            "x0": 49.312,
+            "top": 667.52,
+            "x1": 65.312,
+            "bottom": 744.0
+          }
+        ]
+      },
+      "geometrySha256": "e6f7fc944f752cb2637c80078d6d1dca921761fe0575bfb79b15bc18f7c2912c",
+      "text": "Authored visibility counterexample; no real transaction. Authorized total: $900.00 1",
+      "words": [
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 122.484,
+            "top": 695.304,
+            "x1": 134.484,
+            "bottom": 744.0
+          },
+          "start": 0,
+          "end": 8,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 122.484,
+            "top": 650.64,
+            "x1": 134.484,
+            "bottom": 691.968
+          },
+          "start": 9,
+          "end": 19,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 122.484,
+            "top": 558.6,
+            "x1": 134.484,
+            "bottom": 647.304
+          },
+          "start": 20,
+          "end": 35,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 122.484,
+            "top": 541.92,
+            "x1": 134.484,
+            "bottom": 555.264
+          },
+          "start": 36,
+          "end": 38,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 122.484,
+            "top": 518.5799999999999,
+            "x1": 134.484,
+            "bottom": 538.584
+          },
+          "start": 39,
+          "end": 43,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 122.484,
+            "top": 453.2159999999999,
+            "x1": 134.484,
+            "bottom": 515.2439999999999
+          },
+          "start": 44,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 49.312,
+            "top": 667.52,
+            "x1": 65.312,
+            "bottom": 744.0
+          },
+          "start": 57,
+          "end": 67,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 49.312,
+            "top": 628.384,
+            "x1": 65.312,
+            "bottom": 663.072
+          },
+          "start": 68,
+          "end": 74,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 49.312,
+            "top": 566.1119999999999,
+            "x1": 65.312,
+            "bottom": 623.9359999999999
+          },
+          "start": 75,
+          "end": 82,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 50.105000000000004,
+            "top": 606.7,
+            "x1": 65.105,
+            "bottom": 615.04
+          },
+          "start": 83,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "cropped-lender",
+      "sourceSha256": "0c9758a17cb3d2ef08575799cd1849970f33d42ad5715b21d0e8a771f5402b48",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 1.3120000000000118,
+            "x1": 225.8880000000001,
+            "bottom": 17.312000000000012
+          }
+        ]
+      },
+      "geometrySha256": "d72e90b8af962fcca416d1f26ef656834bd8311504c232a666b6a0293f1fc0da",
+      "text": "Authored visibility counterexample; no real transaction. Authorized total: $900.00",
+      "words": [
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 48.0,
+            "top": 74.48399999999998,
+            "x1": 96.696,
+            "bottom": 86.48399999999998
+          },
+          "start": 0,
+          "end": 8,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 100.032,
+            "top": 74.48399999999998,
+            "x1": 141.36,
+            "bottom": 86.48399999999998
+          },
+          "start": 9,
+          "end": 19,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 144.696,
+            "top": 74.48399999999998,
+            "x1": 233.4,
+            "bottom": 86.48399999999998
+          },
+          "start": 20,
+          "end": 35,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 236.73600000000002,
+            "top": 74.48399999999998,
+            "x1": 250.08,
+            "bottom": 86.48399999999998
+          },
+          "start": 36,
+          "end": 38,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 253.41600000000003,
+            "top": 74.48399999999998,
+            "x1": 273.42,
+            "bottom": 86.48399999999998
+          },
+          "start": 39,
+          "end": 43,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 276.75600000000003,
+            "top": 74.48399999999998,
+            "x1": 338.7840000000001,
+            "bottom": 86.48399999999998
+          },
+          "start": 44,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 48.0,
+            "top": 1.3120000000000118,
+            "x1": 124.48,
+            "bottom": 17.312000000000012
+          },
+          "start": 57,
+          "end": 67,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 128.928,
+            "top": 1.3120000000000118,
+            "x1": 163.616,
+            "bottom": 17.312000000000012
+          },
+          "start": 68,
+          "end": 74,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 1.3120000000000118,
+            "x1": 225.8880000000001,
+            "bottom": 17.312000000000012
+          },
+          "start": 75,
+          "end": 82,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "nested-form",
+      "sourceSha256": "91f509822d9c83f08ca0202f31cef2885220dae222d98deaee06faaf3f7ee111",
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "geometrySha256": "7ba9381da637d49dfe7fcaac893b5d8c37385a546b7bcfabfb6e5f6b174976f0",
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERLAP-001 Issued: 2026-10-17 Authored visibility counterexample; no real transaction. Authorized total: $900.00 1",
+      "words": [
+        {
+          "text": "SYNTHETIC",
+          "bbox": {
+            "x0": 48.0,
+            "top": 52.139999999999986,
+            "x1": 161.34,
+            "bottom": 72.13999999999999
+          },
+          "start": 0,
+          "end": 9,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 166.9,
+            "top": 52.139999999999986,
+            "x1": 249.14000000000001,
+            "bottom": 72.13999999999999
+          },
+          "start": 10,
+          "end": 17,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Example",
+          "bbox": {
+            "x0": 48.0,
+            "top": 102.48400000000004,
+            "x1": 94.68,
+            "bottom": 114.48400000000004
+          },
+          "start": 18,
+          "end": 25,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Tools",
+          "bbox": {
+            "x0": 98.016,
+            "top": 102.48400000000004,
+            "x1": 127.35600000000001,
+            "bottom": 114.48400000000004
+          },
+          "start": 26,
+          "end": 31,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Ltd.",
+          "bbox": {
+            "x0": 130.692,
+            "top": 102.48400000000004,
+            "x1": 150.70800000000003,
+            "bottom": 114.48400000000004
+          },
+          "start": 32,
+          "end": 36,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 48.0,
+            "top": 126.48400000000004,
+            "x1": 86.016,
+            "bottom": 138.48400000000004
+          },
+          "start": 37,
+          "end": 44,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "OVERLAP-001",
+          "bbox": {
+            "x0": 89.352,
+            "top": 126.48400000000004,
+            "x1": 170.052,
+            "bottom": 138.48400000000004
+          },
+          "start": 45,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Issued:",
+          "bbox": {
+            "x0": 48.0,
+            "top": 150.48400000000004,
+            "x1": 86.688,
+            "bottom": 162.48400000000004
+          },
+          "start": 57,
+          "end": 64,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "2026-10-17",
+          "bbox": {
+            "x0": 90.024,
+            "top": 150.48400000000004,
+            "x1": 151.39199999999997,
+            "bottom": 162.48400000000004
+          },
+          "start": 65,
+          "end": 75,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 48.0,
+            "top": 302.484,
+            "x1": 96.696,
+            "bottom": 314.484
+          },
+          "start": 76,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 100.032,
+            "top": 302.484,
+            "x1": 141.36,
+            "bottom": 314.484
+          },
+          "start": 85,
+          "end": 95,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 144.696,
+            "top": 302.484,
+            "x1": 233.4,
+            "bottom": 314.484
+          },
+          "start": 96,
+          "end": 111,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 236.73600000000002,
+            "top": 302.484,
+            "x1": 250.08,
+            "bottom": 314.484
+          },
+          "start": 112,
+          "end": 114,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 253.41600000000003,
+            "top": 302.484,
+            "x1": 273.42,
+            "bottom": 314.484
+          },
+          "start": 115,
+          "end": 119,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 276.75600000000003,
+            "top": 302.484,
+            "x1": 338.7840000000001,
+            "bottom": 314.484
+          },
+          "start": 120,
+          "end": 132,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 124.48,
+            "bottom": 245.312
+          },
+          "start": 133,
+          "end": 143,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 128.928,
+            "top": 229.312,
+            "x1": 163.616,
+            "bottom": 245.312
+          },
+          "start": 144,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 151,
+          "end": 158,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 176.96,
+            "top": 230.10500000000002,
+            "x1": 185.3,
+            "bottom": 245.10500000000002
+          },
+          "start": 159,
+          "end": 160,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "visible-original",
+      "sourceSha256": "9a65c6debfb9b33d25265d34d6b56ea1ae7216125e32921ddd7c61d5ed835515",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "geometrySha256": "ba6caec135e52f5b3afa9773d9a63f3cbbf6167c6882b25dd7f0b70df85274c6",
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERLAP-001 Issued: 2026-10-17 Authored visibility counterexample; no real transaction. Authorized total: $900.00",
+      "words": [
+        {
+          "text": "SYNTHETIC",
+          "bbox": {
+            "x0": 48.0,
+            "top": 52.139999999999986,
+            "x1": 161.34,
+            "bottom": 72.13999999999999
+          },
+          "start": 0,
+          "end": 9,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 166.9,
+            "top": 52.139999999999986,
+            "x1": 249.14000000000001,
+            "bottom": 72.13999999999999
+          },
+          "start": 10,
+          "end": 17,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Example",
+          "bbox": {
+            "x0": 48.0,
+            "top": 102.48400000000004,
+            "x1": 94.68,
+            "bottom": 114.48400000000004
+          },
+          "start": 18,
+          "end": 25,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Tools",
+          "bbox": {
+            "x0": 98.016,
+            "top": 102.48400000000004,
+            "x1": 127.35600000000001,
+            "bottom": 114.48400000000004
+          },
+          "start": 26,
+          "end": 31,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Ltd.",
+          "bbox": {
+            "x0": 130.692,
+            "top": 102.48400000000004,
+            "x1": 150.70800000000003,
+            "bottom": 114.48400000000004
+          },
+          "start": 32,
+          "end": 36,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 48.0,
+            "top": 126.48400000000004,
+            "x1": 86.016,
+            "bottom": 138.48400000000004
+          },
+          "start": 37,
+          "end": 44,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "OVERLAP-001",
+          "bbox": {
+            "x0": 89.352,
+            "top": 126.48400000000004,
+            "x1": 170.052,
+            "bottom": 138.48400000000004
+          },
+          "start": 45,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Issued:",
+          "bbox": {
+            "x0": 48.0,
+            "top": 150.48400000000004,
+            "x1": 86.688,
+            "bottom": 162.48400000000004
+          },
+          "start": 57,
+          "end": 64,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "2026-10-17",
+          "bbox": {
+            "x0": 90.024,
+            "top": 150.48400000000004,
+            "x1": 151.39199999999997,
+            "bottom": 162.48400000000004
+          },
+          "start": 65,
+          "end": 75,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 48.0,
+            "top": 302.484,
+            "x1": 96.696,
+            "bottom": 314.484
+          },
+          "start": 76,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 100.032,
+            "top": 302.484,
+            "x1": 141.36,
+            "bottom": 314.484
+          },
+          "start": 85,
+          "end": 95,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 144.696,
+            "top": 302.484,
+            "x1": 233.4,
+            "bottom": 314.484
+          },
+          "start": 96,
+          "end": 111,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 236.73600000000002,
+            "top": 302.484,
+            "x1": 250.08,
+            "bottom": 314.484
+          },
+          "start": 112,
+          "end": 114,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 253.41600000000003,
+            "top": 302.484,
+            "x1": 273.42,
+            "bottom": 314.484
+          },
+          "start": 115,
+          "end": 119,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 276.75600000000003,
+            "top": 302.484,
+            "x1": 338.7840000000001,
+            "bottom": 314.484
+          },
+          "start": 120,
+          "end": 132,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 124.48,
+            "bottom": 245.312
+          },
+          "start": 133,
+          "end": 143,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 128.928,
+            "top": 229.312,
+            "x1": 163.616,
+            "bottom": 245.312
+          },
+          "start": 144,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 151,
+          "end": 158,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "invisible-lender",
+      "sourceSha256": "583f3014a1d931b69a2f21dbc220d0b9aa237a019927061f4b35e61796f80c67",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "geometrySha256": "7ba9381da637d49dfe7fcaac893b5d8c37385a546b7bcfabfb6e5f6b174976f0",
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERLAP-001 Issued: 2026-10-17 Authored visibility counterexample; no real transaction. Authorized total: $900.00 1",
+      "words": [
+        {
+          "text": "SYNTHETIC",
+          "bbox": {
+            "x0": 48.0,
+            "top": 52.139999999999986,
+            "x1": 161.34,
+            "bottom": 72.13999999999999
+          },
+          "start": 0,
+          "end": 9,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 166.9,
+            "top": 52.139999999999986,
+            "x1": 249.14000000000001,
+            "bottom": 72.13999999999999
+          },
+          "start": 10,
+          "end": 17,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Example",
+          "bbox": {
+            "x0": 48.0,
+            "top": 102.48400000000004,
+            "x1": 94.68,
+            "bottom": 114.48400000000004
+          },
+          "start": 18,
+          "end": 25,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Tools",
+          "bbox": {
+            "x0": 98.016,
+            "top": 102.48400000000004,
+            "x1": 127.35600000000001,
+            "bottom": 114.48400000000004
+          },
+          "start": 26,
+          "end": 31,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Ltd.",
+          "bbox": {
+            "x0": 130.692,
+            "top": 102.48400000000004,
+            "x1": 150.70800000000003,
+            "bottom": 114.48400000000004
+          },
+          "start": 32,
+          "end": 36,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 48.0,
+            "top": 126.48400000000004,
+            "x1": 86.016,
+            "bottom": 138.48400000000004
+          },
+          "start": 37,
+          "end": 44,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "OVERLAP-001",
+          "bbox": {
+            "x0": 89.352,
+            "top": 126.48400000000004,
+            "x1": 170.052,
+            "bottom": 138.48400000000004
+          },
+          "start": 45,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Issued:",
+          "bbox": {
+            "x0": 48.0,
+            "top": 150.48400000000004,
+            "x1": 86.688,
+            "bottom": 162.48400000000004
+          },
+          "start": 57,
+          "end": 64,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "2026-10-17",
+          "bbox": {
+            "x0": 90.024,
+            "top": 150.48400000000004,
+            "x1": 151.39199999999997,
+            "bottom": 162.48400000000004
+          },
+          "start": 65,
+          "end": 75,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 48.0,
+            "top": 302.484,
+            "x1": 96.696,
+            "bottom": 314.484
+          },
+          "start": 76,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 100.032,
+            "top": 302.484,
+            "x1": 141.36,
+            "bottom": 314.484
+          },
+          "start": 85,
+          "end": 95,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 144.696,
+            "top": 302.484,
+            "x1": 233.4,
+            "bottom": 314.484
+          },
+          "start": 96,
+          "end": 111,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 236.73600000000002,
+            "top": 302.484,
+            "x1": 250.08,
+            "bottom": 314.484
+          },
+          "start": 112,
+          "end": 114,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 253.41600000000003,
+            "top": 302.484,
+            "x1": 273.42,
+            "bottom": 314.484
+          },
+          "start": 115,
+          "end": 119,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 276.75600000000003,
+            "top": 302.484,
+            "x1": 338.7840000000001,
+            "bottom": 314.484
+          },
+          "start": 120,
+          "end": 132,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 124.48,
+            "bottom": 245.312
+          },
+          "start": 133,
+          "end": 143,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 128.928,
+            "top": 229.312,
+            "x1": 163.616,
+            "bottom": 245.312
+          },
+          "start": 144,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 151,
+          "end": 158,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 176.96,
+            "top": 230.10500000000002,
+            "x1": 185.3,
+            "bottom": 245.10500000000002
+          },
+          "start": 159,
+          "end": 160,
+          "render_mode": 3,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": null
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "transparent-lender",
+      "sourceSha256": "49b05ca73c6d8247cb7c02e9d283af3c54dea219e8eac5735dd2ceec4720f96c",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "geometrySha256": "7ba9381da637d49dfe7fcaac893b5d8c37385a546b7bcfabfb6e5f6b174976f0",
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERLAP-001 Issued: 2026-10-17 Authored visibility counterexample; no real transaction. Authorized total: $900.00 1",
+      "words": [
+        {
+          "text": "SYNTHETIC",
+          "bbox": {
+            "x0": 48.0,
+            "top": 52.139999999999986,
+            "x1": 161.34,
+            "bottom": 72.13999999999999
+          },
+          "start": 0,
+          "end": 9,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 166.9,
+            "top": 52.139999999999986,
+            "x1": 249.14000000000001,
+            "bottom": 72.13999999999999
+          },
+          "start": 10,
+          "end": 17,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Example",
+          "bbox": {
+            "x0": 48.0,
+            "top": 102.48400000000004,
+            "x1": 94.68,
+            "bottom": 114.48400000000004
+          },
+          "start": 18,
+          "end": 25,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Tools",
+          "bbox": {
+            "x0": 98.016,
+            "top": 102.48400000000004,
+            "x1": 127.35600000000001,
+            "bottom": 114.48400000000004
+          },
+          "start": 26,
+          "end": 31,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Ltd.",
+          "bbox": {
+            "x0": 130.692,
+            "top": 102.48400000000004,
+            "x1": 150.70800000000003,
+            "bottom": 114.48400000000004
+          },
+          "start": 32,
+          "end": 36,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 48.0,
+            "top": 126.48400000000004,
+            "x1": 86.016,
+            "bottom": 138.48400000000004
+          },
+          "start": 37,
+          "end": 44,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "OVERLAP-001",
+          "bbox": {
+            "x0": 89.352,
+            "top": 126.48400000000004,
+            "x1": 170.052,
+            "bottom": 138.48400000000004
+          },
+          "start": 45,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Issued:",
+          "bbox": {
+            "x0": 48.0,
+            "top": 150.48400000000004,
+            "x1": 86.688,
+            "bottom": 162.48400000000004
+          },
+          "start": 57,
+          "end": 64,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "2026-10-17",
+          "bbox": {
+            "x0": 90.024,
+            "top": 150.48400000000004,
+            "x1": 151.39199999999997,
+            "bottom": 162.48400000000004
+          },
+          "start": 65,
+          "end": 75,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 48.0,
+            "top": 302.484,
+            "x1": 96.696,
+            "bottom": 314.484
+          },
+          "start": 76,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 100.032,
+            "top": 302.484,
+            "x1": 141.36,
+            "bottom": 314.484
+          },
+          "start": 85,
+          "end": 95,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 144.696,
+            "top": 302.484,
+            "x1": 233.4,
+            "bottom": 314.484
+          },
+          "start": 96,
+          "end": 111,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 236.73600000000002,
+            "top": 302.484,
+            "x1": 250.08,
+            "bottom": 314.484
+          },
+          "start": 112,
+          "end": 114,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 253.41600000000003,
+            "top": 302.484,
+            "x1": 273.42,
+            "bottom": 314.484
+          },
+          "start": 115,
+          "end": 119,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 276.75600000000003,
+            "top": 302.484,
+            "x1": 338.7840000000001,
+            "bottom": 314.484
+          },
+          "start": 120,
+          "end": 132,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 124.48,
+            "bottom": 245.312
+          },
+          "start": 133,
+          "end": 143,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 128.928,
+            "top": 229.312,
+            "x1": 163.616,
+            "bottom": 245.312
+          },
+          "start": 144,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 151,
+          "end": 158,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 176.96,
+            "top": 230.10500000000002,
+            "x1": 185.3,
+            "bottom": 245.10500000000002
+          },
+          "start": 159,
+          "end": 160,
+          "render_mode": 0,
+          "zero_opacity": true,
+          "clip_risk": false,
+          "raster_state": null
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "nearby-lender",
+      "sourceSha256": "98134d524a37b6ee4d122c4b6f581af94436143ed32c069e9d3e955fbe32eee1",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "geometrySha256": "d1b526e50f6ffd02ee8c52d3390f943847a4c24da2757561431ddf46bfe1de20",
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERLAP-001 Issued: 2026-10-17 Authored visibility counterexample; no real transaction. Authorized total: $900.00 1",
+      "words": [
+        {
+          "text": "SYNTHETIC",
+          "bbox": {
+            "x0": 48.0,
+            "top": 52.139999999999986,
+            "x1": 161.34,
+            "bottom": 72.13999999999999
+          },
+          "start": 0,
+          "end": 9,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 166.9,
+            "top": 52.139999999999986,
+            "x1": 249.14000000000001,
+            "bottom": 72.13999999999999
+          },
+          "start": 10,
+          "end": 17,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Example",
+          "bbox": {
+            "x0": 48.0,
+            "top": 102.48400000000004,
+            "x1": 94.68,
+            "bottom": 114.48400000000004
+          },
+          "start": 18,
+          "end": 25,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Tools",
+          "bbox": {
+            "x0": 98.016,
+            "top": 102.48400000000004,
+            "x1": 127.35600000000001,
+            "bottom": 114.48400000000004
+          },
+          "start": 26,
+          "end": 31,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Ltd.",
+          "bbox": {
+            "x0": 130.692,
+            "top": 102.48400000000004,
+            "x1": 150.70800000000003,
+            "bottom": 114.48400000000004
+          },
+          "start": 32,
+          "end": 36,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 48.0,
+            "top": 126.48400000000004,
+            "x1": 86.016,
+            "bottom": 138.48400000000004
+          },
+          "start": 37,
+          "end": 44,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "OVERLAP-001",
+          "bbox": {
+            "x0": 89.352,
+            "top": 126.48400000000004,
+            "x1": 170.052,
+            "bottom": 138.48400000000004
+          },
+          "start": 45,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Issued:",
+          "bbox": {
+            "x0": 48.0,
+            "top": 150.48400000000004,
+            "x1": 86.688,
+            "bottom": 162.48400000000004
+          },
+          "start": 57,
+          "end": 64,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "2026-10-17",
+          "bbox": {
+            "x0": 90.024,
+            "top": 150.48400000000004,
+            "x1": 151.39199999999997,
+            "bottom": 162.48400000000004
+          },
+          "start": 65,
+          "end": 75,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 48.0,
+            "top": 302.484,
+            "x1": 96.696,
+            "bottom": 314.484
+          },
+          "start": 76,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 100.032,
+            "top": 302.484,
+            "x1": 141.36,
+            "bottom": 314.484
+          },
+          "start": 85,
+          "end": 95,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 144.696,
+            "top": 302.484,
+            "x1": 233.4,
+            "bottom": 314.484
+          },
+          "start": 96,
+          "end": 111,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 236.73600000000002,
+            "top": 302.484,
+            "x1": 250.08,
+            "bottom": 314.484
+          },
+          "start": 112,
+          "end": 114,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 253.41600000000003,
+            "top": 302.484,
+            "x1": 273.42,
+            "bottom": 314.484
+          },
+          "start": 115,
+          "end": 119,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 276.75600000000003,
+            "top": 302.484,
+            "x1": 338.7840000000001,
+            "bottom": 314.484
+          },
+          "start": 120,
+          "end": 132,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 124.48,
+            "bottom": 245.312
+          },
+          "start": 133,
+          "end": 143,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 128.928,
+            "top": 229.312,
+            "x1": 163.616,
+            "bottom": 245.312
+          },
+          "start": 144,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 151,
+          "end": 158,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "1",
+          "bbox": {
+            "x0": 176.96,
+            "top": 270.105,
+            "x1": 185.3,
+            "bottom": 285.105
+          },
+          "start": 159,
+          "end": 160,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    },
+    {
+      "case": "visible-kerning",
+      "sourceSha256": "41318d6f886da9f0836a1fd0ad94d2a4ce4886c87e8e3a6b0c7ab7c0d65dd5ad",
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 213.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "geometrySha256": "f341c8e03cb6de3e3f1572fa143b5e848fb31e10fabab637ca9311f47aada54f",
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERLAP-001 Issued: 2026-10-17 Authored visibility counterexample; no real transaction. AVATAR WATER Authorized total: $900.00",
+      "words": [
+        {
+          "text": "SYNTHETIC",
+          "bbox": {
+            "x0": 48.0,
+            "top": 52.139999999999986,
+            "x1": 161.34,
+            "bottom": 72.13999999999999
+          },
+          "start": 0,
+          "end": 9,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "INVOICE",
+          "bbox": {
+            "x0": 166.9,
+            "top": 52.139999999999986,
+            "x1": 249.14000000000001,
+            "bottom": 72.13999999999999
+          },
+          "start": 10,
+          "end": 17,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Example",
+          "bbox": {
+            "x0": 48.0,
+            "top": 102.48400000000004,
+            "x1": 94.68,
+            "bottom": 114.48400000000004
+          },
+          "start": 18,
+          "end": 25,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Tools",
+          "bbox": {
+            "x0": 98.016,
+            "top": 102.48400000000004,
+            "x1": 127.35600000000001,
+            "bottom": 114.48400000000004
+          },
+          "start": 26,
+          "end": 31,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Ltd.",
+          "bbox": {
+            "x0": 130.692,
+            "top": 102.48400000000004,
+            "x1": 150.70800000000003,
+            "bottom": 114.48400000000004
+          },
+          "start": 32,
+          "end": 36,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Invoice",
+          "bbox": {
+            "x0": 48.0,
+            "top": 126.48400000000004,
+            "x1": 86.016,
+            "bottom": 138.48400000000004
+          },
+          "start": 37,
+          "end": 44,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "OVERLAP-001",
+          "bbox": {
+            "x0": 89.352,
+            "top": 126.48400000000004,
+            "x1": 170.052,
+            "bottom": 138.48400000000004
+          },
+          "start": 45,
+          "end": 56,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Issued:",
+          "bbox": {
+            "x0": 48.0,
+            "top": 150.48400000000004,
+            "x1": 86.688,
+            "bottom": 162.48400000000004
+          },
+          "start": 57,
+          "end": 64,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "2026-10-17",
+          "bbox": {
+            "x0": 90.024,
+            "top": 150.48400000000004,
+            "x1": 151.39199999999997,
+            "bottom": 162.48400000000004
+          },
+          "start": 65,
+          "end": 75,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authored",
+          "bbox": {
+            "x0": 48.0,
+            "top": 302.484,
+            "x1": 96.696,
+            "bottom": 314.484
+          },
+          "start": 76,
+          "end": 84,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "visibility",
+          "bbox": {
+            "x0": 100.032,
+            "top": 302.484,
+            "x1": 141.36,
+            "bottom": 314.484
+          },
+          "start": 85,
+          "end": 95,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "counterexample;",
+          "bbox": {
+            "x0": 144.696,
+            "top": 302.484,
+            "x1": 233.4,
+            "bottom": 314.484
+          },
+          "start": 96,
+          "end": 111,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "no",
+          "bbox": {
+            "x0": 236.73600000000002,
+            "top": 302.484,
+            "x1": 250.08,
+            "bottom": 314.484
+          },
+          "start": 112,
+          "end": 114,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "real",
+          "bbox": {
+            "x0": 253.41600000000003,
+            "top": 302.484,
+            "x1": 273.42,
+            "bottom": 314.484
+          },
+          "start": 115,
+          "end": 119,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "transaction.",
+          "bbox": {
+            "x0": 276.75600000000003,
+            "top": 302.484,
+            "x1": 338.7840000000001,
+            "bottom": 314.484
+          },
+          "start": 120,
+          "end": 132,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "AVATAR",
+          "bbox": {
+            "x0": 48.0,
+            "top": 189.312,
+            "x1": 109.51599999999999,
+            "bottom": 205.312
+          },
+          "start": 133,
+          "end": 139,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "WATER",
+          "bbox": {
+            "x0": 112.964,
+            "top": 189.312,
+            "x1": 168.73999999999998,
+            "bottom": 205.312
+          },
+          "start": 140,
+          "end": 145,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "Authorized",
+          "bbox": {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 119.98,
+            "bottom": 245.312
+          },
+          "start": 146,
+          "end": 156,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "total:",
+          "bbox": {
+            "x0": 123.42800000000003,
+            "top": 229.312,
+            "x1": 155.61600000000004,
+            "bottom": 245.312
+          },
+          "start": 157,
+          "end": 163,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 159.06400000000005,
+            "top": 229.312,
+            "x1": 213.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 164,
+          "end": 171,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wireIdentical": true
+    }
+  ]
+}
