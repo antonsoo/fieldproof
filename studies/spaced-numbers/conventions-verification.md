@@ -90,6 +90,11 @@ so no duplicate images are committed. The
 [browser receipt](results/conventions-browser-summary.json) identifies this
 final-source run independently of the older receipts.
 
+The complete suite also passes in the minimum Python 3.11/direct-dependency
+environment: 820 passed, five actual-engine OCR skips, and two existing
+Starlette/httpx/anyio deprecation warnings. This extends the 72 focused installed
+regressions above; it does not establish OCR accuracy without Tesseract.
+
 The package version remains 0.2.7; source hashes identify the correction. The
 earlier installed/browser receipts remain scoped to their recorded revisions.
 These checks do not establish a registry release or hosted Python workbench.

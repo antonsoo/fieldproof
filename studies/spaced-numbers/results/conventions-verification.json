@@ -189,5 +189,12 @@
     "claims": 87,
     "pages": 21,
     "original_full_ledger_identical": true
+  },
+  "minimum_full_suite": {
+    "passed": 820,
+    "skipped": 5,
+    "warnings": 2,
+    "skip_reason": "Actual Tesseract unavailable; Python OCR extra installed.",
+    "warnings_scope": "Existing Starlette/httpx and anyio deprecations at the dependency floors."
   }
 }
