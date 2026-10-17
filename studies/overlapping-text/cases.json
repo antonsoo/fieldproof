@@ -1,0 +1,81 @@
+[
+  {
+    "id": "replacement-10",
+    "size": 10,
+    "review": true
+  },
+  {
+    "id": "replacement-15",
+    "size": 15,
+    "review": true
+  },
+  {
+    "id": "replacement-17",
+    "size": 17,
+    "review": true
+  },
+  {
+    "id": "replacement-20",
+    "size": 20,
+    "review": true
+  },
+  {
+    "id": "rotation-90",
+    "size": 15,
+    "rotation": 90,
+    "review": true
+  },
+  {
+    "id": "rotation-180",
+    "size": 15,
+    "rotation": 180,
+    "review": true
+  },
+  {
+    "id": "rotation-270",
+    "size": 15,
+    "rotation": 270,
+    "review": true
+  },
+  {
+    "id": "cropped-lender",
+    "size": 20,
+    "crop": true,
+    "review": true
+  },
+  {
+    "id": "nested-form",
+    "size": 15,
+    "form": true,
+    "review": true
+  },
+  {
+    "id": "visible-original",
+    "size": null,
+    "review": false
+  },
+  {
+    "id": "invisible-lender",
+    "size": 15,
+    "lender_mode": 3,
+    "review": false
+  },
+  {
+    "id": "transparent-lender",
+    "size": 15,
+    "lender_alpha": 0,
+    "review": false
+  },
+  {
+    "id": "nearby-lender",
+    "size": 15,
+    "nearby": true,
+    "review": false
+  },
+  {
+    "id": "visible-kerning",
+    "size": null,
+    "kern": true,
+    "review": false
+  }
+]

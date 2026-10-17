@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Overlapping native PDF text
+
+- Require review when a quoted character's observed paint is confined to
+  overlapping native glyph bounds. A covered nine previously borrowed a
+  replacement one's pixels and verified `$900.00` on a page displaying `$100.00`.
+- Include partially cropped and clipping-risk text as possible pixel lenders.
+  Keep text, word boundaries, geometry, worker transport and human correction
+  provenance. Bound the overlap audit by glyph count and pixel work; incomplete
+  attribution remains unavailable.
+- Retain 14 authored PDFs, before/after verdicts and independent PDFium/Poppler
+  omission controls in `studies/overlapping-text`. This conservative observation
+  can also send legitimate overprinted text to review; it does not establish
+  readability or font-to-Unicode correctness. The package release is unchanged.
+
 ### Native PDF paint contribution
 
 - Compare each native character's inward-rounded layout region at 144 DPI

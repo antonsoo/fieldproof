@@ -1,21 +1,22 @@
 """Observe native text's raster contribution using an independent reference PDF.
 
 The reference retains images, paths and text clipping while suppressing native
-text paint. A positive regional difference is not proof of glyph identity or
-readability; overlapping native text can contribute to the same region.
+text paint. A glyph needs some contribution outside other painting glyphs'
+layout bounds. Shared pixels alone cannot establish which text contributed.
+This remains a bounded observation, not proof of glyph identity or readability.
 """
 
 from __future__ import annotations
 
 import ctypes
 import math
-from collections.abc import Iterator
+from collections.abc import Iterable, Iterator
 from contextlib import closing, contextmanager
 from pathlib import Path
 from typing import Any
 
 import pypdfium2 as pdfium
-from PIL import ImageChops
+from PIL import Image, ImageChops
 from pypdfium2 import raw
 
 from fieldproof.document.limits import DocumentLimitError, check_page_pixels
@@ -23,6 +24,8 @@ from fieldproof.document.model import BBox, RasterState
 
 MAX_PAGE_OBJECTS = 50_000
 MAX_FORM_DEPTH = 32
+MAX_OVERLAP_GLYPHS = 50_000
+MAX_OVERLAP_PIXELS = 64_000_000
 
 
 def _suppress_text(page: pdfium.PdfPage) -> None:
@@ -86,26 +89,85 @@ class RasterProbe:
         self.image = image
         self.width = width
         self.height = height
+        self.overlaps: Any = None
 
-    def check(self, box: BBox) -> RasterState:
+    def _pixels(self, box: BBox, *, outward: bool) -> tuple[int, int, int, int] | None:
         if self.image is None or not all(
             math.isfinite(n) for n in (box.x0, box.top, box.x1, box.bottom)
         ):
-            return "unavailable"
+            return None
         if box.width <= 0 or box.height <= 0:
-            return "unavailable"
+            return None
         sx, sy = self.image.width / self.width, self.image.height / self.height
+        lower, upper = (math.floor, math.ceil) if outward else (math.ceil, math.floor)
+        left = max(0, min(self.image.width, lower(box.x0 * sx)))
+        top = max(0, min(self.image.height, lower(box.top * sy)))
+        right = max(0, min(self.image.width, upper(box.x1 * sx)))
+        bottom = max(0, min(self.image.height, upper(box.bottom * sy)))
+        return (left, top, right, bottom) if right > left and bottom > top else None
+
+    def observe_overlaps(self, boxes: Iterable[BBox]) -> None:
+        """Record pixels owned by multiple potentially painting glyph bounds.
+
+        Two one-bit page masks avoid pairwise rectangle searches and full RGB
+        copies. Work is bounded by both glyph count and accumulated pixel area;
+        exhausting either budget leaves the whole page's attribution unchecked.
+        Bounds round outward here so a fractional shared edge cannot lend ink.
+        """
+        self.close()
+        if self.image is None:
+            return
+        covered = overlaps = None
+        try:
+            covered = Image.new("1", self.image.size)
+            overlaps = Image.new("1", self.image.size)
+            area = 0
+            for count, box in enumerate(boxes, 1):
+                if count > MAX_OVERLAP_GLYPHS:
+                    raise ValueError("Glyph overlap traversal exceeds its budget")
+                if not all(math.isfinite(v) for v in (box.x0, box.top, box.x1, box.bottom)):
+                    raise ValueError("Glyph bounds are unavailable")
+                if box.width <= 0 or box.height <= 0:
+                    raise ValueError("Glyph bounds have no area")
+                pixels = self._pixels(box, outward=True)
+                if pixels is None:  # Entirely outside the visible canvas.
+                    continue
+                left, top, right, bottom = pixels
+                area += (right - left) * (bottom - top)
+                if area > MAX_OVERLAP_PIXELS:
+                    raise ValueError("Glyph overlap pixel work exceeds its budget")
+                with covered.crop(pixels) as previous:
+                    # Masked paste sets only previously covered pixels. Existing
+                    # overlap evidence cannot be erased by a later glyph.
+                    overlaps.paste(1, pixels, previous)
+                covered.paste(1, pixels)
+            self.overlaps = overlaps
+            overlaps = None
+        except (ValueError, OverflowError):
+            pass
+        finally:
+            for mask in (covered, overlaps):
+                if mask is not None:
+                    mask.close()
+
+    def close(self) -> None:
+        if self.overlaps is not None:
+            self.overlaps.close()
+            self.overlaps = None
+
+    def check(self, box: BBox) -> RasterState:
         # Observe only complete pixels inside the glyph's layout rectangle.
         # Rounding outward can borrow an adjacent character's antialiased edge
         # and falsely establish variation for an entirely hidden digit.
-        left = max(0, min(self.image.width, math.ceil(box.x0 * sx)))
-        top = max(0, min(self.image.height, math.ceil(box.top * sy)))
-        right = max(0, min(self.image.width, math.floor(box.x1 * sx)))
-        bottom = max(0, min(self.image.height, math.floor(box.bottom * sy)))
-        if right <= left or bottom <= top:
+        pixels = self._pixels(box, outward=False)
+        if pixels is None or self.overlaps is None:
             return "unavailable"
-        with self.image.crop((left, top, right, bottom)) as region:
-            return "contributes" if region.getbbox() is not None else "no_contribution"
+        with self.image.crop(pixels) as region:
+            if region.getbbox() is None:
+                return "no_contribution"
+            with self.overlaps.crop(pixels) as shared:
+                region.paste((0, 0, 0), mask=shared)
+            return "contributes" if region.getbbox() is not None else "ambiguous_overlap"
 
 
 @contextmanager
@@ -155,7 +217,8 @@ def page_raster(
                 for rendered in (foreground, background, control):
                     if rendered is not None:
                         rendered.close()
-        yield RasterProbe(image, width, height)
+        with closing(RasterProbe(image, width, height)) as probe:
+            yield probe
     finally:
         if image is not None:
             image.close()

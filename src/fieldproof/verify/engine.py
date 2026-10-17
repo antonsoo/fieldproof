@@ -507,9 +507,18 @@ def _verify_field(
             "inside their bounds; the text layer alone does not establish what is readable "
             "there; review the page"
         )
+    if any(word.raster_state == "ambiguous_overlap" for word in best_match.words):
+        reasons.append(
+            "some quoted PDF characters have observed paint only inside overlapping "
+            "native text bounds; another glyph may supply those pixels; review the "
+            "rendered page before accepting this text"
+        )
     if any(
         word.paint_requires_review
-        and not (word.unpainted or word.clip_risk or word.raster_state == "no_contribution")
+        and not (
+            word.unpainted or word.clip_risk
+            or word.raster_state in ("no_contribution", "ambiguous_overlap")
+        )
         for word in best_match.words
     ):
         reasons.append(

@@ -79,6 +79,17 @@ def load_pdf(
                     else DocumentLimits().max_pixels,
                     needed=any(_needs_raster(char) for char in visible.chars),
                 ) as probe:
+                    # Include partially cropped and clipping-risk glyphs: they
+                    # may still paint inside a retained character's rectangle.
+                    probe.observe_overlaps(
+                        BBox(
+                            char["x0"] - origin_x,
+                            char["top"] - origin_top,
+                            char["x1"] - origin_x,
+                            char["bottom"] - origin_top,
+                        )
+                        for char in page.chars if _may_paint(char)
+                    )
                     loaded = _load_page(visible, page_number, probe)
             finally:
                 if raster_page is not None:
@@ -132,14 +143,17 @@ def _visible_page_boxes(source: str | Path | bytes) -> list[tuple[float, float, 
     return boxes
 
 
-def _needs_raster(char: dict[str, Any]) -> bool:
+def _may_paint(char: dict[str, Any]) -> bool:
     return (
         bool(char["text"])
         and not char["text"].isspace()
         and char["render_mode"] not in (3, 7)
         and not char["zero_opacity"]
-        and not char["clip_risk"]
     )
+
+
+def _needs_raster(char: dict[str, Any]) -> bool:
+    return _may_paint(char) and not char["clip_risk"]
 
 
 def _word_raster(chars: list[dict[str, Any]]) -> RasterState | None:
@@ -148,6 +162,8 @@ def _word_raster(chars: list[dict[str, Any]]) -> RasterState | None:
         return "unavailable"
     if "no_contribution" in states:
         return "no_contribution"
+    if "ambiguous_overlap" in states:
+        return "ambiguous_overlap"
     return "contributes" if states == {"contributes"} else None
 
 

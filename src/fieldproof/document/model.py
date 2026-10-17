@@ -11,7 +11,7 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 from typing import Any, Literal
 
-RasterState = Literal["contributes", "no_contribution", "unavailable"]
+RasterState = Literal["contributes", "no_contribution", "ambiguous_overlap", "unavailable"]
 
 
 @dataclass(frozen=True, slots=True)
@@ -69,9 +69,10 @@ class Word:
     # Per-glyph observations of the original versus paint-suppressed 144-DPI
     # raster, aggregated to the word: unavailable if any glyph is unchecked,
     # no_contribution if any sampled interior has no native paint effect,
-    # otherwise contributes. None means no observation (including OCR/caller
-    # words and already unpainted text). Contribution does not establish glyph
-    # identity or readability, and overlapping native text can lend pixels.
+    # ambiguous_overlap if contribution is confined to other native glyph
+    # bounds, otherwise contributes. None means no observation (including
+    # OCR/caller words and already unpainted text). Contribution does not
+    # establish glyph identity or readability.
     raster_state: RasterState | None = None
 
     @property
