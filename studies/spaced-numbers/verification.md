@@ -1,6 +1,12 @@
 # Spaced amounts: verification and review costs
 
-The final Python sources are in `b283e1beea9e1b748370b16ab419ed974c312be0`.
+The spacing/location correction below is at
+`b283e1beea9e1b748370b16ab419ed974c312be0`. A subsequent
+[punctuation-convention correction](conventions-verification.md) at `79c85ad`
+fixes a regression in that revision; the README install pin includes it.
+The receipts below retain their original revision-specific scope.
+
+The Python sources measured below are in `b283e1beea9e1b748370b16ab419ed974c312be0`.
 The baseline is `d94f2f4`; its Python files are identical to the independently
 installed baseline wheel built from `760a1d7`. The source hashes in both
 native ledgers were compared with those Git revisions. Package versions remain
