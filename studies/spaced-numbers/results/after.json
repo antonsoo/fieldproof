@@ -32,7 +32,7 @@
     "ground/align.py": "0a8fb83e337473dce1a14ead4790f70b99cfca96c04b601312d61124ffebcf3c",
     "ground/lines.py": "8d133490578b887f4c05deb237cab26dcdb861056d1d535490bcf33e7103aa5e",
     "ground/normalize.py": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520",
-    "ground/values.py": "15f8e3b98ab9aaabad295977e3553eac3f3ec36044dc0e9ebbe0811f140dfc9e",
+    "ground/values.py": "79b3c591ebd7b3933d77dad72f2c9e75b2aca847fcbdbb2ab79df8fd80ce657a",
     "schemas/__init__.py": "2846223c9fe650c6c471d68c97359b2f0bef71c3029bcb928d119ef47e04818c",
     "schemas/base.py": "7f2bfa1c4b71d57064f9f06b7a904e34f7d646cd78d80086f921c83bcd3837de",
     "schemas/contract.py": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0",

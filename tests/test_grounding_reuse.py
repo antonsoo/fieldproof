@@ -48,7 +48,9 @@ def test_reused_candidates_keep_numeric_omissions_ambiguous_and_page_hints_non_a
 def test_candidate_eviction_and_oversized_results_preserve_every_occurrence(monkeypatch):
     monkeypatch.setattr(GroundingIndex, "MAX_QUOTES", 2)
     monkeypatch.setattr(GroundingIndex, "MAX_REFERENCES", 3)
-    index = GroundingIndex(Document("small-cache.pdf", [page(["Alpha 6% 6 6 Beta Gamma"])]))
+    index = GroundingIndex(
+        Document("small-cache.pdf", [page(["Alpha 6% Count 6 Units 6 Beta Gamma"])])
+    )
     for quote in ("6", "alpha", "Beta", "Gamma", "6", "alpha", "6"):
         actual = index.candidates(quote)
         if quote == "6":

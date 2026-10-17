@@ -6,6 +6,7 @@ from io import BytesIO
 
 import pytest
 from pydantic import BaseModel
+from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen.canvas import Canvas
 
 from fieldproof.document.loader import load_pdf
@@ -20,7 +21,12 @@ def document(*pages: list[tuple[float, str]]) -> Document:
     canvas = Canvas(stream, pagesize=(612, 792), invariant=True)
     for lines in pages:
         for y, text in lines:
-            canvas.drawString(50, y, text)
+            # These controls isolate row assignment using clear cells. A tight
+            # single text run would also introduce quantity/grouping ambiguity.
+            x = 50.0
+            for cell in text.split():
+                canvas.drawString(x, y, cell)
+                x += stringWidth(cell, "Helvetica", 12) + 40
         canvas.showPage()
     canvas.save()
     return load_pdf(stream.getvalue())

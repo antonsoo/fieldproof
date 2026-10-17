@@ -135,13 +135,15 @@ _RATE_SIGNS = r"%\u2030\u2031\u066a\u0609\u060a"
 # The candidate is intentionally broader than a supported amount: consume the WHOLE
 # spelling, then reject it if necessary. Otherwise 1e6, .50 or 1,2,3 can yield a
 # perfectly plausible number that was only a fragment of what the page said.
-_NUMBER_TOKEN = re.compile(
+_NUMBER_PREFIX = (
     rf"(?<![\w.,'\u066b\u066c/{_RATE_SIGNS}+\-$])(?<!\d:)"
     r"(?P<open>\( *)?"
     r"(?P<sign>[+-] *)?"
     rf"(?P<currency>{_CURRENCY} *)?"
     r"(?P<inner_sign>[+-] *)?"
-    r"(?P<count_prefix>x)?"
+)
+_NUMBER_TOKEN = re.compile(
+    _NUMBER_PREFIX + r"(?P<count_prefix>x)?"
     r"(?P<number>(?:\d[\d.,'\u066b\u066c]*|[.,\u066b\u066c]\d[\d.,'\u066b\u066c]*)(?:[eE][+-]?\d+)?)"
     r"(?P<count_suffix>x)?"
     # A minus followed by another amount belongs to that amount. Do not steal
@@ -157,8 +159,10 @@ _NUMBER_TOKEN = re.compile(
 # ends the run: "1 210.50 210.50" has an uncertain first pair and a separate
 # final price. Geometry-aware callers restore clear layout boundaries first.
 _SPACED_NUMBER = re.compile(
-    r"(?<![\w.,'\u066b\u066c/])\d+(?: +\d+)* +\d[\d.,'\u066b\u066c]*(?:[eE][+-]?\d+)?"
+    _NUMBER_PREFIX + r"(?P<number>\d+(?: +\d+)* +\d[\d.,'\u066b\u066c]*(?:[eE][+-]?\d+)?)",
+    re.IGNORECASE,
 )
+_CLOCK_TOKEN = re.compile(r"(?<![\w:])\d+:\d+(?::\d+)?(?: *[ap]m)?(?![\w:])", re.IGNORECASE)
 
 
 @dataclass(frozen=True, slots=True)
@@ -256,6 +260,21 @@ def _spaced_tokens(
     and rate marks. The spacing scan also catches malformed spellings whose
     components the ordinary amount lexer deliberately refused.
     """
+    if _SPACED_NUMBER.search(normalized) is None:
+        return tuple(tokens)
+    # Dates and colon-separated clock spellings already have distinct syntax.
+    # Do not turn a date's year plus the following hour into a grouped amount,
+    # or consume the start of a date after a quantity. Keep offsets unchanged.
+    structured = [(a, b) for a, b, _ in dates_in(normalized)]
+    structured.extend((m.start(), m.end()) for m in _CLOCK_TOKEN.finditer(normalized))
+    if structured:
+        chars = list(normalized)
+        for a, b in structured:
+            if a > 0 and chars[a - 1] == " ":
+                chars[a - 1] = "\n"
+            if b < len(chars) and chars[b] == " ":
+                chars[b] = "\n"
+        normalized = "".join(chars)
     result: list[NumberToken] = []
     cursor = 0
     for match in _SPACED_NUMBER.finditer(normalized):
@@ -271,7 +290,7 @@ def _spaced_tokens(
             NumberToken(
                 start=min([start, *(token.start for token in overlapping)]),
                 end=max([end, *(token.end for token in overlapping)]),
-                digits=match.group(),
+                digits=match["number"],
                 negative=any(token.negative for token in overlapping),
                 percent=any(token.percent for token in overlapping),
                 count=any(token.count for token in overlapping),

@@ -4,16 +4,19 @@ from __future__ import annotations
 
 import json
 from dataclasses import replace
+from io import BytesIO
 from pathlib import Path
 
 import pytest
 from pydantic import BaseModel
+from reportlab.pdfgen.canvas import Canvas
 
 from fieldproof.document.loader import load_pdf
 from fieldproof.document.model import BBox, Document
 from fieldproof.ground.lines import separate_numeric_regions
 from fieldproof.ground.values import number_style, number_tokens
 from fieldproof.schemas import Evidenced
+from fieldproof.schemas.base import EvidencedDate
 from fieldproof.verify import verify
 from fieldproof.verify.value_checks import check_number, parse_all_numbers
 
@@ -128,3 +131,33 @@ def test_a_wide_gap_does_not_strip_a_same_row_numeric_sign(numbers_pdf):
     numeric = separate_numeric_regions("- 100.00", [sign, amount])
     assert check_number(-100, numeric).supported
     assert not check_number(100, numeric).supported
+
+
+@pytest.mark.parametrize(
+    "date_text", ["14-02-2018", "14/02/2018", "2018-02-14", "14 February 2018", "February 14, 2018"]
+)
+def test_the_end_of_a_date_and_start_of_a_time_are_not_numeric_groups(date_text):
+    class Dated(BaseModel):
+        issued: EvidencedDate
+
+    stream = BytesIO()
+    canvas = Canvas(stream, invariant=True)
+    canvas.drawString(40, 700, "DATE : " + date_text + " 13:45")
+    canvas.save()
+    document = load_pdf(stream.getvalue())
+    (field,) = verify(
+        Dated(issued={"value": "2018-02-14", "evidence": ["DATE : " + date_text]}), document
+    ).fields
+    assert field.status.value == "verified", field.reasons
+    assert field.matched_text == "DATE : " + date_text
+
+
+def test_a_date_or_clock_boundary_does_not_discard_an_earlier_uncertain_group():
+    assert parse_all_numbers("1 2018-02-14") == [1]
+    assert not check_number(234.56, "Total 1 234,56 13:45").supported
+    assert not check_number(1234.56, "Total 1 234,56 2018-02-14").supported
+
+
+@pytest.mark.parametrize("text", ["DATE 14-02-2018 13:45", "At 13:45 100.00", "Ref ID-1 234"])
+def test_group_scan_does_not_start_inside_a_date_time_or_identifier(text):
+    assert not any(t.ambiguous_spacing for t in number_tokens(text))

@@ -64,8 +64,10 @@ def test_an_exact_match_always_covers_whole_words(block: int) -> None:
         rng = random.Random(seed)
         page = _page(rng)
 
-        # A run of whole words, including adjacent sign words, is found where
-        # it is. A quote that omits the '-' in '- $100' is no longer exact.
+        # A run of whole words is found where it is. Numeric context can expand
+        # it: quoting the last word of "1 234" or omitting '-' in '- $100'
+        # no longer gives an exact match. Arbitrary slices below still require
+        # every exact match to cover whole words and equal the quoted text.
         first = rng.randrange(len(page.words))
         last = rng.randrange(first, min(len(page.words), first + 5))
         while first > 0 and page.words[first - 1].text == "-":
@@ -75,8 +77,9 @@ def test_an_exact_match_always_covers_whole_words(block: int) -> None:
         quote = page.text[page.words[first].start : page.words[last].end]
         found = find_candidates(quote, page)
         assert found, f"seed {seed}: {quote!r} not found in {page.text!r}"
-        assert all(m.score == 100.0 for m in found), f"seed {seed}: {quote!r}"
-        assert any(m.start == page.words[first].start for m in found), f"seed {seed}"
+        assert any(
+            m.start <= page.words[first].start and m.end >= page.words[last].end for m in found
+        ), f"seed {seed}: {quote!r}"
 
         # Any other slice of the page is either not an exact match, or covers whole words.
         for _ in range(8):

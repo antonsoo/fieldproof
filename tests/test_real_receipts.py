@@ -49,7 +49,9 @@ def test_dot_thousands_verify_neither_reading_until_something_says_which() -> No
     assert not check_number(60000.0, "TOTAL 60.000", number_style="decimal").supported
     # a number that reads one way is not held back by a neighbour that reads two
     assert check_number(60000.0, "TOTAL 60.000 60,000").supported
-    assert check_number(4.0, "4 60.000").supported
+    # Tight spacing cannot establish whether this is a quantity plus price.
+    assert not check_number(4.0, "4 60.000").supported
+    assert check_number(4.0, "4\t60.000").supported
     assert check_number(0.125, "0.125").supported  # no thousands group starts with 0
     wrong = check_number(61.0, "TOTAL 60.000")
     assert not wrong.supported and "does not match" in wrong.reason

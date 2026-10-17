@@ -1,9 +1,9 @@
 {
   "scope": "Installed API and bounded workers; fixture provider, no model calls.",
-  "parser_sha256": "15f8e3b98ab9aaabad295977e3553eac3f3ec36044dc0e9ebbe0811f140dfc9e",
+  "parser_sha256": "79b3c591ebd7b3933d77dad72f2c9e75b2aca847fcbdbb2ab79df8fd80ce657a",
   "pdf_sha256": "a74de0d0be6e502fd8a4e5a74b1ade1856f114a5ba7849bfe6306a543327866c",
   "fixture_sha256": "a8caee40fac190f0068aa71b5164b60dffeb442da6f9c8a1095d75a37df8afbb",
-  "seconds": 1.416253593051806,
+  "seconds": 0.9435227559879422,
   "wire_roundtrip_equal": true,
   "actual": [
     "needs_review",
