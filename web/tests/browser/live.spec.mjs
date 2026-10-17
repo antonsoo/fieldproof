@@ -136,10 +136,7 @@ test('native glyph overhang stays in review through offline rejection export and
       await page.screenshot({ path: `${destination}/${browserName}-${width}.png`, fullPage: true });
     }
   }
-  // The visible page does not establish a replacement amount. Reject the
-  // extracted claim without inventing a corrected leading digit.
-  await total.getByRole('button', { name: 'Reject', exact: true }).click();
-  await expect(total.locator('.review-badge')).toHaveText('rejected');
+  await page.getByLabel('Export', { exact: true }).selectOption('all');
   await page.evaluate(() => document.fonts.ready);
   const offlineRequests = [];
   const observe = request => offlineRequests.push(request.url());
@@ -147,9 +144,20 @@ test('native glyph overhang stays in review through offline rejection export and
   await context.setOffline(true);
   await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'dark'));
   const exported = JSON.parse((await downloadText(page, 'JSON')).text);
-  const rejected = exported.find(entry => entry.field === 'total');
-  expect(rejected).toMatchObject({ value: 900, original_value: 900, value_source: 'extraction', verification_status: 'needs_review', review_status: 'rejected' });
-  expect((await downloadText(page, 'CSV')).text).toContain('total,900,900,extraction,needs_review,rejected,1');
+  const pendingTotal = exported.find(entry => entry.field === 'total');
+  expect(pendingTotal).toMatchObject({ value: 900, original_value: 900, value_source: 'extraction', verification_status: 'needs_review', review_status: 'pending' });
+  expect((await downloadText(page, 'CSV')).text).toContain('total,900,900,extraction,needs_review,pending,1');
+  expect(offlineRequests).toEqual([]);
+  await context.setOffline(false);
+  page.off('request', observe);
+  // The page does not establish a replacement amount. Reject the extraction
+  // without inventing one; rejected values stay out of downstream row exports.
+  await total.getByRole('button', { name: 'Reject', exact: true }).click();
+  await expect(total.locator('.review-badge')).toHaveText('rejected');
+  page.on('request', observe);
+  await context.setOffline(true);
+  expect(JSON.parse((await downloadText(page, 'JSON')).text).some(entry => entry.field === 'total')).toBe(false);
+  expect((await downloadText(page, 'CSV')).text).not.toContain('total,900');
   expect(offlineRequests).toEqual([]);
   await context.setOffline(false);
   page.off('request', observe);
@@ -163,9 +171,10 @@ test('native glyph overhang stays in review through offline rejection export and
   const restored = (await (await request.get('/api/documents')).json()).documents[0];
   const after = await (await request.get(`/api/documents/${restored.id}/report`)).json();
   expect(after.report).toEqual(original.report);
-  expect(JSON.parse((await downloadText(page, 'JSON')).text).find(entry => entry.field === 'total')).toEqual(rejected);
+  await page.getByLabel('Export', { exact: true }).selectOption('all');
+  expect(JSON.parse((await downloadText(page, 'JSON')).text).some(entry => entry.field === 'total')).toBe(false);
   if (process.env.UPDATE_NATIVE_BOUNDS_SCREENSHOTS) {
-    writeFileSync(fileURLToPath(new URL(`results/${browserName}-browser.json`, study)), JSON.stringify({ evidence, rejected, offlineRequests, restoredReportEqual: true }, null, 2) + '\n');
+    writeFileSync(fileURLToPath(new URL(`results/${browserName}-browser.json`, study)), JSON.stringify({ evidence, pendingTotal, rejectedTotalExcluded: true, offlineRequests, restoredReportEqual: true }, null, 2) + '\n');
   }
 });
 
