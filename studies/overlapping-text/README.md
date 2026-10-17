@@ -107,8 +107,8 @@ The CLI keeps the covered 900 in review. In the local review server, upload the
 same PDF and `fixture.json`, inspect the amount, correct it to 100, export and save
 a review archive. The correction keeps the original automated verdict and quote.
 The existing static demo does not execute this native loader; this correction
-needs the updated local package. No source was pushed, package released or site
-deployed as part of this work.
+needs the updated package. Initial validation was local. Source publication
+subsequently proceeded with the owner's explicit authorization, as recorded below.
 
 ## Packaged and browser behavior
 
@@ -178,3 +178,22 @@ Suggested repository description: "Ground PDF extractions in source evidence,
 with reviewable visibility and value checks."
 Suggested topics: `document-ai`, `pdf`, `grounding`, `structured-extraction`,
 `ocr`, `python`, `pydantic`, `data-validation`.
+
+## Public source and an actual upgrade
+
+The [public-source receipt](results/public-source.json) verifies remote `main`
+at `7857c03e846a7c3b88e64485ca168513f759b8d5` and compares all **91 selected public
+files** against the checkout, including all runtime files, study inputs and
+receipts, the new regression and all six screenshots. This is source publication;
+the earlier `verification.json` remains a snapshot of the local validation stage.
+
+A fresh Python 3.12 environment first installed PyPI `fieldproof==0.2.7` and
+actually verified the covered 900. The README's force-reinstall command then
+installed the pinned public Git source, which requires review for that same PDF.
+All 40 installed runtime files match source bytes; all 14 replay cases pass with
+the newly resolved dependencies, including PDFium 5.14 and Pillow 13. The direct
+source install has no bundled UI, matching the README's build requirement.
+
+No tag, new PyPI release or hosted-demo deployment was made for this correction.
+The previously verified local wheel remains separately identified in the artifact
+receipt; it includes the 23-file bundled UI.

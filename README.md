@@ -140,14 +140,14 @@ The native PDF corrections below are unreleased. For the tested CLI/library
 source (requires Git), use:
 
 ```bash
-python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@49d6802e3fd97cada0f8304317af9a1d46236029"
+python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@7857c03e846a7c3b88e64485ca168513f759b8d5"
 ```
 
 This replaces an existing 0.2.7 installation even though the source still
 declares that version. A direct Git install has **no bundled review UI**; build
 it from the checkout using [Development](#development) when needed. The
-[actual registry-to-source receipt](studies/flat-raster/README.md#installing-the-tested-source)
-records the corrected CLI behavior and all 40 runtime file comparisons.
+[actual registry-to-source receipt](studies/overlapping-text/results/public-source.json)
+records the corrected overlapping-text behavior and all 40 runtime file comparisons.
 
 The sample documents used below live in the repo (`examples/`), so clone it
 to try them:
