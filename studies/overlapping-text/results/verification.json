@@ -1,0 +1,232 @@
+{
+  "date": "2026-10-17",
+  "baselineRevision": "621e738",
+  "testedSourceRevision": "205b1e006eacb5cbe34e6b93734877a2550e818d",
+  "runtimeCommit": "58362d4",
+  "runtimeFilesUnchangedSincePackagedSource": true,
+  "cleanArchive": {
+    "python": "3.14.7",
+    "command": "uv sync --locked --python 3.14 --extra dev --extra ocr",
+    "ruff": "passed",
+    "mypyFiles": 40,
+    "pytestPassed": 698,
+    "pytestSkipped": 5,
+    "skipScope": "Existing actual-Tesseract tests; OCR runtime unavailable",
+    "pytestSummary": "698 passed, 5 skipped in 150.19s (0:02:30)"
+  },
+  "installedFloor": {
+    "python": "3.11.13",
+    "directDependencyResolution": "lowest-direct",
+    "nativePaintAndGeometryTestsPassed": 61,
+    "cases": 14,
+    "mismatches": 0
+  },
+  "javascript": {
+    "node": "24.22.0",
+    "unitTests": 70,
+    "lint": true,
+    "typecheck": true,
+    "format": true,
+    "builds": [
+      {
+        "build": "live",
+        "files": 35,
+        "allBytesMatchNode26Build": true
+      },
+      {
+        "build": "demo",
+        "files": 35,
+        "allBytesMatchNode26Build": true
+      }
+    ],
+    "runtimeArchive": {
+      "file": "node-v24.22.0-linux-x64.tar.xz",
+      "sha256": "cc2f601cee82d9a5a233302fe307abc600727035fd7d2c3a3571755989e95008",
+      "checkedAgainst": "https://nodejs.org/dist/latest-v24.x/SHASUMS256.txt"
+    }
+  },
+  "browsers": {
+    "productionChecksPassed": 98,
+    "engines": [
+      "Chromium",
+      "Firefox"
+    ],
+    "productionTargets": [
+      "separately installed wheel and bundled UI",
+      "generated static demo"
+    ],
+    "offlineExtendedWorkflowsPassed": 2,
+    "scope": "Correction 900 to 100, original automated verdict retained, offline inspect and JSON/CSV export at 375px dark with zero requests, online archive save/delete/restore; no hosted/public verification"
+  },
+  "oracle": {
+    "pdfs": 14,
+    "hiddenCasesBeforeVerified": 9,
+    "hiddenCasesAfterNeedReview": 9,
+    "visibleControlsVerified": 5,
+    "independentPixelChecks": 28,
+    "mismatches": 0
+  },
+  "compatibility": {
+    "existingPdfs": 11,
+    "sourcesTextGeometryCompleteReportsUnchanged": true
+  },
+  "cli": {
+    "installed-cli": {
+      "counts": {
+        "verified": 3,
+        "needs_review": 1,
+        "unsupported": 0
+      },
+      "total": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      }
+    },
+    "floor-cli": {
+      "counts": {
+        "verified": 3,
+        "needs_review": 1,
+        "unsupported": 0
+      },
+      "total": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      }
+    },
+    "installed-quickstart": {
+      "counts": {
+        "verified": 21,
+        "needs_review": 3,
+        "unsupported": 1
+      },
+      "total": {
+        "path": "total",
+        "value": 2600.0,
+        "status": "needs_review",
+        "reasons": [
+          "value 2600.0 does not match 2666.93 parsed from the evidence",
+          "subtotal + tax = 2666.93 but total 2600 (difference -66.93; tolerance 0.02)"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Total Due $2,666.93",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 273.6,
+            "top": 330.397,
+            "x1": 558.0,
+            "bottom": 341.397
+          }
+        ]
+      }
+    }
+  },
+  "screenshots": [
+    {
+      "file": "docs/assets/overlapping-text/before-chromium-1440.png",
+      "bytes": 91235,
+      "sha256": "e18004c65b361cecdff5a86c4d8c02d086a1ca930fc5295f82d18aad6a81b497",
+      "visuallyInspected": true
+    },
+    {
+      "file": "docs/assets/overlapping-text/before-firefox-375.png",
+      "bytes": 65210,
+      "sha256": "f15e26c4fb8401f03126562aa497c38afa488638aacfdf5ffb677785ab4da9fc",
+      "visuallyInspected": true
+    },
+    {
+      "file": "docs/assets/overlapping-text/chromium-1440.png",
+      "bytes": 99845,
+      "sha256": "e6440eff5f969adf378036821b60227738e9ea42fbbb956c552c6cba82aa8783",
+      "visuallyInspected": true
+    },
+    {
+      "file": "docs/assets/overlapping-text/chromium-375.png",
+      "bytes": 59310,
+      "sha256": "3869ca4abf46fd87310cfcdb9a11e4a07b2520ccba0210fc9b4ef5f06634175a",
+      "visuallyInspected": true
+    },
+    {
+      "file": "docs/assets/overlapping-text/firefox-1440.png",
+      "bytes": 129609,
+      "sha256": "a790731d61190d3809ea2563c16db293518aa23014bb305f70b8aad36859f6f6",
+      "visuallyInspected": true
+    },
+    {
+      "file": "docs/assets/overlapping-text/firefox-375.png",
+      "bytes": 76894,
+      "sha256": "a8c13b596bb3cd791653f9dd024c3f69b3291517e185109d19928b0fbfd23799",
+      "visuallyInspected": true
+    }
+  ],
+  "build": {
+    "commands": [
+      "uv run python scripts/bundle_ui.py",
+      "uv build"
+    ],
+    "bundledUIOutput": "src/fieldproof/server/static/",
+    "staticDemoCommand": "cd web && npm run build:demo",
+    "staticDemoOutput": "web/dist-demo/",
+    "runtimeFiles": 40,
+    "bundledUIFiles": 23,
+    "distributions": [
+      {
+        "file": "fieldproof-0.2.7-py3-none-any.whl",
+        "bytes": 609654,
+        "sha256": "301f1ced345153dbfc4799ec99d44c924455dec671f7fcb885424fcc4a585b0f",
+        "packageFilesMatch": 63
+      },
+      {
+        "file": "fieldproof-0.2.7.tar.gz",
+        "bytes": 639752,
+        "sha256": "9ddfed7e3efa5446a39cf6cd56a9e96360be98bde07d905aea29a2566b662402",
+        "packageFilesMatch": 63
+      }
+    ]
+  },
+  "publication": {
+    "pushed": false,
+    "tagged": false,
+    "registryReleased": false,
+    "deployed": false
+  },
+  "logSha256": {
+    "clean-ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "clean-mypy.log": "ecc16c0564b42e826048bd3cc3026ed6f52b5dc94d3419716c4a1f1ab458ac8d",
+    "clean-pytest.log": "24d12421227c8bc2d1a375b5b51d5463608890832267aab7afa3d148d44c5024",
+    "floor-pytest.log": "27c0443764c511141c4e29ad174377dfec7d9d15f8fc6de7e7e8fea70001fd75",
+    "browser.log": "57c934b7e183306798f170302775ff6465aafe187ae7b7f45b40851905fc8988",
+    "offline-browser.log": "d083d78ff89ee9099ac0dd910feaafe73ac13edc6905ba737f65af3a63c86e04",
+    "node24.log": "cf6c9abd27691378a5c5494bbc9dd3405a1693cbb040afc5b505af0ae7993edf"
+  }
+}

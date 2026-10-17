@@ -1,0 +1,168 @@
+{
+  "evidence": {
+    "path": "total",
+    "value": 900,
+    "status": "needs_review",
+    "reasons": [
+      "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+    ],
+    "match_score": 100,
+    "matched_text": "Authorized total: $900.00",
+    "page": 1,
+    "rects": [
+      {
+        "x0": 48,
+        "top": 229.312,
+        "x1": 225.8880000000001,
+        "bottom": 245.312
+      }
+    ]
+  },
+  "exported": [
+    {
+      "field": "total",
+      "value": 100,
+      "original_value": 900,
+      "value_source": "correction",
+      "verification_status": "needs_review",
+      "review_status": "edited",
+      "page": 1
+    }
+  ],
+  "restored_report": {
+    "fields": [
+      {
+        "path": "vendor_name",
+        "value": "Example Tools Ltd.",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100,
+        "matched_text": "Example Tools Ltd.",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48,
+            "top": 102.48400000000004,
+            "x1": 150.70800000000003,
+            "bottom": 114.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "invoice_number",
+        "value": "OVERLAP-001",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100,
+        "matched_text": "Invoice OVERLAP-001",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48,
+            "top": 126.48400000000004,
+            "x1": 170.052,
+            "bottom": 138.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "issue_date",
+        "value": "2026-10-17",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100,
+        "matched_text": "Issued: 2026-10-17",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48,
+            "top": 150.48400000000004,
+            "x1": 151.39199999999997,
+            "bottom": 162.48400000000004
+          }
+        ]
+      },
+      {
+        "path": "total",
+        "value": 900,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      }
+    ],
+    "cross_field_issues": [],
+    "counts": {
+      "verified": 3,
+      "needs_review": 1,
+      "unsupported": 0
+    },
+    "cross_field_checks": [
+      {
+        "rule": "invoice.items_subtotal",
+        "fields": [
+          "subtotal"
+        ],
+        "status": "not_checked",
+        "message": "line items sum not checked: no item amounts were extracted",
+        "operands": {
+          "subtotal": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.subtotal_tax_total",
+        "fields": [
+          "subtotal",
+          "tax",
+          "total"
+        ],
+        "status": "not_checked",
+        "message": "subtotal + tax not checked: missing subtotal, tax",
+        "operands": {
+          "subtotal": null,
+          "tax": null,
+          "total": "900.0"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-10-17",
+          "due_date": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    ],
+    "row_checks": [],
+    "column_checks": []
+  },
+  "offlineRequests": []
+}

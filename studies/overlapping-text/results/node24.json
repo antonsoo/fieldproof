@@ -1,0 +1,24 @@
+{
+  "node": "24.22.0",
+  "unitTests": 70,
+  "lint": true,
+  "typecheck": true,
+  "format": true,
+  "builds": [
+    {
+      "build": "live",
+      "files": 35,
+      "allBytesMatchNode26Build": true
+    },
+    {
+      "build": "demo",
+      "files": 35,
+      "allBytesMatchNode26Build": true
+    }
+  ],
+  "runtimeArchive": {
+    "file": "node-v24.22.0-linux-x64.tar.xz",
+    "sha256": "cc2f601cee82d9a5a233302fe307abc600727035fd7d2c3a3571755989e95008",
+    "checkedAgainst": "https://nodejs.org/dist/latest-v24.x/SHASUMS256.txt"
+  }
+}

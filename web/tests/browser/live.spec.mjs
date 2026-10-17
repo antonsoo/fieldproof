@@ -32,9 +32,9 @@ for (const control of [
   { directory: 'zero-opacity', pdf: 'mode-0-fill-0-stroke-1', reason: 'zero opacity', correction: 90, capture: 'UPDATE_OPACITY_SCREENSHOTS' },
   { directory: 'clipped-text', pdf: 'end-n', reason: 'clipping boundary', correction: 90, capture: 'UPDATE_CLIPPING_SCREENSHOTS' },
   { directory: 'flat-raster', pdf: 'image-prints-ninety', reason: 'native-text paint contribution', correction: 90, capture: 'UPDATE_RASTER_SCREENSHOTS' },
-  { directory: 'overlapping-text', pdf: 'replacement-15', reason: 'overlapping native text', correction: 100, capture: 'UPDATE_OVERLAP_SCREENSHOTS' },
+  { directory: 'overlapping-text', pdf: 'replacement-15', reason: 'overlapping native text', correction: 100, capture: 'UPDATE_OVERLAP_SCREENSHOTS', offline: true },
 ]) {
-test(`unpainted PDF evidence (${control.directory}) stays in review through correction and archive restore`, async ({ page, request, browserName }) => {
+test(`unpainted PDF evidence (${control.directory}) stays in review through correction and archive restore`, async ({ page, context, request, browserName }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   const study = new URL(`../../../studies/${control.directory}/`, import.meta.url);
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL(`fixtures/${control.pdf}.pdf`, study)));
@@ -67,10 +67,28 @@ test(`unpainted PDF evidence (${control.directory}) stays in review through corr
   await total.getByRole('button', { name: 'Edit', exact: true }).click();
   await total.getByRole('textbox').fill(String(control.correction));
   await total.getByRole('button', { name: 'Save', exact: true }).click();
+  const offlineRequests = [];
+  const observeRequest = request => offlineRequests.push(request.url());
+  if (control.offline) {
+    await page.evaluate(() => document.fonts.ready);
+    page.on('request', observeRequest);
+    await context.setOffline(true);
+    await total.getByRole('button', { name: 'Inspect total', exact: true }).click();
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.getByRole('button', { name: 'Fields', exact: true }).click();
+    await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'dark'));
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
   const exported = JSON.parse((await downloadText(page, 'JSON')).text);
   expect(exported).toEqual([expect.objectContaining({
     field: 'total', value: control.correction, original_value: 900, value_source: 'correction', verification_status: 'needs_review',
   })]);
+  if (control.offline) {
+    expect((await downloadText(page, 'CSV')).text).toContain('total,100,900,correction,needs_review,edited,1');
+    await context.setOffline(false);
+    page.off('request', observeRequest);
+    expect(offlineRequests).toEqual([]);
+  }
   const pending = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Save archive', exact: true }).click();
   const archive = await (await pending).path();
@@ -85,7 +103,7 @@ test(`unpainted PDF evidence (${control.directory}) stays in review through corr
   if (process.env[control.capture]) {
     const directory = fileURLToPath(new URL('results/', study));
     mkdirSync(directory, { recursive: true });
-    writeFileSync(`${directory}/${browserName}-browser.json`, JSON.stringify({ evidence, exported, restored_report: after.report }, null, 2) + '\n');
+    writeFileSync(`${directory}/${browserName}-browser.json`, JSON.stringify({ evidence, exported, restored_report: after.report, ...(control.offline ? { offlineRequests } : {}) }, null, 2) + '\n');
   }
 });
 }
