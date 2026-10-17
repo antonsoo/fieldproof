@@ -31,6 +31,16 @@ The producer's text-state mode is available to
 [pdfminer's text device](https://github.com/pdfminer/pdfminer.six/blob/master/pdfminer/pdfdevice.py).
 The adapter keeps pdfplumber's original coordinate, crop and rotation handling.
 
+The table and initial results below describe the original rendering-mode repair.
+The [later renderer-bounds observer](../native-glyph-bounds/README.md) also needs
+bounded glyph-paint geometry. The four authored mode 1/2/5/6 controls use default
+miter joins, so their tightly spaced stroked `$900` claims now retain ambiguous
+overlap and need review. This is a conservative support boundary, not a claim
+that those four visible amounts are hidden. Their other filled `$100` claims
+remain usable. `replay.py` retains `authored_expected` separately from the
+current expected outcome and counts these four reviews;
+the captured original results and PDFs remain unchanged.
+
 Unpainted text cannot establish a trusted row anchor or column header. It is
 also masked, without moving offsets, before inferring document-wide date and
 number conventions. For example, hidden `1.234,50` cannot make a visible

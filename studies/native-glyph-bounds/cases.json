@@ -1,0 +1,225 @@
+[
+  {
+    "id": "Helvetica-Oblique-16-4",
+    "font": "Helvetica-Oblique",
+    "size": 16,
+    "top": 4,
+    "hidden": true
+  },
+  {
+    "id": "Helvetica-Oblique-16-8",
+    "font": "Helvetica-Oblique",
+    "size": 16,
+    "top": 8,
+    "hidden": true
+  },
+  {
+    "id": "Helvetica-Oblique-20-4",
+    "font": "Helvetica-Oblique",
+    "size": 20,
+    "top": 4,
+    "hidden": true
+  },
+  {
+    "id": "Helvetica-Oblique-20-8",
+    "font": "Helvetica-Oblique",
+    "size": 20,
+    "top": 8,
+    "hidden": true
+  },
+  {
+    "id": "Helvetica-Oblique-30-4",
+    "font": "Helvetica-Oblique",
+    "size": 30,
+    "top": 4,
+    "hidden": true
+  },
+  {
+    "id": "Helvetica-BoldOblique-16-4",
+    "font": "Helvetica-BoldOblique",
+    "size": 16,
+    "top": 4,
+    "hidden": true
+  },
+  {
+    "id": "Helvetica-BoldOblique-16-8",
+    "font": "Helvetica-BoldOblique",
+    "size": 16,
+    "top": 8,
+    "hidden": true
+  },
+  {
+    "id": "Helvetica-BoldOblique-20-4",
+    "font": "Helvetica-BoldOblique",
+    "size": 20,
+    "top": 4,
+    "hidden": true
+  },
+  {
+    "id": "Helvetica-BoldOblique-20-8",
+    "font": "Helvetica-BoldOblique",
+    "size": 20,
+    "top": 8,
+    "hidden": true
+  },
+  {
+    "id": "Helvetica-BoldOblique-30-4",
+    "font": "Helvetica-BoldOblique",
+    "size": 30,
+    "top": 4,
+    "hidden": true
+  },
+  {
+    "id": "Times-Italic-20-4",
+    "font": "Times-Italic",
+    "size": 20,
+    "top": 4,
+    "hidden": true
+  },
+  {
+    "id": "Times-Italic-20-8",
+    "font": "Times-Italic",
+    "size": 20,
+    "top": 8,
+    "hidden": true
+  },
+  {
+    "id": "Times-Italic-30-4",
+    "font": "Times-Italic",
+    "size": 30,
+    "top": 4,
+    "hidden": true
+  },
+  {
+    "id": "Times-Italic-30-8",
+    "font": "Times-Italic",
+    "size": 30,
+    "top": 8,
+    "hidden": true
+  },
+  {
+    "id": "rotation-90",
+    "rotation": 90,
+    "hidden": true
+  },
+  {
+    "id": "rotation-180",
+    "rotation": 180,
+    "hidden": true
+  },
+  {
+    "id": "rotation-270",
+    "rotation": 270,
+    "hidden": true
+  },
+  {
+    "id": "cropped-overhang",
+    "crop": true,
+    "hidden": true
+  },
+  {
+    "id": "nested-form",
+    "form": true,
+    "hidden": true
+  },
+  {
+    "id": "scaled-form",
+    "form": true,
+    "scaled": true,
+    "hidden": true
+  },
+  {
+    "id": "stroked-overhang-0",
+    "stroke": 12,
+    "join": 0,
+    "hidden": true
+  },
+  {
+    "id": "stroked-overhang-1",
+    "stroke": 12,
+    "join": 1,
+    "hidden": true
+  },
+  {
+    "id": "stroked-overhang-2",
+    "stroke": 12,
+    "join": 2,
+    "hidden": true
+  },
+  {
+    "id": "visible-plain",
+    "lender": false
+  },
+  {
+    "id": "visible-italic",
+    "lender": false,
+    "source_font": "Helvetica-Oblique"
+  },
+  {
+    "id": "visible-small",
+    "lender": false,
+    "source_size": 8
+  },
+  {
+    "id": "visible-small-italic",
+    "lender": false,
+    "source_size": 8,
+    "source_font": "Helvetica-Oblique"
+  },
+  {
+    "id": "invisible-lender",
+    "lender_mode": 3
+  },
+  {
+    "id": "transparent-lender",
+    "lender_alpha": 0
+  },
+  {
+    "id": "nearby-lender",
+    "nearby": true
+  },
+  {
+    "id": "nearby-miter-stroke",
+    "nearby": true,
+    "stroke": 12,
+    "review": true
+  },
+  {
+    "id": "nearby-round-stroke",
+    "nearby": true,
+    "stroke": 12,
+    "join": 1
+  },
+  {
+    "id": "far-miter-stroke",
+    "nearby": true,
+    "offset": 200,
+    "stroke": 12
+  },
+  {
+    "id": "larger-miter-limit",
+    "hidden": true,
+    "stroke": 12,
+    "miter": 30,
+    "miter_gs": true,
+    "form": true
+  },
+  {
+    "id": "unreadable-miter-limit",
+    "nearby": true,
+    "offset": 200,
+    "stroke": 12,
+    "miter": "unknown",
+    "review": true
+  },
+  {
+    "id": "scaled-round-stroke",
+    "hidden": true,
+    "stroke": 12,
+    "join": 1,
+    "form": true,
+    "scaled": true,
+    "scale_x": 1.3,
+    "scale_y": 0.8
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "schema": "invoice",
+  "data": {
+    "vendor_name": {
+      "value": "Example Tools Ltd.",
+      "evidence": [
+        "Example Tools Ltd."
+      ]
+    },
+    "invoice_number": {
+      "value": "OVERHANG-001",
+      "evidence": [
+        "Invoice OVERHANG-001"
+      ]
+    },
+    "issue_date": {
+      "value": "2026-10-17",
+      "evidence": [
+        "Issued: 2026-10-17"
+      ]
+    },
+    "total": {
+      "value": 900,
+      "evidence": [
+        "Authorized total: $900.00"
+      ]
+    }
+  }
+}

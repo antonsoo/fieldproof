@@ -1,0 +1,20 @@
+{
+  "baseline": "61e47c3 runtime, retained installed wheel",
+  "field": {
+    "path": "total",
+    "value": 900,
+    "status": "verified",
+    "reasons": [],
+    "match_score": 100,
+    "matched_text": "Authorized total: $900.00",
+    "page": 1,
+    "rects": [
+      {
+        "x0": 48,
+        "top": 229.312,
+        "x1": 225.8880000000001,
+        "bottom": 245.312
+      }
+    ]
+  }
+}

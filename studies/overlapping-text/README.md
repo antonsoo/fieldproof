@@ -33,6 +33,11 @@ the engines need not rasterize fonts identically to one another.
 
 ## Correction and boundaries
 
+The subsequent [native font-bounds study](../native-glyph-bounds/README.md)
+reproduces italic ink extending outside these original layout rectangles. The
+current observer uses renderer ink bounds, transformed stroke widths and miter
+limits. This study's 14 verdicts, text and geometry remain unchanged.
+
 Fieldproof retains the original-versus-text-suppressed raster comparison. It
 also records the union and overlaps of potentially painting native characters'
 layout bounds in two one-bit masks. Bounds round outward for the overlap mask;

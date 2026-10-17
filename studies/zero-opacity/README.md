@@ -9,6 +9,14 @@ reproduced an invisible rendering mode lost when inherited by a Form XObject.
 These are authored, synthetic PDFs and fixture extractions. They measure a
 specific verification policy, not extraction accuracy or real-world prevalence.
 
+The table and captured receipts below describe the original opacity repair.
+The later [renderer glyph bounds](../native-glyph-bounds/README.md) conservatively
+send 13 tightly spaced, visible stroked alternate totals to review because their
+possible miter ink bounds overlap. All 42 separately filled `Visible total: $90`
+claims still verify. The current replay keeps both `authored_expected` and the
+current expected outcome; it does not relabel these visible controls as hidden.
+The historical PDFs and receipts remain unchanged.
+
 ![Installed review: the page displays 90; the transparent 900 claim requires review](../../docs/assets/zero-opacity/chromium-1440.png)
 
 ## Policy and implementation

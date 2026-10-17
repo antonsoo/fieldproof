@@ -4,6 +4,26 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Renderer glyph bounds
+
+- Associate native source characters with PDFium font envelopes and restrict
+  observed support to native ink bounds. Advance rectangles alone miss ordinary
+  italic overhangs: a covered nine still borrowed a nearby seven's ink and
+  verified `$900.00`. Retain 25 authored covered controls and 11 visible ones;
+  all covered claims now require review and nine visible controls verify.
+- Retain unavailable attribution when native character geometry cannot be
+  established or APIs fail. Bound miter corners using the maximum declared
+  page/Form miter limit, including ExtGState ML; unknown limits leave attribution
+  unavailable. Stroke bounds include the recorded width and character transform.
+  Two visible controls conservatively require review: nearby potential miter
+  overlap and an unreadable miter limit. Older rendering-mode and opacity studies
+  retain four and 13 visible stroked-claim reviews separately from their original
+  authored expectations; their other filled claims remain usable.
+- Raise the PDFium requirement from 4.30 to 5.0 for native character-to-object
+  association. Keep text, geometry, worker JSON and ordinary example reports;
+  bound traversal, pixel work and the association index. Retain independent
+  omission renders and minimum-SDK replay in `studies/native-glyph-bounds`.
+
 ### Overlapping native PDF text
 
 - Require review when a quoted character's observed paint is confined to

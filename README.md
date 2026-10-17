@@ -715,7 +715,14 @@ See the [inputs, reproduction and compatibility checks](studies/grounding-reuse/
   A bounded 144-DPI comparison also checks each native character's regional
   paint contribution against an independent copy with text paint suppressed.
   Missing contributions, paint confined to overlapping native glyph bounds,
-  and incomplete checks require review. A positive
+  and incomplete checks require review. The current source associates characters
+  with PDFium's font envelopes and compares their ink bounds, including italic
+  overhangs. Stroke bounds include the character transform and the page/Form
+  miter-limit declarations; an unreadable miter limit leaves attribution
+  unavailable. Conservative bounds can also send visible stroked text to review.
+  This observer requires
+  PDFium 5.0 or later. [Authored controls and compatibility limits](studies/native-glyph-bounds/README.md).
+  A positive
   difference does not prove readability, correct font-to-Unicode mapping, or
   ownership of overlapping native ink. Small or partly clipped readable glyphs
   may require review too. Caller-supplied and recognized OCR words do not have

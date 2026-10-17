@@ -1,0 +1,2105 @@
+{
+  "python": "3.12.12",
+  "versions": {
+    "pdfplumber": "0.11.10",
+    "pdfminer.six": "20260107",
+    "pypdfium2": "5.13.0",
+    "Pillow": "12.3.0"
+  },
+  "cases": 36,
+  "seconds": 1.6179,
+  "mismatches": 0,
+  "observations": [
+    {
+      "case": "Helvetica-Oblique-16-4",
+      "source_sha256": "9e04a97e00e84c20ebf52f970496fd32f142b9e0203f7a5365e69fd5d8a17e7a",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "f95b6fe64bce4738cbdbbad7fc7432bbd03f7b7437f0bfde81b684ec25117707",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 236.35199999999998,
+            "x1": 176.20999999999998,
+            "bottom": 252.35199999999998
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Helvetica-Oblique-16-8",
+      "source_sha256": "69b94795616e3ccb05d643e33d7b45c3445ff96df7118424f7df0c556d7570ae",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "acc3b1c12940c155de6b53ebad37691ec03932d14d83a6c4b397cec1e620f1c5",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 232.35199999999998,
+            "x1": 176.20999999999998,
+            "bottom": 248.35199999999998
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Helvetica-Oblique-20-4",
+      "source_sha256": "a1182627e6af33ef7e80333516b7f1a7c4ac7c545af1cd3d96c636e98aa5d432",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "a72f01fc12b08325591d39fab320a2a1ebb2ecda17126b42e4356979258eec19",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 165.09,
+            "top": 235.93999999999994,
+            "x1": 176.21,
+            "bottom": 255.93999999999994
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Helvetica-Oblique-20-8",
+      "source_sha256": "a1e3e82fb63df82c63e56c4c69fe99cbcfd96ae42ddcf2b1633cd43d4677106c",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "95c46dd9d8b4b5e17f9b4e5f6fcf36bec79e18a612684321a68a1d3ba3dbc2e8",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 165.09,
+            "top": 231.93999999999994,
+            "x1": 176.21,
+            "bottom": 251.93999999999994
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Helvetica-Oblique-30-4",
+      "source_sha256": "1c1361f1b062bc2599559fb8c9b7b079a30090e4d913cfb716a207dab660240a",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "21150b141d853555caa62f1140291e31253d0467565db677c1e0dbfd51d9a876",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 159.53,
+            "top": 234.91000000000008,
+            "x1": 176.21,
+            "bottom": 264.9100000000001
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Helvetica-BoldOblique-16-4",
+      "source_sha256": "d2a2c6b7e6d1c42a32a8ff34e4d71c0fc7d05ac857563d19f1744ae0608d2406",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "f95b6fe64bce4738cbdbbad7fc7432bbd03f7b7437f0bfde81b684ec25117707",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 236.35199999999998,
+            "x1": 176.20999999999998,
+            "bottom": 252.35199999999998
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Helvetica-BoldOblique-16-8",
+      "source_sha256": "20fd2cfbd71962a0fc4746688f482cc4d5355447b824928a6b9d082d13355224",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "acc3b1c12940c155de6b53ebad37691ec03932d14d83a6c4b397cec1e620f1c5",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 232.35199999999998,
+            "x1": 176.20999999999998,
+            "bottom": 248.35199999999998
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Helvetica-BoldOblique-20-4",
+      "source_sha256": "cb592b6b1f41bfa7fa0c2db11023364dae31e61414d71744c23fa20c4b7a056b",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "a72f01fc12b08325591d39fab320a2a1ebb2ecda17126b42e4356979258eec19",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 165.09,
+            "top": 235.93999999999994,
+            "x1": 176.21,
+            "bottom": 255.93999999999994
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Helvetica-BoldOblique-20-8",
+      "source_sha256": "52b8034d6bf6caa5fd597ce8847ccfbf82044bc4e2b0989e2c50fe6320b4996f",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "95c46dd9d8b4b5e17f9b4e5f6fcf36bec79e18a612684321a68a1d3ba3dbc2e8",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 165.09,
+            "top": 231.93999999999994,
+            "x1": 176.21,
+            "bottom": 251.93999999999994
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Helvetica-BoldOblique-30-4",
+      "source_sha256": "6f112ee30400fb907b2b41e2442c37eea1442028abe0841b47bbfc75039fbb13",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "21150b141d853555caa62f1140291e31253d0467565db677c1e0dbfd51d9a876",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 159.53,
+            "top": 234.91000000000008,
+            "x1": 176.21,
+            "bottom": 264.9100000000001
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Times-Italic-20-4",
+      "source_sha256": "b6c48c967b159b35188dab4d83a97b26146b4c4af42c8823be365983b877f858",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "7306824aa29db2805df229c9aa59c9c4f7c7e7a3a062708bb286070d9675ac34",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 166.21,
+            "top": 236.14,
+            "x1": 176.21,
+            "bottom": 256.14
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Times-Italic-20-8",
+      "source_sha256": "b8d851cd3fb027ae7a0dd83c9c429b098f283fbc89bacc8ce4a27c7332828766",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "01f92b4af502415cf5555f4596b13eeddec61ccabdbe2b37069cdc917d69e8d2",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 166.21,
+            "top": 232.14,
+            "x1": 176.21,
+            "bottom": 252.14
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Times-Italic-30-4",
+      "source_sha256": "b873ed6426238d8c5884254025c2601f6d1ad9110ffba09ecda197da4706c15d",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "c3c35c5709c9e274264b75a0200ca4432bfc0f5370b0d2d59e9ebc0f402bdbf6",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 161.21,
+            "top": 235.21000000000004,
+            "x1": 176.21,
+            "bottom": 265.21000000000004
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "Times-Italic-30-8",
+      "source_sha256": "7bd8bf8258063a01e9a0d7ccd938f8f1baac556ae961fb8cc035079825e85ae1",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "9640a0e546431c5fd9b143b79e624f35208ea50d80f937deced73f610150a484",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 161.21,
+            "top": 231.21000000000004,
+            "x1": 176.21,
+            "bottom": 261.21000000000004
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "rotation-90",
+      "source_sha256": "942283da3c280234ce192bf08a4a189c62f059b7381698efe045842ff3745b1c",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 546.688,
+            "top": 48.0,
+            "x1": 562.688,
+            "bottom": 124.48000000000002
+          },
+          {
+            "x0": 546.688,
+            "top": 128.928,
+            "x1": 562.688,
+            "bottom": 163.61599999999999
+          },
+          {
+            "x0": 546.688,
+            "top": 168.06400000000008,
+            "x1": 562.688,
+            "bottom": 225.88800000000003
+          }
+        ]
+      },
+      "text": "Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "6312322e3c8a2b3d544d5311e32067bc7f405df2938676371f41681c55c13642",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 546.688,
+            "top": 168.06400000000008,
+            "x1": 562.688,
+            "bottom": 225.88800000000003
+          },
+          "start": 129,
+          "end": 136,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 539.648,
+            "top": 167.31399999999996,
+            "x1": 555.648,
+            "bottom": 176.20999999999992
+          },
+          "start": 137,
+          "end": 138,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "rotation-180",
+      "source_sha256": "09ebd0fecc3218c7f8d41fa00187c0df609431ab03215fdccc463460b06ca614",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 386.1119999999999,
+            "top": 546.688,
+            "x1": 564.0,
+            "bottom": 562.688
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "92051dcaf4909cfbc23920855d2a96eda36a1a052cc4de22851251c9bfdeca68",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 386.1119999999999,
+            "top": 546.688,
+            "x1": 443.936,
+            "bottom": 562.688
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 435.79,
+            "top": 539.648,
+            "x1": 444.68600000000004,
+            "bottom": 555.648
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "rotation-270",
+      "source_sha256": "f05297f8ed3db218e7b89a3cef26a6583c713c79038f1ba779afde76a9c73814",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 49.312,
+            "top": 566.1119999999999,
+            "x1": 65.312,
+            "bottom": 623.9359999999999
+          },
+          {
+            "x0": 49.312,
+            "top": 628.384,
+            "x1": 65.312,
+            "bottom": 663.072
+          },
+          {
+            "x0": 49.312,
+            "top": 667.52,
+            "x1": 65.312,
+            "bottom": 744.0
+          }
+        ]
+      },
+      "text": "Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "69d3b5bea8e50ccaaab0eff81fca5e2f135811e17a845b7d80776e46fc95a8d5",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 49.312,
+            "top": 566.1119999999999,
+            "x1": 65.312,
+            "bottom": 623.9359999999999
+          },
+          "start": 129,
+          "end": 136,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 56.35199999999996,
+            "top": 615.79,
+            "x1": 72.35199999999996,
+            "bottom": 624.686
+          },
+          "start": 137,
+          "end": 138,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "cropped-overhang",
+      "source_sha256": "c6617bef2c9d85be41db97cfa273a539453b7c37371c2a18d3d7073c6e23700a",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authorized total: $900.00",
+      "geometry_sha256": "1ee596dbdc625f08f5b25083b0e7f269eeb95ff83b8b6cd0d8f492e6ba258736",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 95,
+          "end": 102,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "nested-form",
+      "source_sha256": "0b78e92a1873fe0e67a7b34408b51634646c361ed5cd5096234bff1d73cbc83f",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "f95b6fe64bce4738cbdbbad7fc7432bbd03f7b7437f0bfde81b684ec25117707",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 236.35199999999998,
+            "x1": 176.20999999999998,
+            "bottom": 252.35199999999998
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "scaled-form",
+      "source_sha256": "f8edf15f11b0da818bac58f1509e6682d44ee6f90144e51c0367cc004ffd20e7",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 68.4,
+            "top": 271.8496,
+            "x1": 210.71040000000008,
+            "bottom": 284.6496
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "ad3e7c08ebff006501893f9391ddcce27d353fed7a83918ceb572aeef4ddc27c",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 164.45120000000003,
+            "top": 271.8496,
+            "x1": 210.71040000000008,
+            "bottom": 284.6496
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 163.8512,
+            "top": 277.48159999999996,
+            "x1": 170.96800000000002,
+            "bottom": 290.28159999999997
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "stroked-overhang-0",
+      "source_sha256": "d1e3a94209a058d5204bd773e80322a6ea4f85046e15e5dc5fced2110c3cc1fd",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "f95b6fe64bce4738cbdbbad7fc7432bbd03f7b7437f0bfde81b684ec25117707",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 236.35199999999998,
+            "x1": 176.20999999999998,
+            "bottom": 252.35199999999998
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 1,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "stroked-overhang-1",
+      "source_sha256": "f322ac4d61141d5e19288c2b538c66403edc1a18bde2ba60822864de49dbeaa8",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "f95b6fe64bce4738cbdbbad7fc7432bbd03f7b7437f0bfde81b684ec25117707",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 236.35199999999998,
+            "x1": 176.20999999999998,
+            "bottom": 252.35199999999998
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 1,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "stroked-overhang-2",
+      "source_sha256": "2d25fdf0dfa6fac5a01c43f903c7a4b05ac0df581651b6ce22bf191ea0574cc0",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "f95b6fe64bce4738cbdbbad7fc7432bbd03f7b7437f0bfde81b684ec25117707",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 236.35199999999998,
+            "x1": 176.20999999999998,
+            "bottom": 252.35199999999998
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 1,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "visible-plain",
+      "source_sha256": "9c40b547ca03ddf9fef86eefcacd0f81e5783fd3c3d945ffd5c9850a79f3d7b6",
+      "hidden": false,
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00",
+      "geometry_sha256": "46338abc12abf532794f9972a2dd3aa9b8bb7681cc336455becd2d24931ee185",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "visible-italic",
+      "source_sha256": "33ffba9d07f25e3a8c8f94856d9e8ac2675bf3018be9c2967d7a07c6924f1709",
+      "hidden": false,
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00",
+      "geometry_sha256": "46338abc12abf532794f9972a2dd3aa9b8bb7681cc336455becd2d24931ee185",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "visible-small",
+      "source_sha256": "b11ae7ea5b454ed68bce815c7982ba43b8ee0f613bc51be8a74a72364c26b2fa",
+      "hidden": false,
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 235.65599999999995,
+            "x1": 136.94400000000005,
+            "bottom": 243.65599999999995
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Authorized total: $900.00 Visible small print: Visa, services, lilies and days' notices.",
+      "geometry_sha256": "0826d3cff3223f8af40d0519f10e07500a6ed1f9f0384196d9b1a3064c969897",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 108.03200000000001,
+            "top": 235.65599999999995,
+            "x1": 136.94400000000005,
+            "bottom": 243.65599999999995
+          },
+          "start": 143,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "visible-small-italic",
+      "source_sha256": "93b060d780bc4278aa18bbfc0e2b454253cb9d4e766dee7706aa266ab39f4e18",
+      "hidden": false,
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 235.65599999999995,
+            "x1": 136.94400000000005,
+            "bottom": 243.65599999999995
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Authorized total: $900.00 Visible small print: Visa, services, lilies and days' notices.",
+      "geometry_sha256": "0826d3cff3223f8af40d0519f10e07500a6ed1f9f0384196d9b1a3064c969897",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 108.03200000000001,
+            "top": 235.65599999999995,
+            "x1": 136.94400000000005,
+            "bottom": 243.65599999999995
+          },
+          "start": 143,
+          "end": 150,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "invisible-lender",
+      "source_sha256": "12a120c8c8b8c7a9933b14f14066577f93bb8e0521365437d253642e79322213",
+      "hidden": false,
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "f95b6fe64bce4738cbdbbad7fc7432bbd03f7b7437f0bfde81b684ec25117707",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 236.35199999999998,
+            "x1": 176.20999999999998,
+            "bottom": 252.35199999999998
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 3,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": null
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "transparent-lender",
+      "source_sha256": "e68a05b251ca87b6129d12304eb6c7984b94bc6d926bab8f078ffaa2b523b4a5",
+      "hidden": false,
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "f95b6fe64bce4738cbdbbad7fc7432bbd03f7b7437f0bfde81b684ec25117707",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 236.35199999999998,
+            "x1": 176.20999999999998,
+            "bottom": 252.35199999999998
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": true,
+          "clip_risk": false,
+          "raster_state": null
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "nearby-lender",
+      "source_sha256": "31b868ae6ffcf27216b6f86f7ceb31d089ec61af32306c4b2ed6ef18e1323cbc",
+      "hidden": false,
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "fdb136fbe52bd25a212528eedb43ec87d79b399f9d53e1d165e29497b9b6028a",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 296.35200000000003,
+            "x1": 176.20999999999998,
+            "bottom": 312.35200000000003
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "nearby-miter-stroke",
+      "source_sha256": "b7cc6672c9188181e04d4a9fddd9152e95cc8e91e628e8dbef50f44d8a1a7141",
+      "hidden": false,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "fdb136fbe52bd25a212528eedb43ec87d79b399f9d53e1d165e29497b9b6028a",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 296.35200000000003,
+            "x1": 176.20999999999998,
+            "bottom": 312.35200000000003
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 1,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "nearby-round-stroke",
+      "source_sha256": "343b420b88e72e0a3f4fa9eed61405a5924243ca89bff914f1a1efa2f8bf2c2d",
+      "hidden": false,
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "fdb136fbe52bd25a212528eedb43ec87d79b399f9d53e1d165e29497b9b6028a",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 296.35200000000003,
+            "x1": 176.20999999999998,
+            "bottom": 312.35200000000003
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 1,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "far-miter-stroke",
+      "source_sha256": "fc9269b292eff8181e7f6939a025c92cab1c73375310d77263f11eea69100b09",
+      "hidden": false,
+      "expected": "verified",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "0c456b8565de3958c86e701795d036024f376ce5dcdedc1e4690f5f96456a1e5",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 436.35200000000003,
+            "x1": 176.20999999999998,
+            "bottom": 452.35200000000003
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 1,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "larger-miter-limit",
+      "source_sha256": "946cc963c705c4e4b50cf0c7286faaab00a88e02b143c4d1845018a3205eda34",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "f95b6fe64bce4738cbdbbad7fc7432bbd03f7b7437f0bfde81b684ec25117707",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 236.35199999999998,
+            "x1": 176.20999999999998,
+            "bottom": 252.35199999999998
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 1,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "unreadable-miter-limit",
+      "source_sha256": "c283a2a49fbb9a706bd4652abd4fc6f86fc223dcac8b37d24da865dc6aea46ae",
+      "hidden": false,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "evidence includes native PDF text without a completed rendering contribution check; visibility is unverified; review the source or reload the PDF"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "0c456b8565de3958c86e701795d036024f376ce5dcdedc1e4690f5f96456a1e5",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 168.06400000000002,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "unavailable"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 167.314,
+            "top": 436.35200000000003,
+            "x1": 176.20999999999998,
+            "bottom": 452.35200000000003
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 1,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "unavailable"
+        }
+      ],
+      "wire_identical": true
+    },
+    {
+      "case": "scaled-round-stroke",
+      "source_sha256": "9a0f48f6108000c8472f2d13fa43edcea64ec17ea3d34ba0194e90d565661c80",
+      "hidden": true,
+      "expected": "needs_review",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 92.4,
+            "top": 271.8496,
+            "x1": 323.6544000000001,
+            "bottom": 284.6496
+          }
+        ]
+      },
+      "text": "SYNTHETIC INVOICE Example Tools Ltd. Invoice OVERHANG-001 Issued: 2026-10-17 Authored font-ink control; no real transaction. Visible small print: Visa, services, lilies and days' notices. Authorized total: $900.00 7",
+      "geometry_sha256": "9f9d26f104722243c3d6e0bf11900b1b8a509d31aa402a5bed5b04e0bed899d4",
+      "quoted_words": [
+        {
+          "text": "$900.00",
+          "bbox": {
+            "x0": 248.48320000000004,
+            "top": 271.8496,
+            "x1": 323.6544000000001,
+            "bottom": 284.6496
+          },
+          "start": 206,
+          "end": 213,
+          "render_mode": 0,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "ambiguous_overlap"
+        },
+        {
+          "text": "7",
+          "bbox": {
+            "x0": 247.5082,
+            "top": 277.48159999999996,
+            "x1": 259.073,
+            "bottom": 290.28159999999997
+          },
+          "start": 214,
+          "end": 215,
+          "render_mode": 1,
+          "zero_opacity": false,
+          "clip_risk": false,
+          "raster_state": "contributes"
+        }
+      ],
+      "wire_identical": true
+    }
+  ]
+}
