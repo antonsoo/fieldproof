@@ -1,0 +1,24 @@
+{
+  "source_commit": "79c85ad223e73f53a2a931529e1e6197bb6dbcc7",
+  "stats": {
+    "startTime": "2026-10-17T19:50:24.073Z",
+    "duration": 16602.298,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "scope": "Installed corrected wheel; same spaced-amount workflow in Chromium and Firefox, offline exports, archive round-trip, 1440/375 light/dark accessibility and overflow checks.",
+  "captures": {
+    "chromium-1440-dark.png": "eb6f7e8100bd411f1345a6b9f22d646d08925933a7f8ca014f083f055de20f22",
+    "chromium-1440-light.png": "01b3d31ffe22b9f8149bd8c6b159ccbda27abfd223c8c864245d93b91b18fbce",
+    "chromium-375-dark.png": "9a1b2ef8f10c4c7d52d10d69744f677f07be634c2a4d9ff4601afc69fe86c679",
+    "chromium-375-light.png": "0fa6d5768b468dca941ca689439fecd9c04582f4541af94c0824f224194443ac",
+    "firefox-1440-dark.png": "25df93371ee98ff25ae1d28f8a1c8f102031bec6a47ccd20ef2fb02c02ba9c13",
+    "firefox-1440-light.png": "9bd6984bd4ac95f373f7b8ff8debd6388de5d1264e2e2e09df68299c02a36a84",
+    "firefox-375-dark.png": "b75b6dbf5538355c1c81776c4923be8c8df750469b58f0491702e90a250f2d6a",
+    "firefox-375-light.png": "52cccddff71c239cab770c52f7a1203a8fef85253032bc0db1ef648c8ea505ae"
+  },
+  "capture_directory": "docs/assets/spaced-numbers",
+  "all_8_captures_identical_to_existing_images": true
+}

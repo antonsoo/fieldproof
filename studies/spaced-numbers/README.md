@@ -61,6 +61,11 @@ The baseline and final source both send these three claims to review. The
 receipt audit independently exposed three new wrong-location approvals before
 this guard was added.
 
+A [subsequent convention correction](conventions-verification.md) also retains
+punctuation observations inside unresolved groups. Suppressing an amount's
+support must not hide conflicting formats and approve an ambiguous value
+elsewhere. The README's source pin includes this follow-up.
+
 Replay from a checkout with locked development dependencies:
 
 ```sh

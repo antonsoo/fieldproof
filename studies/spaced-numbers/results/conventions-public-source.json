@@ -1,0 +1,40 @@
+{
+  "scope": "Exact README Git install, unauthenticated main/raw checks; no registry release or hosted workbench claim.",
+  "observed_main": "15113e8429c4730b5ed0c2783f77235d8b95b131",
+  "pin": {
+    "url": "https://github.com/antonsoo/fieldproof.git",
+    "vcs_info": {
+      "commit_id": "79c85ad223e73f53a2a931529e1e6197bb6dbcc7",
+      "requested_revision": "79c85ad223e73f53a2a931529e1e6197bb6dbcc7",
+      "vcs": "git"
+    }
+  },
+  "all_41_modules_and_148_claims_identical": true,
+  "bundled_ui": false,
+  "files": [
+    {
+      "path": "src/fieldproof/ground/values.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/79c85ad223e73f53a2a931529e1e6197bb6dbcc7/src/fieldproof/ground/values.py",
+      "bytes": 18169,
+      "sha256": "c31d37633ac50a2c202098e28c4115837c1859c3e6064999bbf43aa32187fc39"
+    },
+    {
+      "path": "tests/test_spaced_numbers.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/79c85ad223e73f53a2a931529e1e6197bb6dbcc7/tests/test_spaced_numbers.py",
+      "bytes": 9867,
+      "sha256": "07949b1ed208cb50547b016e1ae7345c538a3fa838c5c56ea2a5d2d9db68d0d0"
+    },
+    {
+      "path": "studies/spaced-numbers/conventions.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/79c85ad223e73f53a2a931529e1e6197bb6dbcc7/studies/spaced-numbers/conventions.py",
+      "bytes": 4648,
+      "sha256": "12bfeed09d779095e3191ec5c212432bc293b991c65ea1dd5a3b43566d04931d"
+    },
+    {
+      "path": "studies/spaced-numbers/fixtures/conventions.pdf",
+      "url": "https://raw.githubusercontent.com/antonsoo/fieldproof/79c85ad223e73f53a2a931529e1e6197bb6dbcc7/studies/spaced-numbers/fixtures/conventions.pdf",
+      "bytes": 4040,
+      "sha256": "1336878f0913c7f8233f17fc834d117bdec552ac0934f3113416d975e60c06ae"
+    }
+  ]
+}

@@ -1,0 +1,2140 @@
+{
+  "source_commit": "79c85ad223e73f53a2a931529e1e6197bb6dbcc7",
+  "cases": 133722,
+  "documents": 1052,
+  "same_inputs": true,
+  "verdict_location_changes_since_b283e1b": 0,
+  "b283_rows_sha256": "697b006f1a7073933c9e6c8a8aac1ceebaf171feb268a9af43b39b3b0fd4afd6",
+  "corrected_rows_sha256": "10a1ac85f9eaaddfc59fc54f01ef0f0b9215c89681cff4f958f174eaf3514f59",
+  "baseline_rows_sha256": "ad39621f8c8020a41eed470aaf17eb50fa82f3fd9dcb56ab8e144c6a63a3a67e",
+  "baseline_ref": "d94f2f4",
+  "verdict_location_changes_since_baseline": 383,
+  "newly_verified_since_baseline": 0,
+  "before": [
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 5103
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 1986
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 64
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 8
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 71
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 6381
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 708
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 126
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 10
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 7
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 2544
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 3040
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 37
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 8
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 49
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 8951
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 589
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "right",
+      "n": 50
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 30
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 1000
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 138
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 74
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 95
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 239
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 791
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 172
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 57
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 78
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 3
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 209
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 46
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 7
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 10
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 1030
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 306
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 1465
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 431
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 1688
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 208
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 257
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 1639
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 1896
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 2232
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 2267
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 2
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 2245
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 2254
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 3
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 4469
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 30
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 3
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "right",
+      "n": 2
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 4290
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 2748
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 12
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 30
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 5116
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 1412
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 549
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 3
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 1497
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 5580
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 3
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 553
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 176
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 114
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 10
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 491
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 272
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 82
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 8
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 499
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 354
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 577
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 552
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 1
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 444
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 188
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 497
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 1
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 418
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 712
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 1130
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 11876
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 100
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 10
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 1335
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 11644
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 128
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 9
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 623
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 12403
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 83
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 7
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 1426
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 933
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 499
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 1860
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "present_written",
+      "ftype": "count",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 635
+    },
+    {
+      "measure": "present_written",
+      "ftype": "count",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 218
+    },
+    {
+      "measure": "present_written",
+      "ftype": "count",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 499
+    },
+    {
+      "measure": "present_written",
+      "ftype": "count",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 354
+    },
+    {
+      "measure": "present_written",
+      "ftype": "date",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 286
+    },
+    {
+      "measure": "present_written",
+      "ftype": "date",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 279
+    },
+    {
+      "measure": "present_written",
+      "ftype": "date",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 209
+    },
+    {
+      "measure": "present_written",
+      "ftype": "date",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 356
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 72
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 2162
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 18
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 1
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 66
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 2171
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 15
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 1
+    }
+  ],
+  "after": [
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 5086
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 2003
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 67
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 8
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 68
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 6378
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 711
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 126
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 10
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 7
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 2502
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 3082
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 38
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 8
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 48
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 8951
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 590
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "right",
+      "n": 49
+    },
+    {
+      "measure": "absent",
+      "ftype": "amount",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 30
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 1000
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 144
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 74
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 89
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 231
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 799
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 171
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 60
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 76
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 3
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 209
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 47
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 7
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 9
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 1030
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 306
+    },
+    {
+      "measure": "absent",
+      "ftype": "count",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 1465
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 431
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 1687
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 209
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 257
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 1639
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "fabricated_model_style",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 1896
+    },
+    {
+      "measure": "absent",
+      "ftype": "date",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 2230
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 2269
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated",
+      "present_elsewhere": true,
+      "outcome": "wrong",
+      "n": 2
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 2243
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 2256
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 3
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "fabricated_context",
+      "present_elsewhere": true,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "needs_review",
+      "n": 4469
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "right",
+      "n": 1
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "true_quote",
+      "present_elsewhere": false,
+      "outcome": "unsupported",
+      "n": 30
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "needs_review",
+      "n": 3
+    },
+    {
+      "measure": "absent",
+      "ftype": "text",
+      "quote_style": "true_quote",
+      "present_elsewhere": true,
+      "outcome": "right",
+      "n": 2
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 4304
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 2742
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 12
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 22
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 5118
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 1408
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 552
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 2
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 1521
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 5556
+    },
+    {
+      "measure": "present_model",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 3
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 564
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 165
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 114
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 10
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 531
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 232
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 82
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 8
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 540
+    },
+    {
+      "measure": "present_model",
+      "ftype": "count",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 313
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 579
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 550
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 1
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 443
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 188
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 498
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 1
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 418
+    },
+    {
+      "measure": "present_model",
+      "ftype": "date",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 712
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 1157
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 11847
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 102
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 10
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 1350
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 11627
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 130
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "model_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 9
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 643
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 12383
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 83
+    },
+    {
+      "measure": "present_model",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 7
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 1429
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 930
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 507
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 1852
+    },
+    {
+      "measure": "present_written",
+      "ftype": "amount",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 1
+    },
+    {
+      "measure": "present_written",
+      "ftype": "count",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 646
+    },
+    {
+      "measure": "present_written",
+      "ftype": "count",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 207
+    },
+    {
+      "measure": "present_written",
+      "ftype": "count",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 540
+    },
+    {
+      "measure": "present_written",
+      "ftype": "count",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 313
+    },
+    {
+      "measure": "present_written",
+      "ftype": "date",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 286
+    },
+    {
+      "measure": "present_written",
+      "ftype": "date",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 279
+    },
+    {
+      "measure": "present_written",
+      "ftype": "date",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 209
+    },
+    {
+      "measure": "present_written",
+      "ftype": "date",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 356
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 79
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 2155
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 18
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 1
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "needs_review",
+      "n": 70
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "right",
+      "n": 2167
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "unsupported",
+      "n": 15
+    },
+    {
+      "measure": "present_written",
+      "ftype": "text",
+      "quote_style": "page_context",
+      "present_elsewhere": null,
+      "outcome": "wrong",
+      "n": 1
+    }
+  ],
+  "files": [
+    {
+      "name": "train-00000-of-00004-b4aaeceff1d90ecb.parquet",
+      "bytes": 490224630,
+      "sha256": "da3994eee1bf9bd3c57f0d53a72c3a6812c8696c5ba26245987949ddf73483cc",
+      "matches_manifest": true
+    },
+    {
+      "name": "validation-00000-of-00001-cc3c5779fe22e8ca.parquet",
+      "bytes": 242080800,
+      "sha256": "0d0f6dac11fdcc549de2746aa9f53136a3bc22a2a1aff2b0b847f7622ad60c15",
+      "matches_manifest": true
+    },
+    {
+      "name": "test-00000-of-00001-9c204eb3f4e11791.parquet",
+      "bytes": 234202795,
+      "sha256": "51c65f1788faff392abe2a0b55b023eb23e9be551c509138eaa3a832514224e7",
+      "matches_manifest": true
+    },
+    {
+      "name": "train-00000-of-00001-66201d4afd6b73ca.parquet",
+      "bytes": 217146103,
+      "sha256": "6f88c537f3eaac955e2d1c59d3c269a9e83a30836c92efcd82b0e9d467f814cf",
+      "matches_manifest": true
+    }
+  ],
+  "scope": "Full unchanged CORD/SROIE replay; in-sample, no fresh OCR/model accuracy claim."
+}

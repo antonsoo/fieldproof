@@ -50,6 +50,46 @@ newly verified claims and the same review costs described in
 [the spacing study](verification.md). This corpus was used during development;
 it is compatibility evidence, not a held-out extraction benchmark.
 
+## Installed artifacts and actual workers
+
+A fresh source archive at `15113e8` builds the corrected wheel and sdist;
+its 41 Python modules are identical to `79c85ad`. A separate non-editable
+installation passes all 72 spaced-number regressions on both supported-runtime
+checks below. Every declared runtime/dev/OCR dependency was supplied directly
+with `--resolution lowest-direct` for the minimum installation.
+
+| Installation | Python | PDFium | pdfplumber | Pydantic |
+| --- | --- | --- | --- | --- |
+| Built wheel | 3.14.7 | 5.14.0 | 0.11.10 | 2.14.1 |
+| Minimum direct dependencies | 3.11.13 | 5.0.0 | 0.11.9 | 2.12.0 |
+| Exact public README Git pin | 3.12.12 | 5.14.0 | 0.11.10 | 2.14.1 |
+
+All three reproduce the 14 new claim records, including reasons and rectangles,
+and the complete digest of the original 134-claim ledger. The installed native
+receipts retain that digest and reference the existing full ledger rather than
+duplicating it. Each installation also passes 12 actual API upload/extraction
+worker controls and checks the resulting report/export statuses. Each control
+uses its own one-page document. No provider/model calls are involved.
+
+The [verification receipt](results/conventions-verification.json) links those
+ledgers and records the complete corpus replay. The
+[distribution receipt](results/conventions-artifacts.json) byte-compares all 41
+Python modules in the wheel, sdist and installation and all 23 locally served
+UI files. The [public source receipt](results/conventions-public-source.json)
+records the actual Git installation provenance, public main ref and four pinned
+raw files. Direct Git installation has no bundled UI, as documented; the wheel
+separately contains it.
+
+The corrected installed wheel also passes the actual Chromium and Firefox
+spaced-amount review workflow: full source highlight, correction, offline JSON
+and CSV downloads, reconnect and archive save/delete/restore. Accessibility and
+overflow checks pass at 1440px and 375px in light and dark themes. All eight
+new captures were opened and inspected and are byte-identical to the existing
+[spacing screenshots](../../docs/assets/spaced-numbers/chromium-1440-light.png),
+so no duplicate images are committed. The
+[browser receipt](results/conventions-browser-summary.json) identifies this
+final-source run independently of the older receipts.
+
 The package version remains 0.2.7; source hashes identify the correction. The
 earlier installed/browser receipts remain scoped to their recorded revisions.
-No registry release is claimed.
+These checks do not establish a registry release or hosted Python workbench.
