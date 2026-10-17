@@ -128,3 +128,23 @@ These are single observations on a 14-vCPU WSL2 Linux machine with 48 GB RAM,
 not speed comparisons or worst-case guarantees. The
 [current](results/worker-installed.json) and [minimum-SDK](results/worker-minimum-sdk.json)
 receipts share the input SHA-256 and record the actual worker limits.
+
+## Public source and installation
+
+The correction is public at `b1ddeee4ef21ef73b94dfef4c234ddd62de3b740`.
+The [publication receipt](results/public-source.json) matches 121 pinned public
+files, including all runtime code, authored controls and verification records,
+against Git bytes. It also retains an actual pip upgrade from PyPI 0.2.7 with
+PDFium 4.30: the covered 900 claim changes from verified to needs review, the SDK
+updates to 5.14, and all 41 installed runtime files match the corrected source.
+All 36 cases downloaded from the public revision pass the installed replay.
+
+The pinned CLI/library command in the main README installs source revision
+`05ac81a33215bc858d125f291d1467244fb56dde`, whose runtime matches the verified
+archive. It deliberately has no bundled UI. A fresh clone of the public main
+revision also completed the source quickstart's dependency install, UI bundling,
+fixture extraction and verification: both commands report 21 verified, three
+needing review and one unsupported field on the ordinary invoice.
+
+No PyPI release or tag was created. The static demo uses precomputed examples;
+publishing native-loader source does not deploy a live PDF processor there.

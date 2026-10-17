@@ -1,0 +1,868 @@
+{
+  "revision": "b1ddeee4ef21ef73b94dfef4c234ddd62de3b740",
+  "remoteMainMatches": true,
+  "scope": "Pinned public source bytes plus actual registry-to-Git pip upgrade. No registry release, tag or native-loader static-demo deployment.",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "status": 200,
+      "bytes": 37078,
+      "sha256": "16b6b317c66a1c9cd02e5b62332b716746c62b225b953479547c625eeff3dba0"
+    },
+    {
+      "path": "README.md",
+      "status": 200,
+      "bytes": 9021,
+      "sha256": "8ad0c893d37042e63bac2b47218b49d1aefa086313e6cb3a9ab84c2cd6033e1e"
+    },
+    {
+      "path": "docs/assets/native-glyph-bounds/before-chromium-1440.png",
+      "status": 200,
+      "bytes": 94976,
+      "sha256": "b6e76eaaf3caba9d6c35ea6a2dc744eb812d1efe2e018641e0bb5007e518c3ad"
+    },
+    {
+      "path": "docs/assets/native-glyph-bounds/before-firefox-1440.png",
+      "status": 200,
+      "bytes": 121316,
+      "sha256": "dcf3689c87d83ccd34666442f76ebf36f41da7d40f91d0a51946e32087f2a7eb"
+    },
+    {
+      "path": "docs/assets/native-glyph-bounds/chromium-1440.png",
+      "status": 200,
+      "bytes": 103386,
+      "sha256": "bc46b88dd0fc2ae7ac5ffc6aa283ae837e5ec4dcdc528ffa075d13d5dcb2a9d5"
+    },
+    {
+      "path": "docs/assets/native-glyph-bounds/chromium-375.png",
+      "status": 200,
+      "bytes": 59954,
+      "sha256": "383eef31b1494dd129d670a595b76bdbc14f398617ad4708fc2d1a86fc999508"
+    },
+    {
+      "path": "docs/assets/native-glyph-bounds/firefox-1440.png",
+      "status": 200,
+      "bytes": 133890,
+      "sha256": "e0b78840fa7e1f42a4fc5a61b9e542e161d6936443fe61804285cffa8a078c84"
+    },
+    {
+      "path": "docs/assets/native-glyph-bounds/firefox-375.png",
+      "status": 200,
+      "bytes": 77476,
+      "sha256": "5348514723f0aa95f66d35868691d6d51cedafdd048286af8046382d6c4f7716"
+    },
+    {
+      "path": "docs/design.md",
+      "status": 200,
+      "bytes": 13474,
+      "sha256": "6c7a8d2693014d4e7781a56813e3d759bdcd4cbd82805139a1b3fa9238aa34a4"
+    },
+    {
+      "path": "docs/development.md",
+      "status": 200,
+      "bytes": 2167,
+      "sha256": "1265bbad28c453e73506ce87d6e92e1101beb12e1b2809f67287dfa04703d634"
+    },
+    {
+      "path": "docs/evidence-guide.md",
+      "status": 200,
+      "bytes": 4197,
+      "sha256": "59856f0ad429b396701f7118e7ea76824fa83d29357d1ae2fc4c8cf61712d3ec"
+    },
+    {
+      "path": "docs/usage.md",
+      "status": 200,
+      "bytes": 16167,
+      "sha256": "541f30bbed511c54d061f4e078f13952bf8de7c32e1b6649dd5ea3ebf73e2c12"
+    },
+    {
+      "path": "pyproject.toml",
+      "status": 200,
+      "bytes": 4208,
+      "sha256": "7c9510e245e0cd8095eeaff2695e2a24e0095276502bd89a04b23cb5a4992474"
+    },
+    {
+      "path": "src/fieldproof/__init__.py",
+      "status": 200,
+      "bytes": 274,
+      "sha256": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde"
+    },
+    {
+      "path": "src/fieldproof/_reports.py",
+      "status": 200,
+      "bytes": 1945,
+      "sha256": "44b543f2279b8a41f9433639b71bd8f82f6a5362019971ae785eda6fc9fcb71a"
+    },
+    {
+      "path": "src/fieldproof/cli.py",
+      "status": 200,
+      "bytes": 10954,
+      "sha256": "dc3b269f25e278207da9869d09e02f25998a69f0592d9406f15fdf5160af157b"
+    },
+    {
+      "path": "src/fieldproof/document/__init__.py",
+      "status": 200,
+      "bytes": 360,
+      "sha256": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074"
+    },
+    {
+      "path": "src/fieldproof/document/clip_bounds.py",
+      "status": 200,
+      "bytes": 3172,
+      "sha256": "7bba15e37d58ef0c6c041f4f7431acc4023736e91b668a0136a273f21e562d8c"
+    },
+    {
+      "path": "src/fieldproof/document/glyph_envelopes.py",
+      "status": 200,
+      "bytes": 8065,
+      "sha256": "f5065a9f2ebff41223945ba04317c78b0eab74a329159d3c76b57a536612f395"
+    },
+    {
+      "path": "src/fieldproof/document/limits.py",
+      "status": 200,
+      "bytes": 1718,
+      "sha256": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71"
+    },
+    {
+      "path": "src/fieldproof/document/loader.py",
+      "status": 200,
+      "bytes": 9772,
+      "sha256": "a739a824a9a54931ea4996b0af18688f180779bc310b79220af75262615b7970"
+    },
+    {
+      "path": "src/fieldproof/document/model.py",
+      "status": 200,
+      "bytes": 6443,
+      "sha256": "3244ab7a75e13733bd639d821d4964b195f2f29d490813026d5e06dc0d0bdeb5"
+    },
+    {
+      "path": "src/fieldproof/document/ocr.py",
+      "status": 200,
+      "bytes": 9408,
+      "sha256": "d37c80e6e9503b6070e127c91d1149a974b624dbf2be8de3db981f8283850902"
+    },
+    {
+      "path": "src/fieldproof/document/raster_paint.py",
+      "status": 200,
+      "bytes": 12120,
+      "sha256": "53cee332c4e3a2d0a860f2f5acebcc5af5cc88695bd04e1fee042ad65b026c17"
+    },
+    {
+      "path": "src/fieldproof/document/render.py",
+      "status": 200,
+      "bytes": 2163,
+      "sha256": "651c776a68820bb29002bc21ebede0891a1ddf281c4d71c5035fc5296f59f502"
+    },
+    {
+      "path": "src/fieldproof/document/text_modes.py",
+      "status": 200,
+      "bytes": 10295,
+      "sha256": "324a7120519071193ab662d3205a9e592738f7c1b9e1d78e63b5e8b40e4589c4"
+    },
+    {
+      "path": "src/fieldproof/document/worker.py",
+      "status": 200,
+      "bytes": 2631,
+      "sha256": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142"
+    },
+    {
+      "path": "src/fieldproof/extract/__init__.py",
+      "status": 200,
+      "bytes": 380,
+      "sha256": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e"
+    },
+    {
+      "path": "src/fieldproof/extract/anthropic_provider.py",
+      "status": 200,
+      "bytes": 6556,
+      "sha256": "87aa3ac824ebd3b21ec1536b3ad45eb27ac16e559ea8133cd51173662aeb39d8"
+    },
+    {
+      "path": "src/fieldproof/extract/base.py",
+      "status": 200,
+      "bytes": 5713,
+      "sha256": "ed4dddee401c935aa9021e1d3abb5aaed0cf0f2dc2a29f555a995ce9accc3811"
+    },
+    {
+      "path": "src/fieldproof/extract/fixture_provider.py",
+      "status": 200,
+      "bytes": 1779,
+      "sha256": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49"
+    },
+    {
+      "path": "src/fieldproof/ground/__init__.py",
+      "status": 200,
+      "bytes": 678,
+      "sha256": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd"
+    },
+    {
+      "path": "src/fieldproof/ground/align.py",
+      "status": 200,
+      "bytes": 25986,
+      "sha256": "519441050c619a0ef8e62bca94072fc200f467e49ebb2b4f12e41e5916577f4c"
+    },
+    {
+      "path": "src/fieldproof/ground/lines.py",
+      "status": 200,
+      "bytes": 1067,
+      "sha256": "aa8715ff767e0dba4d90e5a87d902f74a07135099b20ad816a04e2e7f58b069c"
+    },
+    {
+      "path": "src/fieldproof/ground/normalize.py",
+      "status": 200,
+      "bytes": 2260,
+      "sha256": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520"
+    },
+    {
+      "path": "src/fieldproof/ground/values.py",
+      "status": 200,
+      "bytes": 13657,
+      "sha256": "1a876375896662382dde616fad06a08f54c750602a4f7063faf2f20ba168a340"
+    },
+    {
+      "path": "src/fieldproof/schemas/__init__.py",
+      "status": 200,
+      "bytes": 1661,
+      "sha256": "2846223c9fe650c6c471d68c97359b2f0bef71c3029bcb928d119ef47e04818c"
+    },
+    {
+      "path": "src/fieldproof/schemas/base.py",
+      "status": 200,
+      "bytes": 3531,
+      "sha256": "7f2bfa1c4b71d57064f9f06b7a904e34f7d646cd78d80086f921c83bcd3837de"
+    },
+    {
+      "path": "src/fieldproof/schemas/contract.py",
+      "status": 200,
+      "bytes": 1061,
+      "sha256": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0"
+    },
+    {
+      "path": "src/fieldproof/schemas/invoice.py",
+      "status": 200,
+      "bytes": 1358,
+      "sha256": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b"
+    },
+    {
+      "path": "src/fieldproof/schemas/receipt.py",
+      "status": 200,
+      "bytes": 755,
+      "sha256": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e"
+    },
+    {
+      "path": "src/fieldproof/server/__init__.py",
+      "status": 200,
+      "bytes": 57,
+      "sha256": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b"
+    },
+    {
+      "path": "src/fieldproof/server/app.py",
+      "status": 200,
+      "bytes": 21908,
+      "sha256": "cc5287e551ad6c180cca6e4f9166fc5828c4974d82cb798955254624bead03bd"
+    },
+    {
+      "path": "src/fieldproof/server/archive.py",
+      "status": 200,
+      "bytes": 10697,
+      "sha256": "f164088bedbaa989245946d89a3f297ee5f236e1c9145b71fb19fe1b0236270a"
+    },
+    {
+      "path": "src/fieldproof/server/body_limit.py",
+      "status": 200,
+      "bytes": 2600,
+      "sha256": "d6186c0a279c765ecd347cd68f7936915574fa1ab12ea2f65cd24f78fedfe1bb"
+    },
+    {
+      "path": "src/fieldproof/server/pdf_work.py",
+      "status": 200,
+      "bytes": 5128,
+      "sha256": "c3fd361d0b5fe32c5016e0c3dfdaf297c184a5ab71d6e2835f01f85747ce941d"
+    },
+    {
+      "path": "src/fieldproof/server/spreadsheet.py",
+      "status": 200,
+      "bytes": 6018,
+      "sha256": "89def3a96c29c583a80c01629067b919b1dd5336f882bce53682f81684d4bc2f"
+    },
+    {
+      "path": "src/fieldproof/server/store.py",
+      "status": 200,
+      "bytes": 6841,
+      "sha256": "18c5c059b96b8a1b6436820ace7ee0155d176ca3b46b4fb12fb39d855d85c8eb"
+    },
+    {
+      "path": "src/fieldproof/verify/__init__.py",
+      "status": 200,
+      "bytes": 1025,
+      "sha256": "740faaaab55c8f47f78091074d3e6d73174a23f2c0255d375b2ff8917ba0d933"
+    },
+    {
+      "path": "src/fieldproof/verify/columns.py",
+      "status": 200,
+      "bytes": 10705,
+      "sha256": "50f8d5f3362a508e2dba6bc3fc955b9a6d639bd1500d42172555efd2a87f00c1"
+    },
+    {
+      "path": "src/fieldproof/verify/cross_field.py",
+      "status": 200,
+      "bytes": 9641,
+      "sha256": "ad1a7facac1c39cc4ebec47412db36dc258b76dd1d2b4b603007fadcf928b365"
+    },
+    {
+      "path": "src/fieldproof/verify/engine.py",
+      "status": 200,
+      "bytes": 26713,
+      "sha256": "7fc93f6f1d85b908aab42e1dc8aaea94fda2d2886bcefdcf61376815ee018168"
+    },
+    {
+      "path": "src/fieldproof/verify/rows.py",
+      "status": 200,
+      "bytes": 8974,
+      "sha256": "410f8363ab9b4b89c7f0ed0185cff8b88fd4bbf63e68d92ffe3ef1a3fc397765"
+    },
+    {
+      "path": "src/fieldproof/verify/value_checks.py",
+      "status": 200,
+      "bytes": 18996,
+      "sha256": "7ba4980ae4c907f2fdea4f33bac0eb3546d24ce318df5ad25118e8d17acc17e1"
+    },
+    {
+      "path": "studies/native-glyph-bounds/README.md",
+      "status": 200,
+      "bytes": 7690,
+      "sha256": "1ee55f1dec231d0f19acdde2bf84addfdfc2a7b8f69c1d8326ed4bb65864dc13"
+    },
+    {
+      "path": "studies/native-glyph-bounds/before.mjs",
+      "status": 200,
+      "bytes": 2384,
+      "sha256": "48a1202c32500d052435a91253c07d13a683325eeedbae21f6bd6cfff0d49e24"
+    },
+    {
+      "path": "studies/native-glyph-bounds/browser.config.mjs",
+      "status": 200,
+      "bytes": 260,
+      "sha256": "40672559c9c6ec7a323ae95a6ec1294edeb0dfe7106444364ccf53ba2f10d8fc"
+    },
+    {
+      "path": "studies/native-glyph-bounds/cases.json",
+      "status": 200,
+      "bytes": 3795,
+      "sha256": "bbaebfb1be3259043dfaa8e438a06143900ff2becf2ef253717e1ef3c4057840"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixture.json",
+      "status": 200,
+      "bytes": 504,
+      "sha256": "9306ca1fde4fe3bbf3347c4352131c300d7ca5ce9d62a3661e16f001782a5934"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Helvetica-BoldOblique-16-4.pdf",
+      "status": 200,
+      "bytes": 2040,
+      "sha256": "d2a2c6b7e6d1c42a32a8ff34e4d71c0fc7d05ac857563d19f1744ae0608d2406"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Helvetica-BoldOblique-16-8.pdf",
+      "status": 200,
+      "bytes": 2040,
+      "sha256": "20fd2cfbd71962a0fc4746688f482cc4d5355447b824928a6b9d082d13355224"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Helvetica-BoldOblique-20-4.pdf",
+      "status": 200,
+      "bytes": 2039,
+      "sha256": "cb592b6b1f41bfa7fa0c2db11023364dae31e61414d71744c23fa20c4b7a056b"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Helvetica-BoldOblique-20-8.pdf",
+      "status": 200,
+      "bytes": 2039,
+      "sha256": "52b8034d6bf6caa5fd597ce8847ccfbf82044bc4e2b0989e2c50fe6320b4996f"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Helvetica-BoldOblique-30-4.pdf",
+      "status": 200,
+      "bytes": 2044,
+      "sha256": "6f112ee30400fb907b2b41e2442c37eea1442028abe0841b47bbfc75039fbb13"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Helvetica-Oblique-16-4.pdf",
+      "status": 200,
+      "bytes": 2036,
+      "sha256": "9e04a97e00e84c20ebf52f970496fd32f142b9e0203f7a5365e69fd5d8a17e7a"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Helvetica-Oblique-16-8.pdf",
+      "status": 200,
+      "bytes": 2036,
+      "sha256": "69b94795616e3ccb05d643e33d7b45c3445ff96df7118424f7df0c556d7570ae"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Helvetica-Oblique-20-4.pdf",
+      "status": 200,
+      "bytes": 2035,
+      "sha256": "a1182627e6af33ef7e80333516b7f1a7c4ac7c545af1cd3d96c636e98aa5d432"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Helvetica-Oblique-20-8.pdf",
+      "status": 200,
+      "bytes": 2035,
+      "sha256": "a1e3e82fb63df82c63e56c4c69fe99cbcfd96ae42ddcf2b1633cd43d4677106c"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Helvetica-Oblique-30-4.pdf",
+      "status": 200,
+      "bytes": 2040,
+      "sha256": "1c1361f1b062bc2599559fb8c9b7b079a30090e4d913cfb716a207dab660240a"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Times-Italic-20-4.pdf",
+      "status": 200,
+      "bytes": 2028,
+      "sha256": "b6c48c967b159b35188dab4d83a97b26146b4c4af42c8823be365983b877f858"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Times-Italic-20-8.pdf",
+      "status": 200,
+      "bytes": 2030,
+      "sha256": "b8d851cd3fb027ae7a0dd83c9c429b098f283fbc89bacc8ce4a27c7332828766"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Times-Italic-30-4.pdf",
+      "status": 200,
+      "bytes": 2036,
+      "sha256": "b873ed6426238d8c5884254025c2601f6d1ad9110ffba09ecda197da4706c15d"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/Times-Italic-30-8.pdf",
+      "status": 200,
+      "bytes": 2036,
+      "sha256": "7bd8bf8258063a01e9a0d7ccd938f8f1baac556ae961fb8cc035079825e85ae1"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/cropped-overhang.pdf",
+      "status": 200,
+      "bytes": 2063,
+      "sha256": "c6617bef2c9d85be41db97cfa273a539453b7c37371c2a18d3d7073c6e23700a"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/far-miter-stroke.pdf",
+      "status": 200,
+      "bytes": 2010,
+      "sha256": "fc9269b292eff8181e7f6939a025c92cab1c73375310d77263f11eea69100b09"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/invisible-lender.pdf",
+      "status": 200,
+      "bytes": 2007,
+      "sha256": "12a120c8c8b8c7a9933b14f14066577f93bb8e0521365437d253642e79322213"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/larger-miter-limit.pdf",
+      "status": 200,
+      "bytes": 2891,
+      "sha256": "946cc963c705c4e4b50cf0c7286faaab00a88e02b143c4d1845018a3205eda34"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/nearby-lender.pdf",
+      "status": 200,
+      "bytes": 2003,
+      "sha256": "31b868ae6ffcf27216b6f86f7ceb31d089ec61af32306c4b2ed6ef18e1323cbc"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/nearby-miter-stroke.pdf",
+      "status": 200,
+      "bytes": 2008,
+      "sha256": "b7cc6672c9188181e04d4a9fddd9152e95cc8e91e628e8dbef50f44d8a1a7141"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/nearby-round-stroke.pdf",
+      "status": 200,
+      "bytes": 2008,
+      "sha256": "343b420b88e72e0a3f4fa9eed61405a5924243ca89bff914f1a1efa2f8bf2c2d"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/nested-form.pdf",
+      "status": 200,
+      "bytes": 2835,
+      "sha256": "0b78e92a1873fe0e67a7b34408b51634646c361ed5cd5096234bff1d73cbc83f"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/rotation-180.pdf",
+      "status": 200,
+      "bytes": 2038,
+      "sha256": "09ebd0fecc3218c7f8d41fa00187c0df609431ab03215fdccc463460b06ca614"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/rotation-270.pdf",
+      "status": 200,
+      "bytes": 2038,
+      "sha256": "f05297f8ed3db218e7b89a3cef26a6583c713c79038f1ba779afde76a9c73814"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/rotation-90.pdf",
+      "status": 200,
+      "bytes": 2037,
+      "sha256": "942283da3c280234ce192bf08a4a189c62f059b7381698efe045842ff3745b1c"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/scaled-form.pdf",
+      "status": 200,
+      "bytes": 2850,
+      "sha256": "f8edf15f11b0da818bac58f1509e6682d44ee6f90144e51c0367cc004ffd20e7"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/scaled-round-stroke.pdf",
+      "status": 200,
+      "bytes": 2860,
+      "sha256": "9a0f48f6108000c8472f2d13fa43edcea64ec17ea3d34ba0194e90d565661c80"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/stroked-overhang-0.pdf",
+      "status": 200,
+      "bytes": 2041,
+      "sha256": "d1e3a94209a058d5204bd773e80322a6ea4f85046e15e5dc5fced2110c3cc1fd"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/stroked-overhang-1.pdf",
+      "status": 200,
+      "bytes": 2041,
+      "sha256": "f322ac4d61141d5e19288c2b538c66403edc1a18bde2ba60822864de49dbeaa8"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/stroked-overhang-2.pdf",
+      "status": 200,
+      "bytes": 2041,
+      "sha256": "2d25fdf0dfa6fac5a01c43f903c7a4b05ac0df581651b6ce22bf191ea0574cc0"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/transparent-lender.pdf",
+      "status": 200,
+      "bytes": 2049,
+      "sha256": "e68a05b251ca87b6129d12304eb6c7984b94bc6d926bab8f078ffaa2b523b4a5"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/unreadable-miter-limit.pdf",
+      "status": 200,
+      "bytes": 2020,
+      "sha256": "c283a2a49fbb9a706bd4652abd4fc6f86fc223dcac8b37d24da865dc6aea46ae"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/visible-italic.pdf",
+      "status": 200,
+      "bytes": 1955,
+      "sha256": "33ffba9d07f25e3a8c8f94856d9e8ac2675bf3018be9c2967d7a07c6924f1709"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/visible-plain.pdf",
+      "status": 200,
+      "bytes": 1805,
+      "sha256": "9c40b547ca03ddf9fef86eefcacd0f81e5783fd3c3d945ffd5c9850a79f3d7b6"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/visible-small-italic.pdf",
+      "status": 200,
+      "bytes": 1948,
+      "sha256": "93b060d780bc4278aa18bbfc0e2b454253cb9d4e766dee7706aa266ab39f4e18"
+    },
+    {
+      "path": "studies/native-glyph-bounds/fixtures/visible-small.pdf",
+      "status": 200,
+      "bytes": 1798,
+      "sha256": "b11ae7ea5b454ed68bce815c7982ba43b8ee0f613bc51be8a74a72364c26b2fa"
+    },
+    {
+      "path": "studies/native-glyph-bounds/generate.py",
+      "status": 200,
+      "bytes": 7528,
+      "sha256": "87572d76f686cbd924a048b0785e05d8bc6d8be7441e87c3d057e9c5b302beab"
+    },
+    {
+      "path": "studies/native-glyph-bounds/pixels.py",
+      "status": 200,
+      "bytes": 2637,
+      "sha256": "5676f4b4b2ad8d0b746881291e293df082c13c3f8603b78c634df437a12dd937"
+    },
+    {
+      "path": "studies/native-glyph-bounds/replay.py",
+      "status": 200,
+      "bytes": 3016,
+      "sha256": "ff550d792148a80a64204c2496d475d22dfb75fbfcd62369157476ffc6606004"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/after.json",
+      "status": 200,
+      "bytes": 68049,
+      "sha256": "f71285e7715731169369a665635dcd19d33e1cda9ef15550d3c0d49e507e31eb"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/artifacts.json",
+      "status": 200,
+      "bytes": 8019,
+      "sha256": "d5621b47c178a49849534ad93a1a5ac629a6fe1bcd75b090085bc68aed0b2371"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/before-chromium-browser.json",
+      "status": 200,
+      "bytes": 390,
+      "sha256": "f01b73aa7e098ca2828cc4e7067ebdf77214404fcb87bfd0e995c03edf888595"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/before-firefox-browser.json",
+      "status": 200,
+      "bytes": 390,
+      "sha256": "f01b73aa7e098ca2828cc4e7067ebdf77214404fcb87bfd0e995c03edf888595"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/before.json",
+      "status": 200,
+      "bytes": 62353,
+      "sha256": "c91074236a3f28e5294462f80ce10ec396b1bff4e7717ff05b24f054721df39c"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/chromium-browser.json",
+      "status": 200,
+      "bytes": 837,
+      "sha256": "50aaa5feaff1c196223982f26c751151de7b3731fcf06ed080c1d2f3d6debc5f"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/firefox-browser.json",
+      "status": 200,
+      "bytes": 837,
+      "sha256": "50aaa5feaff1c196223982f26c751151de7b3731fcf06ed080c1d2f3d6debc5f"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/minimum-source.json",
+      "status": 200,
+      "bytes": 68046,
+      "sha256": "e9aaf51c966c6633e39053dd42b7c2b17499a8732fd68f4b9b445e606738d45e"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/pixels.json",
+      "status": 200,
+      "bytes": 26152,
+      "sha256": "797d6cc6ef8b6924c75926349cffa2218582a9ba9ec794cb3c943816f8bf9a69"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/verification.json",
+      "status": 200,
+      "bytes": 13384,
+      "sha256": "da5b5b263807586a718941b4ed2a33874a40a2dd2385a64ac82569d59c672b4a"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/worker-installed.json",
+      "status": 200,
+      "bytes": 649,
+      "sha256": "6326dfeba305e02464fc279cf30c76a5a9cd317683996b566afd67eb3d19bc98"
+    },
+    {
+      "path": "studies/native-glyph-bounds/results/worker-minimum-sdk.json",
+      "status": 200,
+      "bytes": 650,
+      "sha256": "7608cc064236abb7801ccf0a8107a66ce117367a2f2867a490d357d77b267709"
+    },
+    {
+      "path": "studies/native-glyph-bounds/worker.py",
+      "status": 200,
+      "bytes": 2693,
+      "sha256": "593bb5c0443f50b559f95873a532d7650db9344848281e8d6aa95d5fad4ee821"
+    },
+    {
+      "path": "studies/overlapping-text/README.md",
+      "status": 200,
+      "bytes": 11555,
+      "sha256": "9f90bb7e39fc0615019c80c112065f6905a221ec50ab617755cdeb1d093b1702"
+    },
+    {
+      "path": "studies/unpainted-text/README.md",
+      "status": 200,
+      "bytes": 8922,
+      "sha256": "772f1d8bd92dbc13e5d47f11ebb76b88cbba616c3ea078c082bf45f8d06d8ff1"
+    },
+    {
+      "path": "studies/unpainted-text/replay.py",
+      "status": 200,
+      "bytes": 4004,
+      "sha256": "98f997ee82c16df26b789ff3b423fc800de131843df960d2752bd3e508dcac94"
+    },
+    {
+      "path": "studies/zero-opacity/README.md",
+      "status": 200,
+      "bytes": 7499,
+      "sha256": "b1a110d2fe9fafec437c79d73f0ad1722395385d9c676d75322273de9a310a37"
+    },
+    {
+      "path": "studies/zero-opacity/replay.py",
+      "status": 200,
+      "bytes": 3246,
+      "sha256": "5182cd77401b163e4bf4de5ff596e00243d2b024e124be82c53aafc80bc40ca5"
+    },
+    {
+      "path": "tests/test_glyph_envelopes.py",
+      "status": 200,
+      "bytes": 3270,
+      "sha256": "8876042c6889fc16639f1b42d11cbaf5272b0a522e3e8065b28ff187673150e3"
+    },
+    {
+      "path": "tests/test_unpainted_text.py",
+      "status": 200,
+      "bytes": 3545,
+      "sha256": "76b0bca3d28801ff3ab7d93a353060235e1db1a16aa9375d507d6742f412107e"
+    },
+    {
+      "path": "tests/test_zero_opacity.py",
+      "status": 200,
+      "bytes": 5619,
+      "sha256": "2e99f35dbe81d119fd2a7988937c238bfb6b680cadbd9814edd8ac4cebe272fe"
+    },
+    {
+      "path": "uv.lock",
+      "status": 200,
+      "bytes": 478120,
+      "sha256": "92852934b3a4f389dab8c752b67d162479df10a80ea474dec13d62edb28bace0"
+    },
+    {
+      "path": "web/tests/browser/live.spec.mjs",
+      "status": 200,
+      "bytes": 64366,
+      "sha256": "3915a1c7fdfef71db1c83ec4c47b5f07049b4eb2ca4a19517d04bae2da89f732"
+    }
+  ],
+  "pipUpgrade": {
+    "command": "python -m pip install --force-reinstall \"fieldproof @ git+https://github.com/antonsoo/fieldproof.git@05ac81a33215bc858d125f291d1467244fb56dde\"",
+    "baseline": {
+      "packageVersion": "0.2.7",
+      "pdfiumVersion": "4.30.0",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "sourceSha256": "9e04a97e00e84c20ebf52f970496fd32f142b9e0203f7a5365e69fd5d8a17e7a",
+      "files": {
+        "__init__.py": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde",
+        "cli.py": "39070a320300986d32b18062e8fe97deb3bf874b531ffa4ec6967fa57f2b5b0e",
+        "document/__init__.py": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074",
+        "document/loader.py": "ba9cf5ac882c80324e0ba3b229535a9a173c6ada5f0ae0c1ba2fd353bda0ecb8",
+        "document/model.py": "468e6324352e5721bb5bc3ac9bdaf9ce6db938797520bf9afb7973d3b7874189",
+        "document/ocr.py": "6f3f01e44af491224a59bb79d414cd2838c221e5ec9a1a2b1277b1e78dc9d2cf",
+        "document/render.py": "a9e20033447b6b12bb14ebe41f283473bfd0b328852caa322552eb74d0701037",
+        "extract/__init__.py": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e",
+        "extract/anthropic_provider.py": "d160541e1b1ea14e78a68b8e0113d4b5b6bf26d5ace9fd4c66866855b605f121",
+        "extract/base.py": "caa64bba3320fba941b1d1105104c11ad09aeed44337eeb50c3e0e51668b0b85",
+        "extract/fixture_provider.py": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49",
+        "ground/__init__.py": "d1d9ae7bf6f9bad1a3a059b48628236980efe385c84193ddc93c3a63246a496d",
+        "ground/align.py": "71bfcbd98da48afd6116a490f5cf826599518f32077ea9b3218f5e5468da5635",
+        "ground/normalize.py": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520",
+        "schemas/__init__.py": "21e84fd670cb5138e8371c61e2d4d46d5d8631783165a1445a7976368e1cb560",
+        "schemas/base.py": "ee163ef0585b60ade9967f0d8d401a429898c16bec69743480e763fa60e82b68",
+        "schemas/contract.py": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0",
+        "schemas/invoice.py": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b",
+        "schemas/receipt.py": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e",
+        "server/__init__.py": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b",
+        "server/app.py": "fadf37dae1da6291e28f5102362f0bf7c4e092da0277dc7f679e6e6bfec837f2",
+        "server/store.py": "dae7017cfc73e0a49ae83413d39597325e94435c8d62acc659b017cc3ad4b59b",
+        "verify/__init__.py": "ed46f15740acfec1fe2cc7cd631c2541fc28f8ee29a410ac64459999900b73c0",
+        "verify/cross_field.py": "2e07ac60e4b93b081e73f5985a54ae7a62b54cc2b718fcc68fc407015033e4fd",
+        "verify/engine.py": "ffabaecd6dc41411c6a68ca5f97240d1b66b4dee3d874ebcdfe8df723789d5e5",
+        "verify/value_checks.py": "fbfa9a38959ac9be38becb3f429122901cb5ebd7addac2f666e3886db7f64213"
+      },
+      "bundledUiFiles": 23
+    },
+    "after": {
+      "packageVersion": "0.2.7",
+      "pdfiumVersion": "5.14.0",
+      "field": {
+        "path": "total",
+        "value": 900.0,
+        "status": "needs_review",
+        "reasons": [
+          "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Authorized total: $900.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 229.312,
+            "x1": 225.8880000000001,
+            "bottom": 245.312
+          }
+        ]
+      },
+      "sourceSha256": "9e04a97e00e84c20ebf52f970496fd32f142b9e0203f7a5365e69fd5d8a17e7a",
+      "files": {
+        "__init__.py": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde",
+        "_reports.py": "44b543f2279b8a41f9433639b71bd8f82f6a5362019971ae785eda6fc9fcb71a",
+        "cli.py": "dc3b269f25e278207da9869d09e02f25998a69f0592d9406f15fdf5160af157b",
+        "document/__init__.py": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074",
+        "document/clip_bounds.py": "7bba15e37d58ef0c6c041f4f7431acc4023736e91b668a0136a273f21e562d8c",
+        "document/glyph_envelopes.py": "f5065a9f2ebff41223945ba04317c78b0eab74a329159d3c76b57a536612f395",
+        "document/limits.py": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71",
+        "document/loader.py": "a739a824a9a54931ea4996b0af18688f180779bc310b79220af75262615b7970",
+        "document/model.py": "3244ab7a75e13733bd639d821d4964b195f2f29d490813026d5e06dc0d0bdeb5",
+        "document/ocr.py": "d37c80e6e9503b6070e127c91d1149a974b624dbf2be8de3db981f8283850902",
+        "document/raster_paint.py": "53cee332c4e3a2d0a860f2f5acebcc5af5cc88695bd04e1fee042ad65b026c17",
+        "document/render.py": "651c776a68820bb29002bc21ebede0891a1ddf281c4d71c5035fc5296f59f502",
+        "document/text_modes.py": "324a7120519071193ab662d3205a9e592738f7c1b9e1d78e63b5e8b40e4589c4",
+        "document/worker.py": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142",
+        "extract/__init__.py": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e",
+        "extract/anthropic_provider.py": "87aa3ac824ebd3b21ec1536b3ad45eb27ac16e559ea8133cd51173662aeb39d8",
+        "extract/base.py": "ed4dddee401c935aa9021e1d3abb5aaed0cf0f2dc2a29f555a995ce9accc3811",
+        "extract/fixture_provider.py": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49",
+        "ground/__init__.py": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd",
+        "ground/align.py": "519441050c619a0ef8e62bca94072fc200f467e49ebb2b4f12e41e5916577f4c",
+        "ground/lines.py": "aa8715ff767e0dba4d90e5a87d902f74a07135099b20ad816a04e2e7f58b069c",
+        "ground/normalize.py": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520",
+        "ground/values.py": "1a876375896662382dde616fad06a08f54c750602a4f7063faf2f20ba168a340",
+        "schemas/__init__.py": "2846223c9fe650c6c471d68c97359b2f0bef71c3029bcb928d119ef47e04818c",
+        "schemas/base.py": "7f2bfa1c4b71d57064f9f06b7a904e34f7d646cd78d80086f921c83bcd3837de",
+        "schemas/contract.py": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0",
+        "schemas/invoice.py": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b",
+        "schemas/receipt.py": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e",
+        "server/__init__.py": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b",
+        "server/app.py": "cc5287e551ad6c180cca6e4f9166fc5828c4974d82cb798955254624bead03bd",
+        "server/archive.py": "f164088bedbaa989245946d89a3f297ee5f236e1c9145b71fb19fe1b0236270a",
+        "server/body_limit.py": "d6186c0a279c765ecd347cd68f7936915574fa1ab12ea2f65cd24f78fedfe1bb",
+        "server/pdf_work.py": "c3fd361d0b5fe32c5016e0c3dfdaf297c184a5ab71d6e2835f01f85747ce941d",
+        "server/spreadsheet.py": "89def3a96c29c583a80c01629067b919b1dd5336f882bce53682f81684d4bc2f",
+        "server/store.py": "18c5c059b96b8a1b6436820ace7ee0155d176ca3b46b4fb12fb39d855d85c8eb",
+        "verify/__init__.py": "740faaaab55c8f47f78091074d3e6d73174a23f2c0255d375b2ff8917ba0d933",
+        "verify/columns.py": "50f8d5f3362a508e2dba6bc3fc955b9a6d639bd1500d42172555efd2a87f00c1",
+        "verify/cross_field.py": "ad1a7facac1c39cc4ebec47412db36dc258b76dd1d2b4b603007fadcf928b365",
+        "verify/engine.py": "7fc93f6f1d85b908aab42e1dc8aaea94fda2d2886bcefdcf61376815ee018168",
+        "verify/rows.py": "410f8363ab9b4b89c7f0ed0185cff8b88fd4bbf63e68d92ffe3ef1a3fc397765",
+        "verify/value_checks.py": "7ba4980ae4c907f2fdea4f33bac0eb3546d24ce318df5ad25118e8d17acc17e1"
+      },
+      "bundledUiFiles": 0
+    },
+    "allInstalledRuntimeBytesMatch": 41,
+    "downloadedPublicFixtureReplay": {
+      "cases": 36,
+      "mismatches": 0,
+      "python": "3.11.13",
+      "versions": {
+        "pdfplumber": "0.11.10",
+        "pdfminer.six": "20260107",
+        "pypdfium2": "5.14.0",
+        "Pillow": "13.0.0"
+      }
+    },
+    "scope": "Actual pip registry installation with former SDK floor, then pinned public Git upgrade. Direct Git installation has no bundled UI."
+  }
+}
