@@ -100,13 +100,19 @@ _DOT_THOUSANDS_DECIMAL_TOKEN = re.compile(r"(?<![\d.,])\d{1,3}(?:\.\d{3})+,\d{1,
 
 
 def number_styles(text: str) -> frozenset[NumberStyle]:
-    """The conventions established by complete supported numeric tokens.
+    """The conventions established by unambiguous lexical separator roles.
 
     Keep conflicting evidence distinct from absent evidence: a caller's fallback
     can supply a missing convention, but cannot settle a document showing both.
+    Uncertain spacing can prevent value support without erasing these roles.
     """
     styles: set[NumberStyle] = set()
-    for token in number_tokens(text):
+    # Uncertain spacing can prevent an amount from verifying without making
+    # its punctuation ambiguous: "1 1,234.50" still shows a decimal point.
+    # Keep these lexical observations so rejecting a grouped amount cannot
+    # erase a conflicting convention and certify another ambiguous value.
+    _, _, lexical = _lexical_number_tokens(text)
+    for token in lexical:
         if token.count or not token.readings():
             continue
         digits = token.digits.rstrip(".,")
@@ -204,6 +210,16 @@ def number_tokens(text: str) -> tuple[NumberToken, ...]:
     whitespace. Currency symbols share one lexical role; this does not convert units.
     The offset map preserves the exact original evidence and its bounding boxes.
     """
+    normalized, offsets, tokens = _lexical_number_tokens(text)
+    return _spaced_tokens(normalized, offsets, tokens)
+
+
+def _lexical_number_tokens(text: str) -> tuple[str, list[int], list[NumberToken]]:
+    """Whole lexical spellings, before unresolved adjacent groups are combined.
+
+    Only separator-role inference uses these components directly. Amount
+    grounding and value support must use number_tokens and its complete spans.
+    """
     normalized, offsets = normalize_with_map(text)
     # Grounding normalizes whitespace, but an amount's sign/unit must stay on
     # its line. Callers with page geometry restore those boundaries first.
@@ -248,7 +264,7 @@ def number_tokens(text: str) -> tuple[NumberToken, ...]:
                 ),
             )
         )
-    return _spaced_tokens(normalized, offsets, tokens)
+    return normalized, offsets, tokens
 
 
 def _spaced_tokens(

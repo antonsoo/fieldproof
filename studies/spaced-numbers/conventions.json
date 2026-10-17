@@ -1,0 +1,8 @@
+[
+  {"id":"decimal-cue-conflict","rows":["Other 1.234,50","Row 1 1,234.50"],"styles":["decimal","thousands"],"total_statuses":["needs_review","needs_review"]},
+  {"id":"thousands-cue-conflict","rows":["Other 1,234.50","Row 1 1.234,50"],"styles":["decimal","thousands"],"total_statuses":["needs_review","needs_review"]},
+  {"id":"decimal-cue-only","rows":["Row 1 1,234.50"],"styles":["decimal"],"total_statuses":["verified","needs_review"],"component":true},
+  {"id":"thousands-cue-only","rows":["Row 1 1.234,50"],"styles":["thousands"],"total_statuses":["needs_review","verified"],"component":true},
+  {"id":"unsupported-exponent","rows":["Row 1 1,234.50e6"],"styles":[],"total_statuses":["needs_review","needs_review"]},
+  {"id":"rate-is-not-a-convention","rows":["Row 1 1,234.50%"],"styles":[],"total_statuses":["needs_review","needs_review"]}
+]

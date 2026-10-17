@@ -15,7 +15,7 @@ from fieldproof.document.loader import load_pdf
 from fieldproof.document.model import BBox, Document
 from fieldproof.ground.align import find_candidates
 from fieldproof.ground.lines import separate_numeric_regions
-from fieldproof.ground.values import number_style, number_tokens
+from fieldproof.ground.values import number_style, number_styles, number_tokens
 from fieldproof.schemas import Evidenced
 from fieldproof.schemas.base import EvidencedDate
 from fieldproof.verify import verify
@@ -170,6 +170,53 @@ def test_rejecting_grouped_value_does_not_make_an_unrelated_location_unique(quot
     assert [(m.matched_text, m.is_strong) for m in matches] == [("1 3,000", False), ("3,000", True)]
     (field,) = verify(Amount(total={"value": 3000, "evidence": [quote]}), document).fields
     assert field.status.value == "needs_review" and "ambiguous" in field.reasons[0]
+
+
+@pytest.mark.parametrize("tight,counter", [("1,234.50", "1.234,50"), ("1.234,50", "1,234.50")])
+@pytest.mark.parametrize("default", [None, "decimal", "thousands"])
+def test_uncertain_amount_boundaries_do_not_erase_conflicting_convention_roles(
+    tight, counter, default
+):
+    stream = BytesIO()
+    canvas = Canvas(stream, invariant=True)
+    for y, text in [(720, "Total 60.000"), (680, "Other " + counter), (650, "Row 1 " + tight)]:
+        canvas.drawString(40, y, text)
+    canvas.save()
+    document = load_pdf(stream.getvalue())
+    assert number_styles(document.full_text()) == frozenset({"decimal", "thousands"})
+    for value in [60, 60000]:
+        (field,) = verify(
+            Amount(total={"value": value, "evidence": ["Total 60.000"]}),
+            document,
+            default_number_style=default,
+        ).fields
+        assert field.status.value == "needs_review", field.reasons
+        assert "both decimal-point and dot-thousands" in field.reasons[-1]
+
+
+@pytest.mark.parametrize(
+    "cue,style,value", [("1,234.50", "decimal", 60), ("1.234,50", "thousands", 60000)]
+)
+def test_a_complete_separator_role_can_survive_without_certifying_the_grouped_amount(
+    cue, style, value
+):
+    stream = BytesIO()
+    canvas = Canvas(stream, invariant=True)
+    canvas.drawString(40, 720, "Total 60.000")
+    canvas.drawString(40, 680, "Row 1 " + cue)
+    canvas.save()
+    document = load_pdf(stream.getvalue())
+    (field,) = verify(Amount(total={"value": value, "evidence": ["Total 60.000"]}), document).fields
+    assert field.status.value == "verified", field.reasons
+    assert number_style(document.full_text()) == style
+    assert not check_number(1234.5, "Row 1 " + cue, number_style=style).supported
+
+
+@pytest.mark.parametrize(
+    "text", ["1,234.50e6", "AB1,234.50CD", "1,234.50%", "1,234.50x", "1,2,3.50"]
+)
+def test_malformed_identifier_rate_and_count_components_do_not_supply_convention_roles(text):
+    assert number_styles("Row 1 " + text) == frozenset()
 
 
 @pytest.mark.parametrize("text", ["DATE 14-02-2018 13:45", "At 13:45 100.00", "Ref ID-1 234"])
