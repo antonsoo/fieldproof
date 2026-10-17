@@ -1,0 +1,33 @@
+{
+  "evidence": {
+    "path": "total",
+    "value": 900,
+    "status": "needs_review",
+    "reasons": [
+      "some quoted PDF characters have observed paint only inside overlapping native text bounds; another glyph may supply those pixels; review the rendered page before accepting this text"
+    ],
+    "match_score": 100,
+    "matched_text": "Authorized total: $900.00",
+    "page": 1,
+    "rects": [
+      {
+        "x0": 48,
+        "top": 229.312,
+        "x1": 225.8880000000001,
+        "bottom": 245.312
+      }
+    ]
+  },
+  "pendingTotal": {
+    "field": "total",
+    "value": 900,
+    "original_value": 900,
+    "value_source": "extraction",
+    "verification_status": "needs_review",
+    "review_status": "pending",
+    "page": 1
+  },
+  "rejectedTotalExcluded": true,
+  "offlineRequests": [],
+  "restoredReportEqual": true
+}

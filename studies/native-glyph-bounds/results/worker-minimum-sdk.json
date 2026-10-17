@@ -1,0 +1,21 @@
+{
+  "scope": "Actual server workers; one local observation, not a performance guarantee.",
+  "python": "3.11.13",
+  "sourceSha256": "e7479dd8749e3ca07d08c2136149e726d26df1cc76c3e0cb95e5535e44d9843b",
+  "sourceBytes": 54981,
+  "pages": 64,
+  "words": 29056,
+  "rasterStates": {
+    "contributes": 29056
+  },
+  "loadSeconds": 14.052371565951034,
+  "renderSeconds": 0.3164987080381252,
+  "pngBytes": 420528,
+  "pngSha256": "fc5f00c9205b8737fbed1b28c92aa9b4751fdf26d8d16f00b27ac0b790399904",
+  "largestChildPeakRssBytes": 141533184,
+  "limits": {
+    "wallSecondsPerOperation": 30,
+    "cpuSecondsPerWorker": 20,
+    "addressSpaceBytes": 805306368
+  }
+}

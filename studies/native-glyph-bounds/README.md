@@ -11,6 +11,12 @@ These are authored synthetic invoices, not customer documents or a measurement
 of real-world error prevalence. The generator, fixture extraction and PDFs are
 retained so the failure is usable without an extraction provider or OCR.
 
+![Installed corrected review: the covered 900 claim now needs review](../../docs/assets/native-glyph-bounds/chromium-1440.png)
+
+The [retained baseline screenshot](../../docs/assets/native-glyph-bounds/before-chromium-1440.png)
+shows the same page and extraction marked verified. Four corrected desktop/phone
+captures and two original desktop captures were inspected in both engines.
+
 | Authored controls | Baseline | Current source |
 | --- | --- | --- |
 | 25 covered nines: italic fonts, rotations, crop, Forms and strokes | 25 incorrectly verified | 25 require review |
@@ -91,3 +97,34 @@ authored PDFs. Historical before receipts are from the baseline runtime, not a
 simulation of its verdict. Package and browser evidence is recorded separately
 after building and installing the distributions; package version `0.2.7` alone
 does not identify this unreleased source correction.
+
+## Installed review and processing cost
+
+The wheel and source distribution both contain 41 runtime files and 23 bundled
+UI files. The [artifact receipt](results/artifacts.json) compares every one with
+the tested archive and actual installations. Python 3.14 with the current SDK
+and Python 3.11 with PDFium 5.0 both replay all 36 cases with identical verdicts,
+reasons and geometry. Ordinary examples retain all 11 complete report hashes.
+
+All 100 production browser scenarios pass against the installed wheel and built
+static demo, with no retries. The new workflow also runs separately in both
+engines: a pending amount exports with original 900 and `needs_review` while
+offline; rejecting it removes it from row exports. Saving/restoring the archive
+retains the original claim, automated report and rejection. No replacement value
+is inferred. [Chromium](results/chromium-browser.json) and
+[Firefox](results/firefox-browser.json) receipts retain the actual observations.
+
+The [worker driver](worker.py) authors a 64-page, 29,056-word ledger once and
+then replays its bytes using only the installed runtime dependencies. Both
+environments report every word as contributing, render a real PNG and retain
+the existing 30-second wall, 20-second CPU and 768 MiB address-space budgets.
+
+| Installed runtime | Native load | Largest child peak RSS |
+| --- | ---: | ---: |
+| Python 3.14, current PDFium | 11.35 s | 148,635,648 bytes |
+| Python 3.11, PDFium 5.0 | 14.05 s | 141,533,184 bytes |
+
+These are single observations on a 14-vCPU WSL2 Linux machine with 48 GB RAM,
+not speed comparisons or worst-case guarantees. The
+[current](results/worker-installed.json) and [minimum-SDK](results/worker-minimum-sdk.json)
+receipts share the input SHA-256 and record the actual worker limits.

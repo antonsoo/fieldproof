@@ -1,0 +1,366 @@
+{
+  "sourceRevision": "3b42024b63d2b0023e9cad5fdb50c9fd8ac47cc1",
+  "browserDriverRevision": "05ac81a33215bc858d125f291d1467244fb56dde",
+  "cleanPython314": {
+    "passed": 705,
+    "skipped": 5,
+    "skipScope": "Existing actual-Tesseract checks; a working engine unavailable",
+    "logSha256": "0b6386cc22093d39874846e641ed1f03364ccd8aba94940a42802780b82eb891"
+  },
+  "minimumPython311": {
+    "passed": 705,
+    "skipped": 5,
+    "warnings": 2,
+    "warningScope": "Existing Starlette/httpx and anyio deprecation warnings",
+    "logSha256": "a89af428fd4e289876dc50a01ee0f2d6c1913792fbee8451d6c9387772d8f4b8"
+  },
+  "checks": {
+    "ruff": "passed",
+    "mypySourceFiles": 41,
+    "webUnitTests": 70,
+    "node": "24.22.0",
+    "webLintTypesFormat": "passed",
+    "liveAndDemoBuilds": "passed"
+  },
+  "browsers": {
+    "startTime": "2026-10-17T10:52:26.036Z",
+    "duration": 228863.58000000002,
+    "expected": 100,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "ordinaryExamples": {
+    "documents": 11,
+    "rows": [
+      {
+        "pdf": "column-evidence.pdf",
+        "sourceSha256": "2fc2b5be11dfb49eacc82b72bc1833c64d9109c6e9db373126f2995fef3f88ef",
+        "geometrySha256": "fe20e2b579b1aa91eec2245f03cc7ac0ef6b429defd6adf32f5970cebf9cbfdf",
+        "reportSha256": "dba3f1c14ba40fa3b14ea322afe71091cb033b3ac9027c3b347cc71cdfd8811a",
+        "counts": {
+          "verified": 8,
+          "needs_review": 2,
+          "unsupported": 0
+        }
+      },
+      {
+        "pdf": "contract.pdf",
+        "sourceSha256": "8b0dfce01c4758e673ab7423b51809caa3610c22a90091447999e9aa98562318",
+        "geometrySha256": "85b0750a563fe63628f5d68fb00d7c07b6c9c44ab8cf81498e93175697c24f62",
+        "reportSha256": "88f1944660f51057e90c2656b0dfd5f6626192a648f752178bf70fa1fe5b3738",
+        "counts": {
+          "verified": 10,
+          "needs_review": 0,
+          "unsupported": 0
+        }
+      },
+      {
+        "pdf": "date-convention.pdf",
+        "sourceSha256": "111cc13f04a27893f47caeaf74bd10da6161ab7f63267eb68f69ec678ec6e6f1",
+        "geometrySha256": "11eff941e48086747054d22b68689993184d73b4e28ec0753eae65e952e9809a",
+        "reportSha256": "1e02c6b853615c0f41bee1764fcc6422d18ba0f6a6261d8a2f2ab25ac038ed28",
+        "counts": {
+          "verified": 3,
+          "needs_review": 1,
+          "unsupported": 0
+        }
+      },
+      {
+        "pdf": "hidden-text.pdf",
+        "sourceSha256": "dab5f04a56da679afa1531dc8369f0b4ac7e2e14e98fdc73093e5c94f5c9438a",
+        "geometrySha256": "6ed9984154bed4d6384fc7c73ef503b1e9458632cadb4e6acd8194060a275b91",
+        "reportSha256": "c830af99b05fee5dc1887aca0fe58ba0bad5a7caaff0bc228e52e42cce892e29",
+        "counts": {
+          "verified": 3,
+          "needs_review": 1,
+          "unsupported": 0
+        }
+      },
+      {
+        "pdf": "invoice.pdf",
+        "sourceSha256": "32d026999bf2318034f8d03df2b655b2c5f210245b3153b4068f64f333147175",
+        "geometrySha256": "33cae538391661ffe1a02359f567f511a56119439df55044f4c982f98bfeb9d8",
+        "reportSha256": "d63ec4b6a42f2a4a81043cddb6722b1f6b4bc398e80324672e050b6854267263",
+        "counts": {
+          "verified": 21,
+          "needs_review": 3,
+          "unsupported": 1
+        }
+      },
+      {
+        "pdf": "line-arithmetic.pdf",
+        "sourceSha256": "f375a9e52a0508c40d21baf44d450fbe126506ea4982c46a2730fb4d8c009b48",
+        "geometrySha256": "b48e03759fb6e7c4a349eb805767a332aacb08a160c639951f6b460ee36d06a7",
+        "reportSha256": "2f92f4c8a676f75d00c13c2eee79cf72f055d115a130a05f662362ed47818552",
+        "counts": {
+          "verified": 7,
+          "needs_review": 3,
+          "unsupported": 0
+        }
+      },
+      {
+        "pdf": "mixed-conventions.pdf",
+        "sourceSha256": "c9165c388477d885bfd2510c53e8332960a9f783e012ff31b94372b9b640693c",
+        "geometrySha256": "c26f605eb6dae3a7e5120d59c552ed1aaf6b37fde027cc40ec925144acf10895",
+        "reportSha256": "fb49a355b7af40e4f9c8ca110478fe7b5c313407b462d4947083218eb0f553f3",
+        "counts": {
+          "verified": 2,
+          "needs_review": 2,
+          "unsupported": 0
+        }
+      },
+      {
+        "pdf": "receipt.pdf",
+        "sourceSha256": "7cef321b47e1272523a831148e2c2787d8805c4835c536aa3fb326421aabffee",
+        "geometrySha256": "1db7831b4573f56a8af3b87b081f167f6dcc8f8452aa08449a6beb1d6966db2f",
+        "reportSha256": "1bb0c9c42526d4c99e3e37daf2c0c5f894d4626369722c05a7617fe1a5b49b26",
+        "counts": {
+          "verified": 17,
+          "needs_review": 1,
+          "unsupported": 0
+        }
+      },
+      {
+        "pdf": "row-association.pdf",
+        "sourceSha256": "bd6221e2b1206843c306dc0dd4fe7c113c7d4526015d7242d729ecfcef173cc4",
+        "geometrySha256": "574d4cadb3e0b9dec8793728d4c04202ebeb0f9c3b5c090b44c888bd7693efd3",
+        "reportSha256": "000faba447b010b5315bc3ac93ec5a59e3c37087b53c39d863a0ff2481d53fb9",
+        "counts": {
+          "verified": 14,
+          "needs_review": 1,
+          "unsupported": 0
+        }
+      },
+      {
+        "pdf": "row-locality.pdf",
+        "sourceSha256": "fd3550678e0f284ba8efa4437bda8ef395ff48c86d0c7dbf7eeac32de3f75099",
+        "geometrySha256": "a5bbac9ab5743ecc0ed49ee2a0b16dca482ada8c823b77da020ac1b4640977db",
+        "reportSha256": "34df93b96ab04a0491fd2359f545a7e90356aa4f1982e35e065e824607cd6266",
+        "counts": {
+          "verified": 14,
+          "needs_review": 1,
+          "unsupported": 0
+        }
+      },
+      {
+        "pdf": "signed-amount.pdf",
+        "sourceSha256": "0468baade843452d04e8ef9b71cb55fae19b75bd434ab908d51060e23e8ddb14",
+        "geometrySha256": "efde48312468710b0fa7bd9a56b5327f5f653eabc92576aa638cf038a618551a",
+        "reportSha256": "9301c78d369816ed2a3b3ee574d7cc823e8dbf5ef1a70da9ebab78e3261a06d7",
+        "counts": {
+          "verified": 3,
+          "needs_review": 1,
+          "unsupported": 0
+        }
+      }
+    ]
+  },
+  "authoredSources": [
+    {
+      "case": "Helvetica-Oblique-16-4",
+      "sourceSha256": "9e04a97e00e84c20ebf52f970496fd32f142b9e0203f7a5365e69fd5d8a17e7a",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Helvetica-Oblique-16-8",
+      "sourceSha256": "69b94795616e3ccb05d643e33d7b45c3445ff96df7118424f7df0c556d7570ae",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Helvetica-Oblique-20-4",
+      "sourceSha256": "a1182627e6af33ef7e80333516b7f1a7c4ac7c545af1cd3d96c636e98aa5d432",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Helvetica-Oblique-20-8",
+      "sourceSha256": "a1e3e82fb63df82c63e56c4c69fe99cbcfd96ae42ddcf2b1633cd43d4677106c",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Helvetica-Oblique-30-4",
+      "sourceSha256": "1c1361f1b062bc2599559fb8c9b7b079a30090e4d913cfb716a207dab660240a",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Helvetica-BoldOblique-16-4",
+      "sourceSha256": "d2a2c6b7e6d1c42a32a8ff34e4d71c0fc7d05ac857563d19f1744ae0608d2406",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Helvetica-BoldOblique-16-8",
+      "sourceSha256": "20fd2cfbd71962a0fc4746688f482cc4d5355447b824928a6b9d082d13355224",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Helvetica-BoldOblique-20-4",
+      "sourceSha256": "cb592b6b1f41bfa7fa0c2db11023364dae31e61414d71744c23fa20c4b7a056b",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Helvetica-BoldOblique-20-8",
+      "sourceSha256": "52b8034d6bf6caa5fd597ce8847ccfbf82044bc4e2b0989e2c50fe6320b4996f",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Helvetica-BoldOblique-30-4",
+      "sourceSha256": "6f112ee30400fb907b2b41e2442c37eea1442028abe0841b47bbfc75039fbb13",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Times-Italic-20-4",
+      "sourceSha256": "b6c48c967b159b35188dab4d83a97b26146b4c4af42c8823be365983b877f858",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Times-Italic-20-8",
+      "sourceSha256": "b8d851cd3fb027ae7a0dd83c9c429b098f283fbc89bacc8ce4a27c7332828766",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Times-Italic-30-4",
+      "sourceSha256": "b873ed6426238d8c5884254025c2601f6d1ad9110ffba09ecda197da4706c15d",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "Times-Italic-30-8",
+      "sourceSha256": "7bd8bf8258063a01e9a0d7ccd938f8f1baac556ae961fb8cc035079825e85ae1",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "rotation-90",
+      "sourceSha256": "942283da3c280234ce192bf08a4a189c62f059b7381698efe045842ff3745b1c",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "rotation-180",
+      "sourceSha256": "09ebd0fecc3218c7f8d41fa00187c0df609431ab03215fdccc463460b06ca614",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "rotation-270",
+      "sourceSha256": "f05297f8ed3db218e7b89a3cef26a6583c713c79038f1ba779afde76a9c73814",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "cropped-overhang",
+      "sourceSha256": "c6617bef2c9d85be41db97cfa273a539453b7c37371c2a18d3d7073c6e23700a",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "nested-form",
+      "sourceSha256": "0b78e92a1873fe0e67a7b34408b51634646c361ed5cd5096234bff1d73cbc83f",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "scaled-form",
+      "sourceSha256": "f8edf15f11b0da818bac58f1509e6682d44ee6f90144e51c0367cc004ffd20e7",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "stroked-overhang-0",
+      "sourceSha256": "d1e3a94209a058d5204bd773e80322a6ea4f85046e15e5dc5fced2110c3cc1fd",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "stroked-overhang-1",
+      "sourceSha256": "f322ac4d61141d5e19288c2b538c66403edc1a18bde2ba60822864de49dbeaa8",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "stroked-overhang-2",
+      "sourceSha256": "2d25fdf0dfa6fac5a01c43f903c7a4b05ac0df581651b6ce22bf191ea0574cc0",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "visible-plain",
+      "sourceSha256": "9c40b547ca03ddf9fef86eefcacd0f81e5783fd3c3d945ffd5c9850a79f3d7b6",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "visible-italic",
+      "sourceSha256": "33ffba9d07f25e3a8c8f94856d9e8ac2675bf3018be9c2967d7a07c6924f1709",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "visible-small",
+      "sourceSha256": "b11ae7ea5b454ed68bce815c7982ba43b8ee0f613bc51be8a74a72364c26b2fa",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "visible-small-italic",
+      "sourceSha256": "93b060d780bc4278aa18bbfc0e2b454253cb9d4e766dee7706aa266ab39f4e18",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "invisible-lender",
+      "sourceSha256": "12a120c8c8b8c7a9933b14f14066577f93bb8e0521365437d253642e79322213",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "transparent-lender",
+      "sourceSha256": "e68a05b251ca87b6129d12304eb6c7984b94bc6d926bab8f078ffaa2b523b4a5",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "nearby-lender",
+      "sourceSha256": "31b868ae6ffcf27216b6f86f7ceb31d089ec61af32306c4b2ed6ef18e1323cbc",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "nearby-miter-stroke",
+      "sourceSha256": "b7cc6672c9188181e04d4a9fddd9152e95cc8e91e628e8dbef50f44d8a1a7141",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "nearby-round-stroke",
+      "sourceSha256": "343b420b88e72e0a3f4fa9eed61405a5924243ca89bff914f1a1efa2f8bf2c2d",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "far-miter-stroke",
+      "sourceSha256": "fc9269b292eff8181e7f6939a025c92cab1c73375310d77263f11eea69100b09",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "larger-miter-limit",
+      "sourceSha256": "946cc963c705c4e4b50cf0c7286faaab00a88e02b143c4d1845018a3205eda34",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "unreadable-miter-limit",
+      "sourceSha256": "c283a2a49fbb9a706bd4652abd4fc6f86fc223dcac8b37d24da865dc6aea46ae",
+      "textAndGeometryIdentical": true
+    },
+    {
+      "case": "scaled-round-stroke",
+      "sourceSha256": "9a0f48f6108000c8472f2d13fa43edcea64ec17ea3d34ba0194e90d565661c80",
+      "textAndGeometryIdentical": true
+    }
+  ],
+  "scope": "Source full checks at 3b42024; browser driver at 05ac81a; runtime unchanged by later documentation.",
+  "quickstart": {
+    "sourceRevision": "0726d4fecd7395b4b64aacabaff8fe5e1022d159",
+    "python": "3.12.12",
+    "scope": "Fresh archive, uv sync --locked without extras, UI bundling, actual source server and two native review/export/archive browser workflows. uv follows the checkout Python version file.",
+    "cliOutput": [
+      "wrote result.json - 21 verified, 3 needs review, 1 unsupported",
+      "wrote result.json - 21 verified, 3 needs review, 1 unsupported"
+    ],
+    "browsers": {
+      "startTime": "2026-10-17T10:59:36.738Z",
+      "duration": 11387.859999999999,
+      "expected": 2,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "curatedDocumentation": {
+    "priorReadmeLines": 866,
+    "currentReadmeLines": 184,
+    "relativeLinksAndAnchorsChecked": true,
+    "wheelMetadataHasCuratedReadmeAndAbsoluteUsageLink": true,
+    "sourceDistributionIncludesFourGuides": true
+  }
+}
