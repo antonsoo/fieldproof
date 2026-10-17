@@ -48,13 +48,13 @@ ambiguous values stay in review even with a supplied fallback. Explicit amounts
 and unambiguous dates remain usable. The [mixed-convention study](../studies/mixed-conventions/README.md)
 retains actual PDF and CLI before/after reports and explains the heuristic limits.
 
-The local source also reads Arabic decimal U+066B and grouping U+066C with
+The source also reads Arabic decimal U+066B and grouping U+066C with
 ASCII, Arabic-Indic or Extended Arabic-Indic decimal digits. Their explicit
 roles do not decide how an ambiguous Latin `.` is used elsewhere. Arabic rate
 signs remain part of the evidence and cannot verify an ordinary amount. Mixed
 Latin/Arabic separator spellings require review. See the
 [native locale and PDF replay](../studies/arabic-numbers/README.md). This
-correction is not in the registry package or the currently pinned public source.
+correction is included in the README's pinned source install, but not in PyPI 0.2.7.
 
 Adjacent groups such as `1 234,56` require review: treating the second group as
 234.56 is unsafe, and the verifier does not guess the combined amount. It retains

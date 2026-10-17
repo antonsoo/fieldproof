@@ -157,12 +157,15 @@ No model credentials or external document services were used. Full browser
 review operations need the local server; the offline assertion covers the
 already loaded view and its exports. Neither these controls nor the native
 formatter establish general Arabic-script, OCR or real-invoice accuracy.
-Space-grouped amounts remain a separate reproduced open issue,
-`officina-fnld`; the tokenizer cannot infer column boundaries from whitespace.
+Space-grouped amounts were a separate open issue at that point. The later
+[spacing correction](../spaced-numbers/verification.md) retains uncertain
+groups and uses clear layout gaps to preserve separate cells.
 
-The work is local. No push, tag, registry upload or Pages deployment was
-performed. The existing pinned public install and static hosted demo do not
-include this correction.
+These original checks preceded source publication. No push, tag, registry
+upload or Pages deployment was performed as part of them. The then-pinned
+public install and static hosted demo did not include this correction.
+The README's current source pin includes it; the later spacing study checks
+that source and its distributions separately from a registry or hosted release.
 
 Suggested repository description (unchanged scope): "Review document extraction
 against exact evidence, value checks and preserved human corrections."

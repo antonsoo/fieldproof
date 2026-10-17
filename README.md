@@ -51,7 +51,7 @@ For only the tested CLI/library correction, including replacement of an existing
 0.2.7 installation, use the pinned source:
 
 ```bash
-python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@05ac81a33215bc858d125f291d1467244fb56dde"
+python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@b283e1beea9e1b748370b16ab419ed974c312be0"
 ```
 
 A direct Git install has **no bundled UI**. The checkout command above builds
@@ -139,16 +139,19 @@ The [evidence guide](docs/evidence-guide.md) maps individual claims to retained
 inputs, before/after reports, independent controls and installed/browser
 receipts. Each study identifies its source and publication boundaries.
 
-The local [Arabic-number correction](studies/arabic-numbers/README.md) addresses
+The [Arabic-number correction](studies/arabic-numbers/README.md) addresses
 another false verification: a printed `١٬٢٣٤٫٥٦` supported a claim of `234`.
 Complete amounts now retain their separators, and percentage signs cannot
 disappear into plain amounts. The study includes native locale formatting and
-the actual PDF review workflow. This correction is not in the pinned public
-install above, a registry release or the hosted demo.
+the actual PDF review workflow.
 
 The [spacing correction](studies/spaced-numbers/README.md) prevents `1 234,56`
 from verifying its tail as 234.56. It preserves uncertain grouped values for
 review and uses layout to retain clearly separated quantity/price cells.
+The unchanged receipt replay exposed three fragment approvals on an actual
+receipt as well as the cost of additional reviews. [Verification and costs](studies/spaced-numbers/verification.md).
+Both corrections are included in the pinned source install above. They are
+separate from the older registry verifier and hosted static demo.
 
 ## How it works
 

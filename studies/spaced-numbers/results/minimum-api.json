@@ -1,0 +1,132 @@
+{
+  "scope": "Actual API and bounded workers; active environment, fixture provider, no model calls.",
+  "python": "3.11.13",
+  "packages": {
+    "fieldproof": "0.2.7",
+    "pdfplumber": "0.11.9",
+    "pypdfium2": "5.0.0",
+    "pydantic": "2.12.0"
+  },
+  "installed_under_prefix": true,
+  "parser_sha256": "79b3c591ebd7b3933d77dad72f2c9e75b2aca847fcbdbb2ab79df8fd80ce657a",
+  "source_sha256": {
+    "__init__.py": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde",
+    "_reports.py": "44b543f2279b8a41f9433639b71bd8f82f6a5362019971ae785eda6fc9fcb71a",
+    "cli.py": "dc3b269f25e278207da9869d09e02f25998a69f0592d9406f15fdf5160af157b",
+    "document/__init__.py": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074",
+    "document/clip_bounds.py": "7bba15e37d58ef0c6c041f4f7431acc4023736e91b668a0136a273f21e562d8c",
+    "document/glyph_envelopes.py": "f5065a9f2ebff41223945ba04317c78b0eab74a329159d3c76b57a536612f395",
+    "document/limits.py": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71",
+    "document/loader.py": "a739a824a9a54931ea4996b0af18688f180779bc310b79220af75262615b7970",
+    "document/model.py": "3244ab7a75e13733bd639d821d4964b195f2f29d490813026d5e06dc0d0bdeb5",
+    "document/ocr.py": "d37c80e6e9503b6070e127c91d1149a974b624dbf2be8de3db981f8283850902",
+    "document/raster_paint.py": "53cee332c4e3a2d0a860f2f5acebcc5af5cc88695bd04e1fee042ad65b026c17",
+    "document/render.py": "651c776a68820bb29002bc21ebede0891a1ddf281c4d71c5035fc5296f59f502",
+    "document/text_modes.py": "324a7120519071193ab662d3205a9e592738f7c1b9e1d78e63b5e8b40e4589c4",
+    "document/worker.py": "b23d5300c3f79681e2a6962bbc64db0de8400afdddaa5e2778a81a5ecfa2e142",
+    "extract/__init__.py": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e",
+    "extract/anthropic_provider.py": "87aa3ac824ebd3b21ec1536b3ad45eb27ac16e559ea8133cd51173662aeb39d8",
+    "extract/base.py": "ed4dddee401c935aa9021e1d3abb5aaed0cf0f2dc2a29f555a995ce9accc3811",
+    "extract/fixture_provider.py": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49",
+    "ground/__init__.py": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd",
+    "ground/align.py": "a755b920a9f7b223ef2cfe6e1ac2f422a203832a329963bc795395a18666a0f6",
+    "ground/lines.py": "8d133490578b887f4c05deb237cab26dcdb861056d1d535490bcf33e7103aa5e",
+    "ground/normalize.py": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520",
+    "ground/values.py": "79b3c591ebd7b3933d77dad72f2c9e75b2aca847fcbdbb2ab79df8fd80ce657a",
+    "schemas/__init__.py": "2846223c9fe650c6c471d68c97359b2f0bef71c3029bcb928d119ef47e04818c",
+    "schemas/base.py": "7f2bfa1c4b71d57064f9f06b7a904e34f7d646cd78d80086f921c83bcd3837de",
+    "schemas/contract.py": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0",
+    "schemas/invoice.py": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b",
+    "schemas/receipt.py": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e",
+    "server/__init__.py": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b",
+    "server/app.py": "cc5287e551ad6c180cca6e4f9166fc5828c4974d82cb798955254624bead03bd",
+    "server/archive.py": "f164088bedbaa989245946d89a3f297ee5f236e1c9145b71fb19fe1b0236270a",
+    "server/body_limit.py": "d6186c0a279c765ecd347cd68f7936915574fa1ab12ea2f65cd24f78fedfe1bb",
+    "server/pdf_work.py": "c3fd361d0b5fe32c5016e0c3dfdaf297c184a5ab71d6e2835f01f85747ce941d",
+    "server/spreadsheet.py": "89def3a96c29c583a80c01629067b919b1dd5336f882bce53682f81684d4bc2f",
+    "server/store.py": "18c5c059b96b8a1b6436820ace7ee0155d176ca3b46b4fb12fb39d855d85c8eb",
+    "verify/__init__.py": "740faaaab55c8f47f78091074d3e6d73174a23f2c0255d375b2ff8917ba0d933",
+    "verify/columns.py": "b319f5e9a84f20e3880c309f9768bddb874b17f756e2167e6261018efafc4fbe",
+    "verify/cross_field.py": "ad1a7facac1c39cc4ebec47412db36dc258b76dd1d2b4b603007fadcf928b365",
+    "verify/engine.py": "90b37ac5f97741028c85a8e68f89e5b20dd0bc5094aeecd949df4b40ee8119bb",
+    "verify/rows.py": "410f8363ab9b4b89c7f0ed0185cff8b88fd4bbf63e68d92ffe3ef1a3fc397765",
+    "verify/value_checks.py": "7228906f337d8a424f20be7392009bb867031e0dc9f4d19da015e888047478e3"
+  },
+  "pdf_sha256": "a74de0d0be6e502fd8a4e5a74b1ade1856f114a5ba7849bfe6306a543327866c",
+  "fixture_sha256": "a8caee40fac190f0068aa71b5164b60dffeb442da6f9c8a1095d75a37df8afbb",
+  "seconds": 1.5478216119809076,
+  "wire_roundtrip_equal": true,
+  "actual": [
+    "needs_review",
+    "needs_review"
+  ],
+  "expected": [
+    "needs_review",
+    "needs_review"
+  ],
+  "observations": [
+    {
+      "value": 234.56,
+      "field": {
+        "path": "total",
+        "value": 234.56,
+        "status": "needs_review",
+        "reasons": [
+          "adjacent numeric groups '1 234,56' may be a space-grouped number or separate values; the evidence does not establish a clear boundary, so neither reading can verify a value"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Total due: 1 234,56",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 158.76562560000002,
+            "x1": 272.72266,
+            "bottom": 182.76562560000002
+          }
+        ]
+      },
+      "exported": {
+        "field": "total",
+        "value": 234.56,
+        "original_value": 234.56,
+        "value_source": "extraction",
+        "verification_status": "needs_review",
+        "review_status": "pending",
+        "page": 1
+      }
+    },
+    {
+      "value": 1234.56,
+      "field": {
+        "path": "total",
+        "value": 1234.56,
+        "status": "needs_review",
+        "reasons": [
+          "adjacent numeric groups '1 234,56' may be a space-grouped number or separate values; the evidence does not establish a clear boundary, so neither reading can verify a value"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Total due: 1 234,56",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 158.76562560000002,
+            "x1": 272.72266,
+            "bottom": 182.76562560000002
+          }
+        ]
+      },
+      "exported": {
+        "field": "total",
+        "value": 1234.56,
+        "original_value": 1234.56,
+        "value_source": "extraction",
+        "verification_status": "needs_review",
+        "review_status": "pending",
+        "page": 1
+      }
+    }
+  ],
+  "image_sha256": "1a66d5278f5a616fe976ee563a6848956910aeb088bc2dee26c281c6aeb56af4"
+}

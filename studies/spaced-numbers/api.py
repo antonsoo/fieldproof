@@ -5,7 +5,10 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import platform
+import sys
 from dataclasses import asdict
+from importlib.metadata import version
 from pathlib import Path
 from time import perf_counter
 
@@ -19,12 +22,14 @@ def main() -> None:
     args = parser.parse_args()
     from fastapi.testclient import TestClient
 
+    import fieldproof
     from fieldproof.document.model import document_from_dict
     from fieldproof.ground import values
     from fieldproof.server.app import app
     from fieldproof.server.store import store
     from fieldproof.verify import verify
 
+    package = Path(fieldproof.__file__).resolve().parent
     pdf = (HERE / "fixtures/review.pdf").read_bytes()
     fixture = (HERE / "fixtures/review.json").read_bytes()
     store._sessions.clear()
@@ -72,8 +77,23 @@ def main() -> None:
             )
             actual = [row["field"]["status"] for row in observations]
             output = {
-                "scope": "Installed API and bounded workers; fixture provider, no model calls.",
+                "scope": (
+                    "Actual API and bounded workers; active environment, "
+                    "fixture provider, no model calls."
+                ),
+                "python": platform.python_version(),
+                "packages": {
+                    name: version(name)
+                    for name in ("fieldproof", "pdfplumber", "pypdfium2", "pydantic")
+                },
+                "installed_under_prefix": Path(fieldproof.__file__)
+                .resolve()
+                .is_relative_to(Path(sys.prefix).resolve()),
                 "parser_sha256": hashlib.sha256(Path(values.__file__).read_bytes()).hexdigest(),
+                "source_sha256": {
+                    str(p.relative_to(package)): hashlib.sha256(p.read_bytes()).hexdigest()
+                    for p in sorted(package.rglob("*.py"))
+                },
                 "pdf_sha256": hashlib.sha256(pdf).hexdigest(),
                 "fixture_sha256": hashlib.sha256(fixture).hexdigest(),
                 "seconds": perf_counter() - started,

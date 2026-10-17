@@ -1,0 +1,199 @@
+{
+  "source_commit": "b283e1beea9e1b748370b16ab419ed974c312be0",
+  "scope": "Source, clean archives, installed artifacts and loopback browsers; no registry release or public hosted deployment claim.",
+  "clean_python": {
+    "version": "3.12.12",
+    "ruff": "passed",
+    "mypy_source_files": 41,
+    "pytest_passed": 807,
+    "pytest_skipped": 5,
+    "skip_reason": "Actual Tesseract executable unavailable; OCR Python extra installed."
+  },
+  "web": {
+    "source_commit": "616894ac792225d4a733f8180a2e111c807f5922",
+    "production_sources_identical_to_final": true,
+    "typecheck": "passed",
+    "lint": "passed",
+    "format": "passed",
+    "unit_tests": 70,
+    "live_build": "passed",
+    "demo_build": "passed"
+  },
+  "native_claims": {
+    "cases": 134,
+    "pages": 23,
+    "unexpected_before": 39,
+    "unexpected_after": 0,
+    "supported_controls": 7,
+    "whole_grouped_claims_retained_for_review": 15,
+    "installed_full_ledger_identical": true,
+    "minimum_full_ledger_identical": true
+  },
+  "installed": {
+    "python": "3.14.7",
+    "packages": {
+      "fieldproof": "0.2.7",
+      "pdfplumber": "0.11.10",
+      "pypdfium2": "5.14.0",
+      "pydantic": "2.14.1"
+    },
+    "regression_tests": 59
+  },
+  "minimum_direct": {
+    "python": "3.11.13",
+    "packages": {
+      "fieldproof": "0.2.7",
+      "pdfplumber": "0.11.9",
+      "pypdfium2": "5.0.0",
+      "pydantic": "2.12.0"
+    },
+    "regression_tests": 59,
+    "resolution": "Every declared runtime/dev/OCR dependency was supplied directly with --resolution lowest-direct; wheel installed non-editably."
+  },
+  "api": {
+    "before": [
+      "verified",
+      "needs_review"
+    ],
+    "after": [
+      "needs_review",
+      "needs_review"
+    ],
+    "wire_roundtrip_equal": true
+  },
+  "artifacts_receipt": "artifacts.json",
+  "browser_receipt": "browser-sweep.json",
+  "receipt_replay": {
+    "cases": 133722,
+    "documents": 1052,
+    "identical_inputs": true,
+    "verdict_or_location_changes": 383,
+    "newly_verified_claims": 0,
+    "scope": "In-sample replay of the unchanged CORD/SROIE adapter; no model or fresh OCR accuracy measurement.",
+    "corpus_manifest_sha256": "228c7fa063cdc1be0804ee8feb9fdea73c3cdded37f030851e728e8686de3d81",
+    "files": [
+      {
+        "name": "train-00000-of-00004-b4aaeceff1d90ecb.parquet",
+        "bytes": 490224630,
+        "sha256": "da3994eee1bf9bd3c57f0d53a72c3a6812c8696c5ba26245987949ddf73483cc",
+        "matches_manifest": true
+      },
+      {
+        "name": "validation-00000-of-00001-cc3c5779fe22e8ca.parquet",
+        "bytes": 242080800,
+        "sha256": "0d0f6dac11fdcc549de2746aa9f53136a3bc22a2a1aff2b0b847f7622ad60c15",
+        "matches_manifest": true
+      },
+      {
+        "name": "test-00000-of-00001-9c204eb3f4e11791.parquet",
+        "bytes": 234202795,
+        "sha256": "51c65f1788faff392abe2a0b55b023eb23e9be551c509138eaa3a832514224e7",
+        "matches_manifest": true
+      },
+      {
+        "name": "train-00000-of-00001-66201d4afd6b73ca.parquet",
+        "bytes": 217146103,
+        "sha256": "6f88c537f3eaac955e2d1c59d3c269a9e83a30836c92efcd82b0e9d467f814cf",
+        "matches_manifest": true
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "file": "docs/assets/spaced-numbers/chromium-1440-dark.png",
+      "width": 1440,
+      "height": 960,
+      "header_rgb": [
+        23,
+        29,
+        35
+      ],
+      "sha256": "eb6f7e8100bd411f1345a6b9f22d646d08925933a7f8ca014f083f055de20f22",
+      "visually_reviewed": true
+    },
+    {
+      "file": "docs/assets/spaced-numbers/chromium-1440-light.png",
+      "width": 1440,
+      "height": 960,
+      "header_rgb": [
+        255,
+        255,
+        255
+      ],
+      "sha256": "01b3d31ffe22b9f8149bd8c6b159ccbda27abfd223c8c864245d93b91b18fbce",
+      "visually_reviewed": true
+    },
+    {
+      "file": "docs/assets/spaced-numbers/chromium-375-dark.png",
+      "width": 375,
+      "height": 960,
+      "header_rgb": [
+        23,
+        29,
+        35
+      ],
+      "sha256": "9a1b2ef8f10c4c7d52d10d69744f677f07be634c2a4d9ff4601afc69fe86c679",
+      "visually_reviewed": true
+    },
+    {
+      "file": "docs/assets/spaced-numbers/chromium-375-light.png",
+      "width": 375,
+      "height": 960,
+      "header_rgb": [
+        255,
+        255,
+        255
+      ],
+      "sha256": "0fa6d5768b468dca941ca689439fecd9c04582f4541af94c0824f224194443ac",
+      "visually_reviewed": true
+    },
+    {
+      "file": "docs/assets/spaced-numbers/firefox-1440-dark.png",
+      "width": 1440,
+      "height": 960,
+      "header_rgb": [
+        23,
+        29,
+        35
+      ],
+      "sha256": "25df93371ee98ff25ae1d28f8a1c8f102031bec6a47ccd20ef2fb02c02ba9c13",
+      "visually_reviewed": true
+    },
+    {
+      "file": "docs/assets/spaced-numbers/firefox-1440-light.png",
+      "width": 1440,
+      "height": 960,
+      "header_rgb": [
+        255,
+        255,
+        255
+      ],
+      "sha256": "9bd6984bd4ac95f373f7b8ff8debd6388de5d1264e2e2e09df68299c02a36a84",
+      "visually_reviewed": true
+    },
+    {
+      "file": "docs/assets/spaced-numbers/firefox-375-dark.png",
+      "width": 375,
+      "height": 960,
+      "header_rgb": [
+        23,
+        29,
+        35
+      ],
+      "sha256": "b75b6dbf5538355c1c81776c4923be8c8df750469b58f0491702e90a250f2d6a",
+      "visually_reviewed": true
+    },
+    {
+      "file": "docs/assets/spaced-numbers/firefox-375-light.png",
+      "width": 375,
+      "height": 960,
+      "header_rgb": [
+        255,
+        255,
+        255
+      ],
+      "sha256": "52cccddff71c239cab770c52f7a1203a8fef85253032bc0db1ef648c8ea505ae",
+      "visually_reviewed": true
+    }
+  ]
+}

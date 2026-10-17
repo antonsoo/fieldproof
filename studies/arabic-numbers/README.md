@@ -6,7 +6,7 @@ the plain amount `12`. The quote existed and the native glyphs contributed
 to the rendered page; the numeric parser split at unfamiliar punctuation.
 
 This study reproduces the defect at source revision
-`786532bf6a21e6c0bcee15b273c098a27ee88eac` and checks the local correction.
+`786532bf6a21e6c0bcee15b273c098a27ee88eac` and checks the correction at `760a1d7`.
 These are authored controls, not sampled invoices or an extraction benchmark.
 There are no model calls, external OCR calls, or inferred financial outcomes.
 
@@ -113,6 +113,9 @@ In particular, space-separated digits can still be ambiguous with neighboring
 table columns; these controls do not resolve that separate boundary. Native
 PDF paint checks and OCR limitations continue to apply.
 
-All work in this study is local. No GitHub push, tag, registry release or hosted
-deployment was performed. The static Pages demo uses precomputed reports and
-does not run this Python verifier on uploaded documents.
+The original checks in this study were local. No GitHub push, tag, registry
+release or hosted deployment was performed as part of them. The static demo
+uses precomputed reports and does not run the verifier on uploaded documents.
+The README now pins source including this correction and the later
+[spacing correction](../spaced-numbers/verification.md). Package and hosted-demo
+publication remain separate.

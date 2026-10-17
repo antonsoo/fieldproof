@@ -29,6 +29,7 @@ def main() -> None:
     assert Path(fieldproof.__file__).resolve().is_relative_to(Path(sys.prefix).resolve())
     number_parser = Path(values.__file__).read_bytes()
     files = []
+    sources = []
     with zipfile.ZipFile(args.wheel) as wheel, tarfile.open(args.sdist) as sdist:
         assert wheel.read("fieldproof/ground/values.py") == number_parser
         source = next(
@@ -36,6 +37,27 @@ def main() -> None:
         )
         source_file = sdist.extractfile(source)
         assert source_file is not None and source_file.read() == number_parser
+        package = Path(fieldproof.__file__).resolve().parent
+        source_members = {
+            m.name.split("/src/", 1)[1]: m
+            for m in sdist.getmembers()
+            if "/src/" in m.name and m.name.endswith(".py")
+        }
+        wheel_sources = {
+            name
+            for name in wheel.namelist()
+            if name.startswith("fieldproof/") and name.endswith(".py")
+        }
+        installed_sources = {
+            "fieldproof/" + p.relative_to(package).as_posix() for p in package.rglob("*.py")
+        }
+        assert wheel_sources == installed_sources == set(source_members)
+        for name in sorted(wheel_sources):
+            content = wheel.read(name)
+            assert (package / name.removeprefix("fieldproof/")).read_bytes() == content, name
+            stream = sdist.extractfile(source_members[name])
+            assert stream is not None and stream.read() == content, name
+            sources.append({"file": name, "sha256": digest(content)})
         prefix = "fieldproof/server/static/"
         for name in sorted(wheel.namelist()):
             if not name.startswith(prefix) or name.endswith("/"):
@@ -63,11 +85,13 @@ def main() -> None:
         },
         "parser_sha256": digest(number_parser),
         "installed_wheel_sdist_parser_identical": True,
+        "installed_wheel_sdist_all_python_identical": True,
+        "python_sources": sources,
         "served_files": files,
     }
     args.out.write_text(json.dumps(output, indent=2) + "\n")
     print(
-        f"Parser bytes identical in wheel, sdist and installation; "
+        f"{len(sources)} Python modules identical in wheel, sdist and installation; "
         f"{len(files)} served UI files identical."
     )
 

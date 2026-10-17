@@ -1,0 +1,1261 @@
+{
+  "compatibility_source": "616894ac792225d4a733f8180a2e111c807f5922",
+  "compatibility_scope": "Same production UI sources as b283e1b; these broad browser results predate the final normalized-location guard.",
+  "initial_exit_code": 1,
+  "initial_stats": {
+    "startTime": "2026-10-17T18:45:28.155Z",
+    "duration": 681353.7459999999,
+    "expected": 99,
+    "skipped": 0,
+    "unexpected": 5,
+    "flaky": 0
+  },
+  "initial": [
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / unpainted PDF evidence (unpainted-text) stays in review through correction and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 21602,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / unpainted PDF evidence (zero-opacity) stays in review through correction and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 19194,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / unpainted PDF evidence (clipped-text) stays in review through correction and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 14878,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / unpainted PDF evidence (flat-raster) stays in review through correction and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 21346,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / unpainted PDF evidence (overlapping-text) stays in review through correction and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 19810,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / native glyph overhang stays in review through offline rejection export and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 15276,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / review archives restore every decision after the original session is removed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 10706,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / archive failures and cancellation keep existing reviews recoverable",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5096,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / a negated extracted date remains reviewable with its original evidence and exports",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7628,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / a written date keeps every printed year digit through review and export",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6843,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / an invalid date reference cannot settle an ambiguous issue date through review and export",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5638,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / conflicting document conventions stay explicit through review and export",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4885,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / Arabic amount fragments stay in review through correction, offline exports and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6630,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / Space-grouped amounts stay unresolved through correction, offline exports and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7225,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / an omitted minus stays visible and readable in the real PDF review",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3466,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / a unique quote keeps its location while the wrong item association requires review",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4492,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / a repeated quantity from another row stays unresolved through review and export",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6113,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / quoted but inconsistent line arithmetic is reviewable and corrections keep their provenance",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5548,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / real PDF and fixture extraction support nested corrections and identical API exports",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3812,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / failed review saves keep the editor and prior value for retry",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1561,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / late review reply stays with its document and pending saves disable export",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2713,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / cancelled extraction cannot resurrect a reset document",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1086,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / fixture failure is recoverable without losing the uploaded document",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 937,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / upload and configure controls are accessible in both themes at phone widths",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1791,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / a cancelled slow upload cannot replace a newer uploaded PDF",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1030,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / sessions reopen saved corrections after reload and removal needs explicit confirmation",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2061,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / session dialog is keyboard accessible in both themes at narrow phone width",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1603,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / session listing and deletion failures can be retried without losing decisions",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1335,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / session controls cannot discard an unsaved correction",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1193,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / full capacity refuses uploads, keeps reviewed values, and removal permits recovery",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4150,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / oversized fixture is refused before sending it and uploaded PDF remains usable",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1725,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / cropped PDF uses the visible canvas and highlights the actual evidence position",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1865,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / explicit headers expose a quantity and price swap while preserving arithmetic evidence",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3536,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / spreadsheet download preserves literal text and review scope offline",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3613,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / unpainted PDF evidence (unpainted-text) stays in review through correction and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6659,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / unpainted PDF evidence (zero-opacity) stays in review through correction and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5629,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / unpainted PDF evidence (clipped-text) stays in review through correction and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4824,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / unpainted PDF evidence (flat-raster) stays in review through correction and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5880,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / unpainted PDF evidence (overlapping-text) stays in review through correction and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5274,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / native glyph overhang stays in review through offline rejection export and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4756,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / review archives restore every decision after the original session is removed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4290,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / archive failures and cancellation keep existing reviews recoverable",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1787,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / a negated extracted date remains reviewable with its original evidence and exports",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3223,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / a written date keeps every printed year digit through review and export",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5043,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / an invalid date reference cannot settle an ambiguous issue date through review and export",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4768,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / conflicting document conventions stay explicit through review and export",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4016,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / Arabic amount fragments stay in review through correction, offline exports and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7181,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / Space-grouped amounts stay unresolved through correction, offline exports and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9338,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / an omitted minus stays visible and readable in the real PDF review",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8201,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / a unique quote keeps its location while the wrong item association requires review",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7311,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / a repeated quantity from another row stays unresolved through review and export",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6269,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / quoted but inconsistent line arithmetic is reviewable and corrections keep their provenance",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6323,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / real PDF and fixture extraction support nested corrections and identical API exports",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5963,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / failed review saves keep the editor and prior value for retry",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4133,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / late review reply stays with its document and pending saves disable export",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5425,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / cancelled extraction cannot resurrect a reset document",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2533,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / fixture failure is recoverable without losing the uploaded document",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3569,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / upload and configure controls are accessible in both themes at phone widths",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4102,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / a cancelled slow upload cannot replace a newer uploaded PDF",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1577,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / sessions reopen saved corrections after reload and removal needs explicit confirmation",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2963,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / session dialog is keyboard accessible in both themes at narrow phone width",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2468,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / session listing and deletion failures can be retried without losing decisions",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3524,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / session controls cannot discard an unsaved correction",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3447,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / full capacity refuses uploads, keeps reviewed values, and removal permits recovery",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7375,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / oversized fixture is refused before sending it and uploaded PDF remains usable",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1495,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / cropped PDF uses the visible canvas and highlights the actual evidence position",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1502,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / explicit headers expose a quantity and price swap while preserving arithmetic evidence",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4330,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / spreadsheet download preserves literal text and review scope offline",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8162,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / the hidden-text sample keeps an invisible amount in review and exports offline",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 5216,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / the line arithmetic sample exposes the original calculation and exports a correction",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 5232,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / nested numeric correction saves the typed value and approval retains it",
+      "results": [
+        {
+          "status": "timedOut",
+          "duration_ms": 90052,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / a slow earlier sample cannot replace a newer selection",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 5235,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / page-session review survives sample switches when storage is blocked",
+      "results": [
+        {
+          "status": "timedOut",
+          "duration_ms": 90096,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / invalid numeric edits remain editable and reset restores the original extraction",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2055,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / reviewed export excludes pending and rejected values, all scope remains explicit",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 705,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / stored invalid overlays are ignored and valid corrections survive a reload",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 593,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / sample and index failures have retry, and failed replacement preserves the previous review",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 768,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / keyboard navigation retains focus through selection, decisions, filters and editing",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 799,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / desktop and phone review, fit, edit and themes have accessible bounded layouts",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 19305,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / phone inspection opens the matching page and returns to the field and its draft",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 650,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / page image failure exposes retry without losing field evidence",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 416,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / damaged replacement reports preserve the original document and decision",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 483,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / boolean corrections remain false and markup-like corrections are inert in the UI and files",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 718,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / malformed deep links and malformed sample indexes recover without page errors",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 323,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / spreadsheet download preserves literal text and review scope offline",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3273,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / oversized spreadsheet text leaves JSON export available",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 446,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / the hidden-text sample keeps an invisible amount in review and exports offline",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6562,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / the line arithmetic sample exposes the original calculation and exports a correction",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5373,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / nested numeric correction saves the typed value and approval retains it",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1163,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / a slow earlier sample cannot replace a newer selection",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1127,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / page-session review survives sample switches when storage is blocked",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 920,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / invalid numeric edits remain editable and reset restores the original extraction",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1893,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / reviewed export excludes pending and rejected values, all scope remains explicit",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 975,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / stored invalid overlays are ignored and valid corrections survive a reload",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 887,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / sample and index failures have retry, and failed replacement preserves the previous review",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 985,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / keyboard navigation retains focus through selection, decisions, filters and editing",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2748,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / desktop and phone review, fit, edit and themes have accessible bounded layouts",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 19090,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / phone inspection opens the matching page and returns to the field and its draft",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 810,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / page image failure exposes retry without losing field evidence",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 809,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / damaged replacement reports preserve the original document and decision",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 632,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / boolean corrections remain false and markup-like corrections are inert in the UI and files",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1442,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / malformed deep links and malformed sample indexes recover without page errors",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 507,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / spreadsheet download preserves literal text and review scope offline",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5725,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-demo",
+      "title": "demo.spec.mjs / oversized spreadsheet text leaves JSON export available",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1019,
+          "retry": 0
+        }
+      ]
+    }
+  ],
+  "retry_exit_code": 0,
+  "retry_stats": {
+    "startTime": "2026-10-17T19:02:45.313Z",
+    "duration": 18145.328,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "retry": [
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / the hidden-text sample keeps an invisible amount in review and exports offline",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7766,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / the line arithmetic sample exposes the original calculation and exports a correction",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5004,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / nested numeric correction saves the typed value and approval retains it",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1139,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / a slow earlier sample cannot replace a newer selection",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1194,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "chromium-demo",
+      "title": "demo.spec.mjs / page-session review survives sample switches when storage is blocked",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 982,
+          "retry": 0
+        }
+      ]
+    }
+  ],
+  "initial_failure_reason": "The static preview was initially started without --mode demo; the first five demo cases had incorrect asset paths. It was restarted in demo mode; all five passed on retry.",
+  "distinct_compatibility_cases_passed": 104,
+  "final_source": "b283e1beea9e1b748370b16ab419ed974c312be0",
+  "final_focus_exit_code": 0,
+  "final_focus_stats": {
+    "startTime": "2026-10-17T19:04:40.525Z",
+    "duration": 24170.294,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "final_focus": [
+    {
+      "project": "chromium-live",
+      "title": "live.spec.mjs / Space-grouped amounts stay unresolved through correction, offline exports and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9565,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "project": "firefox-live",
+      "title": "live.spec.mjs / Space-grouped amounts stay unresolved through correction, offline exports and archive restore",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 10828,
+          "retry": 0
+        }
+      ]
+    }
+  ]
+}

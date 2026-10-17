@@ -49,8 +49,8 @@ The 134 claims use 23 byte-identical authored PDF pages. Full ledgers are
 [before](results/before.json) and [after](results/after.json). The baseline is an
 independently installed wheel with the numeric sources from `760a1d7` (also the
 sources in `d94f2f4`). This correction is source work; no registry release or
-hosted deployment is implied. Installed/API/browser and receipt compatibility
-evidence will be recorded separately after verification.
+hosted deployment is implied. [Installed/API/browser verification and receipt
+costs](verification.md) retain those separate checks.
 
 The separate [`ambiguity.pdf`](fixtures/ambiguity.pdf) checks three normalized
 quotes against a spaced occurrence and another occurrence of 3000. An
