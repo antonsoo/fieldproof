@@ -6,6 +6,7 @@ Keep that text available for review without mistaking it for visible evidence.
 
 from __future__ import annotations
 
+import math
 from copy import copy
 from typing import Any
 
@@ -145,6 +146,8 @@ class _PaintInterpreter(PDFPageInterpreter):
         super().do_gs(name)
         states = dict_value(self.resources.get("ExtGState", {}))
         state = dict_value(states.get(literal_name(name), {}))
+        if "ML" in state and isinstance(self.device, _ModeAggregator):
+            self.device.record_miter_limit(resolve1(state["ML"]))
         for key, attribute in (("ca", "fill_alpha"), ("CA", "stroke_alpha")):
             if key in state:
                 value = resolve1(state[key])
@@ -153,11 +156,30 @@ class _PaintInterpreter(PDFPageInterpreter):
                 alpha = float(value) if type(value) in (int, float) else 1.0
                 setattr(self.graphicstate, attribute, alpha if 0 <= alpha <= 1 else 1.0)
 
+    def do_M(self, miterlimit: PDFStackT) -> None:
+        super().do_M(miterlimit)
+        if isinstance(self.device, _ModeAggregator):
+            self.device.record_miter_limit(miterlimit)
+
 
 class _ModeAggregator(PDFPageAggregatorWithMarkedContent):
     render_mode: int = 0
     zero_opacity: bool = False
     clip_bounds: Rect | None = None
+    miter_limit_bound: float | None = 10.0  # PDF's initial graphics-state value.
+
+    def record_miter_limit(self, value: Any) -> None:
+        # Keep an upper bound across the page and every invoked Form. A bad
+        # declaration cannot establish a limit, even if a later one is valid.
+        if self.miter_limit_bound is None:
+            return
+        try:
+            limit = float(value) if type(value) in (int, float) else math.nan
+        except OverflowError:
+            limit = math.nan
+        self.miter_limit_bound = (
+            max(self.miter_limit_bound, limit) if math.isfinite(limit) and limit >= 1 else None
+        )
 
     def render_string(
         self, textstate: PDFTextState, seq: Any, ncs: Any, graphicstate: Any
@@ -206,7 +228,13 @@ class ModePage(PlumberPage):
         except Exception as exc:
             raise PdfminerException(exc) from exc
         self._layout = device.get_result()
+        self._miter_limit_bound = device.miter_limit_bound
         return self._layout
+
+    @property
+    def miter_limit_bound(self) -> float | None:
+        _ = self.layout
+        return self._miter_limit_bound
 
     def process_object(self, obj: LTItem) -> dict[str, Any]:
         result = super().process_object(obj)

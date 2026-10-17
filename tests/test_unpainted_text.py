@@ -27,6 +27,7 @@ def test_all_authored_rendering_mode_controls_after_worker_transport() -> None:
     spec.loader.exec_module(module)
     result = module.replay()
     assert result["claims"] == 46
+    assert result["conservative_stroke_reviews"] == 4
     assert result["mismatches"] == 0, result["observations"]
 
 

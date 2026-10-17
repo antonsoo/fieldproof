@@ -78,18 +78,8 @@ def load_pdf(
                     if limits is not None
                     else DocumentLimits().max_pixels,
                     needed=any(_needs_raster(char) for char in visible.chars),
+                    miter_limit=page.miter_limit_bound,
                 ) as probe:
-                    # Include partially cropped and clipping-risk glyphs: they
-                    # may still paint inside a retained character's rectangle.
-                    probe.observe_overlaps(
-                        BBox(
-                            char["x0"] - origin_x,
-                            char["top"] - origin_top,
-                            char["x1"] - origin_x,
-                            char["bottom"] - origin_top,
-                        )
-                        for char in page.chars if _may_paint(char)
-                    )
                     loaded = _load_page(visible, page_number, probe)
             finally:
                 if raster_page is not None:
@@ -187,7 +177,8 @@ def _visible_words(page: pdfplumber.page.Page, probe: RasterProbe) -> list[dict[
                     char["top"] - origin_top,
                     char["x1"] - origin_x,
                     char["bottom"] - origin_top,
-                )
+                ),
+                char["text"],
             )
             if _needs_raster(char)
             else None

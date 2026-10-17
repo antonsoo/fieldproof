@@ -31,6 +31,12 @@ def test_authored_fill_stroke_form_group_and_rotation_controls() -> None:
     spec.loader.exec_module(module)
     result = module.replay()
     assert result["claims"] == 84
+    assert result["conservative_stroke_reviews"] == 13
+    assert all(
+        o["field"]["status"] == "verified"
+        for o in result["observations"]
+        if o["field"]["path"] == "visible"
+    )
     assert result["mismatches"] == 0, result["observations"]
 
 
@@ -63,8 +69,11 @@ def test_opacity_change_inside_a_word_does_not_disappear_in_segmentation() -> No
     class Name(BaseModel):
         name: Evidenced[str]
 
-    report = verify(Name(name=Evidenced(value="Acme Services", evidence=["Acme Services"])),
-                    document, text_edit_tolerance=2)
+    report = verify(
+        Name(name=Evidenced(value="Acme Services", evidence=["Acme Services"])),
+        document,
+        text_edit_tolerance=2,
+    )
     assert report.fields[0].status == "needs_review"
     assert any("zero opacity" in reason for reason in report.fields[0].reasons)
 
@@ -73,8 +82,10 @@ def test_opacity_change_inside_a_word_does_not_disappear_in_segmentation() -> No
 def test_transparent_hints_do_not_set_document_conventions(kind: str) -> None:
     stream = io.BytesIO()
     pdf = Canvas(stream, invariant=True)
-    source, hint = ("Amount due: 60.000", "Reference: 1.234,50") if kind == "number" else (
-        "Issue date: 03/04/2026", "Reference date: 31/12/2026"
+    source, hint = (
+        ("Amount due: 60.000", "Reference: 1.234,50")
+        if kind == "number"
+        else ("Issue date: 03/04/2026", "Reference date: 31/12/2026")
     )
     pdf.drawString(40, 700, source)
     pdf.setFillAlpha(0)
@@ -84,11 +95,14 @@ def test_transparent_hints_do_not_set_document_conventions(kind: str) -> None:
     if kind == "number":
         claims = [Claim(total=Evidenced(value=value, evidence=[source])) for value in (60, 60000)]
     else:
+
         class DateClaim(BaseModel):
             issue_date: Evidenced[str]
 
-        claims = [DateClaim(issue_date=Evidenced(value=value, evidence=[source]))
-                  for value in ("2026-03-04", "2026-04-03")]
+        claims = [
+            DateClaim(issue_date=Evidenced(value=value, evidence=[source]))
+            for value in ("2026-03-04", "2026-04-03")
+        ]
     for claim in claims:
         (result,) = verify(claim, document).fields
         assert result.status == "needs_review"
@@ -111,11 +125,19 @@ def test_hidden_description_cannot_select_a_repeated_quantity_as_its_row() -> No
     pdf.drawString(200, 700, "2")
     pdf.drawString(40, 600, "Packing 2")
     pdf.save()
-    claim = Rows(items=[Item(description=Evidenced(value="Delivery", evidence=["Delivery"]),
-                            quantity=Evidenced(value=2, evidence=["2"]))])
-    report = verify(claim, load_pdf(stream.getvalue()), row_rules=[
-        RowEvidenceRule("items", "description", ("quantity",))
-    ])
+    claim = Rows(
+        items=[
+            Item(
+                description=Evidenced(value="Delivery", evidence=["Delivery"]),
+                quantity=Evidenced(value=2, evidence=["2"]),
+            )
+        ]
+    )
+    report = verify(
+        claim,
+        load_pdf(stream.getvalue()),
+        row_rules=[RowEvidenceRule("items", "description", ("quantity",))],
+    )
     assert all(field.status == "needs_review" for field in report.fields)
     assert "no strongly grounded" in report.fields[1].reasons[0]
 

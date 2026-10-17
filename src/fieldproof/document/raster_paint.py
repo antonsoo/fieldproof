@@ -2,7 +2,7 @@
 
 The reference retains images, paths and text clipping while suppressing native
 text paint. A glyph needs some contribution outside other painting glyphs'
-layout bounds. Shared pixels alone cannot establish which text contributed.
+renderer ink bounds. Shared pixels alone cannot establish which text contributed.
 This remains a bounded observation, not proof of glyph identity or readability.
 """
 
@@ -19,6 +19,7 @@ import pypdfium2 as pdfium
 from PIL import Image, ImageChops
 from pypdfium2 import raw
 
+from fieldproof.document.glyph_envelopes import GlyphEnvelope, glyph_envelopes
 from fieldproof.document.limits import DocumentLimitError, check_page_pixels
 from fieldproof.document.model import BBox, RasterState
 
@@ -26,6 +27,7 @@ MAX_PAGE_OBJECTS = 50_000
 MAX_FORM_DEPTH = 32
 MAX_OVERLAP_GLYPHS = 50_000
 MAX_OVERLAP_PIXELS = 64_000_000
+_GLYPH_CELL = 64
 
 
 def _suppress_text(page: pdfium.PdfPage) -> None:
@@ -90,6 +92,7 @@ class RasterProbe:
         self.width = width
         self.height = height
         self.overlaps: Any = None
+        self.glyphs: dict[tuple[str, int, int], list[GlyphEnvelope]] | None = None
 
     def _pixels(self, box: BBox, *, outward: bool) -> tuple[int, int, int, int] | None:
         if self.image is None or not all(
@@ -106,8 +109,8 @@ class RasterProbe:
         bottom = max(0, min(self.image.height, upper(box.bottom * sy)))
         return (left, top, right, bottom) if right > left and bottom > top else None
 
-    def observe_overlaps(self, boxes: Iterable[BBox]) -> None:
-        """Record pixels owned by multiple potentially painting glyph bounds.
+    def observe_overlaps(self, glyphs: Iterable[GlyphEnvelope]) -> None:
+        """Record pixels owned by multiple potentially painting native ink bounds.
 
         Two one-bit page masks avoid pairwise rectangle searches and full RGB
         copies. Work is bounded by both glyph count and accumulated pixel area;
@@ -122,7 +125,9 @@ class RasterProbe:
             covered = Image.new("1", self.image.size)
             overlaps = Image.new("1", self.image.size)
             area = 0
-            for count, box in enumerate(boxes, 1):
+            indexed: dict[tuple[str, int, int], list[GlyphEnvelope]] = {}
+            for count, glyph in enumerate(glyphs, 1):
+                box = glyph.ink
                 if count > MAX_OVERLAP_GLYPHS:
                     raise ValueError("Glyph overlap traversal exceeds its budget")
                 if not all(math.isfinite(v) for v in (box.x0, box.top, box.x1, box.bottom)):
@@ -141,7 +146,17 @@ class RasterProbe:
                     # overlap evidence cannot be erased by a later glyph.
                     overlaps.paste(1, pixels, previous)
                 covered.paste(1, pixels)
+                envelope = self._pixels(glyph.box, outward=True)
+                if glyph.text and envelope is not None:
+                    el, et, er, eb = envelope
+                    area += (er - el) * (eb - et)
+                    if area > MAX_OVERLAP_PIXELS:
+                        raise ValueError("Glyph association work exceeds its budget")
+                    for x in range(el // _GLYPH_CELL, (er - 1) // _GLYPH_CELL + 1):
+                        for y in range(et // _GLYPH_CELL, (eb - 1) // _GLYPH_CELL + 1):
+                            indexed.setdefault((glyph.text, x, y), []).append(glyph)
             self.overlaps = overlaps
+            self.glyphs = indexed
             overlaps = None
         except (ValueError, OverflowError):
             pass
@@ -151,16 +166,35 @@ class RasterProbe:
                     mask.close()
 
     def close(self) -> None:
+        self.glyphs = None
         if self.overlaps is not None:
             self.overlaps.close()
             self.overlaps = None
 
-    def check(self, box: BBox) -> RasterState:
+    def check(self, box: BBox, text: str) -> RasterState:
         # Observe only complete pixels inside the glyph's layout rectangle.
         # Rounding outward can borrow an adjacent character's antialiased edge
         # and falsely establish variation for an entirely hidden digit.
         pixels = self._pixels(box, outward=False)
-        if pixels is None or self.overlaps is None:
+        if pixels is None or self.overlaps is None or self.glyphs is None:
+            return "unavailable"
+        left, top, right, bottom = pixels
+        candidates = self.glyphs.get((text, ((left + right) // 2) // _GLYPH_CELL,
+                                     ((top + bottom) // 2) // _GLYPH_CELL), [])
+        matched = [g for g in candidates if g.box.x0 <= box.x0 and g.box.top <= box.top
+                   and g.box.x1 >= box.x1 and g.box.bottom >= box.bottom]
+        if len(matched) != 1:
+            # A coordinate alone cannot associate this source character with
+            # the renderer's glyph. Keep missing/mismatched native evidence unknown.
+            return "unavailable"
+        support = self._pixels(matched[0].ink, outward=True)
+        if support is None:
+            return "unavailable"
+        pixels = (
+            max(left, support[0]), max(top, support[1]),
+            min(right, support[2]), min(bottom, support[3]),
+        )
+        if pixels[2] <= pixels[0] or pixels[3] <= pixels[1]:
             return "unavailable"
         with self.image.crop(pixels) as region:
             if region.getbbox() is None:
@@ -180,6 +214,7 @@ def page_raster(
     page_index: int,
     max_pixels: int,
     needed: bool,
+    miter_limit: float | None,
 ) -> Iterator[RasterProbe]:
     image = foreground = background = control = None
     try:
@@ -218,6 +253,14 @@ def page_raster(
                     if rendered is not None:
                         rendered.close()
         with closing(RasterProbe(image, width, height)) as probe:
+            if image is not None:
+                try:
+                    probe.observe_overlaps(glyph_envelopes(
+                        page, width, height, image.size, max_glyphs=MAX_OVERLAP_GLYPHS,
+                        miter_limit=miter_limit,
+                    ))
+                except (pdfium.PdfiumError, ValueError, OverflowError, AttributeError):
+                    probe.close()
             yield probe
     finally:
         if image is not None:
