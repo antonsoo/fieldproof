@@ -1,0 +1,187 @@
+{
+  "source_revision": "760a1d7995f9dd4d25220ee20b32773fbf75d5e0",
+  "production_source_unchanged_since_revision": true,
+  "scope": "Local correction, authored/native-formatter controls and installed-artifact review. No real-invoice accuracy or public deployment measurement.",
+  "clean_archive": {
+    "install": "uv sync --locked --extra dev --extra ocr; npm ci via bundle_ui.py",
+    "python": "3.12.12",
+    "ruff": "passed",
+    "mypy": {
+      "status": "passed",
+      "source_files": 41
+    },
+    "pytest": {
+      "passed": 748,
+      "skipped": 5,
+      "skip_reason": "Actual Tesseract executable unavailable; OCR Python extra installed."
+    },
+    "web": {
+      "typecheck": "passed",
+      "lint": "passed",
+      "format": "passed",
+      "unit_tests_passed": 70,
+      "production_build": "web/dist",
+      "demo_build": "web/dist-demo"
+    },
+    "distribution_build": "Wheel built through sdist; parser and served assets byte-checked in artifacts.json."
+  },
+  "controlled_pdf_claims": {
+    "total": 87,
+    "pages": 21,
+    "correct_complete_amounts": 18,
+    "incorrect_fragment_or_rate_claims": 69,
+    "before": {
+      "correct_verified": 6,
+      "incorrect_verified": 44,
+      "unexpected_verdicts": 56
+    },
+    "after": {
+      "correct_verified": 18,
+      "incorrect_verified": 0,
+      "unexpected_verdicts": 0
+    },
+    "identical_pdf_sha256": "2310b4caf6be298119dc3da28c96fd3d29de45f6e70f4555f48d5acc0ae6acba"
+  },
+  "installed": {
+    "python314_current": {
+      "expected_verdicts": 87,
+      "api": "passed",
+      "regression_checks_passed": 43
+    },
+    "python311_lowest_direct": {
+      "expected_verdicts": 87,
+      "api": "passed"
+    },
+    "claim_ledger_sha256": "0f8fd40c6b6f9498200c52be2bcbb8eef94c5828ad1038bb63799af26db5242e",
+    "both_complete_ledgers_identical_to_source_replay": true
+  },
+  "browser": {
+    "distinct_full_cases_passed": 102,
+    "initial_passed": 97,
+    "initial_failed": 5,
+    "rerun_failed_cases_passed": 5,
+    "rerun_aggregate_timeout_ms": 90000,
+    "focused_cases_passed": 2,
+    "layout_theme_audits": 8,
+    "offline_export_requests": 0,
+    "screenshots_visually_inspected": 8,
+    "application_worker_timeout_seconds": 30,
+    "initial_limitations": [
+      "A local test server received SIGTERM; adjacent live cases failed, including connection refusals.",
+      "Two initial browser cases exceeded the 30-second aggregate test deadline."
+    ],
+    "sweep_receipt": "browser-sweep.json",
+    "initial_runner_exit_code": 143,
+    "rerun_exit_code": 0,
+    "focused_exit_code": 0,
+    "initial_runner_note": "The complete 102-case log and 97 passed / 5 failed summary were retained; the execution session ultimately reported SIGTERM (143). The five targeted reruns completed with exit 0."
+  },
+  "screenshots": [
+    {
+      "file": "docs/assets/arabic-numbers/chromium-1440-dark.png",
+      "width": 1440,
+      "height": 960,
+      "corner_rgb": [
+        23,
+        29,
+        35
+      ],
+      "sha256": "0e57679db05e1d67722b7f81fc1c334cf6eee1a9d135173eab38c7d5479cd534",
+      "bytes": 97832
+    },
+    {
+      "file": "docs/assets/arabic-numbers/chromium-1440-light.png",
+      "width": 1440,
+      "height": 960,
+      "corner_rgb": [
+        255,
+        255,
+        255
+      ],
+      "sha256": "2c9a74fe48556947af6cab433b6af5a906a039a7b2e028094765b737a7689e57",
+      "bytes": 97407
+    },
+    {
+      "file": "docs/assets/arabic-numbers/chromium-375-dark.png",
+      "width": 375,
+      "height": 960,
+      "corner_rgb": [
+        23,
+        29,
+        35
+      ],
+      "sha256": "0d408ea7a6ac853ad9fce3d4cbf568dafb002249821427c96e2f1da69475abed",
+      "bytes": 57505
+    },
+    {
+      "file": "docs/assets/arabic-numbers/chromium-375-light.png",
+      "width": 375,
+      "height": 960,
+      "corner_rgb": [
+        255,
+        255,
+        255
+      ],
+      "sha256": "eb7b9ac75cc957f9192428f9c9bdc3279100846ccd90537c8ababe820629ba43",
+      "bytes": 56097
+    },
+    {
+      "file": "docs/assets/arabic-numbers/firefox-1440-dark.png",
+      "width": 1440,
+      "height": 960,
+      "corner_rgb": [
+        23,
+        29,
+        35
+      ],
+      "sha256": "f65cb97515301291d4888f79247d25a9fc15642e1d92d588e2f70ce70ff5f8b6",
+      "bytes": 123316
+    },
+    {
+      "file": "docs/assets/arabic-numbers/firefox-1440-light.png",
+      "width": 1440,
+      "height": 960,
+      "corner_rgb": [
+        255,
+        255,
+        255
+      ],
+      "sha256": "0b7bbdd5ffd23b386519a8b42639958438db7be9bfc7dbdd1695b40f58ab3368",
+      "bytes": 122197
+    },
+    {
+      "file": "docs/assets/arabic-numbers/firefox-375-dark.png",
+      "width": 375,
+      "height": 960,
+      "corner_rgb": [
+        23,
+        29,
+        35
+      ],
+      "sha256": "96614c9e16f5d5f4d7afd243baff20fc0af3c22466f0ffe7d9e703f6c063a349",
+      "bytes": 70777
+    },
+    {
+      "file": "docs/assets/arabic-numbers/firefox-375-light.png",
+      "width": 375,
+      "height": 960,
+      "corner_rgb": [
+        255,
+        255,
+        255
+      ],
+      "sha256": "aee58404b7d77fd47d5e8e745b895efe1527b0e330f676aa95e9e31fca55d53f",
+      "bytes": 69962
+    }
+  ],
+  "open_limitations": [
+    "Whitespace-grouped amounts remain a reproduced open issue: officina-fnld.",
+    "These authored/native-formatter controls do not establish general locale, bidi, OCR or real-invoice accuracy."
+  ],
+  "publication_actions": {
+    "push": false,
+    "tag": false,
+    "registry_release": false,
+    "hosted_deployment": false
+  }
+}

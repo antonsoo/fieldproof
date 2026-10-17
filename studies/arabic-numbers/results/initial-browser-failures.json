@@ -1,0 +1,22 @@
+[
+  {
+    "test": "demo-desktop-and-phone-rev-f6861--accessible-bounded-layouts-chromium-demo",
+    "primary_error": "Test timeout of 30000ms exceeded."
+  },
+  {
+    "test": "live-Arabic-amount-fragmen-2ed51-exports-and-archive-restore-firefox-live",
+    "primary_error": "Test timeout of 30000ms exceeded."
+  },
+  {
+    "test": "live-cropped-PDF-uses-the--64042-he-actual-evidence-position-chromium-live",
+    "primary_error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: locator('.field-row').filter({ has: getByRole('button', { name: 'Inspect vendor_name', exact: true }) }).locator('.field-value')\nExpected: \"Marker\"\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toHaveText\" locator('.field-row').filter({ has: getByRole('button', { name: 'Inspect vendor_name', exact: true }) }).locator('.field-value') with timeout 5000ms\n  - waiting for locator('.field-row').filter({ has: getByRole('button', { name: 'Inspect vendor_name', exact: true }) }).locator('.field-value')\n"
+  },
+  {
+    "test": "live-explicit-headers-expo-f18de-serving-arithmetic-evidence-chromium-live",
+    "primary_error": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4348/\nCall log:\n  - navigating to \"http://127.0.0.1:4348/\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "test": "live-spreadsheet-download--2373a-xt-and-review-scope-offline-chromium-live",
+    "primary_error": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4348/\nCall log:\n  - navigating to \"http://127.0.0.1:4348/\", waiting until \"domcontentloaded\"\n"
+  }
+]

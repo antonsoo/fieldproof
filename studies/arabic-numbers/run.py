@@ -33,6 +33,11 @@ def main() -> None:
     parser.add_argument("--src", type=Path)
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--observe-only", action="store_true")
+    parser.add_argument(
+        "--summary-only",
+        action="store_true",
+        help="Fingerprint the full ledger without duplicating its rows",
+    )
     args = parser.parse_args()
     if args.src:
         sys.path.insert(0, str(args.src.resolve()))
@@ -108,6 +113,11 @@ def main() -> None:
         "mismatches": mismatches,
         "claims": rows,
     }
+    if args.summary_only:
+        ledger = json.dumps(rows, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+        output["claim_count"] = len(rows)
+        output["claims_sha256"] = hashlib.sha256(ledger.encode()).hexdigest()
+        del output["claims"]
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n")
     print(

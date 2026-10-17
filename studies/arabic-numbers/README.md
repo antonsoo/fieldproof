@@ -69,6 +69,10 @@ The API receipts are [`before-api.json`](results/before-api.json) and
 [`after-api.json`](results/after-api.json). Installed-wheel and browser receipts
 are recorded in [verification.md](verification.md).
 
+![The authored invoice's truncated total requires review beside the complete printed amount](../../docs/assets/arabic-numbers/chromium-1440-light.png)
+
+![The same original verdict and evidence on a phone-width review](../../docs/assets/arabic-numbers/firefox-375-dark.png)
+
 ## Reproduce locally
 
 From a checkout with the development dependencies installed:

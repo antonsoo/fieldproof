@@ -1,7 +1,7 @@
 DejaVu Sans, embedded as a font subset in the authored PDF controls.
 Source: https://dejavu-fonts.github.io/
 
-Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. 
+Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved.
  Bitstream Vera is a trademark of Bitstream, Inc.
  DejaVu changes are in public domain.
 License: Bitstream Vera

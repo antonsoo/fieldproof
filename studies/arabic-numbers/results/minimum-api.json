@@ -1,0 +1,79 @@
+{
+  "scope": "Actual API and bounded PDF workers, fixture provider; no model calls.",
+  "number_parser_sha256": "fd8a72ac08d8d39765ddef8f1df29c2ffb8ba1098785ec4a627200e2ac077193",
+  "pdf_sha256": "8792138814a5e1916c8c590111ff6c9f63b98b3ef88041100e68198a539b0f50",
+  "fixture_sha256": "8f606b17ff39dde826a95fe00bd88cd8e42e560f2c616ea9cf3007dea006a9f9",
+  "seconds": 3.353809532010928,
+  "expected": [
+    "needs_review",
+    "verified"
+  ],
+  "actual": [
+    "needs_review",
+    "verified"
+  ],
+  "agrees": true,
+  "verdicts": [
+    {
+      "value": 234,
+      "field": {
+        "path": "total",
+        "value": 234.0,
+        "status": "needs_review",
+        "reasons": [
+          "value 234.0 does not match 1234.56 parsed from the evidence"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Total due: ١٬٢٣٤٫٥٦",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 158.76562560000002,
+            "x1": 261.4492216,
+            "bottom": 182.76562560000002
+          }
+        ]
+      },
+      "exported": {
+        "field": "total",
+        "value": 234.0,
+        "original_value": 234.0,
+        "value_source": "extraction",
+        "verification_status": "needs_review",
+        "review_status": "pending",
+        "page": 1
+      }
+    },
+    {
+      "value": 1234.56,
+      "field": {
+        "path": "total",
+        "value": 1234.56,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Total due: ١٬٢٣٤٫٥٦",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 158.76562560000002,
+            "x1": 261.4492216,
+            "bottom": 182.76562560000002
+          }
+        ]
+      },
+      "exported": {
+        "field": "total",
+        "value": 1234.56,
+        "original_value": 1234.56,
+        "value_source": "extraction",
+        "verification_status": "verified",
+        "review_status": "pending",
+        "page": 1
+      }
+    }
+  ],
+  "image_sha256": "883870fce6dfa273d9fbe66959473806c0a8a3894d9bf24a351ee7239f59834e"
+}

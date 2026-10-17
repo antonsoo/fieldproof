@@ -1,0 +1,665 @@
+{
+  "scope": "Installed wheel and separate static-demo build. Same assertions retained on reruns; no hosted check.",
+  "initial": [
+    {
+      "project": "chromium-live",
+      "title": "unpainted PDF evidence (unpainted-text) stays in review through correction and archive restore",
+      "passed": true,
+      "seconds": 22.3
+    },
+    {
+      "project": "chromium-live",
+      "title": "unpainted PDF evidence (zero-opacity) stays in review through correction and archive restore",
+      "passed": true,
+      "seconds": 15.4
+    },
+    {
+      "project": "chromium-live",
+      "title": "unpainted PDF evidence (clipped-text) stays in review through correction and archive restore",
+      "passed": true,
+      "seconds": 13.5
+    },
+    {
+      "project": "chromium-live",
+      "title": "unpainted PDF evidence (flat-raster) stays in review through correction and archive restore",
+      "passed": true,
+      "seconds": 16.1
+    },
+    {
+      "project": "chromium-live",
+      "title": "unpainted PDF evidence (overlapping-text) stays in review through correction and archive restore",
+      "passed": true,
+      "seconds": 24.8
+    },
+    {
+      "project": "chromium-live",
+      "title": "native glyph overhang stays in review through offline rejection export and archive restore",
+      "passed": true,
+      "seconds": 19.5
+    },
+    {
+      "project": "chromium-live",
+      "title": "review archives restore every decision after the original session is removed",
+      "passed": true,
+      "seconds": 11.4
+    },
+    {
+      "project": "chromium-live",
+      "title": "archive failures and cancellation keep existing reviews recoverable",
+      "passed": true,
+      "seconds": 5.6
+    },
+    {
+      "project": "chromium-live",
+      "title": "a negated extracted date remains reviewable with its original evidence and exports",
+      "passed": true,
+      "seconds": 9.9
+    },
+    {
+      "project": "chromium-live",
+      "title": "a written date keeps every printed year digit through review and export",
+      "passed": true,
+      "seconds": 11.4
+    },
+    {
+      "project": "chromium-live",
+      "title": "an invalid date reference cannot settle an ambiguous issue date through review and export",
+      "passed": true,
+      "seconds": 15.2
+    },
+    {
+      "project": "chromium-live",
+      "title": "conflicting document conventions stay explicit through review and export",
+      "passed": true,
+      "seconds": 14.3
+    },
+    {
+      "project": "chromium-live",
+      "title": "Arabic amount fragments stay in review through correction, offline exports and archive restore",
+      "passed": true,
+      "seconds": 22.3
+    },
+    {
+      "project": "chromium-live",
+      "title": "an omitted minus stays visible and readable in the real PDF review",
+      "passed": true,
+      "seconds": 12.3
+    },
+    {
+      "project": "chromium-live",
+      "title": "a unique quote keeps its location while the wrong item association requires review",
+      "passed": true,
+      "seconds": 13.3
+    },
+    {
+      "project": "chromium-live",
+      "title": "a repeated quantity from another row stays unresolved through review and export",
+      "passed": true,
+      "seconds": 16.9
+    },
+    {
+      "project": "chromium-live",
+      "title": "quoted but inconsistent line arithmetic is reviewable and corrections keep their provenance",
+      "passed": true,
+      "seconds": 11.9
+    },
+    {
+      "project": "chromium-live",
+      "title": "real PDF and fixture extraction support nested corrections and identical API exports",
+      "passed": true,
+      "seconds": 14.3
+    },
+    {
+      "project": "chromium-live",
+      "title": "failed review saves keep the editor and prior value for retry",
+      "passed": true,
+      "seconds": 5.4
+    },
+    {
+      "project": "chromium-live",
+      "title": "late review reply stays with its document and pending saves disable export",
+      "passed": true,
+      "seconds": 8.8
+    },
+    {
+      "project": "chromium-live",
+      "title": "cancelled extraction cannot resurrect a reset document",
+      "passed": true,
+      "seconds": 3.0
+    },
+    {
+      "project": "chromium-live",
+      "title": "fixture failure is recoverable without losing the uploaded document",
+      "passed": true,
+      "seconds": 6.6
+    },
+    {
+      "project": "chromium-live",
+      "title": "upload and configure controls are accessible in both themes at phone widths",
+      "passed": true,
+      "seconds": 10.8
+    },
+    {
+      "project": "chromium-live",
+      "title": "a cancelled slow upload cannot replace a newer uploaded PDF",
+      "passed": true,
+      "seconds": 3.5
+    },
+    {
+      "project": "chromium-live",
+      "title": "sessions reopen saved corrections after reload and removal needs explicit confirmation",
+      "passed": true,
+      "seconds": 7.6
+    },
+    {
+      "project": "chromium-live",
+      "title": "session dialog is keyboard accessible in both themes at narrow phone width",
+      "passed": true,
+      "seconds": 9.4
+    },
+    {
+      "project": "chromium-live",
+      "title": "session listing and deletion failures can be retried without losing decisions",
+      "passed": true,
+      "seconds": 5.3
+    },
+    {
+      "project": "chromium-live",
+      "title": "session controls cannot discard an unsaved correction",
+      "passed": true,
+      "seconds": 5.0
+    },
+    {
+      "project": "chromium-live",
+      "title": "full capacity refuses uploads, keeps reviewed values, and removal permits recovery",
+      "passed": true,
+      "seconds": 14.4
+    },
+    {
+      "project": "chromium-live",
+      "title": "oversized fixture is refused before sending it and uploaded PDF remains usable",
+      "passed": true,
+      "seconds": 6.3
+    },
+    {
+      "project": "chromium-live",
+      "title": "cropped PDF uses the visible canvas and highlights the actual evidence position",
+      "passed": false,
+      "seconds": 7.5
+    },
+    {
+      "project": "chromium-live",
+      "title": "explicit headers expose a quantity and price swap while preserving arithmetic evidence",
+      "passed": false,
+      "seconds": 1.4
+    },
+    {
+      "project": "chromium-live",
+      "title": "spreadsheet download preserves literal text and review scope offline",
+      "passed": false,
+      "seconds": 1.6
+    },
+    {
+      "project": "chromium-demo",
+      "title": "the hidden-text sample keeps an invisible amount in review and exports offline",
+      "passed": true,
+      "seconds": 22.9
+    },
+    {
+      "project": "chromium-demo",
+      "title": "the line arithmetic sample exposes the original calculation and exports a correction",
+      "passed": true,
+      "seconds": 22.5
+    },
+    {
+      "project": "chromium-demo",
+      "title": "nested numeric correction saves the typed value and approval retains it",
+      "passed": true,
+      "seconds": 3.7
+    },
+    {
+      "project": "chromium-demo",
+      "title": "a slow earlier sample cannot replace a newer selection",
+      "passed": true,
+      "seconds": 3.2
+    },
+    {
+      "project": "chromium-demo",
+      "title": "page-session review survives sample switches when storage is blocked",
+      "passed": true,
+      "seconds": 2.3
+    },
+    {
+      "project": "chromium-demo",
+      "title": "invalid numeric edits remain editable and reset restores the original extraction",
+      "passed": true,
+      "seconds": 5.9
+    },
+    {
+      "project": "chromium-demo",
+      "title": "reviewed export excludes pending and rejected values, all scope remains explicit",
+      "passed": true,
+      "seconds": 3.8
+    },
+    {
+      "project": "chromium-demo",
+      "title": "stored invalid overlays are ignored and valid corrections survive a reload",
+      "passed": true,
+      "seconds": 2.9
+    },
+    {
+      "project": "chromium-demo",
+      "title": "sample and index failures have retry, and failed replacement preserves the previous review",
+      "passed": true,
+      "seconds": 3.9
+    },
+    {
+      "project": "chromium-demo",
+      "title": "keyboard navigation retains focus through selection, decisions, filters and editing",
+      "passed": true,
+      "seconds": 3.2
+    },
+    {
+      "project": "chromium-demo",
+      "title": "desktop and phone review, fit, edit and themes have accessible bounded layouts",
+      "passed": false,
+      "seconds": 33.6
+    },
+    {
+      "project": "chromium-demo",
+      "title": "phone inspection opens the matching page and returns to the field and its draft",
+      "passed": true,
+      "seconds": 7.0
+    },
+    {
+      "project": "chromium-demo",
+      "title": "page image failure exposes retry without losing field evidence",
+      "passed": true,
+      "seconds": 1.9
+    },
+    {
+      "project": "chromium-demo",
+      "title": "damaged replacement reports preserve the original document and decision",
+      "passed": true,
+      "seconds": 2.2
+    },
+    {
+      "project": "chromium-demo",
+      "title": "boolean corrections remain false and markup-like corrections are inert in the UI and files",
+      "passed": true,
+      "seconds": 4.7
+    },
+    {
+      "project": "chromium-demo",
+      "title": "malformed deep links and malformed sample indexes recover without page errors",
+      "passed": true,
+      "seconds": 1.3
+    },
+    {
+      "project": "chromium-demo",
+      "title": "spreadsheet download preserves literal text and review scope offline",
+      "passed": true,
+      "seconds": 13.4
+    },
+    {
+      "project": "chromium-demo",
+      "title": "oversized spreadsheet text leaves JSON export available",
+      "passed": true,
+      "seconds": 2.7
+    },
+    {
+      "project": "firefox-live",
+      "title": "unpainted PDF evidence (unpainted-text) stays in review through correction and archive restore",
+      "passed": true,
+      "seconds": 19.7
+    },
+    {
+      "project": "firefox-live",
+      "title": "unpainted PDF evidence (zero-opacity) stays in review through correction and archive restore",
+      "passed": true,
+      "seconds": 19.9
+    },
+    {
+      "project": "firefox-live",
+      "title": "unpainted PDF evidence (clipped-text) stays in review through correction and archive restore",
+      "passed": true,
+      "seconds": 24.7
+    },
+    {
+      "project": "firefox-live",
+      "title": "unpainted PDF evidence (flat-raster) stays in review through correction and archive restore",
+      "passed": true,
+      "seconds": 20.5
+    },
+    {
+      "project": "firefox-live",
+      "title": "unpainted PDF evidence (overlapping-text) stays in review through correction and archive restore",
+      "passed": true,
+      "seconds": 25.6
+    },
+    {
+      "project": "firefox-live",
+      "title": "native glyph overhang stays in review through offline rejection export and archive restore",
+      "passed": true,
+      "seconds": 19.0
+    },
+    {
+      "project": "firefox-live",
+      "title": "review archives restore every decision after the original session is removed",
+      "passed": true,
+      "seconds": 14.5
+    },
+    {
+      "project": "firefox-live",
+      "title": "archive failures and cancellation keep existing reviews recoverable",
+      "passed": true,
+      "seconds": 10.7
+    },
+    {
+      "project": "firefox-live",
+      "title": "a negated extracted date remains reviewable with its original evidence and exports",
+      "passed": true,
+      "seconds": 14.4
+    },
+    {
+      "project": "firefox-live",
+      "title": "a written date keeps every printed year digit through review and export",
+      "passed": true,
+      "seconds": 23.0
+    },
+    {
+      "project": "firefox-live",
+      "title": "an invalid date reference cannot settle an ambiguous issue date through review and export",
+      "passed": true,
+      "seconds": 17.8
+    },
+    {
+      "project": "firefox-live",
+      "title": "conflicting document conventions stay explicit through review and export",
+      "passed": true,
+      "seconds": 18.0
+    },
+    {
+      "project": "firefox-live",
+      "title": "Arabic amount fragments stay in review through correction, offline exports and archive restore",
+      "passed": false,
+      "seconds": 38.6
+    },
+    {
+      "project": "firefox-live",
+      "title": "an omitted minus stays visible and readable in the real PDF review",
+      "passed": true,
+      "seconds": 21.7
+    },
+    {
+      "project": "firefox-live",
+      "title": "a unique quote keeps its location while the wrong item association requires review",
+      "passed": true,
+      "seconds": 11.1
+    },
+    {
+      "project": "firefox-live",
+      "title": "a repeated quantity from another row stays unresolved through review and export",
+      "passed": true,
+      "seconds": 9.8
+    },
+    {
+      "project": "firefox-live",
+      "title": "quoted but inconsistent line arithmetic is reviewable and corrections keep their provenance",
+      "passed": true,
+      "seconds": 6.8
+    },
+    {
+      "project": "firefox-live",
+      "title": "real PDF and fixture extraction support nested corrections and identical API exports",
+      "passed": true,
+      "seconds": 6.8
+    },
+    {
+      "project": "firefox-live",
+      "title": "failed review saves keep the editor and prior value for retry",
+      "passed": true,
+      "seconds": 3.5
+    },
+    {
+      "project": "firefox-live",
+      "title": "late review reply stays with its document and pending saves disable export",
+      "passed": true,
+      "seconds": 4.9
+    },
+    {
+      "project": "firefox-live",
+      "title": "cancelled extraction cannot resurrect a reset document",
+      "passed": true,
+      "seconds": 2.3
+    },
+    {
+      "project": "firefox-live",
+      "title": "fixture failure is recoverable without losing the uploaded document",
+      "passed": true,
+      "seconds": 2.6
+    },
+    {
+      "project": "firefox-live",
+      "title": "upload and configure controls are accessible in both themes at phone widths",
+      "passed": true,
+      "seconds": 7.1
+    },
+    {
+      "project": "firefox-live",
+      "title": "a cancelled slow upload cannot replace a newer uploaded PDF",
+      "passed": true,
+      "seconds": 2.5
+    },
+    {
+      "project": "firefox-live",
+      "title": "sessions reopen saved corrections after reload and removal needs explicit confirmation",
+      "passed": true,
+      "seconds": 4.1
+    },
+    {
+      "project": "firefox-live",
+      "title": "session dialog is keyboard accessible in both themes at narrow phone width",
+      "passed": true,
+      "seconds": 3.0
+    },
+    {
+      "project": "firefox-live",
+      "title": "session listing and deletion failures can be retried without losing decisions",
+      "passed": true,
+      "seconds": 3.6
+    },
+    {
+      "project": "firefox-live",
+      "title": "session controls cannot discard an unsaved correction",
+      "passed": true,
+      "seconds": 3.1
+    },
+    {
+      "project": "firefox-live",
+      "title": "full capacity refuses uploads, keeps reviewed values, and removal permits recovery",
+      "passed": true,
+      "seconds": 6.8
+    },
+    {
+      "project": "firefox-live",
+      "title": "oversized fixture is refused before sending it and uploaded PDF remains usable",
+      "passed": true,
+      "seconds": 3.0
+    },
+    {
+      "project": "firefox-live",
+      "title": "cropped PDF uses the visible canvas and highlights the actual evidence position",
+      "passed": true,
+      "seconds": 2.2
+    },
+    {
+      "project": "firefox-live",
+      "title": "explicit headers expose a quantity and price swap while preserving arithmetic evidence",
+      "passed": true,
+      "seconds": 15.9
+    },
+    {
+      "project": "firefox-live",
+      "title": "spreadsheet download preserves literal text and review scope offline",
+      "passed": true,
+      "seconds": 12.6
+    },
+    {
+      "project": "firefox-demo",
+      "title": "the hidden-text sample keeps an invisible amount in review and exports offline",
+      "passed": true,
+      "seconds": 8.7
+    },
+    {
+      "project": "firefox-demo",
+      "title": "the line arithmetic sample exposes the original calculation and exports a correction",
+      "passed": true,
+      "seconds": 7.6
+    },
+    {
+      "project": "firefox-demo",
+      "title": "nested numeric correction saves the typed value and approval retains it",
+      "passed": true,
+      "seconds": 1.5
+    },
+    {
+      "project": "firefox-demo",
+      "title": "a slow earlier sample cannot replace a newer selection",
+      "passed": true,
+      "seconds": 1.4
+    },
+    {
+      "project": "firefox-demo",
+      "title": "page-session review survives sample switches when storage is blocked",
+      "passed": true,
+      "seconds": 1.4
+    },
+    {
+      "project": "firefox-demo",
+      "title": "invalid numeric edits remain editable and reset restores the original extraction",
+      "passed": true,
+      "seconds": 3.5
+    },
+    {
+      "project": "firefox-demo",
+      "title": "reviewed export excludes pending and rejected values, all scope remains explicit",
+      "passed": true,
+      "seconds": 1.5
+    },
+    {
+      "project": "firefox-demo",
+      "title": "stored invalid overlays are ignored and valid corrections survive a reload",
+      "passed": true,
+      "seconds": 1.0
+    },
+    {
+      "project": "firefox-demo",
+      "title": "sample and index failures have retry, and failed replacement preserves the previous review",
+      "passed": true,
+      "seconds": 0.977
+    },
+    {
+      "project": "firefox-demo",
+      "title": "keyboard navigation retains focus through selection, decisions, filters and editing",
+      "passed": true,
+      "seconds": 2.8
+    },
+    {
+      "project": "firefox-demo",
+      "title": "desktop and phone review, fit, edit and themes have accessible bounded layouts",
+      "passed": true,
+      "seconds": 27.1
+    },
+    {
+      "project": "firefox-demo",
+      "title": "phone inspection opens the matching page and returns to the field and its draft",
+      "passed": true,
+      "seconds": 1.3
+    },
+    {
+      "project": "firefox-demo",
+      "title": "page image failure exposes retry without losing field evidence",
+      "passed": true,
+      "seconds": 0.876
+    },
+    {
+      "project": "firefox-demo",
+      "title": "damaged replacement reports preserve the original document and decision",
+      "passed": true,
+      "seconds": 0.8180000000000001
+    },
+    {
+      "project": "firefox-demo",
+      "title": "boolean corrections remain false and markup-like corrections are inert in the UI and files",
+      "passed": true,
+      "seconds": 1.4
+    },
+    {
+      "project": "firefox-demo",
+      "title": "malformed deep links and malformed sample indexes recover without page errors",
+      "passed": true,
+      "seconds": 0.633
+    },
+    {
+      "project": "firefox-demo",
+      "title": "spreadsheet download preserves literal text and review scope offline",
+      "passed": true,
+      "seconds": 6.7
+    },
+    {
+      "project": "firefox-demo",
+      "title": "oversized spreadsheet text leaves JSON export available",
+      "passed": true,
+      "seconds": 1.6
+    }
+  ],
+  "rerun": [
+    {
+      "project": "chromium-live",
+      "title": "cropped PDF uses the visible canvas and highlights the actual evidence position",
+      "passed": true,
+      "seconds": 3.8
+    },
+    {
+      "project": "chromium-live",
+      "title": "explicit headers expose a quantity and price swap while preserving arithmetic evidence",
+      "passed": true,
+      "seconds": 4.9
+    },
+    {
+      "project": "chromium-live",
+      "title": "spreadsheet download preserves literal text and review scope offline",
+      "passed": true,
+      "seconds": 6.1
+    },
+    {
+      "project": "chromium-demo",
+      "title": "desktop and phone review, fit, edit and themes have accessible bounded layouts",
+      "passed": true,
+      "seconds": 14.6
+    },
+    {
+      "project": "firefox-live",
+      "title": "Arabic amount fragments stay in review through correction, offline exports and archive restore",
+      "passed": true,
+      "seconds": 8.9
+    }
+  ],
+  "focused": [
+    {
+      "project": "chromium-live",
+      "title": "Arabic amount fragments stay in review through correction, offline exports and archive restore",
+      "passed": true,
+      "seconds": 29.9
+    },
+    {
+      "project": "firefox-live",
+      "title": "Arabic amount fragments stay in review through correction, offline exports and archive restore",
+      "passed": true,
+      "seconds": 37.6
+    }
+  ],
+  "distinct_final_passed": 102,
+  "initial_failure_details": "initial-browser-failures.json"
+}

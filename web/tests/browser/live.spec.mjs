@@ -427,6 +427,8 @@ test('conflicting document conventions stay explicit through review and export',
 });
 
 test('Arabic amount fragments stay in review through correction, offline exports and archive restore', async ({ page, context, request, browserName }) => {
+  // Four theme/layout audits plus two bounded worker-backed imports in this flow.
+  test.setTimeout(90_000);
   const study = new URL('../../../studies/arabic-numbers/', import.meta.url);
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('fixtures/review.pdf', study)));
@@ -451,7 +453,10 @@ test('Arabic amount fragments stay in review through correction, offline exports
     await page.setViewportSize({ width, height: 960 });
     if (width === 375) await page.getByRole('button', { name: 'Fields', exact: true }).click();
     for (const theme of ['light', 'dark']) {
-      await page.evaluate(theme => document.documentElement.setAttribute('data-theme', theme), theme);
+      const toggle = page.getByRole('button', { name: 'Toggle dark mode', exact: true });
+      const action = theme === 'light' ? 'Light' : 'Dark';
+      if ((await toggle.innerText()).includes(action)) await toggle.click();
+      await expect(toggle).toContainText(theme === 'light' ? 'Dark' : 'Light');
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await scan(page);
       layouts.push({ width, theme, overflow: false, accessibilityViolations: 0 });
