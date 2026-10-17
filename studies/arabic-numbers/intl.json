@@ -1,0 +1,815 @@
+{
+  "scope": "Unmodified native Intl.NumberFormat output and parts. Authored PDF fixtures omit literal bidi marks to isolate numeric evidence.",
+  "node": "v26.7.0",
+  "icu": "78.3",
+  "unicode": "17.0",
+  "cases": [
+    {
+      "id": "arab-grouped",
+      "locale": "ar-EG",
+      "input": "1234.56",
+      "options": {
+        "numberingSystem": "arab",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "١٬٢٣٤٫٥٦",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "١"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "٢٣٤"
+        },
+        {
+          "type": "decimal",
+          "value": "٫"
+        },
+        {
+          "type": "fraction",
+          "value": "٥٦"
+        }
+      ],
+      "numericText": "١٬٢٣٤٫٥٦",
+      "integer": false
+    },
+    {
+      "id": "arab-decimal",
+      "locale": "ar-EG",
+      "input": "1.25",
+      "options": {
+        "numberingSystem": "arab",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "١٫٢٥",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "١"
+        },
+        {
+          "type": "decimal",
+          "value": "٫"
+        },
+        {
+          "type": "fraction",
+          "value": "٢٥"
+        }
+      ],
+      "numericText": "١٫٢٥",
+      "integer": false
+    },
+    {
+      "id": "arab-million",
+      "locale": "ar-EG",
+      "input": "1234567.89",
+      "options": {
+        "numberingSystem": "arab",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "١٬٢٣٤٬٥٦٧٫٨٩",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "١"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "٢٣٤"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "٥٦٧"
+        },
+        {
+          "type": "decimal",
+          "value": "٫"
+        },
+        {
+          "type": "fraction",
+          "value": "٨٩"
+        }
+      ],
+      "numericText": "١٬٢٣٤٬٥٦٧٫٨٩",
+      "integer": false
+    },
+    {
+      "id": "arab-integer",
+      "locale": "ar-EG",
+      "input": "1234",
+      "options": {
+        "numberingSystem": "arab",
+        "minimumFractionDigits": 0,
+        "maximumFractionDigits": 0
+      },
+      "formatted": "١٬٢٣٤",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "١"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "٢٣٤"
+        }
+      ],
+      "numericText": "١٬٢٣٤",
+      "integer": true
+    },
+    {
+      "id": "arab-negative",
+      "locale": "ar-EG",
+      "input": "-1234.56",
+      "options": {
+        "numberingSystem": "arab",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "؜-١٬٢٣٤٫٥٦",
+      "parts": [
+        {
+          "type": "literal",
+          "value": "؜"
+        },
+        {
+          "type": "minusSign",
+          "value": "-"
+        },
+        {
+          "type": "integer",
+          "value": "١"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "٢٣٤"
+        },
+        {
+          "type": "decimal",
+          "value": "٫"
+        },
+        {
+          "type": "fraction",
+          "value": "٥٦"
+        }
+      ],
+      "numericText": "-١٬٢٣٤٫٥٦",
+      "integer": false
+    },
+    {
+      "id": "arab-large-integer",
+      "locale": "ar-EG",
+      "input": "9007199254740993",
+      "options": {
+        "numberingSystem": "arab",
+        "minimumFractionDigits": 0,
+        "maximumFractionDigits": 0
+      },
+      "formatted": "٩٬٠٠٧٬١٩٩٬٢٥٤٬٧٤٠٬٩٩٣",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "٩"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "٠٠٧"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "١٩٩"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "٢٥٤"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "٧٤٠"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "٩٩٣"
+        }
+      ],
+      "numericText": "٩٬٠٠٧٬١٩٩٬٢٥٤٬٧٤٠٬٩٩٣",
+      "integer": true
+    },
+    {
+      "id": "arab-percent",
+      "locale": "ar-EG",
+      "input": "0.125",
+      "options": {
+        "numberingSystem": "arab",
+        "style": "percent",
+        "maximumFractionDigits": 1
+      },
+      "formatted": "١٢٫٥٪؜",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "١٢"
+        },
+        {
+          "type": "decimal",
+          "value": "٫"
+        },
+        {
+          "type": "fraction",
+          "value": "٥"
+        },
+        {
+          "type": "percentSign",
+          "value": "٪"
+        },
+        {
+          "type": "literal",
+          "value": "؜"
+        }
+      ],
+      "numericText": "١٢٫٥٪",
+      "percent": true
+    },
+    {
+      "id": "arabext-grouped",
+      "locale": "fa-IR",
+      "input": "1234.56",
+      "options": {
+        "numberingSystem": "arabext",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "۱٬۲۳۴٫۵۶",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "۱"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "۲۳۴"
+        },
+        {
+          "type": "decimal",
+          "value": "٫"
+        },
+        {
+          "type": "fraction",
+          "value": "۵۶"
+        }
+      ],
+      "numericText": "۱٬۲۳۴٫۵۶",
+      "integer": false
+    },
+    {
+      "id": "arabext-decimal",
+      "locale": "fa-IR",
+      "input": "1.25",
+      "options": {
+        "numberingSystem": "arabext",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "۱٫۲۵",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "۱"
+        },
+        {
+          "type": "decimal",
+          "value": "٫"
+        },
+        {
+          "type": "fraction",
+          "value": "۲۵"
+        }
+      ],
+      "numericText": "۱٫۲۵",
+      "integer": false
+    },
+    {
+      "id": "arabext-million",
+      "locale": "fa-IR",
+      "input": "1234567.89",
+      "options": {
+        "numberingSystem": "arabext",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "۱٬۲۳۴٬۵۶۷٫۸۹",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "۱"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "۲۳۴"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "۵۶۷"
+        },
+        {
+          "type": "decimal",
+          "value": "٫"
+        },
+        {
+          "type": "fraction",
+          "value": "۸۹"
+        }
+      ],
+      "numericText": "۱٬۲۳۴٬۵۶۷٫۸۹",
+      "integer": false
+    },
+    {
+      "id": "arabext-integer",
+      "locale": "fa-IR",
+      "input": "1234",
+      "options": {
+        "numberingSystem": "arabext",
+        "minimumFractionDigits": 0,
+        "maximumFractionDigits": 0
+      },
+      "formatted": "۱٬۲۳۴",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "۱"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "۲۳۴"
+        }
+      ],
+      "numericText": "۱٬۲۳۴",
+      "integer": true
+    },
+    {
+      "id": "arabext-negative",
+      "locale": "fa-IR",
+      "input": "-1234.56",
+      "options": {
+        "numberingSystem": "arabext",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "‎−۱٬۲۳۴٫۵۶",
+      "parts": [
+        {
+          "type": "literal",
+          "value": "‎"
+        },
+        {
+          "type": "minusSign",
+          "value": "−"
+        },
+        {
+          "type": "integer",
+          "value": "۱"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "۲۳۴"
+        },
+        {
+          "type": "decimal",
+          "value": "٫"
+        },
+        {
+          "type": "fraction",
+          "value": "۵۶"
+        }
+      ],
+      "numericText": "−۱٬۲۳۴٫۵۶",
+      "integer": false
+    },
+    {
+      "id": "arabext-large-integer",
+      "locale": "fa-IR",
+      "input": "9007199254740993",
+      "options": {
+        "numberingSystem": "arabext",
+        "minimumFractionDigits": 0,
+        "maximumFractionDigits": 0
+      },
+      "formatted": "۹٬۰۰۷٬۱۹۹٬۲۵۴٬۷۴۰٬۹۹۳",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "۹"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "۰۰۷"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "۱۹۹"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "۲۵۴"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "۷۴۰"
+        },
+        {
+          "type": "group",
+          "value": "٬"
+        },
+        {
+          "type": "integer",
+          "value": "۹۹۳"
+        }
+      ],
+      "numericText": "۹٬۰۰۷٬۱۹۹٬۲۵۴٬۷۴۰٬۹۹۳",
+      "integer": true
+    },
+    {
+      "id": "arabext-percent",
+      "locale": "fa-IR",
+      "input": "0.125",
+      "options": {
+        "numberingSystem": "arabext",
+        "style": "percent",
+        "maximumFractionDigits": 1
+      },
+      "formatted": "۱۲٫۵٪",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "۱۲"
+        },
+        {
+          "type": "decimal",
+          "value": "٫"
+        },
+        {
+          "type": "fraction",
+          "value": "۵"
+        },
+        {
+          "type": "percentSign",
+          "value": "٪"
+        }
+      ],
+      "numericText": "۱۲٫۵٪",
+      "percent": true
+    },
+    {
+      "id": "latn-grouped",
+      "locale": "ar-EG",
+      "input": "1234.56",
+      "options": {
+        "numberingSystem": "latn",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "1,234.56",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": ","
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "decimal",
+          "value": "."
+        },
+        {
+          "type": "fraction",
+          "value": "56"
+        }
+      ],
+      "numericText": "1,234.56",
+      "integer": false
+    },
+    {
+      "id": "latn-decimal",
+      "locale": "ar-EG",
+      "input": "1.25",
+      "options": {
+        "numberingSystem": "latn",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "1.25",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "decimal",
+          "value": "."
+        },
+        {
+          "type": "fraction",
+          "value": "25"
+        }
+      ],
+      "numericText": "1.25",
+      "integer": false
+    },
+    {
+      "id": "latn-million",
+      "locale": "ar-EG",
+      "input": "1234567.89",
+      "options": {
+        "numberingSystem": "latn",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "1,234,567.89",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": ","
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "group",
+          "value": ","
+        },
+        {
+          "type": "integer",
+          "value": "567"
+        },
+        {
+          "type": "decimal",
+          "value": "."
+        },
+        {
+          "type": "fraction",
+          "value": "89"
+        }
+      ],
+      "numericText": "1,234,567.89",
+      "integer": false
+    },
+    {
+      "id": "latn-integer",
+      "locale": "ar-EG",
+      "input": "1234",
+      "options": {
+        "numberingSystem": "latn",
+        "minimumFractionDigits": 0,
+        "maximumFractionDigits": 0
+      },
+      "formatted": "1,234",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": ","
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        }
+      ],
+      "numericText": "1,234",
+      "integer": true
+    },
+    {
+      "id": "latn-negative",
+      "locale": "ar-EG",
+      "input": "-1234.56",
+      "options": {
+        "numberingSystem": "latn",
+        "minimumFractionDigits": 2,
+        "maximumFractionDigits": 2
+      },
+      "formatted": "‎-1,234.56",
+      "parts": [
+        {
+          "type": "literal",
+          "value": "‎"
+        },
+        {
+          "type": "minusSign",
+          "value": "-"
+        },
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": ","
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "decimal",
+          "value": "."
+        },
+        {
+          "type": "fraction",
+          "value": "56"
+        }
+      ],
+      "numericText": "-1,234.56",
+      "integer": false
+    },
+    {
+      "id": "latn-large-integer",
+      "locale": "ar-EG",
+      "input": "9007199254740993",
+      "options": {
+        "numberingSystem": "latn",
+        "minimumFractionDigits": 0,
+        "maximumFractionDigits": 0
+      },
+      "formatted": "9,007,199,254,740,993",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "9"
+        },
+        {
+          "type": "group",
+          "value": ","
+        },
+        {
+          "type": "integer",
+          "value": "007"
+        },
+        {
+          "type": "group",
+          "value": ","
+        },
+        {
+          "type": "integer",
+          "value": "199"
+        },
+        {
+          "type": "group",
+          "value": ","
+        },
+        {
+          "type": "integer",
+          "value": "254"
+        },
+        {
+          "type": "group",
+          "value": ","
+        },
+        {
+          "type": "integer",
+          "value": "740"
+        },
+        {
+          "type": "group",
+          "value": ","
+        },
+        {
+          "type": "integer",
+          "value": "993"
+        }
+      ],
+      "numericText": "9,007,199,254,740,993",
+      "integer": true
+    },
+    {
+      "id": "latn-percent",
+      "locale": "ar-EG",
+      "input": "0.125",
+      "options": {
+        "numberingSystem": "latn",
+        "style": "percent",
+        "maximumFractionDigits": 1
+      },
+      "formatted": "12.5‎%‎",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "12"
+        },
+        {
+          "type": "decimal",
+          "value": "."
+        },
+        {
+          "type": "fraction",
+          "value": "5"
+        },
+        {
+          "type": "literal",
+          "value": "‎"
+        },
+        {
+          "type": "percentSign",
+          "value": "%"
+        },
+        {
+          "type": "literal",
+          "value": "‎"
+        }
+      ],
+      "numericText": "12.5%",
+      "percent": true
+    }
+  ]
+}

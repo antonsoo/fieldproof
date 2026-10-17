@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Arabic numeric evidence
+
+- Read Arabic decimal U+066B and grouping U+066C as part of a complete amount,
+  including Arabic-Indic, Extended Arabic-Indic and ASCII digits. A page
+  printing 1234.56 with these separators previously verified a claim of 234
+  while rejecting the correct amount.
+- Keep Arabic percentage, per-mille and per-ten-thousand signs inside numeric
+  evidence; rates cannot supply ordinary amounts. Malformed or mixed separator
+  spellings stay unsupported as whole tokens. Preserve source spans, signs,
+  precision and existing comma/dot convention choices.
+- Retain native Intl.NumberFormat output, 21 authored PDF controls, 87 before/after
+  claims and real API/worker evidence in `studies/arabic-numbers`. This is a local
+  source correction, without a registry release or hosted update.
+
 ### Renderer glyph bounds
 
 - Associate native source characters with PDFium font envelopes and restrict

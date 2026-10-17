@@ -426,6 +426,75 @@ test('conflicting document conventions stay explicit through review and export',
   if (directory) writeFileSync(`${directory}/${browserName}-observations.json`, JSON.stringify({ report: before.report, exported }, null, 2) + '\n');
 });
 
+test('Arabic amount fragments stay in review through correction, offline exports and archive restore', async ({ page, context, request, browserName }) => {
+  const study = new URL('../../../studies/arabic-numbers/', import.meta.url);
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('fixtures/review.pdf', study)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('fixtures/review.json', study)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  const total = row(page, 'total');
+  await expect(total.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
+  await expect(total.locator('.field-reasons')).toContainText('does not match 1234.56');
+  await expect(total.locator('.field-evidence')).toContainText('١٬٢٣٤٫٥٦');
+  await total.getByRole('button', { name: 'Inspect total', exact: true }).click();
+  await expect.poll(() => page.locator('#page-frame img').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+  await expect(page.locator('.highlight-rect[data-path="total"]').first()).toHaveAttribute('data-status', 'needs_review');
+  const session = (await (await request.get('/api/documents')).json()).documents[0];
+  const url = `/api/documents/${session.id}`;
+  const original = (await (await request.get(`${url}/report`)).json()).report;
+  expect(original.counts).toEqual({ verified: 3, needs_review: 1, unsupported: 0 });
+  const layouts = [];
+  const destination = fileURLToPath(new URL('../../../docs/assets/arabic-numbers/', import.meta.url));
+  if (process.env.UPDATE_ARABIC_NUMBER_SCREENSHOTS) mkdirSync(destination, { recursive: true });
+  for (const width of [1440, 375]) {
+    await page.setViewportSize({ width, height: 960 });
+    if (width === 375) await page.getByRole('button', { name: 'Fields', exact: true }).click();
+    for (const theme of ['light', 'dark']) {
+      await page.evaluate(theme => document.documentElement.setAttribute('data-theme', theme), theme);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      await scan(page);
+      layouts.push({ width, theme, overflow: false, accessibilityViolations: 0 });
+      if (process.env.UPDATE_ARABIC_NUMBER_SCREENSHOTS) await page.screenshot({ path: `${destination}/${browserName}-${width}-${theme}.png`, fullPage: true });
+    }
+  }
+  await page.setViewportSize({ width: 1440, height: 960 });
+  await page.getByLabel('Export', { exact: true }).selectOption('all');
+  await total.getByRole('button', { name: 'Edit', exact: true }).click();
+  await total.getByRole('textbox').fill('1234.56');
+  await total.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect(total.locator('.review-badge')).toHaveText('edited');
+  await page.evaluate(() => document.fonts.ready);
+  const offlineRequests = [];
+  const observe = request => offlineRequests.push(request.url());
+  page.on('request', observe);
+  await context.setOffline(true);
+  const exported = JSON.parse((await downloadText(page, 'JSON')).text);
+  expect(exported.find(entry => entry.field === 'total')).toMatchObject({ value: 1234.56, original_value: 234, value_source: 'correction', verification_status: 'needs_review', review_status: 'edited' });
+  expect((await downloadText(page, 'CSV')).text).toContain('total,1234.56,234,correction,needs_review,edited,1');
+  expect(offlineRequests).toEqual([]);
+  await context.setOffline(false);
+  page.off('request', observe);
+  expect(await (await request.get(`${url}/export.json`)).json()).toEqual(exported);
+  expect((await (await request.get(`${url}/report`)).json()).report).toEqual(original);
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Save archive', exact: true }).click();
+  const archive = await (await pending).path();
+  expect((await request.delete(url)).status()).toBe(204);
+  await page.reload();
+  await page.getByLabel('Review archive', { exact: true }).setInputFiles(archive);
+  await expect(row(page, 'total').locator('.review-badge')).toHaveText('edited');
+  const restored = (await (await request.get('/api/documents')).json()).documents[0];
+  const restoredReport = (await (await request.get(`/api/documents/${restored.id}/report`)).json()).report;
+  expect(restoredReport).toEqual(original);
+  await page.getByLabel('Export', { exact: true }).selectOption('all');
+  expect(JSON.parse((await downloadText(page, 'JSON')).text)).toEqual(exported);
+  if (process.env.UPDATE_ARABIC_NUMBER_SCREENSHOTS) {
+    const directory = fileURLToPath(new URL('results/', study));
+    writeFileSync(`${directory}/${browserName}-browser.json`, JSON.stringify({ original, exported, restoredReport, layouts, offlineRequests }, null, 2) + '\n');
+  }
+});
+
 test('an omitted minus stays visible and readable in the real PDF review', async ({ page }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('../../../examples/signed-amount.pdf', import.meta.url)));

@@ -139,6 +139,13 @@ The [evidence guide](docs/evidence-guide.md) maps individual claims to retained
 inputs, before/after reports, independent controls and installed/browser
 receipts. Each study identifies its source and publication boundaries.
 
+The local [Arabic-number correction](studies/arabic-numbers/README.md) addresses
+another false verification: a printed `١٬٢٣٤٫٥٦` supported a claim of `234`.
+Complete amounts now retain their separators, and percentage signs cannot
+disappear into plain amounts. The study includes native locale formatting and
+the actual PDF review workflow. This correction is not in the pinned public
+install above, a registry release or the hosted demo.
+
 ## How it works
 
 ```text

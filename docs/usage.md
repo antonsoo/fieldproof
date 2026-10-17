@@ -48,6 +48,14 @@ ambiguous values stay in review even with a supplied fallback. Explicit amounts
 and unambiguous dates remain usable. The [mixed-convention study](../studies/mixed-conventions/README.md)
 retains actual PDF and CLI before/after reports and explains the heuristic limits.
 
+The local source also reads Arabic decimal U+066B and grouping U+066C with
+ASCII, Arabic-Indic or Extended Arabic-Indic decimal digits. Their explicit
+roles do not decide how an ambiguous Latin `.` is used elsewhere. Arabic rate
+signs remain part of the evidence and cannot verify an ordinary amount. Mixed
+Latin/Arabic separator spellings require review. See the
+[native locale and PDF replay](../studies/arabic-numbers/README.md). This
+correction is not in the registry package or the currently pinned public source.
+
 Only a complete, calendar-valid numeric date can settle the date order. An
 unrelated `99/01/2026`, a phone-number fragment or `ABC14/03/2026XYZ` cannot
 override your `--date-order` default or verify an ambiguous issue date. The
@@ -291,4 +299,3 @@ currently only implemented for the built-in Invoice/Receipt templates - see
 ExtractionResult`) - implement it against any provider and
 `fieldproof.ground` / `fieldproof.verify` work unchanged, since they only
 depend on the `Evidenced` shape, not on Anthropic.
-

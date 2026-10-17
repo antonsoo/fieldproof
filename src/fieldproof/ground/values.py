@@ -34,6 +34,11 @@ _DOT_THOUSANDS_COMMA_DECIMAL = re.compile(r"^\d{1,3}(?:\.\d{3})+,\d{1,2}$")
 _COMMA_DECIMAL = re.compile(r"^\d*,\d{1,2}$")
 _PLAIN = re.compile(r"^(?:\d+(?:\.\d+)?|\.\d+)$")
 _INDIAN_THOUSANDS = re.compile(r"^\d{1,2}(?:,\d{2})+,\d{3}(?:\.\d+)?$")
+# These are explicit decimal/grouping symbols, not locale-dependent readings
+# of '.' and ','. Keep mixed or malformed spellings whole but unsupported.
+_ARABIC_NUMBER = re.compile(
+    r"^(?:\d{1,3}(?:\u066c\d{3})+(?:\u066b\d+)?|\d+(?:\u066b\d+)?|\u066b\d+)$"
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -45,13 +50,19 @@ class NumberReading:
 
 
 def number_readings(token: str, style: NumberStyle | None = None) -> list[NumberReading]:
-    """Every reading of `token` (digits with `.` and `,` separators, no sign, no symbols).
+    """Every reading of `token` (decimal digits and supported separators, no sign or units).
 
     "1,234.50" and "1.234,50" have one reading each. "60,000" is sixty thousand. "60.000"
     is sixty with three decimals or sixty thousand: both readings come back unless `style`
     (see `number_style`) says the document writes `.` as the decimal point ("decimal") or
-    as the thousands separator ("thousands"). Returns [] for anything that is not a number.
+    as the thousands separator ("thousands"). Arabic decimal U+066B and grouping
+    U+066C have explicit roles, independent of `style`. Returns [] for unsupported spellings.
     """
+    if "\u066b" in token or "\u066c" in token:
+        if not _ARABIC_NUMBER.fullmatch(token):
+            return []
+        plain = token.replace("\u066c", "").replace("\u066b", ".")
+        return [NumberReading(Decimal(plain), len(plain.partition(".")[2]))]
     if _COMMA_THOUSANDS.match(token):
         whole, _, frac = token.partition(".")
         return [
@@ -120,24 +131,25 @@ def number_style(text: str) -> NumberStyle | None:
 
 
 _CURRENCY = r"(?:US\$|S\$|R\$|USD|EUR|GBP|JPY|CNY|INR|CHF|CAD|AUD|NZD|SGD|HKD|Rp\.?|RM|\$)"
+_RATE_SIGNS = r"%\u2030\u2031\u066a\u0609\u060a"
 # The candidate is intentionally broader than a supported amount: consume the WHOLE
 # spelling, then reject it if necessary. Otherwise 1e6, .50 or 1,2,3 can yield a
 # perfectly plausible number that was only a fragment of what the page said.
 _NUMBER_TOKEN = re.compile(
-    r"(?<![\w.,'/%+\-$])(?<!\d:)"
+    rf"(?<![\w.,'\u066b\u066c/{_RATE_SIGNS}+\-$])(?<!\d:)"
     r"(?P<open>\( *)?"
     r"(?P<sign>[+-] *)?"
     rf"(?P<currency>{_CURRENCY} *)?"
     r"(?P<inner_sign>[+-] *)?"
     r"(?P<count_prefix>x)?"
-    r"(?P<number>(?:\d[\d.,']*|[.,]\d[\d.,']*)(?:[eE][+-]?\d+)?)"
+    r"(?P<number>(?:\d[\d.,'\u066b\u066c]*|[.,\u066b\u066c]\d[\d.,'\u066b\u066c]*)(?:[eE][+-]?\d+)?)"
     r"(?P<count_suffix>x)?"
     # A minus followed by another amount belongs to that amount. Do not steal
     # the prefix of the next receipt row ("Subtotal 18,182 - 15% DISC").
-    rf"(?P<trailing_sign> *-(?! *(?:[\d.,]|{_CURRENCY})))?"
-    r"(?P<percent> *[%\u2030])?"
+    rf"(?P<trailing_sign> *-(?! *(?:[\d.,\u066b\u066c]|{_CURRENCY})))?"
+    rf"(?P<percent> *[{_RATE_SIGNS}])?"
     r"(?P<close> *\))?"
-    r"(?![\w.,'/%+\-$]|:\d)",
+    rf"(?![\w.,'\u066b\u066c/{_RATE_SIGNS}+\-$]|:\d)",
     re.IGNORECASE,
 )
 

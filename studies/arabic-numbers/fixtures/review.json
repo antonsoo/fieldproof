@@ -1,0 +1,11 @@
+{
+  "schema": "Invoice",
+  "model": "controlled-locale-fixture",
+  "data": {
+    "vendor_name": { "value": "Locale Supplies", "evidence": ["Locale Supplies"], "page": 1 },
+    "invoice_number": { "value": "NUM-2026-17", "evidence": ["Invoice: NUM-2026-17"], "page": 1 },
+    "issue_date": { "value": "2026-10-17", "evidence": ["Issued: 2026-10-17"], "page": 1 },
+    "total": { "value": 234, "evidence": ["Total due: ١٬٢٣٤٫٥٦"], "page": 1 },
+    "line_items": []
+  }
+}
