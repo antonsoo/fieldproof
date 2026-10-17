@@ -13,6 +13,7 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from fieldproof.document.model import BBox, Document, Word
 from fieldproof.ground.align import GroundingMatch
+from fieldproof.ground.lines import separate_numeric_regions
 from fieldproof.ground.values import NumberStyle, number_tokens
 from fieldproof.verify.rows import RowEvidenceCheck, RowEvidenceRule
 from fieldproof.verify.value_checks import check_number
@@ -225,7 +226,8 @@ class ColumnEvidenceIndex:
             )
         values = []
         columns = set()
-        for token in number_tokens(match.matched_text):
+        numeric_text = separate_numeric_regions(match.matched_text, match.words, start=match.start)
+        for token in number_tokens(numeric_text):
             spelling = match.matched_text[token.start : token.end]
             if not check_number(result.value, spelling, number_style=style).supported:
                 continue

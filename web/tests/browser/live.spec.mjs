@@ -426,10 +426,14 @@ test('conflicting document conventions stay explicit through review and export',
   if (directory) writeFileSync(`${directory}/${browserName}-observations.json`, JSON.stringify({ report: before.report, exported }, null, 2) + '\n');
 });
 
-test('Arabic amount fragments stay in review through correction, offline exports and archive restore', async ({ page, context, request, browserName }) => {
+for (const numericCase of [
+  { title: 'Arabic amount fragments stay in review through correction, offline exports and archive restore', study: 'arabic-numbers', amount: '١٬٢٣٤٫٥٦', fragment: 234, reason: 'does not match 1234.56', capture: 'UPDATE_ARABIC_NUMBER_SCREENSHOTS' },
+  { title: 'Space-grouped amounts stay unresolved through correction, offline exports and archive restore', study: 'spaced-numbers', amount: '1 234,56', fragment: 234.56, reason: 'does not establish a clear boundary', capture: 'UPDATE_SPACED_NUMBER_SCREENSHOTS' },
+]) {
+test(numericCase.title, async ({ page, context, request, browserName }) => {
   // Four theme/layout audits plus two bounded worker-backed imports in this flow.
   test.setTimeout(90_000);
-  const study = new URL('../../../studies/arabic-numbers/', import.meta.url);
+  const study = new URL(`../../../studies/${numericCase.study}/`, import.meta.url);
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('fixtures/review.pdf', study)));
   await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
@@ -437,8 +441,8 @@ test('Arabic amount fragments stay in review through correction, offline exports
   await page.getByRole('button', { name: 'Run extraction' }).click();
   const total = row(page, 'total');
   await expect(total.locator('.status-chip')).toHaveAttribute('data-status', 'needs_review');
-  await expect(total.locator('.field-reasons')).toContainText('does not match 1234.56');
-  await expect(total.locator('.field-evidence')).toContainText('١٬٢٣٤٫٥٦');
+  await expect(total.locator('.field-reasons')).toContainText(numericCase.reason);
+  await expect(total.locator('.field-evidence')).toContainText(numericCase.amount);
   await total.getByRole('button', { name: 'Inspect total', exact: true }).click();
   await expect.poll(() => page.locator('#page-frame img').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
   await expect(page.locator('.highlight-rect[data-path="total"]').first()).toHaveAttribute('data-status', 'needs_review');
@@ -447,8 +451,8 @@ test('Arabic amount fragments stay in review through correction, offline exports
   const original = (await (await request.get(`${url}/report`)).json()).report;
   expect(original.counts).toEqual({ verified: 3, needs_review: 1, unsupported: 0 });
   const layouts = [];
-  const destination = fileURLToPath(new URL('../../../docs/assets/arabic-numbers/', import.meta.url));
-  if (process.env.UPDATE_ARABIC_NUMBER_SCREENSHOTS) mkdirSync(destination, { recursive: true });
+  const destination = fileURLToPath(new URL(`../../../docs/assets/${numericCase.study}/`, import.meta.url));
+  if (process.env[numericCase.capture]) mkdirSync(destination, { recursive: true });
   for (const width of [1440, 375]) {
     await page.setViewportSize({ width, height: 960 });
     if (width === 375) await page.getByRole('button', { name: 'Fields', exact: true }).click();
@@ -460,7 +464,7 @@ test('Arabic amount fragments stay in review through correction, offline exports
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await scan(page);
       layouts.push({ width, theme, overflow: false, accessibilityViolations: 0 });
-      if (process.env.UPDATE_ARABIC_NUMBER_SCREENSHOTS) await page.screenshot({ path: `${destination}/${browserName}-${width}-${theme}.png`, fullPage: true });
+      if (process.env[numericCase.capture]) await page.screenshot({ path: `${destination}/${browserName}-${width}-${theme}.png`, fullPage: true });
     }
   }
   await page.setViewportSize({ width: 1440, height: 960 });
@@ -475,8 +479,8 @@ test('Arabic amount fragments stay in review through correction, offline exports
   page.on('request', observe);
   await context.setOffline(true);
   const exported = JSON.parse((await downloadText(page, 'JSON')).text);
-  expect(exported.find(entry => entry.field === 'total')).toMatchObject({ value: 1234.56, original_value: 234, value_source: 'correction', verification_status: 'needs_review', review_status: 'edited' });
-  expect((await downloadText(page, 'CSV')).text).toContain('total,1234.56,234,correction,needs_review,edited,1');
+  expect(exported.find(entry => entry.field === 'total')).toMatchObject({ value: 1234.56, original_value: numericCase.fragment, value_source: 'correction', verification_status: 'needs_review', review_status: 'edited' });
+  expect((await downloadText(page, 'CSV')).text).toContain(`total,1234.56,${numericCase.fragment},correction,needs_review,edited,1`);
   expect(offlineRequests).toEqual([]);
   await context.setOffline(false);
   page.off('request', observe);
@@ -494,11 +498,12 @@ test('Arabic amount fragments stay in review through correction, offline exports
   expect(restoredReport).toEqual(original);
   await page.getByLabel('Export', { exact: true }).selectOption('all');
   expect(JSON.parse((await downloadText(page, 'JSON')).text)).toEqual(exported);
-  if (process.env.UPDATE_ARABIC_NUMBER_SCREENSHOTS) {
+  if (process.env[numericCase.capture]) {
     const directory = fileURLToPath(new URL('results/', study));
     writeFileSync(`${directory}/${browserName}-browser.json`, JSON.stringify({ original, exported, restoredReport, layouts, offlineRequests }, null, 2) + '\n');
   }
 });
+}
 
 test('an omitted minus stays visible and readable in the real PDF review', async ({ page }) => {
   await page.goto('./', { waitUntil: 'domcontentloaded' });

@@ -27,7 +27,7 @@ from rapidfuzz import fuzz
 from rapidfuzz.distance import Levenshtein
 
 from fieldproof.document.model import BBox, Document, Page, Word
-from fieldproof.ground.lines import separate_lines
+from fieldproof.ground.lines import separate_numeric_regions
 from fieldproof.ground.normalize import normalize, normalize_with_map
 from fieldproof.ground.values import (
     NumberToken,
@@ -105,7 +105,7 @@ class _PageIndex:
     def __init__(self, page: Page) -> None:
         self.page = replace(page, words=list(page.words))
         self.normalized, self.offsets = normalize_with_map(page.text)
-        self.numbers = number_tokens(separate_lines(page.text, self.page.words))
+        self.numbers = number_tokens(separate_numeric_regions(page.text, self.page.words))
         self.number_starts = [token.start for token in self.numbers]
         self.number_ends = [token.end for token in self.numbers]
         self.word_starts = [word.start for word in self.page.words]

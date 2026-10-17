@@ -37,7 +37,7 @@
   {"id":"missing-leading-zero-correct","source":"Total .50","quote":"Total .50","value":0.5,"expect":"verified"},
   {"id":"indian-grouping-correct","source":"Total 12,34,567.50","quote":"Total 12,34,567.50","value":1234567.5,"expect":"verified"},
   {"id":"comma-decimal-correct","source":"Total 1.234,50","quote":"Total 1.234,50","value":1234.5,"expect":"verified"},
-  {"id":"row-quantity-correct","source":"Fuel surcharge 1 210.50 210.50","quote":"Fuel surcharge 1 210.50 210.50","value":1,"expect":"verified"},
+  {"id":"row-quantity-correct","source":"Fuel surcharge 1 210.50 210.50","quote":"Fuel surcharge 1 210.50 210.50","value":1,"expect":"needs_review","note":"Tight spacing cannot distinguish quantity from grouping. See the paired wide/tight layout controls in spaced-numbers."},
   {"id":"row-amount-correct","source":"Fuel surcharge 1 210.50 210.50","quote":"Fuel surcharge 1 210.50 210.50","value":210.5,"expect":"verified"},
   {"id":"tax-amount-correct","source":"Tax (8.5%) $208.93","quote":"Tax (8.5%) $208.93","value":208.93,"expect":"verified"},
   {"id":"tiny-amount-correct","source":"Total 0.0000000001","quote":"Total 0.0000000001","value":1e-10,"expect":"verified"},

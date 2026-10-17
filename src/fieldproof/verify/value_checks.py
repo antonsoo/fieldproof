@@ -27,6 +27,7 @@ from fieldproof.ground.values import (
     WRITTEN_DATE,
     NumberReading,
     NumberStyle,
+    NumberToken,
     number_tokens,
     numeric_date_readings,
     written_date,
@@ -86,11 +87,14 @@ def parse_all_numbers(text: str) -> list[float]:
     """Every plain (non-percentage) number in `text`, in reading order -
     strips currency symbols and thousands separators, and excludes rate-like
     tokens such as the "8.5" in "Tax (8.5%) $208.93". Evidence for a
-    row-level field is often the whole row (e.g. "Fuel surcharge 1 210.50
-    210.50" for a quantity of 1), so a value check needs to ask "does this
+    row-level field is often the whole row (e.g. "Fuel surcharge 1 $210.50
+    $210.50" for a quantity of 1), so a value check needs to ask "does this
     number appear anywhere in the evidence", not just "is it the last
-    number" - see `check_number`."""
-    return [float(readings[0].value) for _, readings in _evidence_readings(text, None)]
+    number" - see `check_number`. Adjacent space-separated numeric groups are
+    unresolved unless the caller retains layout boundaries (tabs/newlines)."""
+    return [
+        float(readings[0].value) for _, readings in _evidence_readings(number_tokens(text), None)
+    ]
 
 
 def parse_number(text: str) -> float | None:
@@ -151,12 +155,12 @@ def _try_formats(text: str) -> date | None:
 
 
 def _evidence_readings(
-    evidence_text: str, number_style: NumberStyle | None
+    evidence_tokens: tuple[NumberToken, ...], number_style: NumberStyle | None
 ) -> list[tuple[str, list[NumberReading]]]:
     """Per plain (non-percentage) number token in the evidence, the token as written and
     every reading of it as (value, decimal places written)."""
     tokens: list[tuple[str, list[NumberReading]]] = []
-    for token in number_tokens(evidence_text):
+    for token in evidence_tokens:
         readings = [
             r
             for r in token.readings(number_style)
@@ -188,8 +192,12 @@ def check_number(
     claimed = Decimal(str(value))
     if not claimed.is_finite():
         return ValueCheckResult(False, "a non-finite value cannot be verified as an amount")
-    tokens = _evidence_readings(evidence_text, number_style)
+    evidence_tokens = number_tokens(evidence_text)
+    tokens = _evidence_readings(evidence_tokens, number_style)
+    spaced = next((t for t in evidence_tokens if t.ambiguous_spacing), None)
     if not tokens:
+        if spaced is not None:
+            return _spacing_review(spaced.digits)
         return ValueCheckResult(False, f"could not parse a number from evidence {evidence_text!r}")
     undecided: tuple[str, list[NumberReading]] | None = None
     for raw, readings in tokens:
@@ -216,9 +224,19 @@ def check_number(
             f"point) or {_plain(abs(readings[1].value))} (a thousands separator), and no other "
             "number on the document settles which",
         )
+    if spaced is not None:
+        return _spacing_review(spaced.digits)
     closest = min((r.value for _, token in tokens for r in token), key=lambda c: abs(c - claimed))
     return ValueCheckResult(
         False, f"value {value!r} does not match {_plain(closest)} parsed from the evidence"
+    )
+
+
+def _spacing_review(digits: str) -> ValueCheckResult:
+    return ValueCheckResult(
+        False,
+        f"adjacent numeric groups {digits!r} may be a space-grouped number or separate values; "
+        "the evidence does not establish a clear boundary, so neither reading can verify a value",
     )
 
 

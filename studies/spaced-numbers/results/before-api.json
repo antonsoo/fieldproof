@@ -1,0 +1,79 @@
+{
+  "scope": "Installed API and bounded workers; fixture provider, no model calls.",
+  "parser_sha256": "fd8a72ac08d8d39765ddef8f1df29c2ffb8ba1098785ec4a627200e2ac077193",
+  "pdf_sha256": "a74de0d0be6e502fd8a4e5a74b1ade1856f114a5ba7849bfe6306a543327866c",
+  "fixture_sha256": "a8caee40fac190f0068aa71b5164b60dffeb442da6f9c8a1095d75a37df8afbb",
+  "seconds": 1.9780373770045117,
+  "wire_roundtrip_equal": true,
+  "actual": [
+    "verified",
+    "needs_review"
+  ],
+  "expected": [
+    "needs_review",
+    "needs_review"
+  ],
+  "observations": [
+    {
+      "value": 234.56,
+      "field": {
+        "path": "total",
+        "value": 234.56,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Total due: 1 234,56",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 158.76562560000002,
+            "x1": 272.72266,
+            "bottom": 182.76562560000002
+          }
+        ]
+      },
+      "exported": {
+        "field": "total",
+        "value": 234.56,
+        "original_value": 234.56,
+        "value_source": "extraction",
+        "verification_status": "verified",
+        "review_status": "pending",
+        "page": 1
+      }
+    },
+    {
+      "value": 1234.56,
+      "field": {
+        "path": "total",
+        "value": 1234.56,
+        "status": "needs_review",
+        "reasons": [
+          "value 1234.56 does not match 234.56 parsed from the evidence"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Total due: 1 234,56",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 40.0,
+            "top": 158.76562560000002,
+            "x1": 272.72266,
+            "bottom": 182.76562560000002
+          }
+        ]
+      },
+      "exported": {
+        "field": "total",
+        "value": 1234.56,
+        "original_value": 1234.56,
+        "value_source": "extraction",
+        "verification_status": "needs_review",
+        "review_status": "pending",
+        "page": 1
+      }
+    }
+  ],
+  "image_sha256": "54b2a71db778d79e19a0ff84b6bfe35e55c3de8110510843dce0d2cf79b690be"
+}

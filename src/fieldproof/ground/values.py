@@ -152,6 +152,13 @@ _NUMBER_TOKEN = re.compile(
     rf"(?![\w.,'\u066b\u066c/{_RATE_SIGNS}+\-$]|:\d)",
     re.IGNORECASE,
 )
+# A text layer does not say whether "1 234,56" is a grouped amount or two
+# adjacent cells. Keep even irregular groups whole and unresolved. A decimal
+# ends the run: "1 210.50 210.50" has an uncertain first pair and a separate
+# final price. Geometry-aware callers restore clear layout boundaries first.
+_SPACED_NUMBER = re.compile(
+    r"(?<![\w.,'\u066b\u066c/])\d+(?: +\d+)* +\d[\d.,'\u066b\u066c]*(?:[eE][+-]?\d+)?"
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -169,6 +176,10 @@ class NumberToken:
     percent: bool
     count: bool
     well_formed: bool
+
+    @property
+    def ambiguous_spacing(self) -> bool:
+        return " " in self.digits
 
     def readings(self, style: NumberStyle | None = None) -> list[NumberReading]:
         if not self.well_formed or self.percent:
@@ -193,7 +204,7 @@ def number_tokens(text: str) -> tuple[NumberToken, ...]:
     # Grounding normalizes whitespace, but an amount's sign/unit must stay on
     # its line. Callers with page geometry restore those boundaries first.
     normalized = "".join(
-        "\n" if c == " " and any(ch in "\r\n" for ch in text[offsets[i] : offsets[i + 1]]) else c
+        "\n" if c == " " and any(ch in "\r\n\t" for ch in text[offsets[i] : offsets[i + 1]]) else c
         for i, c in enumerate(normalized)
     )
     normalized = "".join(
@@ -233,7 +244,42 @@ def number_tokens(text: str) -> tuple[NumberToken, ...]:
                 ),
             )
         )
-    return tuple(tokens)
+    return _spaced_tokens(normalized, offsets, tokens)
+
+
+def _spaced_tokens(
+    normalized: str, offsets: list[int], tokens: list[NumberToken]
+) -> tuple[NumberToken, ...]:
+    """Replace components by one unresolved source span, in one ordered pass.
+
+    Taking the union with lexical tokens retains currency, sign, parentheses
+    and rate marks. The spacing scan also catches malformed spellings whose
+    components the ordinary amount lexer deliberately refused.
+    """
+    result: list[NumberToken] = []
+    cursor = 0
+    for match in _SPACED_NUMBER.finditer(normalized):
+        start, end = offsets[match.start()], offsets[match.end() - 1] + 1
+        while cursor < len(tokens) and tokens[cursor].end <= start:
+            result.append(tokens[cursor])
+            cursor += 1
+        overlapping = []
+        while cursor < len(tokens) and tokens[cursor].start < end:
+            overlapping.append(tokens[cursor])
+            cursor += 1
+        result.append(
+            NumberToken(
+                start=min([start, *(token.start for token in overlapping)]),
+                end=max([end, *(token.end for token in overlapping)]),
+                digits=match.group(),
+                negative=any(token.negative for token in overlapping),
+                percent=any(token.percent for token in overlapping),
+                count=any(token.count for token in overlapping),
+                well_formed=False,
+            )
+        )
+    result.extend(tokens[cursor:])
+    return tuple(result)
 
 
 def amount_readings(word: str, style: NumberStyle | None = None) -> list[NumberReading]:

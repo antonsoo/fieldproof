@@ -104,7 +104,7 @@ def test_explicit_arabic_symbols_do_not_set_a_latin_separator_convention():
 def test_rates_do_not_displace_separate_amounts_or_cross_a_line():
     assert parse_all_numbers("Tax ١٢٫٥٪ ١٬٢٣٤٫٥٦") == [1234.56]
     assert parse_all_numbers("Total ١٢٫٥\n٪ footer") == [12.5]
-    assert parse_all_numbers("Fuel surcharge 1 210.50 210.50") == [1, 210.5, 210.5]
+    assert parse_all_numbers("Fuel surcharge 1\t210.50\t210.50") == [1, 210.5, 210.5]
 
 
 def test_a_clipped_percentage_quote_keeps_its_rate_mark_in_review(locale_pdf):

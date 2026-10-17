@@ -47,14 +47,18 @@ def test_check_number_matches_any_number_in_a_whole_row_quote() -> None:
     # claimed value has to be found *somewhere* in it, not just as the
     # last number.
     row = "Fuel surcharge 1 210.50 210.50"
-    assert check_number(1.0, row).supported  # quantity
+    # Plain text has lost the boundary between quantity and price. PDF layout
+    # checks retain wide cells; this string alone cannot settle 1 versus 1210.50.
+    assert not check_number(1.0, row).supported
     assert check_number(210.5, row).supported  # unit_price and amount
+    assert check_number(1.0, "Fuel surcharge 1\t210.50\t210.50").supported
     assert not check_number(999.0, row).supported
 
 
 def test_parse_all_numbers_excludes_percentages() -> None:
     assert parse_all_numbers("Tax (8.5%) $208.93") == [208.93]
-    assert parse_all_numbers("Fuel surcharge 1 210.50 210.50") == [1.0, 210.50, 210.50]
+    assert parse_all_numbers("Fuel surcharge 1 210.50 210.50") == [210.50]
+    assert parse_all_numbers("Fuel surcharge 1\t210.50\t210.50") == [1.0, 210.50, 210.50]
 
 
 def test_check_date_agrees_across_formats() -> None:

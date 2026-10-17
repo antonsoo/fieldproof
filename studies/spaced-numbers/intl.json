@@ -1,0 +1,414 @@
+{
+  "node": "v26.7.0",
+  "icu": "78.3",
+  "cases": [
+    {
+      "id": "fr-FR-1234.56",
+      "locale": "fr-FR",
+      "input": "1234.56",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "56"
+        }
+      ],
+      "text": "1 234,56"
+    },
+    {
+      "id": "fr-FR-1234567.89",
+      "locale": "fr-FR",
+      "input": "1234567.89",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "567"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "89"
+        }
+      ],
+      "text": "1 234 567,89"
+    },
+    {
+      "id": "fr-FR--1234.56",
+      "locale": "fr-FR",
+      "input": "-1234.56",
+      "parts": [
+        {
+          "type": "minusSign",
+          "value": "-"
+        },
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "56"
+        }
+      ],
+      "text": "-1 234,56"
+    },
+    {
+      "id": "fr-FR-1234",
+      "locale": "fr-FR",
+      "input": "1234",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        }
+      ],
+      "text": "1 234"
+    },
+    {
+      "id": "fr-FR-0.5",
+      "locale": "fr-FR",
+      "input": "0.5",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "0"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "5"
+        }
+      ],
+      "text": "0,5"
+    },
+    {
+      "id": "ru-RU-1234.56",
+      "locale": "ru-RU",
+      "input": "1234.56",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "56"
+        }
+      ],
+      "text": "1 234,56"
+    },
+    {
+      "id": "ru-RU-1234567.89",
+      "locale": "ru-RU",
+      "input": "1234567.89",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "567"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "89"
+        }
+      ],
+      "text": "1 234 567,89"
+    },
+    {
+      "id": "ru-RU--1234.56",
+      "locale": "ru-RU",
+      "input": "-1234.56",
+      "parts": [
+        {
+          "type": "minusSign",
+          "value": "-"
+        },
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "56"
+        }
+      ],
+      "text": "-1 234,56"
+    },
+    {
+      "id": "ru-RU-1234",
+      "locale": "ru-RU",
+      "input": "1234",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        }
+      ],
+      "text": "1 234"
+    },
+    {
+      "id": "ru-RU-0.5",
+      "locale": "ru-RU",
+      "input": "0.5",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "0"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "5"
+        }
+      ],
+      "text": "0,5"
+    },
+    {
+      "id": "sv-SE-1234.56",
+      "locale": "sv-SE",
+      "input": "1234.56",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "56"
+        }
+      ],
+      "text": "1 234,56"
+    },
+    {
+      "id": "sv-SE-1234567.89",
+      "locale": "sv-SE",
+      "input": "1234567.89",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "567"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "89"
+        }
+      ],
+      "text": "1 234 567,89"
+    },
+    {
+      "id": "sv-SE--1234.56",
+      "locale": "sv-SE",
+      "input": "-1234.56",
+      "parts": [
+        {
+          "type": "minusSign",
+          "value": "−"
+        },
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "56"
+        }
+      ],
+      "text": "−1 234,56"
+    },
+    {
+      "id": "sv-SE-1234",
+      "locale": "sv-SE",
+      "input": "1234",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "1"
+        },
+        {
+          "type": "group",
+          "value": " "
+        },
+        {
+          "type": "integer",
+          "value": "234"
+        }
+      ],
+      "text": "1 234"
+    },
+    {
+      "id": "sv-SE-0.5",
+      "locale": "sv-SE",
+      "input": "0.5",
+      "parts": [
+        {
+          "type": "integer",
+          "value": "0"
+        },
+        {
+          "type": "decimal",
+          "value": ","
+        },
+        {
+          "type": "fraction",
+          "value": "5"
+        }
+      ],
+      "text": "0,5"
+    }
+  ]
+}

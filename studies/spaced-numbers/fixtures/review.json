@@ -1,0 +1,29 @@
+{
+  "schema": "invoice",
+  "data": {
+    "vendor_name": {
+      "value": "Locale Supplies",
+      "evidence": [
+        "Locale Supplies"
+      ]
+    },
+    "invoice_number": {
+      "value": "SPACE-2026-17",
+      "evidence": [
+        "SPACE-2026-17"
+      ]
+    },
+    "issue_date": {
+      "value": "2026-10-17",
+      "evidence": [
+        "2026-10-17"
+      ]
+    },
+    "total": {
+      "value": 234.56,
+      "evidence": [
+        "Total due: 1 234,56"
+      ]
+    }
+  }
+}

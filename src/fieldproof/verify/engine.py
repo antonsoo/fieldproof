@@ -35,7 +35,7 @@ from fieldproof.ground.align import (
     rects_for_match,
     unique_row_candidate,
 )
-from fieldproof.ground.lines import separate_lines
+from fieldproof.ground.lines import separate_numeric_regions
 from fieldproof.ground.values import NumberStyle, number_styles
 from fieldproof.schemas.base import Evidenced, EvidencedDate, EvidencedText, iter_evidenced_fields
 from fieldproof.verify.columns import ColumnEvidenceCheck, ColumnEvidenceIndex
@@ -270,7 +270,9 @@ def verify(
         next(iter(orders)) if len(orders) == 1 else default_date_order if not orders else None
     )
     # Likewise whether it writes "60.000" as sixty or sixty thousand; see `check_number`.
-    numeric_text = "\n".join(separate_lines(text, page.words) for page, text in convention_pages)
+    numeric_text = "\n".join(
+        separate_numeric_regions(text, page.words) for page, text in convention_pages
+    )
     styles = number_styles(numeric_text)
     style = next(iter(styles)) if len(styles) == 1 else default_number_style if not styles else None
 
@@ -562,7 +564,7 @@ def _verify_field(
 
     value_text = best_match.matched_text
     if isinstance(value, int | float) and not isinstance(value, bool):
-        value_text = separate_lines(value_text, best_match.words, start=best_match.start)
+        value_text = separate_numeric_regions(value_text, best_match.words, start=best_match.start)
     check = _check_value(
         value,
         value_text,

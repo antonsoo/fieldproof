@@ -146,6 +146,10 @@ disappear into plain amounts. The study includes native locale formatting and
 the actual PDF review workflow. This correction is not in the pinned public
 install above, a registry release or the hosted demo.
 
+The [spacing correction](studies/spaced-numbers/README.md) prevents `1 234,56`
+from verifying its tail as 234.56. It preserves uncertain grouped values for
+review and uses layout to retain clearly separated quantity/price cells.
+
 ## How it works
 
 ```text

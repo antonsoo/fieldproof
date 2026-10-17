@@ -4,6 +4,19 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Space-separated numeric evidence
+
+- Keep uncertain adjacent numeric groups in one source span. A PDF printing
+  `1 234,56` previously verified the fragment 234.56. Neither a component nor a
+  guessed combined amount now verifies from uncertain spacing.
+- Retain line boundaries and clear gaps between numeric cells from page geometry,
+  preserving quantity/price rows without joining columns. Tight/invalid geometry
+  stays unresolved. Signs remain attached across same-row gaps.
+- Retain native French/Russian/Swedish formatter output and 131 claims through
+  22 authored PDF pages, including paired layouts with identical flattened text.
+  The current source changes the older tight-row quantity expectation to review;
+  historical numeric study receipts are retained unchanged.
+
 ### Arabic numeric evidence
 
 - Read Arabic decimal U+066B and grouping U+066C as part of a complete amount,

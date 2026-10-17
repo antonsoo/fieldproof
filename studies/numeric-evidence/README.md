@@ -4,6 +4,12 @@ This change is local and unreleased. It compares the previous checkout (`49dcbd3
 with the numeric fix (`0dd8529`); `73386f1` also fixes the review score's contrast.
 It does not compare against a freshly installed public release.
 
+The retained before/after receipts below describe those revisions. The later
+[spacing correction](../spaced-numbers/README.md) changes the current expectation
+for the tightly spaced `row-quantity-correct` control to `needs_review`: its
+single text run does not establish a quantity/price boundary. Separate wide-cell
+PDF controls retain quantity support. The original receipts remain unchanged.
+
 A positive `100` was **verified** against a PDF saying `Total - $100.00` when the
 extraction quoted only `$100.00`. The same happened with Unicode minus, accounting
 parentheses and trailing minus signs. An exponent or identifier could supply an
@@ -113,8 +119,9 @@ pre-extracted dataset words and boxes; it measures neither a model nor fresh OCR
 A numeric match is membership in the cited text, not a proof of the field's semantic
 role. A quoted row may contain several amounts or quantities. Currency symbols are
 not converted or checked against a claimed currency. Spaces can separate columns or
-thousands groups; this parser treats space-separated numbers as separate tokens and
-does not infer space-grouped amounts. Scientific notation, rates, arbitrary units and
+thousands groups; the revisions measured here treated them as separate tokens.
+Current source retains uncertain adjacent numeric groups for review; see the
+[spacing study](../spaced-numbers/README.md). Scientific notation, rates, arbitrary units and
 fractions are not supported amounts. Parentheses around a number are accounting
 notation here, even where prose might intend a positive quantity. Line grouping is a
 geometry heuristic and can be uncertain on skewed or irregular OCR boxes. Ambiguous

@@ -56,6 +56,14 @@ Latin/Arabic separator spellings require review. See the
 [native locale and PDF replay](../studies/arabic-numbers/README.md). This
 correction is not in the registry package or the currently pinned public source.
 
+Adjacent groups such as `1 234,56` require review: treating the second group as
+234.56 is unsafe, and the verifier does not guess the combined amount. It retains
+the whole source span. Clearly separated numeric cells keep their individual
+values using page geometry; tightly spaced rows remain uncertain. Plain string
+callers should preserve actual cell boundaries with tabs/newlines. See the
+[paired PDF layout study](../studies/spaced-numbers/README.md) for the heuristic
+and its limits (source checkout, unreleased).
+
 Only a complete, calendar-valid numeric date can settle the date order. An
 unrelated `99/01/2026`, a phone-number fragment or `ABC14/03/2026XYZ` cannot
 override your `--date-order` default or verify an ambiguous issue date. The
