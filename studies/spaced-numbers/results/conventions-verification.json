@@ -183,5 +183,11 @@
   "browser": "conventions-browser-summary.json",
   "artifacts": "conventions-artifacts.json",
   "public_source": "conventions-public-source.json",
-  "scope": "Source, installed artifacts, loopback browsers and pinned public Git install; no registry release or hosted workbench claim."
+  "scope": "Source, installed artifacts, loopback browsers and pinned public Git install; no registry release or hosted workbench claim.",
+  "arabic_compatibility": {
+    "receipt": "conventions-arabic-recheck.json",
+    "claims": 87,
+    "pages": 21,
+    "original_full_ledger_identical": true
+  }
 }

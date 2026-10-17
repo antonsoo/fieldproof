@@ -93,3 +93,9 @@ final-source run independently of the older receipts.
 The package version remains 0.2.7; source hashes identify the correction. The
 earlier installed/browser receipts remain scoped to their recorded revisions.
 These checks do not establish a registry release or hosted Python workbench.
+
+The final installed wheel also replays the original Arabic-number study:
+87 claims on 21 native PDF pages, with the complete claim-ledger digest
+identical to its original corrected result (18 verified, 69 requiring review).
+The [compatibility receipt](results/conventions-arabic-recheck.json) separates
+this final-source recheck from that study's historical build and browser records.
