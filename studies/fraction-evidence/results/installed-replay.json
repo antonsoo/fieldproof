@@ -1,0 +1,1076 @@
+{
+  "python": "3.14.7 (main, Sep  1 2026, 14:18:09) [Clang 22.1.3 ]",
+  "source": "/tmp/claude-1000/fieldproof-fractions/installed/lib/python3.14/site-packages/fieldproof",
+  "synthetic": true,
+  "scope": "Authored visible native-text PDFs; no model/OCR/production prevalence claim",
+  "source_parser_sha256": "14435dc6cab9193cd28b25a4f92b8011d28f8681a8abe041e2bd069cfce6d745",
+  "files": {
+    "cases.json": {
+      "bytes": 466,
+      "sha256": "f2289491c6f0975d90e499f18f944175538fdb0a695e12c969d44412975a5cb9"
+    },
+    "fractions.pdf": {
+      "bytes": 24982,
+      "sha256": "5f8599a219c942863e1f8d2e2e14e1e45dc30ff01582fbd2b03e300fed52c9c8"
+    },
+    "review.json": {
+      "bytes": 926,
+      "sha256": "d3f0a62f2ab95315a388bbab128b9485df0b6422e9f0238990cbec39f75bf4f0"
+    },
+    "review.pdf": {
+      "bytes": 22805,
+      "sha256": "3a1cd0f62798f61ecc5a983da5b82270c1d18eab6cb2d59a7177da79d4e0c036"
+    }
+  },
+  "claims": [
+    {
+      "page": 1,
+      "text": "Cut length 1/2 m",
+      "value": 1,
+      "quote": "Cut length 1/2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1/2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1/2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 166.28222840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 1,
+      "text": "Cut length 1/2 m",
+      "value": 1,
+      "quote": "1/2",
+      "status": "needs_review",
+      "matched_text": "1/2",
+      "reasons": [
+        "could not parse a number from evidence '1/2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 148.1943376,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 1,
+      "text": "Cut length 1/2 m",
+      "value": 1,
+      "quote": "1",
+      "status": "unsupported",
+      "matched_text": null,
+      "reasons": [
+        "none of the evidence quotes ('1') could be located in the document"
+      ],
+      "rects": []
+    },
+    {
+      "page": 1,
+      "text": "Cut length 1/2 m",
+      "value": 2,
+      "quote": "Cut length 1/2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1/2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1/2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 166.28222840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 1,
+      "text": "Cut length 1/2 m",
+      "value": 2,
+      "quote": "1/2",
+      "status": "needs_review",
+      "matched_text": "1/2",
+      "reasons": [
+        "could not parse a number from evidence '1/2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 148.1943376,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 1,
+      "text": "Cut length 1/2 m",
+      "value": 2,
+      "quote": "2",
+      "status": "unsupported",
+      "matched_text": null,
+      "reasons": [
+        "none of the evidence quotes ('2') could be located in the document"
+      ],
+      "rects": []
+    },
+    {
+      "page": 2,
+      "text": "Cut length 1⁄2 m",
+      "value": 1,
+      "quote": "Cut length 1⁄2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1⁄2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1⁄2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 163.90332180000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "text": "Cut length 1⁄2 m",
+      "value": 1,
+      "quote": "1⁄2",
+      "status": "needs_review",
+      "matched_text": "1⁄2",
+      "reasons": [
+        "could not parse a number from evidence '1⁄2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 145.81543100000002,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "text": "Cut length 1⁄2 m",
+      "value": 1,
+      "quote": "1",
+      "status": "unsupported",
+      "matched_text": null,
+      "reasons": [
+        "none of the evidence quotes ('1') could be located in the document"
+      ],
+      "rects": []
+    },
+    {
+      "page": 2,
+      "text": "Cut length 1⁄2 m",
+      "value": 2,
+      "quote": "Cut length 1⁄2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1⁄2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1⁄2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 163.90332180000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "text": "Cut length 1⁄2 m",
+      "value": 2,
+      "quote": "1⁄2",
+      "status": "needs_review",
+      "matched_text": "1⁄2",
+      "reasons": [
+        "could not parse a number from evidence '1⁄2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 145.81543100000002,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "text": "Cut length 1⁄2 m",
+      "value": 2,
+      "quote": "2",
+      "status": "unsupported",
+      "matched_text": null,
+      "reasons": [
+        "none of the evidence quotes ('2') could be located in the document"
+      ],
+      "rects": []
+    },
+    {
+      "page": 3,
+      "text": "Cut length 1∕2 m",
+      "value": 1,
+      "quote": "Cut length 1∕2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1∕2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1∕2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 166.28222840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "text": "Cut length 1∕2 m",
+      "value": 1,
+      "quote": "1∕2",
+      "status": "needs_review",
+      "matched_text": "1∕2",
+      "reasons": [
+        "could not parse a number from evidence '1∕2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 148.1943376,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "text": "Cut length 1∕2 m",
+      "value": 1,
+      "quote": "1",
+      "status": "unsupported",
+      "matched_text": null,
+      "reasons": [
+        "none of the evidence quotes ('1') could be located in the document"
+      ],
+      "rects": []
+    },
+    {
+      "page": 3,
+      "text": "Cut length 1∕2 m",
+      "value": 2,
+      "quote": "Cut length 1∕2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1∕2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1∕2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 166.28222840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "text": "Cut length 1∕2 m",
+      "value": 2,
+      "quote": "1∕2",
+      "status": "needs_review",
+      "matched_text": "1∕2",
+      "reasons": [
+        "could not parse a number from evidence '1∕2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 148.1943376,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "text": "Cut length 1∕2 m",
+      "value": 2,
+      "quote": "2",
+      "status": "unsupported",
+      "matched_text": null,
+      "reasons": [
+        "none of the evidence quotes ('2') could be located in the document"
+      ],
+      "rects": []
+    },
+    {
+      "page": 4,
+      "text": "Cut length 1 / 2 m",
+      "value": 1,
+      "quote": "Cut length 1 / 2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1 / 2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1 / 2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 175.18261920000003,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "text": "Cut length 1 / 2 m",
+      "value": 1,
+      "quote": "1 / 2",
+      "status": "needs_review",
+      "matched_text": "1 / 2",
+      "reasons": [
+        "could not parse a number from evidence '1 / 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 157.09472840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "text": "Cut length 1 / 2 m",
+      "value": 1,
+      "quote": "1",
+      "status": "needs_review",
+      "matched_text": "1 / 2",
+      "reasons": [
+        "the quote is 33/100 like '1 / 2' on the page but differs from it in letters or digits, or numeric signs/units",
+        "could not parse a number from evidence '1 / 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 157.09472840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "text": "Cut length 1 / 2 m",
+      "value": 2,
+      "quote": "Cut length 1 / 2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1 / 2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1 / 2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 175.18261920000003,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "text": "Cut length 1 / 2 m",
+      "value": 2,
+      "quote": "1 / 2",
+      "status": "needs_review",
+      "matched_text": "1 / 2",
+      "reasons": [
+        "could not parse a number from evidence '1 / 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 157.09472840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "text": "Cut length 1 / 2 m",
+      "value": 2,
+      "quote": "2",
+      "status": "needs_review",
+      "matched_text": "1 / 2",
+      "reasons": [
+        "the quote is 33/100 like '1 / 2' on the page but differs from it in letters or digits, or numeric signs/units",
+        "could not parse a number from evidence '1 / 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 157.09472840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "text": "Cut length 1 ⁄ 2 m",
+      "value": 1,
+      "quote": "Cut length 1 ⁄ 2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1 ⁄ 2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1 ⁄ 2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 172.8037126,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "text": "Cut length 1 ⁄ 2 m",
+      "value": 1,
+      "quote": "1 ⁄ 2",
+      "status": "needs_review",
+      "matched_text": "1 ⁄ 2",
+      "reasons": [
+        "could not parse a number from evidence '1 ⁄ 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 154.71582180000001,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "text": "Cut length 1 ⁄ 2 m",
+      "value": 1,
+      "quote": "1",
+      "status": "needs_review",
+      "matched_text": "1 ⁄ 2",
+      "reasons": [
+        "the quote is 33/100 like '1 ⁄ 2' on the page but differs from it in letters or digits, or numeric signs/units",
+        "could not parse a number from evidence '1 ⁄ 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 154.71582180000001,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "text": "Cut length 1 ⁄ 2 m",
+      "value": 2,
+      "quote": "Cut length 1 ⁄ 2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1 ⁄ 2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1 ⁄ 2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 172.8037126,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "text": "Cut length 1 ⁄ 2 m",
+      "value": 2,
+      "quote": "1 ⁄ 2",
+      "status": "needs_review",
+      "matched_text": "1 ⁄ 2",
+      "reasons": [
+        "could not parse a number from evidence '1 ⁄ 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 154.71582180000001,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "text": "Cut length 1 ⁄ 2 m",
+      "value": 2,
+      "quote": "2",
+      "status": "needs_review",
+      "matched_text": "1 ⁄ 2",
+      "reasons": [
+        "the quote is 33/100 like '1 ⁄ 2' on the page but differs from it in letters or digits, or numeric signs/units",
+        "could not parse a number from evidence '1 ⁄ 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 154.71582180000001,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "text": "Cut length 1 ∕ 2 m",
+      "value": 1,
+      "quote": "Cut length 1 ∕ 2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1 ∕ 2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1 ∕ 2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 175.18261920000003,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "text": "Cut length 1 ∕ 2 m",
+      "value": 1,
+      "quote": "1 ∕ 2",
+      "status": "needs_review",
+      "matched_text": "1 ∕ 2",
+      "reasons": [
+        "could not parse a number from evidence '1 ∕ 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 157.09472840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "text": "Cut length 1 ∕ 2 m",
+      "value": 1,
+      "quote": "1",
+      "status": "needs_review",
+      "matched_text": "1 ∕ 2",
+      "reasons": [
+        "the quote is 33/100 like '1 ∕ 2' on the page but differs from it in letters or digits, or numeric signs/units",
+        "could not parse a number from evidence '1 ∕ 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 157.09472840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "text": "Cut length 1 ∕ 2 m",
+      "value": 2,
+      "quote": "Cut length 1 ∕ 2 m",
+      "status": "needs_review",
+      "matched_text": "Cut length 1 ∕ 2 m",
+      "reasons": [
+        "could not parse a number from evidence 'Cut length 1 ∕ 2 m'"
+      ],
+      "rects": [
+        {
+          "x0": 48.0,
+          "top": 131.2530816000001,
+          "x1": 175.18261920000003,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "text": "Cut length 1 ∕ 2 m",
+      "value": 2,
+      "quote": "1 ∕ 2",
+      "status": "needs_review",
+      "matched_text": "1 ∕ 2",
+      "reasons": [
+        "could not parse a number from evidence '1 ∕ 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 157.09472840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "text": "Cut length 1 ∕ 2 m",
+      "value": 2,
+      "quote": "2",
+      "status": "needs_review",
+      "matched_text": "1 ∕ 2",
+      "reasons": [
+        "the quote is 33/100 like '1 ∕ 2' on the page but differs from it in letters or digits, or numeric signs/units",
+        "could not parse a number from evidence '1 ∕ 2'"
+      ],
+      "rects": [
+        {
+          "x0": 125.66308620000001,
+          "top": 131.2530816000001,
+          "x1": 157.09472840000004,
+          "bottom": 145.2530816000001
+        }
+      ]
+    }
+  ],
+  "false_fragment_approvals": 0,
+  "verdicts": {
+    "needs_review": 30,
+    "unsupported": 6
+  },
+  "invoice_quantity": {
+    "path": "line_items[0].quantity",
+    "value": 1.0,
+    "status": "needs_review",
+    "reasons": [
+      "could not parse a number from evidence 'Quantity 1⁄2 m'"
+    ],
+    "match_score": 100.0,
+    "matched_text": "Quantity 1⁄2 m",
+    "page": 1,
+    "rects": [
+      {
+        "x0": 310.0,
+        "top": 202.77261280000005,
+        "x1": 398.4472672,
+        "bottom": 214.77261280000005
+      }
+    ]
+  },
+  "invoice_report": {
+    "fields": [
+      {
+        "path": "vendor_name",
+        "value": "Workshop Supply",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Workshop Supply",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 88.21401920000005,
+            "x1": 204.91992119999998,
+            "bottom": 106.21401920000005
+          }
+        ]
+      },
+      {
+        "path": "invoice_number",
+        "value": "FRAC-2026-18",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "FRAC-2026-18",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 98.75976720000001,
+            "top": 127.77261280000005,
+            "x1": 185.05664280000002,
+            "bottom": 139.77261280000005
+          }
+        ]
+      },
+      {
+        "path": "issue_date",
+        "value": "2026-10-18",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "2026-10-18",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 94.5058608,
+            "top": 152.77261280000005,
+            "x1": 164.244144,
+            "bottom": 164.77261280000005
+          }
+        ]
+      },
+      {
+        "path": "line_items[0].description",
+        "value": "Cable cut to length",
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Cable cut to length",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 202.77261280000005,
+            "x1": 162.7148436,
+            "bottom": 214.77261280000005
+          }
+        ]
+      },
+      {
+        "path": "line_items[0].quantity",
+        "value": 1.0,
+        "status": "needs_review",
+        "reasons": [
+          "could not parse a number from evidence 'Quantity 1⁄2 m'"
+        ],
+        "match_score": 100.0,
+        "matched_text": "Quantity 1⁄2 m",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 310.0,
+            "top": 202.77261280000005,
+            "x1": 398.4472672,
+            "bottom": 214.77261280000005
+          }
+        ]
+      },
+      {
+        "path": "line_items[0].amount",
+        "value": 9.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Cable cut to length Quantity 1⁄2 m 9.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 202.77261280000005,
+            "x1": 501.71875120000004,
+            "bottom": 214.77261280000005
+          }
+        ]
+      },
+      {
+        "path": "total",
+        "value": 9.0,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100.0,
+        "matched_text": "Total USD 9.00",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 48.0,
+            "top": 282.77261280000005,
+            "x1": 138.05273400000004,
+            "bottom": 294.77261280000005
+          }
+        ]
+      }
+    ],
+    "cross_field_issues": [],
+    "counts": {
+      "verified": 6,
+      "needs_review": 1,
+      "unsupported": 0
+    },
+    "cross_field_checks": [
+      {
+        "rule": "invoice.line_extension",
+        "fields": [
+          "line_items[0].quantity",
+          "line_items[0].unit_price",
+          "line_items[0].amount"
+        ],
+        "status": "not_checked",
+        "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+        "operands": {
+          "line_items[0].quantity": "1.0",
+          "line_items[0].unit_price": null,
+          "line_items[0].amount": "9.0"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.items_subtotal",
+        "fields": [
+          "line_items[0].amount",
+          "subtotal"
+        ],
+        "status": "not_checked",
+        "message": "line items sum not checked: missing subtotal",
+        "operands": {
+          "line_items[0].amount": "9.0",
+          "subtotal": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.subtotal_tax_total",
+        "fields": [
+          "subtotal",
+          "tax",
+          "total"
+        ],
+        "status": "not_checked",
+        "message": "subtotal + tax not checked: missing subtotal, tax",
+        "operands": {
+          "subtotal": null,
+          "tax": null,
+          "total": "9.0"
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": "0.02"
+      },
+      {
+        "rule": "invoice.due_date_order",
+        "fields": [
+          "issue_date",
+          "due_date"
+        ],
+        "status": "not_checked",
+        "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+        "operands": {
+          "issue_date": "2026-10-18",
+          "due_date": null
+        },
+        "computed": null,
+        "observed": null,
+        "difference": null,
+        "tolerance": null
+      }
+    ],
+    "row_checks": [
+      {
+        "field": "line_items[0].quantity",
+        "anchor": "line_items[0].description",
+        "status": "unavailable",
+        "reason": "line_items[0].quantity has no strongly grounded, value-supported source location",
+        "field_source_status": "needs_review",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 1,
+          "text": "Quantity 1⁄2 m",
+          "start": 77,
+          "end": 91,
+          "rects": [
+            {
+              "x0": 310.0,
+              "top": 202.77261280000005,
+              "x1": 398.4472672,
+              "bottom": 214.77261280000005
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 1,
+          "text": "Cable cut to length",
+          "start": 57,
+          "end": 76,
+          "rects": [
+            {
+              "x0": 48.0,
+              "top": 202.77261280000005,
+              "x1": 162.7148436,
+              "bottom": 214.77261280000005
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[0].unit_price",
+        "anchor": "line_items[0].description",
+        "status": "unavailable",
+        "reason": "line_items[0].unit_price was not extracted",
+        "field_source_status": null,
+        "anchor_source_status": "verified",
+        "field_location": null,
+        "anchor_location": {
+          "page": 1,
+          "text": "Cable cut to length",
+          "start": 57,
+          "end": 76,
+          "rects": [
+            {
+              "x0": 48.0,
+              "top": 202.77261280000005,
+              "x1": 162.7148436,
+              "bottom": 214.77261280000005
+            }
+          ]
+        }
+      },
+      {
+        "field": "line_items[0].amount",
+        "anchor": "line_items[0].description",
+        "status": "same_line",
+        "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+        "field_source_status": "verified",
+        "anchor_source_status": "verified",
+        "field_location": {
+          "page": 1,
+          "text": "Cable cut to length Quantity 1⁄2 m 9.00",
+          "start": 57,
+          "end": 96,
+          "rects": [
+            {
+              "x0": 48.0,
+              "top": 202.77261280000005,
+              "x1": 501.71875120000004,
+              "bottom": 214.77261280000005
+            }
+          ]
+        },
+        "anchor_location": {
+          "page": 1,
+          "text": "Cable cut to length",
+          "start": 57,
+          "end": 76,
+          "rects": [
+            {
+              "x0": 48.0,
+              "top": 202.77261280000005,
+              "x1": 162.7148436,
+              "bottom": 214.77261280000005
+            }
+          ]
+        }
+      }
+    ],
+    "column_checks": [
+      {
+        "field": "line_items[0].quantity",
+        "status": "unavailable",
+        "reason": "column evidence requires strongly supported quotes on one item line",
+        "observed_column": null,
+        "headers": null,
+        "value_locations": []
+      },
+      {
+        "field": "line_items[0].unit_price",
+        "status": "unavailable",
+        "reason": "column evidence requires strongly supported quotes on one item line",
+        "observed_column": null,
+        "headers": null,
+        "value_locations": []
+      },
+      {
+        "field": "line_items[0].amount",
+        "status": "unavailable",
+        "reason": "no complete, unambiguous configured header row above this item",
+        "observed_column": null,
+        "headers": null,
+        "value_locations": []
+      }
+    ]
+  },
+  "lexical_controls": {
+    "1/2": [],
+    "1⁄2": [],
+    "1∕2": [],
+    "1 / 2": [],
+    "1/ 2": [],
+    "1 /2": [],
+    "½": [],
+    "1½": [],
+    "(1 ⁄ 2)": [],
+    "2026 / 10 / 17": [],
+    "Qty 3; cut length 1⁄2 m; unit price $19.95": [
+      3.0,
+      19.95
+    ]
+  },
+  "cli": [
+    {
+      "command": [
+        "extract",
+        "/tmp/claude-1000/fieldproof-fractions-clean/studies/fraction-evidence/fixtures/review.pdf",
+        "--schema",
+        "invoice",
+        "--provider",
+        "fixture",
+        "--fixture",
+        "/tmp/claude-1000/fieldproof-fractions-clean/studies/fraction-evidence/fixtures/review.json",
+        "--out",
+        "/tmp/claude-1000/fieldproof-fractions/installed-cli/extracted.json"
+      ],
+      "exit": 0,
+      "stdout": "wrote /tmp/claude-1000/fieldproof-fractions/installed-cli/extracted.json - 6 verified, 1 needs review, 0 unsupported\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "verify",
+        "/tmp/claude-1000/fieldproof-fractions/installed-cli/extracted.json",
+        "/tmp/claude-1000/fieldproof-fractions-clean/studies/fraction-evidence/fixtures/review.pdf",
+        "--out",
+        "/tmp/claude-1000/fieldproof-fractions/installed-cli/reverified.json"
+      ],
+      "exit": 0,
+      "stdout": "wrote /tmp/claude-1000/fieldproof-fractions/installed-cli/reverified.json - 6 verified, 1 needs review, 0 unsupported\n",
+      "stderr": ""
+    }
+  ],
+  "original_claims_preserved": true,
+  "cli_reverification_matches_library": true
+}

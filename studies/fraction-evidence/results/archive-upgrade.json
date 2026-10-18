@@ -1,0 +1,101 @@
+{
+  "archive_sha256": "eb38df8bb8286b468b3b8f60d666c76f945cc4b236bdf081f4c4d8083289565d",
+  "workflows": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1440,
+      "input_archive": "before-review.zip",
+      "source_automated_status": "verified",
+      "restored_automated_status": "needs_review",
+      "original_value": 1,
+      "retained_correction": 0.5,
+      "review_status": "edited",
+      "downloaded_json": [
+        {
+          "field": "line_items[0].quantity",
+          "value": 0.5,
+          "original_value": 1,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "errors": [],
+      "off_origin_requests": []
+    },
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "input_archive": "before-review.zip",
+      "source_automated_status": "verified",
+      "restored_automated_status": "needs_review",
+      "original_value": 1,
+      "retained_correction": 0.5,
+      "review_status": "edited",
+      "downloaded_json": [
+        {
+          "field": "line_items[0].quantity",
+          "value": 0.5,
+          "original_value": 1,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "errors": [],
+      "off_origin_requests": []
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "width": 1440,
+      "input_archive": "before-review.zip",
+      "source_automated_status": "verified",
+      "restored_automated_status": "needs_review",
+      "original_value": 1,
+      "retained_correction": 0.5,
+      "review_status": "edited",
+      "downloaded_json": [
+        {
+          "field": "line_items[0].quantity",
+          "value": 0.5,
+          "original_value": 1,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "errors": [],
+      "off_origin_requests": []
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "input_archive": "before-review.zip",
+      "source_automated_status": "verified",
+      "restored_automated_status": "needs_review",
+      "original_value": 1,
+      "retained_correction": 0.5,
+      "review_status": "edited",
+      "downloaded_json": [
+        {
+          "field": "line_items[0].quantity",
+          "value": 0.5,
+          "original_value": 1,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "errors": [],
+      "off_origin_requests": []
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "source_revision": "c600517c2f53b4ee00ef065395bfd12fd73ac8b1",
+  "checks": [
+    {
+      "check": "clean-install",
+      "exit": 0,
+      "sha256": "d7c6e947a41913c589e1df5063a3bed483411ad41fc7e28ad4d5708973ac0d9a",
+      "last_lines": [
+        " + uvicorn==0.53.0",
+        " + uvloop==0.22.1",
+        " + watchfiles==1.3.0",
+        " + websockets==17.1"
+      ]
+    },
+    {
+      "check": "bundle-ui",
+      "exit": 0,
+      "sha256": "071f3e5735b83c25647fa6de651cc0c036f1e7f3fa8e3d15312d8145e30b8610",
+      "last_lines": [
+        "dist/assets/index-BkriSPbQ.css                             26.35 kB \u2502 gzip:  4.48 kB",
+        "dist/assets/index-B5aoBDEt.js                              57.03 kB \u2502 gzip: 19.09 kB \u2502 map: 251.09 kB",
+        "\u2713 built in 459ms",
+        "bundled 23 UI files into src/fieldproof/server/static: assets/fraunces-latin-DihXLNYH.woff2, assets/fraunces-latin-ext-CJcjJNj7.woff2, assets/fraunces-vietnamese-Czevyj-6.woff2, assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2, assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2, assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2, assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2, assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2, assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2, assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2, assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2, assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2, assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2, assets/index-B5aoBDEt.js, assets/index-BkriSPbQ.css, assets/inter-cyrillic-DqGufNeO.woff2, assets/inter-cyrillic-ext-BOeWTOD4.woff2, assets/inter-greek-CkhJZR-_.woff2, assets/inter-greek-ext-DlzME5K_.woff2, assets/inter-latin-Dx4kXJAl.woff2, assets/inter-latin-ext-DO1Apj_S.woff2, assets/inter-vietnamese-CBcvBZtf.woff2, index.html"
+      ]
+    },
+    {
+      "check": "python-full",
+      "exit": 0,
+      "sha256": "9887c9833938ace280cdd0098ff6ce6c9fca387a4b819309a697c8b627ad55b5",
+      "last_lines": [
+        "........................................................................ [ 85%]",
+        "........................................................................ [ 93%]",
+        "....................................................                     [100%]",
+        "839 passed, 5 skipped in 103.17s (0:01:43)"
+      ]
+    },
+    {
+      "check": "minimum-full",
+      "exit": 0,
+      "sha256": "83c30e65177ea9d8a921c81f74abfeb6c927fab100807615f11a55b38ad5e919",
+      "last_lines": [
+        "    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]",
+        "",
+        "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+        "839 passed, 5 skipped, 2 warnings in 114.45s (0:01:54)"
+      ]
+    },
+    {
+      "check": "wheel-and-sdist",
+      "exit": 0,
+      "sha256": "ca075cf2b2d654ff10a9045e5c82630f3dafe2a137bbba6948ffcf1b2a9a1448",
+      "last_lines": [
+        "Building source distribution...",
+        "Building wheel from source distribution...",
+        "Successfully built /tmp/claude-1000/fieldproof-fractions/dist/fieldproof-0.2.7.tar.gz",
+        "Successfully built /tmp/claude-1000/fieldproof-fractions/dist/fieldproof-0.2.7-py3-none-any.whl"
+      ]
+    },
+    {
+      "check": "full-production-browser",
+      "exit": 0,
+      "sha256": "5bdc57e3937fca11490fb94c7ede7037649ac82b6d7f5f18545ac16313650162",
+      "last_lines": [
+        "  \u2713  107 [firefox-live] \u203a tests/browser/live.spec.mjs:1023:1 \u203a fraction quantity remains reviewable through offline exports and archive restore at 1440px (4.0s)",
+        "  \u2713  108 [firefox-live] \u203a tests/browser/live.spec.mjs:1023:1 \u203a fraction quantity remains reviewable through offline exports and archive restore at 375px (3.8s)",
+        "",
+        "  108 passed (5.8m)"
+      ]
+    },
+    {
+      "check": "installed-fraction-browser",
+      "exit": 0,
+      "sha256": "575454379cfd12c40170309b0a8c04431defac336ed98e97607c7575321cbca2",
+      "last_lines": [
+        "  \u2713  3 [firefox-live] \u203a tests/browser/live.spec.mjs:1023:1 \u203a fraction quantity remains reviewable through offline exports and archive restore at 1440px (6.1s)",
+        "  \u2713  4 [firefox-live] \u203a tests/browser/live.spec.mjs:1023:1 \u203a fraction quantity remains reviewable through offline exports and archive restore at 375px (4.7s)",
+        "",
+        "  4 passed (23.9s)"
+      ]
+    },
+    {
+      "check": "baseline-fraction-browser",
+      "exit": 0,
+      "sha256": "d9b05e68b8887c8fbd934abc5ea2f8ff96fcd97e8cded3fcb44820a35e613034",
+      "last_lines": [
+        "  \u2713  3 [firefox-live] \u203a tests/browser/live.spec.mjs:1023:1 \u203a fraction quantity remains reviewable through offline exports and archive restore at 1440px (6.7s)",
+        "  \u2713  4 [firefox-live] \u203a tests/browser/live.spec.mjs:1023:1 \u203a fraction quantity remains reviewable through offline exports and archive restore at 375px (5.0s)",
+        "",
+        "  4 passed (24.9s)"
+      ]
+    },
+    {
+      "check": "old-archive-upgrade-browser",
+      "exit": 0,
+      "sha256": "5bca52977ea66ce1e5bf19642dca34554947289b4da5cba1320cdf2a326d1934",
+      "last_lines": [
+        "{\"workflows\":4,\"actual_json_downloads\":4}"
+      ]
+    },
+    {
+      "check": "public-pip-upgrade",
+      "exit": 0,
+      "sha256": "f4b44a396cb2985a7c797e6d733546c4025b88f0037116cd751d4487eb65907b",
+      "last_lines": [
+        "    Uninstalling fieldproof-0.2.7:",
+        "      Successfully uninstalled fieldproof-0.2.7",
+        "",
+        "Successfully installed Pillow-13.0.0 annotated-doc-0.0.5 annotated-types-0.8.0 anthropic-1.15.0 anyio-4.15.1 cffi-2.1.1 charset-normalizer-3.5.2 click-8.5.0 cryptography-50.0.2 docstring-parser-0.18.0 fastapi-0.143.3 fieldproof-0.2.7 h11-0.16.0 httpcore2-2.13.1 httptools-0.9.0 httpx2-2.13.1 idna-3.20 jiter-0.17.0 markdown-it-py-4.2.0 mdurl-0.1.2 opentelemetry-api-1.45.1 pdfminer-six-20260107 pdfplumber-0.11.10 pycparser-3.11 pydantic-2.14.1 pydantic-core-2.50.1 pygments-2.21.0 pypdfium2-5.14.0 python-dotenv-1.2.4 python-multipart-0.0.32 pyyaml-6.0.3 rapidfuzz-3.14.6 rich-15.0.0 shellingham-1.5.4 sniffio-1.3.1 starlette-1.8.0 truststore-0.10.5 typer-0.27.3 typing-extensions-4.16.0 typing-inspection-0.4.4 uvicorn-0.54.0 uvloop-0.23.0 watchfiles-1.3.0 websockets-17.2"
+      ]
+    }
+  ],
+  "versions": {
+    "clean": {
+      "python": "3.12.12 (main, Feb 12 2026, 00:42:14) [Clang 21.1.4 ]",
+      "packages": {
+        "fieldproof": "0.2.7",
+        "pdfplumber": "0.11.10",
+        "pypdfium2": "5.13.0",
+        "pydantic": "2.13.5",
+        "rapidfuzz": "3.14.6",
+        "Pillow": "12.3.0"
+      }
+    },
+    "minimum": {
+      "python": "3.11.13 (main, Oct  7 2025, 15:34:32) [Clang 20.1.4 ]",
+      "packages": {
+        "fieldproof": "0.2.7",
+        "pdfplumber": "0.11.9",
+        "pypdfium2": "5.0.0",
+        "pydantic": "2.12.0",
+        "rapidfuzz": "3.9.0",
+        "Pillow": "12.3.0"
+      }
+    },
+    "installed": {
+      "python": "3.14.7 (main, Sep  1 2026, 14:18:09) [Clang 22.1.3 ]",
+      "packages": {
+        "fieldproof": "0.2.7",
+        "pdfplumber": "0.11.10",
+        "pypdfium2": "5.14.0",
+        "pydantic": "2.14.1",
+        "rapidfuzz": "3.14.6",
+        "Pillow": "13.0.0"
+      }
+    }
+  },
+  "lint": "ruff check src tests: exit 0",
+  "typecheck": "mypy src: 41 files, exit 0",
+  "web_checks": {
+    "typecheck": true,
+    "lint": true,
+    "format": true,
+    "unit_tests": 70,
+    "production_browser_workflows": 108
+  },
+  "python_tests": {
+    "clean": 839,
+    "minimum": 839,
+    "skipped_each": 5,
+    "skip_reason": "Real Tesseract tests: executable is unavailable. OCR extras are installed; native PDF and supplied-OCR receipt workflows are distinct."
+  },
+  "authored_native_pdf": {
+    "component_claims": 36,
+    "false_approvals_before": 26,
+    "false_approvals_after": 0,
+    "invoice_other_verified_fields": 6
+  },
+  "real_receipts": {
+    "documents": 1052,
+    "claims": 133722,
+    "all_verdicts_candidate_counts_and_location_classifications_unchanged": true,
+    "complete_records_unchanged": 133720,
+    "wider_slash_context_for_existing_reviewed_mutants": 2
+  },
+  "installed_ui": {
+    "modules": 41,
+    "bundled_ui_files": 23,
+    "all_64_match_source_wheel_sdist": true,
+    "served_ui_bytes_checked_each_server": 23,
+    "fresh_browser_contexts_before": 4,
+    "fresh_browser_contexts_after": 4,
+    "actual_downloads_each_phase": 20,
+    "offline_value_exports": true,
+    "archive_saved_restored_online": true
+  },
+  "archive_upgrade": {
+    "baseline_archive_retained": true,
+    "fresh_corrected_ui_contexts": 4,
+    "actual_json_downloads": 4,
+    "original_claim": 1,
+    "saved_decision": 0.5,
+    "old_automated_status": "verified",
+    "recomputed_automated_status": "needs_review"
+  },
+  "visual_review": {
+    "before": 4,
+    "corrected": 4,
+    "archive_upgrade": 2,
+    "all_inspected": true,
+    "finding": "Original half-unit text and its highlight remain visible; the incorrect quantity moves into review. The phone view wraps evidence and keeps correction provenance readable."
+  },
+  "publication": {
+    "source_pushed": true,
+    "source_revision": "c600517c2f53b4ee00ef065395bfd12fd73ac8b1",
+    "registry_release": false,
+    "static_demo_update": false,
+    "bundled_wheel_is_local": true,
+    "direct_git_install_has_bundled_ui": false
+  }
+}

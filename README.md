@@ -51,7 +51,7 @@ For only the tested CLI/library correction, including replacement of an existing
 0.2.7 installation, use the pinned source:
 
 ```bash
-python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@79c85ad223e73f53a2a931529e1e6197bb6dbcc7"
+python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@c600517c2f53b4ee00ef065395bfd12fd73ac8b1"
 ```
 
 A direct Git install has **no bundled UI**. The checkout command above builds
@@ -153,7 +153,7 @@ receipt as well as the cost of additional reviews. [Verification and costs](stud
 Both corrections are included in the pinned source install above. They are
 separate from the older registry verifier and hosted static demo.
 
-The source checkout also keeps slash fractions such as `1⁄2` and `1 / 2`
+The pinned source also keeps slash fractions such as `1⁄2` and `1 / 2`
 whole. A native PDF previously verified 1 and 2 as that quantity; both now
 require review. Fraction arithmetic remains outside the verifier. A human
 correction to 0.5 retains the original claim and automated status in exports

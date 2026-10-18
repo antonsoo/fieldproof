@@ -1,0 +1,2878 @@
+{
+  "workflows": [
+    {
+      "phase": "before",
+      "evidence": {
+        "path": "line_items[0].quantity",
+        "value": 1,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100,
+        "matched_text": "Quantity 1\u20442 m",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 310,
+            "top": 202.77261280000005,
+            "x1": 398.4472672,
+            "bottom": 214.77261280000005
+          }
+        ]
+      },
+      "exported": [
+        {
+          "field": "line_items[0].quantity",
+          "value": 0.5,
+          "original_value": 1,
+          "value_source": "correction",
+          "verification_status": "verified",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "original_report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Workshop Supply",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Workshop Supply",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 88.21401920000005,
+                "x1": 204.91992119999998,
+                "bottom": 106.21401920000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FRAC-2026-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "FRAC-2026-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 98.75976720000001,
+                "top": 127.77261280000005,
+                "x1": 185.05664280000002,
+                "bottom": 139.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "2026-10-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 94.5058608,
+                "top": 152.77261280000005,
+                "x1": 164.244144,
+                "bottom": 164.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Cable cut to length",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 162.7148436,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 1,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Quantity 1\u20442 m",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 310,
+                "top": 202.77261280000005,
+                "x1": 398.4472672,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length Quantity 1\u20442 m 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 501.71875120000004,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Total USD 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 282.77261280000005,
+                "x1": 138.05273400000004,
+                "bottom": 294.77261280000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 7,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "1.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "9.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+            "operands": {
+              "issue_date": "2026-10-18",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Quantity 1\u20442 m",
+              "start": 77,
+              "end": 91,
+              "rects": [
+                {
+                  "x0": 310,
+                  "top": 202.77261280000005,
+                  "x1": 398.4472672,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Cable cut to length Quantity 1\u20442 m 9.00",
+              "start": 57,
+              "end": 96,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 501.71875120000004,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          }
+        ],
+        "column_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "status": "unavailable",
+            "reason": "column evidence requires strongly supported quotes on one item line",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].amount",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          }
+        ]
+      },
+      "restored_report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Workshop Supply",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Workshop Supply",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 88.21401920000005,
+                "x1": 204.91992119999998,
+                "bottom": 106.21401920000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FRAC-2026-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "FRAC-2026-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 98.75976720000001,
+                "top": 127.77261280000005,
+                "x1": 185.05664280000002,
+                "bottom": 139.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "2026-10-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 94.5058608,
+                "top": 152.77261280000005,
+                "x1": 164.244144,
+                "bottom": 164.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Cable cut to length",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 162.7148436,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 1,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Quantity 1\u20442 m",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 310,
+                "top": 202.77261280000005,
+                "x1": 398.4472672,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length Quantity 1\u20442 m 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 501.71875120000004,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Total USD 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 282.77261280000005,
+                "x1": 138.05273400000004,
+                "bottom": 294.77261280000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 7,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "1.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "9.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+            "operands": {
+              "issue_date": "2026-10-18",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Quantity 1\u20442 m",
+              "start": 77,
+              "end": 91,
+              "rects": [
+                {
+                  "x0": 310,
+                  "top": 202.77261280000005,
+                  "x1": 398.4472672,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Cable cut to length Quantity 1\u20442 m 9.00",
+              "start": 57,
+              "end": 96,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 501.71875120000004,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          }
+        ],
+        "column_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "status": "unavailable",
+            "reason": "column evidence requires strongly supported quotes on one item line",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].amount",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          }
+        ]
+      },
+      "offlineRequests": [],
+      "actual_downloads": [
+        "JSON",
+        "CSV",
+        "XLSX",
+        "archive",
+        "restored JSON"
+      ],
+      "files": [
+        {
+          "file": "chromium-1440.fieldproof.json",
+          "bytes": 211,
+          "sha256": "e60698619dc6c0307e5b2f02bd6f53c0e5751862cc5d71627c4535dfc1031fc7"
+        },
+        {
+          "file": "chromium-1440.csv",
+          "bytes": 139,
+          "sha256": "1893699a09437deb3aa43234c861a6491edc36aa277d6f2309d56c284d7a696a"
+        },
+        {
+          "file": "chromium-1440.xlsx",
+          "bytes": 1889,
+          "sha256": "16f63b139b94993f12340d77d990b4063e67cbc118dd58f22207227120e17b36"
+        },
+        {
+          "file": "chromium-1440.zip",
+          "bytes": 25328,
+          "sha256": "eb38df8bb8286b468b3b8f60d666c76f945cc4b236bdf081f4c4d8083289565d"
+        },
+        {
+          "file": "chromium-1440.png",
+          "bytes": 105248,
+          "sha256": "01bcdc673e7e7759e03d4ef1a560c61442f4fd8eeb3b7159e29ddbc7f5a80813"
+        }
+      ]
+    },
+    {
+      "phase": "before",
+      "evidence": {
+        "path": "line_items[0].quantity",
+        "value": 1,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100,
+        "matched_text": "Quantity 1\u20442 m",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 310,
+            "top": 202.77261280000005,
+            "x1": 398.4472672,
+            "bottom": 214.77261280000005
+          }
+        ]
+      },
+      "exported": [
+        {
+          "field": "line_items[0].quantity",
+          "value": 0.5,
+          "original_value": 1,
+          "value_source": "correction",
+          "verification_status": "verified",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "original_report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Workshop Supply",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Workshop Supply",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 88.21401920000005,
+                "x1": 204.91992119999998,
+                "bottom": 106.21401920000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FRAC-2026-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "FRAC-2026-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 98.75976720000001,
+                "top": 127.77261280000005,
+                "x1": 185.05664280000002,
+                "bottom": 139.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "2026-10-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 94.5058608,
+                "top": 152.77261280000005,
+                "x1": 164.244144,
+                "bottom": 164.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Cable cut to length",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 162.7148436,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 1,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Quantity 1\u20442 m",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 310,
+                "top": 202.77261280000005,
+                "x1": 398.4472672,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length Quantity 1\u20442 m 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 501.71875120000004,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Total USD 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 282.77261280000005,
+                "x1": 138.05273400000004,
+                "bottom": 294.77261280000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 7,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "1.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "9.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+            "operands": {
+              "issue_date": "2026-10-18",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Quantity 1\u20442 m",
+              "start": 77,
+              "end": 91,
+              "rects": [
+                {
+                  "x0": 310,
+                  "top": 202.77261280000005,
+                  "x1": 398.4472672,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Cable cut to length Quantity 1\u20442 m 9.00",
+              "start": 57,
+              "end": 96,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 501.71875120000004,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          }
+        ],
+        "column_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "status": "unavailable",
+            "reason": "column evidence requires strongly supported quotes on one item line",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].amount",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          }
+        ]
+      },
+      "restored_report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Workshop Supply",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Workshop Supply",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 88.21401920000005,
+                "x1": 204.91992119999998,
+                "bottom": 106.21401920000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FRAC-2026-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "FRAC-2026-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 98.75976720000001,
+                "top": 127.77261280000005,
+                "x1": 185.05664280000002,
+                "bottom": 139.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "2026-10-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 94.5058608,
+                "top": 152.77261280000005,
+                "x1": 164.244144,
+                "bottom": 164.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Cable cut to length",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 162.7148436,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 1,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Quantity 1\u20442 m",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 310,
+                "top": 202.77261280000005,
+                "x1": 398.4472672,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length Quantity 1\u20442 m 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 501.71875120000004,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Total USD 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 282.77261280000005,
+                "x1": 138.05273400000004,
+                "bottom": 294.77261280000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 7,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "1.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "9.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+            "operands": {
+              "issue_date": "2026-10-18",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Quantity 1\u20442 m",
+              "start": 77,
+              "end": 91,
+              "rects": [
+                {
+                  "x0": 310,
+                  "top": 202.77261280000005,
+                  "x1": 398.4472672,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Cable cut to length Quantity 1\u20442 m 9.00",
+              "start": 57,
+              "end": 96,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 501.71875120000004,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          }
+        ],
+        "column_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "status": "unavailable",
+            "reason": "column evidence requires strongly supported quotes on one item line",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].amount",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          }
+        ]
+      },
+      "offlineRequests": [],
+      "actual_downloads": [
+        "JSON",
+        "CSV",
+        "XLSX",
+        "archive",
+        "restored JSON"
+      ],
+      "files": [
+        {
+          "file": "chromium-375.fieldproof.json",
+          "bytes": 211,
+          "sha256": "e60698619dc6c0307e5b2f02bd6f53c0e5751862cc5d71627c4535dfc1031fc7"
+        },
+        {
+          "file": "chromium-375.csv",
+          "bytes": 139,
+          "sha256": "1893699a09437deb3aa43234c861a6491edc36aa277d6f2309d56c284d7a696a"
+        },
+        {
+          "file": "chromium-375.xlsx",
+          "bytes": 1889,
+          "sha256": "16f63b139b94993f12340d77d990b4063e67cbc118dd58f22207227120e17b36"
+        },
+        {
+          "file": "chromium-375.zip",
+          "bytes": 25328,
+          "sha256": "eb38df8bb8286b468b3b8f60d666c76f945cc4b236bdf081f4c4d8083289565d"
+        },
+        {
+          "file": "chromium-375.png",
+          "bytes": 57601,
+          "sha256": "808328eee75ef6f1342cdc6efccc3c6a7b949a97a3979899cd93821f190aefad"
+        }
+      ]
+    },
+    {
+      "phase": "before",
+      "evidence": {
+        "path": "line_items[0].quantity",
+        "value": 1,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100,
+        "matched_text": "Quantity 1\u20442 m",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 310,
+            "top": 202.77261280000005,
+            "x1": 398.4472672,
+            "bottom": 214.77261280000005
+          }
+        ]
+      },
+      "exported": [
+        {
+          "field": "line_items[0].quantity",
+          "value": 0.5,
+          "original_value": 1,
+          "value_source": "correction",
+          "verification_status": "verified",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "original_report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Workshop Supply",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Workshop Supply",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 88.21401920000005,
+                "x1": 204.91992119999998,
+                "bottom": 106.21401920000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FRAC-2026-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "FRAC-2026-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 98.75976720000001,
+                "top": 127.77261280000005,
+                "x1": 185.05664280000002,
+                "bottom": 139.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "2026-10-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 94.5058608,
+                "top": 152.77261280000005,
+                "x1": 164.244144,
+                "bottom": 164.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Cable cut to length",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 162.7148436,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 1,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Quantity 1\u20442 m",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 310,
+                "top": 202.77261280000005,
+                "x1": 398.4472672,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length Quantity 1\u20442 m 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 501.71875120000004,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Total USD 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 282.77261280000005,
+                "x1": 138.05273400000004,
+                "bottom": 294.77261280000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 7,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "1.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "9.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+            "operands": {
+              "issue_date": "2026-10-18",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Quantity 1\u20442 m",
+              "start": 77,
+              "end": 91,
+              "rects": [
+                {
+                  "x0": 310,
+                  "top": 202.77261280000005,
+                  "x1": 398.4472672,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Cable cut to length Quantity 1\u20442 m 9.00",
+              "start": 57,
+              "end": 96,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 501.71875120000004,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          }
+        ],
+        "column_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "status": "unavailable",
+            "reason": "column evidence requires strongly supported quotes on one item line",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].amount",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          }
+        ]
+      },
+      "restored_report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Workshop Supply",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Workshop Supply",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 88.21401920000005,
+                "x1": 204.91992119999998,
+                "bottom": 106.21401920000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FRAC-2026-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "FRAC-2026-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 98.75976720000001,
+                "top": 127.77261280000005,
+                "x1": 185.05664280000002,
+                "bottom": 139.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "2026-10-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 94.5058608,
+                "top": 152.77261280000005,
+                "x1": 164.244144,
+                "bottom": 164.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Cable cut to length",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 162.7148436,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 1,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Quantity 1\u20442 m",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 310,
+                "top": 202.77261280000005,
+                "x1": 398.4472672,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length Quantity 1\u20442 m 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 501.71875120000004,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Total USD 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 282.77261280000005,
+                "x1": 138.05273400000004,
+                "bottom": 294.77261280000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 7,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "1.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "9.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+            "operands": {
+              "issue_date": "2026-10-18",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Quantity 1\u20442 m",
+              "start": 77,
+              "end": 91,
+              "rects": [
+                {
+                  "x0": 310,
+                  "top": 202.77261280000005,
+                  "x1": 398.4472672,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Cable cut to length Quantity 1\u20442 m 9.00",
+              "start": 57,
+              "end": 96,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 501.71875120000004,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          }
+        ],
+        "column_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "status": "unavailable",
+            "reason": "column evidence requires strongly supported quotes on one item line",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].amount",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          }
+        ]
+      },
+      "offlineRequests": [],
+      "actual_downloads": [
+        "JSON",
+        "CSV",
+        "XLSX",
+        "archive",
+        "restored JSON"
+      ],
+      "files": [
+        {
+          "file": "firefox-1440.fieldproof.json",
+          "bytes": 211,
+          "sha256": "e60698619dc6c0307e5b2f02bd6f53c0e5751862cc5d71627c4535dfc1031fc7"
+        },
+        {
+          "file": "firefox-1440.csv",
+          "bytes": 139,
+          "sha256": "1893699a09437deb3aa43234c861a6491edc36aa277d6f2309d56c284d7a696a"
+        },
+        {
+          "file": "firefox-1440.xlsx",
+          "bytes": 1889,
+          "sha256": "16f63b139b94993f12340d77d990b4063e67cbc118dd58f22207227120e17b36"
+        },
+        {
+          "file": "firefox-1440.zip",
+          "bytes": 25328,
+          "sha256": "eb38df8bb8286b468b3b8f60d666c76f945cc4b236bdf081f4c4d8083289565d"
+        },
+        {
+          "file": "firefox-1440.png",
+          "bytes": 134615,
+          "sha256": "be11bbf7a6dcd8b36ef757bef4b1090005a5805711f6ea0cba8c7a0ebfd15786"
+        }
+      ]
+    },
+    {
+      "phase": "before",
+      "evidence": {
+        "path": "line_items[0].quantity",
+        "value": 1,
+        "status": "verified",
+        "reasons": [],
+        "match_score": 100,
+        "matched_text": "Quantity 1\u20442 m",
+        "page": 1,
+        "rects": [
+          {
+            "x0": 310,
+            "top": 202.77261280000005,
+            "x1": 398.4472672,
+            "bottom": 214.77261280000005
+          }
+        ]
+      },
+      "exported": [
+        {
+          "field": "line_items[0].quantity",
+          "value": 0.5,
+          "original_value": 1,
+          "value_source": "correction",
+          "verification_status": "verified",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "original_report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Workshop Supply",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Workshop Supply",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 88.21401920000005,
+                "x1": 204.91992119999998,
+                "bottom": 106.21401920000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FRAC-2026-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "FRAC-2026-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 98.75976720000001,
+                "top": 127.77261280000005,
+                "x1": 185.05664280000002,
+                "bottom": 139.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "2026-10-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 94.5058608,
+                "top": 152.77261280000005,
+                "x1": 164.244144,
+                "bottom": 164.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Cable cut to length",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 162.7148436,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 1,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Quantity 1\u20442 m",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 310,
+                "top": 202.77261280000005,
+                "x1": 398.4472672,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length Quantity 1\u20442 m 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 501.71875120000004,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Total USD 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 282.77261280000005,
+                "x1": 138.05273400000004,
+                "bottom": 294.77261280000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 7,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "1.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "9.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+            "operands": {
+              "issue_date": "2026-10-18",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Quantity 1\u20442 m",
+              "start": 77,
+              "end": 91,
+              "rects": [
+                {
+                  "x0": 310,
+                  "top": 202.77261280000005,
+                  "x1": 398.4472672,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Cable cut to length Quantity 1\u20442 m 9.00",
+              "start": 57,
+              "end": 96,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 501.71875120000004,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          }
+        ],
+        "column_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "status": "unavailable",
+            "reason": "column evidence requires strongly supported quotes on one item line",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].amount",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          }
+        ]
+      },
+      "restored_report": {
+        "fields": [
+          {
+            "path": "vendor_name",
+            "value": "Workshop Supply",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Workshop Supply",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 88.21401920000005,
+                "x1": 204.91992119999998,
+                "bottom": 106.21401920000005
+              }
+            ]
+          },
+          {
+            "path": "invoice_number",
+            "value": "FRAC-2026-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "FRAC-2026-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 98.75976720000001,
+                "top": 127.77261280000005,
+                "x1": 185.05664280000002,
+                "bottom": 139.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "issue_date",
+            "value": "2026-10-18",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "2026-10-18",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 94.5058608,
+                "top": 152.77261280000005,
+                "x1": 164.244144,
+                "bottom": 164.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].description",
+            "value": "Cable cut to length",
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 162.7148436,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].quantity",
+            "value": 1,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Quantity 1\u20442 m",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 310,
+                "top": 202.77261280000005,
+                "x1": 398.4472672,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "line_items[0].amount",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Cable cut to length Quantity 1\u20442 m 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 202.77261280000005,
+                "x1": 501.71875120000004,
+                "bottom": 214.77261280000005
+              }
+            ]
+          },
+          {
+            "path": "total",
+            "value": 9,
+            "status": "verified",
+            "reasons": [],
+            "match_score": 100,
+            "matched_text": "Total USD 9.00",
+            "page": 1,
+            "rects": [
+              {
+                "x0": 48,
+                "top": 282.77261280000005,
+                "x1": 138.05273400000004,
+                "bottom": 294.77261280000005
+              }
+            ]
+          }
+        ],
+        "cross_field_issues": [],
+        "counts": {
+          "verified": 7,
+          "needs_review": 0,
+          "unsupported": 0
+        },
+        "cross_field_checks": [
+          {
+            "rule": "invoice.line_extension",
+            "fields": [
+              "line_items[0].quantity",
+              "line_items[0].unit_price",
+              "line_items[0].amount"
+            ],
+            "status": "not_checked",
+            "message": "line_items[0]: quantity x unit price not checked: missing line_items[0].unit_price",
+            "operands": {
+              "line_items[0].quantity": "1.0",
+              "line_items[0].unit_price": null,
+              "line_items[0].amount": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.items_subtotal",
+            "fields": [
+              "line_items[0].amount",
+              "subtotal"
+            ],
+            "status": "not_checked",
+            "message": "line items sum not checked: missing subtotal",
+            "operands": {
+              "line_items[0].amount": "9.0",
+              "subtotal": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.subtotal_tax_total",
+            "fields": [
+              "subtotal",
+              "tax",
+              "total"
+            ],
+            "status": "not_checked",
+            "message": "subtotal + tax not checked: missing subtotal, tax",
+            "operands": {
+              "subtotal": null,
+              "tax": null,
+              "total": "9.0"
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": "0.02"
+          },
+          {
+            "rule": "invoice.due_date_order",
+            "fields": [
+              "issue_date",
+              "due_date"
+            ],
+            "status": "not_checked",
+            "message": "date order not checked: both extracted dates must be calendar-valid YYYY-MM-DD values",
+            "operands": {
+              "issue_date": "2026-10-18",
+              "due_date": null
+            },
+            "computed": null,
+            "observed": null,
+            "difference": null,
+            "tolerance": null
+          }
+        ],
+        "row_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].quantity and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Quantity 1\u20442 m",
+              "start": 77,
+              "end": 91,
+              "rects": [
+                {
+                  "x0": 310,
+                  "top": 202.77261280000005,
+                  "x1": 398.4472672,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "anchor": "line_items[0].description",
+            "status": "unavailable",
+            "reason": "line_items[0].unit_price was not extracted",
+            "field_source_status": null,
+            "anchor_source_status": "verified",
+            "field_location": null,
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          },
+          {
+            "field": "line_items[0].amount",
+            "anchor": "line_items[0].description",
+            "status": "same_line",
+            "reason": "line_items[0].amount and line_items[0].description share a visual line on page 1; this does not establish the column or field role",
+            "field_source_status": "verified",
+            "anchor_source_status": "verified",
+            "field_location": {
+              "page": 1,
+              "text": "Cable cut to length Quantity 1\u20442 m 9.00",
+              "start": 57,
+              "end": 96,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 501.71875120000004,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            },
+            "anchor_location": {
+              "page": 1,
+              "text": "Cable cut to length",
+              "start": 57,
+              "end": 76,
+              "rects": [
+                {
+                  "x0": 48,
+                  "top": 202.77261280000005,
+                  "x1": 162.7148436,
+                  "bottom": 214.77261280000005
+                }
+              ]
+            }
+          }
+        ],
+        "column_checks": [
+          {
+            "field": "line_items[0].quantity",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].unit_price",
+            "status": "unavailable",
+            "reason": "column evidence requires strongly supported quotes on one item line",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          },
+          {
+            "field": "line_items[0].amount",
+            "status": "unavailable",
+            "reason": "no complete, unambiguous configured header row above this item",
+            "observed_column": null,
+            "headers": null,
+            "value_locations": []
+          }
+        ]
+      },
+      "offlineRequests": [],
+      "actual_downloads": [
+        "JSON",
+        "CSV",
+        "XLSX",
+        "archive",
+        "restored JSON"
+      ],
+      "files": [
+        {
+          "file": "firefox-375.fieldproof.json",
+          "bytes": 211,
+          "sha256": "e60698619dc6c0307e5b2f02bd6f53c0e5751862cc5d71627c4535dfc1031fc7"
+        },
+        {
+          "file": "firefox-375.csv",
+          "bytes": 139,
+          "sha256": "1893699a09437deb3aa43234c861a6491edc36aa277d6f2309d56c284d7a696a"
+        },
+        {
+          "file": "firefox-375.xlsx",
+          "bytes": 1889,
+          "sha256": "16f63b139b94993f12340d77d990b4063e67cbc118dd58f22207227120e17b36"
+        },
+        {
+          "file": "firefox-375.zip",
+          "bytes": 25328,
+          "sha256": "eb38df8bb8286b468b3b8f60d666c76f945cc4b236bdf081f4c4d8083289565d"
+        },
+        {
+          "file": "firefox-375.png",
+          "bytes": 71794,
+          "sha256": "675708fcdda6f1d8d0a905fe29b7f44ba78eea53b371af9d1388ee054436104a"
+        }
+      ]
+    }
+  ],
+  "actual_downloads": 20,
+  "scope": "Four real production UI contexts, each with JSON/CSV/XLSX/archive/restored-JSON downloads; archive is saved and restored online, value downloads are offline."
+}
