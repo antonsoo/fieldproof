@@ -150,7 +150,10 @@ _NUMBER_PREFIX = (
 )
 _NUMBER_TOKEN = re.compile(
     _NUMBER_PREFIX + r"(?P<count_prefix>x)?"
-    r"(?P<number>(?:\d[\d.,'\u066b\u066c]*|[.,\u066b\u066c]\d[\d.,'\u066b\u066c]*)(?:[eE][+-]?\d+)?)"
+    r"(?P<number>(?:\d[\d.,'\u066b\u066c]*|[.,\u066b\u066c]\d[\d.,'\u066b\u066c]*)(?:[eE][+-]?\d+)?"
+    # Retain unsupported fractions as one token, including spaced slashes.
+    # Otherwise a quote can discard the slash and verify either component.
+    r"(?: */ *[+-]? *\d[\d.,'\u066b\u066c]*(?:[eE][+-]?\d+)?)*)"
     r"(?P<count_suffix>x)?"
     # A minus followed by another amount belongs to that amount. Do not steal
     # the prefix of the next receipt row ("Subtotal 18,182 - 15% DISC").
@@ -189,7 +192,7 @@ class NumberToken:
 
     @property
     def ambiguous_spacing(self) -> bool:
-        return " " in self.digits
+        return " " in self.digits and "/" not in self.digits
 
     def readings(self, style: NumberStyle | None = None) -> list[NumberReading]:
         if not self.well_formed or self.percent:
@@ -228,10 +231,15 @@ def _lexical_number_tokens(text: str) -> tuple[str, list[int], list[NumberToken]
         for i, c in enumerate(normalized)
     )
     normalized = "".join(
-        "$" if unicodedata.category(c) == "Sc" else "-" if c == "−" else c for c in normalized
+        "$" if unicodedata.category(c) == "Sc" else "/" if c in "⁄∕" else "-" if c == "−" else c
+        for c in normalized
     )
     tokens: list[NumberToken] = []
     for match in _NUMBER_TOKEN.finditer(normalized):
+        # The date lexer owns this syntax. Treating a slash date as an amount
+        # would attach a preceding receipt dash to its grounding span.
+        if "/" in match["number"] and NUMERIC_DATE.fullmatch(match["number"].rstrip(".,")):
+            continue
         open_, close = bool(match["open"]), bool(match["close"])
         signs = [
             match[name].strip() for name in ("sign", "inner_sign", "trailing_sign") if match[name]

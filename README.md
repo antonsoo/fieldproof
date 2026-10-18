@@ -153,6 +153,12 @@ receipt as well as the cost of additional reviews. [Verification and costs](stud
 Both corrections are included in the pinned source install above. They are
 separate from the older registry verifier and hosted static demo.
 
+The source checkout also keeps slash fractions such as `1⁄2` and `1 / 2`
+whole. A native PDF previously verified 1 and 2 as that quantity; both now
+require review. Fraction arithmetic remains outside the verifier. A human
+correction to 0.5 retains the original claim and automated status in exports
+and review archives. [Native inputs and existing-receipt replay](studies/fraction-evidence/README.md).
+
 ## How it works
 
 ```text

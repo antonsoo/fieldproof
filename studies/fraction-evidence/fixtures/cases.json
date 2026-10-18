@@ -1,0 +1,32 @@
+[
+  {
+    "slash": "/",
+    "gap": "",
+    "text": "Cut length 1/2 m"
+  },
+  {
+    "slash": "⁄",
+    "gap": "",
+    "text": "Cut length 1⁄2 m"
+  },
+  {
+    "slash": "∕",
+    "gap": "",
+    "text": "Cut length 1∕2 m"
+  },
+  {
+    "slash": "/",
+    "gap": " ",
+    "text": "Cut length 1 / 2 m"
+  },
+  {
+    "slash": "⁄",
+    "gap": " ",
+    "text": "Cut length 1 ⁄ 2 m"
+  },
+  {
+    "slash": "∕",
+    "gap": " ",
+    "text": "Cut length 1 ∕ 2 m"
+  }
+]

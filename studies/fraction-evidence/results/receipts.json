@@ -1,0 +1,121 @@
+{
+  "receipts": 1052,
+  "claims": 133722,
+  "all_verdicts_locations_candidate_counts_preserved": true,
+  "unchanged_complete_records": 133720,
+  "changed_records": 2,
+  "before": [
+    {
+      "cand_right": false,
+      "dataset": "cord",
+      "doc": "cord-valid-78",
+      "dup_on_page": 2,
+      "ftype": "count",
+      "gi": 6,
+      "kind": "item_qty",
+      "locale_ambiguous": false,
+      "matched": "7 700",
+      "measure": "absent",
+      "n_cands": 1,
+      "place_ok": false,
+      "present_elsewhere": true,
+      "quote": "7",
+      "quote_style": "fabricated",
+      "reason": "the quote is 33/100 like '7 700' on the page but differs from it in letters or digits, or ",
+      "score": 33.333333333333336,
+      "split": "B",
+      "status": "needs_review",
+      "value": 7.0,
+      "variant": "digit_changed"
+    },
+    {
+      "cand_right": false,
+      "dataset": "cord",
+      "doc": "cord-valid-78",
+      "dup_on_page": 2,
+      "ftype": "count",
+      "gi": 6,
+      "kind": "item_qty",
+      "locale_ambiguous": false,
+      "matched": "7 700",
+      "measure": "absent",
+      "n_cands": 1,
+      "place_ok": false,
+      "present_elsewhere": true,
+      "quote": "7",
+      "quote_style": "fabricated_context",
+      "reason": "the quote is 33/100 like '7 700' on the page but differs from it in letters or digits, or ",
+      "score": 33.333333333333336,
+      "split": "B",
+      "status": "needs_review",
+      "value": 7.0,
+      "variant": "digit_changed"
+    }
+  ],
+  "after": [
+    {
+      "cand_right": false,
+      "dataset": "cord",
+      "doc": "cord-valid-78",
+      "dup_on_page": 2,
+      "ftype": "count",
+      "gi": 6,
+      "kind": "item_qty",
+      "locale_ambiguous": false,
+      "matched": "5/ 7 700",
+      "measure": "absent",
+      "n_cands": 1,
+      "place_ok": false,
+      "present_elsewhere": true,
+      "quote": "7",
+      "quote_style": "fabricated",
+      "reason": "the quote is 22/100 like '5/ 7 700' on the page but differs from it in letters or digits, ",
+      "score": 22.22222222222222,
+      "split": "B",
+      "status": "needs_review",
+      "value": 7.0,
+      "variant": "digit_changed"
+    },
+    {
+      "cand_right": false,
+      "dataset": "cord",
+      "doc": "cord-valid-78",
+      "dup_on_page": 2,
+      "ftype": "count",
+      "gi": 6,
+      "kind": "item_qty",
+      "locale_ambiguous": false,
+      "matched": "5/ 7 700",
+      "measure": "absent",
+      "n_cands": 1,
+      "place_ok": false,
+      "present_elsewhere": true,
+      "quote": "7",
+      "quote_style": "fabricated_context",
+      "reason": "the quote is 22/100 like '5/ 7 700' on the page but differs from it in letters or digits, ",
+      "score": 22.22222222222222,
+      "split": "B",
+      "status": "needs_review",
+      "value": 7.0,
+      "variant": "digit_changed"
+    }
+  ],
+  "verdicts": {
+    "needs_review": 60892,
+    "unsupported": 16420,
+    "verified": 56410
+  },
+  "scope": "The existing CORD/SROIE annotated OCR adapter and fixed mutations; no new model or OCR run. Two already-reviewed mutated count claims now retain their whole slash context.",
+  "source_parser_sha256": "14435dc6cab9193cd28b25a4f92b8011d28f8681a8abe041e2bd069cfce6d745",
+  "baseline_source": "5bfa604a0a0a2bfd38335dc681109ce790658315",
+  "files": {
+    "before": {
+      "sha256": "13b2808fe2a7cb726598abaf2d7b5347151e231c3b1aeaebc6b8a3e9a6131a4e",
+      "bytes": 66050117
+    },
+    "final": {
+      "sha256": "162a19bd6246fdf883c415f2019a6e26136e37f1c4dfa200d09e8c905eb53232",
+      "bytes": 66050121
+    }
+  }
+}

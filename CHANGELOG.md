@@ -4,6 +4,23 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Fraction evidence boundaries
+
+- Keep numeric slash fractions whole, including U+2044 fraction slash,
+  U+2215 division slash and spaces around ASCII slashes. A PDF printing
+  `1⁄2 m` previously verified both 1 and 2 as the quantity. Fractions remain
+  unsupported numeric evidence and require review rather than approving a
+  component or guessing a value.
+- Preserve source characters, spans and page geometry; clipped component
+  quotes retain the complete unsupported context. Keep existing date syntax
+  under the date lexer so a preceding receipt dash is not borrowed.
+- Retain six authored PDF controls and a complete invoice/CLI reproduction.
+  Replaying 133,722 existing CORD/SROIE claims preserves every verdict,
+  candidate count and location classification. Two already-reviewed mutated
+  quantity claims retain a wider slash-containing source span. Review exports
+  and archive restoration keep original claims and automated verdicts separate
+  from a human correction. [Evidence](studies/fraction-evidence/README.md).
+
 ### Space-separated numeric evidence
 
 - Keep uncertain adjacent numeric groups in one source span. A PDF printing

@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { fileURLToPath } from 'node:url';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { strFromU8, unzipSync } from 'fflate';
 import { row, downloadText, scan, installAudit } from './helpers.mjs';
 
 const pdf = fileURLToPath(new URL('../../../examples/invoice.pdf', import.meta.url));
@@ -1017,3 +1018,99 @@ test('spreadsheet download preserves literal text and review scope offline', asy
   await extract(page);
   await spreadsheetScenario(page, context, info);
 });
+
+for (const width of [1440, 375]) {
+test(`fraction quantity remains reviewable through offline exports and archive restore at ${width}px`, async ({ page, context, request, browserName }) => {
+  // Opt-in study replay against the retained old server; CI always requires review.
+  const baseline = process.env.FIELDPROOF_FRACTION_BASELINE === '1';
+  const status = baseline ? 'verified' : 'needs_review';
+  const study = new URL('../../../studies/fraction-evidence/', import.meta.url);
+  await page.setViewportSize({ width, height: 960 });
+  await page.goto('./', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('PDF document').setInputFiles(fileURLToPath(new URL('fixtures/review.pdf', study)));
+  await expect(page.getByRole('button', { name: 'Run extraction' })).toBeVisible();
+  await page.getByLabel('Fixture JSON').setInputFiles(fileURLToPath(new URL('fixtures/review.json', study)));
+  await page.getByRole('button', { name: 'Run extraction' }).click();
+  const quantity = row(page, 'line_items[0].quantity');
+  await expect(quantity.locator('.status-chip')).toHaveAttribute('data-status', status);
+  if (!baseline) await expect(quantity.locator('.field-reasons')).toContainText('could not parse a number');
+  await quantity.getByRole('button', { name: 'Inspect line_items[0].quantity', exact: true }).click();
+  await expect.poll(() => page.locator('#page-frame img').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+  await expect(page.locator('.highlight-rect[data-path="line_items[0].quantity"]')).toHaveCount(1);
+  const url = (await page.locator('#page-frame img').getAttribute('src')).replace(/\/pages\/\d+\.png$/, '');
+  const original = await (await request.get(`${url}/report`)).json();
+  const evidence = original.report.fields.find(field => field.path === 'line_items[0].quantity');
+  expect(evidence).toMatchObject({ value: 1, status, matched_text: 'Quantity 1⁄2 m' });
+  expect(original.report.counts).toEqual({ verified: baseline ? 7 : 6, needs_review: baseline ? 0 : 1, unsupported: 0 });
+  if (width === 375) await page.getByRole('button', { name: 'Fields', exact: true }).click();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await scan(page);
+  const directory = process.env.FIELDPROOF_CAPTURE_FRACTIONS_DIR;
+  if (directory) {
+    mkdirSync(directory, { recursive: true });
+    await page.screenshot({ path: `${directory}/${browserName}-${width}.png`, fullPage: true });
+  }
+  await quantity.getByRole('button', { name: 'Edit', exact: true }).click();
+  await quantity.getByRole('textbox').fill('0.5');
+  await quantity.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect(quantity.locator('.review-badge')).toHaveText('edited');
+  await expect(page.getByRole('button', { name: 'Save archive', exact: true })).toBeEnabled();
+  await page.evaluate(() => document.fonts.ready);
+  const offlineRequests = [];
+  const observe = req => offlineRequests.push(req.url());
+  page.on('request', observe);
+  await context.setOffline(true);
+  const downloadedJson = await downloadText(page, 'JSON');
+  const exported = JSON.parse(downloadedJson.text);
+  expect(exported).toEqual([expect.objectContaining({ field: 'line_items[0].quantity',
+    value: .5, original_value: 1, value_source: 'correction', verification_status: status, review_status: 'edited' })]);
+  const downloadedCsv = await downloadText(page, 'CSV');
+  expect(downloadedCsv.text).toContain(`line_items[0].quantity,0.5,1,correction,${status},edited,1`);
+  const pendingXlsx = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export XLSX', exact: true }).click();
+  const xlsx = readFileSync(await (await pendingXlsx).path());
+  const xml = strFromU8(unzipSync(xlsx)['xl/worksheets/sheet1.xml']);
+  const cells = await page.evaluate(xml => {
+    const doc = new DOMParser().parseFromString(xml, 'application/xml');
+    if (doc.querySelector('parsererror')) throw new Error('Invalid workbook XML');
+    return [...doc.querySelectorAll('sheetData row')].slice(1).map(row => [...row.children].map(cell => {
+      if (cell.getAttribute('t') === 'inlineStr') return cell.querySelector('t')?.textContent ?? '';
+      const text = cell.querySelector('v')?.textContent;
+      return text === undefined ? null : cell.getAttribute('t') === 'b' ? text === '1' : Number(text);
+    }));
+  }, xml);
+  expect(cells).toEqual(exported.map(entry => Object.values(entry)));
+  expect(offlineRequests).toEqual([]);
+  await context.setOffline(false);
+  page.off('request', observe);
+  expect((await (await request.get(`${url}/report`)).json()).report).toEqual(original.report);
+  const pendingArchive = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Save archive', exact: true }).click();
+  const archive = await (await pendingArchive).path();
+  const archiveBytes = readFileSync(archive);
+  const members = unzipSync(archiveBytes);
+  expect(Buffer.from(members['document.pdf'])).toEqual(readFileSync(fileURLToPath(new URL('fixtures/review.pdf', study))));
+  expect(JSON.parse(strFromU8(members['extraction.json'])).line_items[0].quantity).toMatchObject({ value: 1, evidence: ['Quantity 1⁄2 m'] });
+  expect(JSON.parse(strFromU8(members['review.json']))['line_items[0].quantity']).toEqual({ status: 'edited', edited_value: .5 });
+  expect((await request.delete(url)).status()).toBe(204);
+  await page.reload();
+  await page.getByLabel('Review archive', { exact: true }).setInputFiles(archive);
+  await expect(quantity.locator('.review-badge')).toHaveText('edited');
+  expect(JSON.parse((await downloadText(page, 'JSON')).text)).toEqual(exported);
+  const session = (await (await request.get('/api/documents')).json()).documents[0];
+  const restored = await (await request.get(`/api/documents/${session.id}/report`)).json();
+  expect(restored.report).toEqual(original.report);
+  if (directory) {
+    const base = `${directory}/${browserName}-${width}`;
+    writeFileSync(`${base}.fieldproof.json`, downloadedJson.text);
+    writeFileSync(`${base}.csv`, downloadedCsv.text);
+    writeFileSync(`${base}.xlsx`, xlsx);
+    writeFileSync(`${base}.zip`, archiveBytes);
+    writeFileSync(`${base}.json`, JSON.stringify({
+      phase: baseline ? 'before' : 'after', evidence, exported,
+      original_report: original.report, restored_report: restored.report,
+      offlineRequests, actual_downloads: ['JSON', 'CSV', 'XLSX', 'archive', 'restored JSON'],
+    }, null, 2) + '\n');
+  }
+});
+}

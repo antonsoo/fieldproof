@@ -1,0 +1,51 @@
+{
+  "schema": "invoice",
+  "data": {
+    "vendor_name": {
+      "value": "Workshop Supply",
+      "evidence": [
+        "Workshop Supply"
+      ]
+    },
+    "invoice_number": {
+      "value": "FRAC-2026-18",
+      "evidence": [
+        "FRAC-2026-18"
+      ]
+    },
+    "issue_date": {
+      "value": "2026-10-18",
+      "evidence": [
+        "2026-10-18"
+      ]
+    },
+    "line_items": [
+      {
+        "description": {
+          "value": "Cable cut to length",
+          "evidence": [
+            "Cable cut to length"
+          ]
+        },
+        "quantity": {
+          "value": 1,
+          "evidence": [
+            "Quantity 1⁄2 m"
+          ]
+        },
+        "amount": {
+          "value": 9,
+          "evidence": [
+            "Cable cut to length Quantity 1⁄2 m 9.00"
+          ]
+        }
+      }
+    ],
+    "total": {
+      "value": 9,
+      "evidence": [
+        "Total USD 9.00"
+      ]
+    }
+  }
+}

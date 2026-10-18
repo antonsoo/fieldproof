@@ -13,6 +13,7 @@ publication stages. For setup, return to the [README](../README.md).
 | Can a sign, rate or digit disappear during numeric comparison? | [Numeric evidence](../studies/numeric-evidence/README.md) |
 | Can Arabic separators turn a complete amount into verified fragments? | [Arabic numeric evidence](../studies/arabic-numbers/README.md) |
 | Can a grouping space turn part of an amount into a verified value? | [Spaced numbers and paired PDF layouts](../studies/spaced-numbers/README.md) |
+| Can a fraction supply a verified numerator or denominator? | [Fraction evidence and review provenance](../studies/fraction-evidence/README.md) |
 | Which document conventions can settle an ambiguous number or date? | [Mixed conventions](../studies/mixed-conventions/README.md), [date hints](../studies/date-conventions/README.md) |
 | Are date claims and written-date evidence complete? | [Date claims](../studies/date-claims/README.md), [written dates](../studies/written-dates/README.md) |
 | Can prose establish a boolean answer? | [Boolean evidence](../studies/boolean-evidence/README.md) |
