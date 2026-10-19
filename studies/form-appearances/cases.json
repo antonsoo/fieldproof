@@ -1,0 +1,96 @@
+[
+  {
+    "id": "filled-text",
+    "value": "$100.00",
+    "bytes": 4041,
+    "sha256": "b080205c852c74dd06a81d75a23017e48bcc73aeb71681f29f5f8ee55a0c50c4"
+  },
+  {
+    "id": "covered-native-total",
+    "value": "$100.00",
+    "cover": true,
+    "bytes": 4120,
+    "sha256": "9f2d2f89ce102918fb7636f5f5bda9f3d750a1febc7f1bd5ea36d66bfd3507d6"
+  },
+  {
+    "id": "empty-text",
+    "value": "",
+    "bytes": 3980,
+    "sha256": "30f9a40f7b02d6b1ef4ecf7f980a955789eeadf275e582cfe75cac5057bdf0f0"
+  },
+  {
+    "id": "hidden-text",
+    "value": "$100.00",
+    "hidden": true,
+    "bytes": 4041,
+    "sha256": "c283558a81035321265b69c22a86b801cbc7be73a9f1fa2fd33757078b6880a1"
+  },
+  {
+    "id": "checkbox-checked",
+    "checkbox": true,
+    "checked": true,
+    "bytes": 4985,
+    "sha256": "77e863106172207e65f7382aa54b8bc5eb5069d2e9dc41d5c7ae5081b0049b08"
+  },
+  {
+    "id": "checkbox-unchecked",
+    "checkbox": true,
+    "checked": false,
+    "bytes": 4985,
+    "sha256": "be3504cff3dd0dadbbff3f5b80a290fab976e2542e56d3a547521796c6a83269"
+  },
+  {
+    "id": "choice",
+    "choice": true,
+    "value": "Net 30",
+    "bytes": 4130,
+    "sha256": "ca99aab801323ad7e4085c639a6706a93a3e7275e2e9d4494e104b920f673abe"
+  },
+  {
+    "id": "rotation-90",
+    "value": "$100.00",
+    "rotation": 90,
+    "bytes": 4042,
+    "sha256": "83c568adc6284c9e4b417b86535af1da508c81bdc702e18f0674264f507f4cfd"
+  },
+  {
+    "id": "rotation-180",
+    "value": "$100.00",
+    "rotation": 180,
+    "bytes": 4043,
+    "sha256": "8f72293a790b18727aba919afc652bdc410231b563f8b429bf9ebf536ae1bda9"
+  },
+  {
+    "id": "rotation-270",
+    "value": "$100.00",
+    "rotation": 270,
+    "bytes": 4043,
+    "sha256": "2b737a56bda7593611728626fcd987bdcf7d4616c4bbb2113ad779d8f2db2932"
+  },
+  {
+    "id": "cropped",
+    "value": "$100.00",
+    "crop": true,
+    "bytes": 4069,
+    "sha256": "bcdf143eae23ee706396923ea52a73ad6b1d1a782c2b0d5b5ee3ff3751ebf6b8"
+  },
+  {
+    "id": "native-only",
+    "plain": true,
+    "bytes": 1729,
+    "sha256": "8ac02c193472b6f738b069eff2c6e4e196bab6e1661908b763b1b80842807366"
+  },
+  {
+    "id": "form-only",
+    "value": "$100.00",
+    "no_native": true,
+    "bytes": 3676,
+    "sha256": "3e481d4c381bb8166df94cb4e3fd3dc97debbc201a07b04feed9c4eab3f243f7"
+  },
+  {
+    "id": "xfa-unsupported",
+    "xfa": true,
+    "bytes": 1930,
+    "sha256": "c0f4875d31ded16fb3c50e27c7bb729725cbf0807bda4c401512bbeb8f9e18f6"
+  }
+]

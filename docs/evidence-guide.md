@@ -32,6 +32,9 @@ publication stages. For setup, return to the [README](../README.md).
 
 ## Native PDF paint
 
+Saved form fields have their own [appearance replay](../studies/form-appearances/README.md):
+blank review values, static form rendering, local OCR and explicit XFA rejection.
+
 | Question | Retained study |
 | --- | --- |
 | Can invisible or clipping-only text verify a claim? | [Rendering modes](../studies/unpainted-text/README.md) |

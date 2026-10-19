@@ -38,6 +38,14 @@ text and boxes. Pages with any native words are not re-recognized, so this does
 not repair a sparse or incorrect text layer. The review server still uses its
 native-text path; the new option is for the CLI and library.
 
+**PDF forms (current source, unreleased).** Review images and OCR input include
+saved static AcroForm appearances. Native extraction still reads page text,
+not widget values; a form-only PDF requires the OCR extra. The missing-pages
+option does not recognize form values on a page that already has native text.
+JavaScript and XFA are not run, and XFA PDFs are rejected with a diagnostic.
+Save a static PDF from a form viewer to use such a document. See the
+[native form replay](../studies/form-appearances/README.md).
+
 A number written `60.000` is sixty or sixty thousand, and `03/04/2026` is 4
 March or 3 April. When nothing else in the document settles which, the field
 is `needs_review`. `--number-style thousands` (or `decimal`) and `--date-order

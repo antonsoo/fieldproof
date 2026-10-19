@@ -4,6 +4,18 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Saved PDF form appearances
+
+- Render static AcroForm values, checked boxes and choices in review PNGs and
+  optional OCR input. Initialize PDFium's form environment before page handles,
+  consistently for the original and paint-suppressed reference.
+- Keep native page-text extraction distinct from widget values. Retain hidden
+  field behavior, original PDF bytes and existing covered-text reviews. Reject
+  unsupported XFA forms with a worker-safe diagnostic; do not run JavaScript.
+- Retain 14 authored controls, two pinned native producer documents and one
+  invented public-form fill. Actual local OCR of the form-only control changes
+  from no words to `$100.00`. [Evidence](studies/form-appearances/README.md).
+
 ### Fraction evidence boundaries
 
 - Keep numeric slash fractions whole, including U+2044 fraction slash,

@@ -19,6 +19,7 @@ import pypdfium2 as pdfium
 from PIL import Image, ImageChops
 from pypdfium2 import raw
 
+from fieldproof.document.forms import open_render_document
 from fieldproof.document.glyph_envelopes import GlyphEnvelope, glyph_envelopes
 from fieldproof.document.limits import DocumentLimitError, check_page_pixels
 from fieldproof.document.model import BBox, RasterState
@@ -224,7 +225,7 @@ def page_raster(
                 # edited; each disposable reference document starts from source.
                 check_page_pixels(width, height, 2.0, max_pixels)
                 foreground = _render_rgb(page, max_pixels)
-                with closing(pdfium.PdfDocument(source)) as reference:
+                with open_render_document(source) as reference:
                     reference_page = reference[page_index]
                     try:
                         control = _render_rgb(reference_page, max_pixels)

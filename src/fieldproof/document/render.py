@@ -15,6 +15,7 @@ from pathlib import Path
 
 import pypdfium2 as pdfium
 
+from fieldproof.document.forms import open_render_document
 from fieldproof.document.limits import check_page_pixels
 
 
@@ -30,26 +31,25 @@ def render_page_png(
     `scale=2.0` (the default) gives 144 DPI, which is sharp enough to read
     small print on screen without producing huge files.
     """
-    pdf = pdfium.PdfDocument(source)
-    page = bitmap = pil_image = None
-    try:
-        page = pdf[page_number - 1]
-        if max_pixels is not None:
-            width, height = page.get_size()
-            check_page_pixels(width, height, scale, max_pixels)
-        bitmap = page.render(scale=scale)
-        pil_image = bitmap.to_pil()
-        buf = io.BytesIO()
-        pil_image.save(buf, format="PNG")
-        return buf.getvalue()
-    finally:
-        if pil_image is not None:
-            pil_image.close()
-        if bitmap is not None:
-            bitmap.close()
-        if page is not None:
-            page.close()
-        pdf.close()
+    with open_render_document(source) as pdf:
+        page = bitmap = pil_image = None
+        try:
+            page = pdf[page_number - 1]
+            if max_pixels is not None:
+                width, height = page.get_size()
+                check_page_pixels(width, height, scale, max_pixels)
+            bitmap = page.render(scale=scale)
+            pil_image = bitmap.to_pil()
+            buf = io.BytesIO()
+            pil_image.save(buf, format="PNG")
+            return buf.getvalue()
+        finally:
+            if pil_image is not None:
+                pil_image.close()
+            if bitmap is not None:
+                bitmap.close()
+            if page is not None:
+                page.close()
 
 
 def page_pixel_size(

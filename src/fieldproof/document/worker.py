@@ -7,6 +7,7 @@ import sys
 from dataclasses import asdict
 from pathlib import Path
 
+from fieldproof.document.forms import UnsupportedPdfFormError
 from fieldproof.document.limits import DocumentLimitError, DocumentLimits
 from fieldproof.document.loader import EmptyDocumentError, load_pdf
 from fieldproof.document.model import document_from_dict
@@ -57,6 +58,9 @@ def main() -> int:
             file=sys.stderr,
         )
         return 2
+    except UnsupportedPdfFormError as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
     except (DocumentLimitError, MemoryError) as exc:
         print(str(exc) or "PDF exceeded the worker memory budget", file=sys.stderr)
         return 3

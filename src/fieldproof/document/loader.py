@@ -17,6 +17,7 @@ from typing import Any
 import pdfplumber
 import pypdfium2 as pdfium
 
+from fieldproof.document.forms import open_render_document
 from fieldproof.document.limits import DocumentLimitError, DocumentLimits, check_pdf_geometry
 from fieldproof.document.model import BBox, Document, Page, RasterState, Word
 from fieldproof.document.raster_paint import RasterProbe, page_raster
@@ -51,7 +52,7 @@ def load_pdf(
     pages: list[Page] = []
     word_count = text_chars = 0
     views = _visible_page_boxes(source)
-    with closing(pdfium.PdfDocument(source)) as raster_pdf, pdfplumber.open(stream) as pdf:
+    with open_render_document(source) as raster_pdf, pdfplumber.open(stream) as pdf:
         for page_number, (original, view_box) in enumerate(
             zip(pdf.pages, views, strict=True), start=1
         ):

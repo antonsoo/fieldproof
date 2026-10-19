@@ -176,6 +176,12 @@ and keeps corrections separate. See [design and architecture](docs/design.md).
 
 ## Accuracy and limitations
 
+The current source includes saved AcroForm appearances in review PNGs, native
+paint checks and local OCR input. Filled fields previously appeared blank;
+[native producer inputs and before/after controls](studies/form-appearances/README.md)
+retain the reproduction. This rendering correction is unreleased. Native text
+extraction still excludes widget values, and XFA forms are unsupported.
+
 A positive raster difference does not prove readability, font-to-Unicode
 correctness or exact ownership of overlapping ink. Stroke bounds can be
 conservative. Native attribution requires PDFium 5.0 or later and has explicit
