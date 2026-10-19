@@ -54,3 +54,30 @@ This is one legible native control, not an OCR accuracy benchmark. Recognized
 numbers, names and dates can be wrong. Replacing the native layer can discard
 better text. No form-field metadata is promoted to visible word evidence,
 and the review server's native loader does not adopt this option.
+
+## Installed verification
+
+The [artifact receipt](results/verification.json) identifies feature source
+`27c3f44166d5fe39ab86373e0d92481474424420` and the clean source archive used
+to build the wheel. All 42 Python files match committed source. The wheel's
+23 bundled UI files match the preceding verified artifact, and all 65 runtime
+files match both isolated installations.
+
+| Installed environment | Python | PDFium wrapper | pytesseract | Result |
+| --- | --- | --- | --- | --- |
+| Declared direct dependency floors | 3.11.13 | 5.0.0 | 0.3.10 | 854 checks and 12 actual CLI cases pass |
+| Current resolved dependencies | 3.14.7 | 5.14.0 | 0.3.13 | 854 checks and 12 actual CLI cases pass |
+
+Every declared direct floor, including development and OCR extras, is pinned
+explicitly in [the constraints](results/minimum-constraints.txt) and checked
+against installed package metadata. Transitive versions remain compatible
+resolver choices. The minimum run retains two dependency deprecation warnings.
+The test logs remove the temporary artifact directory from warning paths;
+the receipt preserves hashes of the original output.
+
+The [before](results/before.json), [source](results/after.json),
+[installed minimum](results/minimum-floor-cli.json) and
+[installed current](results/modern-cli.json) receipts retain runtime identities,
+matched text, original claims, status and OCR provenance. The adjacent compressed
+`*-outputs.json.gz` files retain original report JSON and CLI output. These are
+local/source artifact checks; no package-registry release accompanies them.
