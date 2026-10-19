@@ -94,5 +94,15 @@
       "retained_normalization": "absolute artifact directory removed from warning paths",
       "warnings": 0
     }
+  },
+  "public_source": {
+    "installed_commit": "27c3f44166d5fe39ab86373e0d92481474424420",
+    "runtime_python_files_match_commit": 42,
+    "actual_cli_cases": 12,
+    "all_raw_outputs_equal_current_installed_wheel": true,
+    "bundled_ui_files": 0,
+    "scope": "Git source install; UI requires a separate build",
+    "published_changed_files_verified": 27,
+    "published_source_commit": "cf32f90c76a9cdbd05aebcbb1e71ee4df7a6f5bf"
   }
 }

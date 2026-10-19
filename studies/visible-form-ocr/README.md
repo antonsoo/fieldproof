@@ -81,3 +81,11 @@ The [before](results/before.json), [source](results/after.json),
 matched text, original claims, status and OCR provenance. The adjacent compressed
 `*-outputs.json.gz` files retain original report JSON and CLI output. These are
 local/source artifact checks; no package-registry release accompanies them.
+
+A separate [public Git installation](results/public-install-identity.json) from
+the pinned feature commit reproduces all twelve CLI cases. Its 42 Python files
+match the commit, and [all raw CLI outputs](results/public-outputs.json.gz) equal
+the current installed wheel's outputs. That source installation contains no
+bundled UI; it verifies the documented CLI upgrade. The
+[publication receipt](results/publication.json) checks the 27 changed source,
+documentation and evidence files at the published documentation commit.

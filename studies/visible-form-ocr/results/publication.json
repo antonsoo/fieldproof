@@ -1,0 +1,142 @@
+{
+  "source_commit": "cf32f90c76a9cdbd05aebcbb1e71ee4df7a6f5bf",
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "bytes": 40986,
+      "sha256": "175080a0c8917a9396f86407064b4ec41551cf3c25a194c0a50924cf1e9915cd"
+    },
+    {
+      "file": "README.md",
+      "bytes": 11293,
+      "sha256": "99836bd7c88844f739a29c71c9410d35833e260585a70428e0930f2ca9e60d19"
+    },
+    {
+      "file": "docs/assets/visible-form-ocr.png",
+      "bytes": 124540,
+      "sha256": "efd7a9e88e5db6cb41e08ac30e40eab0e3d056abd5c2dee5b8d5a399cfed610d"
+    },
+    {
+      "file": "docs/assets/visible-form-ocr.txt",
+      "bytes": 344,
+      "sha256": "75ee6f7e7dca7f547c804a1d83461cb70bbeb102fda5b5b82fca29a0e7ee2ad0"
+    },
+    {
+      "file": "docs/usage.md",
+      "bytes": 18896,
+      "sha256": "9f1b3a0bcc009c385badfc5607e8d7189030dc3d95473173a905d2adab4be66f"
+    },
+    {
+      "file": "src/fieldproof/cli.py",
+      "bytes": 11578,
+      "sha256": "4163d3bda1503518719d8d5b2e0d2416552aaead686e6e317f3933f7e73c2f25"
+    },
+    {
+      "file": "src/fieldproof/document/ocr.py",
+      "bytes": 10287,
+      "sha256": "c0cdd06ac45209c630facbc49c07e2b63177966813db9539daaef9a0e2a55a01"
+    },
+    {
+      "file": "studies/visible-form-ocr/README.md",
+      "bytes": 4873,
+      "sha256": "1fd6dbc88655f231d25f3cf7db74a75448b1134294898c3b658f0ca018efc07e"
+    },
+    {
+      "file": "studies/visible-form-ocr/replay.py",
+      "bytes": 5486,
+      "sha256": "0ddb6e3b49dedce7a3cf7de8012511af90cdea647afecfa9b4b225d1ac7c86b8"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/after-outputs.json.gz",
+      "bytes": 2128,
+      "sha256": "33b034b6609f378ff9d68c1da383acf8f0a8bcaefe62cdf7bead17a095c8289f"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/after.json",
+      "bytes": 17157,
+      "sha256": "74a52287ecf8693933c0f11e06be230e2d98a9701f750c2034b874a1bcbac1ea"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/before-outputs.json.gz",
+      "bytes": 1800,
+      "sha256": "ee067ecde6c6632c16a0af35b1b8f8f587008dadc2ae442734ba80b11a22e7ae"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/before.json",
+      "bytes": 12563,
+      "sha256": "cb3200aa01d4f151a170a48c30aaa9f24aad3db3cf7ab3034555837de0408450"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/compatibility.json",
+      "bytes": 1274,
+      "sha256": "973487085d3840748591b0d879edf982ee785b3f20f6b62909be758e2bd2e7a0"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/minimum-constraints.txt",
+      "bytes": 310,
+      "sha256": "f5a123cf5106b63548928d41cbe663b7e2b886a56308b31c21604e9df3025021"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/minimum-floor-cli.json",
+      "bytes": 17156,
+      "sha256": "4557419bad06648234e4e5b9fbefbd2df1be616deee88f79527948b53cf81ad3"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/minimum-floor-identity.json",
+      "bytes": 9785,
+      "sha256": "968d10b69d82198ce15f91988ffbe92d5a80118eff4005be17e75650e630a378"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/minimum-floor-outputs.json.gz",
+      "bytes": 2125,
+      "sha256": "76a0983c3912beb2414bf4021bc5d31425f90c88a4ce77ba487ad8b287b1d2e4"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/minimum-floor-tests.txt",
+      "bytes": 1825,
+      "sha256": "673ea83cb14cccb01e956f746abd7e25a837350511929a63144427e45d99ed5a"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/modern-cli.json",
+      "bytes": 17156,
+      "sha256": "ab6ab5fad215ec4b34bfc7c3eeaee3af2da84a38d2cb89637f1a6dd55df6b4cf"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/modern-identity.json",
+      "bytes": 9936,
+      "sha256": "3d728b85072761ad0c1014986ed086f18993e9486592b23c765673a73227c148"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/modern-outputs.json.gz",
+      "bytes": 2128,
+      "sha256": "33b034b6609f378ff9d68c1da383acf8f0a8bcaefe62cdf7bead17a095c8289f"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/modern-tests.txt",
+      "bytes": 992,
+      "sha256": "a545c7a6707814873fb2684222da1e63c89bfc45386908641988b91220caaaea"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/source-tests.txt",
+      "bytes": 992,
+      "sha256": "ff5b0242f5b51ec9b35cd52b8f1712aa882e3c10a59dacf1d922ff596423ee5f"
+    },
+    {
+      "file": "studies/visible-form-ocr/results/verification.json",
+      "bytes": 3317,
+      "sha256": "253be5d410aad4ffe514b443311bed3c2a4e690cdf8adfbb2e9a7c9135b63dfb"
+    },
+    {
+      "file": "studies/visible-form-ocr/visible-claim.json",
+      "bytes": 488,
+      "sha256": "01f8ee8074bb473acc210ff1dcbe1502f4de1601db8b26c63b83830626169674"
+    },
+    {
+      "file": "tests/test_all_page_ocr.py",
+      "bytes": 4627,
+      "sha256": "240ca9a6a803502a69e495baa3cb735b74fb8133cec90ea5789787b11b7d9cc3"
+    }
+  ],
+  "all_public_bytes_match_git_objects": true,
+  "registry_release": "not performed"
+}
