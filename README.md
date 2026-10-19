@@ -51,7 +51,7 @@ For only the tested CLI/library correction, including replacement of an existing
 0.2.7 installation, use the pinned source:
 
 ```bash
-python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@b0661fce06bace991b3ccb2b4350818d9c9d7f79"
+python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@27c3f44166d5fe39ab86373e0d92481474424420"
 ```
 
 A direct Git install has **no bundled UI**. The checkout command above builds
