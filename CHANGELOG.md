@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+- Add `--ocr-all-pages` to extract/verify and `load_pdf_with_ocr(..., mode="all")`.
+  Recognize every rendered page, including visible form values on pages with
+  native text, with explicit OCR provenance. Keep the native and missing-page
+  choices, reject conflicting flags, and preserve prior reports on OCR failure.
+
 ### Saved PDF form appearances
 
 - Render static AcroForm values, checked boxes and choices in review PNGs and

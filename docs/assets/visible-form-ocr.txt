@@ -1,0 +1,8 @@
+OCR: All-page OCR: text recognized from rendered pages replaces native text. Grounding checks recognized text; review the page images, especially numbers, dates and word boxes.
+wrote result.json - 4 verified, 0 needs review, 0 unsupported
+{
+  "value": 100.0,
+  "status": "verified",
+  "matched_text": "Authorized total: $100.00",
+  "page": 1
+}

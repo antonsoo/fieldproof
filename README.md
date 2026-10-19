@@ -181,7 +181,11 @@ The current source includes saved AcroForm appearances in review PNGs, native
 paint checks and local OCR input. Filled fields previously appeared blank;
 [native producer inputs and before/after controls](studies/form-appearances/README.md)
 retain the reproduction. This rendering correction is unreleased. Native text
-extraction still excludes widget values, and XFA forms are unsupported.
+extraction still excludes widget values. The CLI's explicit `--ocr-all-pages`
+choice recognizes rendered form values on pages that also have native text;
+it replaces native words and records OCR provenance. This checks recognized
+text, with its possible errors. [Actual Tesseract and CLI replay](studies/visible-form-ocr/README.md).
+XFA forms are unsupported.
 [Installed package and real browser/archive verification](docs/verification-form-appearances-2026-10-19.md)
 check the pinned source above; the static demos remain separate.
 

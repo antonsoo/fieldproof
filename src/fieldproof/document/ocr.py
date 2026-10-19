@@ -26,6 +26,7 @@ import io
 import math
 from contextlib import closing
 from pathlib import Path
+from typing import Literal
 
 import pypdfium2 as pdfium
 
@@ -65,7 +66,7 @@ def load_scanned_pdf(
     timeout: float = 30.0,
     limits: DocumentLimits | None = None,
 ) -> Document:
-    """OCR every page of a PDF that has no text layer.
+    """OCR every rendered page, without consulting a native text layer.
 
     The optional legacy `page_count` must match the PDF; it cannot silently
     truncate it. Each Tesseract process has a positive wall-clock timeout.
@@ -120,15 +121,32 @@ def load_pdf_with_ocr(
     language: str = "eng",
     timeout: float = 30.0,
     limits: DocumentLimits | None = None,
+    mode: Literal["missing", "all"] = "missing",
 ) -> Document:
-    """Keep native pages and opt in to OCR of pages with no native words.
+    """Recognize missing pages, or explicitly replace every page with OCR text.
 
-    This does not detect or repair a partial, incorrect or invisible text layer
-    on a page that already has native words. Blank pages are attempted too;
-    they retain their positions and are named in the OCR provenance. Native-only
-    documents need no OCR dependency or engine. Limits apply to combined text.
+    The default keeps native pages and does not detect a partial, incorrect or
+    invisible text layer on them. Mode "all" reads only rendered appearances,
+    including saved form values, and does not merge duplicate native words.
+    Blank pages retain their positions and are named in the OCR provenance.
+    In the default mode, native-only documents need no OCR dependency or engine.
+    Limits apply to the resulting document's text.
     """
+    if mode not in ("missing", "all"):
+        raise ValueError("OCR mode must be 'missing' or 'all'")
     _validate_options(language, timeout)
+    if mode == "all":
+        document = load_scanned_pdf(
+            source, label=label, language=language, timeout=timeout, limits=limits
+        )
+        assert document.ocr is not None
+        document.ocr.processed_pages = [page.number for page in document.pages]
+        document.ocr.note = (
+            "All-page OCR: text recognized from rendered pages replaces native text. "
+            "Grounding checks recognized text; review the page images, especially numbers, "
+            "dates and word boxes."
+        )
+        return document
     limits = limits or DocumentLimits()
     try:
         document = load_pdf(source, label=label, limits=limits)

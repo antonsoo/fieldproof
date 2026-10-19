@@ -34,14 +34,37 @@ fieldproof verify result.json mixed.pdf --ocr-missing-pages
 The library equivalent is `fieldproof.document.ocr.load_pdf_with_ocr`, with the
 same language, timeout and combined document budgets. `report.ocr.processed_pages`
 names attempted OCR pages, including blank results; other pages retain native
-text and boxes. Pages with any native words are not re-recognized, so this does
-not repair a sparse or incorrect text layer. The review server still uses its
-native-text path; the new option is for the CLI and library.
+text and boxes. That mode leaves pages with any native words alone. For a
+partial text layer or visible form values on those pages, select all-page OCR:
+
+```bash
+fieldproof extract form.pdf --schema invoice --fixture extraction.json --ocr-all-pages --out result.json
+fieldproof verify result.json form.pdf --ocr-all-pages
+```
+
+`--ocr-all-pages` uses text recognized from every rendered page as the sole
+word evidence. Native words are replaced, including hidden text; they are not
+merged with OCR words. This can recover visible form values, and can introduce
+OCR errors into text that native extraction read correctly. The report records
+the engine, language, DPI, every attempted page and any empty pages. Failed or
+unavailable OCR leaves earlier reports intact and does not fall back to native
+text. Choose one of `--ocr-missing-pages` and `--ocr-all-pages`.
+
+| CLI choice | Word evidence |
+| --- | --- |
+| Default | Native text; OCR fallback if the whole PDF has no native words |
+| `--ocr-missing-pages` | Native pages plus OCR of pages without native words |
+| `--ocr-all-pages` | OCR of every rendered page |
+
+The library equivalent is `load_pdf_with_ocr(source, mode="all")`, with the
+same language, timeout and document budgets. The review server uses its
+native-text path; these choices are for the CLI and library. See the
+[visible form replay](../studies/visible-form-ocr/README.md).
 
 **PDF forms (current source, unreleased).** Review images and OCR input include
 saved static AcroForm appearances. Native extraction still reads page text,
-not widget values; a form-only PDF requires the OCR extra. The missing-pages
-option does not recognize form values on a page that already has native text.
+not widget values; a form-only PDF requires the OCR extra. Use all-page OCR
+to recognize rendered form values on pages that also contain native text.
 JavaScript and XFA are not run, and XFA PDFs are rejected with a diagnostic.
 Save a static PDF from a form viewer to use such a document. See the
 [native form replay](../studies/form-appearances/README.md).

@@ -1,0 +1,44 @@
+{
+  "existing_cli_reports_byte_identical": [
+    {
+      "case": "extract-native-100",
+      "bytes": 4338,
+      "sha256": "d27978c47d330193593564aeeff1c84a16e07b4e9d10c2dd0165c309977bccdd"
+    },
+    {
+      "case": "extract-native-900",
+      "bytes": 4127,
+      "sha256": "8c1e827b78cb639f952dce437acb2cc4cd80dc7e41792682cd8b649e5c165c7e"
+    },
+    {
+      "case": "extract-missing-100",
+      "bytes": 4338,
+      "sha256": "d27978c47d330193593564aeeff1c84a16e07b4e9d10c2dd0165c309977bccdd"
+    },
+    {
+      "case": "extract-missing-900",
+      "bytes": 4127,
+      "sha256": "8c1e827b78cb639f952dce437acb2cc4cd80dc7e41792682cd8b649e5c165c7e"
+    },
+    {
+      "case": "verify-native-100",
+      "bytes": 4330,
+      "sha256": "8402060e3394ba3d3a4aefe1f7cdddcd309709f7e13df21727032eb232d999f4"
+    },
+    {
+      "case": "verify-native-900",
+      "bytes": 4119,
+      "sha256": "3da194000da2f3e8bd9e4567ef98cf596b8b5afdc2ff662f1e3f68c1f10ad6e5"
+    },
+    {
+      "case": "verify-missing-100",
+      "bytes": 4330,
+      "sha256": "8402060e3394ba3d3a4aefe1f7cdddcd309709f7e13df21727032eb232d999f4"
+    },
+    {
+      "case": "verify-missing-900",
+      "bytes": 4119,
+      "sha256": "3da194000da2f3e8bd9e4567ef98cf596b8b5afdc2ff662f1e3f68c1f10ad6e5"
+    }
+  ]
+}

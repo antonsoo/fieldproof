@@ -64,14 +64,18 @@ def _fail(message: str, code: int = 1) -> NoReturn:
     raise typer.Exit(code=code)
 
 
-def _load_document(path: Path, *, ocr_missing_pages: bool = False) -> Document:
+def _load_document(
+    path: Path, *, ocr_missing_pages: bool = False, ocr_all_pages: bool = False
+) -> Document:
     """The PDF, or a one-line error: a file that isn't a PDF is the caller's to
     fix, and pdfplumber's own exception for it is a page of traceback."""
-    if ocr_missing_pages:
+    if ocr_missing_pages and ocr_all_pages:
+        _fail("choose either --ocr-missing-pages or --ocr-all-pages", code=2)
+    if ocr_missing_pages or ocr_all_pages:
         from fieldproof.document.ocr import load_pdf_with_ocr
 
         try:
-            document = load_pdf_with_ocr(path)
+            document = load_pdf_with_ocr(path, mode="all" if ocr_all_pages else "missing")
         except Exception as exc:
             _fail(f"could not load {path} with page OCR: {exc}")
         if document.ocr is not None:
@@ -140,6 +144,11 @@ def extract(
         "--ocr-missing-pages",
         help="OCR pages without native words; preserve native pages (requires local OCR)",
     ),
+    ocr_all_pages: bool = typer.Option(
+        False,
+        "--ocr-all-pages",
+        help="OCR every rendered page and replace native text (requires local OCR)",
+    ),
     out: Path = typer.Option(..., "--out", help="where to write the verified result JSON"),
 ) -> None:
     """Extract a schema from DOCUMENT, ground and verify it, write the result to --out."""
@@ -164,7 +173,7 @@ def extract(
     except OSError as exc:
         _fail(f"cannot write report: {exc}", code=2)
 
-    doc = _load_document(document, ocr_missing_pages=ocr_missing_pages)
+    doc = _load_document(document, ocr_missing_pages=ocr_missing_pages, ocr_all_pages=ocr_all_pages)
     try:
         if fixture is not None and provider == "fixture":
             result = FixtureExtractor(fixture_path=fixture).extract(doc, schema_cls)
@@ -219,6 +228,11 @@ def verify(
         "--ocr-missing-pages",
         help="OCR pages without native words; preserve native pages (requires local OCR)",
     ),
+    ocr_all_pages: bool = typer.Option(
+        False,
+        "--ocr-all-pages",
+        help="OCR every rendered page and replace native text (requires local OCR)",
+    ),
     out: Path | None = typer.Option(
         None, "--out", help="write the re-verified result here (default: overwrite RESULT)"
     ),
@@ -249,7 +263,7 @@ def verify(
         extraction = ExtractionResult.from_dict(raw, schema_cls, source=result.name)
     except ExtractionError as exc:
         _fail(str(exc), code=2)
-    doc = _load_document(document, ocr_missing_pages=ocr_missing_pages)
+    doc = _load_document(document, ocr_missing_pages=ocr_missing_pages, ocr_all_pages=ocr_all_pages)
     report = run_verify(
         extraction.data,
         doc,
