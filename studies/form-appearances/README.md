@@ -11,6 +11,12 @@ use the same form environment. Original PDF bytes are never rewritten.
 The form environment has no JavaScript platform and disables XFA. XFA documents
 are rejected with an explicit diagnostic, including through the server worker.
 
+![Installed review: the visible $100.00 and the original $900.00 claim remain distinct](../../docs/assets/form-appearances/chromium-1440.png)
+
+[Clean build, installed package, browser/archive workflow and artifact identities](../../docs/verification-form-appearances-2026-10-19.md)
+retain the completed verification. The [prior review PNG](../../docs/assets/form-appearances/before.png)
+shows the same saved widget as blank.
+
 ## Authored controls
 
 All 14 [PDFs](fixtures/) are invented ReportLab experiments, not transactions.

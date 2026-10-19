@@ -1,0 +1,171 @@
+{
+  "source_commit": "b0661fce06bace991b3ccb2b4350818d9c9d7f79",
+  "verification": "immutable public raw bytes equal local git objects",
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "bytes": 40666,
+      "sha256": "af749e0bcecc312577c97a1341187573f74c45fa928652e69a8483f0c237111e"
+    },
+    {
+      "file": "README.md",
+      "bytes": 10723,
+      "sha256": "265e4df170b1f5e584d6e34ead1983a373f2a69867a22af263440c32029800e7"
+    },
+    {
+      "file": "docs/evidence-guide.md",
+      "bytes": 4809,
+      "sha256": "cc52c43898c5b852041c2d2b62ba74490e6960668840f579463b9b3c2eea4982"
+    },
+    {
+      "file": "docs/usage.md",
+      "bytes": 17724,
+      "sha256": "a0a0a017c773850cc4a5279c8ddd9a4bb8ff7687b5e8ec315b3613b4c2dbbac6"
+    },
+    {
+      "file": "src/fieldproof/document/forms.py",
+      "bytes": 1354,
+      "sha256": "9d9c21a51481a4d3f86795ae4fae74ccd5ee6ba7de9f6de683e118791f11b89b"
+    },
+    {
+      "file": "src/fieldproof/document/loader.py",
+      "bytes": 9824,
+      "sha256": "9a5e9de5026c2ad7c657175dbe5ea3bc4a6261377f081ea25debcfde9ad2fb18"
+    },
+    {
+      "file": "src/fieldproof/document/raster_paint.py",
+      "bytes": 12172,
+      "sha256": "f6fd6ab260cec4b7e728cf53fd0c7f785ad42b14ef173ddd1fda4f91d26f6467"
+    },
+    {
+      "file": "src/fieldproof/document/render.py",
+      "bytes": 2283,
+      "sha256": "bde8ff37c42c44cafc97d475db5a5766aafc154d8f4bccac113be3721994ce69"
+    },
+    {
+      "file": "src/fieldproof/document/worker.py",
+      "bytes": 2794,
+      "sha256": "d56de425c4477635c6f4e0745bb0d7b5cf671019f5de7b371bfdf00bec095f22"
+    },
+    {
+      "file": "studies/form-appearances/NOTICE.md",
+      "bytes": 1116,
+      "sha256": "09031d399a2f1746b801287911d649e202e389be677d62eb88e872cbc155f969"
+    },
+    {
+      "file": "studies/form-appearances/README.md",
+      "bytes": 5021,
+      "sha256": "bb1dc38714bb29765ec6efe54ff5256da85e644f2df15a83e8d9b9faa0d3e675"
+    },
+    {
+      "file": "studies/form-appearances/cases.json",
+      "bytes": 2411,
+      "sha256": "5554ab3f9c68a6be407a5712b4b13bf6d440801ade3d9e043ef3480b90ad9b74"
+    },
+    {
+      "file": "studies/form-appearances/claim.json",
+      "bytes": 488,
+      "sha256": "c5e59e2988d63f7bd9267457328c757cc15905fdb586fe3774dd5be183af641a"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/.gitattributes",
+      "bytes": 13,
+      "sha256": "547f59603028195ff9f8a87d04c4651551e8bd0d68f075257dfd549cd846b25b"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/checkbox-checked.pdf",
+      "bytes": 4985,
+      "sha256": "77e863106172207e65f7382aa54b8bc5eb5069d2e9dc41d5c7ae5081b0049b08"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/checkbox-unchecked.pdf",
+      "bytes": 4985,
+      "sha256": "be3504cff3dd0dadbbff3f5b80a290fab976e2542e56d3a547521796c6a83269"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/choice.pdf",
+      "bytes": 4130,
+      "sha256": "ca99aab801323ad7e4085c639a6706a93a3e7275e2e9d4494e104b920f673abe"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/covered-native-total.pdf",
+      "bytes": 4120,
+      "sha256": "9f2d2f89ce102918fb7636f5f5bda9f3d750a1febc7f1bd5ea36d66bfd3507d6"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/cropped.pdf",
+      "bytes": 4069,
+      "sha256": "bcdf143eae23ee706396923ea52a73ad6b1d1a782c2b0d5b5ee3ff3751ebf6b8"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/empty-text.pdf",
+      "bytes": 3980,
+      "sha256": "30f9a40f7b02d6b1ef4ecf7f980a955789eeadf275e582cfe75cac5057bdf0f0"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/filled-text.pdf",
+      "bytes": 4041,
+      "sha256": "b080205c852c74dd06a81d75a23017e48bcc73aeb71681f29f5f8ee55a0c50c4"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/form-only.pdf",
+      "bytes": 3676,
+      "sha256": "3e481d4c381bb8166df94cb4e3fd3dc97debbc201a07b04feed9c4eab3f243f7"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/hidden-text.pdf",
+      "bytes": 4041,
+      "sha256": "c283558a81035321265b69c22a86b801cbc7be73a9f1fa2fd33757078b6880a1"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/native-only.pdf",
+      "bytes": 1729,
+      "sha256": "8ac02c193472b6f738b069eff2c6e4e196bab6e1661908b763b1b80842807366"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/rotation-180.pdf",
+      "bytes": 4043,
+      "sha256": "8f72293a790b18727aba919afc652bdc410231b563f8b429bf9ebf536ae1bda9"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/rotation-270.pdf",
+      "bytes": 4043,
+      "sha256": "2b737a56bda7593611728626fcd987bdcf7d4616c4bbb2113ad779d8f2db2932"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/rotation-90.pdf",
+      "bytes": 4042,
+      "sha256": "83c568adc6284c9e4b417b86535af1da508c81bdc702e18f0674264f507f4cfd"
+    },
+    {
+      "file": "studies/form-appearances/fixtures/xfa-unsupported.pdf",
+      "bytes": 1930,
+      "sha256": "c0f4875d31ded16fb3c50e27c7bb729725cbf0807bda4c401512bbeb8f9e18f6"
+    },
+    {
+      "file": "studies/form-appearances/generate.py",
+      "bytes": 4420,
+      "sha256": "6dc838afb27322619d9b49d49d81c2a1bf86453790a756be04f7ad9c39171c72"
+    },
+    {
+      "file": "studies/form-appearances/ocr.py",
+      "bytes": 1245,
+      "sha256": "818bf4bfdc9e12a318d6201fb1f4f1fff8060ff032a1034952779b859f1a2ac6"
+    },
+    {
+      "file": "studies/form-appearances/public.py",
+      "bytes": 6189,
+      "sha256": "d2c5e660e342fb7b7ace8aca310dbb2030f72c63e2012c8b89120d3577f37e2a"
+    },
+    {
+      "file": "studies/form-appearances/replay.py",
+      "bytes": 4770,
+      "sha256": "d27c2c73f890f2b17c8b7104f15ba21478fc39c5019858da37cf80c2abd3398a"
+    },
+    {
+      "file": "tests/test_form_appearances.py",
+      "bytes": 3830,
+      "sha256": "77517c8daf3cc9aa4832cda0689c0b1a629901bd368875d4dfe5f4306d1808d8"
+    }
+  ]
+}

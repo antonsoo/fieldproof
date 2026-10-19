@@ -1,0 +1,42 @@
+{
+  "source_sha256": "3e481d4c381bb8166df94cb4e3fd3dc97debbc201a07b04feed9c4eab3f243f7",
+  "status": "recognized",
+  "document": {
+    "source": "<scanned>",
+    "pages": [
+      {
+        "number": 1,
+        "width": 612.0,
+        "height": 792.0,
+        "text": "$100.00",
+        "words": [
+          {
+            "text": "$100.00",
+            "bbox": {
+              "x0": 225.5,
+              "top": 155.0,
+              "x1": 289.5,
+              "bottom": 171.0
+            },
+            "start": 0,
+            "end": 7,
+            "render_mode": null,
+            "zero_opacity": false,
+            "clip_risk": false,
+            "raster_state": null
+          }
+        ]
+      }
+    ],
+    "ocr": {
+      "engine": "tesseract",
+      "version": "5.3.4",
+      "language": "eng",
+      "render_dpi": 144,
+      "page_count": 1,
+      "empty_pages": [],
+      "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes.",
+      "processed_pages": null
+    }
+  }
+}

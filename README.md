@@ -51,13 +51,14 @@ For only the tested CLI/library correction, including replacement of an existing
 0.2.7 installation, use the pinned source:
 
 ```bash
-python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@c600517c2f53b4ee00ef065395bfd12fd73ac8b1"
+python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@b0661fce06bace991b3ccb2b4350818d9c9d7f79"
 ```
 
 A direct Git install has **no bundled UI**. The checkout command above builds
 it. `pip install fieldproof` installs the older registry verifier with its
 bundled UI; neither a matching version number nor a deployed static demo
 establishes that the native source correction is installed.
+[Actual public upgrade and installed-file comparison](studies/form-appearances/results/public-install.json).
 
 From the checkout, reproduce the sample through the CLI:
 
@@ -181,6 +182,8 @@ paint checks and local OCR input. Filled fields previously appeared blank;
 [native producer inputs and before/after controls](studies/form-appearances/README.md)
 retain the reproduction. This rendering correction is unreleased. Native text
 extraction still excludes widget values, and XFA forms are unsupported.
+[Installed package and real browser/archive verification](docs/verification-form-appearances-2026-10-19.md)
+check the pinned source above; the static demos remain separate.
 
 A positive raster difference does not prove readability, font-to-Unicode
 correctness or exact ownership of overlapping ink. Stroke bounds can be

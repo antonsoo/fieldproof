@@ -1,0 +1,118 @@
+{
+  "upstream": "https://github.com/py-pdf/sample-files",
+  "revision": "02b8203bf416db3dbdb03438bc8278dfcb0555f3",
+  "license": "CC BY-SA 4.0",
+  "pypdf": "6.21.1",
+  "cases": [
+    {
+      "source_path": "012-libreoffice-form/libreoffice-form.pdf",
+      "source_sha256": "9105eeef8c8cafdb141b7edd768a5e08adffe320d1d4f89e1a7112a2b37d1c57",
+      "variant": "original",
+      "input_sha256": "9105eeef8c8cafdb141b7edd768a5e08adffe320d1d4f89e1a7112a2b37d1c57",
+      "fields": {
+        "First Name": {
+          "type": "/Tx",
+          "value": "Alice"
+        },
+        "Last Name": {
+          "type": "/Tx",
+          "value": ""
+        },
+        "female": {
+          "type": "/Btn",
+          "value": "/Off"
+        },
+        "Birthday": {
+          "type": "/Tx",
+          "value": ""
+        },
+        "gdpr": {
+          "type": "/Btn",
+          "value": "/Off"
+        },
+        "other": {
+          "type": "/Btn",
+          "value": "/Off"
+        },
+        "First Name_2": {
+          "type": "/Tx",
+          "value": "Bob"
+        },
+        "Nationality": {
+          "type": "/Ch",
+          "value": ""
+        }
+      },
+      "producer": "LibreOffice 6.4",
+      "pages": [
+        {
+          "number": 1,
+          "review_sha256": "60eda5fd2f95cef99e962d6b47db4f575b16fd4765c5fda41f19e6e9d8aa5c8e",
+          "matches_form_renderer": true,
+          "review_ocr": "Example for a Form\n\nFirst Name | Alice\n\nLast Name\n\nBirthday\n\nGender:\n\nO Female \u00a9 Male\n\nNationality:\n\nDi Aaree to privacy policy\n\n0 other\n\nBak\n",
+          "poppler_ocr": "Example for a Form\n\nFirst Name | Alice LastNameL_\u2014\u2014sSY\n\nBirthday\n\nGender:\n\nO Female \u00a9 Male\n\nNationality:\n\nD1 Agree to privacy policy\n\n0 other\n\n[an\n"
+        }
+      ]
+    },
+    {
+      "source_path": "010-pdflatex-forms/pdflatex-forms.pdf",
+      "source_sha256": "fc6265298caafffeee9dd2d7f3ae2e53ab9f61ec0561369429d442f731d339da",
+      "variant": "original",
+      "input_sha256": "fc6265298caafffeee9dd2d7f3ae2e53ab9f61ec0561369429d442f731d339da",
+      "fields": {
+        "Name": {
+          "type": "/Tx",
+          "value": ""
+        },
+        "Check": {
+          "type": "/Btn",
+          "value": "/Off"
+        },
+        "Submit": {
+          "type": "/Btn",
+          "value": null
+        }
+      },
+      "producer": "pdfTeX-1.40.23",
+      "pages": [
+        {
+          "number": 1,
+          "review_sha256": "f339c1773b2a63f34e6c6da9314fb481cf20e40b86e87db109c1f50a67b1876d",
+          "matches_form_renderer": true,
+          "review_ocr": "Check[_]|\n",
+          "poppler_ocr": "Cheek |]\n"
+        }
+      ]
+    },
+    {
+      "source_path": "010-pdflatex-forms/pdflatex-forms.pdf",
+      "source_sha256": "fc6265298caafffeee9dd2d7f3ae2e53ab9f61ec0561369429d442f731d339da",
+      "variant": "invented-fill",
+      "input_sha256": "503b58639735a4768d4b10b2983fc0c2d187c2758442eebb882254b7ca189901",
+      "fields": {
+        "Name": {
+          "type": "/Tx",
+          "value": "Example Form"
+        },
+        "Check": {
+          "type": "/Btn",
+          "value": "/Off"
+        },
+        "Submit": {
+          "type": "/Btn",
+          "value": null
+        }
+      },
+      "producer": "pdfTeX-1.40.23",
+      "pages": [
+        {
+          "number": 1,
+          "review_sha256": "54b94ad503911c7c0cb6aafdb392f8dca3d4e818368a11ddba72ff5f9a6a4c6f",
+          "matches_form_renderer": true,
+          "review_ocr": "Check\n\nSubmit\n",
+          "poppler_ocr": "Cheek |]\n\nSi\n\npub\n\nmit\n"
+        }
+      ]
+    }
+  ]
+}
