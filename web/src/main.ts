@@ -965,7 +965,7 @@ function renderFieldPaneHeader(): string {
       </details>
       ${
         ds.kind === "demo"
-          ? `<p class="demo-note">Synthetic fixture. ${ds.reviewPersistence === "session" ? "Tab only: export before reloading." : "Decisions saved in this browser."}</p>`
+          ? `<p class="demo-note">Authored extraction claims. ${ds.reviewPersistence === "session" ? "Tab only: export before reloading." : "Decisions saved in this browser."}</p>`
           : state.document?.restored_from_archive
             ? `<p class="demo-note">Opened from a review archive. Automated checks are recomputed from the original claims; saved decisions are user-supplied.</p>`
             : ""
@@ -1327,7 +1327,7 @@ function renderFieldListOnly(): void {
   const note = document.querySelector(".demo-note");
   if (ds.reviewPersistence === "session" && note)
     note.textContent =
-      "Synthetic fixture with planted errors. Browser storage is unavailable. Tab only: export decisions before reloading.";
+      "Authored extraction claims with deliberate review cases. Browser storage is unavailable. Tab only: export decisions before reloading.";
   restoreFocus();
 }
 
