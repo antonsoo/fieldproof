@@ -121,3 +121,14 @@ from the restoring runtime: source and floor PDFium versions differ by one
 half-point OCR box edge on the saved form, while claims, decisions and exported
 values agree. The archive recomputes its report rather than replaying a stored
 verdict. The Windows process-tree cleanup remains unverified on Windows.
+
+
+The standard `scripts/build_demo_data.py` producer regenerates the five native
+controls and retains the recorded OCR snapshot in the six-entry index. OCR
+snapshot generation remains explicit via `capture.py --demo`. A missing
+snapshot raises a clear error instead of silently dropping its entry.
+[`results/index-producer.json`](results/index-producer.json) reproduces the
+original six-to-five loss, checks exact current index bytes after the fix, and
+checks that the existing data files and previous index survive the missing-file
+error. No additional recognition tools are needed to retain the committed
+snapshot during native-control regeneration.

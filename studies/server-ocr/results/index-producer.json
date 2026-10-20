@@ -1,0 +1,83 @@
+{
+  "before": {
+    "sourceHead": "a1d58ae477ea6fd58a6200f58780f8e2397565d8",
+    "before": [
+      {
+        "id": "invoice",
+        "label": "Invoice"
+      },
+      {
+        "id": "receipt",
+        "label": "Receipt"
+      },
+      {
+        "id": "contract",
+        "label": "Contract"
+      },
+      {
+        "id": "line-arithmetic",
+        "label": "Arithmetic"
+      },
+      {
+        "id": "hidden-text",
+        "label": "Hidden text"
+      },
+      {
+        "id": "cord-ocr",
+        "label": "Scanned CORD receipt"
+      }
+    ],
+    "after": [
+      {
+        "id": "invoice",
+        "label": "Invoice"
+      },
+      {
+        "id": "receipt",
+        "label": "Receipt"
+      },
+      {
+        "id": "contract",
+        "label": "Contract"
+      },
+      {
+        "id": "line-arithmetic",
+        "label": "Arithmetic"
+      },
+      {
+        "id": "hidden-text",
+        "label": "Hidden text"
+      }
+    ],
+    "dropsRecordedExample": true
+  },
+  "after": [
+    {
+      "id": "invoice",
+      "label": "Invoice"
+    },
+    {
+      "id": "receipt",
+      "label": "Receipt"
+    },
+    {
+      "id": "contract",
+      "label": "Contract"
+    },
+    {
+      "id": "line-arithmetic",
+      "label": "Arithmetic"
+    },
+    {
+      "id": "hidden-text",
+      "label": "Hidden text"
+    },
+    {
+      "id": "cord-ocr",
+      "label": "Scanned CORD receipt"
+    }
+  ],
+  "matchesCommittedIndex": true,
+  "existingDataFilesUnchanged": 15,
+  "missingRecordedDataRefusedWithoutReplacingIndex": true
+}

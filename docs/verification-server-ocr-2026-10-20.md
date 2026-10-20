@@ -123,3 +123,10 @@ upload waits within the 30-second PDF work budget; no assertions or cases are
 skipped. No single all-110-green batch or GitHub CI execution is claimed.
 Runtime code, the final wheel and deployed static bytes remain unchanged by
 this test-only correction.
+
+
+The [standard demo-index producer replay](../studies/server-ocr/results/index-producer.json)
+also catches and fixes loss of the sixth example during native-control
+regeneration. The corrected producer emits the already-published index bytes,
+leaves all data files intact and refuses a missing recorded snapshot. This
+maintenance correction changes no runtime package or served application bytes.

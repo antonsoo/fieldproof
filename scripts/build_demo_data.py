@@ -34,6 +34,10 @@ SAMPLES = [
     ("hidden-text", "Hidden text", "invoice"),
 ]
 
+# These snapshots need their own producers (OCR requires optional native tools).
+# Keep them in the index when regenerating the five native document controls.
+RECORDED_SAMPLES = [("cord-ocr", "Scanned CORD receipt")]
+
 
 def build_sample(name: str, schema_name: str) -> None:
     pdf_path = EXAMPLES_DIR / f"{name}.pdf"
@@ -72,7 +76,14 @@ def build_sample(name: str, schema_name: str) -> None:
 
 def build_index() -> None:
     index = [{"id": name, "label": label} for name, label, _ in SAMPLES]
-    (OUT_DIR / "index.json").write_text(json.dumps(index, indent=2), encoding="utf-8")
+    for name, label in RECORDED_SAMPLES:
+        if not (OUT_DIR / name / "data.json").is_file():
+            raise FileNotFoundError(
+                f"Missing recorded demo {name}. Regenerate it with "
+                "studies/server-ocr/capture.py --demo --out /tmp/server-ocr."
+            )
+        index.append({"id": name, "label": label})
+    (OUT_DIR / "index.json").write_text(json.dumps(index, indent=2) + "\n", encoding="utf-8")
 
 
 def main() -> None:
