@@ -1,0 +1,69 @@
+{
+  "url": "http://127.0.0.1:7900",
+  "results": [
+    {
+      "case": "cord-ocr-missing",
+      "runtimeReferenceReportExact": true,
+      "sourceReportExact": true,
+      "claimsExact": true,
+      "reviewedExportExact": true,
+      "pageRendered": true
+    },
+    {
+      "case": "cord-ocr-all",
+      "runtimeReferenceReportExact": true,
+      "sourceReportExact": true,
+      "claimsExact": true,
+      "reviewedExportExact": true,
+      "pageRendered": true
+    },
+    {
+      "case": "saved-form-native",
+      "runtimeReferenceReportExact": true,
+      "sourceReportExact": true,
+      "claimsExact": true,
+      "reviewedExportExact": true,
+      "pageRendered": true
+    },
+    {
+      "case": "saved-form-ocr-missing",
+      "runtimeReferenceReportExact": true,
+      "sourceReportExact": true,
+      "claimsExact": true,
+      "reviewedExportExact": true,
+      "pageRendered": true
+    },
+    {
+      "case": "saved-form-ocr-all",
+      "runtimeReferenceReportExact": true,
+      "sourceReportExact": false,
+      "claimsExact": true,
+      "reviewedExportExact": true,
+      "pageRendered": true
+    },
+    {
+      "case": "mixed-native",
+      "runtimeReferenceReportExact": true,
+      "sourceReportExact": true,
+      "claimsExact": true,
+      "reviewedExportExact": true,
+      "pageRendered": true
+    },
+    {
+      "case": "mixed-ocr-missing",
+      "runtimeReferenceReportExact": true,
+      "sourceReportExact": true,
+      "claimsExact": true,
+      "reviewedExportExact": true,
+      "pageRendered": true
+    },
+    {
+      "case": "mixed-ocr-all",
+      "runtimeReferenceReportExact": true,
+      "sourceReportExact": true,
+      "claimsExact": true,
+      "reviewedExportExact": true,
+      "pageRendered": true
+    }
+  ]
+}

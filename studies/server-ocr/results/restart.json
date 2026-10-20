@@ -1,0 +1,24 @@
+{
+  "runtime": "Python 3.11.13; declared dependency minimums; installed wheel from 1ba50366d5596b1f15063e25ac8c0ac5d51417af",
+  "beforePid": 26472,
+  "afterPid": 33907,
+  "beforeServerStopped": true,
+  "emptyStoreConfirmedOnBothStarts": true,
+  "archivesRestoredBeforeRestart": 8,
+  "archivesRestoredAfterRestart": 8,
+  "reference": "floor-capture replay in this same environment",
+  "sourceComparison": {
+    "equalReports": 7,
+    "differentReports": 1,
+    "difference": {
+      "case": "saved-form-ocr-all",
+      "field": "invoice_number",
+      "path": "report.fields[1].rects[0].bottom",
+      "sourcePdfium": "5.13.0",
+      "source": 336.5,
+      "restoringPdfium": "5.0.0",
+      "restored": 336.0
+    },
+    "claimsDecisionsVerdictsAndExportedValuesUnchanged": true
+  }
+}

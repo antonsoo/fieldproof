@@ -103,8 +103,21 @@ node studies/server-ocr/browser.mjs --url http://127.0.0.1:7897/ --out /tmp/ocr-
 The browser replay downloads actual files, parses the workbook XML and compares
 typed cells with JSON, checks source notices and mixed-page navigation, edits
 the saved form, exports offline, and restores archives into an empty store.
-It uses Chromium and Firefox at 1440 and 375 pixels. The browser's store reset
+It uses Chromium and Firefox at 1440 and 375 pixels. Add `--screenshots` to
+save real review images. The browser's store reset
 is explicit deletion, not a server-process restart; installed-package recovery
 is reported separately. The static demo branch of this script uses `--demo`
 and a URL ending in `/fieldproof/`. Hosting a static sample does not install
 an OCR backend or publish a registry release.
+
+
+## Installed and browser evidence
+
+The [source/package verification](../../docs/verification-server-ocr-2026-10-20.md)
+separates source API, clean archives, both installed Python environments,
+actual process restart and static-demo checks. `live_restore.py` reopens the
+captured archives through an empty real server. `--reference` selects a replay
+from the restoring runtime: source and floor PDFium versions differ by one
+half-point OCR box edge on the saved form, while claims, decisions and exported
+values agree. The archive recomputes its report rather than replaying a stored
+verdict. The Windows process-tree cleanup remains unverified on Windows.

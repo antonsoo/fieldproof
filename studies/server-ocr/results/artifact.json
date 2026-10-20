@@ -1,0 +1,648 @@
+{
+  "sourceHead": "24ad5c3502b9c6bbcfe63ac55034690fa5712bfc",
+  "trackedSourceFilesExact": 1565,
+  "node": "24.22.0",
+  "artifacts": {
+    "fieldproof-0.2.7-py3-none-any.whl": {
+      "bytes": 607237,
+      "sha256": "eef244b43469af41e565550fb7e39945c8df39b7813dfbbfb93564277d328cf6"
+    },
+    "fieldproof-0.2.7.tar.gz": {
+      "bytes": 639203,
+      "sha256": "f937ecb13d00809ec7f8860ebd2d2db95d9ff9e59639bfe88b4e471391382764"
+    }
+  },
+  "runtimeFiles": {
+    "fieldproof/__init__.py": {
+      "bytes": 274,
+      "sha256": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde"
+    },
+    "fieldproof/_reports.py": {
+      "bytes": 1945,
+      "sha256": "44b543f2279b8a41f9433639b71bd8f82f6a5362019971ae785eda6fc9fcb71a"
+    },
+    "fieldproof/cli.py": {
+      "bytes": 11578,
+      "sha256": "4163d3bda1503518719d8d5b2e0d2416552aaead686e6e317f3933f7e73c2f25"
+    },
+    "fieldproof/document/__init__.py": {
+      "bytes": 360,
+      "sha256": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074"
+    },
+    "fieldproof/document/clip_bounds.py": {
+      "bytes": 3172,
+      "sha256": "7bba15e37d58ef0c6c041f4f7431acc4023736e91b668a0136a273f21e562d8c"
+    },
+    "fieldproof/document/forms.py": {
+      "bytes": 1354,
+      "sha256": "9d9c21a51481a4d3f86795ae4fae74ccd5ee6ba7de9f6de683e118791f11b89b"
+    },
+    "fieldproof/document/glyph_envelopes.py": {
+      "bytes": 8065,
+      "sha256": "f5065a9f2ebff41223945ba04317c78b0eab74a329159d3c76b57a536612f395"
+    },
+    "fieldproof/document/limits.py": {
+      "bytes": 1718,
+      "sha256": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71"
+    },
+    "fieldproof/document/loader.py": {
+      "bytes": 9824,
+      "sha256": "9a5e9de5026c2ad7c657175dbe5ea3bc4a6261377f081ea25debcfde9ad2fb18"
+    },
+    "fieldproof/document/model.py": {
+      "bytes": 6443,
+      "sha256": "3244ab7a75e13733bd639d821d4964b195f2f29d490813026d5e06dc0d0bdeb5"
+    },
+    "fieldproof/document/ocr.py": {
+      "bytes": 10410,
+      "sha256": "7f4986624c834c6d5ac8d10779d43a8b599c1b43e363a897791b7090a630c852"
+    },
+    "fieldproof/document/raster_paint.py": {
+      "bytes": 12172,
+      "sha256": "f6fd6ab260cec4b7e728cf53fd0c7f785ad42b14ef173ddd1fda4f91d26f6467"
+    },
+    "fieldproof/document/render.py": {
+      "bytes": 2283,
+      "sha256": "bde8ff37c42c44cafc97d475db5a5766aafc154d8f4bccac113be3721994ce69"
+    },
+    "fieldproof/document/text_modes.py": {
+      "bytes": 10295,
+      "sha256": "324a7120519071193ab662d3205a9e592738f7c1b9e1d78e63b5e8b40e4589c4"
+    },
+    "fieldproof/document/worker.py": {
+      "bytes": 3747,
+      "sha256": "f86c08833aaec8ae357b1cd906ba21a1e8fb736d9bf1c5ef0b752bb3cd4293d1"
+    },
+    "fieldproof/extract/__init__.py": {
+      "bytes": 380,
+      "sha256": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e"
+    },
+    "fieldproof/extract/anthropic_provider.py": {
+      "bytes": 6556,
+      "sha256": "87aa3ac824ebd3b21ec1536b3ad45eb27ac16e559ea8133cd51173662aeb39d8"
+    },
+    "fieldproof/extract/base.py": {
+      "bytes": 5713,
+      "sha256": "ed4dddee401c935aa9021e1d3abb5aaed0cf0f2dc2a29f555a995ce9accc3811"
+    },
+    "fieldproof/extract/fixture_provider.py": {
+      "bytes": 1779,
+      "sha256": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49"
+    },
+    "fieldproof/ground/__init__.py": {
+      "bytes": 678,
+      "sha256": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd"
+    },
+    "fieldproof/ground/align.py": {
+      "bytes": 26645,
+      "sha256": "a755b920a9f7b223ef2cfe6e1ac2f422a203832a329963bc795395a18666a0f6"
+    },
+    "fieldproof/ground/lines.py": {
+      "bytes": 1889,
+      "sha256": "8d133490578b887f4c05deb237cab26dcdb861056d1d535490bcf33e7103aa5e"
+    },
+    "fieldproof/ground/normalize.py": {
+      "bytes": 2260,
+      "sha256": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520"
+    },
+    "fieldproof/ground/values.py": {
+      "bytes": 18706,
+      "sha256": "14435dc6cab9193cd28b25a4f92b8011d28f8681a8abe041e2bd069cfce6d745"
+    },
+    "fieldproof/schemas/__init__.py": {
+      "bytes": 1661,
+      "sha256": "2846223c9fe650c6c471d68c97359b2f0bef71c3029bcb928d119ef47e04818c"
+    },
+    "fieldproof/schemas/base.py": {
+      "bytes": 3531,
+      "sha256": "7f2bfa1c4b71d57064f9f06b7a904e34f7d646cd78d80086f921c83bcd3837de"
+    },
+    "fieldproof/schemas/contract.py": {
+      "bytes": 1061,
+      "sha256": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0"
+    },
+    "fieldproof/schemas/invoice.py": {
+      "bytes": 1358,
+      "sha256": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b"
+    },
+    "fieldproof/schemas/receipt.py": {
+      "bytes": 755,
+      "sha256": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e"
+    },
+    "fieldproof/server/__init__.py": {
+      "bytes": 57,
+      "sha256": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b"
+    },
+    "fieldproof/server/app.py": {
+      "bytes": 23604,
+      "sha256": "36b44d341fd54e5cd4287c0969d0e81b2f3558701abbe031be47a685bdd3954a"
+    },
+    "fieldproof/server/archive.py": {
+      "bytes": 11398,
+      "sha256": "3ad7f67f7a75b7a024c55f259258e19f33313654a8d3293de59a90fe6673d2d1"
+    },
+    "fieldproof/server/body_limit.py": {
+      "bytes": 2600,
+      "sha256": "d6186c0a279c765ecd347cd68f7936915574fa1ab12ea2f65cd24f78fedfe1bb"
+    },
+    "fieldproof/server/pdf_work.py": {
+      "bytes": 6971,
+      "sha256": "cc66618719740dc4bd85fbc6bf4640b61e83a5a72099ba3276b7ce9d54ed5559"
+    },
+    "fieldproof/server/spreadsheet.py": {
+      "bytes": 6582,
+      "sha256": "4439ea56e15d959d7e656db3d747efbfebd437a3ceb99690684c79f5abebef41"
+    },
+    "fieldproof/server/store.py": {
+      "bytes": 7423,
+      "sha256": "9e156bf5dc2d7c13c9c26c97a8d16635938ee9819c6d04ebe44d6bce71966349"
+    },
+    "fieldproof/server/text_sources.py": {
+      "bytes": 515,
+      "sha256": "b0beda63a5e3659525520f324e1f582deff1bae2e34ca7a4d60d04729929309a"
+    },
+    "fieldproof/server/static/index.html": {
+      "bytes": 2885,
+      "sha256": "aea5a87d9386fb7e368fdbb578d78085d71ea4113bf9269691447c8f3bb4d5a9"
+    },
+    "fieldproof/server/static/assets/fraunces-latin-DihXLNYH.woff2": {
+      "bytes": 67304,
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+    },
+    "fieldproof/server/static/assets/fraunces-latin-ext-CJcjJNj7.woff2": {
+      "bytes": 59388,
+      "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e"
+    },
+    "fieldproof/server/static/assets/fraunces-vietnamese-Czevyj-6.woff2": {
+      "bytes": 19700,
+      "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4"
+    },
+    "fieldproof/server/static/assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2": {
+      "bytes": 8356,
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce"
+    },
+    "fieldproof/server/static/assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2": {
+      "bytes": 6912,
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe"
+    },
+    "fieldproof/server/static/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    "fieldproof/server/static/assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2": {
+      "bytes": 13348,
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb"
+    },
+    "fieldproof/server/static/assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2": {
+      "bytes": 5868,
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9"
+    },
+    "fieldproof/server/static/assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2": {
+      "bytes": 8460,
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc"
+    },
+    "fieldproof/server/static/assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2": {
+      "bytes": 6972,
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a"
+    },
+    "fieldproof/server/static/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2": {
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    "fieldproof/server/static/assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2": {
+      "bytes": 13432,
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea"
+    },
+    "fieldproof/server/static/assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2": {
+      "bytes": 6040,
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910"
+    },
+    "fieldproof/server/static/assets/index-BWycpweH.js": {
+      "bytes": 62823,
+      "sha256": "9501e0342df69e8a577d1fef555239e1f5af35033aa4d41a012fcd7843d49ee5"
+    },
+    "fieldproof/server/static/assets/index-Dqgoojdb.css": {
+      "bytes": 26829,
+      "sha256": "23060eb8d4a64a2da1186e20f3e4fe2672d9bf7070b902fd7d0112c6f389aeb0"
+    },
+    "fieldproof/server/static/assets/inter-cyrillic-DqGufNeO.woff2": {
+      "bytes": 18748,
+      "sha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075"
+    },
+    "fieldproof/server/static/assets/inter-cyrillic-ext-BOeWTOD4.woff2": {
+      "bytes": 25960,
+      "sha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd"
+    },
+    "fieldproof/server/static/assets/inter-greek-CkhJZR-_.woff2": {
+      "bytes": 18996,
+      "sha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6"
+    },
+    "fieldproof/server/static/assets/inter-greek-ext-DlzME5K_.woff2": {
+      "bytes": 11232,
+      "sha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190"
+    },
+    "fieldproof/server/static/assets/inter-latin-Dx4kXJAl.woff2": {
+      "bytes": 48256,
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+    },
+    "fieldproof/server/static/assets/inter-latin-ext-DO1Apj_S.woff2": {
+      "bytes": 85068,
+      "sha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956"
+    },
+    "fieldproof/server/static/assets/inter-vietnamese-CBcvBZtf.woff2": {
+      "bytes": 10252,
+      "sha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2"
+    },
+    "fieldproof/verify/__init__.py": {
+      "bytes": 1025,
+      "sha256": "740faaaab55c8f47f78091074d3e6d73174a23f2c0255d375b2ff8917ba0d933"
+    },
+    "fieldproof/verify/columns.py": {
+      "bytes": 10860,
+      "sha256": "b319f5e9a84f20e3880c309f9768bddb874b17f756e2167e6261018efafc4fbe"
+    },
+    "fieldproof/verify/cross_field.py": {
+      "bytes": 9641,
+      "sha256": "ad1a7facac1c39cc4ebec47412db36dc258b76dd1d2b4b603007fadcf928b365"
+    },
+    "fieldproof/verify/engine.py": {
+      "bytes": 26757,
+      "sha256": "90b37ac5f97741028c85a8e68f89e5b20dd0bc5094aeecd949df4b40ee8119bb"
+    },
+    "fieldproof/verify/rows.py": {
+      "bytes": 8974,
+      "sha256": "410f8363ab9b4b89c7f0ed0185cff8b88fd4bbf63e68d92ffe3ef1a3fc397765"
+    },
+    "fieldproof/verify/value_checks.py": {
+      "bytes": 19759,
+      "sha256": "7228906f337d8a424f20be7392009bb867031e0dc9f4d19da015e888047478e3"
+    }
+  },
+  "bundledUiFiles": 23,
+  "installedRuntimes": [
+    "floor",
+    "modern"
+  ],
+  "wheelSdistSourceInstalledExact": true,
+  "floor": {
+    "python": "3.11.13",
+    "dependencies": {
+      "idna": "3.20",
+      "pydantic": "2.12.0",
+      "cffi": "2.1.1",
+      "anthropic": "0.77.0",
+      "rich": "15.0.0",
+      "typing-inspection": "0.4.4",
+      "distro": "1.9.0",
+      "pypdfium2": "5.0.0",
+      "cryptography": "50.0.2",
+      "pdfminer.six": "20251230",
+      "fastapi": "0.133.0",
+      "starlette": "1.3.1",
+      "certifi": "2026.10.19",
+      "click": "8.3.3",
+      "pycparser": "3.11",
+      "docstring_parser": "0.18.0",
+      "httpcore": "1.0.9",
+      "uvicorn": "0.30.0",
+      "watchfiles": "1.3.0",
+      "fieldproof": "0.2.7",
+      "h11": "0.16.0",
+      "uvloop": "0.23.0",
+      "rapidfuzz": "3.9.0",
+      "anyio": "4.15.1",
+      "shellingham": "1.5.4",
+      "python-dotenv": "1.2.4",
+      "typing_extensions": "4.16.0",
+      "pdfplumber": "0.11.9",
+      "annotated-doc": "0.0.5",
+      "jiter": "0.17.0",
+      "annotated-types": "0.8.0",
+      "mdurl": "0.1.2",
+      "websockets": "17.3",
+      "python-multipart": "0.0.31",
+      "httpx": "0.27.0",
+      "charset-normalizer": "3.5.2",
+      "pydantic_core": "2.41.1",
+      "Pygments": "2.21.0",
+      "pytesseract": "0.3.10",
+      "markdown-it-py": "4.2.0",
+      "sniffio": "1.3.1",
+      "httptools": "0.9.0",
+      "typer": "0.16.0",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "PyYAML": "6.0.3"
+    },
+    "replay": {
+      "cases": 12,
+      "archivesRestored": 8,
+      "recognizerPages": 6,
+      "recognizerWords": 106,
+      "casesSummary": [
+        {
+          "name": "cord",
+          "mode": "native",
+          "uploadStatus": 422,
+          "total": null
+        },
+        {
+          "name": "cord",
+          "mode": "ocr-missing",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 60000.0,
+            "status": "needs_review",
+            "matched_text": " TOTAL caty 2.00 60,000",
+            "page": 1
+          }
+        },
+        {
+          "name": "cord",
+          "mode": "ocr-all",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 60000.0,
+            "status": "needs_review",
+            "matched_text": " TOTAL caty 2.00 60,000",
+            "page": 1
+          }
+        },
+        {
+          "name": "saved-form",
+          "mode": "native",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 900.0,
+            "status": "needs_review",
+            "matched_text": "Authorized total: $900.00",
+            "page": 1
+          }
+        },
+        {
+          "name": "saved-form",
+          "mode": "ocr-missing",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 900.0,
+            "status": "needs_review",
+            "matched_text": "Authorized total: $900.00",
+            "page": 1
+          }
+        },
+        {
+          "name": "saved-form",
+          "mode": "ocr-all",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 900.0,
+            "status": "needs_review",
+            "matched_text": "Authorized total: $100.00",
+            "page": 1
+          }
+        },
+        {
+          "name": "mixed",
+          "mode": "native",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 100.0,
+            "status": "unsupported",
+            "matched_text": null,
+            "page": null
+          }
+        },
+        {
+          "name": "mixed",
+          "mode": "ocr-missing",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 100.0,
+            "status": "verified",
+            "matched_text": "Total: $100.00",
+            "page": 2
+          }
+        },
+        {
+          "name": "mixed",
+          "mode": "ocr-all",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 100.0,
+            "status": "verified",
+            "matched_text": "Total: $100.00",
+            "page": 2
+          }
+        },
+        {
+          "name": "nine-pages.pdf",
+          "mode": "native",
+          "uploadStatus": 200,
+          "total": null
+        },
+        {
+          "name": "nine-pages.pdf",
+          "mode": "ocr-all",
+          "uploadStatus": 413,
+          "total": null
+        },
+        {
+          "name": "blank.pdf",
+          "mode": "ocr-all",
+          "uploadStatus": 422,
+          "total": null
+        }
+      ]
+    }
+  },
+  "modern": {
+    "python": "3.14.7",
+    "dependencies": {
+      "idna": "3.20",
+      "opentelemetry-api": "1.45.1",
+      "fastapi": "0.151.0",
+      "cffi": "2.1.1",
+      "RapidFuzz": "3.14.6",
+      "rich": "15.0.0",
+      "typing-inspection": "0.4.4",
+      "pdfplumber": "0.11.10",
+      "typer": "0.27.3",
+      "httpx2": "2.15.1",
+      "pillow": "13.0.0",
+      "cryptography": "50.0.2",
+      "python-multipart": "0.0.32",
+      "certifi": "2026.10.19",
+      "click": "8.5.0",
+      "pdfminer.six": "20260107",
+      "pycparser": "3.11",
+      "pydantic": "2.14.1",
+      "uvicorn": "0.54.0",
+      "docstring_parser": "0.18.0",
+      "httpcore": "1.0.9",
+      "watchfiles": "1.3.0",
+      "httpcore2": "2.15.1",
+      "fieldproof": "0.2.7",
+      "h11": "0.16.0",
+      "anthropic": "1.15.0",
+      "pydantic_core": "2.50.1",
+      "uvloop": "0.23.0",
+      "pytesseract": "0.3.13",
+      "anyio": "4.15.1",
+      "shellingham": "1.5.4",
+      "python-dotenv": "1.2.4",
+      "typing_extensions": "4.16.0",
+      "annotated-doc": "0.0.5",
+      "jiter": "0.17.0",
+      "annotated-types": "0.8.0",
+      "pypdfium2": "5.14.0",
+      "httpx": "0.28.1",
+      "starlette": "1.9.0",
+      "truststore": "0.10.5",
+      "mdurl": "0.1.2",
+      "websockets": "17.3",
+      "charset-normalizer": "3.5.2",
+      "Pygments": "2.21.0",
+      "markdown-it-py": "4.2.0",
+      "sniffio": "1.3.1",
+      "httptools": "0.9.0",
+      "packaging": "26.3",
+      "PyYAML": "6.0.3"
+    },
+    "replay": {
+      "cases": 12,
+      "archivesRestored": 8,
+      "recognizerPages": 6,
+      "recognizerWords": 106,
+      "casesSummary": [
+        {
+          "name": "cord",
+          "mode": "native",
+          "uploadStatus": 422,
+          "total": null
+        },
+        {
+          "name": "cord",
+          "mode": "ocr-missing",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 60000.0,
+            "status": "needs_review",
+            "matched_text": " TOTAL caty 2.00 60,000",
+            "page": 1
+          }
+        },
+        {
+          "name": "cord",
+          "mode": "ocr-all",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 60000.0,
+            "status": "needs_review",
+            "matched_text": " TOTAL caty 2.00 60,000",
+            "page": 1
+          }
+        },
+        {
+          "name": "saved-form",
+          "mode": "native",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 900.0,
+            "status": "needs_review",
+            "matched_text": "Authorized total: $900.00",
+            "page": 1
+          }
+        },
+        {
+          "name": "saved-form",
+          "mode": "ocr-missing",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 900.0,
+            "status": "needs_review",
+            "matched_text": "Authorized total: $900.00",
+            "page": 1
+          }
+        },
+        {
+          "name": "saved-form",
+          "mode": "ocr-all",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 900.0,
+            "status": "needs_review",
+            "matched_text": "Authorized total: $100.00",
+            "page": 1
+          }
+        },
+        {
+          "name": "mixed",
+          "mode": "native",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 100.0,
+            "status": "unsupported",
+            "matched_text": null,
+            "page": null
+          }
+        },
+        {
+          "name": "mixed",
+          "mode": "ocr-missing",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 100.0,
+            "status": "verified",
+            "matched_text": "Total: $100.00",
+            "page": 2
+          }
+        },
+        {
+          "name": "mixed",
+          "mode": "ocr-all",
+          "uploadStatus": 200,
+          "total": {
+            "path": "total",
+            "value": 100.0,
+            "status": "verified",
+            "matched_text": "Total: $100.00",
+            "page": 2
+          }
+        },
+        {
+          "name": "nine-pages.pdf",
+          "mode": "native",
+          "uploadStatus": 200,
+          "total": null
+        },
+        {
+          "name": "nine-pages.pdf",
+          "mode": "ocr-all",
+          "uploadStatus": 413,
+          "total": null
+        },
+        {
+          "name": "blank.pdf",
+          "mode": "ocr-all",
+          "uploadStatus": 422,
+          "total": null
+        }
+      ]
+    }
+  }
+}

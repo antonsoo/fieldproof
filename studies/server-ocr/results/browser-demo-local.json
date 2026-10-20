@@ -1,0 +1,206 @@
+{
+  "url": "http://127.0.0.1:7901/fieldproof/",
+  "demo": true,
+  "results": [
+    {
+      "profile": "chromium-1440",
+      "case": "cord",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details\n\nCORD v2 test #0, NAVER CLOVA, CC BY 4.0. Photo unchanged; fixture claims authored; header redacted.",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 291,
+          "sha256": "f06eae56c1cf01012c5ec5a310daa544eec5268942f48a552b456bddecd864db"
+        },
+        "reviewed.CSV": {
+          "bytes": 199,
+          "sha256": "0713204b4dd596b269801d5687182a88f2735f7c2a29aca498e94cacf3849b05"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1948,
+          "sha256": "e38d3e58c7cc130f685d50b38eb6cc455b864dce8411a347ee4b0989816815e0"
+        },
+        "all.JSON": {
+          "bytes": 1749,
+          "sha256": "a675307ff8c790961e57f8e335f3c0e1b42393855f048f2477aeff7d9330c942"
+        },
+        "all.CSV": {
+          "bytes": 677,
+          "sha256": "490cbe7fd959392cd423aa769ddb9a7bbea360ae5ed9bc527c679e1564b60cf3"
+        },
+        "all.XLSX": {
+          "bytes": 2252,
+          "sha256": "452583ce9e09bb4d319dde1ac92f396b715e5ad491964996394e5deeb758e55a"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 60000,
+          "original_value": 60000,
+          "value_source": "extraction",
+          "verification_status": "needs_review",
+          "review_status": "approved",
+          "page": 1,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "chromium-375",
+      "case": "cord",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details\n\nCORD v2 test #0, NAVER CLOVA, CC BY 4.0. Photo unchanged; fixture claims authored; header redacted.",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 291,
+          "sha256": "f06eae56c1cf01012c5ec5a310daa544eec5268942f48a552b456bddecd864db"
+        },
+        "reviewed.CSV": {
+          "bytes": 199,
+          "sha256": "0713204b4dd596b269801d5687182a88f2735f7c2a29aca498e94cacf3849b05"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1948,
+          "sha256": "e38d3e58c7cc130f685d50b38eb6cc455b864dce8411a347ee4b0989816815e0"
+        },
+        "all.JSON": {
+          "bytes": 1749,
+          "sha256": "a675307ff8c790961e57f8e335f3c0e1b42393855f048f2477aeff7d9330c942"
+        },
+        "all.CSV": {
+          "bytes": 677,
+          "sha256": "490cbe7fd959392cd423aa769ddb9a7bbea360ae5ed9bc527c679e1564b60cf3"
+        },
+        "all.XLSX": {
+          "bytes": 2252,
+          "sha256": "452583ce9e09bb4d319dde1ac92f396b715e5ad491964996394e5deeb758e55a"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 60000,
+          "original_value": 60000,
+          "value_source": "extraction",
+          "verification_status": "needs_review",
+          "review_status": "approved",
+          "page": 1,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-1440",
+      "case": "cord",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details\n\nCORD v2 test #0, NAVER CLOVA, CC BY 4.0. Photo unchanged; fixture claims authored; header redacted.",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 291,
+          "sha256": "f06eae56c1cf01012c5ec5a310daa544eec5268942f48a552b456bddecd864db"
+        },
+        "reviewed.CSV": {
+          "bytes": 199,
+          "sha256": "0713204b4dd596b269801d5687182a88f2735f7c2a29aca498e94cacf3849b05"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1948,
+          "sha256": "e38d3e58c7cc130f685d50b38eb6cc455b864dce8411a347ee4b0989816815e0"
+        },
+        "all.JSON": {
+          "bytes": 1749,
+          "sha256": "a675307ff8c790961e57f8e335f3c0e1b42393855f048f2477aeff7d9330c942"
+        },
+        "all.CSV": {
+          "bytes": 677,
+          "sha256": "490cbe7fd959392cd423aa769ddb9a7bbea360ae5ed9bc527c679e1564b60cf3"
+        },
+        "all.XLSX": {
+          "bytes": 2252,
+          "sha256": "452583ce9e09bb4d319dde1ac92f396b715e5ad491964996394e5deeb758e55a"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 60000,
+          "original_value": 60000,
+          "value_source": "extraction",
+          "verification_status": "needs_review",
+          "review_status": "approved",
+          "page": 1,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-375",
+      "case": "cord",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details\n\nCORD v2 test #0, NAVER CLOVA, CC BY 4.0. Photo unchanged; fixture claims authored; header redacted.",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 291,
+          "sha256": "f06eae56c1cf01012c5ec5a310daa544eec5268942f48a552b456bddecd864db"
+        },
+        "reviewed.CSV": {
+          "bytes": 199,
+          "sha256": "0713204b4dd596b269801d5687182a88f2735f7c2a29aca498e94cacf3849b05"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1948,
+          "sha256": "e38d3e58c7cc130f685d50b38eb6cc455b864dce8411a347ee4b0989816815e0"
+        },
+        "all.JSON": {
+          "bytes": 1749,
+          "sha256": "a675307ff8c790961e57f8e335f3c0e1b42393855f048f2477aeff7d9330c942"
+        },
+        "all.CSV": {
+          "bytes": 677,
+          "sha256": "490cbe7fd959392cd423aa769ddb9a7bbea360ae5ed9bc527c679e1564b60cf3"
+        },
+        "all.XLSX": {
+          "bytes": 2252,
+          "sha256": "452583ce9e09bb4d319dde1ac92f396b715e5ad491964996394e5deeb758e55a"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 60000,
+          "original_value": 60000,
+          "value_source": "extraction",
+          "verification_status": "needs_review",
+          "review_status": "approved",
+          "page": 1,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    }
+  ]
+}

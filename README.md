@@ -51,11 +51,11 @@ an API key. The fixture path and review UI run locally. Choosing the Anthropic
 provider sends document content to that provider; the review UI itself makes
 no off-origin requests.
 
-For only the tested CLI/library correction, including replacement of an existing
+For the current CLI/library source, including replacement of an existing
 0.2.7 installation, use the pinned source:
 
 ```bash
-python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@27c3f44166d5fe39ab86373e0d92481474424420"
+python -m pip install --force-reinstall "fieldproof @ git+https://github.com/antonsoo/fieldproof.git@24ad5c3502b9c6bbcfe63ac55034690fa5712bfc"
 ```
 
 A direct Git install has **no bundled UI**. The checkout command above builds
@@ -102,7 +102,8 @@ OCR exports add `text_mode` and `text_source` to JSON, CSV and XLSX, while keepi
 original values, automated verdicts and human corrections. A review archive
 remembers the source choice and reruns OCR on restore; the restoring machine
 also needs the OCR tools. Native exports and version-1 archives retain their
-existing format. See the [real receipt, mixed-page and saved-form replay](studies/server-ocr/README.md).
+existing format. See the [real receipt, mixed-page and saved-form replay](studies/server-ocr/README.md)
+and [clean installed-package evidence](docs/verification-server-ocr-2026-10-20.md).
 
 ## What a verdict means
 

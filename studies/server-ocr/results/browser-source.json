@@ -1,0 +1,1098 @@
+{
+  "url": "http://127.0.0.1:7897/",
+  "demo": false,
+  "results": [
+    {
+      "profile": "chromium-1440",
+      "case": "mixed",
+      "mode": "native",
+      "sourceText": null,
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 204,
+          "sha256": "90d7291bb7e92b5cf0213ab5eef56904335534aa577d9ca5472dfc8b6a23c2b6"
+        },
+        "reviewed.CSV": {
+          "bytes": 128,
+          "sha256": "455ef024f9d7910a87c10f0c655145a92e50f01acc12300aad761fed4ac496cd"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1874,
+          "sha256": "725128eabcfcd8b3728da42afd07bc0e1bd80c6dd94400deb6936ee6bac69e24"
+        },
+        "all.JSON": {
+          "bytes": 857,
+          "sha256": "2af67874d3650666dacc99b90566a973848d7dafde5836b80f76993023c39395"
+        },
+        "all.CSV": {
+          "bytes": 319,
+          "sha256": "de2d976438a889f15aac36725f1dd6b11c066e49da07ae18998d5e10415d340b"
+        },
+        "all.XLSX": {
+          "bytes": 2037,
+          "sha256": "c918653df7d48788852247a9b4bc08de13006ca33e361e5475b6fea6963e926e"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "unsupported",
+          "review_status": "approved",
+          "page": null
+        }
+      ],
+      "archive": {
+        "version": 1,
+        "sha256": "c95d3c5eba1819c89ddb032bc8c75c80269e64759fd1c47bb3610ea7a7cfc9a7",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "chromium-1440",
+      "case": "mixed",
+      "mode": "ocr-missing",
+      "sourceText": "Mixed native/OCR text · Page 2: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 287,
+          "sha256": "b3547d3ab52166f5d4fcc80467895cb7c95ac244ab9d6eb91ba4144d2ced1299"
+        },
+        "reviewed.CSV": {
+          "bytes": 195,
+          "sha256": "810807a470f6d81d9c54a7eb560e6b81e558b1d068cfe083e6515d6622e3a6ed"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1945,
+          "sha256": "d00dcdd469e61e25d1e40f22f0104d786047f42a5983c222f05fc4a647130a12"
+        },
+        "all.JSON": {
+          "bytes": 1150,
+          "sha256": "fc31f8349a6b31d32d4743225e3591d40007ff1f3bd6dff34d9f0f14070943a4"
+        },
+        "all.CSV": {
+          "bytes": 470,
+          "sha256": "2eef58816bc66f1b61593faaf5fb6d8c3a7161f92add8e6230ca146d6db3184f"
+        },
+        "all.XLSX": {
+          "bytes": 2140,
+          "sha256": "dcccf43708fdbd2e42d42ca1758781d8376b598240b6242d1d2444fc062f9989"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "verified",
+          "review_status": "approved",
+          "page": 2,
+          "text_mode": "ocr-missing",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "5db6f0f93d7dda4c721ab59dd2370d015b2143d951fbcb3d830ac8bc7f1c454f",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "chromium-1440",
+      "case": "mixed",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 2: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 283,
+          "sha256": "38fc47c2a0388c4374dfa6fd9740752d3c1878fed4d55fea8c073826ecc76c54"
+        },
+        "reviewed.CSV": {
+          "bytes": 191,
+          "sha256": "e59f34376e3e0e5cf3a059b0230532b957fa070252e149287a558c4423071793"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1943,
+          "sha256": "d5b23fcd81059ac3eed3d0e15b5de48b653105f264056c01f655a62918d1950f"
+        },
+        "all.JSON": {
+          "bytes": 1191,
+          "sha256": "b64987bdf4e668908ff2000ad0850d9356fac352c47ed9631b99ebfcd5e33c25"
+        },
+        "all.CSV": {
+          "bytes": 511,
+          "sha256": "fa485a782395a05884ff4cb383f99b6e5bc6220a3ab97363daf7564469813439"
+        },
+        "all.XLSX": {
+          "bytes": 2128,
+          "sha256": "2f9dcd3100e2eca3ac8792de7b147d5c1282fb4fc5cd6d1fac0ae1f6409c9272"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "verified",
+          "review_status": "approved",
+          "page": 2,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "1ee902d72823628ad9062008dc4914737368ffedd49a90355cbb1ae6ca6e1db2",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "chromium-1440",
+      "case": "saved-form",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 285,
+          "sha256": "b761c8f26900e78db57dd1e96d4e9cb061b557ff769a50c31aa14bd8b95d220f"
+        },
+        "reviewed.CSV": {
+          "bytes": 193,
+          "sha256": "236e55c1c699c57b6089ed6fd015c8f8c5315b7aa697c3e040c06cd865f30fd5"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1949,
+          "sha256": "e02a4190c57ddddc129ac186bb72fb7cb857b09f46de06b8df007111bd6a0191"
+        },
+        "all.JSON": {
+          "bytes": 1211,
+          "sha256": "72722d29ab8fc1906d2fe2623a9108642d543bb6695cee8a93e00ca363566551"
+        },
+        "all.CSV": {
+          "bytes": 531,
+          "sha256": "fc4f5321caf08550da3aa834a0395bfa8df443edc8b42d90f20c19db73c0ceef"
+        },
+        "all.XLSX": {
+          "bytes": 2147,
+          "sha256": "63cd0a5b3d3a4b6f26fc4addce6e08b86ed5a67d6a7c3d086360ace191ce4887"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 900,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "fd74be41319a68752052f7ec384b045b5328bd3deddf591ccbc3025acafc808e",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "chromium-1440",
+      "case": "cord",
+      "mode": "ocr-missing",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 295,
+          "sha256": "288021bc1e153b3e95d5f338b9ee1cb467f4cbebec38d89e79af163141305aed"
+        },
+        "reviewed.CSV": {
+          "bytes": 203,
+          "sha256": "8a6547781aadac525455378fe1c6de3e8a8cc96e339e9fe7e3c8dc65f0d669c2"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1950,
+          "sha256": "8855db28b8370f5107cbe9f27c92f2b0b2ae7e5325727658b52cc8daeb51a121"
+        },
+        "all.JSON": {
+          "bytes": 1773,
+          "sha256": "0fb15fb3610fdd54a6cac722e4147daeead971be29b4bc4d604cd37a9d3314d7"
+        },
+        "all.CSV": {
+          "bytes": 701,
+          "sha256": "fab6a1f9b022415f39353c0efa30f040073a51b0dc1ebd3c51f2f7eab7c3a5d2"
+        },
+        "all.XLSX": {
+          "bytes": 2254,
+          "sha256": "ee730b5cac5425312ee6a9c484badce2931f930ae5116e56a764a8cef322893b"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 60000,
+          "original_value": 60000,
+          "value_source": "extraction",
+          "verification_status": "needs_review",
+          "review_status": "approved",
+          "page": 1,
+          "text_mode": "ocr-missing",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "2c27af33b8be3e2cde5f9552174a85203bd6e4753881a0593335198f0f729700",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "chromium-375",
+      "case": "mixed",
+      "mode": "native",
+      "sourceText": null,
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 204,
+          "sha256": "90d7291bb7e92b5cf0213ab5eef56904335534aa577d9ca5472dfc8b6a23c2b6"
+        },
+        "reviewed.CSV": {
+          "bytes": 128,
+          "sha256": "455ef024f9d7910a87c10f0c655145a92e50f01acc12300aad761fed4ac496cd"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1874,
+          "sha256": "725128eabcfcd8b3728da42afd07bc0e1bd80c6dd94400deb6936ee6bac69e24"
+        },
+        "all.JSON": {
+          "bytes": 857,
+          "sha256": "2af67874d3650666dacc99b90566a973848d7dafde5836b80f76993023c39395"
+        },
+        "all.CSV": {
+          "bytes": 319,
+          "sha256": "de2d976438a889f15aac36725f1dd6b11c066e49da07ae18998d5e10415d340b"
+        },
+        "all.XLSX": {
+          "bytes": 2037,
+          "sha256": "c918653df7d48788852247a9b4bc08de13006ca33e361e5475b6fea6963e926e"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "unsupported",
+          "review_status": "approved",
+          "page": null
+        }
+      ],
+      "archive": {
+        "version": 1,
+        "sha256": "c95d3c5eba1819c89ddb032bc8c75c80269e64759fd1c47bb3610ea7a7cfc9a7",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "chromium-375",
+      "case": "mixed",
+      "mode": "ocr-missing",
+      "sourceText": "Mixed native/OCR text · Page 2: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 287,
+          "sha256": "b3547d3ab52166f5d4fcc80467895cb7c95ac244ab9d6eb91ba4144d2ced1299"
+        },
+        "reviewed.CSV": {
+          "bytes": 195,
+          "sha256": "810807a470f6d81d9c54a7eb560e6b81e558b1d068cfe083e6515d6622e3a6ed"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1945,
+          "sha256": "d00dcdd469e61e25d1e40f22f0104d786047f42a5983c222f05fc4a647130a12"
+        },
+        "all.JSON": {
+          "bytes": 1150,
+          "sha256": "fc31f8349a6b31d32d4743225e3591d40007ff1f3bd6dff34d9f0f14070943a4"
+        },
+        "all.CSV": {
+          "bytes": 470,
+          "sha256": "2eef58816bc66f1b61593faaf5fb6d8c3a7161f92add8e6230ca146d6db3184f"
+        },
+        "all.XLSX": {
+          "bytes": 2140,
+          "sha256": "dcccf43708fdbd2e42d42ca1758781d8376b598240b6242d1d2444fc062f9989"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "verified",
+          "review_status": "approved",
+          "page": 2,
+          "text_mode": "ocr-missing",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "5db6f0f93d7dda4c721ab59dd2370d015b2143d951fbcb3d830ac8bc7f1c454f",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "chromium-375",
+      "case": "mixed",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 2: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 283,
+          "sha256": "38fc47c2a0388c4374dfa6fd9740752d3c1878fed4d55fea8c073826ecc76c54"
+        },
+        "reviewed.CSV": {
+          "bytes": 191,
+          "sha256": "e59f34376e3e0e5cf3a059b0230532b957fa070252e149287a558c4423071793"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1943,
+          "sha256": "d5b23fcd81059ac3eed3d0e15b5de48b653105f264056c01f655a62918d1950f"
+        },
+        "all.JSON": {
+          "bytes": 1191,
+          "sha256": "b64987bdf4e668908ff2000ad0850d9356fac352c47ed9631b99ebfcd5e33c25"
+        },
+        "all.CSV": {
+          "bytes": 511,
+          "sha256": "fa485a782395a05884ff4cb383f99b6e5bc6220a3ab97363daf7564469813439"
+        },
+        "all.XLSX": {
+          "bytes": 2128,
+          "sha256": "2f9dcd3100e2eca3ac8792de7b147d5c1282fb4fc5cd6d1fac0ae1f6409c9272"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "verified",
+          "review_status": "approved",
+          "page": 2,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "1ee902d72823628ad9062008dc4914737368ffedd49a90355cbb1ae6ca6e1db2",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "chromium-375",
+      "case": "saved-form",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 285,
+          "sha256": "b761c8f26900e78db57dd1e96d4e9cb061b557ff769a50c31aa14bd8b95d220f"
+        },
+        "reviewed.CSV": {
+          "bytes": 193,
+          "sha256": "236e55c1c699c57b6089ed6fd015c8f8c5315b7aa697c3e040c06cd865f30fd5"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1949,
+          "sha256": "e02a4190c57ddddc129ac186bb72fb7cb857b09f46de06b8df007111bd6a0191"
+        },
+        "all.JSON": {
+          "bytes": 1211,
+          "sha256": "72722d29ab8fc1906d2fe2623a9108642d543bb6695cee8a93e00ca363566551"
+        },
+        "all.CSV": {
+          "bytes": 531,
+          "sha256": "fc4f5321caf08550da3aa834a0395bfa8df443edc8b42d90f20c19db73c0ceef"
+        },
+        "all.XLSX": {
+          "bytes": 2147,
+          "sha256": "63cd0a5b3d3a4b6f26fc4addce6e08b86ed5a67d6a7c3d086360ace191ce4887"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 900,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "fd74be41319a68752052f7ec384b045b5328bd3deddf591ccbc3025acafc808e",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "chromium-375",
+      "case": "cord",
+      "mode": "ocr-missing",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 295,
+          "sha256": "288021bc1e153b3e95d5f338b9ee1cb467f4cbebec38d89e79af163141305aed"
+        },
+        "reviewed.CSV": {
+          "bytes": 203,
+          "sha256": "8a6547781aadac525455378fe1c6de3e8a8cc96e339e9fe7e3c8dc65f0d669c2"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1950,
+          "sha256": "8855db28b8370f5107cbe9f27c92f2b0b2ae7e5325727658b52cc8daeb51a121"
+        },
+        "all.JSON": {
+          "bytes": 1773,
+          "sha256": "0fb15fb3610fdd54a6cac722e4147daeead971be29b4bc4d604cd37a9d3314d7"
+        },
+        "all.CSV": {
+          "bytes": 701,
+          "sha256": "fab6a1f9b022415f39353c0efa30f040073a51b0dc1ebd3c51f2f7eab7c3a5d2"
+        },
+        "all.XLSX": {
+          "bytes": 2254,
+          "sha256": "ee730b5cac5425312ee6a9c484badce2931f930ae5116e56a764a8cef322893b"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 60000,
+          "original_value": 60000,
+          "value_source": "extraction",
+          "verification_status": "needs_review",
+          "review_status": "approved",
+          "page": 1,
+          "text_mode": "ocr-missing",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "2c27af33b8be3e2cde5f9552174a85203bd6e4753881a0593335198f0f729700",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-1440",
+      "case": "mixed",
+      "mode": "native",
+      "sourceText": null,
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 204,
+          "sha256": "90d7291bb7e92b5cf0213ab5eef56904335534aa577d9ca5472dfc8b6a23c2b6"
+        },
+        "reviewed.CSV": {
+          "bytes": 128,
+          "sha256": "455ef024f9d7910a87c10f0c655145a92e50f01acc12300aad761fed4ac496cd"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1874,
+          "sha256": "725128eabcfcd8b3728da42afd07bc0e1bd80c6dd94400deb6936ee6bac69e24"
+        },
+        "all.JSON": {
+          "bytes": 857,
+          "sha256": "2af67874d3650666dacc99b90566a973848d7dafde5836b80f76993023c39395"
+        },
+        "all.CSV": {
+          "bytes": 319,
+          "sha256": "de2d976438a889f15aac36725f1dd6b11c066e49da07ae18998d5e10415d340b"
+        },
+        "all.XLSX": {
+          "bytes": 2037,
+          "sha256": "c918653df7d48788852247a9b4bc08de13006ca33e361e5475b6fea6963e926e"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "unsupported",
+          "review_status": "approved",
+          "page": null
+        }
+      ],
+      "archive": {
+        "version": 1,
+        "sha256": "c95d3c5eba1819c89ddb032bc8c75c80269e64759fd1c47bb3610ea7a7cfc9a7",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-1440",
+      "case": "mixed",
+      "mode": "ocr-missing",
+      "sourceText": "Mixed native/OCR text · Page 2: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 287,
+          "sha256": "b3547d3ab52166f5d4fcc80467895cb7c95ac244ab9d6eb91ba4144d2ced1299"
+        },
+        "reviewed.CSV": {
+          "bytes": 195,
+          "sha256": "810807a470f6d81d9c54a7eb560e6b81e558b1d068cfe083e6515d6622e3a6ed"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1945,
+          "sha256": "d00dcdd469e61e25d1e40f22f0104d786047f42a5983c222f05fc4a647130a12"
+        },
+        "all.JSON": {
+          "bytes": 1150,
+          "sha256": "fc31f8349a6b31d32d4743225e3591d40007ff1f3bd6dff34d9f0f14070943a4"
+        },
+        "all.CSV": {
+          "bytes": 470,
+          "sha256": "2eef58816bc66f1b61593faaf5fb6d8c3a7161f92add8e6230ca146d6db3184f"
+        },
+        "all.XLSX": {
+          "bytes": 2140,
+          "sha256": "dcccf43708fdbd2e42d42ca1758781d8376b598240b6242d1d2444fc062f9989"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "verified",
+          "review_status": "approved",
+          "page": 2,
+          "text_mode": "ocr-missing",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "5db6f0f93d7dda4c721ab59dd2370d015b2143d951fbcb3d830ac8bc7f1c454f",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-1440",
+      "case": "mixed",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 2: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 283,
+          "sha256": "38fc47c2a0388c4374dfa6fd9740752d3c1878fed4d55fea8c073826ecc76c54"
+        },
+        "reviewed.CSV": {
+          "bytes": 191,
+          "sha256": "e59f34376e3e0e5cf3a059b0230532b957fa070252e149287a558c4423071793"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1943,
+          "sha256": "d5b23fcd81059ac3eed3d0e15b5de48b653105f264056c01f655a62918d1950f"
+        },
+        "all.JSON": {
+          "bytes": 1191,
+          "sha256": "b64987bdf4e668908ff2000ad0850d9356fac352c47ed9631b99ebfcd5e33c25"
+        },
+        "all.CSV": {
+          "bytes": 511,
+          "sha256": "fa485a782395a05884ff4cb383f99b6e5bc6220a3ab97363daf7564469813439"
+        },
+        "all.XLSX": {
+          "bytes": 2128,
+          "sha256": "2f9dcd3100e2eca3ac8792de7b147d5c1282fb4fc5cd6d1fac0ae1f6409c9272"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "verified",
+          "review_status": "approved",
+          "page": 2,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "1ee902d72823628ad9062008dc4914737368ffedd49a90355cbb1ae6ca6e1db2",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-1440",
+      "case": "saved-form",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 285,
+          "sha256": "b761c8f26900e78db57dd1e96d4e9cb061b557ff769a50c31aa14bd8b95d220f"
+        },
+        "reviewed.CSV": {
+          "bytes": 193,
+          "sha256": "236e55c1c699c57b6089ed6fd015c8f8c5315b7aa697c3e040c06cd865f30fd5"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1949,
+          "sha256": "e02a4190c57ddddc129ac186bb72fb7cb857b09f46de06b8df007111bd6a0191"
+        },
+        "all.JSON": {
+          "bytes": 1211,
+          "sha256": "72722d29ab8fc1906d2fe2623a9108642d543bb6695cee8a93e00ca363566551"
+        },
+        "all.CSV": {
+          "bytes": 531,
+          "sha256": "fc4f5321caf08550da3aa834a0395bfa8df443edc8b42d90f20c19db73c0ceef"
+        },
+        "all.XLSX": {
+          "bytes": 2147,
+          "sha256": "63cd0a5b3d3a4b6f26fc4addce6e08b86ed5a67d6a7c3d086360ace191ce4887"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 900,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "fd74be41319a68752052f7ec384b045b5328bd3deddf591ccbc3025acafc808e",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-1440",
+      "case": "cord",
+      "mode": "ocr-missing",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 295,
+          "sha256": "288021bc1e153b3e95d5f338b9ee1cb467f4cbebec38d89e79af163141305aed"
+        },
+        "reviewed.CSV": {
+          "bytes": 203,
+          "sha256": "8a6547781aadac525455378fe1c6de3e8a8cc96e339e9fe7e3c8dc65f0d669c2"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1950,
+          "sha256": "8855db28b8370f5107cbe9f27c92f2b0b2ae7e5325727658b52cc8daeb51a121"
+        },
+        "all.JSON": {
+          "bytes": 1773,
+          "sha256": "0fb15fb3610fdd54a6cac722e4147daeead971be29b4bc4d604cd37a9d3314d7"
+        },
+        "all.CSV": {
+          "bytes": 701,
+          "sha256": "fab6a1f9b022415f39353c0efa30f040073a51b0dc1ebd3c51f2f7eab7c3a5d2"
+        },
+        "all.XLSX": {
+          "bytes": 2254,
+          "sha256": "ee730b5cac5425312ee6a9c484badce2931f930ae5116e56a764a8cef322893b"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 60000,
+          "original_value": 60000,
+          "value_source": "extraction",
+          "verification_status": "needs_review",
+          "review_status": "approved",
+          "page": 1,
+          "text_mode": "ocr-missing",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "2c27af33b8be3e2cde5f9552174a85203bd6e4753881a0593335198f0f729700",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-375",
+      "case": "mixed",
+      "mode": "native",
+      "sourceText": null,
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 204,
+          "sha256": "90d7291bb7e92b5cf0213ab5eef56904335534aa577d9ca5472dfc8b6a23c2b6"
+        },
+        "reviewed.CSV": {
+          "bytes": 128,
+          "sha256": "455ef024f9d7910a87c10f0c655145a92e50f01acc12300aad761fed4ac496cd"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1874,
+          "sha256": "725128eabcfcd8b3728da42afd07bc0e1bd80c6dd94400deb6936ee6bac69e24"
+        },
+        "all.JSON": {
+          "bytes": 857,
+          "sha256": "2af67874d3650666dacc99b90566a973848d7dafde5836b80f76993023c39395"
+        },
+        "all.CSV": {
+          "bytes": 319,
+          "sha256": "de2d976438a889f15aac36725f1dd6b11c066e49da07ae18998d5e10415d340b"
+        },
+        "all.XLSX": {
+          "bytes": 2037,
+          "sha256": "c918653df7d48788852247a9b4bc08de13006ca33e361e5475b6fea6963e926e"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "unsupported",
+          "review_status": "approved",
+          "page": null
+        }
+      ],
+      "archive": {
+        "version": 1,
+        "sha256": "c95d3c5eba1819c89ddb032bc8c75c80269e64759fd1c47bb3610ea7a7cfc9a7",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-375",
+      "case": "mixed",
+      "mode": "ocr-missing",
+      "sourceText": "Mixed native/OCR text · Page 2: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 287,
+          "sha256": "b3547d3ab52166f5d4fcc80467895cb7c95ac244ab9d6eb91ba4144d2ced1299"
+        },
+        "reviewed.CSV": {
+          "bytes": 195,
+          "sha256": "810807a470f6d81d9c54a7eb560e6b81e558b1d068cfe083e6515d6622e3a6ed"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1945,
+          "sha256": "d00dcdd469e61e25d1e40f22f0104d786047f42a5983c222f05fc4a647130a12"
+        },
+        "all.JSON": {
+          "bytes": 1150,
+          "sha256": "fc31f8349a6b31d32d4743225e3591d40007ff1f3bd6dff34d9f0f14070943a4"
+        },
+        "all.CSV": {
+          "bytes": 470,
+          "sha256": "2eef58816bc66f1b61593faaf5fb6d8c3a7161f92add8e6230ca146d6db3184f"
+        },
+        "all.XLSX": {
+          "bytes": 2140,
+          "sha256": "dcccf43708fdbd2e42d42ca1758781d8376b598240b6242d1d2444fc062f9989"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "verified",
+          "review_status": "approved",
+          "page": 2,
+          "text_mode": "ocr-missing",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "5db6f0f93d7dda4c721ab59dd2370d015b2143d951fbcb3d830ac8bc7f1c454f",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-375",
+      "case": "mixed",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 2: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 283,
+          "sha256": "38fc47c2a0388c4374dfa6fd9740752d3c1878fed4d55fea8c073826ecc76c54"
+        },
+        "reviewed.CSV": {
+          "bytes": 191,
+          "sha256": "e59f34376e3e0e5cf3a059b0230532b957fa070252e149287a558c4423071793"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1943,
+          "sha256": "d5b23fcd81059ac3eed3d0e15b5de48b653105f264056c01f655a62918d1950f"
+        },
+        "all.JSON": {
+          "bytes": 1191,
+          "sha256": "b64987bdf4e668908ff2000ad0850d9356fac352c47ed9631b99ebfcd5e33c25"
+        },
+        "all.CSV": {
+          "bytes": 511,
+          "sha256": "fa485a782395a05884ff4cb383f99b6e5bc6220a3ab97363daf7564469813439"
+        },
+        "all.XLSX": {
+          "bytes": 2128,
+          "sha256": "2f9dcd3100e2eca3ac8792de7b147d5c1282fb4fc5cd6d1fac0ae1f6409c9272"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 100,
+          "value_source": "extraction",
+          "verification_status": "verified",
+          "review_status": "approved",
+          "page": 2,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "1ee902d72823628ad9062008dc4914737368ffedd49a90355cbb1ae6ca6e1db2",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-375",
+      "case": "saved-form",
+      "mode": "ocr-all",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 285,
+          "sha256": "b761c8f26900e78db57dd1e96d4e9cb061b557ff769a50c31aa14bd8b95d220f"
+        },
+        "reviewed.CSV": {
+          "bytes": 193,
+          "sha256": "236e55c1c699c57b6089ed6fd015c8f8c5315b7aa697c3e040c06cd865f30fd5"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1949,
+          "sha256": "e02a4190c57ddddc129ac186bb72fb7cb857b09f46de06b8df007111bd6a0191"
+        },
+        "all.JSON": {
+          "bytes": 1211,
+          "sha256": "72722d29ab8fc1906d2fe2623a9108642d543bb6695cee8a93e00ca363566551"
+        },
+        "all.CSV": {
+          "bytes": 531,
+          "sha256": "fc4f5321caf08550da3aa834a0395bfa8df443edc8b42d90f20c19db73c0ceef"
+        },
+        "all.XLSX": {
+          "bytes": 2147,
+          "sha256": "63cd0a5b3d3a4b6f26fc4addce6e08b86ed5a67d6a7c3d086360ace191ce4887"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 900,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "fd74be41319a68752052f7ec384b045b5328bd3deddf591ccbc3025acafc808e",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    },
+    {
+      "profile": "firefox-375",
+      "case": "cord",
+      "mode": "ocr-missing",
+      "sourceText": "OCR recognized text · Page 1: OCR words. tesseract 5.3.4 · eng · 144 dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.\nText source details",
+      "downloads": {
+        "reviewed.JSON": {
+          "bytes": 295,
+          "sha256": "288021bc1e153b3e95d5f338b9ee1cb467f4cbebec38d89e79af163141305aed"
+        },
+        "reviewed.CSV": {
+          "bytes": 203,
+          "sha256": "8a6547781aadac525455378fe1c6de3e8a8cc96e339e9fe7e3c8dc65f0d669c2"
+        },
+        "reviewed.XLSX": {
+          "bytes": 1950,
+          "sha256": "8855db28b8370f5107cbe9f27c92f2b0b2ae7e5325727658b52cc8daeb51a121"
+        },
+        "all.JSON": {
+          "bytes": 1773,
+          "sha256": "0fb15fb3610fdd54a6cac722e4147daeead971be29b4bc4d604cd37a9d3314d7"
+        },
+        "all.CSV": {
+          "bytes": 701,
+          "sha256": "fab6a1f9b022415f39353c0efa30f040073a51b0dc1ebd3c51f2f7eab7c3a5d2"
+        },
+        "all.XLSX": {
+          "bytes": 2254,
+          "sha256": "ee730b5cac5425312ee6a9c484badce2931f930ae5116e56a764a8cef322893b"
+        }
+      },
+      "reviewed": [
+        {
+          "field": "total",
+          "value": 60000,
+          "original_value": 60000,
+          "value_source": "extraction",
+          "verification_status": "needs_review",
+          "review_status": "approved",
+          "page": 1,
+          "text_mode": "ocr-missing",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archive": {
+        "version": 2,
+        "sha256": "2c27af33b8be3e2cde5f9552174a85203bd6e4753881a0593335198f0f729700",
+        "restoredIntoEmptyStore": true
+      },
+      "audit": {
+        "errors": [],
+        "external": [],
+        "csp": []
+      }
+    }
+  ]
+}
