@@ -4,6 +4,23 @@ import { fileURLToPath } from 'node:url';
 import { row, downloadText, scan, installAudit } from './helpers.mjs';
 installAudit(test);
 
+test('phone sample selector opens the credited OCR receipt and preserves decisions when switching', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('./#cord-ocr', { waitUntil: 'domcontentloaded' });
+  const picker = page.getByLabel('Sample document', { exact: true });
+  await expect(picker).toHaveValue('cord-ocr');
+  await expect(page.getByRole('complementary', { name: 'Document text source' })).toContainText('NAVER CLOVA');
+  await row(page, 'total').getByRole('button', { name: 'Approve', exact: true }).click();
+  await picker.selectOption('invoice');
+  await expect(row(page, 'po_number')).toBeVisible();
+  await expect(page.getByRole('complementary', { name: 'Document text source' })).toBeHidden();
+  await picker.selectOption('cord-ocr');
+  await expect(row(page, 'total').getByRole('button', { name: 'Reset', exact: true })).toBeVisible();
+  await expect(page.locator('#field-list')).toBeVisible();
+  expect(await page.locator('#field-list').evaluate(list => list.clientHeight > 180)).toBe(true);
+  await scan(page);
+});
+
 test('the hidden-text sample keeps an invisible amount in review and exports offline', async ({ page, context, browserName }) => {
   await page.goto('./#hidden-text', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('.sample-switch .is-active')).toHaveText('Hidden text');

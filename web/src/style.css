@@ -290,14 +290,21 @@ a {
   outline-offset: 2px;
 }
 
+.sample-switch .select {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .sample-switch {
     order: 3;
     width: 100%;
   }
   .sample-switch-btn {
-    flex: 1;
-    padding-inline: 6px;
+    display: none;
+  }
+  .sample-switch .select {
+    display: block;
+    width: 100%;
   }
 }
 

@@ -351,6 +351,11 @@ function renderTopbar(): void {
       else window.location.hash = id;
     });
   });
+  bar.querySelector<HTMLSelectElement>("#sample-select")?.addEventListener("change", (event) => {
+    const id = (event.target as HTMLSelectElement).value;
+    if (window.location.hash.slice(1) === id) void loadSample(id);
+    else window.location.hash = id;
+  });
   restoreFocus();
 }
 
@@ -360,6 +365,10 @@ function sampleSwitchHtml(): string {
   const active = state.document?.id;
   return `
     <nav class="sample-switch" aria-label="Sample documents">
+      <label for="sample-select" class="visually-hidden">Sample document</label>
+      <select id="sample-select" class="select">
+        ${state.samples.map((s) => `<option value="${esc(s.id)}" ${s.id === active ? "selected" : ""}>${esc(s.label)}</option>`).join("")}
+      </select>
       ${state.samples
         .map(
           (s) =>
