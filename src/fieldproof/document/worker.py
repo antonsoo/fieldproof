@@ -11,7 +11,9 @@ from fieldproof.document.forms import UnsupportedPdfFormError
 from fieldproof.document.limits import DocumentLimitError, DocumentLimits
 from fieldproof.document.loader import EmptyDocumentError, load_pdf
 from fieldproof.document.model import document_from_dict
+from fieldproof.document.ocr import OcrUnavailableError
 from fieldproof.document.render import render_page_png
+from fieldproof.server.text_sources import OCR_MAX_PAGES, OCR_PAGE_TIMEOUT_SECONDS
 
 
 def _set_process_limits() -> None:
@@ -37,6 +39,17 @@ def main() -> int:
         if action == "load":
             document = load_pdf(Path(source), label=argument, limits=limits)
             Path(destination).write_text(json.dumps(asdict(document)), encoding="utf-8")
+        elif action in {"load-ocr-missing", "load-ocr-all"}:
+            from fieldproof.document.ocr import load_pdf_with_ocr
+
+            document = load_pdf_with_ocr(
+                Path(source),
+                label=argument,
+                mode="all" if action == "load-ocr-all" else "missing",
+                timeout=OCR_PAGE_TIMEOUT_SECONDS,
+                limits=DocumentLimits(max_pages=OCR_MAX_PAGES),
+            )
+            Path(destination).write_text(json.dumps(asdict(document)), encoding="utf-8")
         elif action == "render":
             Path(destination).write_bytes(
                 render_page_png(Path(source), int(argument), max_pixels=limits.max_pixels)
@@ -52,9 +65,18 @@ def main() -> int:
             Path(destination).write_text(json.dumps(report.to_dict()), encoding="utf-8")
         else:
             raise ValueError("unknown PDF operation")
-    except EmptyDocumentError:
+    except OcrUnavailableError:
         print(
-            "PDF has no extractable text; this review server needs a PDF text layer",
+            "OCR is unavailable on this server. Install fieldproof[ocr], Tesseract "
+            "and its English language data, then retry.",
+            file=sys.stderr,
+        )
+        return 4
+    except EmptyDocumentError as exc:
+        print(
+            str(exc)
+            if action.startswith("load-ocr")
+            else "PDF has no extractable native text layer",
             file=sys.stderr,
         )
         return 2

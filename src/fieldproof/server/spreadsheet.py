@@ -77,19 +77,30 @@ def _cell(value: Any, address: str) -> str:
     return f'<c r="{address}" t="inlineStr"><is><t xml:space="preserve">{text}</t></is></c>'
 
 
+def export_columns(rows: Sequence[Mapping[str, Any]]) -> tuple[str, ...]:
+    return COLUMNS + tuple(
+        key for key in ("text_mode", "text_source") if any(key in r for r in rows)
+    )
+
+
 def rows_to_xlsx(rows: Sequence[Mapping[str, Any]]) -> bytes:
     """Export the same rows as JSON/CSV, refusing partial or truncated output."""
     if len(rows) > 1048575:
         raise ValueError("XLSX supports 1,048,575 data rows. Export JSON to keep all rows.")
+    columns = export_columns(rows)
+    last_column = chr(64 + len(columns))
     cells = [
         '<row r="1">'
-        + "".join(_cell(k, f"{chr(65 + i)}1") for i, k in enumerate(COLUMNS))
+        + "".join(_cell(k, f"{chr(65 + i)}1") for i, k in enumerate(columns))
         + "</row>"
     ]
     for index, row in enumerate(rows, 2):
         cells.append(
             f'<row r="{index}">'
-            + "".join(_cell(row[key], f"{chr(65 + i)}{index}") for i, key in enumerate(COLUMNS))
+            + "".join(
+                _cell(row[key] if key in COLUMNS else row.get(key), f"{chr(65 + i)}{index}")
+                for i, key in enumerate(columns)
+            )
             + "</row>"
         )
     parts = {
@@ -111,7 +122,7 @@ def rows_to_xlsx(rows: Sequence[Mapping[str, Any]]) -> bytes:
         ),
         "xl/workbook.xml": (
             f'<workbook xmlns="{_NS}" xmlns:r="{_REL}">'
-            '<bookViews><workbookView/></bookViews>'
+            "<bookViews><workbookView/></bookViews>"
             '<sheets><sheet name="Fields" sheetId="1" r:id="rId1"/></sheets></workbook>'
         ),
         "xl/_rels/workbook.xml.rels": (
@@ -121,14 +132,20 @@ def rows_to_xlsx(rows: Sequence[Mapping[str, Any]]) -> bytes:
         ),
         "xl/worksheets/sheet1.xml": (
             f'<worksheet xmlns="{_NS}">'
-            f'<dimension ref="A1:G{len(rows) + 1}"/>'
+            f'<dimension ref="A1:{last_column}{len(rows) + 1}"/>'
             '<sheetViews><sheetView workbookViewId="0">'
             '<pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/>'
             "</sheetView></sheetViews>"
             '<cols><col min="1" max="3" width="32" customWidth="1"/>'
-            '<col min="4" max="6" width="22" customWidth="1"/></cols>'
+            '<col min="4" max="6" width="22" customWidth="1"/>'
+            + (
+                f'<col min="8" max="{len(columns)}" width="48" customWidth="1"/>'
+                if len(columns) > 7
+                else ""
+            )
+            + "</cols>"
             "<sheetData>" + "".join(cells) + "</sheetData>"
-            f'<autoFilter ref="A1:G{len(rows) + 1}"/></worksheet>'
+            f'<autoFilter ref="A1:{last_column}{len(rows) + 1}"/></worksheet>'
         ),
     }
     buf = io.BytesIO()

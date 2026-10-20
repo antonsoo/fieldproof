@@ -1,16 +1,7 @@
 import { strToU8, zipSync } from "fflate";
-import type { ExportRow } from "./export";
+import { exportColumns, type ExportRow } from "./export";
 
 export const XLSX_MIME = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-const columns = [
-  "field",
-  "value",
-  "original_value",
-  "value_source",
-  "verification_status",
-  "review_status",
-  "page",
-] as const;
 const ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
 const rel = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
 const packageRel = "http://schemas.openxmlformats.org/package/2006/relationships";
@@ -53,6 +44,8 @@ function cell(value: unknown, address: string): string {
 
 /** One-sheet OOXML writer. Text never becomes a formula or hyperlink. */
 export function rowsToXlsx(rows: ExportRow[]): Uint8Array<ArrayBuffer> {
+  const columns = exportColumns(rows);
+  const lastColumn = String.fromCharCode(64 + columns.length);
   if (rows.length > 1048575)
     throw new Error("XLSX supports 1,048,575 data rows. Export JSON to keep all rows.");
   const line = (values: unknown[], index: number) =>
@@ -61,7 +54,7 @@ export function rowsToXlsx(rows: ExportRow[]): Uint8Array<ArrayBuffer> {
     line([...columns], 1),
     ...rows.map((r, i) =>
       line(
-        columns.map((key) => r[key]),
+        columns.map((key) => (key === "text_mode" || key === "text_source" ? (r[key] ?? null) : r[key])),
         i + 2,
       ),
     ),
@@ -71,7 +64,7 @@ export function rowsToXlsx(rows: ExportRow[]): Uint8Array<ArrayBuffer> {
     "_rels/.rels": `<Relationships xmlns="${packageRel}"><Relationship Id="rId1" Type="${rel}/officeDocument" Target="xl/workbook.xml"/></Relationships>`,
     "xl/workbook.xml": `<workbook xmlns="${ns}" xmlns:r="${rel}"><bookViews><workbookView/></bookViews><sheets><sheet name="Fields" sheetId="1" r:id="rId1"/></sheets></workbook>`,
     "xl/_rels/workbook.xml.rels": `<Relationships xmlns="${packageRel}"><Relationship Id="rId1" Type="${rel}/worksheet" Target="worksheets/sheet1.xml"/></Relationships>`,
-    "xl/worksheets/sheet1.xml": `<worksheet xmlns="${ns}"><dimension ref="A1:G${rows.length + 1}"/><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols><col min="1" max="3" width="32" customWidth="1"/><col min="4" max="6" width="22" customWidth="1"/></cols><sheetData>${data}</sheetData><autoFilter ref="A1:G${rows.length + 1}"/></worksheet>`,
+    "xl/worksheets/sheet1.xml": `<worksheet xmlns="${ns}"><dimension ref="A1:${lastColumn}${rows.length + 1}"/><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols><col min="1" max="3" width="32" customWidth="1"/><col min="4" max="6" width="22" customWidth="1"/>${columns.length > 7 ? `<col min="8" max="${columns.length}" width="48" customWidth="1"/>` : ""}</cols><sheetData>${data}</sheetData><autoFilter ref="A1:${lastColumn}${rows.length + 1}"/></worksheet>`,
   };
   return zipSync(
     Object.fromEntries(

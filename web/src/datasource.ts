@@ -5,6 +5,7 @@ import type {
   ReviewEntry,
   SessionList,
   SessionSummary,
+  TextMode,
 } from "./types";
 import { nextReview, validatedOverlay } from "./review";
 import { validateDocument, validateExtraction, validateSessions } from "./validate";
@@ -37,7 +38,7 @@ export interface DataSource {
     document: DocumentSummary;
     extraction: ExtractionResult | null;
   }>;
-  uploadDocument(file: File, signal?: AbortSignal): Promise<DocumentSummary>;
+  uploadDocument(file: File, signal?: AbortSignal, textMode?: TextMode): Promise<DocumentSummary>;
   pageImageUrl(documentId: string, pageNumber: number): string;
   extract(
     documentId: string,
@@ -129,13 +130,25 @@ export class ApiDataSource implements DataSource {
     return data.schemas;
   }
 
-  async uploadDocument(file: File, signal?: AbortSignal): Promise<DocumentSummary> {
+  async uploadDocument(
+    file: File,
+    signal?: AbortSignal,
+    textMode: TextMode = "native",
+  ): Promise<DocumentSummary> {
     if (file.size > 25 * 1024 * 1024) throw new Error("PDF exceeds the 25 MiB upload limit.");
     const form = new FormData();
     form.append("file", file);
-    return asJson<DocumentSummary>(
-      await fetch("/api/documents", { method: "POST", body: form, signal: signal ?? null }),
+    if (textMode !== "native") form.append("text_mode", textMode);
+    const summary = validateDocument(
+      await asJson<unknown>(
+        await fetch("/api/documents", { method: "POST", body: form, signal: signal ?? null }),
+      ),
     );
+    if ((summary.text_mode ?? "native") !== textMode)
+      throw new Error(
+        "The server did not honor the selected text source. Update the Fieldproof server or choose Native PDF text.",
+      );
+    return summary;
   }
 
   pageImageUrl(documentId: string, pageNumber: number): string {

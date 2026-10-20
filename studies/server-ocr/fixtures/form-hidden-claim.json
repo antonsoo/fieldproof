@@ -1,0 +1,29 @@
+{
+  "schema": "invoice",
+  "data": {
+    "vendor_name": {
+      "value": "Example Forms Ltd.",
+      "evidence": [
+        "Example Forms Ltd."
+      ]
+    },
+    "invoice_number": {
+      "value": "FORM-001",
+      "evidence": [
+        "FORM-001"
+      ]
+    },
+    "issue_date": {
+      "value": "2026-10-19",
+      "evidence": [
+        "Issued: 2026-10-19"
+      ]
+    },
+    "total": {
+      "value": 900,
+      "evidence": [
+        "Authorized total: $900.00"
+      ]
+    }
+  }
+}

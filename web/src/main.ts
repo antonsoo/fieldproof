@@ -3,7 +3,7 @@ import "./style.css";
 import { createDataSource } from "./datasource";
 import { computeExportRows, downloadBlob, rowsToCsv } from "./export";
 import { rowsToXlsx, XLSX_MIME } from "./spreadsheet";
-import type { DocumentSummary, ExtractionResult, FieldStatus, FieldVerification } from "./types";
+import type { DocumentSummary, ExtractionResult, FieldStatus, FieldVerification, TextMode } from "./types";
 import { SCHEMA_NAMES } from "./types";
 import { parseEditValue, reviewValue } from "./review";
 import { validateDocument, validateExtraction } from "./validate";
@@ -41,6 +41,7 @@ interface AppState {
   provider: "fixture" | "anthropic";
   fixtureFile: File | null;
   busy: boolean;
+  textMode: TextMode;
   samples: { id: string; label: string }[];
 }
 
@@ -64,6 +65,7 @@ const state: AppState = {
   provider: "fixture",
   fixtureFile: null,
   busy: false,
+  textMode: "native",
   samples: [],
 };
 
@@ -114,6 +116,8 @@ function finishOperation(owner: AbortController, error = ""): boolean {
 }
 
 function renderOperationStatus(): void {
+  const sourceChoice = document.querySelector<HTMLSelectElement>("#text-source-select");
+  if (sourceChoice) sourceChoice.disabled = state.busy;
   let region = document.getElementById("operation-status");
   if (!region) {
     region = document.createElement("div");
@@ -268,6 +272,34 @@ function toggleTheme(): void {
 
 /* ------------------------------- topbar -------------------------------- */
 
+let textSourceContent = "";
+function renderTextSource(): void {
+  let note = document.getElementById("text-source-note");
+  if (!note) {
+    note = document.createElement("aside");
+    note.id = "text-source-note";
+    note.className = "text-source-note";
+    note.setAttribute("aria-label", "Document text source");
+    app.insertBefore(note, app.querySelector(".workbench"));
+  }
+  const sourceDocument = state.document;
+  const ocr = sourceDocument?.ocr ?? state.extraction?.report.ocr;
+  note.hidden = !ocr && !sourceDocument?.source_credit && sourceDocument?.text_mode !== "ocr-missing";
+  const content = `${
+    ocr
+      ? `<div><strong>${ocr.processed_pages && ocr.processed_pages.length < ocr.page_count ? "Mixed native/OCR text" : "OCR recognized text"}</strong> · Page ${state.currentPage}: ${!ocr.processed_pages || ocr.processed_pages.includes(state.currentPage) ? (ocr.empty_pages.includes(state.currentPage) ? "no words recognized" : "OCR words") : "native PDF words"}. ${esc(ocr.engine)} ${esc(ocr.version)} · ${esc(ocr.language)} · ${ocr.render_dpi} dpi render. Checks on OCR pages use recognized words; inspect those page images for recognition errors.</div>
+    <details><summary id="text-source-details">Text source details</summary><p>${esc(ocr.note)}</p></details>`
+      : sourceDocument?.text_mode === "ocr-missing"
+        ? "<div><strong>Native PDF text</strong> · No pages needed OCR.</div>"
+        : ""
+  }
+    ${sourceDocument?.source_credit ? `<p>${esc(sourceDocument.source_credit)}</p>` : ""}`;
+  if (content !== textSourceContent) {
+    note.innerHTML = content;
+    textSourceContent = content;
+  }
+}
+
 function renderTopbar(): void {
   const restoreFocus = rememberFocus();
   let bar = document.querySelector<HTMLElement>(".topbar");
@@ -277,6 +309,7 @@ function renderTopbar(): void {
     app.prepend(bar);
   }
 
+  renderTextSource();
   const counts = state.extraction?.report.counts;
   const countsHtml = counts
     ? `<span class="brand-tag" aria-hidden="true">${counts.verified}&nbsp;verified&ensp;${counts.needs_review}&nbsp;review&ensp;${counts.unsupported}&nbsp;unsupported</span>`
@@ -405,8 +438,8 @@ function renderStart(): void {
         </div>
         <h1>Every field, traced to its source</h1>
         <p>
-          Three synthetic sample documents, grounded and verified by fieldproof's real pipeline.
-          The candidate extractions are hand-written fixtures with planted errors, to show what the verifier catches -
+          Five authored document controls and one credited CORD receipt photograph, processed by Fieldproof's real pipeline.
+          The candidate extractions are hand-written fixtures with deliberate review cases, to show what the verifier catches -
           a hallucinated PO number, a total that doesn't match its line items, and a misread date.
         </p>
         <div class="sample-grid">
@@ -430,8 +463,17 @@ function renderStart(): void {
   workbench.innerHTML = `
     <div class="start-state">
       <h1>Upload a document</h1>
-      <p>PDF with a text layer, up to 25 MiB and 64 pages. Extraction runs against the fixture provider or Claude, then every field is grounded and verified against the page.</p>
+      <p>PDF up to 25 MiB. Choose the word source before uploading. Recognition runs on this Fieldproof server; fixture extraction needs no model or API key.</p>
       <p>Sessions stay in this server until it restarts. Save a review archive to resume later.</p>
+      <div class="text-source-choice">
+        <label for="text-source-select">Text source</label>
+        <select class="select" id="text-source-select" aria-describedby="text-source-help">
+          <option value="native" ${state.textMode === "native" ? "selected" : ""}>Native PDF text</option>
+          <option value="ocr-missing" ${state.textMode === "ocr-missing" ? "selected" : ""}>OCR scanned pages (Tesseract)</option>
+          <option value="ocr-all" ${state.textMode === "ocr-all" ? "selected" : ""}>OCR every page (Tesseract)</option>
+        </select>
+      </div>
+      <p id="text-source-help">${textSourceHelp()}</p>
       <button class="dropzone" id="choose-file" type="button">Drop a PDF here, or choose a file</button>
       <input type="file" id="file-input" accept="application/pdf" class="visually-hidden" aria-label="PDF document" tabindex="-1" />
       ${
@@ -444,6 +486,11 @@ function renderStart(): void {
       }
     </div>
   `;
+  workbench.querySelector<HTMLSelectElement>("#text-source-select")?.addEventListener("change", (event) => {
+    state.textMode = (event.target as HTMLSelectElement).value as TextMode;
+    const help = document.getElementById("text-source-help");
+    if (help) help.textContent = textSourceHelp();
+  });
   const input = workbench.querySelector<HTMLInputElement>("#file-input")!;
   const zone = workbench.querySelector<HTMLElement>("#choose-file")!;
   const archiveInput = workbench.querySelector<HTMLInputElement>("#archive-input");
@@ -527,10 +574,20 @@ window.addEventListener("hashchange", () => {
   if (id) void loadSample(id);
 });
 
-async function uploadFile(file: File): Promise<void> {
-  const owner = beginOperation("Loading PDF…", () => void uploadFile(file));
+function textSourceHelp(): string {
+  if (state.textMode === "native") return "Native text only; up to 64 pages.";
+  return state.textMode === "ocr-all"
+    ? "Recognize all rendered pages, replacing native word evidence. Up to 8 pages; requires fieldproof[ocr], Tesseract and English data."
+    : "Keep native text; recognize pages without words. Up to 8 pages; requires fieldproof[ocr], Tesseract and English data.";
+}
+
+async function uploadFile(file: File, textMode: TextMode = state.textMode): Promise<void> {
+  const owner = beginOperation(
+    textMode === "native" ? "Loading PDF…" : "Recognizing page images on this server…",
+    () => void uploadFile(file),
+  );
   try {
-    const loaded = await ds.uploadDocument(file, owner.signal);
+    const loaded = await ds.uploadDocument(file, owner.signal, textMode);
     if (operation !== owner || owner.signal.aborted) return;
     state.document = validateDocument(loaded);
     state.extraction = null;
@@ -749,9 +806,11 @@ function renderWorkbench(): void {
   if (!state.extraction) {
     renderedExtraction = null;
     renderConfigure();
+    renderTextSource();
     return;
   }
 
+  renderTextSource();
   const workbench = getWorkbench();
   const restoreFocus = rememberFocus();
   const listScroll =

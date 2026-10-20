@@ -1,0 +1,997 @@
+{
+  "python": "3.12.12",
+  "tesseract": "tesseract 5.3.4",
+  "cases": [
+    {
+      "name": "cord",
+      "mode": "native",
+      "pdfSha256": "c736ce14293ed0b5951553f9888eeb84e4c0f6b8da6c2bc339b283e662d273be",
+      "fixtureSha256": "51c70992be0b6805bee64a824ea20f34a25d5ff38691f882473ad8be11cdc133",
+      "uploadStatus": 422,
+      "error": {
+        "detail": "PDF has no extractable native text layer. Choose OCR scanned pages for image-only PDFs; OCR needs fieldproof[ocr], Tesseract and English language data on this server."
+      }
+    },
+    {
+      "name": "cord",
+      "mode": "ocr-missing",
+      "pdfSha256": "c736ce14293ed0b5951553f9888eeb84e4c0f6b8da6c2bc339b283e662d273be",
+      "fixtureSha256": "51c70992be0b6805bee64a824ea20f34a25d5ff38691f882473ad8be11cdc133",
+      "uploadStatus": 200,
+      "nativeReference": [
+        {
+          "page": 1,
+          "words": 25,
+          "pngSha256": "b1a631dca4bb85dfd4a378d48ad8701f93c6f260f73bcf99468b7f26e5dd83e2",
+          "tsvSha256": "6583aa62340316a6d11a5f5e365143e3a3a50f38494160d6e81f3b8616f931d8"
+        }
+      ],
+      "fields": [
+        {
+          "path": "merchant_name",
+          "value": "",
+          "status": "unsupported",
+          "matched_text": null,
+          "page": null
+        },
+        {
+          "path": "transaction_date",
+          "value": "",
+          "status": "unsupported",
+          "matched_text": null,
+          "page": null
+        },
+        {
+          "path": "items[0].description",
+          "value": "-TICKET CP",
+          "status": "verified",
+          "matched_text": "-TICKET CP",
+          "page": 1
+        },
+        {
+          "path": "items[0].quantity",
+          "value": 2.0,
+          "status": "needs_review",
+          "matched_text": "2",
+          "page": 1
+        },
+        {
+          "path": "items[0].amount",
+          "value": 60000.0,
+          "status": "needs_review",
+          "matched_text": "60.000",
+          "page": 1
+        },
+        {
+          "path": "total",
+          "value": 60000.0,
+          "status": "needs_review",
+          "matched_text": " TOTAL caty 2.00 60,000",
+          "page": 1
+        }
+      ],
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 1,
+        "empty_pages": [],
+        "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+      },
+      "document": {
+        "id": "2f84c3a691a34ccaac2a6fd486cf294d",
+        "filename": "cord-test-0000.pdf",
+        "pdf_bytes": 405148,
+        "page_count": 1,
+        "pages": [
+          {
+            "number": 1,
+            "width": 216.0,
+            "height": 324.0
+          }
+        ],
+        "has_extraction": false,
+        "reviewed_count": 0,
+        "field_count": 0,
+        "busy": false,
+        "restored_from_archive": false,
+        "text_mode": "ocr-missing",
+        "ocr": {
+          "engine": "tesseract",
+          "version": "5.3.4",
+          "language": "eng",
+          "render_dpi": 144,
+          "page_count": 1,
+          "empty_pages": [],
+          "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
+        }
+      },
+      "exports": {
+        "json": {
+          "bytes": 238,
+          "sha256": "503c45bf82cad96cc6565a46115132d1872d7197b41dc07a46467f01c6f3973f"
+        },
+        "csv": {
+          "bytes": 207,
+          "sha256": "81b8314bc403d25f9efe091a18107662d6039d0ec9425d728fad6fe9f26de85a"
+        },
+        "xlsx": {
+          "bytes": 1943,
+          "sha256": "7d4aa92be1bc33d05598a3c7f7e18e254e3e772e45ab43e771616787fd1de435"
+        }
+      },
+      "reviewedRows": [
+        {
+          "field": "total",
+          "value": 60000.0,
+          "original_value": 60000.0,
+          "value_source": "extraction",
+          "verification_status": "needs_review",
+          "review_status": "approved",
+          "page": 1,
+          "text_mode": "ocr-missing",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archiveVersion": 2,
+      "archiveSha256": "2c27af33b8be3e2cde5f9552174a85203bd6e4753881a0593335198f0f729700",
+      "restoreExact": true
+    },
+    {
+      "name": "cord",
+      "mode": "ocr-all",
+      "pdfSha256": "c736ce14293ed0b5951553f9888eeb84e4c0f6b8da6c2bc339b283e662d273be",
+      "fixtureSha256": "51c70992be0b6805bee64a824ea20f34a25d5ff38691f882473ad8be11cdc133",
+      "uploadStatus": 200,
+      "nativeReference": [
+        {
+          "page": 1,
+          "words": 25,
+          "pngSha256": "b1a631dca4bb85dfd4a378d48ad8701f93c6f260f73bcf99468b7f26e5dd83e2",
+          "tsvSha256": "6583aa62340316a6d11a5f5e365143e3a3a50f38494160d6e81f3b8616f931d8"
+        }
+      ],
+      "fields": [
+        {
+          "path": "merchant_name",
+          "value": "",
+          "status": "unsupported",
+          "matched_text": null,
+          "page": null
+        },
+        {
+          "path": "transaction_date",
+          "value": "",
+          "status": "unsupported",
+          "matched_text": null,
+          "page": null
+        },
+        {
+          "path": "items[0].description",
+          "value": "-TICKET CP",
+          "status": "verified",
+          "matched_text": "-TICKET CP",
+          "page": 1
+        },
+        {
+          "path": "items[0].quantity",
+          "value": 2.0,
+          "status": "needs_review",
+          "matched_text": "2",
+          "page": 1
+        },
+        {
+          "path": "items[0].amount",
+          "value": 60000.0,
+          "status": "needs_review",
+          "matched_text": "60.000",
+          "page": 1
+        },
+        {
+          "path": "total",
+          "value": 60000.0,
+          "status": "needs_review",
+          "matched_text": " TOTAL caty 2.00 60,000",
+          "page": 1
+        }
+      ],
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 1,
+        "empty_pages": [],
+        "note": "All-page OCR: text recognized from rendered pages replaces native text. Grounding checks recognized text; review the page images, especially numbers, dates and word boxes.",
+        "processed_pages": [
+          1
+        ]
+      },
+      "document": {
+        "id": "59881dbdeea84940900815d714b5804c",
+        "filename": "cord-test-0000.pdf",
+        "pdf_bytes": 405148,
+        "page_count": 1,
+        "pages": [
+          {
+            "number": 1,
+            "width": 216.0,
+            "height": 324.0
+          }
+        ],
+        "has_extraction": false,
+        "reviewed_count": 0,
+        "field_count": 0,
+        "busy": false,
+        "restored_from_archive": false,
+        "text_mode": "ocr-all",
+        "ocr": {
+          "engine": "tesseract",
+          "version": "5.3.4",
+          "language": "eng",
+          "render_dpi": 144,
+          "page_count": 1,
+          "empty_pages": [],
+          "note": "All-page OCR: text recognized from rendered pages replaces native text. Grounding checks recognized text; review the page images, especially numbers, dates and word boxes.",
+          "processed_pages": [
+            1
+          ]
+        }
+      },
+      "exports": {
+        "json": {
+          "bytes": 234,
+          "sha256": "ce82b4f62c3487b9f651d87dcce130246496527723c50cff068cab9c5ddb4f1e"
+        },
+        "csv": {
+          "bytes": 203,
+          "sha256": "715d64a5fd76096721c18d0822c0840356a9205bb9ee71ee412ee99705d9f502"
+        },
+        "xlsx": {
+          "bytes": 1940,
+          "sha256": "eb693306e04ca098c2ee456079833e3df97440aa98cfeef4b77ae5d39619234c"
+        }
+      },
+      "reviewedRows": [
+        {
+          "field": "total",
+          "value": 60000.0,
+          "original_value": 60000.0,
+          "value_source": "extraction",
+          "verification_status": "needs_review",
+          "review_status": "approved",
+          "page": 1,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archiveVersion": 2,
+      "archiveSha256": "8423f9b179adc44e6b69e3632f414f10982eb0f6dc4ebf6abbc9957fab1aa179",
+      "restoreExact": true
+    },
+    {
+      "name": "saved-form",
+      "mode": "native",
+      "pdfSha256": "9f2d2f89ce102918fb7636f5f5bda9f3d750a1febc7f1bd5ea36d66bfd3507d6",
+      "fixtureSha256": "c5e59e2988d63f7bd9267457328c757cc15905fdb586fe3774dd5be183af641a",
+      "uploadStatus": 200,
+      "nativeReference": [],
+      "fields": [
+        {
+          "path": "vendor_name",
+          "value": "Example Forms Ltd.",
+          "status": "verified",
+          "matched_text": "Example Forms Ltd.",
+          "page": 1
+        },
+        {
+          "path": "invoice_number",
+          "value": "FORM-001",
+          "status": "verified",
+          "matched_text": "FORM-001",
+          "page": 1
+        },
+        {
+          "path": "issue_date",
+          "value": "2026-10-19",
+          "status": "verified",
+          "matched_text": "Issued: 2026-10-19",
+          "page": 1
+        },
+        {
+          "path": "total",
+          "value": 900.0,
+          "status": "needs_review",
+          "matched_text": "Authorized total: $900.00",
+          "page": 1
+        }
+      ],
+      "ocr": null,
+      "document": {
+        "id": "be180115afef4316b5f74a7a69fc53f1",
+        "filename": "covered-native-total.pdf",
+        "pdf_bytes": 4120,
+        "page_count": 1,
+        "pages": [
+          {
+            "number": 1,
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "has_extraction": false,
+        "reviewed_count": 0,
+        "field_count": 0,
+        "busy": false,
+        "restored_from_archive": false
+      },
+      "exports": {
+        "json": {
+          "bytes": 153,
+          "sha256": "515e23b7d3f8446844f43c5054018e753cc49d9ea0b763a9aad7c58097a78e02"
+        },
+        "csv": {
+          "bytes": 130,
+          "sha256": "ede362530797faeae3fe5cbbecde6aa1a4f31343d7f61c7655cb151bb9a1b32f"
+        },
+        "xlsx": {
+          "bytes": 1871,
+          "sha256": "c76a38b1fbdde98c6ca260725a13d28859c9b34f54fa607b2530c7ce365b9387"
+        }
+      },
+      "reviewedRows": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 900.0,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1
+        }
+      ],
+      "archiveVersion": 1,
+      "archiveSha256": "561130b6444f165d3970212c9ab68b5135b2f2b419bcda32d8866fa7e6e6b671",
+      "restoreExact": true
+    },
+    {
+      "name": "saved-form",
+      "mode": "ocr-missing",
+      "pdfSha256": "9f2d2f89ce102918fb7636f5f5bda9f3d750a1febc7f1bd5ea36d66bfd3507d6",
+      "fixtureSha256": "c5e59e2988d63f7bd9267457328c757cc15905fdb586fe3774dd5be183af641a",
+      "uploadStatus": 200,
+      "nativeReference": [],
+      "fields": [
+        {
+          "path": "vendor_name",
+          "value": "Example Forms Ltd.",
+          "status": "verified",
+          "matched_text": "Example Forms Ltd.",
+          "page": 1
+        },
+        {
+          "path": "invoice_number",
+          "value": "FORM-001",
+          "status": "verified",
+          "matched_text": "FORM-001",
+          "page": 1
+        },
+        {
+          "path": "issue_date",
+          "value": "2026-10-19",
+          "status": "verified",
+          "matched_text": "Issued: 2026-10-19",
+          "page": 1
+        },
+        {
+          "path": "total",
+          "value": 900.0,
+          "status": "needs_review",
+          "matched_text": "Authorized total: $900.00",
+          "page": 1
+        }
+      ],
+      "ocr": null,
+      "document": {
+        "id": "6f63e38ae9f246e1b104ad18dd35021e",
+        "filename": "covered-native-total.pdf",
+        "pdf_bytes": 4120,
+        "page_count": 1,
+        "pages": [
+          {
+            "number": 1,
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "has_extraction": false,
+        "reviewed_count": 0,
+        "field_count": 0,
+        "busy": false,
+        "restored_from_archive": false,
+        "text_mode": "ocr-missing"
+      },
+      "exports": {
+        "json": {
+          "bytes": 211,
+          "sha256": "47066d4b3cabc45f6c59eafb9e1667ef147f3a95df0a63755169ff02da477bf9"
+        },
+        "csv": {
+          "bytes": 180,
+          "sha256": "6ae679636bf22f66f8cbce29cc90b8f432bca1df8affe2019864f1b570a9f52d"
+        },
+        "xlsx": {
+          "bytes": 1925,
+          "sha256": "e21ddb2a8b0462075414602d8b824c2bc710becaca2e12974c98b645ea510996"
+        }
+      },
+      "reviewedRows": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 900.0,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1,
+          "text_mode": "ocr-missing",
+          "text_source": "Native PDF text"
+        }
+      ],
+      "archiveVersion": 2,
+      "archiveSha256": "ec30cea364da21b933e97f0a5f5c4fec15bb6839c0c1585c2cde75c7267da8c6",
+      "restoreExact": true
+    },
+    {
+      "name": "saved-form",
+      "mode": "ocr-all",
+      "pdfSha256": "9f2d2f89ce102918fb7636f5f5bda9f3d750a1febc7f1bd5ea36d66bfd3507d6",
+      "fixtureSha256": "c5e59e2988d63f7bd9267457328c757cc15905fdb586fe3774dd5be183af641a",
+      "uploadStatus": 200,
+      "nativeReference": [
+        {
+          "page": 1,
+          "words": 27,
+          "pngSha256": "e4cc70eadc9a378dbd119216963ac27f6962883bac2f34ce7299b0b5f37ac869",
+          "tsvSha256": "605d9bc3d3f7e60e2d06893eaf860a1ccc8af6a4cb6c950e0d8ed58dc8aa7be3"
+        }
+      ],
+      "fields": [
+        {
+          "path": "vendor_name",
+          "value": "Example Forms Ltd.",
+          "status": "verified",
+          "matched_text": "Example Forms Ltd.",
+          "page": 1
+        },
+        {
+          "path": "invoice_number",
+          "value": "FORM-001",
+          "status": "verified",
+          "matched_text": "FORM-001",
+          "page": 1
+        },
+        {
+          "path": "issue_date",
+          "value": "2026-10-19",
+          "status": "verified",
+          "matched_text": "Issued: 2026-10-19",
+          "page": 1
+        },
+        {
+          "path": "total",
+          "value": 900.0,
+          "status": "needs_review",
+          "matched_text": "Authorized total: $100.00",
+          "page": 1
+        }
+      ],
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 1,
+        "empty_pages": [],
+        "note": "All-page OCR: text recognized from rendered pages replaces native text. Grounding checks recognized text; review the page images, especially numbers, dates and word boxes.",
+        "processed_pages": [
+          1
+        ]
+      },
+      "document": {
+        "id": "bb60f14596b44e6e9775b1337d2e78a5",
+        "filename": "covered-native-total.pdf",
+        "pdf_bytes": 4120,
+        "page_count": 1,
+        "pages": [
+          {
+            "number": 1,
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "has_extraction": false,
+        "reviewed_count": 0,
+        "field_count": 0,
+        "busy": false,
+        "restored_from_archive": false,
+        "text_mode": "ocr-all",
+        "ocr": {
+          "engine": "tesseract",
+          "version": "5.3.4",
+          "language": "eng",
+          "render_dpi": 144,
+          "page_count": 1,
+          "empty_pages": [],
+          "note": "All-page OCR: text recognized from rendered pages replaces native text. Grounding checks recognized text; review the page images, especially numbers, dates and word boxes.",
+          "processed_pages": [
+            1
+          ]
+        }
+      },
+      "exports": {
+        "json": {
+          "bytes": 226,
+          "sha256": "1d0dd46d77ff91b0b32906cdf281cd9fcf1b7323a02e486441a93c5b03ddade0"
+        },
+        "csv": {
+          "bytes": 195,
+          "sha256": "aa55306fba0a6e3b7225597f7665bb7bff39bbce24863fa7494b6a88860bcaf6"
+        },
+        "xlsx": {
+          "bytes": 1940,
+          "sha256": "0cb51a8d3591e98cc29edf66a608406946542ab61ee5d5c77b101199f2ce6ad4"
+        }
+      },
+      "reviewedRows": [
+        {
+          "field": "total",
+          "value": 100,
+          "original_value": 900.0,
+          "value_source": "correction",
+          "verification_status": "needs_review",
+          "review_status": "edited",
+          "page": 1,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archiveVersion": 2,
+      "archiveSha256": "fd74be41319a68752052f7ec384b045b5328bd3deddf591ccbc3025acafc808e",
+      "restoreExact": true
+    },
+    {
+      "name": "mixed",
+      "mode": "native",
+      "pdfSha256": "6f6b5d17545edabfb87440e3b0ea271859548091f1200025a07ca0820c8a6e52",
+      "fixtureSha256": "42d0bb2e99622ca132fd4eb95b8cab403e7d25e4b9296bf8874a7e8747fdf06d",
+      "uploadStatus": 200,
+      "nativeReference": [],
+      "fields": [
+        {
+          "path": "vendor_name",
+          "value": "Source Lab",
+          "status": "verified",
+          "matched_text": "Vendor: Source Lab",
+          "page": 1
+        },
+        {
+          "path": "invoice_number",
+          "value": "MIX-001",
+          "status": "verified",
+          "matched_text": "Invoice: MIX-001",
+          "page": 1
+        },
+        {
+          "path": "issue_date",
+          "value": "2026-10-20",
+          "status": "verified",
+          "matched_text": "Issued: 2026-10-20",
+          "page": 1
+        },
+        {
+          "path": "total",
+          "value": 100.0,
+          "status": "unsupported",
+          "matched_text": null,
+          "page": null
+        }
+      ],
+      "ocr": null,
+      "document": {
+        "id": "f82ca66cc95943af901f0e149f2cb362",
+        "filename": "mixed-source.pdf",
+        "pdf_bytes": 23864,
+        "page_count": 2,
+        "pages": [
+          {
+            "number": 1,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 2,
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "has_extraction": false,
+        "reviewed_count": 0,
+        "field_count": 0,
+        "busy": false,
+        "restored_from_archive": false
+      },
+      "exports": {
+        "json": {
+          "bytes": 159,
+          "sha256": "cd7cf300125b35d4faa46f7575c4a4a68afc5cdb1e8863dec56f2c8e8faedb53"
+        },
+        "csv": {
+          "bytes": 132,
+          "sha256": "42697a6c1a72cce698c6aede156465a749423d1a05b85454d4563d7f5bbe7de1"
+        },
+        "xlsx": {
+          "bytes": 1867,
+          "sha256": "38c822bcd7fcf1ac51549ec6aacf07c7138aa4c2f14e2088b9239b752f753c32"
+        }
+      },
+      "reviewedRows": [
+        {
+          "field": "total",
+          "value": 100.0,
+          "original_value": 100.0,
+          "value_source": "extraction",
+          "verification_status": "unsupported",
+          "review_status": "approved",
+          "page": null
+        }
+      ],
+      "archiveVersion": 1,
+      "archiveSha256": "c95d3c5eba1819c89ddb032bc8c75c80269e64759fd1c47bb3610ea7a7cfc9a7",
+      "restoreExact": true
+    },
+    {
+      "name": "mixed",
+      "mode": "ocr-missing",
+      "pdfSha256": "6f6b5d17545edabfb87440e3b0ea271859548091f1200025a07ca0820c8a6e52",
+      "fixtureSha256": "42d0bb2e99622ca132fd4eb95b8cab403e7d25e4b9296bf8874a7e8747fdf06d",
+      "uploadStatus": 200,
+      "nativeReference": [
+        {
+          "page": 2,
+          "words": 8,
+          "pngSha256": "abf8d8e35a09aee7bb4f5b6b7c56fe46a186e198afe5109571bb250018981998",
+          "tsvSha256": "0ff5aa25223f505df81f93ebbba9679a7e6b1d0335bcad21cbbbaf9076ab12d9"
+        }
+      ],
+      "fields": [
+        {
+          "path": "vendor_name",
+          "value": "Source Lab",
+          "status": "verified",
+          "matched_text": "Vendor: Source Lab",
+          "page": 1
+        },
+        {
+          "path": "invoice_number",
+          "value": "MIX-001",
+          "status": "verified",
+          "matched_text": "Invoice: MIX-001",
+          "page": 1
+        },
+        {
+          "path": "issue_date",
+          "value": "2026-10-20",
+          "status": "verified",
+          "matched_text": "Issued: 2026-10-20",
+          "page": 1
+        },
+        {
+          "path": "total",
+          "value": 100.0,
+          "status": "verified",
+          "matched_text": "Total: $100.00",
+          "page": 2
+        }
+      ],
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 2,
+        "empty_pages": [],
+        "note": "Mixed PDF: OCR processed pages 2; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.",
+        "processed_pages": [
+          2
+        ]
+      },
+      "document": {
+        "id": "0b6564ad9c3e4992a9f8be7ef965a462",
+        "filename": "mixed-source.pdf",
+        "pdf_bytes": 23864,
+        "page_count": 2,
+        "pages": [
+          {
+            "number": 1,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 2,
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "has_extraction": false,
+        "reviewed_count": 0,
+        "field_count": 0,
+        "busy": false,
+        "restored_from_archive": false,
+        "text_mode": "ocr-missing",
+        "ocr": {
+          "engine": "tesseract",
+          "version": "5.3.4",
+          "language": "eng",
+          "render_dpi": 144,
+          "page_count": 2,
+          "empty_pages": [],
+          "note": "Mixed PDF: OCR processed pages 2; other pages retain native text. Grounding on OCR pages checks recognized text, not the printed original. Review those page images, especially numbers, dates and word boxes.",
+          "processed_pages": [
+            2
+          ]
+        }
+      },
+      "exports": {
+        "json": {
+          "bytes": 230,
+          "sha256": "6444960821f1aa4e8b8e92e8de6a5217905a33f68becda7546d1388be3b9ccca"
+        },
+        "csv": {
+          "bytes": 199,
+          "sha256": "dd5724a1dcbff3f9ab724c663bfb756120de9c87cc39bd2cfcd5954b528ea279"
+        },
+        "xlsx": {
+          "bytes": 1937,
+          "sha256": "bfd8b4a50100283bf83a92766ab9293f661b1065e88cd7e12b264d18d05724d8"
+        }
+      },
+      "reviewedRows": [
+        {
+          "field": "total",
+          "value": 100.0,
+          "original_value": 100.0,
+          "value_source": "extraction",
+          "verification_status": "verified",
+          "review_status": "approved",
+          "page": 2,
+          "text_mode": "ocr-missing",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archiveVersion": 2,
+      "archiveSha256": "5db6f0f93d7dda4c721ab59dd2370d015b2143d951fbcb3d830ac8bc7f1c454f",
+      "restoreExact": true
+    },
+    {
+      "name": "mixed",
+      "mode": "ocr-all",
+      "pdfSha256": "6f6b5d17545edabfb87440e3b0ea271859548091f1200025a07ca0820c8a6e52",
+      "fixtureSha256": "42d0bb2e99622ca132fd4eb95b8cab403e7d25e4b9296bf8874a7e8747fdf06d",
+      "uploadStatus": 200,
+      "nativeReference": [
+        {
+          "page": 1,
+          "words": 13,
+          "pngSha256": "b3db7a484a526d181c5a45426f6fffc5e2ab5adb7fafbfb520781cae83d855a2",
+          "tsvSha256": "3aa70e096f5a6add3a68b3e06e03b81dd18a4b8bb6253de8af3cfa8f9a95af48"
+        },
+        {
+          "page": 2,
+          "words": 8,
+          "pngSha256": "abf8d8e35a09aee7bb4f5b6b7c56fe46a186e198afe5109571bb250018981998",
+          "tsvSha256": "0ff5aa25223f505df81f93ebbba9679a7e6b1d0335bcad21cbbbaf9076ab12d9"
+        }
+      ],
+      "fields": [
+        {
+          "path": "vendor_name",
+          "value": "Source Lab",
+          "status": "verified",
+          "matched_text": "Vendor: Source Lab",
+          "page": 1
+        },
+        {
+          "path": "invoice_number",
+          "value": "MIX-001",
+          "status": "verified",
+          "matched_text": "Invoice: MIX-001",
+          "page": 1
+        },
+        {
+          "path": "issue_date",
+          "value": "2026-10-20",
+          "status": "verified",
+          "matched_text": "Issued: 2026-10-20",
+          "page": 1
+        },
+        {
+          "path": "total",
+          "value": 100.0,
+          "status": "verified",
+          "matched_text": "Total: $100.00",
+          "page": 2
+        }
+      ],
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 2,
+        "empty_pages": [],
+        "note": "All-page OCR: text recognized from rendered pages replaces native text. Grounding checks recognized text; review the page images, especially numbers, dates and word boxes.",
+        "processed_pages": [
+          1,
+          2
+        ]
+      },
+      "document": {
+        "id": "128757aeb9934d5db4cc0bcd0ff679bf",
+        "filename": "mixed-source.pdf",
+        "pdf_bytes": 23864,
+        "page_count": 2,
+        "pages": [
+          {
+            "number": 1,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 2,
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "has_extraction": false,
+        "reviewed_count": 0,
+        "field_count": 0,
+        "busy": false,
+        "restored_from_archive": false,
+        "text_mode": "ocr-all",
+        "ocr": {
+          "engine": "tesseract",
+          "version": "5.3.4",
+          "language": "eng",
+          "render_dpi": 144,
+          "page_count": 2,
+          "empty_pages": [],
+          "note": "All-page OCR: text recognized from rendered pages replaces native text. Grounding checks recognized text; review the page images, especially numbers, dates and word boxes.",
+          "processed_pages": [
+            1,
+            2
+          ]
+        }
+      },
+      "exports": {
+        "json": {
+          "bytes": 226,
+          "sha256": "4304685ba048bbe3029758d088944281c400320631e20eb4d2390193670aad4a"
+        },
+        "csv": {
+          "bytes": 195,
+          "sha256": "abcb67adcf0e1c247615a665081c102a65a357343d0061c8769a002c21927e45"
+        },
+        "xlsx": {
+          "bytes": 1935,
+          "sha256": "70f50d9101d586546661e2ec55cafb1530fd4a4e5bda265f8a457c27fd31aa39"
+        }
+      },
+      "reviewedRows": [
+        {
+          "field": "total",
+          "value": 100.0,
+          "original_value": 100.0,
+          "value_source": "extraction",
+          "verification_status": "verified",
+          "review_status": "approved",
+          "page": 2,
+          "text_mode": "ocr-all",
+          "text_source": "OCR: tesseract 5.3.4; eng; 144 dpi"
+        }
+      ],
+      "archiveVersion": 2,
+      "archiveSha256": "1ee902d72823628ad9062008dc4914737368ffedd49a90355cbb1ae6ca6e1db2",
+      "restoreExact": true
+    },
+    {
+      "name": "nine-pages.pdf",
+      "mode": "native",
+      "uploadStatus": 200,
+      "body": {
+        "id": "db75258d24c5484a802d5fd391aa7c96",
+        "filename": "nine-pages.pdf",
+        "pdf_bytes": 4875,
+        "page_count": 9,
+        "pages": [
+          {
+            "number": 1,
+            "width": 300.0,
+            "height": 400.0
+          },
+          {
+            "number": 2,
+            "width": 300.0,
+            "height": 400.0
+          },
+          {
+            "number": 3,
+            "width": 300.0,
+            "height": 400.0
+          },
+          {
+            "number": 4,
+            "width": 300.0,
+            "height": 400.0
+          },
+          {
+            "number": 5,
+            "width": 300.0,
+            "height": 400.0
+          },
+          {
+            "number": 6,
+            "width": 300.0,
+            "height": 400.0
+          },
+          {
+            "number": 7,
+            "width": 300.0,
+            "height": 400.0
+          },
+          {
+            "number": 8,
+            "width": 300.0,
+            "height": 400.0
+          },
+          {
+            "number": 9,
+            "width": 300.0,
+            "height": 400.0
+          }
+        ],
+        "has_extraction": false,
+        "reviewed_count": 0,
+        "field_count": 0,
+        "busy": false,
+        "restored_from_archive": false
+      }
+    },
+    {
+      "name": "nine-pages.pdf",
+      "mode": "ocr-all",
+      "uploadStatus": 413,
+      "body": {
+        "detail": "PDF must contain between 1 and 8 pages"
+      }
+    },
+    {
+      "name": "blank.pdf",
+      "mode": "ocr-all",
+      "uploadStatus": 422,
+      "body": {
+        "detail": "OCR recognized no words on any page; check the scan and language. Check scan quality and English OCR data; no document was added."
+      }
+    }
+  ],
+  "tesseractBinarySha256": "9f831cab7525c3dab04af41bda35182af7ea1df9dceeaaa2f3bf207ac45c06a5",
+  "inputsUnchanged": {
+    "examples/recorded/cord/cord-test-0000.pdf": "c736ce14293ed0b5951553f9888eeb84e4c0f6b8da6c2bc339b283e662d273be",
+    "examples/recorded/cord/fixture.json": "51c70992be0b6805bee64a824ea20f34a25d5ff38691f882473ad8be11cdc133",
+    "studies/form-appearances/fixtures/covered-native-total.pdf": "9f2d2f89ce102918fb7636f5f5bda9f3d750a1febc7f1bd5ea36d66bfd3507d6",
+    "studies/server-ocr/fixtures/form-hidden-claim.json": "c5e59e2988d63f7bd9267457328c757cc15905fdb586fe3774dd5be183af641a",
+    "studies/server-ocr/fixtures/mixed-source.pdf": "6f6b5d17545edabfb87440e3b0ea271859548091f1200025a07ca0820c8a6e52",
+    "studies/server-ocr/fixtures/mixed-fixture.json": "42d0bb2e99622ca132fd4eb95b8cab403e7d25e4b9296bf8874a7e8747fdf06d"
+  }
+}

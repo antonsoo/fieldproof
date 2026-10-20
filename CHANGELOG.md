@@ -4,6 +4,15 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+- Add explicit native, missing-page OCR and all-page OCR choices to the local
+  review UI and upload API. Show per-page word provenance, retain it in JSON,
+  CSV and XLSX, and reopen OCR reviews from version-2 archives. Preserve native
+  export formats and version-1 archives. Bound OCR documents to 8 pages and
+  stop recognizer descendants on worker timeout.
+- Add a credited CORD receipt photograph with authored claims to the static
+  demo, plus real API, native-recognizer and archive replays. The hosted example
+  is precomputed; OCR for new PDFs runs on the local server.
+
 - Add `--ocr-all-pages` to extract/verify and `load_pdf_with_ocr(..., mode="all")`.
   Recognize every rendered page, including visible form values on pages with
   native text, with explicit OCR provenance. Keep the native and missing-page

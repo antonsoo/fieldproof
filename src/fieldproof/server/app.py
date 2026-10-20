@@ -23,6 +23,7 @@ from starlette.concurrency import run_in_threadpool
 from fieldproof import __version__
 from fieldproof.document.limits import DocumentLimitError, DocumentLimits
 from fieldproof.document.loader import EmptyDocumentError
+from fieldproof.document.ocr import OcrUnavailableError
 from fieldproof.extract.anthropic_provider import AnthropicExtractor
 from fieldproof.extract.base import (
     ExtractionError,
@@ -44,7 +45,7 @@ from fieldproof.server.pdf_work import (
     render_server_page,
     verify_server_data,
 )
-from fieldproof.server.spreadsheet import XLSX_MIME, rows_to_xlsx
+from fieldproof.server.spreadsheet import XLSX_MIME, export_columns, rows_to_xlsx
 from fieldproof.server.store import (
     DocumentSession,
     ReviewState,
@@ -52,6 +53,7 @@ from fieldproof.server.store import (
     StoreCapacityError,
     store,
 )
+from fieldproof.server.text_sources import TextMode
 
 app = FastAPI(title="fieldproof", version=__version__)
 app.add_middleware(BodyLimitMiddleware)
@@ -93,7 +95,11 @@ def list_schemas() -> dict[str, list[str]]:
 
 
 @app.post("/api/documents")
-async def upload_document(request: Request, file: Annotated[UploadFile, File()]) -> dict[str, Any]:
+async def upload_document(
+    request: Request,
+    file: Annotated[UploadFile, File()],
+    text_mode: Annotated[TextMode, Form()] = "native",
+) -> dict[str, Any]:
     if file.size is not None and file.size > MAX_PDF_BYTES:
         raise HTTPException(status_code=413, detail="PDF exceeds the 25 MiB upload limit")
     filename = (file.filename or "document.pdf")[:255]
@@ -102,25 +108,34 @@ async def upload_document(request: Request, file: Annotated[UploadFile, File()])
             pdf_bytes = await file.read(MAX_PDF_BYTES + 1)
             if len(pdf_bytes) > MAX_PDF_BYTES:
                 raise HTTPException(status_code=413, detail="PDF exceeds the 25 MiB upload limit")
-            document = await run_in_threadpool(load_server_pdf, pdf_bytes, filename)
+            arguments = (
+                (pdf_bytes, filename) if text_mode == "native" else (pdf_bytes, filename, text_mode)
+            )
+            document = await run_in_threadpool(load_server_pdf, *arguments)
             if await request.is_disconnected():
                 raise HTTPException(status_code=499, detail="Upload cancelled before storing")
             session = store.create(
                 filename=filename,
                 pdf_bytes=pdf_bytes,
                 document=document,
+                text_mode=text_mode,
                 reservation=token,
             )
     except StoreCapacityError as exc:
         raise HTTPException(status_code=409, detail=str(exc)) from exc
-    except (SessionBusyError, PdfWorkerBusyError) as exc:
+    except (SessionBusyError, PdfWorkerBusyError, OcrUnavailableError) as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
     except DocumentLimitError as exc:
         raise HTTPException(status_code=413, detail=str(exc)) from exc
     except EmptyDocumentError as exc:
         raise HTTPException(
             status_code=422,
-            detail=f"{exc}. Use fieldproof extract with the OCR extra for scanned PDFs.",
+            detail=(
+                f"{exc}. Choose OCR scanned pages for image-only PDFs; OCR needs "
+                "fieldproof[ocr], Tesseract and English language data on this server."
+                if text_mode == "native"
+                else f"{exc}. Check scan quality and English OCR data; no document was added."
+            ),
         ) from exc
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=f"could not read PDF: {exc}") from exc
@@ -137,9 +152,12 @@ async def restore_archive(request: Request, file: Annotated[UploadFile, File()])
         with store.reserve_upload(0) as token:
             content = await file.read(MAX_ARCHIVE_BYTES + 1)
             archived = await run_in_threadpool(decode_archive, content)
-            document = await run_in_threadpool(
-                load_server_pdf, archived.pdf_bytes, archived.filename
+            arguments = (
+                (archived.pdf_bytes, archived.filename)
+                if archived.text_mode == "native"
+                else (archived.pdf_bytes, archived.filename, archived.text_mode)
             )
+            document = await run_in_threadpool(load_server_pdf, *arguments)
             report = await run_in_threadpool(
                 verify_server_data, archived.schema_name, archived.extraction.data, document
             )
@@ -155,10 +173,11 @@ async def restore_archive(request: Request, file: Annotated[UploadFile, File()])
                 report=report,
                 review=archived.review,
                 restored_from_archive=True,
+                text_mode=archived.text_mode,
             )
     except StoreCapacityError as exc:
         raise HTTPException(status_code=409, detail=str(exc)) from exc
-    except (SessionBusyError, PdfWorkerBusyError) as exc:
+    except (SessionBusyError, PdfWorkerBusyError, OcrUnavailableError) as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
     except DocumentLimitError as exc:
         raise HTTPException(status_code=413, detail=str(exc)) from exc
@@ -209,6 +228,8 @@ def _document_summary(session: DocumentSession) -> dict[str, Any]:
             "field_count": len(session.review),
             "busy": store.is_busy(session.id),
             "restored_from_archive": session.restored_from_archive,
+            **({"text_mode": session.text_mode} if session.text_mode != "native" else {}),
+            **({"ocr": session.document.ocr.to_dict()} if session.document.ocr is not None else {}),
         }
 
 
@@ -354,6 +375,7 @@ def _result_payload(session: DocumentSession) -> dict[str, Any]:
             "model": session.extraction.model,
             "data": session.extraction.data.model_dump(mode="json"),
             "report": session.report.to_dict(),
+            **({"text_mode": session.text_mode} if session.text_mode != "native" else {}),
             "review": {
                 path: {"status": r.status, "edited_value": r.edited_value}
                 for path, r in session.review.items()
@@ -446,6 +468,18 @@ def _exported_rows(
             if scope == "reviewed" and review.status not in {"approved", "edited"}:
                 continue
             value = review.edited_value if review.edited_value is not None else f.value
+            provenance: dict[str, str] = {}
+            if session.text_mode != "native" or session.report.ocr is not None:
+                provenance["text_mode"] = session.text_mode
+                ocr = session.report.ocr
+                if f.page is None:
+                    provenance["text_source"] = "Unlocated evidence"
+                elif ocr and (ocr.processed_pages is None or f.page in ocr.processed_pages):
+                    provenance["text_source"] = (
+                        f"OCR: {ocr.engine} {ocr.version}; {ocr.language}; {ocr.render_dpi} dpi"
+                    )
+                else:
+                    provenance["text_source"] = "Native PDF text"
             rows.append(
                 {
                     "field": f.path,
@@ -457,6 +491,7 @@ def _exported_rows(
                     "verification_status": f.status.value,
                     "review_status": review.status,
                     "page": f.page,
+                    **provenance,
                 }
             )
         return rows
@@ -479,15 +514,7 @@ def export_csv(document_id: str, scope: Literal["all", "reviewed"] = "all") -> P
     buf = io.StringIO()
     writer = csv.DictWriter(
         buf,
-        fieldnames=[
-            "field",
-            "value",
-            "original_value",
-            "value_source",
-            "verification_status",
-            "review_status",
-            "page",
-        ],
+        fieldnames=list(export_columns(rows)),
     )
     writer.writeheader()
     writer.writerows(

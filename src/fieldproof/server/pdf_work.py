@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import json
+import os
+import signal
 import subprocess
 import sys
 import threading
+from contextlib import suppress
 from dataclasses import asdict
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -15,6 +18,8 @@ from pydantic import BaseModel
 from fieldproof.document.limits import DocumentLimitError
 from fieldproof.document.loader import EmptyDocumentError
 from fieldproof.document.model import Document, OcrProvenance, document_from_dict
+from fieldproof.document.ocr import OcrUnavailableError
+from fieldproof.server.text_sources import TextMode, text_mode
 from fieldproof.verify.columns import ColumnEvidenceCheck
 from fieldproof.verify.cross_field import CrossFieldCheck, CrossFieldIssue
 from fieldproof.verify.engine import FieldStatus, FieldVerification, VerificationReport
@@ -28,6 +33,30 @@ _worker_slots = threading.BoundedSemaphore(4)
 
 class PdfWorkerBusyError(RuntimeError):
     """Reject excess queued work rather than retaining an unbounded backlog."""
+
+
+def _stop_worker_tree(process: subprocess.Popen[bytes]) -> None:
+    """OCR spawns Tesseract; a timeout must stop the recognizer as well."""
+    if os.name == "posix":
+        with suppress(ProcessLookupError):
+            os.killpg(process.pid, signal.SIGKILL)
+    elif os.name == "nt":
+        try:
+            result = subprocess.run(
+                ["taskkill", "/PID", str(process.pid), "/T", "/F"],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                timeout=5,
+                check=False,
+            )
+            if result.returncode == 0:
+                return
+        except (OSError, subprocess.TimeoutExpired):
+            pass
+        with suppress(ProcessLookupError):
+            process.kill()
+    else:
+        process.kill()
 
 
 def _run_pdf_worker(pdf_bytes: bytes, action: str, argument: str) -> bytes:
@@ -53,8 +82,12 @@ def _execute_pdf_worker(pdf_bytes: bytes, action: str, argument: str) -> bytes:
         destination = Path(directory) / "output"
         source.write_bytes(pdf_bytes)
         with (Path(directory) / "error").open("w+b") as errors:
+            environment = dict(os.environ)
+            # Bound native recognizer/optional numerical-library threads inside
+            # this disposable process, without changing the API process's env.
+            environment.update(OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MKL_NUM_THREADS="1")
             try:
-                result = subprocess.run(
+                with subprocess.Popen(
                     [
                         sys.executable,
                         "-m",
@@ -66,21 +99,31 @@ def _execute_pdf_worker(pdf_bytes: bytes, action: str, argument: str) -> bytes:
                     ],
                     stdout=subprocess.DEVNULL,
                     stderr=errors,
-                    timeout=PDF_TIMEOUT_SECONDS,
-                    check=False,
-                )
+                    start_new_session=os.name == "posix",
+                    env=environment,
+                ) as process:
+                    try:
+                        returncode = process.wait(timeout=PDF_TIMEOUT_SECONDS)
+                    except subprocess.TimeoutExpired:
+                        _stop_worker_tree(process)
+                        process.wait()
+                        raise
+                    if returncode < 0:
+                        _stop_worker_tree(process)
             except subprocess.TimeoutExpired as exc:
                 raise DocumentLimitError(
                     f"PDF processing exceeded the {PDF_TIMEOUT_SECONDS}-second time limit"
                 ) from exc
-            if result.returncode != 0:
+            if returncode != 0:
                 errors.seek(0)
                 message = errors.read(1024).decode("utf-8", errors="replace").strip()
-                if result.returncode == 2:
+                if returncode == 2:
                     raise EmptyDocumentError(message)
-                if result.returncode == 3:
+                if returncode == 3:
                     raise DocumentLimitError(message)
-                if result.returncode < 0:
+                if returncode == 4:
+                    raise OcrUnavailableError(message)
+                if returncode < 0:
                     raise DocumentLimitError("PDF worker exceeded its resource budget")
                 raise ValueError(message or "could not process PDF")
         if not destination.is_file() or destination.stat().st_size > MAX_OUTPUT_BYTES:
@@ -88,8 +131,10 @@ def _execute_pdf_worker(pdf_bytes: bytes, action: str, argument: str) -> bytes:
         return destination.read_bytes()
 
 
-def load_server_pdf(pdf_bytes: bytes, filename: str) -> Document:
-    raw = json.loads(_run_pdf_worker(pdf_bytes, "load", filename))
+def load_server_pdf(pdf_bytes: bytes, filename: str, mode: TextMode = "native") -> Document:
+    mode = text_mode(mode)
+    action = "load" if mode == "native" else f"load-{mode}"
+    raw = json.loads(_run_pdf_worker(pdf_bytes, action, filename))
     return document_from_dict(raw)
 
 

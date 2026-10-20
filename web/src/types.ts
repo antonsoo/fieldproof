@@ -3,6 +3,18 @@
 // rather than generated, since the surface is small and stable.
 
 export type FieldStatus = "verified" | "needs_review" | "unsupported";
+export type TextMode = "native" | "ocr-missing" | "ocr-all";
+
+export interface OcrProvenance {
+  engine: string;
+  version: string;
+  language: string;
+  render_dpi: number;
+  page_count: number;
+  empty_pages: number[];
+  processed_pages?: number[];
+  note: string;
+}
 
 export interface Rect {
   x0: number;
@@ -40,6 +52,7 @@ export interface CrossFieldCheck {
 }
 
 export interface VerificationReport {
+  ocr?: OcrProvenance | null;
   fields: FieldVerification[];
   cross_field_issues: CrossFieldIssue[];
   /** Original extracted claims; does not incorporate subsequent human review edits. */
@@ -61,6 +74,9 @@ export interface DocumentPage {
 }
 
 export interface DocumentSummary {
+  text_mode?: TextMode;
+  ocr?: OcrProvenance | null;
+  source_credit?: string;
   id: string;
   filename: string;
   page_count: number;
@@ -84,6 +100,7 @@ export interface SessionList {
 }
 
 export interface ExtractionResult {
+  text_mode?: TextMode;
   schema: string;
   provider: string;
   model: string | null;

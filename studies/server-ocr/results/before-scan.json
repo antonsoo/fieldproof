@@ -1,0 +1,9 @@
+{
+  "sourceHead": "37084b8b399b183f6bc4a66f32573f319f0737a6",
+  "sourceArchiveVerified": true,
+  "pdfSha256": "c736ce14293ed0b5951553f9888eeb84e4c0f6b8da6c2bc339b283e662d273be",
+  "status": 422,
+  "body": {
+    "detail": "PDF has no extractable text; this review server needs a PDF text layer. Use fieldproof extract with the OCR extra for scanned PDFs."
+  }
+}

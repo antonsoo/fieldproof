@@ -1,0 +1,29 @@
+{
+  "schema": "invoice",
+  "data": {
+    "vendor_name": {
+      "value": "Source Lab",
+      "evidence": [
+        "Vendor: Source Lab"
+      ]
+    },
+    "invoice_number": {
+      "value": "MIX-001",
+      "evidence": [
+        "Invoice: MIX-001"
+      ]
+    },
+    "issue_date": {
+      "value": "2026-10-20",
+      "evidence": [
+        "Issued: 2026-10-20"
+      ]
+    },
+    "total": {
+      "value": 100,
+      "evidence": [
+        "Total: $100.00"
+      ]
+    }
+  }
+}

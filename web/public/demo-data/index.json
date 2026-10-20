@@ -18,5 +18,9 @@
   {
     "id": "hidden-text",
     "label": "Hidden text"
+  },
+  {
+    "id": "cord-ocr",
+    "label": "Scanned CORD receipt"
   }
 ]

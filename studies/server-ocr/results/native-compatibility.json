@@ -1,0 +1,52 @@
+{
+  "baseline": "37084b8b399b183f6bc4a66f32573f319f0737a6",
+  "nativeApiIdentical": {
+    "extraction.json": "c4e0c1421a9c13ac9a42c87e2e0303d0a441ce67f741cbc6c9afff3115880af1",
+    "all.json": "93f6853d1d87417f0e593c8d3fa81520954740b764c2e11cd25312be933a4d16",
+    "all.csv": "62083e388903fba2390cd667b5b88d51fd4d2b513e84ead29d82a0b54ba4fae4",
+    "all.xlsx": "40ccf02a0107725710a636d60c727dd523b38fe30819e734326b9a970bd2e27b",
+    "reviewed.json": "5b577bdabd931912efd9c9261447afff3cef9d30bf248d41d42d0869c8a7a081",
+    "reviewed.csv": "1d53c217a14b09f7fe036b432ba6ee0b04f360c440655603a83043dfe71fba8f",
+    "reviewed.xlsx": "3f15ac9ac4b664a60bf2d71b975569efa60f6635c001f1ecd85e6c9cfcb239ed",
+    "review.zip": "9109ba13db3c1be58eedd75779f14f07b63fc448a91921fdd0e374262c447883"
+  },
+  "browser": {
+    "baseline": "37084b8b399b183f6bc4a66f32573f319f0737a6",
+    "scopes": {
+      "all": {
+        "json": {
+          "identical": true,
+          "sha256": "0be0fde3d2262e2f12c045a2916aee9d256bc385195025a455ef8f6af4dd777b",
+          "bytes": 4349
+        },
+        "csv": {
+          "identical": true,
+          "sha256": "a03c081398525e92d8f67224c47dcbf5314cd87f06b344e90757df2a4e47442c",
+          "bytes": 1834
+        },
+        "xlsx": {
+          "identical": true,
+          "sha256": "2cc1c34ed0c729ee9d54124ba46ec806448f973ab4ea466cb38f291b99676a69",
+          "bytes": 2959
+        }
+      },
+      "reviewed": {
+        "json": {
+          "identical": true,
+          "sha256": "a250dc9ba5700c8f13b2e1afb22146fb2809020efa4b9fc4eedbb95ff3b6da9a",
+          "bytes": 155
+        },
+        "csv": {
+          "identical": true,
+          "sha256": "0ada0e48bf4fd6cc69fe525281bf726cc3142bdd78f915a15b128852a6c22f70",
+          "bytes": 132
+        },
+        "xlsx": {
+          "identical": true,
+          "sha256": "aa7c02390b92f76a8a68af2c721a18630b396233b121fa85fbf4f86eb786fbd9",
+          "bytes": 1883
+        }
+      }
+    }
+  }
+}

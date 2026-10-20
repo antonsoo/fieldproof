@@ -1,0 +1,41 @@
+{
+  "schema": "receipt",
+  "data": {
+    "merchant_name": {
+      "value": "",
+      "evidence": []
+    },
+    "transaction_date": {
+      "value": "",
+      "evidence": []
+    },
+    "items": [
+      {
+        "description": {
+          "value": "-TICKET CP",
+          "evidence": [
+            "-TICKET CP"
+          ]
+        },
+        "quantity": {
+          "value": 2,
+          "evidence": [
+            "2"
+          ]
+        },
+        "amount": {
+          "value": 60000,
+          "evidence": [
+            "60.000"
+          ]
+        }
+      }
+    ],
+    "total": {
+      "value": 60000,
+      "evidence": [
+        "TOTAL (Qty 2.00) 60.000"
+      ]
+    }
+  }
+}

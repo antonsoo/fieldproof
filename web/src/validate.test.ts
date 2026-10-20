@@ -70,3 +70,23 @@ it.each([
 ])("rejects malformed or duplicated session metadata %#", (value) => {
   expect(() => validateSessions(value)).toThrow();
 });
+
+it("preserves real OCR source metadata and rejects missing or conflicting provenance", async () => {
+  const { default: cord } = await import("../public/demo-data/cord-ocr/data.json");
+  const document = validateDocument(cord.document);
+  expect(validateExtraction(cord.extraction, document).report.ocr).toEqual(cord.document.ocr);
+  for (const change of [
+    { text_mode: "native" },
+    { ocr: { ...cord.document.ocr, processed_pages: [] } },
+    { ocr: { ...cord.document.ocr, processed_pages: [2] } },
+    { ocr: { ...cord.document.ocr, empty_pages: [2] } },
+  ])
+    expect(() => validateDocument({ ...cord.document, ...change })).toThrow();
+  for (const change of [
+    { text_mode: undefined },
+    { text_mode: "ocr-missing" },
+    { report: { ...cord.extraction.report, ocr: undefined } },
+    { report: { ...cord.extraction.report, ocr: { ...cord.document.ocr, version: "changed" } } },
+  ])
+    expect(() => validateExtraction({ ...cord.extraction, ...change }, document)).toThrow();
+});

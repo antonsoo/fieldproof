@@ -17,11 +17,15 @@ Human corrections retain the original extraction and automated verdict.
 ## Try the review workflow
 
 The **[live demo](https://antonsoo.github.io/fieldproof/)** contains five authored
-sample documents with deliberately planted extraction errors. Choose
+document controls with deliberate review cases and a credited CORD receipt
+photograph with authored extraction claims. Choose
 [Arithmetic](https://antonsoo.github.io/fieldproof/#line-arithmetic) to inspect
 `3 x 19.95` against a printed `39.90`, or
 [Hidden text](https://antonsoo.github.io/fieldproof/#hidden-text) to compare an
 image printing `$90.00` with a native text layer claiming `$900.00`.
+[Scanned CORD receipt](https://antonsoo.github.io/fieldproof/#cord-ocr) shows
+local Tesseract output on a real receipt whose header was already redacted.
+The empty merchant and date claims stay unsupported.
 
 Inspect a field, approve, edit or reject it, then download JSON, CSV or XLSX.
 The demo uses precomputed Python reports and page images. It does not upload
@@ -68,6 +72,38 @@ uv run fieldproof extract examples/invoice.pdf --schema invoice --provider fixtu
 uv run fieldproof verify result.json examples/invoice.pdf
 ```
 
+## Review a scanned PDF locally
+
+Install Tesseract and its English language data on the machine running the
+server, then enable the Python extra with `uv sync --locked --extra ocr`.
+Build the UI and start the server as in Quickstart. Before uploading, choose
+**Text source**:
+
+| Choice | Evidence used | Page limit |
+| --- | --- | --- |
+| Native PDF text | Existing native words; no OCR | 64 |
+| OCR scanned pages | Native words on text pages; OCR on pages without native words | 8 |
+| OCR every page | OCR of rendered pages, replacing native word evidence | 8 |
+
+For a no-key example, upload
+[`cord-test-0000.pdf`](examples/recorded/cord/cord-test-0000.pdf), choose OCR
+scanned pages and the receipt schema, then load its
+[`fixture.json`](examples/recorded/cord/fixture.json). The photograph is from
+NAVER CLOVA's CORD dataset, CC BY 4.0; the wrapper preserves every RGB pixel.
+The extraction claims are authored, and this example measures no model accuracy.
+
+The review identifies each page's word source and the recognizer version.
+**Verified on an OCR page means supported by recognized text**; compare the
+page image for recognition errors. Missing-page OCR keeps an existing text
+layer, even if that layer is incomplete or wrong. All-page OCR can read visible
+saved form values, and can misread text that native extraction read correctly.
+
+OCR exports add `text_mode` and `text_source` to JSON, CSV and XLSX, while keeping
+original values, automated verdicts and human corrections. A review archive
+remembers the source choice and reruns OCR on restore; the restoring machine
+also needs the OCR tools. Native exports and version-1 archives retain their
+existing format. See the [real receipt, mixed-page and saved-form replay](studies/server-ocr/README.md).
+
 ## What a verdict means
 
 | Automated verdict | Meaning |
@@ -108,8 +144,9 @@ See [review decisions, spreadsheet types and archive recovery](docs/usage.md#rev
   sessions when new work cannot be accepted.
 
 Built-in schemas cover invoices, receipts and contract terms. Providers include
-Anthropic and stored fixtures. Optional Tesseract OCR is available to the CLI
-and library; the review server currently requires a native text layer.
+Anthropic and stored fixtures. Optional Tesseract OCR is available to the CLI, library and current local
+review server. The hosted demo uses precomputed reports; processing your own
+PDF requires the local server.
 
 ### Bring your own schema
 

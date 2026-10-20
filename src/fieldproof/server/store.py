@@ -19,6 +19,8 @@ from typing import Any
 
 from fieldproof.document.model import Document
 from fieldproof.extract.base import ExtractionResult
+from fieldproof.server.text_sources import TextMode
+from fieldproof.server.text_sources import text_mode as validate_text_mode
 from fieldproof.verify.engine import VerificationReport
 
 
@@ -40,6 +42,7 @@ class DocumentSession:
     review: dict[str, ReviewState] = field(default_factory=dict)
     restored_from_archive: bool = False
     review_lock: Any = field(default_factory=threading.RLock, repr=False, compare=False)
+    text_mode: TextMode = "native"
 
 
 class StoreCapacityError(ValueError):
@@ -108,7 +111,13 @@ class DocumentStore:
         report: VerificationReport | None = None,
         review: dict[str, ReviewState] | None = None,
         restored_from_archive: bool = False,
+        text_mode: TextMode = "native",
     ) -> DocumentSession:
+        text_mode = validate_text_mode(text_mode)
+        if document.ocr is not None and text_mode == "native":
+            raise ValueError("An OCR document needs its explicit OCR text-source choice")
+        if text_mode == "ocr-all" and document.ocr is None:
+            raise ValueError("All-page OCR must retain recognition provenance")
         with self._lock:
             self._check_capacity(len(pdf_bytes), reservation=reservation)
             words = sum(len(page.words) for page in document.pages)
@@ -127,6 +136,7 @@ class DocumentStore:
                 filename=filename,
                 pdf_bytes=pdf_bytes,
                 document=document,
+                text_mode=text_mode,
                 schema_name=schema_name,
                 extraction=extraction,
                 report=report,

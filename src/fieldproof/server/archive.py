@@ -21,6 +21,7 @@ from fieldproof.extract.base import ExtractionError, ExtractionResult, validate_
 from fieldproof.schemas import BUILTIN_SCHEMAS, iter_evidenced_fields
 from fieldproof.server.body_limit import MAX_ARCHIVE_BYTES, MAX_FIXTURE_BYTES, MAX_PDF_BYTES
 from fieldproof.server.store import DocumentSession, ReviewState
+from fieldproof.server.text_sources import TextMode, text_mode
 
 MEMBER_LIMITS = {
     "manifest.json": 8 * 1024,
@@ -126,6 +127,7 @@ class ArchivedReview:
     schema_name: str
     extraction: ExtractionResult
     review: dict[str, ReviewState]
+    text_mode: TextMode = "native"
 
 
 def encode_archive(session: DocumentSession) -> bytes:
@@ -145,7 +147,7 @@ def encode_archive(session: DocumentSession) -> bytes:
     members["manifest.json"] = _json_bytes(
         {
             "format": "fieldproof-review",
-            "version": 1,
+            "version": 1 if session.text_mode == "native" else 2,
             "producer_version": __version__,
             "filename": session.filename,
             "schema": session.schema_name,
@@ -154,6 +156,11 @@ def encode_archive(session: DocumentSession) -> bytes:
             "sha256": {
                 name: hashlib.sha256(content).hexdigest() for name, content in members.items()
             },
+            **(
+                {"processing": {"text_mode": session.text_mode}}
+                if session.text_mode != "native"
+                else {}
+            ),
         }
     )
     for name, content in members.items():
@@ -218,10 +225,18 @@ def decode_archive(content: bytes) -> ArchivedReview:
         "model",
         "sha256",
     }
+    version = manifest.get("version")
+    if type(version) is not int or version not in (1, 2):
+        raise ValueError("Unsupported review archive version")
+    mode: TextMode = "native"
+    if version == 2:
+        processing = manifest.get("processing")
+        if not isinstance(processing, dict) or processing.keys() != {"text_mode"}:
+            raise ValueError("Archive version 2 requires a text-source processing configuration")
+        mode = text_mode(processing["text_mode"])
+        expected.add("processing")
     if manifest.keys() != expected or manifest.get("format") != "fieldproof-review":
         raise ValueError("Not a supported Fieldproof review manifest")
-    if type(manifest["version"]) is not int or manifest["version"] != 1:
-        raise ValueError("Unsupported review archive version")
     digests = manifest["sha256"]
     if not isinstance(digests, dict) or digests.keys() != MEMBER_LIMITS.keys() - {"manifest.json"}:
         raise ValueError("Archive manifest must identify all three content members")
@@ -259,4 +274,4 @@ def decode_archive(content: bytes) -> ArchivedReview:
         model=model,
     )
     review = validate_review(_read_json(members["review.json"]), extraction)
-    return ArchivedReview(filename, members["document.pdf"], schema_name, extraction, review)
+    return ArchivedReview(filename, members["document.pdf"], schema_name, extraction, review, mode)

@@ -66,7 +66,7 @@ sessions are not replaced or evicted. Reopening the same archive twice creates
 two independent sessions. A cancelled request or lost connection can race with
 completion; check **Sessions** before retrying to avoid duplicate copies.
 
-## Version 1 format
+## Versions 1 and 2
 
 A normal ZIP with exactly four files. Saving uses stored entries, so a saved
 archive can be inspected with ordinary ZIP tools. Stored and deflated entries
@@ -79,7 +79,24 @@ are accepted when opening; encryption and other compression methods are not.
 | `extraction.json` | Original validated schema data, including values, quotes and claimed pages | 2 MiB |
 | `review.json` | Every field path mapped to `{status, edited_value}` | 2 MiB |
 
-`format` is `fieldproof-review` and `version` is the integer `1`.
+`format` is `fieldproof-review`. Native-text sessions continue to save the
+integer `version: 1`, with the existing member layout unchanged. Sessions
+uploaded with either OCR choice save `version: 2` and add this manifest member:
+
+```json
+"processing": {"text_mode": "ocr-missing"}
+```
+
+`text_mode` is one of `native`, `ocr-missing` or `ocr-all`. The writer uses version
+1 for native sessions. The reader rejects unknown modes, missing processing
+configuration in version 2, and extra configuration keys. Older Fieldproof
+versions cannot open version-2 archives.
+
+Opening uses the saved source mode, then recomputes grounding and verification.
+OCR is run again; the file does not cache recognized words or OCR verdicts.
+The restoring server needs the optional Python OCR dependencies, Tesseract and
+English data. Recognition may differ between engine versions. A missing engine,
+no recognized words, or an OCR resource limit leaves existing sessions intact.
 `producer_version` is informational: unreleased source revisions may share a
 package version. It is not a Git revision or a verifier compatibility promise.
 Member hashes catch corruption or accidentally mixed files. They are unsigned

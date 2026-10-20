@@ -258,18 +258,24 @@ def test_huge_page_refused_before_rendering():
 def test_worker_timeout_cleans_up_and_is_recoverable(simple_invoice_pdf_bytes, monkeypatch):
     from fieldproof.server import pdf_work
 
-    original = pdf_work.subprocess.run
+    original = pdf_work.subprocess.Popen
     paths = []
+    processes = []
 
-    def timeout(command, **kwargs):
+    def delayed(command, **kwargs):
         paths.append(Path(command[5]))
-        raise subprocess.TimeoutExpired(command, 30)
+        process = original([sys.executable, "-c", "import time; time.sleep(10)"], **kwargs)
+        processes.append(process)
+        return process
 
-    monkeypatch.setattr(pdf_work.subprocess, "run", timeout)
+    monkeypatch.setattr(pdf_work.subprocess, "Popen", delayed)
+    monkeypatch.setattr(pdf_work, "PDF_TIMEOUT_SECONDS", 0.1)
     with pytest.raises(DocumentLimitError, match="time limit"):
         load_server_pdf(simple_invoice_pdf_bytes, "invoice.pdf")
     assert all(not path.exists() for path in paths)
-    monkeypatch.setattr(pdf_work.subprocess, "run", original)
+    assert all(process.poll() is not None for process in processes)
+    monkeypatch.setattr(pdf_work.subprocess, "Popen", original)
+    monkeypatch.setattr(pdf_work, "PDF_TIMEOUT_SECONDS", 30)
     assert load_server_pdf(simple_invoice_pdf_bytes, "invoice.pdf").page_count == 1
 
 
@@ -454,14 +460,43 @@ def test_killed_worker_releases_queue_and_next_real_document_loads(
 ):
     from fieldproof.server import pdf_work
 
-    original = pdf_work.subprocess.run
+    original = pdf_work.subprocess.Popen
 
     def terminated(command, **kwargs):
         script = "import resource; resource.setrlimit(resource.RLIMIT_CPU,(1,1))\nwhile True: pass"
         return original([sys.executable, "-c", script], **kwargs)
 
-    monkeypatch.setattr(pdf_work.subprocess, "run", terminated)
+    monkeypatch.setattr(pdf_work.subprocess, "Popen", terminated)
     with pytest.raises(DocumentLimitError, match="resource budget"):
         load_server_pdf(simple_invoice_pdf_bytes, "invoice.pdf")
-    monkeypatch.setattr(pdf_work.subprocess, "run", original)
+    monkeypatch.setattr(pdf_work.subprocess, "Popen", original)
+    assert load_server_pdf(simple_invoice_pdf_bytes, "invoice.pdf").page_count == 1
+
+
+@pytest.mark.skipif(sys.platform != "linux", reason="Linux process-group and /proc observation")
+def test_timeout_stops_the_recognizer_descendant(simple_invoice_pdf_bytes, monkeypatch, tmp_path):
+    from fieldproof.server import pdf_work
+
+    original = pdf_work.subprocess.Popen
+    pid_file = tmp_path / "recognizer.pid"
+    script = (
+        "import subprocess,sys,time,pathlib\n"
+        "child=subprocess.Popen([sys.executable,'-c','import time;time.sleep(60)'])\n"
+        "pathlib.Path(sys.argv[1]).write_text(str(child.pid))\n"
+        "time.sleep(60)\n"
+    )
+
+    def with_recognizer(command, **kwargs):
+        return original([sys.executable, "-c", script, str(pid_file)], **kwargs)
+
+    monkeypatch.setattr(pdf_work.subprocess, "Popen", with_recognizer)
+    monkeypatch.setattr(pdf_work, "PDF_TIMEOUT_SECONDS", 1)
+    with pytest.raises(DocumentLimitError, match="time limit"):
+        load_server_pdf(simple_invoice_pdf_bytes, "invoice.pdf", "ocr-all")
+    child_pid = int(pid_file.read_text())
+    status = Path(f"/proc/{child_pid}/stat")
+    # A killed descendant may briefly await PID 1's reap; it must not be running.
+    assert not status.exists() or status.read_text().split(") ", 1)[1].startswith("Z ")
+    monkeypatch.setattr(pdf_work.subprocess, "Popen", original)
+    monkeypatch.setattr(pdf_work, "PDF_TIMEOUT_SECONDS", 30)
     assert load_server_pdf(simple_invoice_pdf_bytes, "invoice.pdf").page_count == 1

@@ -1,0 +1,15 @@
+{
+  "oldSource": "37084b8b399b183f6bc4a66f32573f319f0737a6",
+  "results": [
+    {
+      "browser": "chromium",
+      "error": "The server did not honor the selected text source. Update the Fieldproof server or choose Native PDF text.",
+      "reviewOpened": false
+    },
+    {
+      "browser": "firefox",
+      "error": "The server did not honor the selected text source. Update the Fieldproof server or choose Native PDF text.",
+      "reviewOpened": false
+    }
+  ]
+}

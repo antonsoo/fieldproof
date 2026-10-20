@@ -1,0 +1,31 @@
+{
+  "dataset": {
+    "repo": "naver-clova-ix/cord-v2",
+    "revision": "7f0115a4b758a71d6473b8d085751692da2fef98",
+    "license": "CC BY 4.0 (dataset card metadata)"
+  },
+  "parquet": {
+    "name": "test-00000-of-00001-9c204eb3f4e11791.parquet",
+    "dataset": "cord-v2",
+    "role": "heldout",
+    "url": "https://huggingface.co/datasets/naver-clova-ix/cord-v2/resolve/7f0115a4b758a71d6473b8d085751692da2fef98/data/test-00000-of-00001-9c204eb3f4e11791.parquet",
+    "bytes": 234202795,
+    "sha256": "51c65f1788faff392abe2a0b55b023eb23e9be551c509138eaa3a832514224e7"
+  },
+  "row": 0,
+  "split": "test",
+  "imageFile": "cord-test-0000.png",
+  "imageBytes": 338392,
+  "imageSha256": "8612d04b70f430f3aef07fbbd5200e382dcc4152b344cc2eff9f735f05a257c8",
+  "imageFormat": "PNG",
+  "dimensions": [
+    432,
+    648
+  ],
+  "pyarrow": "26.0.0",
+  "pdfBytes": 405148,
+  "pdfSha256": "c736ce14293ed0b5951553f9888eeb84e4c0f6b8da6c2bc339b283e662d273be",
+  "imagePixelRgbSha256": "c6ba10b6f77108056c70a584b7680b24def459196de2482321dfbb7fb26767a8",
+  "pdfEmbeddedPixelsMatchOriginal": true,
+  "reportlab": "5.0.1"
+}

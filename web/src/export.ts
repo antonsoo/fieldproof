@@ -9,6 +9,24 @@ export interface ExportRow {
   verification_status: string;
   review_status: string;
   page: number | null;
+  text_mode?: string;
+  text_source?: string;
+}
+
+const baseColumns = [
+  "field",
+  "value",
+  "original_value",
+  "value_source",
+  "verification_status",
+  "review_status",
+  "page",
+] as const;
+export function exportColumns(rows: ExportRow[]): (keyof ExportRow)[] {
+  return [
+    ...baseColumns,
+    ...(["text_mode", "text_source"] as const).filter((key) => rows.some((r) => r[key] !== undefined)),
+  ];
 }
 
 /** Mirrors fieldproof.server.app._exported_rows. Human corrections retain
@@ -31,19 +49,34 @@ export function computeExportRows(
       verification_status: field.status,
       review_status: review.status,
       page: field.page,
+      ...((extraction.text_mode && extraction.text_mode !== "native") || extraction.report.ocr
+        ? {
+            ...(extraction.text_mode ? { text_mode: extraction.text_mode } : {}),
+            text_source:
+              field.page === null
+                ? "Unlocated evidence"
+                : extraction.report.ocr &&
+                    (extraction.report.ocr.processed_pages === undefined ||
+                      extraction.report.ocr.processed_pages.includes(field.page))
+                  ? `OCR: ${extraction.report.ocr.engine} ${extraction.report.ocr.version}; ${extraction.report.ocr.language}; ${extraction.report.ocr.render_dpi} dpi`
+                  : "Native PDF text",
+          }
+        : {}),
     });
   }
   return rows;
 }
 
 export function rowsToCsv(rows: ExportRow[]): string {
-  const header = "field,value,original_value,value_source,verification_status,review_status,page";
+  const columns = exportColumns(rows);
+  const header = columns.join(",");
   const escape = (v: unknown): string => {
     const s = v === null || v === undefined ? "" : String(v);
     return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
   const lines = rows.map((r) =>
-    [r.field, r.value, r.original_value, r.value_source, r.verification_status, r.review_status, r.page]
+    columns
+      .map((key) => r[key])
       .map(escape)
       .join(","),
   );

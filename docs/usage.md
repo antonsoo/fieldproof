@@ -195,6 +195,23 @@ text, extraction and decisions; export anything you need first. Sessions
 remain in memory until removal or server restart. They are not a durable
 archive. An open correction must be saved or cancelled before navigating away.
 
+**OCR in the local UI (source checkout, unreleased).** Enable the `ocr` extra
+and install Tesseract plus English language data on the server. Choose Text
+source before uploading: Native PDF text, OCR scanned pages, or OCR every page.
+Scanned-page mode only replaces pages without native words; all-page mode
+replaces every page's word evidence with OCR of its rendered image. Both OCR
+choices limit the whole document to 8 pages. A missing engine returns an error
+without adding a session; choosing OCR is never silently replaced by native text.
+
+The source notice appears before extraction and during review. Mixed documents
+identify whether the current page uses native or OCR words. OCR verdicts apply
+to recognized text, so inspect the image as well. JSON, CSV and XLSX exports
+from either OCR choice add `text_mode` and `text_source`; each row states OCR
+engine/version/language/render resolution, Native PDF text, or Unlocated evidence.
+These describe the original evidence even after a human correction. Native
+exports keep the original seven columns. The hosted CORD example is precomputed;
+it cannot recognize a new upload in the static demo.
+
 **Save archive** (source checkout, unreleased) downloads the PDF, original
 extracted claims and **all** saved decisions, including pending and rejected
 fields. After restarting `fieldproof serve`, choose **Open review archive**
@@ -202,7 +219,9 @@ on the upload screen to continue. No model call or API key is needed.
 The archive is separate from the Reviewed/All value-export scope.
 
 Opening an archive creates a new session and reruns grounding and verification
-on the original claims. Human corrections stay separate. Automated verdicts
+on the original claims, using the saved text-source choice. OCR archives rerun
+recognition and need the OCR tools on the restoring server. Human corrections
+stay separate. Automated verdicts
 can change with a different verifier version; the old report is not archived.
 This is an explicit save, not autosave: changes after downloading are not in
 that file. The ZIP includes the document's full contents, is unencrypted and
@@ -214,7 +233,7 @@ document and review. It never evicts a session to make room.
 
 | Resource | Local server limit |
 | --- | --- |
-| Uploaded PDF | 25 MiB; 64 pages; a text layer is required |
+| Uploaded PDF | 25 MiB; native text: 64 pages; either OCR mode: 8 pages |
 | Rendered page | 16 million pixels at 144 DPI |
 | Extracted document text | 100,000 words and 2 million characters |
 | Retained sessions | 8 documents; 100 MiB of PDFs; 200,000 words total |
@@ -229,7 +248,7 @@ CPU time, and a 64 MiB output-file limit. Windows receives the timeout and
 application limits without the Unix process resource limits. These budgets
 contain PDF processing and verification; they do not measure extraction accuracy or guarantee
 that every valid PDF will fit. Scanned PDFs can be processed through the
-CLI's OCR fallback; the review server currently requires a text layer.
+CLI's OCR fallback or the review server's explicit Text source choice.
 
 API clients can list sessions with `GET /api/documents`, reopen metadata and
 the saved report with the existing document/report routes, and remove one

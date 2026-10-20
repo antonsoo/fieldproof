@@ -9,6 +9,46 @@ function finite(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value);
 }
 
+function validateTextSource(value: Record<string, unknown>, pageCount: number): void {
+  if (
+    value.text_mode !== undefined &&
+    !["native", "ocr-missing", "ocr-all"].includes(value.text_mode as string)
+  )
+    throw new Error("Invalid document text source.");
+  const ocr = value.ocr;
+  if (value.text_mode === "native" && ocr) throw new Error("Native text mode conflicts with OCR provenance.");
+  if (value.text_mode === "ocr-all" && !ocr) throw new Error("All-page OCR has no recognition provenance.");
+  if (ocr === undefined || ocr === null) return;
+  const pageList = (pages: unknown): pages is number[] =>
+    Array.isArray(pages) &&
+    pages.length <= pageCount &&
+    new Set(pages).size === pages.length &&
+    pages.every((p) => Number.isSafeInteger(p) && p >= 1 && p <= pageCount);
+  if (
+    !object(ocr) ||
+    ocr.page_count !== pageCount ||
+    ![ocr.engine, ocr.version, ocr.language].every(
+      (s) => typeof s === "string" && s.length > 0 && s.length <= 128,
+    ) ||
+    typeof ocr.note !== "string" ||
+    ocr.note.length > 2000 ||
+    !Number.isSafeInteger(ocr.render_dpi) ||
+    (ocr.render_dpi as number) < 1 ||
+    (ocr.render_dpi as number) > 1200 ||
+    !pageList(ocr.empty_pages) ||
+    (ocr.processed_pages !== undefined && !pageList(ocr.processed_pages))
+  )
+    throw new Error("Invalid OCR provenance.");
+  if (
+    Array.isArray(ocr.processed_pages) &&
+    (ocr.processed_pages.length === 0 ||
+      (value.text_mode === "ocr-all" && ocr.processed_pages.length !== pageCount))
+  )
+    throw new Error("OCR page coverage conflicts with its source mode.");
+  if (ocr.processed_pages && ocr.empty_pages.some((p) => !(ocr.processed_pages as number[]).includes(p)))
+    throw new Error("Empty OCR pages were not processed.");
+}
+
 export function validateSessions(value: unknown): SessionList {
   if (
     !object(value) ||
@@ -62,6 +102,12 @@ export function validateDocument(value: unknown): DocumentSummary {
     throw new Error("Invalid document summary.");
   }
   const seen = new Set<number>();
+  validateTextSource(value, value.page_count as number);
+  if (
+    value.source_credit !== undefined &&
+    (typeof value.source_credit !== "string" || value.source_credit.length > 500)
+  )
+    throw new Error("Invalid document attribution.");
   for (const page of value.pages) {
     if (
       !object(page) ||
@@ -93,6 +139,22 @@ export function validateExtraction(value: unknown, document: DocumentSummary): E
     throw new Error("Invalid extraction report.");
   }
   const paths = new Set<string>();
+  validateTextSource({ ...value.report, text_mode: value.text_mode }, document.page_count);
+  if (document.ocr && object(value.report.ocr)) {
+    const observed = value.report.ocr;
+    for (const key of ["engine", "version", "language", "render_dpi", "page_count"] as const)
+      if (document.ocr[key] !== observed[key])
+        throw new Error("Report OCR provenance differs from the loaded document.");
+    for (const key of ["processed_pages", "empty_pages"] as const)
+      if (JSON.stringify(document.ocr[key]) !== JSON.stringify(observed[key]))
+        throw new Error("Report OCR pages differ from the loaded document.");
+  }
+  if (document.ocr && !value.report.ocr)
+    throw new Error("OCR document report lost its recognition provenance.");
+  if (document.text_mode && document.text_mode !== "native" && document.text_mode !== value.text_mode)
+    throw new Error("Report text source differs from the loaded document.");
+  if (!document.ocr && value.report.ocr)
+    throw new Error("Report OCR provenance is absent from the loaded document.");
   const counts = { verified: 0, needs_review: 0, unsupported: 0 };
   for (const field of value.report.fields) {
     if (

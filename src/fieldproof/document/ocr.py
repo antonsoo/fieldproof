@@ -43,6 +43,10 @@ _HAS_OCR_PACKAGES = (
 )
 
 
+class OcrUnavailableError(RuntimeError):
+    """The optional recognizer is not installed or cannot be started."""
+
+
 def is_available() -> bool:
     """True only if both the `pytesseract` package is importable and the
     Tesseract binary itself can be found on PATH."""
@@ -206,7 +210,7 @@ def _validate_options(language: str, timeout: float) -> None:
 
 def _require_engine() -> None:
     if not is_available():
-        raise RuntimeError(
+        raise OcrUnavailableError(
             "OCR is not available: install the 'ocr' extra (pytesseract, Pillow) "
             "and the Tesseract binary (e.g. `apt install tesseract-ocr`)."
         )
