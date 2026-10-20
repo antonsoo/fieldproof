@@ -1,0 +1,64 @@
+{
+  "runtimeSourceHead": "24ad5c3502b9c6bbcfe63ac55034690fa5712bfc",
+  "checks": {
+    "pythonTests": {
+      "passed": 858,
+      "seconds": 238.13
+    },
+    "ruff": "passed",
+    "mypy": {
+      "passed": true,
+      "sourceFiles": 43
+    },
+    "webUnitTests": {
+      "passed": 71
+    },
+    "typecheck": "passed",
+    "eslint": "passed",
+    "prettier": "passed"
+  },
+  "browserMatrix": {
+    "total": 110,
+    "fullRunPassed": 109,
+    "fullRunFailed": 1,
+    "fullRunSeconds": 510,
+    "failure": "The cancelled-upload case reached its five-second assertion while the replacement upload was still pending.",
+    "originalCaseFocusedRepeats": {
+      "chromium": 3,
+      "firefox": 3,
+      "passed": 6
+    },
+    "strengthenedCase": {
+      "holdsRealHttp200Response": true,
+      "originalBinaryMultipartExplicit": true,
+      "waitsForFirstUploadBeforeCancel": true,
+      "replacementUploadWaitSeconds": 30,
+      "chromiumPassed": 3,
+      "firefoxPassed": 3,
+      "failed": 0
+    },
+    "singleFullRunWithAll110Passing": false
+  },
+  "functionalWorkflows": {
+    "source": {
+      "scenarios": 20,
+      "downloads": 120,
+      "archiveRestores": 20
+    },
+    "installed": {
+      "scenarios": 20,
+      "downloads": 120,
+      "archiveRestores": 20
+    },
+    "staticLocal": {
+      "scenarios": 4,
+      "downloads": 24
+    },
+    "staticPublic": {
+      "scenarios": 4,
+      "downloads": 24
+    }
+  },
+  "ciRunEstablished": false,
+  "registryReleaseCreated": false
+}

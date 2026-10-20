@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "node": "v26.7.0",
+  "requestTimeoutMs": 10000,
+  "retryWindowMs": 240000,
+  "pollIntervalMs": 5000,
+  "concurrency": 6,
+  "baseURL": "https://antonsoo.github.io/fieldproof/",
+  "state": "verified",
+  "attempts": 1,
+  "startedAtUtc": "2026-10-20T10:07:13.102Z",
+  "checkedAtUtc": "2026-10-20T10:07:14.218Z",
+  "buildManifestSha256": "28c156b68d328b1ec7650603974331ae1631115dba0b9ba67fb9606d709a64fa",
+  "expectedFileCount": 40,
+  "checkedFileCount": 40,
+  "verifiedFileCount": 40,
+  "rootBefore": {
+    "path": "index.html",
+    "bytes": 2907,
+    "sha256": "200d58a8fe90554e7b60f5f9e42dc811303c0a1bcbb6a14feed494f83ab28f27",
+    "url": "https://antonsoo.github.io/fieldproof/",
+    "httpStatus": 200,
+    "observedBytes": 2907,
+    "observedSha256": "200d58a8fe90554e7b60f5f9e42dc811303c0a1bcbb6a14feed494f83ab28f27",
+    "state": "verified"
+  },
+  "rootAfter": {
+    "path": "index.html",
+    "bytes": 2907,
+    "sha256": "200d58a8fe90554e7b60f5f9e42dc811303c0a1bcbb6a14feed494f83ab28f27",
+    "url": "https://antonsoo.github.io/fieldproof/",
+    "httpStatus": 200,
+    "observedBytes": 2907,
+    "observedSha256": "200d58a8fe90554e7b60f5f9e42dc811303c0a1bcbb6a14feed494f83ab28f27",
+    "state": "verified"
+  },
+  "files": [
+    {
+      "path": "assets/fraunces-latin-DihXLNYH.woff2",
+      "bytes": 67304,
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783",
+      "url": "https://antonsoo.github.io/fieldproof/assets/fraunces-latin-DihXLNYH.woff2",
+      "httpStatus": 200,
+      "observedBytes": 67304,
+      "observedSha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783",
+      "state": "verified"
+    },
+    {
+      "path": "assets/fraunces-latin-ext-CJcjJNj7.woff2",
+      "bytes": 59388,
+      "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e",
+      "url": "https://antonsoo.github.io/fieldproof/assets/fraunces-latin-ext-CJcjJNj7.woff2",
+      "httpStatus": 200,
+      "observedBytes": 59388,
+      "observedSha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e",
+      "state": "verified"
+    },
+    {
+      "path": "assets/fraunces-vietnamese-Czevyj-6.woff2",
+      "bytes": 19700,
+      "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4",
+      "url": "https://antonsoo.github.io/fieldproof/assets/fraunces-vietnamese-Czevyj-6.woff2",
+      "httpStatus": 200,
+      "observedBytes": 19700,
+      "observedSha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "bytes": 8356,
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "url": "https://antonsoo.github.io/fieldproof/assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "httpStatus": 200,
+      "observedBytes": 8356,
+      "observedSha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "bytes": 6912,
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "url": "https://antonsoo.github.io/fieldproof/assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "httpStatus": 200,
+      "observedBytes": 6912,
+      "observedSha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "url": "https://antonsoo.github.io/fieldproof/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "httpStatus": 200,
+      "observedBytes": 14708,
+      "observedSha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "bytes": 13348,
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "url": "https://antonsoo.github.io/fieldproof/assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "httpStatus": 200,
+      "observedBytes": 13348,
+      "observedSha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "bytes": 5868,
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "url": "https://antonsoo.github.io/fieldproof/assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "httpStatus": 200,
+      "observedBytes": 5868,
+      "observedSha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "bytes": 8460,
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "url": "https://antonsoo.github.io/fieldproof/assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "httpStatus": 200,
+      "observedBytes": 8460,
+      "observedSha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "bytes": 6972,
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "url": "https://antonsoo.github.io/fieldproof/assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "httpStatus": 200,
+      "observedBytes": 6972,
+      "observedSha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "url": "https://antonsoo.github.io/fieldproof/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "httpStatus": 200,
+      "observedBytes": 14888,
+      "observedSha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "bytes": 13432,
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "url": "https://antonsoo.github.io/fieldproof/assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "httpStatus": 200,
+      "observedBytes": 13432,
+      "observedSha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "bytes": 6040,
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "url": "https://antonsoo.github.io/fieldproof/assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "httpStatus": 200,
+      "observedBytes": 6040,
+      "observedSha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "state": "verified"
+    },
+    {
+      "path": "assets/index-CTQ67FfV.css",
+      "bytes": 27313,
+      "sha256": "aa2fd1b381e2d0bbc70861b4fed25ac4ecc66bb54b43ef097c27cee5be4e4869",
+      "url": "https://antonsoo.github.io/fieldproof/assets/index-CTQ67FfV.css",
+      "httpStatus": 200,
+      "observedBytes": 27313,
+      "observedSha256": "aa2fd1b381e2d0bbc70861b4fed25ac4ecc66bb54b43ef097c27cee5be4e4869",
+      "state": "verified"
+    },
+    {
+      "path": "assets/index-DTP-SyeB.js",
+      "bytes": 62377,
+      "sha256": "d1cdaea9b0c59d5e6015f8b7b467bda09e7e71a88a46023741d77357253293f2",
+      "url": "https://antonsoo.github.io/fieldproof/assets/index-DTP-SyeB.js",
+      "httpStatus": 200,
+      "observedBytes": 62377,
+      "observedSha256": "d1cdaea9b0c59d5e6015f8b7b467bda09e7e71a88a46023741d77357253293f2",
+      "state": "verified"
+    },
+    {
+      "path": "assets/index-DTP-SyeB.js.map",
+      "bytes": 264882,
+      "sha256": "653ffc8e7f122b77193fe9b400cfa2c86a7595793969f14f3ee8b928dbb75501",
+      "url": "https://antonsoo.github.io/fieldproof/assets/index-DTP-SyeB.js.map",
+      "httpStatus": 200,
+      "observedBytes": 264882,
+      "observedSha256": "653ffc8e7f122b77193fe9b400cfa2c86a7595793969f14f3ee8b928dbb75501",
+      "state": "verified"
+    },
+    {
+      "path": "assets/inter-cyrillic-DqGufNeO.woff2",
+      "bytes": 18748,
+      "sha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075",
+      "url": "https://antonsoo.github.io/fieldproof/assets/inter-cyrillic-DqGufNeO.woff2",
+      "httpStatus": 200,
+      "observedBytes": 18748,
+      "observedSha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075",
+      "state": "verified"
+    },
+    {
+      "path": "assets/inter-cyrillic-ext-BOeWTOD4.woff2",
+      "bytes": 25960,
+      "sha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd",
+      "url": "https://antonsoo.github.io/fieldproof/assets/inter-cyrillic-ext-BOeWTOD4.woff2",
+      "httpStatus": 200,
+      "observedBytes": 25960,
+      "observedSha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd",
+      "state": "verified"
+    },
+    {
+      "path": "assets/inter-greek-CkhJZR-_.woff2",
+      "bytes": 18996,
+      "sha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6",
+      "url": "https://antonsoo.github.io/fieldproof/assets/inter-greek-CkhJZR-_.woff2",
+      "httpStatus": 200,
+      "observedBytes": 18996,
+      "observedSha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6",
+      "state": "verified"
+    },
+    {
+      "path": "assets/inter-greek-ext-DlzME5K_.woff2",
+      "bytes": 11232,
+      "sha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190",
+      "url": "https://antonsoo.github.io/fieldproof/assets/inter-greek-ext-DlzME5K_.woff2",
+      "httpStatus": 200,
+      "observedBytes": 11232,
+      "observedSha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190",
+      "state": "verified"
+    },
+    {
+      "path": "assets/inter-latin-Dx4kXJAl.woff2",
+      "bytes": 48256,
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+      "url": "https://antonsoo.github.io/fieldproof/assets/inter-latin-Dx4kXJAl.woff2",
+      "httpStatus": 200,
+      "observedBytes": 48256,
+      "observedSha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+      "state": "verified"
+    },
+    {
+      "path": "assets/inter-latin-ext-DO1Apj_S.woff2",
+      "bytes": 85068,
+      "sha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956",
+      "url": "https://antonsoo.github.io/fieldproof/assets/inter-latin-ext-DO1Apj_S.woff2",
+      "httpStatus": 200,
+      "observedBytes": 85068,
+      "observedSha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956",
+      "state": "verified"
+    },
+    {
+      "path": "assets/inter-vietnamese-CBcvBZtf.woff2",
+      "bytes": 10252,
+      "sha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2",
+      "url": "https://antonsoo.github.io/fieldproof/assets/inter-vietnamese-CBcvBZtf.woff2",
+      "httpStatus": 200,
+      "observedBytes": 10252,
+      "observedSha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/contract/data.json",
+      "bytes": 8740,
+      "sha256": "a4a79b4216a03d8ce2699dfcd811e97ad2ac86b1c32f5b7ddf0f867b5ccd3d19",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/contract/data.json",
+      "httpStatus": 200,
+      "observedBytes": 8740,
+      "observedSha256": "a4a79b4216a03d8ce2699dfcd811e97ad2ac86b1c32f5b7ddf0f867b5ccd3d19",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/contract/page-1.png",
+      "bytes": 102343,
+      "sha256": "b92e2abc0392fc3ee2f72e93b22ae91c3c35b0f73619c67b4f1d0b219c5c5c5d",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/contract/page-1.png",
+      "httpStatus": 200,
+      "observedBytes": 102343,
+      "observedSha256": "b92e2abc0392fc3ee2f72e93b22ae91c3c35b0f73619c67b4f1d0b219c5c5c5d",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/contract/page-2.png",
+      "bytes": 34972,
+      "sha256": "ad6eb8360bda4d8b2bd3df53b6ff20fd1ea5adf861a4823dbe2d9b4d620fc8ec",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/contract/page-2.png",
+      "httpStatus": 200,
+      "observedBytes": 34972,
+      "observedSha256": "ad6eb8360bda4d8b2bd3df53b6ff20fd1ea5adf861a4823dbe2d9b4d620fc8ec",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/cord-ocr/NOTICE.md",
+      "bytes": 1802,
+      "sha256": "5af598a0e0ff4adc89aa3f356f396b674d37f5385bf9108ce447a5251d024a89",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/cord-ocr/NOTICE.md",
+      "httpStatus": 200,
+      "observedBytes": 1802,
+      "observedSha256": "5af598a0e0ff4adc89aa3f356f396b674d37f5385bf9108ce447a5251d024a89",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/cord-ocr/data.json",
+      "bytes": 8946,
+      "sha256": "55606bf65835bbb3c36e29d41a8254c71b8eed5cab4e4f6cdaa8f00687637acb",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/cord-ocr/data.json",
+      "httpStatus": 200,
+      "observedBytes": 8946,
+      "observedSha256": "55606bf65835bbb3c36e29d41a8254c71b8eed5cab4e4f6cdaa8f00687637acb",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/cord-ocr/page-1.png",
+      "bytes": 293212,
+      "sha256": "b1a631dca4bb85dfd4a378d48ad8701f93c6f260f73bcf99468b7f26e5dd83e2",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/cord-ocr/page-1.png",
+      "httpStatus": 200,
+      "observedBytes": 293212,
+      "observedSha256": "b1a631dca4bb85dfd4a378d48ad8701f93c6f260f73bcf99468b7f26e5dd83e2",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/cord-ocr/source.json",
+      "bytes": 1102,
+      "sha256": "5ad5d1d067ad3f4b04d04e9a70b93cf090065117c46de599997f4bd1e9853b93",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/cord-ocr/source.json",
+      "httpStatus": 200,
+      "observedBytes": 1102,
+      "observedSha256": "5ad5d1d067ad3f4b04d04e9a70b93cf090065117c46de599997f4bd1e9853b93",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/hidden-text/data.json",
+      "bytes": 5270,
+      "sha256": "52099f172f412a65ac59b241dce001a2d83ec8ee61accb19ac9dec4e4d7c838a",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/hidden-text/data.json",
+      "httpStatus": 200,
+      "observedBytes": 5270,
+      "observedSha256": "52099f172f412a65ac59b241dce001a2d83ec8ee61accb19ac9dec4e4d7c838a",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/hidden-text/page-1.png",
+      "bytes": 85484,
+      "sha256": "6ba73b515f26540577bb8d588949935711b82aa0ef4cec07897ab584f3188696",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/hidden-text/page-1.png",
+      "httpStatus": 200,
+      "observedBytes": 85484,
+      "observedSha256": "6ba73b515f26540577bb8d588949935711b82aa0ef4cec07897ab584f3188696",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/index.json",
+      "bytes": 356,
+      "sha256": "bdcc415c99e7ed39ea1780522f941fd3ab4305590256bac1b4981d8358e77868",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/index.json",
+      "httpStatus": 200,
+      "observedBytes": 356,
+      "observedSha256": "bdcc415c99e7ed39ea1780522f941fd3ab4305590256bac1b4981d8358e77868",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/invoice/data.json",
+      "bytes": 67098,
+      "sha256": "1294cabae859b6869f449d3f2c002f5f6c40e3b49e2392677a408b993b8f70d4",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/invoice/data.json",
+      "httpStatus": 200,
+      "observedBytes": 67098,
+      "observedSha256": "1294cabae859b6869f449d3f2c002f5f6c40e3b49e2392677a408b993b8f70d4",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/invoice/page-1.png",
+      "bytes": 125063,
+      "sha256": "74b8cb7356f9bd537c75ace4cc4778d9711fa6f6549e43e769ad169891c68544",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/invoice/page-1.png",
+      "httpStatus": 200,
+      "observedBytes": 125063,
+      "observedSha256": "74b8cb7356f9bd537c75ace4cc4778d9711fa6f6549e43e769ad169891c68544",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/line-arithmetic/data.json",
+      "bytes": 21030,
+      "sha256": "8d35844f0091588a692b5b77cd735a305c1bbab0401e58049f08839d30aa554f",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/line-arithmetic/data.json",
+      "httpStatus": 200,
+      "observedBytes": 21030,
+      "observedSha256": "8d35844f0091588a692b5b77cd735a305c1bbab0401e58049f08839d30aa554f",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/line-arithmetic/page-1.png",
+      "bytes": 104345,
+      "sha256": "8c75cc3e1ef7bbca491d0a4c57b80d0d67cd4747318306573e4617d29f08cb35",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/line-arithmetic/page-1.png",
+      "httpStatus": 200,
+      "observedBytes": 104345,
+      "observedSha256": "8c75cc3e1ef7bbca491d0a4c57b80d0d67cd4747318306573e4617d29f08cb35",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/receipt/data.json",
+      "bytes": 23759,
+      "sha256": "ca2a636edded8ee37149a13e3de404dcdcd85cd5a6a92b0d2e66ab0a119303ed",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/receipt/data.json",
+      "httpStatus": 200,
+      "observedBytes": 23759,
+      "observedSha256": "ca2a636edded8ee37149a13e3de404dcdcd85cd5a6a92b0d2e66ab0a119303ed",
+      "state": "verified"
+    },
+    {
+      "path": "demo-data/receipt/page-1.png",
+      "bytes": 59942,
+      "sha256": "d6a675f70a723c2e16bf431aa2d78a1099ea5d4abc21c9dc95cdd42efd628031",
+      "url": "https://antonsoo.github.io/fieldproof/demo-data/receipt/page-1.png",
+      "httpStatus": 200,
+      "observedBytes": 59942,
+      "observedSha256": "d6a675f70a723c2e16bf431aa2d78a1099ea5d4abc21c9dc95cdd42efd628031",
+      "state": "verified"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2907,
+      "sha256": "200d58a8fe90554e7b60f5f9e42dc811303c0a1bcbb6a14feed494f83ab28f27",
+      "url": "https://antonsoo.github.io/fieldproof/index.html",
+      "httpStatus": 200,
+      "observedBytes": 2907,
+      "observedSha256": "200d58a8fe90554e7b60f5f9e42dc811303c0a1bcbb6a14feed494f83ab28f27",
+      "state": "verified"
+    }
+  ],
+  "scope": "Compares canonical responses with this captured build inventory during the recorded pass. Extra hosted files, browser behavior, public source, registry releases and deployment provenance are not established."
+}

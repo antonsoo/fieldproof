@@ -785,25 +785,36 @@ test('upload and configure controls are accessible in both themes at phone width
   }
 });
 
-test('a cancelled slow upload cannot replace a newer uploaded PDF', async ({ page }) => {
+test('a cancelled slow upload cannot replace a newer uploaded PDF', async ({ page, request }) => {
   let release;
   const gate = new Promise(resolve => { release = resolve; });
+  let firstReady;
+  const uploaded = new Promise(resolve => { firstReady = resolve; });
   let returned;
   const done = new Promise(resolve => { returned = resolve; });
   let first = true;
   await page.route('**/api/documents', async route => {
     if (!first) return route.continue();
     first = false;
-    const response = await route.fetch();
+    // Send the original binary fixture explicitly. Forwarding Chromium's
+    // intercepted multipart body returned 422 rather than a valid old reply.
+    const response = await request.post('/api/documents', { multipart: {
+      file: { name: 'invoice.pdf', mimeType: 'application/pdf', buffer: readFileSync(pdf) },
+    } });
+    expect(response.status()).toBe(200);
+    firstReady();
     await gate;
     await route.fulfill({ response }).catch(() => {});
     returned();
   });
   await page.goto('./', { waitUntil: 'domcontentloaded' });
   await page.getByLabel('PDF document').setInputFiles(pdf);
+  // Hold a real successful reply. Cancelling mid-body can instead produce a
+  // rejected upload, which does not exercise a stale successful response.
+  await uploaded;
   await page.getByRole('button', { name: 'Cancel', exact: true }).click();
   await page.getByLabel('PDF document').setInputFiles({ name: 'second.pdf', mimeType: 'application/pdf', buffer: await (await import('node:fs/promises')).readFile(pdf) });
-  await expect(page.getByRole('heading', { name: 'second.pdf' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'second.pdf' })).toBeVisible({ timeout: 30_000 });
   release();
   await done;
   await expect(page.getByRole('heading', { name: 'second.pdf' })).toBeVisible();

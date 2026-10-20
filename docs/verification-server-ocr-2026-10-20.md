@@ -84,3 +84,42 @@ is exercised; Windows process-tree cleanup is not verified on Windows.
 The PyPI version remained 0.2.7 at the publication check; no registry release
 was created. The new local source, built/installed wheel and hosted static
 example are separate artifacts. The static site cannot OCR a new upload.
+
+
+## Publication
+
+Source and evidence are pushed through `0504f8e85cd783554d7f0a9a9f8c0800b00590ad`.
+Pages commit `710bb132cbd3771946addd779e37272bbda91b7d` publishes the independent
+Node 24 build of frozen runtime `24ad5c3502b9c6bbcfe63ac55034690fa5712bfc`.
+[Canonical byte verification](../studies/server-ocr/results/public-bytes.json)
+checks all 40 build files with stable root/index responses around the pass.
+It does not assert that no extra historical hosted files exist.
+
+[Four public browser workflows](../studies/server-ocr/results/browser-public.json)
+repeat the credited CORD example at 1440/375 in Chromium/Firefox: 24 actual
+JSON/CSV/XLSX downloads, original OCR verdict and exported provenance, offline
+operation, zero Axe/runtime/CSP violations or off-origin requests. The local
+and public examples are precomputed; they cannot recognize an arbitrary upload.
+
+A [fresh install from the public pinned Git source](../studies/server-ocr/results/public-source-install.json)
+compares all 43 Python files and executes the all-page OCR receipt CLI. Its
+result is 1 verified, 3 needs review and 2 unsupported fields on authored
+claims. As documented, a direct Git install has no bundled UI. The separate
+locally built wheel includes it. No registry release or tag was created.
+
+
+## Final check boundary
+
+The [local check receipt](../studies/server-ocr/results/checks.json) records 858
+Python and 71 web unit passes, lint/type checks, and the final browser matrix.
+That full run completed 109 of 110 checks; the cancellation case reached its
+five-second assertion while the second upload was still loading. The original
+case passed six isolated repeats. Strengthening it showed that Chromium's
+forwarded intercepted multipart request returned 422 rather than a valid old
+upload response. The check now sends the original PDF bytes explicitly through
+the real API, requires HTTP 200 before cancellation, and holds that response
+until the newer upload finishes. It passes three times per engine. The second
+upload waits within the 30-second PDF work budget; no assertions or cases are
+skipped. No single all-110-green batch or GitHub CI execution is claimed.
+Runtime code, the final wheel and deployed static bytes remain unchanged by
+this test-only correction.

@@ -1,0 +1,76 @@
+{
+  "python": "3.14.7",
+  "publicSource": {
+    "url": "https://github.com/antonsoo/fieldproof.git",
+    "vcs_info": {
+      "vcs": "git",
+      "commit_id": "24ad5c3502b9c6bbcfe63ac55034690fa5712bfc",
+      "requested_revision": "24ad5c3502b9c6bbcfe63ac55034690fa5712bfc"
+    }
+  },
+  "sourcePythonFilesExact": {
+    "__init__.py": "19f5b4faa743a9f22eb6cc18e97aec72c2fe67e0da79fe5aff46d42126263fde",
+    "_reports.py": "44b543f2279b8a41f9433639b71bd8f82f6a5362019971ae785eda6fc9fcb71a",
+    "cli.py": "4163d3bda1503518719d8d5b2e0d2416552aaead686e6e317f3933f7e73c2f25",
+    "ground/lines.py": "8d133490578b887f4c05deb237cab26dcdb861056d1d535490bcf33e7103aa5e",
+    "ground/__init__.py": "ff3a63627e52bd1a6e51f70be4be93dd81dabb016ae75071b2c77531179ac5dd",
+    "ground/align.py": "a755b920a9f7b223ef2cfe6e1ac2f422a203832a329963bc795395a18666a0f6",
+    "ground/normalize.py": "67b377b3bd38943449ba103427b0657ab76452e9aa13f56ad901332693a41520",
+    "ground/values.py": "14435dc6cab9193cd28b25a4f92b8011d28f8681a8abe041e2bd069cfce6d745",
+    "schemas/__init__.py": "2846223c9fe650c6c471d68c97359b2f0bef71c3029bcb928d119ef47e04818c",
+    "schemas/base.py": "7f2bfa1c4b71d57064f9f06b7a904e34f7d646cd78d80086f921c83bcd3837de",
+    "schemas/receipt.py": "cee1fa2f146e1512f025b6c1c1c07b33b197e5485a6299c92b11e6eb8135ae6e",
+    "schemas/contract.py": "fe64fb836ca038114f4ef2ea3ee43921f67a454e0caec46bb6d87b6f33ecb1b0",
+    "schemas/invoice.py": "c297a01ac25fc11ae5b688aceece74d20c05f4564ca35aa9b88d8ddab889de6b",
+    "server/text_sources.py": "b0beda63a5e3659525520f324e1f582deff1bae2e34ca7a4d60d04729929309a",
+    "server/__init__.py": "b07dcd7b074bb98bff94ca7d3015bbb72083bfa1ce844ef155b33c4daaee654b",
+    "server/body_limit.py": "d6186c0a279c765ecd347cd68f7936915574fa1ab12ea2f65cd24f78fedfe1bb",
+    "server/app.py": "36b44d341fd54e5cd4287c0969d0e81b2f3558701abbe031be47a685bdd3954a",
+    "server/spreadsheet.py": "4439ea56e15d959d7e656db3d747efbfebd437a3ceb99690684c79f5abebef41",
+    "server/pdf_work.py": "cc66618719740dc4bd85fbc6bf4640b61e83a5a72099ba3276b7ce9d54ed5559",
+    "server/store.py": "9e156bf5dc2d7c13c9c26c97a8d16635938ee9819c6d04ebe44d6bce71966349",
+    "server/archive.py": "3ad7f67f7a75b7a024c55f259258e19f33313654a8d3293de59a90fe6673d2d1",
+    "extract/__init__.py": "53c92cafa463055bc39a3ee2f4cc487aa5c4ea63b91a688d6fa59834cc57808e",
+    "extract/base.py": "ed4dddee401c935aa9021e1d3abb5aaed0cf0f2dc2a29f555a995ce9accc3811",
+    "extract/anthropic_provider.py": "87aa3ac824ebd3b21ec1536b3ad45eb27ac16e559ea8133cd51173662aeb39d8",
+    "extract/fixture_provider.py": "db888d5c033abfb41813567f2a99d4f642fa09eb21c91189d5d0251845625b49",
+    "verify/columns.py": "b319f5e9a84f20e3880c309f9768bddb874b17f756e2167e6261018efafc4fbe",
+    "verify/__init__.py": "740faaaab55c8f47f78091074d3e6d73174a23f2c0255d375b2ff8917ba0d933",
+    "verify/cross_field.py": "ad1a7facac1c39cc4ebec47412db36dc258b76dd1d2b4b603007fadcf928b365",
+    "verify/engine.py": "90b37ac5f97741028c85a8e68f89e5b20dd0bc5094aeecd949df4b40ee8119bb",
+    "verify/value_checks.py": "7228906f337d8a424f20be7392009bb867031e0dc9f4d19da015e888047478e3",
+    "verify/rows.py": "410f8363ab9b4b89c7f0ed0185cff8b88fd4bbf63e68d92ffe3ef1a3fc397765",
+    "document/forms.py": "9d9c21a51481a4d3f86795ae4fae74ccd5ee6ba7de9f6de683e118791f11b89b",
+    "document/model.py": "3244ab7a75e13733bd639d821d4964b195f2f29d490813026d5e06dc0d0bdeb5",
+    "document/text_modes.py": "324a7120519071193ab662d3205a9e592738f7c1b9e1d78e63b5e8b40e4589c4",
+    "document/__init__.py": "9477ca572e0ba6e165ae3da4cdcf2e19657a3669a2607ec64c827bb6d097f074",
+    "document/render.py": "bde8ff37c42c44cafc97d475db5a5766aafc154d8f4bccac113be3721994ce69",
+    "document/limits.py": "3abaf13984f5ea3c2fc73a0586ddbb5c798f39cf412d7476f703f3d119207b71",
+    "document/glyph_envelopes.py": "f5065a9f2ebff41223945ba04317c78b0eab74a329159d3c76b57a536612f395",
+    "document/loader.py": "9a5e9de5026c2ad7c657175dbe5ea3bc4a6261377f081ea25debcfde9ad2fb18",
+    "document/worker.py": "f86c08833aaec8ae357b1cd906ba21a1e8fb736d9bf1c5ef0b752bb3cd4293d1",
+    "document/clip_bounds.py": "7bba15e37d58ef0c6c041f4f7431acc4023736e91b668a0136a273f21e562d8c",
+    "document/raster_paint.py": "f6fd6ab260cec4b7e728cf53fd0c7f785ad42b14ef173ddd1fda4f91d26f6467",
+    "document/ocr.py": "7f4986624c834c6d5ac8d10779d43a8b599c1b43e363a897791b7090a630c852"
+  },
+  "bundledUiPresent": false,
+  "cliReportCounts": {
+    "verified": 1,
+    "needs_review": 3,
+    "unsupported": 2
+  },
+  "cliOcr": {
+    "engine": "tesseract",
+    "version": "5.3.4",
+    "language": "eng",
+    "render_dpi": 144,
+    "page_count": 1,
+    "empty_pages": [],
+    "note": "All-page OCR: text recognized from rendered pages replaces native text. Grounding checks recognized text; review the page images, especially numbers, dates and word boxes.",
+    "processed_pages": [
+      1
+    ]
+  },
+  "cliCallsModel": false,
+  "registryReleaseCreated": false
+}
