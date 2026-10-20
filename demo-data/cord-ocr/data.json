@@ -1,0 +1,340 @@
+{
+  "document": {
+    "filename": "cord-test-0000.pdf",
+    "page_count": 1,
+    "pages": [
+      {
+        "number": 1,
+        "width": 216.0,
+        "height": 324.0
+      }
+    ],
+    "text_mode": "ocr-all",
+    "ocr": {
+      "engine": "tesseract",
+      "version": "5.3.4",
+      "language": "eng",
+      "render_dpi": 144,
+      "page_count": 1,
+      "empty_pages": [],
+      "note": "All-page OCR: text recognized from rendered pages replaces native text. Grounding checks recognized text; review the page images, especially numbers, dates and word boxes.",
+      "processed_pages": [
+        1
+      ]
+    },
+    "id": "cord-ocr",
+    "source_credit": "CORD v2 test #0, NAVER CLOVA, CC BY 4.0. Photo unchanged; fixture claims authored; header redacted."
+  },
+  "extraction": {
+    "schema": "receipt",
+    "provider": "fixture",
+    "model": null,
+    "data": {
+      "merchant_name": {
+        "value": "",
+        "evidence": [],
+        "page": null
+      },
+      "transaction_date": {
+        "value": "",
+        "evidence": [],
+        "page": null
+      },
+      "items": [
+        {
+          "description": {
+            "value": "-TICKET CP",
+            "evidence": [
+              "-TICKET CP"
+            ],
+            "page": null
+          },
+          "quantity": {
+            "value": 2.0,
+            "evidence": [
+              "2"
+            ],
+            "page": null
+          },
+          "amount": {
+            "value": 60000.0,
+            "evidence": [
+              "60.000"
+            ],
+            "page": null
+          }
+        }
+      ],
+      "subtotal": null,
+      "tax": null,
+      "total": {
+        "value": 60000.0,
+        "evidence": [
+          "TOTAL (Qty 2.00) 60.000"
+        ],
+        "page": null
+      },
+      "payment_method": null
+    },
+    "report": {
+      "fields": [
+        {
+          "path": "merchant_name",
+          "value": "",
+          "status": "unsupported",
+          "reasons": [
+            "no evidence quote was provided for this value"
+          ],
+          "match_score": null,
+          "matched_text": null,
+          "page": null,
+          "rects": []
+        },
+        {
+          "path": "transaction_date",
+          "value": "",
+          "status": "unsupported",
+          "reasons": [
+            "no evidence quote was provided for this value"
+          ],
+          "match_score": null,
+          "matched_text": null,
+          "page": null,
+          "rects": []
+        },
+        {
+          "path": "items[0].description",
+          "value": "-TICKET CP",
+          "status": "verified",
+          "reasons": [],
+          "match_score": 100.0,
+          "matched_text": "-TICKET CP",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 75.5,
+              "top": 195.0,
+              "x1": 109.0,
+              "bottom": 202.0
+            }
+          ]
+        },
+        {
+          "path": "items[0].quantity",
+          "value": 2.0,
+          "status": "needs_review",
+          "reasons": [
+            "row association needs review: items[0].quantity is quoted from a different visual line than items[0].description on page 1; check the item assignment or a wrapped table layout"
+          ],
+          "match_score": 100.0,
+          "matched_text": "2",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 47.0,
+              "top": 209.0,
+              "x1": 48.0,
+              "bottom": 212.5
+            }
+          ]
+        },
+        {
+          "path": "items[0].amount",
+          "value": 60000.0,
+          "status": "needs_review",
+          "reasons": [
+            "the evidence number '60.000' reads as 60 (a decimal point) or 60000 (a thousands separator), and no other number on the document settles which"
+          ],
+          "match_score": 100.0,
+          "matched_text": "60.000",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 160.0,
+              "top": 293.0,
+              "x1": 181.0,
+              "bottom": 300.5
+            }
+          ]
+        },
+        {
+          "path": "total",
+          "value": 60000.0,
+          "status": "needs_review",
+          "reasons": [
+            "the quote is 83/100 like ' TOTAL caty 2.00 60,000' on the page but differs from it in letters or digits, or numeric signs/units"
+          ],
+          "match_score": 82.6086956521739,
+          "matched_text": " TOTAL caty 2.00 60,000",
+          "page": 1,
+          "rects": [
+            {
+              "x0": 24.0,
+              "top": 267.5,
+              "x1": 183.0,
+              "bottom": 277.0
+            }
+          ]
+        }
+      ],
+      "cross_field_issues": [],
+      "counts": {
+        "verified": 1,
+        "needs_review": 3,
+        "unsupported": 2
+      },
+      "cross_field_checks": [
+        {
+          "rule": "receipt.items_subtotal",
+          "fields": [
+            "items[0].amount",
+            "subtotal"
+          ],
+          "status": "not_checked",
+          "message": "items sum not checked: missing subtotal",
+          "operands": {
+            "items[0].amount": "60000.0",
+            "subtotal": null
+          },
+          "computed": null,
+          "observed": null,
+          "difference": null,
+          "tolerance": "0.02"
+        },
+        {
+          "rule": "receipt.subtotal_tax_total",
+          "fields": [
+            "subtotal",
+            "tax",
+            "total"
+          ],
+          "status": "not_checked",
+          "message": "subtotal + tax not checked: missing subtotal, tax",
+          "operands": {
+            "subtotal": null,
+            "tax": null,
+            "total": "60000.0"
+          },
+          "computed": null,
+          "observed": null,
+          "difference": null,
+          "tolerance": "0.02"
+        }
+      ],
+      "row_checks": [
+        {
+          "field": "items[0].quantity",
+          "anchor": "items[0].description",
+          "status": "separate",
+          "reason": "items[0].quantity is quoted from a different visual line than items[0].description on page 1",
+          "field_source_status": "verified",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "2",
+            "start": 11,
+            "end": 12,
+            "rects": [
+              {
+                "x0": 47.0,
+                "top": 209.0,
+                "x1": 48.0,
+                "bottom": 212.5
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "-TICKET CP",
+            "start": 0,
+            "end": 10,
+            "rects": [
+              {
+                "x0": 75.5,
+                "top": 195.0,
+                "x1": 109.0,
+                "bottom": 202.0
+              }
+            ]
+          }
+        },
+        {
+          "field": "items[0].amount",
+          "anchor": "items[0].description",
+          "status": "unavailable",
+          "reason": "items[0].amount has no strongly grounded, value-supported source location",
+          "field_source_status": "needs_review",
+          "anchor_source_status": "verified",
+          "field_location": {
+            "page": 1,
+            "text": "60.000",
+            "start": 111,
+            "end": 117,
+            "rects": [
+              {
+                "x0": 160.0,
+                "top": 293.0,
+                "x1": 181.0,
+                "bottom": 300.5
+              }
+            ]
+          },
+          "anchor_location": {
+            "page": 1,
+            "text": "-TICKET CP",
+            "start": 0,
+            "end": 10,
+            "rects": [
+              {
+                "x0": 75.5,
+                "top": 195.0,
+                "x1": 109.0,
+                "bottom": 202.0
+              }
+            ]
+          }
+        }
+      ],
+      "column_checks": [],
+      "ocr": {
+        "engine": "tesseract",
+        "version": "5.3.4",
+        "language": "eng",
+        "render_dpi": 144,
+        "page_count": 1,
+        "empty_pages": [],
+        "note": "All-page OCR: text recognized from rendered pages replaces native text. Grounding checks recognized text; review the page images, especially numbers, dates and word boxes.",
+        "processed_pages": [
+          1
+        ]
+      }
+    },
+    "text_mode": "ocr-all",
+    "review": {
+      "merchant_name": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "transaction_date": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[0].description": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[0].quantity": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "items[0].amount": {
+        "status": "pending",
+        "edited_value": null
+      },
+      "total": {
+        "status": "pending",
+        "edited_value": null
+      }
+    }
+  }
+}
