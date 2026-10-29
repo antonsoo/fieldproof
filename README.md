@@ -252,4 +252,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Issues and pull requests welcome.
 
 ## License
 
-[MIT](LICENSE), Copyright (c) 2026 Anton Soloviev.
+[MIT](LICENSE), Copyright (c) 2026 Anthony Mercer.

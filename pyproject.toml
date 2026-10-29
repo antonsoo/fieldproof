@@ -5,7 +5,7 @@ description = "Document extraction that shows its work: every field linked to th
 dynamic = ["readme"]
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "Anton Soloviev", email = "anton@praviel.com" }]
+authors = [{ name = "Anthony Mercer", email = "anthony@praviel.com" }]
 keywords = [
     "document-ai",
     "llm",

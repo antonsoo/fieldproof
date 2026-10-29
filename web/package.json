@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.2.7",
   "description": "Review UI for fieldproof - a grounded document-extraction workbench.",
-  "author": "Anton Soloviev",
+  "author": "Anthony Mercer",
   "license": "MIT",
   "repository": {
     "type": "git",
