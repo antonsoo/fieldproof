@@ -240,9 +240,17 @@ def test_an_api_error_is_an_extraction_error() -> None:
         AnthropicExtractor(client=api.client()).extract(load_pdf(EXAMPLES / "invoice.pdf"), Invoice)
 
 
-def test_missing_credentials_are_named(monkeypatch: pytest.MonkeyPatch) -> None:
-    for variable in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN"):
+def test_missing_credentials_are_named(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    for variable in (
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_AUTH_TOKEN",
+        "ANTHROPIC_PROFILE",
+        "ANTHROPIC_CONFIG_DIR",
+    ):
         monkeypatch.delenv(variable, raising=False)
+    # SDK 1.x also discovers credential profiles under ~/.config/anthropic; keep
+    # the machine's own profiles out of this test.
+    monkeypatch.setenv("HOME", str(tmp_path))
     api = Api(json.dumps(_fixture("invoice")))
     transport = api.http.MockTransport(api._handle)
     client = anthropic.Anthropic(http_client=api.http.Client(transport=transport), max_retries=0)
