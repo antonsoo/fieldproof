@@ -27,7 +27,7 @@ def main() -> None:
     cases = json.loads((HERE / "intl.json").read_text())["cases"]
     canvas = Canvas(str(HERE / "fixtures/numbers.pdf"), pagesize=(612, 792), invariant=True)
     canvas.setTitle("Authored numeric evidence controls")
-    canvas.setAuthor("Anton Soloviev")
+    canvas.setAuthor("Anthony Mercer")
     for case in cases:
         canvas.setFont("Helvetica", 12)
         canvas.drawString(40, 750, "Fieldproof numeric evidence control: " + case["id"])
@@ -40,7 +40,7 @@ def main() -> None:
     canvas.save()
     review = Canvas(str(HERE / "fixtures/review.pdf"), pagesize=(612, 792), invariant=True)
     review.setTitle("Controlled locale invoice")
-    review.setAuthor("Anton Soloviev")
+    review.setAuthor("Anthony Mercer")
     review.setFont("Helvetica", 20)
     review.drawString(40, 745, "Locale Supplies")
     review.setFont("Helvetica", 12)

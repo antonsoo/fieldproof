@@ -119,3 +119,19 @@ uses precomputed reports and does not run the verifier on uploaded documents.
 The README now pins source including this correction and the later
 [spacing correction](../spaced-numbers/verification.md). Package and hosted-demo
 publication remain separate.
+
+## Fixture regeneration, 2026-11-25
+
+The fixture generator now sets the PDF author
+metadata to Anthony Mercer, and the PDFs were regenerated with the same command.
+Reportlab's invariant mode is byte-stable: the old generator reproduced the old
+files exactly, and the new files differ only in the 14-byte `/Author` string and
+the `/ID` digest derived from it.
+
+| File | Earlier SHA-256 | Regenerated SHA-256 |
+| --- | --- | --- |
+| `fixtures/numbers.pdf` | `2310b4caf6be2981…` | `417fab3a36136f7b…` |
+| `fixtures/review.pdf` | `8792138814a5e191…` | `4d8e985999f1a80f…` |
+
+The receipts in `results/` record runs over the earlier bytes and keep their
+hashes; they were not repeated. On 2026-11-25 the current source over the regenerated fixtures again gave 87 claims across 21 pages with 0 unexpected verdicts (18 verified, 69 needs review), and the API check again gave needs review / verified.

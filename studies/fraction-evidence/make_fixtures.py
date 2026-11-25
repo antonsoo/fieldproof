@@ -28,7 +28,7 @@ def generate(font):
     ]
     canvas = Canvas(str(destination / "fractions.pdf"), invariant=True)
     canvas.setTitle("Authored fraction evidence controls")
-    canvas.setAuthor("Anton Soloviev")
+    canvas.setAuthor("Anthony Mercer")
     for case in cases:
         canvas.setFont("FractionEvidence", 14)
         canvas.drawString(48, 700, case["text"])
@@ -37,7 +37,7 @@ def generate(font):
     (destination / "cases.json").write_text(json.dumps(cases, ensure_ascii=False, indent=2) + "\n")
     canvas = Canvas(str(destination / "review.pdf"), invariant=True)
     canvas.setTitle("Authored fractional cut-length invoice")
-    canvas.setAuthor("Anton Soloviev")
+    canvas.setAuthor("Anthony Mercer")
     canvas.setFont("FractionEvidence", 18)
     canvas.drawString(48, 740, "Workshop Supply")
     canvas.setFont("FractionEvidence", 12)

@@ -80,3 +80,21 @@ The committed PDFs need no local font installation; regeneration uses
 `uv run --locked python studies/spaced-numbers/make_fixtures.py --font /path/to/DejaVuSans.ttf`.
 The embedded font's license is retained in
 [`../arabic-numbers/FONT-LICENSE.txt`](../arabic-numbers/FONT-LICENSE.txt).
+
+## Fixture regeneration, 2026-11-25
+
+The fixture generators (`make_fixtures.py`, `conventions.py --generate`) now set the PDF author
+metadata to Anthony Mercer, and the PDFs were regenerated with the same command.
+Reportlab's invariant mode is byte-stable: the old generator reproduced the old
+files exactly, and the new files differ only in the 14-byte `/Author` string and
+the `/ID` digest derived from it.
+
+| File | Earlier SHA-256 | Regenerated SHA-256 |
+| --- | --- | --- |
+| `fixtures/numbers.pdf` | `7aaadddc64f815dc…` | `c9818f608c55e606…` |
+| `fixtures/ambiguity.pdf` | `aac7950f321e02b8…` | `b80f2619f8ad69d4…` |
+| `fixtures/conventions.pdf` | `1336878f0913c7f8…` | `8287500b41bdac2b…` |
+| `fixtures/review.pdf` | `a74de0d0be6e502f…` | `2795ba203cac9f6f…` |
+
+The receipts in `results/` record runs over the earlier bytes and keep their
+hashes; they were not repeated. On 2026-11-25 the current source over the regenerated fixtures again gave 134 claims across 23 pages with 0 unexpected verdicts (7 verified, 127 needs review), and the conventions check 14 claims with 0 unexpected verdicts.

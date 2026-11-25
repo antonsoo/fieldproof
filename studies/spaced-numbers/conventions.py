@@ -30,7 +30,7 @@ def main() -> None:
 
         canvas = Canvas(str(pdf), pagesize=(612, 792), invariant=True)
         canvas.setTitle("Spacing and punctuation are separate observations")
-        canvas.setAuthor("Anton Soloviev")
+        canvas.setAuthor("Anthony Mercer")
         for case in cases:
             canvas.drawString(40, 750, "Authored control: " + case["id"])
             canvas.drawString(40, 700, "Total 60.000")

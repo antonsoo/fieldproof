@@ -125,3 +125,26 @@ A fresh pip upgrade from registry 0.2.7 installed that exact source; its
 [actual native/CLI replay](results/public-replay.json) match. That direct Git
 install has no bundled UI, as documented in the main README. The hosted static
 demo and registry package were not updated.
+
+## Fixture regeneration, 2026-11-25
+
+The fixture generator now sets the PDF author
+metadata to Anthony Mercer, and the PDFs were regenerated with the same command.
+Reportlab's invariant mode is byte-stable: the old generator reproduced the old
+files exactly, and the new files differ only in the 14-byte `/Author` string and
+the `/ID` digest derived from it.
+
+`before-review.zip` was saved through the 0.2.7 server's UI and cannot be saved
+that way again without reinstalling it. Its `document.pdf` member was replaced
+with the regenerated `review.pdf` and its `manifest.json` hash updated; the
+other members, their order and their zip metadata are unchanged (rebuilding the
+archive from its old members this way reproduces the original bytes exactly).
+
+| File | Earlier SHA-256 | Regenerated SHA-256 |
+| --- | --- | --- |
+| `fixtures/fractions.pdf` | `5f8599a219c94286…` | `69764c756e11036b…` |
+| `fixtures/review.pdf` | `3a1cd0f62798f61e…` | `82c64364e8373186…` |
+| `fixtures/before-review.zip` | `eb38df8bb8286b46…` | `dfb41071ab9ba009…` |
+
+The receipts in `results/` record runs over the earlier bytes and keep their
+hashes; they were not repeated. On 2026-11-25 the current source over the regenerated fixtures again gave 36 claims with 0 false approvals and the invoice quantity as needs review.
