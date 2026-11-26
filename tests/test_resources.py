@@ -6,6 +6,7 @@ import json
 import subprocess
 import sys
 import threading
+import time
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import replace
 from pathlib import Path
@@ -495,8 +496,20 @@ def test_timeout_stops_the_recognizer_descendant(simple_invoice_pdf_bytes, monke
         load_server_pdf(simple_invoice_pdf_bytes, "invoice.pdf", "ocr-all")
     child_pid = int(pid_file.read_text())
     status = Path(f"/proc/{child_pid}/stat")
-    # A killed descendant may briefly await PID 1's reap; it must not be running.
-    assert not status.exists() or status.read_text().split(") ", 1)[1].startswith("Z ")
+
+    def state() -> str | None:
+        try:
+            return status.read_text().split(") ", 1)[1][0]
+        except FileNotFoundError:
+            return None
+
+    # SIGKILL is asynchronous: a loaded machine can show the descendant still exiting
+    # for a moment. It must be gone or a zombie awaiting PID 1's reap; an unkilled one
+    # would sleep on for a minute.
+    deadline = time.monotonic() + 5
+    while state() not in (None, "Z") and time.monotonic() < deadline:
+        time.sleep(0.05)
+    assert state() in (None, "Z")
     monkeypatch.setattr(pdf_work.subprocess, "Popen", original)
     monkeypatch.setattr(pdf_work, "PDF_TIMEOUT_SECONDS", 30)
     assert load_server_pdf(simple_invoice_pdf_bytes, "invoice.pdf").page_count == 1
