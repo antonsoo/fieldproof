@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [0.3.0] - 2026-11-26
+
+- Package metadata names Anthony Mercer (anthony@praviel.com) as the author.
+
 - Add explicit native, missing-page OCR and all-page OCR choices to the local
   review UI and upload API. Show per-page word provenance, retain it in JSON,
   CSV and XLSX, and reopen OCR reviews from version-2 archives. Preserve native
