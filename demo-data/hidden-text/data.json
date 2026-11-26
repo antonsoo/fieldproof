@@ -14,7 +14,7 @@
   "extraction": {
     "schema": "Invoice",
     "provider": "fixture",
-    "model": "/home/antonsoloviev/work/projects/showcases/fieldproof/examples/fixtures/hidden-text.json",
+    "model": "examples/fixtures/hidden-text.json",
     "data": {
       "vendor_name": {
         "value": "Example Tools Ltd.",
