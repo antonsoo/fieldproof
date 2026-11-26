@@ -124,7 +124,8 @@ def main():
     false_approvals = sum(r["status"] == "verified" for r in rows)
     receipt = {
         "python": sys.version,
-        "source": str(package),
+        # Repository-relative when replaying this checkout's source: receipts are published.
+        "source": str(package.relative_to(ROOT)) if package.is_relative_to(ROOT) else package.name,
         "synthetic": True,
         "scope": "Authored visible native-text PDFs; no model/OCR/production prevalence claim",
         "source_parser_sha256": hashlib.sha256(

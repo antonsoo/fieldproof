@@ -1002,13 +1002,13 @@
     {
       "command": [
         "extract",
-        "/home/antonsoloviev/work/projects/showcases/fieldproof/studies/fraction-evidence/fixtures/review.pdf",
+        "<workspace>/fieldproof/studies/fraction-evidence/fixtures/review.pdf",
         "--schema",
         "invoice",
         "--provider",
         "fixture",
         "--fixture",
-        "/home/antonsoloviev/work/projects/showcases/fieldproof/studies/fraction-evidence/fixtures/review.json",
+        "<workspace>/fieldproof/studies/fraction-evidence/fixtures/review.json",
         "--out",
         "/tmp/claude-1000/fieldproof-fractions/before-cli/extracted.json"
       ],
@@ -1020,7 +1020,7 @@
       "command": [
         "verify",
         "/tmp/claude-1000/fieldproof-fractions/before-cli/extracted.json",
-        "/home/antonsoloviev/work/projects/showcases/fieldproof/studies/fraction-evidence/fixtures/review.pdf",
+        "<workspace>/fieldproof/studies/fraction-evidence/fixtures/review.pdf",
         "--out",
         "/tmp/claude-1000/fieldproof-fractions/before-cli/reverified.json"
       ],

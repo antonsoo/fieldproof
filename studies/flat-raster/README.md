@@ -213,3 +213,7 @@ matches local bytes, size and SHA-256; the clean local head matches remote
 `main` before and after collection. This establishes source publication. The
 hosted and installed observations above are separate receipts; no registry
 release or tag was created.
+
+On 2026-11-25 this machine's home-directory paths in retained results were
+replaced with `<workspace>/` or `~/`, and the hidden-text demo now records its
+fixture as `examples/fixtures/hidden-text.json`. `results/public-source.json` and `results/hosted-bytes.json` still record the demo data as published before that edit; `results/served-bytes.json` lists the regenerated file.

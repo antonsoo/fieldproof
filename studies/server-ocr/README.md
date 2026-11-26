@@ -132,3 +132,7 @@ original six-to-five loss, checks exact current index bytes after the fix, and
 checks that the existing data files and previous index survive the missing-file
 error. No additional recognition tools are needed to retain the committed
 snapshot during native-control regeneration.
+
+On 2026-11-25 this machine's home-directory paths in retained results were
+replaced with `<workspace>/` or `~/`, and the hidden-text demo now records its
+fixture as `examples/fixtures/hidden-text.json`. `results/public-bytes.json` still records the demo data as published before that edit.

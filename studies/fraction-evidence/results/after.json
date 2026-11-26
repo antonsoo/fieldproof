@@ -1,6 +1,6 @@
 {
   "python": "3.12.12 (main, Feb 12 2026, 00:42:14) [Clang 21.1.4 ]",
-  "source": "/home/antonsoloviev/work/projects/showcases/fieldproof/src/fieldproof",
+  "source": "<workspace>/fieldproof/src/fieldproof",
   "synthetic": true,
   "scope": "Authored visible native-text PDFs; no model/OCR/production prevalence claim",
   "source_parser_sha256": "14435dc6cab9193cd28b25a4f92b8011d28f8681a8abe041e2bd069cfce6d745",
@@ -1044,13 +1044,13 @@
     {
       "command": [
         "extract",
-        "/home/antonsoloviev/work/projects/showcases/fieldproof/studies/fraction-evidence/fixtures/review.pdf",
+        "<workspace>/fieldproof/studies/fraction-evidence/fixtures/review.pdf",
         "--schema",
         "invoice",
         "--provider",
         "fixture",
         "--fixture",
-        "/home/antonsoloviev/work/projects/showcases/fieldproof/studies/fraction-evidence/fixtures/review.json",
+        "<workspace>/fieldproof/studies/fraction-evidence/fixtures/review.json",
         "--out",
         "/tmp/claude-1000/fieldproof-fractions/after-cli/extracted.json"
       ],
@@ -1062,7 +1062,7 @@
       "command": [
         "verify",
         "/tmp/claude-1000/fieldproof-fractions/after-cli/extracted.json",
-        "/home/antonsoloviev/work/projects/showcases/fieldproof/studies/fraction-evidence/fixtures/review.pdf",
+        "<workspace>/fieldproof/studies/fraction-evidence/fixtures/review.pdf",
         "--out",
         "/tmp/claude-1000/fieldproof-fractions/after-cli/reverified.json"
       ],

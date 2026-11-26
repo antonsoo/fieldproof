@@ -355,8 +355,8 @@
     {
       "build": "demo",
       "file": "demo-data/hidden-text/data.json",
-      "bytes": 5270,
-      "sha256": "52099f172f412a65ac59b241dce001a2d83ec8ee61accb19ac9dec4e4d7c838a",
+      "bytes": 5215,
+      "sha256": "f799b575c5ca447da0ff639564c1fba83e69d61366565218e602b15993afdbd3",
       "status": 200
     },
     {

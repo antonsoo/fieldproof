@@ -14,6 +14,7 @@ Run: `uv run python scripts/build_demo_data.py` (also invoked by
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 from fieldproof.document.loader import load_pdf
@@ -45,7 +46,11 @@ def build_sample(name: str, schema_name: str) -> None:
     schema = BUILTIN_SCHEMAS[schema_name]
 
     document = load_pdf(pdf_path)
-    extraction = FixtureExtractor(fixture_path=fixture_path).extract(document, schema)
+    # A fixture without its own "model" label reports its path: keep that path
+    # repository-relative, since the demo data is published.
+    extraction = FixtureExtractor(fixture_path=fixture_path.relative_to(ROOT)).extract(
+        document, schema
+    )
     report = verify(extraction.data, document)
 
     sample_dir = OUT_DIR / name
@@ -87,6 +92,7 @@ def build_index() -> None:
 
 
 def main() -> None:
+    os.chdir(ROOT)  # fixture paths below are relative to the repository
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for name, _, schema_name in SAMPLES:
         build_sample(name, schema_name)

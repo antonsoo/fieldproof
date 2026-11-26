@@ -148,3 +148,7 @@ archive from its old members this way reproduces the original bytes exactly).
 
 The receipts in `results/` record runs over the earlier bytes and keep their
 hashes; they were not repeated. On 2026-11-25 the current source over the regenerated fixtures again gave 36 claims with 0 false approvals and the invoice quantity as needs review.
+
+On 2026-11-25 this machine's home-directory paths in retained results were
+replaced with `<workspace>/` or `~/`, and the hidden-text demo now records its
+fixture as `examples/fixtures/hidden-text.json`. `results/public-source.json` still records `results/after.json` and `results/before.json` as published at its revision, before that edit.

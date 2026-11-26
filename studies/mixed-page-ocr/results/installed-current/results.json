@@ -25,7 +25,7 @@
       },
       "ocr": null,
       "output": "native-default-extract.json",
-      "outputSha256": "7b264bee984d92353cc4ff2571a673279dfa96ffc0660d70b3fed495b23c2550"
+      "outputSha256": "2498619883602e73bd5cc98724bccfdc93840ee5a0300ae13244cb3d64bf918f"
     },
     {
       "case": "native",
@@ -57,7 +57,7 @@
       },
       "ocr": null,
       "output": "native-page-ocr-extract.json",
-      "outputSha256": "7b264bee984d92353cc4ff2571a673279dfa96ffc0660d70b3fed495b23c2550"
+      "outputSha256": "2498619883602e73bd5cc98724bccfdc93840ee5a0300ae13244cb3d64bf918f"
     },
     {
       "case": "native",
@@ -89,7 +89,7 @@
       },
       "ocr": null,
       "output": "mixed-default-extract.json",
-      "outputSha256": "3bca53154526dfeeafc5c06f41a57c53ea437ec7d76579d7c5c7c949958331a4"
+      "outputSha256": "e80879fa7c0143e0bddf485d7fbd9292f5373b0581c0251b95c88b8a94d8cc1f"
     },
     {
       "case": "mixed",
@@ -132,7 +132,7 @@
         ]
       },
       "output": "mixed-page-ocr-extract.json",
-      "outputSha256": "d9576fbfdbafa822053b4302c88102f4f070b2e54bf85ec78cf8e2c81a303c0e"
+      "outputSha256": "1d8c9058eae43ff6e138a973edeff13def7730acaa8c432f80d87c0c192643eb"
     },
     {
       "case": "mixed",
@@ -175,7 +175,7 @@
       },
       "ocr": null,
       "output": "scan-first-default-extract.json",
-      "outputSha256": "f1d4f4bc04a97a817f1b187e9f2d69cfb55944427914a69e9593c289dac31ab4"
+      "outputSha256": "a032825c4920dd3b4f99ba46a68f690f13f7d23743b324db9ae7cde18921fe90"
     },
     {
       "case": "scan-first",
@@ -218,7 +218,7 @@
         ]
       },
       "output": "scan-first-page-ocr-extract.json",
-      "outputSha256": "789e8184b2e3ebb9757f002aea561573523f902af7724b864f438ca0553821af"
+      "outputSha256": "316893003ee35d882d4df1c626e31917bff9d118592f95482313cb53d7d4e95f"
     },
     {
       "case": "scan-first",
@@ -261,7 +261,7 @@
       },
       "ocr": null,
       "output": "blank-middle-default-extract.json",
-      "outputSha256": "ec21052b1b2f9dd45a8a3a40fe23bd0262020c6a8b437f48d9deee80ba573a56"
+      "outputSha256": "3257512378088c70b0992d7b54b7ae0afd52a2adf5c7978bd827fe6a474ac433"
     },
     {
       "case": "blank-middle",
@@ -307,7 +307,7 @@
         ]
       },
       "output": "blank-middle-page-ocr-extract.json",
-      "outputSha256": "3c2d8a47ae92c48f280a5222eeae337ba667a074ae1ea167ec8856db7dd679f5"
+      "outputSha256": "6b3246295e34c55a894e01f88ccf651b24f304debe3a2ffa99b9614940554c9f"
     },
     {
       "case": "blank-middle",
@@ -361,7 +361,7 @@
         "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
       },
       "output": "all-scanned-default-extract.json",
-      "outputSha256": "ae6d0af91323c7e36eaa74f0be72ba0d56cf1c442da6d5c7df16902c68e5875a"
+      "outputSha256": "486c3659d7a6f40d26b60436cb707bbc230bd7acfc7a44c81ddbaf00597b8966"
     },
     {
       "case": "all-scanned",
@@ -409,7 +409,7 @@
         "note": "Grounding checks the text recognized by OCR, not the printed original. Review the scanned page, especially numbers, dates and word boxes."
       },
       "output": "all-scanned-page-ocr-extract.json",
-      "outputSha256": "ae6d0af91323c7e36eaa74f0be72ba0d56cf1c442da6d5c7df16902c68e5875a"
+      "outputSha256": "486c3659d7a6f40d26b60436cb707bbc230bd7acfc7a44c81ddbaf00597b8966"
     },
     {
       "case": "all-scanned",

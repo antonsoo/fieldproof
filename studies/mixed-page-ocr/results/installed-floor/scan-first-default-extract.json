@@ -1,7 +1,7 @@
 {
   "schema": "invoice",
   "provider": "fixture",
-  "model": "/home/antonsoloviev/work/projects/showcases/fieldproof/studies/mixed-page-ocr/inputs/scan-first.json",
+  "model": "<workspace>/fieldproof/studies/mixed-page-ocr/inputs/scan-first.json",
   "data": {
     "vendor_name": {
       "value": "Acme Laboratory",
